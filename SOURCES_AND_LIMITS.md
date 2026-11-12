@@ -49,3 +49,11 @@
 - [실화소·UV 분석 상세 보고서](research/furniture_mods/v13/00_v13_모드PNG실화소_UV픽셀정렬_보고서.md): 고정 원본 Git SHA를 대조한 PNG 24개 완전 디코딩, 모델 13개에서 UV 571면 픽셀 격자 검사.
 - [원본 PNG 로컬 재측정 스크립트](scripts/reproduce_mod_png_v13.py): 사용자 측 원본 repo 디렉터리를 대상으로 SHA 및 픽셀 통계를 재현하도록 작성; 본 실행 환경의 외부 네트워크가 불가해 이 Python 스크립트의 직접 재실행 테스트는 아직 미완료. 이번 수치는 연결된 GitHub 원본을 JavaScript로 직접 디코딩하여 계산함.
 - 반투명 픽셀 0건은 **24개 표본**에 한정한다. 571면 정렬 역시 **13개 모델 표본**에 한정한다. 공식 JAR, 인게임 픽셀 렌더 및 Macaw 모드 실측 0건 상태 유지.
+
+## v14 기존 텍스처 참조·PNG 실측 근거 결합 검증
+
+- [v14 상세 보고서](research/furniture_mods/v14/00_v14_텍스처슬롯_근거연결_보고서.md) · [51 슬롯 CSV](research/furniture_mods/v14/handcrafted_texture_bindings_51.csv) · [분석 입력 저장소 blob SHA](research/furniture_mods/v14/v14_binding_audit_summary.json).
+- 직접 수행한 일: v12 Handcrafted 생성형 leaf 16개 CSV의 `textures` JSON을 재파싱하고, v12 PNG 헤더 manifest와 v13 픽셀 통계의 **Git blob SHA 및 치수**를 일치 검증, 기존 v13 원형 모델 UV 조사 대상의 부모 참조를 비교.
+- 통계: 총 슬롯 51건 중 모드 경로 35(기존 실측 PNG에 상응 19 / v13 표본 밖 16) 및 바닐라 Minecraft 경로 16. 표본 밖의 **고유 모드 PNG 12종**은 원본 소스 부재로 이번 화소 재검증 미실시. v11 Another Furniture 완성형 CSV에는 실제 텍스처 override 경로가 없어 33종 face/PNG 연결 미확정.
+- **검증 수준:** `cross_record_reference_join`. 모델별 슬롯이 이미 분석된 어느 PNG 경로/해시에 연결되는지는 확인했으나, 원본 face JSON의 `texture` 지정 및 PNG 내 각 면의 실제 픽셀 영역/알파는 직접 확인하지 않았다. 이번 v14에서 새 원본 PNG/JSON 파일 **0개** 직접 디코딩. 이전 v13의 직접 관찰 수치와 구분하여 누적.
+- Handcrafted 리소스는 All Rights Reserved이며 원본 이미지·모델 JSON을 재배포하지 않는다. Minecraft 1.21.11 공식 JAR·게임 렌더 및 Macaw 원본 실측 0건 상태 변경 없음.
