@@ -4,7 +4,7 @@
 
 ---
 
-**Minecraft 가구 모델링 디자인 연구를 v20 체크포인트부터 이어서 실제 분석해 줘.**
+**Minecraft 가구 모델링 디자인 연구를 v21 체크포인트부터 이어서 실제 분석해 줘.**
 
 정본 저장소: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research
 
@@ -22,8 +22,9 @@
 11. `research/furniture_mods/v18/00_v18_AnotherFurniture_원본63_JSON_12PNG_807면_분석보고서.md`
 12. `research/furniture_mods/v19/00_v19_Another_원본29PNG_807면UV_804면RGBA_보고서.md`
 13. `research/furniture_mods/v20/00_v20_Another원형69_원본JSON_UV면1362_보고서.md`
+14. `research/furniture_mods/v21/00_v21_블록상태12_신규완성형38_신규PNG14_면1192_RGBA_보고서.md`
 
-**현재 v20 상태:** 바닐라 텍스처 150/150종 표본 측정, 바닐라 3D 모델 분석 v10 진행(공식 `client.jar`/인게임 미검증). 가구 모드 03번은 Another Furniture(1.21.1) 템플릿 69종/완성형 33종, Handcrafted(1.21.x 소스) 원형 120종/생성형 16종/블록 상태 12종을 실제로 읽어 분석함. 04번은 두 모드 PNG 각각 12개씩 **24개 실제 픽셀 분석 완료**, 13개 원형 모델 **UV 571면 모두 픽셀 경계에 정렬**된 것으로 확인했어. **v14에서 Handcrafted 16개 생성형 leaf의 텍스처 슬롯 51건(모드 35 / Minecraft 16)을 기존 PNG 실측 기록에 새로 교차 연결: 기존 SHA 일치 19건, v13 표본 밖 모드 16건(고유 12 PNG). v14에서 원본 파일을 새로 다운로드하거나 face→PNG 실화소를 직접 검사한 것은 아님. 모델 face→PNG의 정확한 화소 대응 및 게임 렌더 검증은 미완료**. 05번은 두 모드 5유형의 사전 비교표만 작성했으며 정식 바닐라/모드 검증은 미착수. **전체 확정 완료 0/5, 임의 완료 퍼센트 금지.**
+**현재 v21 상태:** 바닐라 텍스처 150/150종 표본 측정, 바닐라 3D 모델 분석 v10 진행(공식 `client.jar`/인게임 미검증). 가구 모드 03번은 Another Furniture(1.21.1) 템플릿 69종/완성형 33종, Handcrafted(1.21.x 소스) 원형 120종/생성형 16종/블록 상태 12종을 실제로 읽어 분석함. 04번은 두 모드 PNG 각각 12개씩 **24개 실제 픽셀 분석 완료**, 13개 원형 모델 **UV 571면 모두 픽셀 경계에 정렬**된 것으로 확인했어. **v14에서 Handcrafted 16개 생성형 leaf의 텍스처 슬롯 51건(모드 35 / Minecraft 16)을 기존 PNG 실측 기록에 새로 교차 연결: 기존 SHA 일치 19건, v13 표본 밖 모드 16건(고유 12 PNG). v14에서 원본 파일을 새로 다운로드하거나 face→PNG 실화소를 직접 검사한 것은 아님. 모델 face→PNG의 정확한 화소 대응 및 게임 렌더 검증은 미완료**. 05번은 두 모드 5유형의 사전 비교표만 작성했으며 정식 바닐라/모드 검증은 미착수. **전체 확정 완료 0/5, 임의 완료 퍼센트 금지.**
 
 **v15 새 연구:** 기존 v11 Another 69개 템플릿과 v12 Handcrafted 120개 원형의 측정 CSV를 새로 교차 집계하여 189모델별 face 선언 밀도·회전·0두께·로컬 bbox 범위 초과 지표를 만들었다. Another 요소 299/가능 face 1,794/명시 1,362(비명시 432), 회전 17/평면 34/bbox 밖 3모델. Handcrafted 요소 810/명시 face 4,860, 회전 283/평면 183/bbox 밖 60모델(자체 요소 112모델 중). **v15에서 새 원본 모델 JSON·PNG 바이트 직접 검사 0개**, 게임 내 렌더 검증도 없다. 원시 bbox는 실제 설치 공간/충돌체가 아니다.
 
@@ -37,7 +38,9 @@
 
 **v20 신규 원본 분석:** 제작자 Another Furniture 고정 1.21.1 원본에서 **v11 원형으로 선정했던 JSON 69/69개를 새로 전부 직접 읽어 원본 Git SHA·요소/면 수 일치 검증**. 기존 v18 선정 부모 30개 외 **39개는 이번에 직접 상세 조사**. 전체 **299 요소·1,362 선언 면**의 UV/회전/cullface/원시 bbox 분석 완료(역방향 UV **422면**, UV 회전 **134면**, cullface **443면**, 0면적 UV **4면**, 회전 요소 **17개**, 0두께 요소 **34개**, 0~16 밖 raw bbox 요소 **11개/3원형**). 이 **69/69은 선택 원형 집합 100%**일 뿐 원본 Git 트리의 1,451 모델 경로 전수가 아니다. 39개 새 직접 실측 부모는 **653면 raw UV**, 아직 leaf/PNG 실제 화소와 추가 연결하지 않음. **Macaw 공식 1.21.11 Fabric 3.4.2 Modrinth 릴리스 URL은 확인했으나 바이너리 다운로드 DNS 불가**, 실제 JAR 내부 모델 측정 **0개**. 기존 Another v19 선택 모드 면 804/804 UV RGBA와 Handcrafted v17 784/784 UV RGBA는 그대로. 전체 최종 완료 **0/5**.
 
-**바로 이어갈 일:** Macaw 공식 `mcw-furniture-3.4.2-mc1.21.11fabric.jar`를 사용자가 적법하게 확보해 제공하거나 다운로드 성공 환경에서 직접 확보한 뒤 **실제 모델 JSON/PNG/UV** 분석을 시작해. 현 환경 Macaw JAR 다운로드는 DNS 차단으로 실패했으니 기존 실패를 성공으로 바꾸지 마. 다음으로 공식 Minecraft 1.21.11 `client.jar`의 dirt 3면/oak_planks 2면, v20 Additional 39개 Another 원형과 **새로운 leaf/PNG** 연결, 인게임 렌더 비교를 진행해. 원본 직접 검증에 따른 CSV/MD와 6대 상태 문서를 GitHub에 갱신하고 완료율의 선정 표본 분모를 명확히 유지해.
+**v21 신규 원본 학습:** Another Furniture 제작자 1.21.1 고정 커밋 **블록 상태 12개 SHA/802 model apply/114 고유 모델 경로**를 직접 재검증. 기존 선정 leaf 33에 없는 **새 leaf 38개 원본 JSON**을 직접 읽고 원형 부모 21종(이전 33 leaf 외 신규 부모 19종), 재질 override 97 슬롯 확인. 부모 상속 face **1,197인스턴스** 중 **모드 PNG 면 1,192/1,192 UV 실제 RGBA**, **바닐라 dirt 5면 공식 PNG 미검증**. 원본 모드 PNG 34종 재디코딩(이전 20/신규 14). 새 1,192 모드 면 1,086 전체 불투명/106 혼합, UV 참조 텍셀 32,784회(불투명 30,480/투명 2,304), SHA/원본 경계/픽셀 합계 검사 통과. **Another 누적 leaf 71종/PNG 67종/UV RGBA 1,996모드 면**, Handcrafted 합쳐 **원본 PNG 91종, RGBA 면 2,780개**. 기존 v20 69 원형 원본도 계속 유효. 바닐라 dirt Another 8면/oak_planks Handcrafted 2면 미검증, Macaw 공식 1.21.11 Fabric 3.4.2 JAR 실측 0, 인게임 검증 0. 전체 5 세부 작업 최종 완료 0/5. 원본 출처: `research/furniture_mods/v21/00_v21_블록상태12_신규완성형38_신규PNG14_면1192_RGBA_보고서.md`와 `research/furniture_mods/v21/v21_blockstate_new_leaf_rgba_audit.json`.
+
+**바로 이어갈 일:** v21에서 새 38 leaf/14 PNG/1,192 모드 면 실제 UV RGBA는 이미 완료했으니 다시 반복하지 말 것. 다음은 (a) 공식 Macaw 1.21.11 Fabric JAR 원본 확보·공식 해시·실제 자산 모델 확인(현재 다운로드 실패), (b) Minecraft 1.21.11 공식 `client.jar` 바닐라 dirt 8면/oak_planks 2면 검사, (c) v21 원본 12 상태가 참조하는 **추가 shutter variant 43개 경로** 또는 기존 12 상태 이외의 신규 블록상태·leaf/PNG 검증, (d) 인게임 렌더·Pillow 독립 검산. GitHub 정본 HANDOFF/PROGRESS/README/SOURCES/STATE/NEW_CHAT_START 동기화, 전체 퍼센트 임의 산출 금지.
 
 이번 프로젝트 범위는 **상위 1단계(바닐라·모드 디자인 연구) 및 상위 2단계(근거 기반 디자인 규칙서)**까지만. Project Zomboid 가구 변환이나 실제 3D 가구 제작은 하지 말 것. 분석 근거와 추론/미검증을 항상 분리할 것.
 
