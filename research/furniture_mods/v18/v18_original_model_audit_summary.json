@@ -1,0 +1,67 @@
+{
+  "checkpoint": "v18",
+  "date": "2026-11-12",
+  "source_repository": "crispytwig/AnotherFurniture",
+  "source_pinned_commit": "57eb624cbb7f408d43398c7434b0d38d312cb55d",
+  "method": "Author upstream JSON fetched at pinned commit and each Git blob SHA matched to previously v11 direct measurement. 33 leaf overrides merged with 30 authored template source face slot definitions and recursively resolved. 'block/dirt' unqualified reference normalized to implicit minecraft namespace.",
+  "totals": {
+    "leaf_json_verified": 33,
+    "template_json_verified": 30,
+    "total_json_verified": 63,
+    "leaf_override_slots": 93,
+    "raw_template_ref_groups": 104,
+    "leaf_template_ref_groups": 113,
+    "leaf_instances": 33,
+    "face_instances": 807,
+    "mod_faces": 804,
+    "vanilla_faces": 3,
+    "leaf_override_faces": 588,
+    "source_paths_unique": 54,
+    "mod_texture_paths_unique": 53,
+    "vanilla_paths_unique": 1,
+    "unresolved_faces": 0,
+    "source_own_elements": 0,
+    "source_template_faces_unique": 709
+  },
+  "source_input_git_blobs": {
+    "research/furniture_mods/v18/another_leaf_texture_resolved_33.csv": "694e6d995000d0b9b421513e7d6a945e93394caf",
+    "research/furniture_mods/v18/another_leaf_slots_93.csv": "566dc438f4e14738a03c57c16fb2790ab8699fc9",
+    "research/furniture_mods/v18/another_template_direct_30.csv": "368dac1d9c32678ede003680d4ccd63fa696a4a8",
+    "research/furniture_mods/v18/another_template_face_refs_all.csv": "4d9e2f8a34b87cb179cb07fea60462dbdbb275d0",
+    "research/furniture_mods/v18/another_face_material_groups_113.csv": "182945abb7fca822bf91ffcd2a2967abb513171a",
+    "research/furniture_mods/v18/another_leaf_face_coverage_33.csv": "ef1103233338628a6c90ab44b03a77f7f7b34593"
+  },
+  "special_cases": [
+    {
+      "leaf": "flower_box/oak_middle",
+      "template": "flower_box_middle",
+      "leaf_sha": "e0774299a5af03f264ad2e57ff8dbac9bb5d29df",
+      "template_sha": "7674c7c9ca7415a898ca24d0c0ed1f94dcec2c7e",
+      "raw_face_slot": "#dirt",
+      "template_face_count": "1",
+      "slot_resolution_chain": "#dirt>block/dirt",
+      "raw_resolved_reference": "block/dirt",
+      "normalized_reference": "minecraft:block/dirt",
+      "namespace": "minecraft",
+      "resolution_status": "implicit_minecraft_namespace_normalized",
+      "leaf_override_used": "0",
+      "texture_source": "template_default",
+      "original_template_parent": "minecraft:block/block"
+    }
+  ],
+  "verification_grade": {
+    "author_original_model_json_directly_read": true,
+    "source_model_sha_consistent_with_v11": true,
+    "face_to_final_texture_path_resolved": true,
+    "all_texture_png_original_bytes_examined": false,
+    "face_png_uv_pixel_area_sampled": false,
+    "in_game_render_verified": false
+  },
+  "limitations": [
+    "807 are template faces instantiated by 33 leaf JSON, not unique authored model faces.",
+    "Leaf texture override count 93 is not independent textures. 53 distinct Another PNG paths occur in source face resolution, distinct from 45 unique direct leaf override values.",
+    "3 flower-box dirt faces use Minecraft default dirt texture, not Another PNG; one source ref lacked namespace and was normalized, original raw value retained.",
+    "UV texture PNG dimensions/pixels and game rendering are not verified at v18; official Minecraft client.jar and Macaw original JAR remain open.",
+    "Assets All Rights Reserved and no original JSON/PNG files were republished."
+  ]
+}
