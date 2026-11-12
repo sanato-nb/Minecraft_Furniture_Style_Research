@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-12",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v14",
+  "current_checkpoint": "v15",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -32,7 +32,7 @@
     {
       "id": "03",
       "topic": "mod furniture 3D model analysis",
-      "status": "in_progress",
+      "status": "v15_geometry_expression_cross_record_189_derived_metrics_in_progress",
       "sample": {
         "another_furniture": {
           "source": "crispytwig/AnotherFurniture",
@@ -60,7 +60,9 @@
           "official_url": "https://modrinth.com/mod/macaws-furniture/version/xhmciaUD",
           "models_measured": 0,
           "status": "official_asset_not_acquired"
-        }
+        },
+        "v15_models_reaggregated": 189,
+        "v15_original_source_json_fetched": 0
       }
     },
     {
@@ -157,14 +159,15 @@
     "README.md",
     "research/furniture_mods/v11/00_v11_AnotherFurniture_모델분석_보고서.md",
     "research/furniture_mods/v13/00_v13_모드PNG실화소_UV픽셀정렬_보고서.md",
-    "research/furniture_mods/v14/00_v14_텍스처슬롯_근거연결_보고서.md"
+    "research/furniture_mods/v14/00_v14_텍스처슬롯_근거연결_보고서.md",
+    "research/furniture_mods/v15/00_v15_기하표현_계량비교_보고서.md"
   ],
   "next_work": [
-    "Obtain pinned-commit model JSON and PNG bytes legally and test each model face -> resolved #slot -> exact PNG pixel rectangle and alpha",
-    "Decode 12 newly identified unsampled Handcrafted mod PNG source files (do not redistribute assets)",
-    "Inspect actual 33 Another Furniture leaf texture slot mappings directly from verified source JSON; historic CSV has counts only",
-    "Macaw verified official distributable only; official Minecraft 1.21.11 client.jar and in-game checks pending",
-    "Update HANDOFF.md PROGRESS.md README.md STATE.json SOURCES_AND_LIMITS.md after next checkpoint"
+    "Obtain exact pinned-commit model JSON and texture PNG bytes to map each face's #slot to concrete pixel rectangle and alpha (not measured in v15)",
+    "Analyze 12 previously unsampled Handcrafted mod PNG identified in v14 with SHA and raw pixels; do not redistribute copyrighted assets",
+    "Validate world-space transforms and in-game placement for 63 v15 models with raw bbox outside 0..16 across both distinct cohorts",
+    "Confirm official Minecraft 1.21.11 client.jar and Macaw 1.21.11 official JAR before marking their models verified",
+    "Never call derived counts 'new source inspection'; keep substep completion 0/5 until official and in-game verification"
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -268,5 +271,52 @@
     "face_png_pixel_mapping_verified": false,
     "in_game_verified": false,
     "sqlite_updated": false
+  },
+  "v15": {
+    "report": "research/furniture_mods/v15/00_v15_기하표현_계량비교_보고서.md",
+    "inputs": [
+      "research/furniture_mods/v12/handcrafted_authored_120_total.csv",
+      "research/furniture_mods/v11/template_metrics_69_total.csv",
+      "research/furniture_mods/v12/another_vs_handcrafted_5_category_pairs.csv",
+      "research/furniture_mods/v13/another_png_12_pixel_metrics.csv",
+      "research/furniture_mods/v13/handcrafted_png_12_pixel_metrics.csv"
+    ],
+    "outputs": [
+      "research/furniture_mods/v15/model_geometry_derived_189.csv",
+      "research/furniture_mods/v15/handcrafted_family_metrics_22.csv",
+      "research/furniture_mods/v15/v15_geometry_summary.json",
+      "scripts/verify_v15_geometry_research.py"
+    ],
+    "evidence_class": "new_derived_metrics_from_existing_v11_v12_v13_csvs",
+    "directly_examined_original_json_png_files_in_v15": 0,
+    "models_in_derived_csv": 189,
+    "another_template_models": 69,
+    "handcrafted_authored_models": 120,
+    "handcrafted_models_with_elements": 112,
+    "handcrafted_zero_element_models": 8,
+    "another_elements": 299,
+    "another_face_slots_possible": 1794,
+    "another_faces_declared": 1362,
+    "another_face_slots_unreported": 432,
+    "another_rotated_elements": 17,
+    "another_flat_elements": 34,
+    "another_source_bbox_outside_0_16_models": 3,
+    "handcrafted_elements": 810,
+    "handcrafted_face_slots_possible": 4860,
+    "handcrafted_faces_declared": 4860,
+    "handcrafted_rotated_elements": 283,
+    "handcrafted_flat_elements": 183,
+    "handcrafted_source_bbox_outside_0_16_models": 60,
+    "handcrafted_families_reported": 22,
+    "vanilla_jar_verified": false,
+    "mod_face_to_png_pixel_area_verified": false,
+    "in_game_verified": false,
+    "sqlite_updated": false,
+    "unverified": [
+      "face declaration is not visible/rendered face",
+      "source bbox is not final world/collision box",
+      "model sample populations across mods are not matched",
+      "new source JSON/PNG read was blocked; prior pinned-commit CSV records used"
+    ]
   }
 }
