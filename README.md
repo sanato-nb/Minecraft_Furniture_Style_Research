@@ -31,10 +31,13 @@
 | v22 | Another 셔터 신규 **43개 모델·PNG 42종·원본 UV 214면 직접 픽셀 검증**, 기존 12 블록 상태의 Another 고유 모델 경로 **113/113 원본 JSON 근거 확인** | 선정 Another **leaf 114/PNG 109/면 2,210**, Handcrafted 합계 **PNG 133/면 2,994**, 모드 전체/바닐라 공식/인게임/Macaw 미완료 |
 | v23 | 이전 12개 밖 **블록 상태 10개 SHA·386 apply**, 원본 새 leaf **51개**와 새 PNG **42종**을 직접 조사해 **모드 면 1,119개 UV 실제 RGB/알파 실측** | Another **상태 22/177·leaf 165·PNG151·면3,329**, Handcrafted 포함 **PNG175종/면4,113**. 신규 상태의 의자 leaf39개·바닐라/Macaw/인게임 미완료 |
 | v24 | Another 미조사 의자 leaf **39개 제작자 원본 JSON/SHA 직접 검사**, 부모 2종의 raw 좌표/UV 비교. **390 요소/1,794 선언 면 인스턴스** | Another leaf **204종**, 신규 10 상태의 Another 경로 91/91 JSON 직접 확인. 원본 PNG·RGBA 신규 검사 0, 누적 PNG175/실제 RGBA 4,113면 유지 |
+| v25 | 바닐라 재개: 사용자 업로드 1.21.11 실제 JSON **40개** 및 PNG 헤더 **8개**, 애니메이션 메타 **2개** 직접 조사. 8 기하 모델 **44요소/204면**, 상태 8종 **79 variants+9 multipart** | 기존 v10 바닐라 연구 보완 / 공식 client.jar 및 인게임 검증 미완료 |
 
 **학습 전체 5개 작업:** 01 바닐라 텍스처(표본 완료/검증 보류), 02 바닐라 3D(진행 중), 03 가구 모드 모델(v11~v12 실측 진행 중), 04 모드 텍스처·UV(PNG 24개 전체 실화소 및 13모델 571면 UV 표본 정렬 측정), 05 바닐라/모드 비교(5쌍 사전 비교, 최종 검증 미착수). 최종 확정 완료는 **0/5**입니다.
 
 ## 빠른 탐색
+
+- [**v25 최신 보고서: 업로드된 1.21.11 바닐라 원본 JSON/상속·상태·PNG 메타 실측**](research/vanilla_models/v25/00_v25_바닐라원본_모델상속상태PNG_직접검증보고서.md) · [기계 판독 요약](research/vanilla_models/v25/v25_vanilla_research_audit_summary.json). 바닐라 공식 client.jar/인게임은 미검증이며 완료 0/5.
 
 - [**v24 최신 보고서: 의자 39개 원본 SHA·상속·UV 구조 검증**](research/furniture_mods/v24/00_v24_의자39_원본JSON_상속기하재질_검증보고서.md) · [39모델 개별 SHA CSV](research/furniture_mods/v24/chair_remaining_39_original_json_geometry_audit.csv) · [감사 JSON](research/furniture_mods/v24/v24_chair_39_audit_summary.json).
 
@@ -98,7 +101,7 @@ pip install -r requirements.txt
 
 ## 저작권과 검증 상태
 
-- 이 저장소에는 **Minecraft 원본 PNG, 원본 모델 JSON, client.jar를 포함하지 않습니다.** CSV의 좌표·통계·파일 출처와 분석자가 작성한 설명/도표를 보존합니다.
+- **v25에 사실 관계 변경:** 사용자가 `1.21.11/` 폴더에 `.class`·Minecraft 원본 PNG·모델 JSON을 업로드했으며 공개(public) 상태입니다. 이 저장소 전체에 원본이 없다는 과거 설명은 더 이상 유효하지 않습니다. 공개 재배포 관련 저작권/이용약관 위험을 검토하고 공개 원본 자산은 분리·비공개화할 것을 권장합니다. 연구 보고서 `research/`에는 CSV의 좌표·통계·파일 출처와 분석자가 작성한 설명만 새로 저장했습니다.
 - 게임 관련 저작권은 각 권리자에게 있으며, 본 저장소는 Mojang/Microsoft의 공식 배포물이 아닙니다.
 - 데이터 출처와 버전 고정, 검증하지 못한 부분은 [SOURCES_AND_LIMITS.md](SOURCES_AND_LIMITS.md)에 명시했습니다.
 - **저장소 라이선스는 지정하지 않았습니다.** 추후 원본·파생 자료의 라이선스를 검토한 다음 결정하는 편이 안전합니다.

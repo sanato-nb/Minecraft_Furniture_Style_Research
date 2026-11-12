@@ -1,8 +1,8 @@
 {
   "schema": "mc-furniture-handoff/v1",
-  "updated_at": "2026-11-12",
+  "updated_at": "2026-11-13",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v24",
+  "current_checkpoint": "v25",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -26,8 +26,14 @@
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "in_progress",
-      "percent": null
+      "status": "v25_direct_uploaded_1_21_11_vanilla_40_json_8_png_header_2_mcmeta_source_audited_official_jar_pending",
+      "percent": null,
+      "v25_source_json_count": 40,
+      "v25_source_png_header_count": 8,
+      "v25_source_mcmeta_count": 2,
+      "v25_direct_own_geometry_elements": 44,
+      "v25_direct_own_faces": 204,
+      "v25_blockstates_sampled": 8
     },
     {
       "id": "03",
@@ -364,11 +370,11 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "v24: Directly read pinned author original JSON for remaining 39 unexamined birch/spruce chair model references from new v23 blockstate sample; resolve template textures and actual source PNG UV RGBA, not just model path guesses.",
-    "Expand beyond 22 original Another blockstate files into other 155/177 state files, checking original JSON SHA and newly discovered model/texture forms, avoiding duplicate counted paths.",
-    "Try official Mojang Minecraft Java 1.21.11 client.jar via verifiable source; measure exact official minecraft:block/dirt 16 Another source-face UV rectangles and minecraft:block/oak_planks 2 Handcrafted source-face UV rectangles.",
-    "Obtain authentic Macaw Furniture 3.4.2 Fabric 1.21.11 official JAR bytes from original publisher and verify checksums. Container DNS currently fails; original Macaw model measurements remain zero.",
-    "Independently replay pinned original PNG and JSON via local Pillow, inspect in-game UV rotation, light, cullface, variants/multipart, and only then write final validated Minecraft furniture style rules. Keep strict 0/5 final complete."
+    "Continue vanilla stage 01/02: evaluate uploaded 1.21.11 extracted resource completeness and independently verify a genuine Mojang 1.21.11 client.jar; do not mistake 6/6 mirror matches for official validation.",
+    "Compare the v4 selection of 150 vanilla texture PNGs to original source and extend actual per-face UV→pixel/alpha checks for useful furniture-adjacent blocks, beyond v25 PNG header-only checks.",
+    "Expand 8 directly sampled vanilla blockstates into representative models, model inheritance, animation metadata and ingame lighting/rotation/render checks; avoid re-counting v25 50 source file sample.",
+    "Keep v24 mod results archived unchanged (Another 204 leaves, 22/177 blockstates, two mods 175 PNG/4113 original face UV RGBA); return to 39 chair leaf pixels and 155 unseen Another blockstates only after vanilla priority has been addressed.",
+    "Audit public repo Minecraft raw .class/PNG/JSON redistribution rights; preserve result-derived statistics rather than re-upload proprietary source; final 0/5 until official/in-game verification."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -1131,5 +1137,30 @@
     "ingame_verified": false,
     "new_39_models_actual_apply_records": 155,
     "source_variant_to_model_reference_mismatch_count": 2
+  },
+  "v25": {
+    "checkpoint": "v25",
+    "research_priority": "vanilla_first_after_v24_mod_research",
+    "report": "research/vanilla_models/v25/00_v25_바닐라원본_모델상속상태PNG_직접검증보고서.md",
+    "summary_json": "research/vanilla_models/v25/v25_vanilla_research_audit_summary.json",
+    "source_root": "1.21.11/assets/minecraft",
+    "main_repo_source_files_examined_for_this_audit": 50,
+    "original_model_json": 32,
+    "blockstate_json": 8,
+    "png_ihdr": 8,
+    "png_mcmeta": 2,
+    "eight_direct_models_own_elements": 44,
+    "eight_direct_models_declaration_faces": 204,
+    "eight_state_variant_keys": 79,
+    "eight_state_multipart_rules": 9,
+    "eight_state_unique_model_paths": 27,
+    "composter_content_layers": 8,
+    "mirror_exact_blob_sha_match": "6/6",
+    "official_client_jar_verified": false,
+    "in_game_verified": false,
+    "full_png_pixels_newly_decoded": 0,
+    "face_uv_rgba_newly_sampled": 0,
+    "mod_data_v24_unchanged": true,
+    "stage1_substeps_completed": 0
   }
 }

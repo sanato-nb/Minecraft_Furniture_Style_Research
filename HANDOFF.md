@@ -1,7 +1,7 @@
 # 인수인계 · Minecraft Furniture Style Research
 
 > **새 채팅 진입점 / 단일 인수인계 기준 문서**  
-> 최종 확인일: **2026-11-12 (KST)** · 현재 체크포인트: **v24**  
+> 최종 확인일: **2026-11-13 (KST)** · 현재 체크포인트: **v25**  
 > 저장소: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research  
 > **새 채팅에서 먼저 이 문서, [PROGRESS.md](PROGRESS.md), [SOURCES_AND_LIMITS.md](SOURCES_AND_LIMITS.md)를 읽고 기존 작업을 이어간다.**
 
@@ -15,17 +15,17 @@
 
 ### 상위 1단계의 다섯 세부 작업
 
-| 번호 | 범위 | 2026-11-12 상태 |
+| 번호 | 범위 | 2026-11-13 상태 |
 |---|---|---|
 | 01 | 바닐라 재질·텍스처 | **150/150종 표본 확보·분석 완료**, 공식 게임 파일 대조 및 인게임 검증 **미완료** |
-| 02 | 바닐라 3D 형태·모델 JSON·UV·상태·특수 렌더링 | **v10까지 연구 진행 중**, 전체 완료 판정 전 |
+| 02 | 바닐라 3D 형태·모델 JSON·UV·상태·특수 렌더링 | **v25에서 업로드된 1.21.11 원본 JSON 40개·PNG 헤더 8개·메타 2개 직접 확인**, 공식 client.jar 및 인게임 검증·전체 완료 판정 미완료 |
 | 03 | 가구 모드 3D 모델 | **v24: 의자 leaf 39개 제작자 원본 JSON·Git SHA 직접 검사**, 누적 Another **204 leaf**; 신규 10 상태 Another 모델 경로 **91/91** 읽기 완료. 원형 69/블록 상태 22/177 유지, Handcrafted 원형 120/leaf16, Macaw 모델 0 |
 | 04 | 가구 모드 텍스처·UV·팔레트 | **Another 모드 원본 PNG 151종/실제 UV RGBA 3,329면(기존 2,210+v23 1,119), Handcrafted 24 PNG/784면 → 두 모드 PNG 175종/면 4,113인스턴스.** 새 PNG 42종·모드 면 1,119 직접 원본 화소, 공식 바닐라 dirt 16면/oak_planks 2면·전체/인게임 미검증. |
 | 05 | 바닐라 ↔ 가구 모드 비교·공통 특성 검증 | **사전 비교: 의자·벤치·소파 5쌍 비교표만 작성, 바닐라·인게임 최종 검증 미시작** |
 
 **확정 완료 0/5개.** 01의 100%는 **표본 수 목표**만 의미한다. 02는 미리 합의한 전체 분석 대상이 없어 퍼센트를 임의로 계산하면 안 된다.
 
-## 2. 누적 연구 결과: v1–v24
+## 2. 누적 연구 결과: v1–v25
 
 | 체크포인트 | 내용 | 확인할 자료 |
 |---|---|---|
@@ -51,6 +51,7 @@
 | v22 | Another 셔터 신규 완성형 leaf **43개 제작자 원본 JSON 직접 확인**, 기존 PNG 1종 재검사·신규 **42종 PNG 원본 화소 해독**, **214/214면 원본 UV RGBA**. 12개 블록 상태가 참조하는 Another 모델 **113/113 고유 경로 JSON 근거 확보** | [v22 보고서](research/furniture_mods/v22/00_v22_셔터43모델_신규PNG42_UV214면_원본실측_보고서.md) |
 | v23 | 이전 12개 밖 **10개 상태 JSON 원본 직접 확인/386 model 적용**, 신규 leaf **51개 JSON SHA**, **신규 원본 PNG 42종** 및 새 모드 면 **1,119/1,119 원본 UV·RGBA 픽셀 직접 검사**, 재질 3쌍의 원본 UV/알파 비교 | [v23 보고서](research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md) |
 | v24 | Another 의자 leaf **39개 원본 JSON/SHA 직접 분석**, 2개 기존 부모 템플릿으로 **390 요소/1,794 선언 면 인스턴스** 상속 검사. **신규 PNG·UV RGBA 직접 검사 0** | [v24 보고서](research/furniture_mods/v24/00_v24_의자39_원본JSON_상속기하재질_검증보고서.md) |
+| v25 | 바닐라 우선 복귀: 업로드된 1.21.11 소스 JSON 40개(기하8·상속leaf8·부모8·퇴비통내용물8·상태8), PNG 헤더 8·애니메이션 메타 2 직접 확인. 구조 44요소/204면, 상태 79 variants +9 multipart, 비공식 미러 SHA 6/6 | [v25 바닐라 원본 감사 보고서](research/vanilla_models/v25/00_v25_바닐라원본_모델상속상태PNG_직접검증보고서.md) |
 
 ### 실제 SQLite에서 확인된 행 수 (v10까지의 바닐라 DB)
 
@@ -212,6 +213,15 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 - 공식 JAR 검증 보조: [로컬 검사 스크립트](scripts/verify_official_jar.py), [사용법](docs/official_client_jar_검증방법.md). 실제 1.21.11 JAR 입력은 아직 검증하지 않았으므로 **검증 완료로 처리하지 않는다.**
 - 원본 Minecraft PNG/JSON/JAR 또는 제3자 모드의 비허가 에셋을 GitHub에 배포하지 말 것. 분석 결과와 출처/해시는 허용 범위를 검토해서 보관.
 
+### v25 바닐라 연구 재개: 사용자 업로드 1.21.11 에셋 직접 감사
+
+- [v25 원본 모델·상태·텍스처 감사 보고서](research/vanilla_models/v25/00_v25_바닐라원본_모델상속상태PNG_직접검증보고서.md) · [기하 8모델](research/vanilla_models/v25/01_eight_direct_geometry_models.csv) · [블록 상태 8종](research/vanilla_models/v25/02_eight_blockstates_direct_audit.csv) · [퇴비통 8레벨](research/vanilla_models/v25/03_composter_eight_content_layers.csv) · [PNG 8종 IHDR](research/vanilla_models/v25/04_eight_png_source_header_audit.csv) · [상속 8 leaf](research/vanilla_models/v25/06_eight_leaf_inheritance_resolutions.csv) · [메타데이터 2종](research/vanilla_models/v25/07_animation_sprite_metadata.csv) · [비공식 미러 일치 6종](research/vanilla_models/v25/08_six_uploaded_vs_mirror_blob_crosschecks.csv) · [기계 요약](research/vanilla_models/v25/v25_vanilla_research_audit_summary.json).
+- **실제 직접 읽어 파생 실측에 반영한 메인 저장소 원본 파일 50개**: 모델 JSON 32 + blockstate JSON 8 + PNG 8 + png.mcmeta 2. 별도로 기존 미러 6개 Git blob SHA 정확 일치. 공식 Mojang JAR과 직접 대조한 것은 아님.
+- 자체 기하 8모델 **44요소/204 선언면**; 상속 leaf 8개 **11 요소/57 선언면 인스턴스**; 퇴비통 contents 8모델의 상단 y 3,5,7,9,11,13,15,15 확인. 블록 상태 8종 **79 variants + 9 multipart / 27 고유 참조 경로**.
+- PNG 헤더 8/8 유효. 석재 절단기 톱날/랜턴 **16×48**, 해당 애니메이션 메타 `frametime:1/8`, 스프라이트 3프레임 유도. **v25 신규 PNG 전체 RGBA 디코딩 0**, UV 내부 면 화소 검사 0; 인게임 미검증.
+- 사용자 저장소는 **public**이고 새 `1.21.11` 폴더에 게임 원본 `.class`, JSON, PNG가 올라온 것을 확인했음. 연구 결과만 GitHub에 추가하되 원본 리소스 공개 재배포의 저작권 위험을 반드시 별도 점검할 것. **원본 전체 JAR 검증/정식 권리 확인과는 구별**.
+- **다음 우선순위는 바닐라 01/02 보완**: 공식 client.jar 교차검사, 기존 150 텍스처 표본 원본 비교, 27모델 참조 경로 중 미조사 leaf/UV, 인게임 검증. 모드 v25 즉시 착수는 보류. 상위 1단계 최종 완료 **0/5**.
+
 ## 5. 새 채팅이 곧바로 이어갈 실제 작업
 
 **작업 계획서를 반복 작성하지 말고 실제 데이터 분석을 진행한다.**
@@ -236,13 +246,13 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 
 [새 채팅용 프롬프트 파일](docs/NEW_CHAT_START.md)을 열어 내용을 붙여넣거나 아래 한 문장을 사용한다.
 
-> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **v24 체크포인트부터 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
+> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **v25 체크포인트부터 바닐라 01/02 연구를 우선 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
 
-**바로 다음 작업:** v24에서 **남은 의자 leaf 39개 원본 JSON/SHA·상속 구조 검증 완료**. 다음은 39개 leaf의 24 PNG 경로 차집합·1,794면 실제 UV RGBA 검사, 다른 **155개 블록 상태**, Mojang/Macaw 공식 JAR·인게임/독립 검증. 최종 완료 0/5.
+**바로 다음 작업:** v25에서 업로드된 바닐라 1.21.11 원본 50파일을 직접 검사하고 기록했으므로, 다음은 **공식 client.jar/150텍스처 검증, 바닐라 원본 3D·UV 정밀 추가 실측/인게임 검증**을 먼저 수행한다. 모드 v24의 39 leaf/1,794면 PNG 실화소 검증과 155 blockstate는 보존하고 후순위로 둔다. 최종 완료 0/5.
 
 ## 7. 인수인계 유지 방법
 
-- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v24).
+- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v25).
 - **진행도:** `PROGRESS.md`.
 - **새 채팅 복사용:** `docs/NEW_CHAT_START.md`.
 - **기계 판독 상태:** `handoff/STATE.json`.
