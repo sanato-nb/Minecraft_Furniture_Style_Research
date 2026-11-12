@@ -86,3 +86,12 @@
 - 주의: `UV 사각형의 원본 픽셀이 불투명`은 **실제 인게임에 해당 면이 보인다**는 의미가 아니다. 조명·컬링·회전·알파 테스트·블록 상태·UV 보간·렌더링 관찰이 없으며 바닐라 기본 `oak_planks` PNG 2면은 미측정. 0면적 UV를 결함이나 미표시로 단정하지 않는다.
 - [실제로 사용한 JS PNG 픽셀 해독/샘플링 도구](scripts/v17_png_rgba_js_helper.js) 및 [독립 재검사용 Python/Pillow 스크립트](scripts/reproduce_v17_face_pixels.py)를 게시. **Python 스크립트의 실제 고정 원본 로컬 체크아웃에서 end-to-end 재실행 시험은 아직 하지 않았다.** 원본 All Rights Reserved 이미지/JSON 자체 재배포 없음.
 - 완료율 혼동 방지: **784/784 = 이번에 범위를 정한 Handcrafted 면 샘플 100%**. 공식 바닐라 JAR·Macaw JAR·인게임 최종 검증이 완료된 상위 1단계 작업은 **0/5**, 전체 연구 작업량의 유효한 총 백분율은 아직 없다.
+
+## v18 제작자 Another Furniture 원본 직접 재검증 및 PNG 12종 추가
+
+- [v18 상세 보고서](research/furniture_mods/v18/00_v18_AnotherFurniture_원본63_JSON_12PNG_807면_분석보고서.md) · [leaf 33개 원본 재료 참조](research/furniture_mods/v18/another_leaf_texture_resolved_33.csv) · [원형 템플릿 30 SHA](research/furniture_mods/v18/another_template_direct_30.csv) · [최종 face→텍스처 113그룹](research/furniture_mods/v18/another_face_material_groups_113.csv) · [새 12 PNG 실화소](research/furniture_mods/v18/another_new_png_12_pixel_metrics.csv) · [원본 SHA 감사 JSON](research/furniture_mods/v18/v18_original_model_audit_summary.json).
+- 원 제작자 `crispytwig/AnotherFurniture`의 Minecraft **1.21.1** 고정 커밋 `57eb624cbb7f408d43398c7434b0d38d312cb55d`에서 모델 JSON leaf **33개**, 부모 원형 **30개**를 직접 GitHub Contents로 읽고 구 v11 실측 Git blob SHA와 각각 일치 검증하였다. **기존 v11에서 한번 본 모델들에 대한 새 원본 직접 재확인**이며, 새 독립 모델 63종을 발견했다는 뜻이 아니다.
+- 33 leaf의 실제 텍스처 override **93건**과 각 템플릿의 명시적 face→슬롯을 결합하여 **807개 상속 면 인스턴스**의 최종 재질 경로를 검증. **모드 텍스처 804면, Minecraft 기본 `dirt` 3면**. 한 번 생략된 `block/dirt`는 원문 보존과 함께 `minecraft:block/dirt`로 정규화. 원본 네임스페이스 생략 관련 공식 게임 파일/실제 렌더까지 검증한 것은 아님.
+- v13에 없었던 **새 Another PNG 12개 원본 바이트를 직접 읽고 전체 픽셀 디코딩**(16×16×12 = 3,072픽셀, 불투명 2,156/알파0 916/부분 알파 0). **4비트 인덱스 팔레트 PNG** `sofa/wood_2`를 새 [v18 디코더](scripts/v18_png_rgba_4bit_helper.js)로 해독. 기존 Another 12 + 이번 12 = **24 고유 PNG** 실화소 표본, 이 33 leaf의 모드 텍스처 **53종 경로 중 24종(45.28%)**에 해당. 남은 29 경로는 원본 이미지 화소 미측정. Handcrafted의 고유 실화소 24개와 합한 전체 현재 모드 PNG 표본은 **48종**.
+- **검증 수준:** pinned original model source inspection + SHA + inherited face texture path resolution; sampled 12 exact original PNG byte/pixel decode. **807 face의 UV 좌표/실제 PNG 영역 픽셀과 인게임 화면은 아직 검증 안 함.** 이전 v17 Handcrafted 784면 UV RGBA 실측과 검증 수준이 다름. 공식 바닐라 1.21.11 `client.jar`, Macaw 공식 배포물 원본 모델, 인게임 렌더 미검증. 5개 세부 작업 확정 완료 **0/5**.
+- **저작권:** 원본 Another Furniture 리소스 All Rights Reserved. 원본 모델 JSON·PNG/JAR 파일은 연구 GitHub에 업로드하지 않고, Git 해시·상대 경로·집계 수치만 업로드. v18 분석 중 중간 CSV 2·3묶음 직렬화 오류 발견·수정 후 전체 33/93/30/104 기록 재검산.
