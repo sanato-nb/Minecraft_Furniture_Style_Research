@@ -179,3 +179,12 @@
 - 퇴비통 본체 18+내용물8의 **uv 누락 26면**은 요소 from/to에서 6방향 사영식으로 복원한 **유도 좌표**다. 소스 `stairs` 11면, `slab` 6면, `fence_post` 6면의 원본 explicit UV와 **23/23 순서·값 일치**로 공식을 근거화. 원본 PNG 5종(신규4 + v26 기존 top1) 픽셀 값을 조회해 3,696회 모두 알파255 확인. 그러나 이 식이 **Mojang 1.21.11 클라이언트가 실제 사용한 자동 UV 계산 로직과 바이트 수준 동일하다고 판정할 수 없음**. UV 회전·컬링·조명·게임 렌더 역시 미검증. [일반 모델 스펙(외부 2차 설명)](https://minecraft.wiki/w/Model)은 UV 미기재 시 자동 생성만 명시하고 구체적 내부 함수 검증은 대신하지 않음.
 - v27 face→PNG 샘플은 **명시 UV 20 + 유도 UV 26 = 46면 / 총 5,072 texel-uses(전부 불투명)**. 이전 v26의 **36면/70 face-frame**과 별도로 기록하되 texel-uses는 고유 픽셀/렌더 픽셀 수가 아님. 향후 인게임 상태 변화와 방향, 독립 Pillow 및 CRC/Adler 검증이 필요하다.
 - v27/이전 누적은 바닐라 공식 client.jar 인증 **0**, 인게임 검증 **0**, 모드 v24 연구 수치 유지, 상위 1단계 최종 완료 **0/5**. 공개 저장소 `1.21.11`의 비허가 저작권 원본 재배포 문제는 계속 점검 필요; v27 커밋에 원본 게임 이미지/모델 JSON/JAR을 재업로드하지 않음.
+
+## v28 — 104 variant 블록상태 원본, 문 40면 UV 실화소, 울타리 문 4원형 검증 범위 (2026-11-13)
+
+- [v28 원본 분석 보고서](research/vanilla_models/v28/00_v28_바닐라문다락문게이트계단104상태_40면UV_RGBA.md) · [104 원본 variants](research/vanilla_models/v28/01_four_blockstates_104_exact_variants.csv) · [문 PNG 2경로 전체 RGBA](research/vanilla_models/v28/02_oak_door_two_png_full_rgba.csv) · [문 8부모 40면 UV 원본 RGBA](research/vanilla_models/v28/03_oak_door_eight_templates_40_faces_uv_rgba.csv) · [울타리 문 leaf/원형 구조 8소스](research/vanilla_models/v28/05_oak_fence_gate_4_templates_4_leaf_geometry.csv).
+- 사용자 공개 GitHub `1.21.11/assets/minecraft/blockstates/`에서 **문32·다락문16·울타리문16·계단40 = 104 original JSON variants**의 방향/모델 참조/회전/x·y/`uvlock` 키를 정확히 추출. **명시 `uvlock:true` 51행, 키 부재 53행**(명시적인 false가 아니다). source `x/y`는 실제 런타임 회전 결과·UVlock 보정 검증과 다르다.
+- `oak_door` leaf 8종, 원본 부모 template 8종(각 1요소·5 face)을 직접 읽고 PNG `oak_door_bottom/top` **2파일 전 바이트 해독 후 40명시 UV 원본 face→PNG 영역 샘플 5,248 texel-uses**(불투명4,864, 투명384) 계량. 2 PNG는 기존 v4 150 선정 표본 경로에 포함되며 **새 고유 PNG +0**. 새 파일 바이트 크기·픽셀/가시 면적이 v4 기존 기록과 2/2 일치. v4에 기록된 SHA-256을 이번에 독립 재계산하지 않음.
+- `oak_fence_gate` leaf4/원형4 직접 JSON, **각 원형8요소·40선언면**, 원형 4건 합 32요소/160선언면. 이 160면에 `oak_planks` 원본 PNG를 이용한 실제 UV 텍셀 샘플링은 **아직 수행하지 않음**. 실제 충돌체/렌더 결과 아님.
+- `InventivetalentDev/minecraft-assets` 추출본 동일 1.21.11 PNG 2종과 Git blob SHA **2/2 일치**. 이것은 독립 Mojang 공식 게임 JAR 배포 해시 인증이나 게임 실행 확인을 대체하지 않는다. 원본 바이트에 대한 Pillow 독립 복호/PNG chunk CRC·Adler 검증 및 실시간 게임 시각 검증도 v28에서 수행하지 않았다.
+- 바닐라 01 표본 150/150 달성/최종검증 미완료, 02 대표 연구 진행, 03·04 v24 모드 누적값 변경 없음, 05 최종 비교 미시작. **상위 1단계 확정 완료 0/5**. 공개 원본 게임 `.class`/PNG/JSON의 재배포 권리는 추가 검토가 필요하며 이번 GitHub 커밋에 원본 리소스 자체를 복제하지 않음.

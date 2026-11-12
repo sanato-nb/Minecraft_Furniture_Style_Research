@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-13",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v27",
+  "current_checkpoint": "v28",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -19,7 +19,7 @@
     {
       "id": "01",
       "topic": "vanilla material and texture analysis",
-      "status": "v27_direct_5_png_full_rgba_2048_pixels_existing_150_sample_target_met_official_validation_pending",
+      "status": "v28_existing_v4_png_2_original_bytes_full_rgba_rededuced_official_jar_validation_pending",
       "sample_count": 150,
       "target": 150,
       "v26_pngs_full_rgba_decoded": 8,
@@ -27,12 +27,15 @@
       "v26_overlap_existing_v4_150": 3,
       "v27_png_full_decoded": 5,
       "v27_png_source_pixels": 2048,
-      "v27_overlap_v4_existing": 1
+      "v27_overlap_v4_existing": 1,
+      "v28_png_redecoded_existing_v4": 2,
+      "v28_opaque_pixels": 464,
+      "v28_transparent_pixels": 48
     },
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v27_shelf_20_explicit_faces_composter_26_derived_implicit_faces_blockstate_32_combinations_in_progress",
+      "status": "v28_104_variants_state_rotation_uvlock_source_audit_40_oak_door_face_rgba_160_gate_source_faces_not_pixel_verified",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -46,7 +49,11 @@
       "v27_source_explicit_uv_faces": 20,
       "v27_derived_implicit_uv_faces": 26,
       "v27_uv_formula_reference_match": "23/23",
-      "v27_texel_uses": 5072
+      "v27_texel_uses": 5072,
+      "v28_source_variant_records": 104,
+      "v28_actual_door_face_rgba_samples": 40,
+      "v28_uvlock_true_explicit": 51,
+      "v28_fence_gate_parent_face_declarations": 160
     },
     {
       "id": "03",
@@ -383,11 +390,11 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "Prioritize vanilla stage 01/02. Verify genuine independently obtained Mojang Minecraft Java 1.21.11 client.jar; neither public GitHub user copy nor third-party mirror is an official provenance certificate.",
-    "Verify auto UV projection against actual 1.21.11 game loader implementation and game render; v27 derived composter 26 face UV values fit 23/23 source explicit examples but not engine-code verified.",
-    "Verify shelf blockstate rotations and actual ingame UV/lighting/culling for 32 enumerated synthetic conditions; do not count all of them as valid gameplay states without runtime test.",
-    "Extend independent actual vanilla face-to-texture pixel and v4 150 selected texture crosschecks to new unused examples, preserving v26/v27 duplicate-avoidance and source distinctness.",
-    "Preserve v24 Another Furniture/Handcrafted original model research unchanged and maintain publicly redistributed Minecraft assets copyright warning. No final-completed substeps until official/in-game verification."
+    "Continue vanilla stage 01/02: independent Mojang 1.21.11 official client.jar origin/hash comparison, not just user uploaded public GitHub copy or third-party mirror SHA.",
+    "Verify actual 1.21.11 runtime blockstate model x/y rotation and uvlock behavior, including source uvlock true/absent distinction: v28 direct source audit is not in-game proof.",
+    "Evaluate all 160 source-declared faces in fence gate four parent templates against reused v26 oak_planks original PNG actual pixels and/or investigate other vanilla furniture-like features without repeating the existing v28 oak_door 40-face sample.",
+    "Continue source texture/model evidence expansion with de-duplication; v28 oak_door PNG 2 paths already existed in v4 150 sample and were redecoded, not newly discovered textures.",
+    "Preserve v24 mod research unchanged, maintain 0/5 final completion status until evidence threshold, and warn public game source redistribution rights."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -1276,6 +1283,72 @@
       "research/vanilla_models/v27/07_five_new_png_mirror_blob_sha.csv",
       "research/vanilla_models/v27/08_oak_shelf_v4_legacy_metrics_crosscheck.csv",
       "research/vanilla_models/v27/v27_shelf_composter_uv_pixel_summary.json"
+    ]
+  },
+  "v28": {
+    "date_kst": "2026-11-13",
+    "priority": "vanilla_01_02",
+    "report": "research/vanilla_models/v28/00_v28_바닐라문다락문게이트계단104상태_40면UV_RGBA.md",
+    "blockstates_source_variants_total": 104,
+    "source_blockstates": {
+      "oak_door": 32,
+      "oak_trapdoor": 16,
+      "oak_fence_gate": 16,
+      "oak_stairs": 40
+    },
+    "source_distinct_model_paths": 18,
+    "source_uvlock_true_explicit": 51,
+    "source_uvlock_absent": 53,
+    "source_uvlock_explicit_false": 0,
+    "nonzero_rotation_x_variants": 20,
+    "nonzero_rotation_y_variants": 72,
+    "oak_door_leaf_original_models": 8,
+    "oak_door_parent_original_templates": 8,
+    "oak_door_parent_face_declarations": 40,
+    "oak_door_parent_elements_each": 1,
+    "oak_door_parent_raw_bbox_from": [
+      0,
+      0,
+      0
+    ],
+    "oak_door_parent_raw_bbox_to": [
+      3,
+      16,
+      16
+    ],
+    "oak_door_source_pngs_full_redecoded": 2,
+    "oak_door_png_new_paths_outside_existing_v4_150": 0,
+    "oak_door_png_source_pixels": 512,
+    "oak_door_png_opaque": 464,
+    "oak_door_png_transparent": 48,
+    "oak_door_actual_uv_face_rgba_sample_count": 40,
+    "oak_door_actual_uv_texel_uses": 5248,
+    "oak_door_actual_uv_opaque_uses": 4864,
+    "oak_door_actual_uv_transparent_uses": 384,
+    "oak_door_reverse_uv_faces": 21,
+    "oak_fence_gate_leaf_models": 4,
+    "oak_fence_gate_parent_templates": 4,
+    "oak_fence_gate_template_declared_elements_total": 32,
+    "oak_fence_gate_template_declared_faces_total": 160,
+    "oak_fence_gate_face_actual_rgba_samples_new": 0,
+    "oak_fence_gate_textures_reuse_v26_oak_planks": true,
+    "mirror_png_sha_matched": "2/2",
+    "v4_png_metrics_matched": "2/2",
+    "mojang_official_client_jar_verified": false,
+    "ingame_verified": false,
+    "uvlock_loader_semantics_verified": false,
+    "stage1_final_completed_substeps": 0,
+    "stage1_total_substeps": 5,
+    "mod_data_prior_v24_unchanged": true,
+    "output_paths": [
+      "research/vanilla_models/v28/01_four_blockstates_104_exact_variants.csv",
+      "research/vanilla_models/v28/02_oak_door_two_png_full_rgba.csv",
+      "research/vanilla_models/v28/03_oak_door_eight_templates_40_faces_uv_rgba.csv",
+      "research/vanilla_models/v28/04_oak_door_8_leaf_parent_geometry_sha.csv",
+      "research/vanilla_models/v28/05_oak_fence_gate_4_templates_4_leaf_geometry.csv",
+      "research/vanilla_models/v28/06_two_v4_oak_door_metrics_crosscheck.csv",
+      "research/vanilla_models/v28/07_two_door_png_mirror_sha_check.csv",
+      "research/vanilla_models/v28/v28_four_states_and_door_uv_summary.json"
     ]
   }
 }
