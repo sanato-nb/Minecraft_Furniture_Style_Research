@@ -56,6 +56,8 @@
 
 - **v24 신규 실측:** 제작자 원본 의자 **39개 leaf JSON/Git SHA** 직접 조사·부모 2 원형 재조회. 일반형 19/tucked 20, own elements 0, override 117, **390 요소·1,794 선언 면 인스턴스**. 두 부모 10요소의 raw z 좌표가 -9 이동하고 46면 UV 선언은 동일. 새 10 상태 Another 경로 91/91 원본 확인; 누적 Another leaf 204. **이번 PNG 실제 픽셀/UV 내부 RGBA 새 측정 0**, 기존 모드 누계 유지. [v24 보고서](research/furniture_mods/v24/00_v24_의자39_원본JSON_상속기하재질_검증보고서.md) · [39모델 SHA CSV](research/furniture_mods/v24/chair_remaining_39_original_json_geometry_audit.csv).
 
+**v24 추가 교차검산:** 제작자 원본 `birch_chair`·`spruce_chair` 두 블록 상태 모두 `south + variant=3 + not tucked`에서 등받이 `*_3` 대신 `*_1` 모델 참조를 직접 확인. 전체 의자 apply 176 중 신규 39 leaf 적용 **155**(다른 기존 5 leaf 21). 기존 횟수 균일 가정 156에서 정정했으며 최종 원본 SHA·회전 분포 대조 완료. 게임 동작/의도 여부 미확정.
+
 ## 다음 과제
 
 1. Minecraft Java 1.21.11 공식 `client.jar`와 비공식 미러 자료의 바이트/해시 비교. [로컬 검사 스크립트](scripts/verify_official_jar.py) 및 [사용법](docs/official_client_jar_검증방법.md) 준비 완료(실제 JAR 미실행).

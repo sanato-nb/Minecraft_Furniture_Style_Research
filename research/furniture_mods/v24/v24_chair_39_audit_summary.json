@@ -25,7 +25,7 @@
   "inherited_uv_rotated_faces": 117,
   "inherited_cullface_faces": 234,
   "texture_reference_paths_unique": 24,
-  "selected_blockstate_apply_records_referenced_from_v23": 156,
+  "selected_blockstate_apply_records_referenced_from_v23": 155,
   "v23_examined_state_another_model_paths": 91,
   "v24_examined_state_another_model_paths_source_json": 91,
   "unread_chair_leaf_remain": 0,
@@ -47,5 +47,35 @@
     "1794 inherited faces are source JSON declaration instances, not 1794 actual UV RGBA inspected faces",
     "tucked raw z shift is model-local only; no world rotation/collision/in-game conclusion",
     "entire AnotherFurniture has 155 blockstates not yet directly examined"
-  ]
+  ],
+  "blockstate_source_variant_to_model_mismatch_count": 2,
+  "blockstate_source_variant_to_model_mismatches": [
+    {
+      "blockstate": "birch_chair",
+      "variant_key": "facing=south,tucked=false,variant=3",
+      "actual_model": "another_furniture:block/chair/birch_1",
+      "source_git_sha": "fb91fe6fca469381b200fd080a671b5a09e77399"
+    },
+    {
+      "blockstate": "spruce_chair",
+      "variant_key": "facing=south,tucked=false,variant=3",
+      "actual_model": "another_furniture:block/chair/spruce_1",
+      "source_git_sha": "c8a57ceb9f34c255cd6b098deca6628c595be0df"
+    }
+  ],
+  "model_apply_count_exceptions_in_remaining_39": [
+    {
+      "model_ref": "another_furniture:block/chair/birch_3",
+      "actual_apply_records": 3
+    },
+    {
+      "model_ref": "another_furniture:block/chair/spruce_1",
+      "actual_apply_records": 5
+    },
+    {
+      "model_ref": "another_furniture:block/chair/spruce_3",
+      "actual_apply_records": 3
+    }
+  ],
+  "model_apply_count_verified_against_v23_records": true
 }
