@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-12",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v11",
+  "current_checkpoint": "v12",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -34,27 +34,60 @@
       "topic": "mod furniture 3D model analysis",
       "status": "in_progress",
       "sample": {
-        "mod": "Another Furniture",
-        "mc_version": "1.21.1",
-        "templates_measured": 69,
-        "leaf_models_measured": 33,
-        "blockstates_measured": 12
+        "another_furniture": {
+          "source": "crispytwig/AnotherFurniture",
+          "source_ref": "57eb624cbb7f408d43398c7434b0d38d312cb55d",
+          "mc_version": "1.21.1",
+          "templates_measured": 69,
+          "leaf_models_measured": 33,
+          "blockstates_measured": 12
+        },
+        "handcrafted": {
+          "source": "terrarium-earth/Handcrafted",
+          "source_ref": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035",
+          "source_branch": "1.21.x",
+          "authored_models_measured": 120,
+          "generated_model_files_in_tree": 11989,
+          "generated_leaf_samples_measured": 16,
+          "blockstates_measured": 12,
+          "geometry_elements": 810,
+          "explicit_uv_faces": 4860,
+          "nonzero_rotated_elements": 283,
+          "flat_elements": 183
+        },
+        "macaws_furniture": {
+          "official_version_verified": "1.21.11 Fabric 3.4.2",
+          "official_url": "https://modrinth.com/mod/macaws-furniture/version/xhmciaUD",
+          "models_measured": 0,
+          "status": "official_asset_not_acquired"
+        }
       }
     },
     {
       "id": "04",
       "topic": "mod furniture textures and UV analysis",
-      "status": "preliminary_header_analysis",
+      "status": "preliminary_png_header_analysis",
       "sample": {
-        "mod": "Another Furniture",
-        "png_headers_measured": 12,
-        "pixel_distribution_verified": false
+        "another_furniture": {
+          "png_headers_measured": 12
+        },
+        "handcrafted": {
+          "png_headers_measured": 12
+        },
+        "total_png_headers_measured": 24,
+        "pixel_distribution_verified": false,
+        "texture_uv_mapping_verified": false
       }
     },
     {
       "id": "05",
       "topic": "vanilla/mod comparison",
-      "status": "not_started"
+      "status": "preliminary_mod_pair_comparison_only",
+      "sample": {
+        "pairs_compared": 5,
+        "vanilla_vs_mod_in_game_verified": false,
+        "completed": false
+      }
     }
   ],
   "completed_substeps": 0,
@@ -106,11 +139,10 @@
     "research/furniture_mods/v11/00_v11_AnotherFurniture_모델분석_보고서.md"
   ],
   "next_work": [
-    "Confirm GitHub v11 model and texture measurements and licensing",
-    "Analyze another furniture mod models with direct resource evidence",
-    "Analyze pixel samples and UV mappings while distinguishing game versions",
-    "Keep Vanilla official-client.jar verification as pending",
-    "Update v11+ research data and HANDOFF/PROGRESS after each checkpoint"
+    "Cross-check official Minecraft 1.21.11 client.jar and game rendering when available",
+    "Analyze actual pixel colors/alpha and texture-UV mapping for Another Furniture and Handcrafted without redistributing assets",
+    "Only analyze Macaw's Furniture after obtaining verified official distributable JAR or original source, not third-party unverified mirror",
+    "Update HANDOFF.md, PROGRESS.md, README.md, state JSON after next checkpoint"
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -134,5 +166,21 @@
     "pixel_analysis_complete": false,
     "data_in_sqlite_v10": false,
     "report": "research/furniture_mods/v11/00_v11_AnotherFurniture_모델분석_보고서.md"
+  },
+  "v12": {
+    "report": "research/furniture_mods/v12/00_v12_Handcrafted_교차분석_보고서.md",
+    "geometry_csv": "research/furniture_mods/v12/handcrafted_authored_120_total.csv",
+    "leaf_csv": "research/furniture_mods/v12/handcrafted_generated_leaf_sample_16.csv",
+    "state_csv": "research/furniture_mods/v12/handcrafted_blockstates_12.csv",
+    "texture_csv": "research/furniture_mods/v12/handcrafted_png_header_12.csv",
+    "comparison_csv": "research/furniture_mods/v12/another_vs_handcrafted_5_category_pairs.csv",
+    "total_generated_models_files": 11989,
+    "authored_models": 120,
+    "measured_elements": 810,
+    "rotated_elements": 283,
+    "flat_elements": 183,
+    "explicit_uv_face_entries": 4860,
+    "blockstate_sample_entries": 4724,
+    "macaw_verified_geometry": 0
   }
 }
