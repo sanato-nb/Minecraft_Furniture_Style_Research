@@ -72,6 +72,6 @@
 ## G. 우선 후속 작업 (v19)
 
 1. 남은 Another Furniture **모드 PNG 경로 29종**의 제작자 고정 커밋 원본 픽셀·SHA를 직접 검사한다. 필요하면 **1/2/4/8비트 indexed PNG**를 안전하게 읽는 지원까지 확장한다.
-2. Another **807면 원본 템플릿의 `UV→PNG 사각형` 좌표** 및 실제 PNG 텍셀 분포를 직접 검증한다(803? 같은 사전 계산값을 추측하지 말고 source face 그대로 파싱).
+2. Another **807면의 원본 템플릿 `UV→PNG 사각형` 좌표** 및 실제 PNG 텍셀 분포를 직접 검증한다. 면별 좌표는 고정 원본 JSON의 실제 `faces[*].uv`를 다시 읽어 산출한다.
 3. 공식 Minecraft `client.jar`에서 `minecraft:block/dirt` 3면/Handcrafted의 `oak_planks` 2면 검증 및 Macaw 정식 JAR 실측.
 4. 실제 인게임 렌더에서 UV 뒤집힘·알파·컬링·회전/연결 상태 확인. 원본 리소스 무단 재배포 금지.
