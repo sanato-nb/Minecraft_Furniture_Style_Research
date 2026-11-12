@@ -38,7 +38,6 @@
 | v10 | v8 SQLite에 v9 측정 내용을 증분 SQL로 통합; 검증 상태를 테이블로 분리; 공식 JAR 로컬 검사기 작성 | [v10 보고서](research/vanilla_models/v10/00_v10_누적DB_통합검증_보고서.md) |
 | v11 | Another Furniture 원형 템플릿 69종·완성형 상속 33종·블록 상태 12개·PNG 12종 | [v11 보고서](research/furniture_mods/v11/00_v11_AnotherFurniture_모델분석_보고서.md) |
 | v12 | Handcrafted 원형 모델 **120종(810요소/4,860면/283회전/183평면)**, 생성형 16종, 블록 상태 12종, PNG 12종, 모드 간 5쌍 비교 | [v12 보고서](research/furniture_mods/v12/00_v12_Handcrafted_교차분석_보고서.md) |
-| v11 | **Another Furniture** 1.21.1 Git 소스 모델 템플릿 69개·완성형 33개·블록 상태 12개·PNG 헤더 12개 측정 | [v11 모드 가구 분석 보고서](research/furniture_mods/v11/00_v11_AnotherFurniture_모델분석_보고서.md) |
 
 ### 실제 SQLite에서 확인된 행 수 (v10까지의 바닐라 DB)
 
@@ -60,7 +59,7 @@ v10 로컬 SQLite 스냅샷을 직접 열어 조회하고 `PRAGMA integrity_chec
 | `special_animation_clips_v9` | 15 | 특수 모델 애니메이션 클립 |
 | `validation_audit_v10` | 6 | 직접 검증/부분 검증/미검증 분리 |
 
-**주의:** v11 모드 가구의 수치는 아래 CSV에 따로 저장되어 있고 **v10 SQLite에는 아직 통합하지 않았다**. 또한 55 정적 모델, 17 특수 모델, 19 레이어, 55 기하 요소는 서로 다른 집계 단위다. 합쳐서 '총 모델 수'로 쓰면 안 된다.
+**주의:** v11·v12 모드 가구 측정 수치는 CSV/MD로 저장되어 있으며 **v10 SQLite에는 아직 통합하지 않았다**. 또한 55 정적 모델, 17 특수 모델, 19 레이어, 55 기하 요소는 서로 다른 집계 단위다. 합쳐서 '총 모델 수'로 쓰면 안 된다.
 
 ### v11–v12 모드 실측 자료의 범위
 
@@ -90,7 +89,7 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 
 ## 4. 사용 출처와 검증 수준
 
-- **바닐라 Minecraft 버전:** Java Edition **1.21.11**로 고정. **가구 모드 Another Furniture 소스는 1.21.1**임. 다른 버전의 수치/텍스처를 한 버전으로 묶지 말 것.
+- **바닐라 Minecraft 버전:** Java Edition **1.21.11**로 고정. Another Furniture 모드 기준은 **1.21.1**, Handcrafted의 소스는 **1.21.x 브랜치**다. 서로 다른 버전의 수치/텍스처를 한 버전으로 묶지 말 것.
 - **모드 고정 소스:** https://github.com/crispytwig/AnotherFurniture/tree/1.21.1 (조사 당시 branch HEAD `57eb624cbb7f408d43398c7434b0d38d312cb55d`). 해당 `resources/` 에셋은 원본 `LICENSE`에 의해 **All Rights Reserved**, 수치와 출처/해시만 보관.
 - 바닐라 비공식 추출 원본: https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11
 - 엔티티/블록엔티티 모델 추출 원본: https://github.com/InventivetalentDev/minecraft-entity-models/tree/1.21.11
@@ -107,8 +106,8 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 1. 이 파일을 읽고 [PROGRESS.md](PROGRESS.md), [v10 보고서](research/vanilla_models/v10/00_v10_누적DB_통합검증_보고서.md), [SOURCES_AND_LIMITS.md](SOURCES_AND_LIMITS.md)를 읽는다.
 2. GitHub에서 **최신 파일/커밋 기준**으로 현재 상태를 확인한다. 새 채팅의 과거 기억과 충돌하면 GitHub 근거가 우선이며, 충돌 자체를 기록한다.
 3. 가능한 경우 공식 JAR 비교를 수행한다. JAR이 없으면 검증을 **보류**하고, 검증 가능한 모델 회전/렌더 좌표 및 대표 사례를 추가 분석한다. 사용자에게 게임 파일을 공개 업로드하라고 요구하지 말 것.
-4. 02번의 목표 범위·완료 조건을 정리하고 바닐라 연구 빈틈을 추적한다. **03번은 v11에서 이미 Another Furniture 실제 모델 분석에 착수했으므로 다시 미시작으로 되돌리지 않는다.** 공식 검증 보류 상태를 유지한 채 다른 모드 비교를 이어간다.
-5. 다음에는 Macaw's Furniture·Handcrafted의 실제 리소스 접근/라이선스/버전을 조사하고 Another Furniture v11과 같은 항목(의자·벤치·소파·테이블·수납)을 분석한다. 이후 모드 PNG 실제 픽셀과 UV 매핑을 검증한다. 스크린샷만 보고 모델의 부품 수를 단정하지 않는다.
+4. 02번의 목표 범위·완료 조건을 정리하고 바닐라 연구 빈틈을 추적한다. **03번은 v11 Another Furniture와 v12 Handcrafted에서 실측을 수행했다.** 공식 게임 검증 보류 상태를 유지한 채 Macaw 공식 JAR 검증 또는 모드 UV·PNG 분석을 이어간다.
+5. Handcrafted 120개 원형 JSON은 이미 조사했으므로 중복하지 않는다. **다음에는 검증된 공식 Macaw 1.21.11 배포 JAR의 실제 모델 분석**, 또는 **Another Furniture/Handcrafted PNG의 실제 픽셀·UV 매핑 검증**을 진행한다. 스크린샷만 보고 모델의 부품 수를 단정하지 않는다.
 6. 작업이 끝날 때마다 새로운 보고서·CSV/SQLite·출처·검증 기록을 GitHub에 업로드한다. **[PROGRESS.md](PROGRESS.md), [README.md](README.md), 본 HANDOFF.md**도 새 체크포인트에 맞춰 함께 갱신한다.
 7. 사용자에게 실제 수행·검증 완료 수치와 남은 작업을 분리한 진행도를 제공한다.
 
@@ -130,7 +129,7 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 
 ## 7. 인수인계 유지 방법
 
-- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v11).
+- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v12).
 - **진행도:** `PROGRESS.md`.
 - **새 채팅 복사용:** `docs/NEW_CHAT_START.md`.
 - **기계 판독 상태:** `handoff/STATE.json`.
