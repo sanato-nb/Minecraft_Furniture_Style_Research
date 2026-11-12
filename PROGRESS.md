@@ -2,19 +2,19 @@
 
 **새 채팅 인수인계:** [HANDOFF.md](HANDOFF.md) · [복사용 시작 프롬프트](docs/NEW_CHAT_START.md) · [현재 상태 JSON](handoff/STATE.json)
 
-업데이트: 2026-11-12 / 체크포인트 v10
+업데이트: 2026-11-12 / 체크포인트 v11
 
 | 1단계 세부 작업 | 상태 | 수치 |
 |---|---|---|
 | 01. 바닐라 재질·텍스처 분석 | 표본 목표 달성 / 최종 검증 보류 | **150/150종, 표본 100%** |
 | 02. 바닐라 3D 모델·블록 구조 분석 | 진행 중 | 대표 모델·UV·연결형·특수 렌더링 v5–v10 |
-| 03. 가구 모드 3D 모델 분석 | 미시작 | 0 |
-| 04. 가구 모드 텍스처·UV 분석 | 미시작 | 0 |
+| 03. 가구 모드 3D 모델 분석 | **진행 중** | Another Furniture 1.21.1: 템플릿 69/69 실측·완성형 33개 상속 검증·블록 상태 12개 표본 |
+| 04. 가구 모드 텍스처·UV 분석 | **사전 측정 진행 중** | Another Furniture PNG 12개 헤더·해상도 검증. 픽셀·UV 시각검증 미완료 |
 | 05. 바닐라 ↔ 가구 모드 비교 검증 | 미시작 | 0 |
 
 **전체 완료:** 0/5개. 일부 체크포인트의 100%는 *표본 수 달성*만을 뜻하며 공식 JAR/인게임 재현까지 마쳤음을 의미하지 않습니다. 02번도 모집단이 확정되지 않아 임의 완료율을 산출하지 않습니다.
 
-## 누적 근거 데이터 (v8 SQLite + v9 CSV + v10 SQL migration)
+## 누적 근거 데이터 (v8 SQLite + v9 CSV + v10 SQL migration + v11 모드 CSV)
 
 - 텍스처 측정 레코드: 150건
 - 최초 모델 근거: 55건
@@ -27,14 +27,17 @@
 - v9 애니메이션: **6종 모델**, **15개 클립**, **304개 저장 키프레임**
 - v10 통합: v9 데이터 **19개 모델 레이어·15개 애니메이션 클립**을 v8 SQLite에 추가하는 SQL migration 게시, 로컬 재구성 DB 무결성 검사 통과
 - 공식 JAR 검증 도구: **스크립트 작성 및 합성 테스트 통과**, 실제 Minecraft 1.21.11 client.jar 비교는 미수행
+- v11 Another Furniture (Minecraft 1.21.1): Git tree 모델 1,451개·블록 PNG 1,220개 확인. **템플릿 69개 직접 분석(299 요소/1,362 UV면/0두께 요소 34개)**, **완성형 33개 상속 해석**, **블록 상태 12개(802 entry 합산)**, **PNG 헤더 12개**.
+- [v11 자세한 실측 보고서](research/furniture_mods/v11/00_v11_AnotherFurniture_모델분석_보고서.md). 모델 JSON·텍스처 원본은 저작권 때문에 미재배포.
 
 ## 다음 과제
 
 1. Minecraft Java 1.21.11 공식 `client.jar`와 비공식 미러 자료의 바이트/해시 비교. [로컬 검사 스크립트](scripts/verify_official_jar.py) 및 [사용법](docs/official_client_jar_검증방법.md) 준비 완료(실제 JAR 미실행).
 2. 실제 게임에서 잔디·잎의 색 변형, 투명도, 모델 조립 결과 검증.
 3. [v10 통합 보고서](research/vanilla_models/v10/00_v10_누적DB_통합검증_보고서.md) 및 [v9 특수 모델 자료](research/vanilla_models/v9/00_v9_실제부품구조_분석보고서.md)의 공식 클라이언트·인게임 교차검증 후 02번 종료 여부 판정.
-4. 그다음 가구 모드의 실제 모델·텍스처 자료로 03번 착수.
+4. **03번은 v11에서 시작됨**: Macaw's Furniture·Handcrafted 모델 접근성/라이선스·버전 확인, 동일 가구 종류 비교로 확대.
+5. **04번의 PNG 헤더 12개를 시작으로** 실제 픽셀 팔레트/투명도/UV를 다음에 분석.
 
-**주의:** GitHub에 추적된 SQLite 바이너리는 **v8**입니다. v10 SQLite 전체 파일은 로컬에서 생성해 무결성을 검사했으며, GitHub에서는 [v10 SQL migration](data/migrations/v8_to_v10.sql)과 [재구성 스크립트](scripts/rebuild_v10_db.py)를 통해 복원합니다. GitHub에 v10 SQLite 바이너리가 업로드된 상태는 아닙니다.
+**주의:** GitHub에 추적된 SQLite 바이너리는 **v8**입니다. **v11 모드 실측은 CSV/MD로 저장되었고 아직 SQLite에는 통합하지 않았습니다.** v10 SQLite 전체 파일은 로컬에서 생성해 무결성을 검사했으며, GitHub에서는 [v10 SQL migration](data/migrations/v8_to_v10.sql)과 [재구성 스크립트](scripts/rebuild_v10_db.py)를 통해 복원합니다. GitHub에 v10 SQLite 바이너리가 업로드된 상태는 아닙니다.
 
 다른 대화에서 이어갈 때는 v8 DB와 v10 migration, v9 연구 자료, 이 진행도 파일을 함께 기준으로 삼으세요.
