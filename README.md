@@ -30,10 +30,14 @@
 | v21 | Another 제작자 블록 상태 **12개 원본 SHA/802 모델 적용** 직접 재검증, **새 leaf 38개·14 PNG 직접 픽셀·1,192면 실제 UV RGBA**, 원본 가구 유형·상속 확대 | **Another 누적 71 leaf/67 PNG/1,996면 원본 UV 픽셀**, Handcrafted 합산 91 PNG/2,780모드 면. 바닐라·Macaw/인게임 미검증 |
 | v22 | Another 셔터 신규 **43개 모델·PNG 42종·원본 UV 214면 직접 픽셀 검증**, 기존 12 블록 상태의 Another 고유 모델 경로 **113/113 원본 JSON 근거 확인** | 선정 Another **leaf 114/PNG 109/면 2,210**, Handcrafted 합계 **PNG 133/면 2,994**, 모드 전체/바닐라 공식/인게임/Macaw 미완료 |
 | v23 | 이전 12개 밖 **블록 상태 10개 SHA·386 apply**, 원본 새 leaf **51개**와 새 PNG **42종**을 직접 조사해 **모드 면 1,119개 UV 실제 RGB/알파 실측** | Another **상태 22/177·leaf 165·PNG151·면3,329**, Handcrafted 포함 **PNG175종/면4,113**. 신규 상태의 의자 leaf39개·바닐라/Macaw/인게임 미완료 |
+| v24 | Another 미조사 의자 leaf **39개 제작자 원본 JSON/SHA 직접 검사**, 부모 2종의 raw 좌표/UV 비교. **390 요소/1,794 선언 면 인스턴스** | Another leaf **204종**, 신규 10 상태의 Another 경로 91/91 JSON 직접 확인. 원본 PNG·RGBA 신규 검사 0, 누적 PNG175/실제 RGBA 4,113면 유지 |
 
 **학습 전체 5개 작업:** 01 바닐라 텍스처(표본 완료/검증 보류), 02 바닐라 3D(진행 중), 03 가구 모드 모델(v11~v12 실측 진행 중), 04 모드 텍스처·UV(PNG 24개 전체 실화소 및 13모델 571면 UV 표본 정렬 측정), 05 바닐라/모드 비교(5쌍 사전 비교, 최종 검증 미착수). 최종 확정 완료는 **0/5**입니다.
 
 ## 빠른 탐색
+
+- [**v24 최신 보고서: 의자 39개 원본 SHA·상속·UV 구조 검증**](research/furniture_mods/v24/00_v24_의자39_원본JSON_상속기하재질_검증보고서.md) · [39모델 개별 SHA CSV](research/furniture_mods/v24/chair_remaining_39_original_json_geometry_audit.csv) · [감사 JSON](research/furniture_mods/v24/v24_chair_39_audit_summary.json).
+
 
 - [1단계 학습 계획](docs/01_1단계_학습계획_v1.md)
 - [현재 진행 상황](PROGRESS.md)

@@ -4,7 +4,9 @@
 
 ---
 
-**Minecraft 가구 모델링 디자인 연구를 v23 체크포인트부터 이어서 실제 분석해 줘.**
+**최신 v24 연구:** [v24 보고서](research/furniture_mods/v24/00_v24_의자39_원본JSON_상속기하재질_검증보고서.md)부터 읽어야 한다. v23에서 남았던 Another Furniture 의자 **39 leaf 원본 JSON/SHA 직접 확인** 완료. Another 선정 leaf 누계 **204**, 신규 10 블록 상태의 Another 모델 경로 **91/91 JSON 직접 조사**, 블록 상태 조사 **22/177**. 39개 leaf 자체 요소 0, slot override117, 부모 2종을 통한 상속 **390 요소/1,794 선언 면 인스턴스**. 일반 `chair` 대비 tucked의 좌표 z=-9, face UV·슬롯 동일. **v24에 신규 PNG 화소 실측 0/실제 face UV 내부 RGBA 0**, 따라서 Another PNG151·RGBA3,329면/Handcrafted PNG24·784면, 합계 PNG175·실제 RGBA4,113면 유지. 다음에는 해당 모델 참조 PNG 24경로의 기존 측정 차집합/실제 화소와 1,794면 UV 내부 RGB·알파, 나머지 155 blockstate, 공식 Mojang/Macaw JAR·인게임 검증 진행. 전체 최종 완료 0/5.
+
+**Minecraft 가구 모델링 디자인 연구를 v24 체크포인트부터 이어서 실제 분석해 줘.**
 
 정본 저장소: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research
 
@@ -26,7 +28,7 @@
 15. `research/furniture_mods/v22/00_v22_셔터43모델_신규PNG42_UV214면_원본실측_보고서.md`
 16. `research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md`
 
-**현재 v23 상태 (이 문단이 최신):** 바닐라 재질/텍스처 선정 **150/150 표본** 및 3D 연구 v10까지 진행됐지만 **Minecraft 공식 1.21.11 `client.jar`·인게임 최종 렌더 미검증**. 제작자 Another Furniture Minecraft 1.21.1 고정 원본의 **블록 상태 22/177개**, 원형 템플릿 **69개**, leaf **165개** 직접 원본 JSON 조사. Another 원본 고유 PNG **151종 실제 화소**, 선정된 모드 소유 면 **3,329개 실제 UV PNG 내부 RGBA** 검사 완료. Handcrafted 원형 **120종**, 생성형 leaf **16개**, PNG **24종**·실제 UV **784면**(v17). 두 모드 합쳐 **PNG 175종, 모드 PNG 4,113면 실제 UV RGB·알파**. 바닐라 경로 `minecraft:block/dirt` Another **16면**, `oak_planks` Handcrafted **2면** 공식 PNG 아직 미검증. Macaw's Furniture 공식 Minecraft 1.21.11 Fabric 배포 존재는 확인했으나 컨테이너 DNS 차단으로 **공식 JAR 내부 모델 실측 0개**. **이는 선정한 소스 원본 표본 진도이며 모드 전체/게임 렌더 완료가 아니다. 상위 1단계 세부 작업 5개 최종 완료 0/5, 임의 전체 프로젝트 퍼센트 금지.**
+**v23 PNG/UV RGBA 누계 (v24에도 동일):** 바닐라 재질/텍스처 선정 **150/150 표본** 및 3D 연구 v10까지 진행됐지만 **Minecraft 공식 1.21.11 `client.jar`·인게임 최종 렌더 미검증**. 제작자 Another Furniture Minecraft 1.21.1 고정 원본의 **블록 상태 22/177개**, 원형 템플릿 **69개**, leaf **165개** 직접 원본 JSON 조사. Another 원본 고유 PNG **151종 실제 화소**, 선정된 모드 소유 면 **3,329개 실제 UV PNG 내부 RGBA** 검사 완료. Handcrafted 원형 **120종**, 생성형 leaf **16개**, PNG **24종**·실제 UV **784면**(v17). 두 모드 합쳐 **PNG 175종, 모드 PNG 4,113면 실제 UV RGB·알파**. 바닐라 경로 `minecraft:block/dirt` Another **16면**, `oak_planks` Handcrafted **2면** 공식 PNG 아직 미검증. Macaw's Furniture 공식 Minecraft 1.21.11 Fabric 배포 존재는 확인했으나 컨테이너 DNS 차단으로 **공식 JAR 내부 모델 실측 0개**. **이는 선정한 소스 원본 표본 진도이며 모드 전체/게임 렌더 완료가 아니다. 상위 1단계 세부 작업 5개 최종 완료 0/5, 임의 전체 프로젝트 퍼센트 금지.**
 
 **v15 새 연구:** 기존 v11 Another 69개 템플릿과 v12 Handcrafted 120개 원형의 측정 CSV를 새로 교차 집계하여 189모델별 face 선언 밀도·회전·0두께·로컬 bbox 범위 초과 지표를 만들었다. Another 요소 299/가능 face 1,794/명시 1,362(비명시 432), 회전 17/평면 34/bbox 밖 3모델. Handcrafted 요소 810/명시 face 4,860, 회전 283/평면 183/bbox 밖 60모델(자체 요소 112모델 중). **v15에서 새 원본 모델 JSON·PNG 바이트 직접 검사 0개**, 게임 내 렌더 검증도 없다. 원시 bbox는 실제 설치 공간/충돌체가 아니다.
 

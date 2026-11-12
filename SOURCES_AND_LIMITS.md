@@ -143,3 +143,11 @@
 - **누적 선정 표본** Another 블록 상태 원본 **22/177**, leaf **165**, 원본 PNG 실화소 **151종**, 모드 면 원본 UV 실제 RGBA **3,329인스턴스**. Handcrafted 24 PNG/784면 합산 두 모드 원본 PNG **175종/모드 면 4,113**. 바닐라 dirt Another 16면·oak_planks Handcrafted 2면은 공식 Minecraft 1.21.11 client.jar 원본 PNG 미검증.
 - 이번 10 상태의 Another 원본 모델 참조 91경로 중 51개는 이번 새 leaf JSON 직접 확인, 1개(`chair/birch_1`)는 기존 v18 직접 확인, **다른 39개 의자 모델 JSON은 아직 직접 열지 않음**. 전체 블록 상태 177개 중 직접 검사한 22개만 해당하고 전체 파일 수/전체 PNG/전체 게임 렌더 완료율이 아니다.
 - 원본 저작권 JSON/PNG/JAR을 연구 GitHub에 복제하지 않고 파생 경로·SHA·치수·UV 사각형·색/알파 통계만 저장. 외부 DNS 문제로 Macaw 공식 1.21.11 Fabric JAR 원본 미확보(모델 0), Mojang 공식 1.21.11 `client.jar`/인게임 렌더 미검증. 전체 상위 1단계 내부 5개 작업 최종 완료 **0/5**.
+
+## v24 Another 의자 39 leaf 원본·상속 기하 검증의 출처와 한계
+
+- [원본 JSON SHA·기하 감사 보고서](research/furniture_mods/v24/00_v24_의자39_원본JSON_상속기하재질_검증보고서.md) · [39모델 개별 SHA/경로 CSV](research/furniture_mods/v24/chair_remaining_39_original_json_geometry_audit.csv) · [파생 수치 감사 JSON](research/furniture_mods/v24/v24_chair_39_audit_summary.json). 제작자 `crispytwig/AnotherFurniture`의 **Minecraft 1.21.1** 고정 커밋 `57eb624cbb7f408d43398c7434b0d38d312cb55d`에 있는 남은 의자 leaf **39 JSON**을 직접 읽고 Git blob SHA·상속 원형·3개 슬롯 경로 확인. 기존 원형 2 JSON도 직접 재조회했다.
+- 두 원형 모두 자체 10요소/46선언 면이며 `chair_tucked`의 10요소 좌표는 `chair`보다 raw z -9, 면별 UV/재질 슬롯 선언 동일. 39개 leaf에 반복 상속한 **390 요소/1,794 선언 face 인스턴스**(bottom1,131/seat195/back468), 새 override 117건을 계량했다. 모델이 반복한 **원본 선언 인스턴스**이므로 새로운 고유 기하 390개나 실제 화면 1,794면을 뜻하지 않는다.
+- **v24 신규 원본 PNG 다운로드/픽셀 디코딩 0개, UV 내부 원본 RGBA 샘플링 0면**. 해당 39개 leaf의 24개 PNG *참조 경로*가 과거 실측한 151종과 얼마나 중복되는지 원본 manifest 대조는 아직 수행하지 않음. 기존 Another PNG 실화소 151종/실제 UV면 3,329, Handcrafted PNG 24종/784면, 합산 PNG175종/실제 RGBA면4,113 유지. UV 선언만으로 원본 PNG 픽셀 불투명 여부를 판단하지 않음.
+- 새 10개 원본 상태의 Another 모델 경로 91/91 직접 JSON 근거가 마련됐지만 원본 블록 상태 파일은 전체 177 중 **22개만** 직접 검사했고 155개 미검증. **Minecraft 공식 1.21.11 client.jar**, **공식 Macaw JAR 내부**, 인게임 렌더·컬링·충돌은 이 단계에서 검사하지 않았다.
+- 제3자 리소스가 All Rights Reserved이므로 **원본 모델 JSON, PNG, JAR 자체를 저장소에 업로드하지 않고** 출처·SHA 및 파생 수치만 남긴다.
