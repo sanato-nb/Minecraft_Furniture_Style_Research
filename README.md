@@ -32,6 +32,7 @@
 - [v10: 누적 DB 통합 검증 보고서](research/vanilla_models/v10/00_v10_누적DB_통합검증_보고서.md)
 - [v10 SQL 증분 패치](data/migrations/v8_to_v10.sql)
 - [v10 SQLite 재구성 Python 스크립트](scripts/rebuild_v10_db.py)
+- [공식 1.21.11 client.jar 대조 도구](scripts/verify_official_jar.py) / [사용법](docs/official_client_jar_검증방법.md) — 실제 JAR 검사 미완료
 
 ## 폴더 구조
 
