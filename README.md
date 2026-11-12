@@ -43,7 +43,7 @@
 - [v12: Handcrafted 전수 원형 120종 분석 및 모드 간 사전 비교](research/furniture_mods/v12/00_v12_Handcrafted_교차분석_보고서.md)
 - [v12 Handcrafted 120종 측정 CSV](research/furniture_mods/v12/handcrafted_authored_120_total.csv)
 - [v12 모드 대표 5쌍 구조 비교](research/furniture_mods/v12/another_vs_handcrafted_5_category_pairs.csv)
-- [v16: 고정 원본 PNG 12개/JSON 30개/면→PNG 정합성 검증](research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md) · [신규 12 PNG 실화소 CSV](research/furniture_mods/v16/handcrafted_12_new_png_pixel_metrics.csv)
+- [v16: 고정 원본 PNG 12개/JSON 30개/면→PNG 정합성 검증](research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md) · [신규 12 PNG 실화소 CSV](research/furniture_mods/v16/handcrafted_12_new_png_pixel_metrics.csv) · [로컬 원본 재검증 스크립트](scripts/reproduce_v16_handcrafted_originals.py)
 - [v15: 모델 189개 표면·회전·평면·bbox 정량 비교](research/furniture_mods/v15/00_v15_기하표현_계량비교_보고서.md) · [189개 모델별 CSV](research/furniture_mods/v15/model_geometry_derived_189.csv) · [재검산 스크립트](scripts/verify_v15_geometry_research.py)
 - [v14: Handcrafted leaf 16개/51개 슬롯 연결 감사](research/furniture_mods/v14/00_v14_텍스처슬롯_근거연결_보고서.md) · [CSV](research/furniture_mods/v14/handcrafted_texture_bindings_51.csv)
 - [v13: PNG 24개 직접 디코딩과 UV 13모델/571면 정량 검사](research/furniture_mods/v13/00_v13_모드PNG실화소_UV픽셀정렬_보고서.md)
