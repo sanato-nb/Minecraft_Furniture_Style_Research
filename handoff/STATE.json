@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-13",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v26",
+  "current_checkpoint": "v27",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -19,17 +19,20 @@
     {
       "id": "01",
       "topic": "vanilla material and texture analysis",
-      "status": "v26_eight_source_png_full_rgba_decoded_150_existing_sample_target_met_official_validation_pending",
+      "status": "v27_direct_5_png_full_rgba_2048_pixels_existing_150_sample_target_met_official_validation_pending",
       "sample_count": 150,
       "target": 150,
       "v26_pngs_full_rgba_decoded": 8,
       "v26_source_pixels": 8704,
-      "v26_overlap_existing_v4_150": 3
+      "v26_overlap_existing_v4_150": 3,
+      "v27_png_full_decoded": 5,
+      "v27_png_source_pixels": 2048,
+      "v27_overlap_v4_existing": 1
     },
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v26_original_face_uv_pixels_measured_36_declared_faces_70_frame_samples_in_progress",
+      "status": "v27_shelf_20_explicit_faces_composter_26_derived_implicit_faces_blockstate_32_combinations_in_progress",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -39,7 +42,11 @@
       "v25_blockstates_sampled": 8,
       "v26_unique_original_faces_pixel_measured": 36,
       "v26_face_frame_samples": 70,
-      "v26_actual_rgba_texel_uses": 3652
+      "v26_actual_rgba_texel_uses": 3652,
+      "v27_source_explicit_uv_faces": 20,
+      "v27_derived_implicit_uv_faces": 26,
+      "v27_uv_formula_reference_match": "23/23",
+      "v27_texel_uses": 5072
     },
     {
       "id": "03",
@@ -376,11 +383,11 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "Prioritize vanilla 01/02: obtain independently verifiable Mojang 1.21.11 client.jar byte source, do NOT treat user-upload GitHub copy or third-party mirror SHA match as official certification.",
-    "Extend source-to-face UV pixel verification to representative source models not yet analyzed, especially generated/implicit UV models such as composter and blockstate model rotation; avoid repeating v26 8 PNG full decodes and 70 face-frame records.",
-    "Cross-check more than v26 3 existing v4 texture samples against the v4 150 selected source statistics. Recalculate source SHA-256 only with actual bytes; do not claim independent rehash from Git blob SHA alone.",
-    "Perform in-game model, texture cutout, UV rotation, lighting and animation comparison where runtime access is available; maintain 0/5 final completed until verified.",
-    "Preserve v24 mod analysis unchanged and audit public raw Minecraft source redistribution rights."
+    "Prioritize vanilla stage 01/02. Verify genuine independently obtained Mojang Minecraft Java 1.21.11 client.jar; neither public GitHub user copy nor third-party mirror is an official provenance certificate.",
+    "Verify auto UV projection against actual 1.21.11 game loader implementation and game render; v27 derived composter 26 face UV values fit 23/23 source explicit examples but not engine-code verified.",
+    "Verify shelf blockstate rotations and actual ingame UV/lighting/culling for 32 enumerated synthetic conditions; do not count all of them as valid gameplay states without runtime test.",
+    "Extend independent actual vanilla face-to-texture pixel and v4 150 selected texture crosschecks to new unused examples, preserving v26/v27 duplicate-avoidance and source distinctness.",
+    "Preserve v24 Another Furniture/Handcrafted original model research unchanged and maintain publicly redistributed Minecraft assets copyright warning. No final-completed substeps until official/in-game verification."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -1204,6 +1211,71 @@
       "research/vanilla_models/v26/03_eight_png_mirror_blob_crosscheck.csv",
       "research/vanilla_models/v26/04_three_v4_texture_metrics_crosscheck.csv",
       "research/vanilla_models/v26/v26_vanilla_pixel_uv_audit_summary.json"
+    ]
+  },
+  "v27": {
+    "date_kst": "2026-11-13",
+    "priority": "vanilla_01_02",
+    "report": "research/vanilla_models/v27/00_v27_선반32x32_퇴비통자동UV_원본화소검증보고서.md",
+    "new_full_png_paths": 5,
+    "new_raw_rgba_pixels": 2048,
+    "new_pixels_opaque": 1824,
+    "new_pixels_fully_transparent": 224,
+    "new_pixels_partially_transparent": 0,
+    "new_png_in_v4_existing_150_sample": 1,
+    "new_png_outside_v4_sample": 4,
+    "source_png_github_mirror_blob_matching": "5/5",
+    "v4_shelf_metrics_equal": true,
+    "selected_shelf": {
+      "source_template_count": 6,
+      "body_elements": 3,
+      "body_explicit_uv_faces": 15,
+      "alternative_overlay_template_count": 5,
+      "alternative_overlay_faces": 5,
+      "source_faces_actual_uv_rgba": 20,
+      "png_32_by_32_rgba_count": 1024,
+      "png_rgba_colors": 42,
+      "texel_uses": 1376,
+      "opaque_uses": 1376,
+      "transparent_uses": 0,
+      "source_multipart_rules": 24,
+      "enumerated_32_state_combinations_matching_two_model_paths": 32
+    },
+    "selected_composter": {
+      "explicit_uv_reference_faces_exact_equal": "23/23",
+      "source_faces_implicit_uv_derived": 26,
+      "base_faces": 18,
+      "content_faces": 8,
+      "uv_formula_derived_not_official_engine_verified": true,
+      "actual_png_pixel_texel_uses_on_derived_uv": 3696,
+      "opaque_uses": 3696,
+      "transparent_uses": 0,
+      "reused_prior_png": "composter_top"
+    },
+    "new_faces_explicit_uv": 20,
+    "new_faces_derived_uv": 26,
+    "new_face_sample_count": 46,
+    "new_texel_uses_total": 5072,
+    "new_texel_uses_opaque": 5072,
+    "prior_v26_pngs_8_unchanged": true,
+    "combined_v26_v27_png_paths_direct_full_decoded": 13,
+    "combined_v26_v27_existing_v4_sample_overlaps": 4,
+    "prior_mod_v24_stats_unchanged": true,
+    "official_mojang_client_verified": false,
+    "ingame_verified": false,
+    "independent_pillow_replay": false,
+    "stage1_completed_substeps": 0,
+    "stage1_total_substeps": 5,
+    "outputs": [
+      "research/vanilla_models/v27/01_oak_shelf_full_png_rgba.csv",
+      "research/vanilla_models/v27/02_oak_shelf_20_face_actual_png_rgba.csv",
+      "research/vanilla_models/v27/03_oak_shelf_32_combination_rule_evaluation.csv",
+      "research/vanilla_models/v27/04_uv_projection_23_explicit_face_source_crosschecks.csv",
+      "research/vanilla_models/v27/05_composter_five_png_rgba.csv",
+      "research/vanilla_models/v27/06_composter_26_implicit_uv_face_rgba.csv",
+      "research/vanilla_models/v27/07_five_new_png_mirror_blob_sha.csv",
+      "research/vanilla_models/v27/08_oak_shelf_v4_legacy_metrics_crosscheck.csv",
+      "research/vanilla_models/v27/v27_shelf_composter_uv_pixel_summary.json"
     ]
   }
 }

@@ -1,7 +1,7 @@
 # 인수인계 · Minecraft Furniture Style Research
 
 > **새 채팅 진입점 / 단일 인수인계 기준 문서**  
-> 최종 확인일: **2026-11-13 (KST)** · 현재 체크포인트: **v26**  
+> 최종 확인일: **2026-11-13 (KST)** · 현재 체크포인트: **v27**  
 > 저장소: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research  
 > **새 채팅에서 먼저 이 문서, [PROGRESS.md](PROGRESS.md), [SOURCES_AND_LIMITS.md](SOURCES_AND_LIMITS.md)를 읽고 기존 작업을 이어간다.**
 
@@ -17,15 +17,15 @@
 
 | 번호 | 범위 | 2026-11-13 상태 |
 |---|---|---|
-| 01 | 바닐라 재질·텍스처 | **기존 150/150 표본**, v26에서 원본 PNG 8개 **8,704픽셀 새로 전부 디코딩**, 공식 JAR·인게임 최종 검증 **미완료** |
-| 02 | 바닐라 3D 형태·모델 JSON·UV·상태·특수 렌더링 | **v25 원본 JSON 40개·v26 실제 UV 면36개/프레임 포함 70건 RGBA 검사**, 공식 client.jar·인게임 및 전체 완료 판정 미완료 |
+| 01 | 바닐라 재질·텍스처 | **기존 150/150 표본**, v26 8 PNG 8,704픽셀 + v27 **다른 PNG 5종 2,048픽셀 직접 해독**(v4 기존 표본과 중복 4경로 유의), 공식 JAR·인게임 미완료 |
+| 02 | 바닐라 3D 형태·모델 JSON·UV·상태·특수 렌더링 | **v26 고유 명시 UV 36면/프레임70 기록**에 v27 선반 명시 UV 20면+퇴비통 유도 UV 26면 실제 PNG 샘플, 선반 32상태 조립. 공식 JAR·인게임 미검증 |
 | 03 | 가구 모드 3D 모델 | **v24: 의자 leaf 39개 제작자 원본 JSON·Git SHA 직접 검사**, 누적 Another **204 leaf**; 신규 10 상태 Another 모델 경로 **91/91** 읽기 완료. 원형 69/블록 상태 22/177 유지, Handcrafted 원형 120/leaf16, Macaw 모델 0 |
 | 04 | 가구 모드 텍스처·UV·팔레트 | **Another 모드 원본 PNG 151종/실제 UV RGBA 3,329면(기존 2,210+v23 1,119), Handcrafted 24 PNG/784면 → 두 모드 PNG 175종/면 4,113인스턴스.** 새 PNG 42종·모드 면 1,119 직접 원본 화소, 공식 바닐라 dirt 16면/oak_planks 2면·전체/인게임 미검증. |
 | 05 | 바닐라 ↔ 가구 모드 비교·공통 특성 검증 | **사전 비교: 의자·벤치·소파 5쌍 비교표만 작성, 바닐라·인게임 최종 검증 미시작** |
 
 **확정 완료 0/5개.** 01의 100%는 **표본 수 목표**만 의미한다. 02는 미리 합의한 전체 분석 대상이 없어 퍼센트를 임의로 계산하면 안 된다.
 
-## 2. 누적 연구 결과: v1–v26
+## 2. 누적 연구 결과: v1–v27
 
 | 체크포인트 | 내용 | 확인할 자료 |
 |---|---|---|
@@ -53,6 +53,7 @@
 | v24 | Another 의자 leaf **39개 원본 JSON/SHA 직접 분석**, 2개 기존 부모 템플릿으로 **390 요소/1,794 선언 면 인스턴스** 상속 검사. **신규 PNG·UV RGBA 직접 검사 0** | [v24 보고서](research/furniture_mods/v24/00_v24_의자39_원본JSON_상속기하재질_검증보고서.md) |
 | v25 | 바닐라 우선 복귀: 업로드된 1.21.11 소스 JSON 40개(기하8·상속leaf8·부모8·퇴비통내용물8·상태8), PNG 헤더 8·애니메이션 메타 2 직접 확인. 구조 44요소/204면, 상태 79 variants +9 multipart, 비공식 미러 SHA 6/6 | [v25 바닐라 원본 감사 보고서](research/vanilla_models/v25/00_v25_바닐라원본_모델상속상태PNG_직접검증보고서.md) |
 | v26 | 업로드된 바닐라 PNG **8종 전 화소 8,704개** 직접 디코딩, 6 JSON 모델 원본 면 **36개/프레임별 UV RGBA 70건**, 과거 v4 표본 3종 통계 3/3 대조·PNG SHA 미러 8/8. 인게임·공식 JAR 미검증 | [v26 바닐라 PNG 실화소·UV 면 분석](research/vanilla_models/v26/00_v26_바닐라8PNG_전체RGBA_36면70프레임_실화소보고서.md) |
+| v27 | 바닐라 선반 `oak_shelf` 32×32 원본 PNG 전체·20명시 UV면 실제 픽셀, 상태 24규칙으로 32조합 평가. 퇴비통 새 4PNG 원본 픽셀, 암시UV 26면 실제 영역·UV 식 23/23 명시 사례 교차검증 | [v27 보고서](research/vanilla_models/v27/00_v27_선반32x32_퇴비통자동UV_원본화소검증보고서.md) |
 
 ### 실제 SQLite에서 확인된 행 수 (v10까지의 바닐라 DB)
 
@@ -231,6 +232,15 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 - PNG **8/8** 기존 1.21.11 비공식 에셋 미러와 Git blob SHA 정확 일치; v4 기존 3경로는 파일 바이트 수/가시 픽셀/전체 픽셀/크기 **3/3 일치**. SHA256 신규 계산·공식 Mojang JAR 직접 검증은 **미완료**.
 - 다음 연구는 바닐라 01/02 우선: 자동 UV·블록 상태 방향 회전·추가 대표 가구형 모델 픽셀 검증, 가능하면 공식 JAR 및 인게임 비교. 기존 모드 v24 성과는 변동 없고 **전체 확정 완료 0/5**.
 
+### v27 바닐라 선반 32×32 원본 아틀라스 / 퇴비통 암시적 UV 직접 화소 분석 (2026-11-13)
+
+- [v27 원본 검증 보고서](research/vanilla_models/v27/00_v27_선반32x32_퇴비통자동UV_원본화소검증보고서.md) · [선반 전 화소](research/vanilla_models/v27/01_oak_shelf_full_png_rgba.csv) · [선반 20면 UV 원본 RGBA](research/vanilla_models/v27/02_oak_shelf_20_face_actual_png_rgba.csv) · [선반 32상태 조건 평가](research/vanilla_models/v27/03_oak_shelf_32_combination_rule_evaluation.csv) · [자동 UV 식 23면 검산](research/vanilla_models/v27/04_uv_projection_23_explicit_face_source_crosschecks.csv) · [퇴비통 PNG](research/vanilla_models/v27/05_composter_five_png_rgba.csv) · [퇴비통 암시 UV 26면](research/vanilla_models/v27/06_composter_26_implicit_uv_face_rgba.csv) · [정량 JSON](research/vanilla_models/v27/v27_shelf_composter_uv_pixel_summary.json).
+- **v27 새로 전 화소 디코딩 5 PNG/2,048픽셀** (불투명1,824·완전 투명224·부분 알파0). 이전 v4에 있던 `oak_shelf` 32×32 한 종은 기존 표본과 중복이므로 전체 프로젝트에 신규 5개로 더하지 말 것. 퇴비통 PNG 네 종은 v4 표본에 없었으며 `composter_top`(v26) 1개는 재사용.
+- **선반 명시 UV 20면**의 실제 PNG 영역 검사(텍셀 재사용 포함 **1,376회**), `oak_shelf.json`의 **24 multipart 규칙**으로 `facing4×powered2×side_chain4`의 **32 구성 상태 조합**, 각 본체+전면 2모델 및 회전일치 확인.
+- **퇴비통 자동 UV 좌표 복원 26면**의 실제 PNG 영역 검사 (**3,696 텍셀 사용**). 자동 UV 계산식은 원본 `stairs/slab/fence_post`에 명시된 UV **23/23 완전 일치**로 근거를 보강했으나 **공식 1.21.11 모델 로더 검증/실제 게임 렌더 검증은 아님**. 명시 UV(선반) 20과 유도 UV(퇴비통) 26을 반드시 구분할 것.
+- v27 합계 **46면/5,072 텍셀 사용(전부 불투명)**. 원본 PNG가 가진 투명 픽셀과 모델 면이 실제 UV에서 사용하는 픽셀은 구분. 독립 공식 JAR·인게임·PNG CRC/Adler/Pillow 재실행은 보류.
+- v24 모드 수치 변경 없음. **상위 1단계 0/5 확정 완료**, 바닐라 01·02를 계속 우선 연구.
+
 ## 5. 새 채팅이 곧바로 이어갈 실제 작업
 
 **작업 계획서를 반복 작성하지 말고 실제 데이터 분석을 진행한다.**
@@ -255,13 +265,13 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 
 [새 채팅용 프롬프트 파일](docs/NEW_CHAT_START.md)을 열어 내용을 붙여넣거나 아래 한 문장을 사용한다.
 
-> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **v26 체크포인트부터 바닐라 01/02 연구를 우선 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
+> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **v27 체크포인트부터 바닐라 01/02 연구를 우선 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
 
-**바로 다음 작업:** v26에서 **바닐라 PNG 8종 전체 RGBA와 명시 UV 면36개/프레임 70건 픽셀 분석 완료**. 신규 원본 PNG/암시적 UV/블록상태 회전·인게임·공식 client.jar 검증으로 바닐라 01/02를 계속 진행한다. 모드 v24 원본 분석은 보존하되 우선순위 뒤로. 전체 최종 0/5.
+**바로 다음 작업:** v27에서 바닐라 선반 32×32/20명시 UV면·32상태, 퇴비통 26자동 유도 UV면·5 PNG를 분석했다. 다음은 **공식 Mojang 1.21.11 client.jar 독립 검증, 자동 UV의 실제 클라이언트 동작/회전·UVlock 및 추가 바닐라 가구형 원본 화소 검사, 인게임 렌더**를 우선 수행한다. v24 모드 자료는 유지·후순위. 최종 완료 0/5.
 
 ## 7. 인수인계 유지 방법
 
-- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v26).
+- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v27).
 - **진행도:** `PROGRESS.md`.
 - **새 채팅 복사용:** `docs/NEW_CHAT_START.md`.
 - **기계 판독 상태:** `handoff/STATE.json`.

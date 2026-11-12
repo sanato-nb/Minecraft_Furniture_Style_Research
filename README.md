@@ -33,10 +33,13 @@
 | v24 | Another 미조사 의자 leaf **39개 제작자 원본 JSON/SHA 직접 검사**, 부모 2종의 raw 좌표/UV 비교. **390 요소/1,794 선언 면 인스턴스** | Another leaf **204종**, 신규 10 상태의 Another 경로 91/91 JSON 직접 확인. 원본 PNG·RGBA 신규 검사 0, 누적 PNG175/실제 RGBA 4,113면 유지 |
 | v25 | 바닐라 재개: 사용자 업로드 1.21.11 실제 JSON **40개** 및 PNG 헤더 **8개**, 애니메이션 메타 **2개** 직접 조사. 8 기하 모델 **44요소/204면**, 상태 8종 **79 variants+9 multipart** | 기존 v10 바닐라 연구 보완 / 공식 client.jar 및 인게임 검증 미완료 |
 | v26 | 바닐라 PNG **8종 실제 8,704 RGBA 픽셀** 전체 해독, 모델 고유 UV면 **36개/애니 포함 70기록**, PNG 3프레임·과거 표본 3종 일치 | 새 화소·면 실측, 미러 SHA 8/8 일치 / 공식 Mojang JAR·인게임 미검증 | 
+| v27 | 바닐라 32×32 선반 PNG/6원형 모델 **명시 UV20면/1,376 texel**, 24 multipart·32합성 상태; 퇴비통 암시 UV **26면/3,696 texel**. 새 PNG5종/2,048픽셀, UV 유도식 명시 참조23/23 | 원본 PNG/JSON 계량·일부 좌표 유도 / 공식 1.21.11 JAR·인게임 미검증 |
 
 **학습 전체 5개 작업:** 01 바닐라 텍스처(표본 완료/검증 보류), 02 바닐라 3D(진행 중), 03 가구 모드 모델(v11~v12 실측 진행 중), 04 모드 텍스처·UV(PNG 24개 전체 실화소 및 13모델 571면 UV 표본 정렬 측정), 05 바닐라/모드 비교(5쌍 사전 비교, 최종 검증 미착수). 최종 확정 완료는 **0/5**입니다.
 
 ## 빠른 탐색
+
+- [**v27 최신 — 바닐라 선반·퇴비통 원본 PNG와 자동/명시 UV 실화소 검증**](research/vanilla_models/v27/00_v27_선반32x32_퇴비통자동UV_원본화소검증보고서.md) · [20면 선반 CSV](research/vanilla_models/v27/02_oak_shelf_20_face_actual_png_rgba.csv) · [26면 퇴비통 CSV](research/vanilla_models/v27/06_composter_26_implicit_uv_face_rgba.csv) · [v27 기계 요약](research/vanilla_models/v27/v27_shelf_composter_uv_pixel_summary.json). 완료 0/5 유지.
 
 - [**v26 최신 보고서 — 바닐라 8 PNG 실제 RGBA와 UV 면 36개/70프레임**](research/vanilla_models/v26/00_v26_바닐라8PNG_전체RGBA_36면70프레임_실화소보고서.md) · [8 PNG 픽셀 계량](research/vanilla_models/v26/01_eight_png_full_rgba_pixels.csv) · [70행 면 실화소](research/vanilla_models/v26/02_selected_face_frame_original_rgba.csv) · [검증 요약](research/vanilla_models/v26/v26_vanilla_pixel_uv_audit_summary.json). 바닐라 우선 진행 및 최종 0/5 유지.
 

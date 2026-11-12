@@ -170,3 +170,12 @@
 - 사용자 업로드 PNG 8/8는 기존 1.21.11 비공식 추출본과 **Git blob SHA 동일**. v4에서 이미 측정된 `oak_planks`·`dirt`·`oak_trapdoor`는 **파일 바이트/전체 픽셀/가시 픽셀/크기 3/3 일치**. v4의 SHA-256을 이번 v26에서 직접 재산출하지 않았음.
 - **방법상 제한:** JPEG/GIF가 아닌 PNG의 signature, IHDR, IDAT zlib, 팔레트/알파 및 scanline filter로 화소를 재구성하고 크기·합계를 검산. 각 PNG 청크 **CRC32/zlib Adler32 미검사**, Pillow를 통한 **독립 로컬 재실행 미수행**, 독립 공식 Mojang `client.jar` 검증 및 실제 인게임 렌더 미수행. 바닐라 01/02 최종 완료 아님.
 - `1.21.11/`의 Minecraft 게임 원본 파일이 공개 저장소에 그대로 있는 문제는 **변경하지 않았으며**, 연구 기록에는 원본 게임 이미지/JSON/JAR 재복제를 하지 않았다. 권리/배포 정책 점검 필요. 전체 단계 최종 완료 **0/5**.
+
+## v27 — 바닐라 원본 선반 32×32 아틀라스·퇴비통 자동 UV 구조/실화소 대조 (2026-11-13)
+
+- [v27 원본 감사·정량 보고서](research/vanilla_models/v27/00_v27_선반32x32_퇴비통자동UV_원본화소검증보고서.md), [20면 선반 명시 UV PNG 대조](research/vanilla_models/v27/02_oak_shelf_20_face_actual_png_rgba.csv), [선반 32개 합성 조건](research/vanilla_models/v27/03_oak_shelf_32_combination_rule_evaluation.csv), [퇴비통 26암시 UV면](research/vanilla_models/v27/06_composter_26_implicit_uv_face_rgba.csv), [자동 UV 계산식↔원본 명시 UV 23면](research/vanilla_models/v27/04_uv_projection_23_explicit_face_source_crosschecks.csv).
+- 사용자 공개 저장소 `1.21.11/assets/minecraft`에서 **새로 원본 5 PNG 완전 RGBA 해독 (2,048픽셀, 불투명 1,824·완전 투명 224, 부분알파0)**. 기존 v4 표본에 포함된 `oak_shelf` 1경로와 v26에 이미 해독한 `composter_top`를 중복 합산하지 않음. 5 PNG는 1.21.11 비공식 미러 Git blob SHA와 5/5 일치함.
+- 선반 `template_shelf_body`/전면 선택 template 5개는 **원본 JSON에 직접 UV가 기재됨**. leaf `oak_shelf` texture override를 상속해 32×32 원본 PNG 20면의 픽셀 영역을 검사해 **1,376 texel-uses**; source 24 multipart를 32 합성 조건으로 평가해 정확히 2모델/조건 조회했으나 **인게임의 모든 유효 상태 검증 아님**.
+- 퇴비통 본체 18+내용물8의 **uv 누락 26면**은 요소 from/to에서 6방향 사영식으로 복원한 **유도 좌표**다. 소스 `stairs` 11면, `slab` 6면, `fence_post` 6면의 원본 explicit UV와 **23/23 순서·값 일치**로 공식을 근거화. 원본 PNG 5종(신규4 + v26 기존 top1) 픽셀 값을 조회해 3,696회 모두 알파255 확인. 그러나 이 식이 **Mojang 1.21.11 클라이언트가 실제 사용한 자동 UV 계산 로직과 바이트 수준 동일하다고 판정할 수 없음**. UV 회전·컬링·조명·게임 렌더 역시 미검증. [일반 모델 스펙(외부 2차 설명)](https://minecraft.wiki/w/Model)은 UV 미기재 시 자동 생성만 명시하고 구체적 내부 함수 검증은 대신하지 않음.
+- v27 face→PNG 샘플은 **명시 UV 20 + 유도 UV 26 = 46면 / 총 5,072 texel-uses(전부 불투명)**. 이전 v26의 **36면/70 face-frame**과 별도로 기록하되 texel-uses는 고유 픽셀/렌더 픽셀 수가 아님. 향후 인게임 상태 변화와 방향, 독립 Pillow 및 CRC/Adler 검증이 필요하다.
+- v27/이전 누적은 바닐라 공식 client.jar 인증 **0**, 인게임 검증 **0**, 모드 v24 연구 수치 유지, 상위 1단계 최종 완료 **0/5**. 공개 저장소 `1.21.11`의 비허가 저작권 원본 재배포 문제는 계속 점검 필요; v27 커밋에 원본 게임 이미지/모델 JSON/JAR을 재업로드하지 않음.
