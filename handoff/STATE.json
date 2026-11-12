@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-12",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v21",
+  "current_checkpoint": "v22",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -32,7 +32,7 @@
     {
       "id": "03",
       "topic": "mod furniture 3D model analysis",
-      "status": "v21_another_12_source_blockstates_802_applications_and_38_new_leaf_original_json_source_verified",
+      "status": "v22_another_114_source_leaf_models_verified_and_12_sample_blockstates_all_113_another_original_model_paths_verified",
       "sample": {
         "another_furniture": {
           "source": "crispytwig/AnotherFurniture",
@@ -102,13 +102,24 @@
         "v21_another_new_leaf_inherited_face_instances": 1197,
         "v21_another_new_leaf_vanilla_dirt_faces": 5,
         "v21_macaw_original_jar_acquired": false,
-        "v21_macaw_original_models_inspected": 0
+        "v21_macaw_original_models_inspected": 0,
+        "v22_new_shutter_leaf_model_original_json_read": 43,
+        "v22_new_shutter_source_template_parents": 4,
+        "v22_another_selected_leaf_originals_cumulative": 114,
+        "v22_selected_12_blockstates_original_model_references_total": 114,
+        "v22_selected_12_blockstates_original_another_model_references": 113,
+        "v22_selected_12_blockstates_another_leaf_refs_verified": 111,
+        "v22_selected_12_blockstates_another_direct_template_refs_verified": 2,
+        "v22_selected_12_blockstates_external_minecraft_air_model_reference": 1,
+        "v22_selected_12_blockstates_another_original_model_path_coverage_pct": 100,
+        "v22_macaw_jar_acquired": false,
+        "v22_macaw_source_models_read": 0
       }
     },
     {
       "id": "04",
       "topic": "mod furniture textures and UV analysis",
-      "status": "v21_91_mod_png_source_images_2780_source_png_mod_face_rgba_selected_instanced_models",
+      "status": "v22_original_png_pixel_sources_133_unique_and_face_uv_actual_rgba_sampled_2994_selected_two_mod_cohorts",
       "sample": {
         "another_furniture": {
           "png_headers_measured": 12
@@ -119,8 +130,8 @@
         "total_png_headers_measured": 24,
         "pixel_distribution_verified": true,
         "texture_uv_mapping_verified": true,
-        "actual_png_decoded": 91,
-        "actual_png_another": 67,
+        "actual_png_decoded": 133,
+        "actual_png_another": 109,
         "actual_png_handcrafted": 24,
         "uv_models_measured": 13,
         "uv_faces_pixel_aligned": 571,
@@ -151,7 +162,7 @@
         "v16_png_pixel_bounds_aligned": 784,
         "v16_vanilla_png_face_instances_unverified": 2,
         "v16_face_region_alpha_pixel_sampled": false,
-        "texture_uv_mapping_scope": "v21 Another 71 selected leaf models (previous 33+new 38): 1996 mod PNG face instances direct UV source rectangle RGBA inspected, 8 vanilla dirt faces excluded; v17 Handcrafted 16 selected leaf models 784 mod PNG face instances, 2 vanilla oak_planks faces excluded. Original source pixels, not in-game render.",
+        "texture_uv_mapping_scope": "v22 Another 114 selected leaf models: 2210 source mod PNG face UV regions actual RGBA measured, 8 vanilla dirt face instances excluded; v17 Handcrafted 16 selected generated leaf models: 784 source mod PNG face UV regions RGBA measured, 2 vanilla oak_planks faces excluded. Selected cohorts not entire mods, no in-game renderer.",
         "v17_handcrafted_face_sample_target": 784,
         "v17_handcrafted_face_samples_completed": 784,
         "v17_selected_face_region_coverage_pct": 100,
@@ -213,7 +224,18 @@
         "v21_new_leaf_texel_visible_uses": 30480,
         "v21_new_leaf_texel_transparent_uses": 2304,
         "v21_another_vanilla_dirt_faces_unverified_cumulative": 8,
-        "v21_handcrafted_vanilla_oak_planks_faces_unverified": 2
+        "v21_handcrafted_vanilla_oak_planks_faces_unverified": 2,
+        "v22_new_shutter_original_png_binary_decoded": 42,
+        "v22_shutter_original_pngs_re_fetched": 43,
+        "v22_new_shutter_source_mod_uv_faces_sampled": 214,
+        "v22_another_mod_png_uv_face_rgba_sampled_cumulative": 2210,
+        "v22_handcrafted_mod_png_uv_face_rgba_sampled_cumulative": 784,
+        "v22_all_furniture_mod_png_uv_face_rgba_sampled_cumulative": 2994,
+        "v22_shutter_source_png_full_opaque_pixel_count": 11008,
+        "v22_shutter_source_uv_all_opaque_face_count": 214,
+        "v22_shutter_rgba_texel_uses_reuse_included": 28160,
+        "v22_another_vanilla_dirt_source_faces_unverified": 8,
+        "v22_handcrafted_vanilla_oak_planks_source_faces_unverified": 2
       }
     },
     {
@@ -282,14 +304,15 @@
     "research/furniture_mods/v18/00_v18_AnotherFurniture_원본63_JSON_12PNG_807면_분석보고서.md",
     "research/furniture_mods/v19/00_v19_Another_원본29PNG_807면UV_804면RGBA_보고서.md",
     "research/furniture_mods/v20/00_v20_Another원형69_원본JSON_UV면1362_보고서.md",
-    "research/furniture_mods/v21/00_v21_블록상태12_신규완성형38_신규PNG14_면1192_RGBA_보고서.md"
+    "research/furniture_mods/v21/00_v21_블록상태12_신규완성형38_신규PNG14_면1192_RGBA_보고서.md",
+    "research/furniture_mods/v22/00_v22_셔터43모델_신규PNG42_UV214면_원본실측_보고서.md"
   ],
   "next_work": [
-    "v22: Attempt official Macaw Furniture 3.4.2 Fabric 1.21.11 JAR acquisition and official hash verification, then parse actual model JSON/texture PNG/blockstates; DNS currently blocked and model inspection remains zero.",
-    "Obtain official Minecraft 1.21.11 client.jar to inspect exact 8 Another minecraft:block/dirt and 2 Handcrafted minecraft:block/oak_planks dependent face PNG pixels; source UV numbers alone not official pixel proof.",
-    "Directly inspect the remaining 43 Another Furniture shutter variant model references from the 12 pinned blockstate samples; other 165 unsampled blockstates and 1451 full model paths remain out of scope.",
-    "Expand Handcrafted beyond 16 selected generated leaf models, and run independent Python/Pillow source checkout replay for v19/v21 PNG/UV RGBA sampling.",
-    "Run in-game rendering verification for cullfaces, UV rotations, blockstate multipart/variants and lighting; do not infer renderer behavior from PNG source alpha. Keep completed stage 0/5 and no invented overall percent."
+    "v23: Try official Macaw's Furniture 3.4.2 Fabric 1.21.11 distribution JAR from original publisher. In this environment CDN DNS failed; absolutely no Macaw internal model/UV/PNG has yet been inspected. Verify original file SHA before any claims.",
+    "Get Mojang official Minecraft 1.21.11 client.jar and measure true vanilla PNG dirt 8 source face UV regions and Handcrafted oak_planks 2 source face UV regions; do not confuse reference path resolution with source PNG pixel verification.",
+    "Move beyond already verified 12 Another blockstate JSON files (113/113 original Another model paths covered). Expand source model/texture inspection to other approximately 165 blockstate files and different furniture types, plus Handcrafted generated models outside 16 chosen.",
+    "Replay the pinned upstream JSON/PNG source face texel audit independently via Python/Pillow and verify UV rotation, cullface, multipart composition and blockstate-dependent in-game rendering.",
+    "Do not upgrade strict 0/5 final completed or invent a total-project percentage without full official source/in-game validation. Original copyrighted PNG/JSON/JAR should not be published."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -806,6 +829,75 @@
       "research/furniture_mods/v21/another_new_38_leaf_category_counts.csv",
       "research/furniture_mods/v21/v21_blockstate_new_leaf_rgba_audit.json",
       "research/furniture_mods/v21/00_v21_블록상태12_신규완성형38_신규PNG14_면1192_RGBA_보고서.md"
+    ]
+  },
+  "v22": {
+    "report": "research/furniture_mods/v22/00_v22_셔터43모델_신규PNG42_UV214면_원본실측_보고서.md",
+    "original_author_repository": "crispytwig/AnotherFurniture",
+    "pinned_original_commit": "57eb624cbb7f408d43398c7434b0d38d312cb55d",
+    "original_author_mod_version": "1.21.1",
+    "audit_file": "research/furniture_mods/v22/v22_shutter_source_original_complete_audit.json",
+    "original_43_leaf_model_source_sha_checked": true,
+    "shutter_leaf_models_new": 43,
+    "shutter_original_parent_templates": 4,
+    "new_png_originals_directly_pixel_decoded": 42,
+    "unique_png_originals_fetched_direct": 43,
+    "new_shutter_rgba_uv_source_faces": 214,
+    "shutter_face_status_all_opaque": 214,
+    "shutter_original_png_file_pixels_all_opaque": 11008,
+    "source_texel_uses_reused": 28160,
+    "source_shutter_uv_reversed_face_instances": 75,
+    "source_shutter_uv_rotated_face_instances": 42,
+    "source_12_blockstates_model_paths_total": 114,
+    "source_another_model_paths_from_12_blockstates": 113,
+    "source_another_model_paths_sha_verified": 113,
+    "source_another_leaf_paths_from_12_blockstates": 111,
+    "source_another_parent_model_direct_refs": 2,
+    "source_external_minecraft_air_model_refs": 1,
+    "another_selected_leaf_model_sources_cumulative": 114,
+    "another_original_png_direct_pixel_decoded_unique_cumulative": 109,
+    "handcrafted_original_png_direct_pixel_decoded_unique_cumulative": 24,
+    "mod_original_png_direct_pixel_decoded_unique_cumulative": 133,
+    "another_source_mod_face_rgba_sampled_cumulative": 2210,
+    "handcrafted_source_mod_face_rgba_sampled_cumulative": 784,
+    "all_mod_source_face_rgba_sampled_cumulative": 2994,
+    "unverified_another_vanilla_dirt_faces": 8,
+    "unverified_handcrafted_vanilla_oak_planks_faces": 2,
+    "macaw_official_jar_binary_retrieval_attempted": true,
+    "macaw_official_jar_retrieval_error": "cdn.modrinth.com DNS NameResolutionError in execution container; no Modrinth JAR bytes acquired",
+    "macaw_original_model_json_read": 0,
+    "official_minecraft_1_21_11_client_jar_read": false,
+    "in_game_rendering_verified": false,
+    "pillow_independent_replay": false,
+    "sqlite_updated": false,
+    "original_copyright_source_binaries_republished": false,
+    "completed_substeps": 0,
+    "total_substeps": 5,
+    "source_input_git_sha": {
+      "research/furniture_mods/v22/shutter_43_leaf_resolved_source_face_uv.csv": "daaed72cd88f7071b8d0306449a8d75edd5745a1",
+      "research/furniture_mods/v22/shutter_43_png_original_source_manifest.csv": "c45486f27ed40dac257f9fbeafca53ce23303b03",
+      "research/furniture_mods/v22/shutter_214_face_uv_original_rgba.csv": "cea13d691d2c9ba9fbb71190a3f7669c2b0d0173",
+      "research/furniture_mods/v21/another_12_blockstates_applied_models.csv": "505a7243eb3a4eca273fe2bde41fe167251dd412",
+      "research/furniture_mods/v18/another_leaf_texture_resolved_33.csv": "694e6d995000d0b9b421513e7d6a945e93394caf",
+      "research/furniture_mods/v21/another_38_new_leaf_originals_batch_1_of_4.csv": "34c36d2753063465ba3bac9e21fec47d177c5f5e",
+      "research/furniture_mods/v21/another_38_new_leaf_originals_batch_2_of_4.csv": "6b99ce6142594330f15410bf7964a83ef96a1c2e",
+      "research/furniture_mods/v21/another_38_new_leaf_originals_batch_3_of_4.csv": "764939e592e06dd362a0740d3b5e653223674920",
+      "research/furniture_mods/v21/another_38_new_leaf_originals_batch_4_of_4.csv": "493ea924d62c30cfdc206e6c4bfc7eb3627478e4",
+      "research/furniture_mods/v22/shutter_43_leaf_orig_batch_1_of_4.csv": "38f27d8639f23ce08e8fc43815418c6a15e2e2ba",
+      "research/furniture_mods/v22/shutter_43_leaf_orig_batch_2_of_4.csv": "43274fc70070b7c84f6f4a0ea14e95abfc7696ea",
+      "research/furniture_mods/v22/shutter_43_leaf_orig_batch_3_of_4.csv": "529490de1243d5ba27b3360f62be3129ab083d5f",
+      "research/furniture_mods/v22/shutter_43_leaf_orig_batch_4_of_4.csv": "2ff8773c18286846e9039329907c3d906166ac9d",
+      "research/furniture_mods/v20/another_69_templates_direct_original_geometry.csv": "7b91d8bc0b1e83bf745961bf203322f5533e55b2"
+    },
+    "scope_warning": "113/113 is the original Another-model-path coverage solely for the 12 chosen blockstate JSON files; 109 PNG, 2210 faces and 114 leaf models are selected cohorts, not all upstream model files, PNG textures, blockstates, or game render output.",
+    "outputs": [
+      "research/furniture_mods/v22/00_v22_셔터43모델_신규PNG42_UV214면_원본실측_보고서.md",
+      "research/furniture_mods/v22/shutter_43_leaf_resolved_source_face_uv.csv",
+      "research/furniture_mods/v22/shutter_43_png_original_source_manifest.csv",
+      "research/furniture_mods/v22/shutter_214_face_uv_original_rgba.csv",
+      "research/furniture_mods/v22/shutter_43_leaf_rgba_summary.csv",
+      "research/furniture_mods/v22/shutter_11_variant_groups.csv",
+      "research/furniture_mods/v22/v22_shutter_source_original_complete_audit.json"
     ]
   }
 }
