@@ -10,8 +10,8 @@
   "source_official_mojang_client_verified": false,
   "raw_png_full_decode_count": 8,
   "rgba_pixels_total": 8704,
-  "opaque_pixels": 4422,
-  "transparent_pixels": 4282,
+  "opaque_pixels": 3900,
+  "transparent_pixels": 4804,
   "partial_alpha_pixels": 0,
   "raw_png_distinct_new_outside_v4_150_sample": 5,
   "raw_png_overlap_v4_150_sample": 3,
@@ -31,8 +31,8 @@
     "face_frame_records": 70,
     "distinct_png_source_paths": 4,
     "texel_uses_with_repetition": 3652,
-    "opaque_uses": 3424,
-    "fully_transparent_uses": 228,
+    "opaque_uses": 3328,
+    "fully_transparent_uses": 324,
     "partially_transparent_uses": 0,
     "reverse_uv_face_frame_records": 19,
     "zero_area_face_frame_records": 0,
@@ -60,5 +60,20 @@
     "implicit UV and blockstate rotation source logic cross-check",
     "additional vanilla original PNG and source face pixel sampling",
     "in-game screenshot/light/culling comparison"
-  ]
+  ],
+  "v30_erratum": {
+    "date_kst": "2026-11-13",
+    "source_png": "stonecutter_saw.png",
+    "cause": "Grayscale PNG color_type0 transparent sample in tRNS was ignored by v26 decoder",
+    "source_pixels": 768,
+    "correct_opaque_pixels": 246,
+    "correct_transparent_pixels": 522,
+    "per_frame_opaque": 82,
+    "per_frame_transparent": 174,
+    "source_uv_face_frame_rows_corrected": 6,
+    "per_uv_row_pixels": 98,
+    "per_uv_row_opaque": 82,
+    "per_uv_row_transparent": 16,
+    "independent_pillow_sha256": "9ba79c91f9cdf18b08e1ac50a657a7ecc0349d958195cb821196d5d03c4851fd"
+  }
 }

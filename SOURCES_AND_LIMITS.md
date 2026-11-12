@@ -165,8 +165,8 @@
 ## v26 — 바닐라 PNG 전체 픽셀·모델 UV 70행 실제 검사 (2026-11-13)
 
 - [v26 원본 분석 보고서](research/vanilla_models/v26/00_v26_바닐라8PNG_전체RGBA_36면70프레임_실화소보고서.md)와 PNG 8종 전 화소 CSV, 6개 JSON 모델의 고유 face36개/애니메이션 프레임 포함70행 RGBA CSV, 미러 SHA 8종/기존 v4 3종 교차검사 CSV, 기계 요약 JSON 게시.
-- 저장소 `1.21.11/assets/minecraft/textures/`의 PNG **8개 원본 전체 Base64 바이너리 취득·DEFLATE/PNG filter/PLTE/tRNS 실제 해독**, **총 8,704픽셀(완전불투명4,422/완전투명4,282/부분알파0)**. 기존 v4 150선정 텍스처 중 **3경로 중복**, 다른 5경로는 v4 CSV 표본 밖. v25 8개의 PNG 헤더만 읽은 계수와 서로 합산 금지.
-- 선정 모델 6종의 **명시적 UV 면 36개**, 프레임 시점에 따라 **70개 face×frame 픽셀 조회 기록**(4가지 PNG 소스), 총 **원본 UV 텍셀 사용 3,652회(불투명3,424/투명228)**. 다락문 원형의 `#texture`는 v25 leaf JSON 상속을 통해 `oak_trapdoor`로 연결; 랜턴과 톱날은 16×48 PNG의 16×16 3프레임 모든 영역 조회. 자동 UV인 퇴비통 본체 등은 이번 70건 범위 밖.
+- 저장소 `1.21.11/assets/minecraft/textures/`의 PNG **8개 원본 전체 Base64 바이너리 취득·DEFLATE/PNG filter/PLTE/tRNS 실제 해독**, **총 8,704픽셀(완전불투명3,900/완전투명4,804/부분알파0)**. 기존 v4 150선정 텍스처 중 **3경로 중복**, 다른 5경로는 v4 CSV 표본 밖. v25 8개의 PNG 헤더만 읽은 계수와 서로 합산 금지.
+- 선정 모델 6종의 **명시적 UV 면 36개**, 프레임 시점에 따라 **70개 face×frame 픽셀 조회 기록**(4가지 PNG 소스), 총 **원본 UV 텍셀 사용 3,652회(불투명3,328/투명324)**. 다락문 원형의 `#texture`는 v25 leaf JSON 상속을 통해 `oak_trapdoor`로 연결; 랜턴과 톱날은 16×48 PNG의 16×16 3프레임 모든 영역 조회. 자동 UV인 퇴비통 본체 등은 이번 70건 범위 밖.
 - 사용자 업로드 PNG 8/8는 기존 1.21.11 비공식 추출본과 **Git blob SHA 동일**. v4에서 이미 측정된 `oak_planks`·`dirt`·`oak_trapdoor`는 **파일 바이트/전체 픽셀/가시 픽셀/크기 3/3 일치**. v4의 SHA-256을 이번 v26에서 직접 재산출하지 않았음.
 - **방법상 제한:** JPEG/GIF가 아닌 PNG의 signature, IHDR, IDAT zlib, 팔레트/알파 및 scanline filter로 화소를 재구성하고 크기·합계를 검산. 각 PNG 청크 **CRC32/zlib Adler32 미검사**, Pillow를 통한 **독립 로컬 재실행 미수행**, 독립 공식 Mojang `client.jar` 검증 및 실제 인게임 렌더 미수행. 바닐라 01/02 최종 완료 아님.
 - `1.21.11/`의 Minecraft 게임 원본 파일이 공개 저장소에 그대로 있는 문제는 **변경하지 않았으며**, 연구 기록에는 원본 게임 이미지/JSON/JAR 재복제를 하지 않았다. 권리/배포 정책 점검 필요. 전체 단계 최종 완료 **0/5**.
@@ -197,3 +197,12 @@
 - 원본 요소 비교: 일반→열림 시 **두 기둥 2/8 원시 좌표 동일, 나머지 6/8 이동·형상 조정**, y는 모두 불변; `in_wall`이면 원시 from/to.y **8/8 전부 정확히 -3**, 열림에서도 8/8 동일하게 -3. 정적 모델 인스턴스 차이이며 인게임 실시간 보간·collision이나 renderer 확인이 아님.
 - 상태 16개는 4원형을 각각 4방향으로 선택하며 `uvlock:true`가 16/16 소스에 **명시**된다. **UVlock 실제 효과와 회전된 face 방향·인게임 화면은 미검증**. 독립 Mojang 공식 1.21.11 client.jar 확인도 미완료.
 - 기존 v25–v28 바닐라 연구 및 v24 모드 연구 결과·지표는 그대로 둔다. **상위 1단계 최종 완료 0/5**, 01 바닐라 텍스처 선정 표본 150/150(전체 게임 아님), 02 바닐라 모델/상태/UV 진행 중. 게임 원본 `.class`/JSON/PNG는 사용자의 **공개 repo**에서 재배포되고 있으므로 별도 배포 권한·저작권 검토 필요. v29 커밋에는 원본 리소스를 복제하지 않고 파생 데이터와 해시만 올림.
+
+## v30 — 복합 가구형 바닐라 5모델 91면 원본 텍스처 분석 / v26 수정 (2026-11-13)
+
+- [v30 직접 분석·오류 정정보고서](research/vanilla_models/v30/00_v30_바닐라5모델_91면UV_18PNG_RGBA_투명도정정보고서.md), 원본 모델·PNG·blockstate·v4 비교 CSV 9개 및 JSON 1개를 GitHub에 저장. 소스는 사용자 저장소 `1.21.11/assets/minecraft/`의 실제 원본 PNG·모델 JSON·blockstate JSON이며 모든 산출물에 경로·Git blob SHA·표본 조건을 기재함.
+- `lectern/grindstone/flower_pot/enchanting_table/template_anvil` **5모델 18요소·91고유 source face**, 원본 `faces.uv`의 PNG 범위 실제 RGBA 검사. 모루의 정상/금감/파손 leaf top 재질 3종으로 face×재질 **93개 레코드/6,012 texel-uses**, 전부 불투명. 이 중 `flower_pot` dirt 상단 1면은 기존 v26 표본 중복, **실제 화소 검증 신규 90고유 면**.
+- 원본 **PNG 18개/4,608픽셀** 전체 해독: 불투명 **3,582**, 완전 투명 **1,026**, 부분 알파 0. v4 선정150종 표본에 포함되는 경로 **5개**, 그 밖 **13개**. v4 파일 길이/크기/가시·총 픽셀 **5/5 일치**. 기존 v26·v29에 판독한 `oak_planks/dirt`는 중복이며 프로젝트 신규 18종이라는 뜻은 아님. 전 PNG의 SHA-256을 v30에서 독립 재해시하지 않았음.
+- 원본 blockstate 7 JSON의 **30 variants**(`lectern4/grindstone12/flower_pot1/enchanting_table1/anvil4/chipped_anvil4/damaged_anvil4`)를 별도 CSV로 기록. 이 30개에서 명시적 `uvlock:true` 0 (키 부재와 명시 false는 구분). `lectern`의 내부 element 회전 -22.5도, 숫돌 설치면별 x/y 회전, 모루 top 재질만 상태에 따라 바뀌는 parent 상속 사례를 확인했다. source 회전 속성이지 인게임 실제 회전/UVlock 검증은 아니다.
+- **중요 v26 정정:** 자체 JS 디코더가 회색조 PNG `color_type=0`의 `tRNS` 투명색 키 0을 적용하지 않았다. 독립 Pillow에서 `stonecutter_saw`, `grindstone_round`, `grindstone_side`, `anvil_top` 4 PNG의 전체 화소를 재검사했으며 모두 새 표에 반영. **v26의 `stonecutter_saw` 16×48 불투명246/투명522**가 정답이다. v26 PNG8종 전체 픽셀 합 **불투명3,900/투명4,804**, v26 선택 모델 face-frame 70행 texel-uses **불투명3,328/투명324**로 바로잡고 [v26 보고서](research/vanilla_models/v26/00_v26_바닐라8PNG_전체RGBA_36면70프레임_실화소보고서.md), PNG CSV, UV CSV, JSON 요약도 수정했다.
+- v8·v9의 `LecternBlockEntityRenderer`·`EnchantingTableBlockEntityRenderer`·book 모델 정보는 간접 출처/이전 연구이고, v30에서는 공식 런타임/책 애니메이션/인게임을 새로 검증하지 않음. **독립 Mojang 1.21.11 client.jar 인증 및 게임 조명/UV/회전 검증은 미완료.** 모드 v24 수치 그대로, 확정 완료 **0/5**. 공개 저장소 게임 원본 바이너리/JSON/PNG 재배포 권리 점검 필요.

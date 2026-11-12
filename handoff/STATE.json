@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-13",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v29",
+  "current_checkpoint": "v30",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -19,7 +19,7 @@
     {
       "id": "01",
       "topic": "vanilla material and texture analysis",
-      "status": "v29_oak_planks_pillow_git_sha_and_sha256_independently_recomputed_match_v4_150_selected_official_jar_pending",
+      "status": "v30_18_original_png_full_rgba_and_gray_trns_fix_v26_official_mojang_jar_pending",
       "sample_count": 150,
       "target": 150,
       "v26_pngs_full_rgba_decoded": 8,
@@ -32,12 +32,16 @@
       "v28_opaque_pixels": 464,
       "v28_transparent_pixels": 48,
       "v29_pngs_original_rehashed": 1,
-      "v29_new_png_paths": 0
+      "v29_new_png_paths": 0,
+      "v30_pngs": 18,
+      "v30_source_pixels": 4608,
+      "v30_v4_overlap": 5,
+      "v30_erratum_v26": true
     },
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v29_fence_gate_four_templates_160_explicit_faces_direct_png_rgba_and_all_eight_geometry_deltas_completed_runtime_pending",
+      "status": "v30_5_models_91_source_faces_93_material_uv_rgba_original_pixels_done_runtime_pending",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -58,7 +62,12 @@
       "v28_fence_gate_parent_face_declarations": 160,
       "v29_gate_face_declarations_original_rgba_checked": 160,
       "v29_gate_face_texel_uses": 1952,
-      "v29_in_wall_y_minus3_all_elements": true
+      "v29_in_wall_y_minus3_all_elements": true,
+      "v30_model_count": 5,
+      "v30_source_face_count": 91,
+      "v30_material_records": 93,
+      "v30_actual_source_texel_uses": 6012,
+      "v30_original_blockstate_variants": 30
     },
     {
       "id": "03",
@@ -395,11 +404,11 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "Continue vanilla 01/02; independently verify Mojang 1.21.11 client.jar provenance/hash, not just uploaded GitHub resource and third party mirror.",
-    "Find and inspect actual 1.21.11 client model loader implementation or run the Minecraft client to validate uvlock/rotation/face culling and original fence-gate geometry, which are not proven by source JSON alone.",
-    "Prioritize other furniture-adjacent vanilla models and entity-rendered assets, especially cases not yet directly sampled; preserve v29 160 original fence gate UV faces from redundant recalc.",
-    "Develop evidence-graded design observations grounded in vanilla PNG/geometry/state results; defer final style guide and cross-mod final conclusions until verification.",
-    "Preserve v24 mod results unchanged, user public Minecraft raw assets redistribution warning, and stage 1 completion 0/5."
+    "Continue vanilla 01/02. Independently verify a genuinely obtained Mojang Java 1.21.11 official client.jar and compare hashes; GitHub public uploaded assets are not official provenance.",
+    "Validate actual in-game blockstate x/y rotation, uvlock, lectern/enchanting book block-entity rendering and shading. v30 has source JSON and prior v8/v9 indirect renderer documentation only.",
+    "Continue original PNG/face UV for other furniture-like vanilla block classes without repeating 5 models/91 source faces or v29 fence gate 160 faces.",
+    "Audit older grayscale PNG and tRNS transparency metrics for similar errors; v26 stonecutter_saw PNG and face records amended in v30.",
+    "Preserve v24 mod evidence, avoid distributing raw Mojang game assets, complete 0/5 until explicit verified closure."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -1194,16 +1203,16 @@
     "report": "research/vanilla_models/v26/00_v26_바닐라8PNG_전체RGBA_36면70프레임_실화소보고서.md",
     "source_pngs_full_rgba_decoded": 8,
     "source_png_pixels_total": 8704,
-    "opaque_pixels": 4422,
-    "fully_transparent_pixels": 4282,
+    "opaque_pixels": 3900,
+    "fully_transparent_pixels": 4804,
     "partial_alpha_pixels": 0,
     "selected_source_models_for_uv": 6,
     "distinct_face_declarations_uv_rgba_measured": 36,
     "face_frame_uv_rgba_records": 70,
     "source_pngs_for_uv": 4,
     "texel_uses_with_repetition": 3652,
-    "opaque_uses": 3424,
-    "transparent_uses": 228,
+    "opaque_uses": 3328,
+    "transparent_uses": 324,
     "partial_alpha_uses": 0,
     "reverse_uv_face_frame_records": 19,
     "zero_area_uv_face_frame_records": 0,
@@ -1223,7 +1232,8 @@
       "research/vanilla_models/v26/03_eight_png_mirror_blob_crosscheck.csv",
       "research/vanilla_models/v26/04_three_v4_texture_metrics_crosscheck.csv",
       "research/vanilla_models/v26/v26_vanilla_pixel_uv_audit_summary.json"
-    ]
+    ],
+    "v30_erratum": "Corrected grayscale PNG tRNS transparent key0, stonecutter_saw via Pillow. Amended v26 original report/CSV2/JSON."
   },
   "v27": {
     "date_kst": "2026-11-13",
@@ -1401,6 +1411,69 @@
       "research/vanilla_models/v29/05_oak_planks_independent_sha256_pillow_v4_crosscheck.csv",
       "research/vanilla_models/v29/06_eight_element_open_wall_geometry_deltas.csv",
       "research/vanilla_models/v29/v29_fence_gate_full_uv_rgba_summary.json"
+    ]
+  },
+  "v30": {
+    "date_kst": "2026-11-13",
+    "priority": "vanilla_01_02",
+    "report": "research/vanilla_models/v30/00_v30_바닐라5모델_91면UV_18PNG_RGBA_투명도정정보고서.md",
+    "source_models": [
+      "lectern",
+      "grindstone",
+      "flower_pot",
+      "enchanting_table",
+      "template_anvil"
+    ],
+    "original_model_json": 5,
+    "source_elements": 18,
+    "source_faces": 91,
+    "source_face_material_records": 93,
+    "previously_unmeasured_source_faces_now_pixels_verified": 90,
+    "source_pngs_full_decoded": 18,
+    "source_png_pixels": 4608,
+    "source_png_opaque": 3582,
+    "source_png_transparent": 1026,
+    "source_png_partial": 0,
+    "existing_v4_150_png_paths": 5,
+    "source_png_paths_outside_v4_150": 13,
+    "actual_uv_texel_uses": 6012,
+    "uv_texel_opaque": 6012,
+    "uv_texel_transparent": 0,
+    "source_blockstates": 7,
+    "source_state_variants": 30,
+    "anvil_leaf_top_material_variants": 3,
+    "lectern_internal_element_rotation_deg": -22.5,
+    "grindstone_mount_variants": 12,
+    "legacy_v4_metric_checks_equal": "5/5",
+    "independently_pillow_verified_pngs": [
+      "stonecutter_saw",
+      "grindstone_round",
+      "grindstone_side",
+      "anvil_top"
+    ],
+    "v26_gray_trns_erratum": true,
+    "v26_png_8_corrected_opaque": 3900,
+    "v26_png_8_corrected_transparent": 4804,
+    "v26_uv_70_corrected_opaque": 3328,
+    "v26_uv_70_corrected_transparent": 324,
+    "previous_v26_csv_json_report_amended": true,
+    "official_mojang_client_jar_verified": false,
+    "ingame_verified": false,
+    "uvlock_runtime_verified": false,
+    "previous_mod_v24_unchanged": true,
+    "stage1_final_completed_substeps": 0,
+    "stage1_total_substeps": 5,
+    "outputs": [
+      "research/vanilla_models/v30/01_lectern_grindstone_9_png_rgba.csv",
+      "research/vanilla_models/v30/02_lectern_grindstone_42_source_face_uv_pixels.csv",
+      "research/vanilla_models/v30/03_lectern_grindstone_geometry.csv",
+      "research/vanilla_models/v30/04_pot_enchant_anvil_9_png_rgba.csv",
+      "research/vanilla_models/v30/05_pot_enchant_anvil_51_material_face_uv_rgba.csv",
+      "research/vanilla_models/v30/06_pot_enchant_anvil_geometry.csv",
+      "research/vanilla_models/v30/07_seven_blockstates_all_variants.csv",
+      "research/vanilla_models/v30/08_anvil_three_leaf_top_texture_overrides.csv",
+      "research/vanilla_models/v30/09_five_legacy_v4_png_metrics_crosschecks.csv",
+      "research/vanilla_models/v30/v30_five_models_face_png_summary.json"
     ]
   }
 }
