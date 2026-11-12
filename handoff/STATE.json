@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-13",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v25",
+  "current_checkpoint": "v26",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -19,21 +19,27 @@
     {
       "id": "01",
       "topic": "vanilla material and texture analysis",
-      "status": "sample_target_met_validation_pending",
+      "status": "v26_eight_source_png_full_rgba_decoded_150_existing_sample_target_met_official_validation_pending",
       "sample_count": 150,
-      "target": 150
+      "target": 150,
+      "v26_pngs_full_rgba_decoded": 8,
+      "v26_source_pixels": 8704,
+      "v26_overlap_existing_v4_150": 3
     },
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v25_direct_uploaded_1_21_11_vanilla_40_json_8_png_header_2_mcmeta_source_audited_official_jar_pending",
+      "status": "v26_original_face_uv_pixels_measured_36_declared_faces_70_frame_samples_in_progress",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
       "v25_source_mcmeta_count": 2,
       "v25_direct_own_geometry_elements": 44,
       "v25_direct_own_faces": 204,
-      "v25_blockstates_sampled": 8
+      "v25_blockstates_sampled": 8,
+      "v26_unique_original_faces_pixel_measured": 36,
+      "v26_face_frame_samples": 70,
+      "v26_actual_rgba_texel_uses": 3652
     },
     {
       "id": "03",
@@ -370,11 +376,11 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "Continue vanilla stage 01/02: evaluate uploaded 1.21.11 extracted resource completeness and independently verify a genuine Mojang 1.21.11 client.jar; do not mistake 6/6 mirror matches for official validation.",
-    "Compare the v4 selection of 150 vanilla texture PNGs to original source and extend actual per-face UV→pixel/alpha checks for useful furniture-adjacent blocks, beyond v25 PNG header-only checks.",
-    "Expand 8 directly sampled vanilla blockstates into representative models, model inheritance, animation metadata and ingame lighting/rotation/render checks; avoid re-counting v25 50 source file sample.",
-    "Keep v24 mod results archived unchanged (Another 204 leaves, 22/177 blockstates, two mods 175 PNG/4113 original face UV RGBA); return to 39 chair leaf pixels and 155 unseen Another blockstates only after vanilla priority has been addressed.",
-    "Audit public repo Minecraft raw .class/PNG/JSON redistribution rights; preserve result-derived statistics rather than re-upload proprietary source; final 0/5 until official/in-game verification."
+    "Prioritize vanilla 01/02: obtain independently verifiable Mojang 1.21.11 client.jar byte source, do NOT treat user-upload GitHub copy or third-party mirror SHA match as official certification.",
+    "Extend source-to-face UV pixel verification to representative source models not yet analyzed, especially generated/implicit UV models such as composter and blockstate model rotation; avoid repeating v26 8 PNG full decodes and 70 face-frame records.",
+    "Cross-check more than v26 3 existing v4 texture samples against the v4 150 selected source statistics. Recalculate source SHA-256 only with actual bytes; do not claim independent rehash from Git blob SHA alone.",
+    "Perform in-game model, texture cutout, UV rotation, lighting and animation comparison where runtime access is available; maintain 0/5 final completed until verified.",
+    "Preserve v24 mod analysis unchanged and audit public raw Minecraft source redistribution rights."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -1162,5 +1168,42 @@
     "face_uv_rgba_newly_sampled": 0,
     "mod_data_v24_unchanged": true,
     "stage1_substeps_completed": 0
+  },
+  "v26": {
+    "date_kst": "2026-11-13",
+    "priority": "vanilla_stage1_01_and_02",
+    "report": "research/vanilla_models/v26/00_v26_바닐라8PNG_전체RGBA_36면70프레임_실화소보고서.md",
+    "source_pngs_full_rgba_decoded": 8,
+    "source_png_pixels_total": 8704,
+    "opaque_pixels": 4422,
+    "fully_transparent_pixels": 4282,
+    "partial_alpha_pixels": 0,
+    "selected_source_models_for_uv": 6,
+    "distinct_face_declarations_uv_rgba_measured": 36,
+    "face_frame_uv_rgba_records": 70,
+    "source_pngs_for_uv": 4,
+    "texel_uses_with_repetition": 3652,
+    "opaque_uses": 3424,
+    "transparent_uses": 228,
+    "partial_alpha_uses": 0,
+    "reverse_uv_face_frame_records": 19,
+    "zero_area_uv_face_frame_records": 0,
+    "uploaded_png_mirror_sha_matching": "8/8",
+    "v4_150_existing_sample_overlaps": 3,
+    "v4_sample_metrics_matching": "3/3",
+    "v4_sha256_independently_recomputed": false,
+    "independent_png_crc_or_pillow_replay_completed": false,
+    "official_mojang_client_jar_verified": false,
+    "in_game_verified": false,
+    "mod_v24_numbers_unchanged": true,
+    "final_completed_substeps": 0,
+    "stage1_substeps_total": 5,
+    "results": [
+      "research/vanilla_models/v26/01_eight_png_full_rgba_pixels.csv",
+      "research/vanilla_models/v26/02_selected_face_frame_original_rgba.csv",
+      "research/vanilla_models/v26/03_eight_png_mirror_blob_crosscheck.csv",
+      "research/vanilla_models/v26/04_three_v4_texture_metrics_crosscheck.csv",
+      "research/vanilla_models/v26/v26_vanilla_pixel_uv_audit_summary.json"
+    ]
   }
 }

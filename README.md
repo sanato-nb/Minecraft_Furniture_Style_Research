@@ -32,10 +32,13 @@
 | v23 | 이전 12개 밖 **블록 상태 10개 SHA·386 apply**, 원본 새 leaf **51개**와 새 PNG **42종**을 직접 조사해 **모드 면 1,119개 UV 실제 RGB/알파 실측** | Another **상태 22/177·leaf 165·PNG151·면3,329**, Handcrafted 포함 **PNG175종/면4,113**. 신규 상태의 의자 leaf39개·바닐라/Macaw/인게임 미완료 |
 | v24 | Another 미조사 의자 leaf **39개 제작자 원본 JSON/SHA 직접 검사**, 부모 2종의 raw 좌표/UV 비교. **390 요소/1,794 선언 면 인스턴스** | Another leaf **204종**, 신규 10 상태의 Another 경로 91/91 JSON 직접 확인. 원본 PNG·RGBA 신규 검사 0, 누적 PNG175/실제 RGBA 4,113면 유지 |
 | v25 | 바닐라 재개: 사용자 업로드 1.21.11 실제 JSON **40개** 및 PNG 헤더 **8개**, 애니메이션 메타 **2개** 직접 조사. 8 기하 모델 **44요소/204면**, 상태 8종 **79 variants+9 multipart** | 기존 v10 바닐라 연구 보완 / 공식 client.jar 및 인게임 검증 미완료 |
+| v26 | 바닐라 PNG **8종 실제 8,704 RGBA 픽셀** 전체 해독, 모델 고유 UV면 **36개/애니 포함 70기록**, PNG 3프레임·과거 표본 3종 일치 | 새 화소·면 실측, 미러 SHA 8/8 일치 / 공식 Mojang JAR·인게임 미검증 | 
 
 **학습 전체 5개 작업:** 01 바닐라 텍스처(표본 완료/검증 보류), 02 바닐라 3D(진행 중), 03 가구 모드 모델(v11~v12 실측 진행 중), 04 모드 텍스처·UV(PNG 24개 전체 실화소 및 13모델 571면 UV 표본 정렬 측정), 05 바닐라/모드 비교(5쌍 사전 비교, 최종 검증 미착수). 최종 확정 완료는 **0/5**입니다.
 
 ## 빠른 탐색
+
+- [**v26 최신 보고서 — 바닐라 8 PNG 실제 RGBA와 UV 면 36개/70프레임**](research/vanilla_models/v26/00_v26_바닐라8PNG_전체RGBA_36면70프레임_실화소보고서.md) · [8 PNG 픽셀 계량](research/vanilla_models/v26/01_eight_png_full_rgba_pixels.csv) · [70행 면 실화소](research/vanilla_models/v26/02_selected_face_frame_original_rgba.csv) · [검증 요약](research/vanilla_models/v26/v26_vanilla_pixel_uv_audit_summary.json). 바닐라 우선 진행 및 최종 0/5 유지.
 
 - [**v25 최신 보고서: 업로드된 1.21.11 바닐라 원본 JSON/상속·상태·PNG 메타 실측**](research/vanilla_models/v25/00_v25_바닐라원본_모델상속상태PNG_직접검증보고서.md) · [기계 판독 요약](research/vanilla_models/v25/v25_vanilla_research_audit_summary.json). 바닐라 공식 client.jar/인게임은 미검증이며 완료 0/5.
 
