@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-12",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v13",
+  "current_checkpoint": "v14",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -66,7 +66,7 @@
     {
       "id": "04",
       "topic": "mod furniture textures and UV analysis",
-      "status": "png_24_full_pixel_samples_and_13_models_571_faces_uv_alignment_in_progress",
+      "status": "v14_texture_binding_reference_audit_in_progress_not_face_pixel_verified",
       "sample": {
         "another_furniture": {
           "png_headers_measured": 12
@@ -85,7 +85,17 @@
         "uv_faces_measured": 571,
         "uv_mirrored": 190,
         "uv_zero_area": 64,
-        "in_game_verified": false
+        "in_game_verified": false,
+        "v14_leaf_models": 16,
+        "v14_texture_slot_bindings": 51,
+        "v14_mod_slot_references": 35,
+        "v14_v13_png_sha_matched_bindings": 19,
+        "v14_mod_png_outside_v13_sample_bindings": 16,
+        "v14_mod_png_outside_v13_sample_unique": 12,
+        "v14_unverified_vanilla_texture_bindings": 16,
+        "v14_leaf_all_mod_slots_matched": 7,
+        "v14_leaf_any_mod_slot_matched": 13,
+        "v14_leaf_uv_parent_in_v13_sample": 9
       }
     },
     {
@@ -146,14 +156,15 @@
     "docs/NEW_CHAT_START.md",
     "README.md",
     "research/furniture_mods/v11/00_v11_AnotherFurniture_모델분석_보고서.md",
-    "research/furniture_mods/v13/00_v13_모드PNG실화소_UV픽셀정렬_보고서.md"
+    "research/furniture_mods/v13/00_v13_모드PNG실화소_UV픽셀정렬_보고서.md",
+    "research/furniture_mods/v14/00_v14_텍스처슬롯_근거연결_보고서.md"
   ],
   "next_work": [
-    "Validate actual per-face PNG/UV textured pixels using pinned mod source, not just UV grid alignment",
-    "Expand mod color/texture sample beyond v13's 24 PNGs",
-    "Only study Macaw's Furniture after verified official distribution JAR/model assets available",
-    "Keep official Minecraft 1.21.11 client.jar and in-game checks pending",
-    "Update HANDOFF.md, PROGRESS.md, README.md and STATE.json after the next checkpoint"
+    "Obtain pinned-commit model JSON and PNG bytes legally and test each model face -> resolved #slot -> exact PNG pixel rectangle and alpha",
+    "Decode 12 newly identified unsampled Handcrafted mod PNG source files (do not redistribute assets)",
+    "Inspect actual 33 Another Furniture leaf texture slot mappings directly from verified source JSON; historic CSV has counts only",
+    "Macaw verified official distributable only; official Minecraft 1.21.11 client.jar and in-game checks pending",
+    "Update HANDOFF.md PROGRESS.md README.md STATE.json SOURCES_AND_LIMITS.md after next checkpoint"
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -223,5 +234,39 @@
       "official Minecraft client JAR"
     ],
     "binary_sqlite_updated": false
+  },
+  "v14": {
+    "report": "research/furniture_mods/v14/00_v14_텍스처슬롯_근거연결_보고서.md",
+    "inputs": [
+      "research/furniture_mods/v12/handcrafted_generated_leaf_sample_16.csv",
+      "research/furniture_mods/v12/handcrafted_png_header_12.csv",
+      "research/furniture_mods/v13/handcrafted_png_12_pixel_metrics.csv",
+      "research/furniture_mods/v13/uv_to_pixel_alignment_13_models.csv",
+      "research/furniture_mods/v11/representative_models_33_resolved.csv"
+    ],
+    "outputs": [
+      "research/furniture_mods/v14/handcrafted_texture_bindings_51.csv",
+      "research/furniture_mods/v14/handcrafted_leaf_coverage_16.csv",
+      "research/furniture_mods/v14/unsampled_mod_png_priority_12.csv",
+      "research/furniture_mods/v14/v14_binding_audit_summary.json"
+    ],
+    "source_ref_handcrafted": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035",
+    "performed": "cross-join of existing v12/13 recorded texture slots, sampled PNG SHA/size metadata and UV parent sample",
+    "original_json_png_read_in_v14": false,
+    "source_pixel_data_redecoded_in_v14": false,
+    "leaf_models": 16,
+    "texture_slot_bindings": 51,
+    "handcrafted_references": 35,
+    "v13_png_sample_hash_matched_bindings": 19,
+    "unsampled_mod_bindings": 16,
+    "unsampled_unique_mod_png": 12,
+    "vanilla_dependencies_unverified": 16,
+    "leaf_all_mod_slots_matched": 7,
+    "leaf_any_matched": 13,
+    "uv_parent_in_v13": 9,
+    "another_furniture_v11_leaf_models_without_texture_path_records": 33,
+    "face_png_pixel_mapping_verified": false,
+    "in_game_verified": false,
+    "sqlite_updated": false
   }
 }
