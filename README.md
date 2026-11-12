@@ -18,8 +18,9 @@
 | v9 | 특수 렌더링 실제 기하 모델 17종/55개 요소, 애니메이션 15개 클립 | 비공식 추출 모델 직접 분석 / 공식 JAR·인게임 검증 대기 |
 | v10 | v8 SQLite에 v9 측정값 통합, 신규 DB 3개 테이블·SQL migration | 로컬 SQLite 무결성 검증 / 공식 JAR·인게임 검증 대기 |
 | v11 | Another Furniture(1.21.1) 모델 템플릿 **69개**, 완성형 상속 **33개**, 블록 상태 **12개**, PNG 헤더 **12개** 실측 | 03 모드 3D 분석 착수, 04 모드 텍스처 사전 표본 시작 |
+| v12 | Handcrafted 원형 120종(810 요소), 생성형 16종 상속, 12개 블록 상태, PNG 12개, 모드 간 5유형 비교 | 원본 파일 실측, 픽셀·인게임 검증과 Macaw 공식 JAR 실측 보류 |
 
-**학습 전체 5개 작업:** 01 바닐라 텍스처(표본 완료/검증 보류), 02 바닐라 3D(진행 중), 03 가구 모드 모델(v11 실측 진행 중), 04 모드 텍스처·UV(PNG 헤더 사전 실측), 05 바닐라/모드 비교(미시작). 최종 확정 완료는 **0/5**입니다.
+**학습 전체 5개 작업:** 01 바닐라 텍스처(표본 완료/검증 보류), 02 바닐라 3D(진행 중), 03 가구 모드 모델(v11~v12 실측 진행 중), 04 모드 텍스처·UV(PNG 헤더 24개 사전 실측), 05 바닐라/모드 비교(5쌍 사전 비교, 최종 검증 미착수). 최종 확정 완료는 **0/5**입니다.
 
 ## 빠른 탐색
 
@@ -35,6 +36,9 @@
 - [v10: 누적 DB 통합 검증 보고서](research/vanilla_models/v10/00_v10_누적DB_통합검증_보고서.md)
 - [v11: Another Furniture 실제 모델/텍스처 1차 실측 보고서](research/furniture_mods/v11/00_v11_AnotherFurniture_모델분석_보고서.md)
 - [v11: 모델 템플릿 69개 측정 CSV](research/furniture_mods/v11/template_metrics_69_total.csv)
+- [v12: Handcrafted 전수 원형 120종 분석 및 모드 간 사전 비교](research/furniture_mods/v12/00_v12_Handcrafted_교차분석_보고서.md)
+- [v12 Handcrafted 120종 측정 CSV](research/furniture_mods/v12/handcrafted_authored_120_total.csv)
+- [v12 모드 대표 5쌍 구조 비교](research/furniture_mods/v12/another_vs_handcrafted_5_category_pairs.csv)
 - [v10 SQL 증분 패치](data/migrations/v8_to_v10.sql)
 - [v10 SQLite 재구성 Python 스크립트](scripts/rebuild_v10_db.py)
 - [공식 1.21.11 client.jar 대조 도구](scripts/verify_official_jar.py) / [사용법](docs/official_client_jar_검증방법.md) — 실제 JAR 검사 미완료
