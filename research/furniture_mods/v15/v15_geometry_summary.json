@@ -1,0 +1,130 @@
+{
+  "checkpoint": "v15",
+  "date": "2026-11-12",
+  "method": "New comparative metrics computed from existing source-inspected and measured v11/v12/v13 repository CSV records; no original source JSON/PNG newly downloaded.",
+  "version_boundary": {
+    "vanilla": "Minecraft Java 1.21.11",
+    "another": "1.21.1 pinned 57eb624cbb7f408d43398c7434b0d38d312cb55d",
+    "handcrafted": "1.21.x pinned 8d21d1665916850c3fa3bdaf1370c50ec2ca7035"
+  },
+  "original_assets_directly_read_v15": 0,
+  "source_files": {
+    "research/furniture_mods/v12/handcrafted_authored_120_total.csv": "a61fb64761dbe56d53cb18c83be07c8102c01ee4",
+    "research/furniture_mods/v11/template_metrics_69_total.csv": "ac10e87a0dd975c771f4dd655e08e331396c8abb",
+    "research/furniture_mods/v12/another_vs_handcrafted_5_category_pairs.csv": "c05b11fcb8ac7ad9b5698bb657ad6fc1435a3ebc",
+    "research/furniture_mods/v13/another_png_12_pixel_metrics.csv": "b67a3d8b5f4837abdfc45f2a96a1673a2b913cfd",
+    "research/furniture_mods/v13/handcrafted_png_12_pixel_metrics.csv": "c6a726d9cb596c18f45204f2662ae2eb2c719d5d"
+  },
+  "totals": [
+    {
+      "mod": "Another Furniture",
+      "models": 69,
+      "authored_nonempty_models": 69,
+      "empty_models": 0,
+      "element_total": 299,
+      "declared_face_total": 1362,
+      "possible_face_slots": 1794,
+      "face_slots_not_declared": 432,
+      "face_declaration_pct": 75.92,
+      "rotated_elements": 17,
+      "flat_elements": 34,
+      "models_with_rotation": 10,
+      "models_with_flat_elements": 20,
+      "models_with_all_six_faces_declared": 9,
+      "models_with_partial_face_declarations": 60,
+      "nonempty_models_with_bbox_evidence": 69,
+      "nonempty_models_with_bbox_outside_0_16": 3,
+      "models_with_outside_bbox_x": 0,
+      "models_with_outside_bbox_y": 1,
+      "models_with_outside_bbox_z": 2,
+      "rotated_elements_share_pct": 5.69,
+      "flat_elements_share_pct": 11.37,
+      "nonempty_rotated_model_pct": 14.49,
+      "nonempty_bbox_outside_model_pct": 4.35
+    },
+    {
+      "mod": "Handcrafted",
+      "models": 120,
+      "authored_nonempty_models": 112,
+      "empty_models": 8,
+      "element_total": 810,
+      "declared_face_total": 4860,
+      "possible_face_slots": 4860,
+      "face_slots_not_declared": 0,
+      "face_declaration_pct": 100,
+      "rotated_elements": 283,
+      "flat_elements": 183,
+      "models_with_rotation": 75,
+      "models_with_flat_elements": 53,
+      "models_with_all_six_faces_declared": 112,
+      "models_with_partial_face_declarations": 0,
+      "nonempty_models_with_bbox_evidence": 112,
+      "nonempty_models_with_bbox_outside_0_16": 60,
+      "models_with_outside_bbox_x": 32,
+      "models_with_outside_bbox_y": 41,
+      "models_with_outside_bbox_z": 41,
+      "rotated_elements_share_pct": 34.94,
+      "flat_elements_share_pct": 22.59,
+      "nonempty_rotated_model_pct": 66.96,
+      "nonempty_bbox_outside_model_pct": 53.57
+    }
+  ],
+  "handcrafted_family_count": 22,
+  "handcrafted_families": [
+    "crockery",
+    "trophy",
+    "table",
+    "fancy_bed",
+    "base",
+    "bench",
+    "couch",
+    "metal_bench",
+    "trim",
+    "dining_bench",
+    "pot",
+    "stackable_book",
+    "jar",
+    "kitchen_hood",
+    "oven",
+    "chair",
+    "counter",
+    "cushion",
+    "desk",
+    "nightstand",
+    "shelf",
+    "side_table"
+  ],
+  "v13_sample_palette_supplement": [
+    {
+      "mod": "Another Furniture",
+      "texture_samples": 12,
+      "unique_visible_rgba_median": 7,
+      "unique_visible_rgba_min": 4,
+      "unique_visible_rgba_max": 10,
+      "textures_with_partial_alpha": 0,
+      "visible_coverage_unweighted_median_pct": 87.5
+    },
+    {
+      "mod": "Handcrafted",
+      "texture_samples": 12,
+      "unique_visible_rgba_median": 7,
+      "unique_visible_rgba_min": 4,
+      "unique_visible_rgba_max": 10,
+      "textures_with_partial_alpha": 0,
+      "visible_coverage_unweighted_median_pct": 25.615000000000002
+    }
+  ],
+  "comparability_limits": [
+    "Distinct scope: 69 Another templates vs 120 Handcrafted authored model records (8 with 0 direct elements). Not matched designs or equivalent sample frames.",
+    "An element allows six directional face slots, including 0-thickness and rotated boxes. Declared faces are source JSON face definitions, NOT guaranteed visible/rendered faces.",
+    "bbox from unrotated source-coordinate component extrema; outside 0..16 does not establish collision shape, final world bounds or multi-block behavior.",
+    "Rotated and flat flags can overlap within a model and must not be summed into independent parts.",
+    "Texture palette sample counts in v13 apply to exactly 12 PNG per mod and do not imply all mod textures have the same palette."
+  ],
+  "still_unverified": [
+    "official Minecraft 1.21.11 client.jar",
+    "in-game rendering, animation, tint/culling",
+    "mod exact per-face #slot -> PNG pixel rectangle and image sampling",
+    "verified Macaw JAR model structure"
+  ]
+}
