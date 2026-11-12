@@ -1,0 +1,62 @@
+{
+  "checkpoint": "v20",
+  "date": "2026-11-12",
+  "source": "crispytwig/AnotherFurniture",
+  "source_ref": "57eb624cbb7f408d43398c7434b0d38d312cb55d",
+  "target": "All 69 template JSON files already counted in v11; 30 previously v18 selected + 39 previously outside selected 33 leaf sample",
+  "source_json_direct_re_read_same_immutable_ref": 69,
+  "previous_selected_template_count": 30,
+  "previous_unselected_template_count": 39,
+  "newly_directly_extended_template_originals": 39,
+  "original_source_sha_matched_v11": 69,
+  "models_with_same_face_geometry_checked": 69,
+  "model_geometry_counts": {
+    "models": 69,
+    "model_unique": 69,
+    "source_face_declarations": 1362,
+    "unique_face_keys": 1362,
+    "model_elements": 299,
+    "uv_reversed": 422,
+    "uv_zero_area": 4,
+    "uv_missing": 0,
+    "uv_rotated_faces": 134,
+    "cullface_declared": 443,
+    "tintindex_declared": 0,
+    "model_elements_rotated": 17,
+    "model_elements_flat": 34,
+    "model_elements_raw_bbox_outside": 11,
+    "models_with_raw_bbox_outside": [
+      "chair_tucked",
+      "coat_hook",
+      "grandfather_clock_full"
+    ],
+    "elements_shade_false": 0,
+    "unique_texture_slot_refs": 28,
+    "template_missing_json_sha": []
+  },
+  "source_input_git_blob_shas": {
+    "research/furniture_mods/v11/template_metrics_69_total.csv": "ac10e87a0dd975c771f4dd655e08e331396c8abb",
+    "research/furniture_mods/v20/another_remaining_template_39_source_audit_batch_1_of_3.csv": "433e18b1ee54c3faa4f380fa64af686156abce68",
+    "research/furniture_mods/v20/another_remaining_template_face_source_batch_1_of_3.csv": "e8b49c66bc21876288e258d898e202c97be6d890",
+    "research/furniture_mods/v20/another_selected_template_30_source_audit_batch_1_of_3.csv": "11f3389ee642c3d0c942d261fcda1a4663239d07",
+    "research/furniture_mods/v20/another_selected_template_face_source_batch_1_of_3.csv": "28d6f04640b9a2688944faf8840c2213e614e115",
+    "research/furniture_mods/v20/another_remaining_template_39_source_audit_batch_2_of_3.csv": "7f4f248edb107876112e01c5b6d66201f47519c1",
+    "research/furniture_mods/v20/another_remaining_template_face_source_batch_2_of_3.csv": "b5933d5c6e29dce18d013e33af1ac08f016f2975",
+    "research/furniture_mods/v20/another_selected_template_30_source_audit_batch_2_of_3.csv": "26f81eb6b5dfaeb62bae79944e19481c5e572c51",
+    "research/furniture_mods/v20/another_selected_template_face_source_batch_2_of_3.csv": "b3eae65091a01711f73cdff68c0c149331bb6718",
+    "research/furniture_mods/v20/another_remaining_template_39_source_audit_batch_3_of_3.csv": "465487e639794ac848f43420ab90b6061e0a04f8",
+    "research/furniture_mods/v20/another_remaining_template_face_source_batch_3_of_3.csv": "0e3945befa1ee7c5047830223902aa92944691ef",
+    "research/furniture_mods/v20/another_selected_template_30_source_audit_batch_3_of_3.csv": "4d1a971ca4ed8f7459068d267e904aabefa199aa",
+    "research/furniture_mods/v20/another_selected_template_face_source_batch_3_of_3.csv": "a25e28824065873667b766ee5c834cc22976c589"
+  },
+  "method": "Fetch original JSON by pinned owner commit, compare Git blob SHA+elements+faces to v11 archived raw metrics; inspect original elements[].from/to/rotation/shade and faces[].uv/rotation/cullface/texture for each of 69 templates.",
+  "limitations": [
+    "69 templates are the v11 cataloged template subset, not all 1451 model files in upstream repository.",
+    "An element raw bbox outside 0..16 is author model-space data, not collision shape or guaranteed out-of-block visual extent.",
+    "Zero-thickness elements and cullface declarations are file declarations, not performance outcome or guaranteed rendered visibility.",
+    "Model raw texture slots on previously unselected templates are not linked to final leaf-generated textures or original PNG alpha; v19 source UV RGBA sampling remains scoped to 33 selected leaf models.",
+    "Macaw's Furniture official 1.21.11 binary confirmed on Modrinth, but jar download unavailable in this execution environment; 0 models inspected.",
+    "Official Minecraft 1.21.11 client.jar and in-game renderer remain unverified; no percentage for overall research completion.",
+    "No copyrighted original model JSON, PNG or JAR shared in output repository."
+  ]
+}
