@@ -1,0 +1,48 @@
+{
+  "analysis_date": "2026-11-11",
+  "game_version": "Minecraft Java Edition 1.21.11",
+  "asset_source": "InventivetalentDev/minecraft-assets 1.21.11 branch",
+  "asset_reconstruction": "30 previous PNG + 53 newly retrieved individual PNGs",
+  "validated_total": 83,
+  "previous": 30,
+  "new_validated": 53,
+  "failed_transcription_or_decode_not_counted": [
+    {
+      "texture_id": "pink_wool",
+      "source": "new",
+      "failure": "cannot identify image file '/mnt/data/MC_vanilla_textures_study_02/assets/pink_wool.png'"
+    },
+    {
+      "texture_id": "black_terracotta",
+      "source": "new",
+      "failure": "cannot identify image file '/mnt/data/MC_vanilla_textures_study_02/assets/black_terracotta.png'"
+    },
+    {
+      "texture_id": "sandstone",
+      "source": "new",
+      "failure": "broken PNG file (bad header checksum in b'IDAT')"
+    }
+  ],
+  "group_counts": {
+    "목재·원목": 18,
+    "석재·벽돌": 17,
+    "금속·금속부품": 13,
+    "직물·양털": 9,
+    "유리": 6,
+    "도기·유광도기": 8,
+    "콘크리트·색면": 7,
+    "복합·기능면": 5
+  },
+  "source_url": "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11/assets/minecraft/textures/block",
+  "limitations": [
+    "Not checked against official Mojang client.jar",
+    "No in-game rendering or shading validation",
+    "Color and edge metrics do not certify aesthetics",
+    "Some asset base64 transcriptions were corrupted and were explicitly excluded"
+  ],
+  "target_minimum": 80,
+  "target_nominal": 100,
+  "target_upper": 150,
+  "sample_progress_nominal_pct": 83,
+  "step_01_status": "표본 개수 하한 달성, 분석 보강·인게임/공식 자산 교차검증 미완료"
+}
