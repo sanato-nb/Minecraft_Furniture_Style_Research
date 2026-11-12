@@ -1,0 +1,161 @@
+{
+  "totals": {
+    "checkpoint": "v17",
+    "date": "2026-11-12",
+    "source_pinned_ref": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035",
+    "unit": "face_instance_including_reused_parent_geometry",
+    "face_target_mod_png": 784,
+    "face_mapped_and_original_png_pixel_rectangle_sampled": 784,
+    "sampling_coverage_pct": 100,
+    "distinct_textures": 24,
+    "source_original_pngs_directly_read_this_v17": 24,
+    "nonzero_rect_faces": 612,
+    "zero_uv_area_faces": 172,
+    "uv_reversed_faces": 251,
+    "sampled_texel_uses": 41290,
+    "opaque_texel_uses": 31665,
+    "transparent_texel_uses": 9625,
+    "partial_alpha_texel_uses": 0,
+    "sample_statuses": {
+      "sampled_all_opaque": 420,
+      "sampled_mixed_opaque_transparent": 145,
+      "zero_uv_area": 172,
+      "sampled_fully_transparent": 47
+    },
+    "original_face_json_covered_from_v16": 30,
+    "original_independent_face_instances_total_including_vanilla": 786,
+    "vanilla_2_face_pixel_sampled": false,
+    "original_assets_republished": false,
+    "official_game_client_jar_verified": false,
+    "in_game_verified": false,
+    "substeps_final_complete": 0,
+    "substeps_total": 5
+  },
+  "source_git_blobs": {
+    "research/furniture_mods/v17/handcrafted_16_leaf_face_rects_786.csv": "8e443cdd7d850f502bd81ca6615163dfe2221d55",
+    "research/furniture_mods/v17/face_pixel_samples_batch_1_of_3.csv": "dbd7dbbc0d77bffd76b5d43b4bd8e83f5c0b72eb",
+    "research/furniture_mods/v17/face_pixel_samples_batch_2_of_3.csv": "14af93e96b1a65050a272c69b7a22bef6a5d7858",
+    "research/furniture_mods/v17/face_pixel_samples_batch_3_of_3.csv": "85d7cbe46e7ed9474bca197f2ae0eaedd1c909a7",
+    "research/furniture_mods/v16/v16_original_face_mapping_audit.json": "5b5fc7bd08eabf0a1859f2b65638b1815c5b87e9"
+  },
+  "helper_source_git_blob": "85c55c8678ccf549d8ebf1b8cfdfc68fa62cf0e4",
+  "per_texture_records": 24,
+  "per_leaf_records": 16,
+  "fully_transparent_rect_examples": [
+    {
+      "leaf": "oak_bench_middle_white",
+      "png": "bench/oak_bench",
+      "face": "down",
+      "area": 192
+    },
+    {
+      "leaf": "oak_bench_middle_white",
+      "png": "bench/oak_bench",
+      "face": "down",
+      "area": 48
+    },
+    {
+      "leaf": "oak_couch_single_white",
+      "png": "couch/cushion/white_cushion",
+      "face": "east",
+      "area": 70
+    },
+    {
+      "leaf": "oak_couch_single_white",
+      "png": "couch/cushion/white_cushion",
+      "face": "south",
+      "area": 80
+    },
+    {
+      "leaf": "oak_couch_single_white",
+      "png": "couch/cushion/white_cushion",
+      "face": "west",
+      "area": 70
+    },
+    {
+      "leaf": "oak_couch_single_white",
+      "png": "couch/cushion/white_cushion",
+      "face": "down",
+      "area": 224
+    },
+    {
+      "leaf": "oak_couch_single_white",
+      "png": "couch/cushion/white_cushion",
+      "face": "down",
+      "area": 56
+    },
+    {
+      "leaf": "oak_couch_single_white",
+      "png": "couch/oak_couch",
+      "face": "east",
+      "area": 75
+    },
+    {
+      "leaf": "oak_couch_single_white",
+      "png": "couch/oak_couch",
+      "face": "up",
+      "area": 75
+    },
+    {
+      "leaf": "oak_couch_single_white",
+      "png": "couch/oak_couch",
+      "face": "west",
+      "area": 75
+    },
+    {
+      "leaf": "oak_couch_single_white",
+      "png": "couch/oak_couch",
+      "face": "up",
+      "area": 75
+    },
+    {
+      "leaf": "oak_couch_single_white",
+      "png": "couch/oak_couch",
+      "face": "north",
+      "area": 210
+    },
+    {
+      "leaf": "oak_couch_single_white",
+      "png": "couch/oak_couch",
+      "face": "up",
+      "area": 56
+    },
+    {
+      "leaf": "oak_couch_middle_white",
+      "png": "couch/cushion/white_cushion",
+      "face": "south",
+      "area": 80
+    },
+    {
+      "leaf": "oak_couch_middle_white",
+      "png": "couch/cushion/white_cushion",
+      "face": "down",
+      "area": 224
+    },
+    {
+      "leaf": "oak_couch_middle_white",
+      "png": "couch/cushion/white_cushion",
+      "face": "down",
+      "area": 64
+    },
+    {
+      "leaf": "oak_couch_middle_white",
+      "png": "couch/oak_couch",
+      "face": "north",
+      "area": 240
+    },
+    {
+      "leaf": "oak_couch_middle_white",
+      "png": "couch/oak_couch",
+      "face": "up",
+      "area": 64
+    }
+  ],
+  "limitations": [
+    "The results are source PNG texel counts inside face UV rectangles; they are NOT rasterized/perspective/in-game visible pixel counts.",
+    "Texel uses are counted again when a PNG rectangle is used by another face, another model leaf, or overlap; not unique image texels.",
+    "UV rectangle has zero area for 172 faces; no texels are sampled there and this does not necessarily indicate invisible geometry.",
+    "Face rotation and mirrored UV rearrange samples but not the rectangle's unweighted multiset of texels; in-game interpolation, culling, lighting, tinting and blockstate assembly remain pending.",
+    "Two vanilla oak_planks faces out of 786 source face instances are excluded until official Minecraft client.jar texture verification."
+  ]
+}
