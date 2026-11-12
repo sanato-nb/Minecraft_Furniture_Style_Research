@@ -93,7 +93,7 @@ v10 로컬 SQLite 스냅샷을 직접 열어 조회하고 `PRAGMA integrity_chec
 
 ### v16 고정 원본 모델 JSON과 실제 PNG 화소·face 슬롯 연결 (현재 최신)
 
-- [v16 상세 보고서](research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md) · [신규 12 PNG 실화소 측정](research/furniture_mods/v16/handcrafted_12_new_png_pixel_metrics.csv) · [16 leaf 원본 51슬롯 확인](research/furniture_mods/v16/handcrafted_16_leaf_original_slots_confirmed.csv) · [16 leaf/36 재질·면 그룹](research/furniture_mods/v16/handcrafted_16_leaf_face_material_groups.csv) · [face 검증 감사 JSON](research/furniture_mods/v16/v16_original_face_mapping_audit.json).
+- [v16 상세 보고서](research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md) · [신규 12 PNG 실화소 측정](research/furniture_mods/v16/handcrafted_12_new_png_pixel_metrics.csv) · [16 leaf 원본 51슬롯 확인](research/furniture_mods/v16/handcrafted_16_leaf_original_slots_confirmed.csv) · [16 leaf/36 재질·면 그룹](research/furniture_mods/v16/handcrafted_16_leaf_face_material_groups.csv) · [face 검증 감사 JSON](research/furniture_mods/v16/v16_original_face_mapping_audit.json) · [원본 로컬 재검증 스크립트](scripts/reproduce_v16_handcrafted_originals.py) (표준 라이브러리, 문법 테스트만 수행; 원본 로컬 end-to-end 미실행).
 - **직접 새로 검증:** Handcrafted 원 제작자 커밋 `8d21d166...`에서 PNG 원본 **12종 추가 픽셀 완전 디코딩**(66,816픽셀; 가시 7,358/투명 59,458/부분 알파 0), 원본 JSON **30개**(생성형 16/원형 부모 14) Git blob SHA 재확인, leaf 텍스처 슬롯 **51개** 재확인.
 - **face 인스턴스 786개** 중 Handcrafted 모드 PNG 24종에 연결된 **784면 모두** 정확한 파일 경로와 SHA·크기를 확보, UV의 PNG 픽셀 정수 격자 정렬·범위 내 위치 확인. 나머지 **2면은 `minecraft:block/oak_planks`**(공식 PNG 미검증). `bench/cushion/none_cushion` 및 `shelf/overlay/none`은 가시 픽셀 0인 완전 투명 PNG.
 - **핵심 구분:** 786은 부모 기하가 복수 leaf에 재적용된 *면 인스턴스*, 고유 면 786개가 아니다. face 사각형 **내부**의 실제 픽셀 분포/알파 샘플링과 인게임 렌더 상태 확인은 여전히 미완료. 이전 v13 원본 PNG 12개와 v16 신규 12개로 Handcrafted 고유 24개 PNG의 실화소 근거 확보.
