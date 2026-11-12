@@ -1,7 +1,7 @@
 # 인수인계 · Minecraft Furniture Style Research
 
 > **새 채팅 진입점 / 단일 인수인계 기준 문서**  
-> 최종 확인일: **2026-11-12 (KST)** · 현재 체크포인트: **v11**  
+> 최종 확인일: **2026-11-12 (KST)** · 현재 체크포인트: **v12**  
 > 저장소: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research  
 > **새 채팅에서 먼저 이 문서, [PROGRESS.md](PROGRESS.md), [SOURCES_AND_LIMITS.md](SOURCES_AND_LIMITS.md)를 읽고 기존 작업을 이어간다.**
 
@@ -19,13 +19,13 @@
 |---|---|---|
 | 01 | 바닐라 재질·텍스처 | **150/150종 표본 확보·분석 완료**, 공식 게임 파일 대조 및 인게임 검증 **미완료** |
 | 02 | 바닐라 3D 형태·모델 JSON·UV·상태·특수 렌더링 | **v10까지 연구 진행 중**, 전체 완료 판정 전 |
-| 03 | Another Furniture·Macaw's Furniture·Handcrafted 등 가구 모드의 실제 3D 모델 | **v11 시작: Another Furniture 1.21.1 템플릿 69개·완성형 33개·블록 상태 12개 직접 분석. 다른 모드 미시작** |
-| 04 | 위 가구 모드의 텍스처·UV·팔레트 | **v11 사전 측정: PNG 12개 헤더·해상도 확인. 실제 픽셀/UV 분석 미완료** |
-| 05 | 바닐라 ↔ 가구 모드 비교·공통 특성 검증 | **미시작** |
+| 03 | Another Furniture·Macaw's Furniture·Handcrafted 등 가구 모드의 실제 3D 모델 | **v11 Another Furniture(1.21.1) 템플릿 69개/완성형 33개/상태 12개, v12 Handcrafted(1.21.x) 원형 120개/생성형 16개/상태 12개 분석. Macaw 실측 0개(공식 출처 확인 후 진행)** |
+| 04 | 위 가구 모드의 텍스처·UV·팔레트 | **v11 Another Furniture PNG 12개 + v12 Handcrafted PNG 12개 헤더 확인. 실제 픽셀 디코딩·UV 이미지 매핑 미완료** |
+| 05 | 바닐라 ↔ 가구 모드 비교·공통 특성 검증 | **사전 비교: 의자·벤치·소파 5쌍 비교표만 작성, 바닐라·인게임 최종 검증 미시작** |
 
 **확정 완료 0/5개.** 01의 100%는 **표본 수 목표**만 의미한다. 02는 미리 합의한 전체 분석 대상이 없어 퍼센트를 임의로 계산하면 안 된다.
 
-## 2. 누적 연구 결과: v1–v11
+## 2. 누적 연구 결과: v1–v12
 
 | 체크포인트 | 내용 | 확인할 자료 |
 |---|---|---|
@@ -36,6 +36,8 @@
 | v8 | 침대·상자·표지판 등 특수 렌더링 블록과 엔티티 텍스처·아틀라스 구분 | [v8 보고서](research/vanilla_models/v8/00_v8_특수렌더_정적동적_비교보고서.md) |
 | v9 | 비공식 1.21.11 엔티티 모델 추출 JSON으로 **17모델/19레이어/55 기하 요소(0두께 15)** 및 애니메이션 **6모델/15클립/304 저장 키프레임** 계측 | [v9 기하 보고서](research/vanilla_models/v9/00_v9_실제부품구조_분석보고서.md), [v9 애니메이션 보고서](research/vanilla_models/v9/03_v9_애니메이션_검토보고서.md) |
 | v10 | v8 SQLite에 v9 측정 내용을 증분 SQL로 통합; 검증 상태를 테이블로 분리; 공식 JAR 로컬 검사기 작성 | [v10 보고서](research/vanilla_models/v10/00_v10_누적DB_통합검증_보고서.md) |
+| v11 | Another Furniture 원형 템플릿 69종·완성형 상속 33종·블록 상태 12개·PNG 12종 | [v11 보고서](research/furniture_mods/v11/00_v11_AnotherFurniture_모델분석_보고서.md) |
+| v12 | Handcrafted 원형 모델 **120종(810요소/4,860면/283회전/183평면)**, 생성형 16종, 블록 상태 12종, PNG 12종, 모드 간 5쌍 비교 | [v12 보고서](research/furniture_mods/v12/00_v12_Handcrafted_교차분석_보고서.md) |
 | v11 | **Another Furniture** 1.21.1 Git 소스 모델 템플릿 69개·완성형 33개·블록 상태 12개·PNG 헤더 12개 측정 | [v11 모드 가구 분석 보고서](research/furniture_mods/v11/00_v11_AnotherFurniture_모델분석_보고서.md) |
 
 ### 실제 SQLite에서 확인된 행 수 (v10까지의 바닐라 DB)
@@ -59,6 +61,15 @@ v10 로컬 SQLite 스냅샷을 직접 열어 조회하고 `PRAGMA integrity_chec
 | `validation_audit_v10` | 6 | 직접 검증/부분 검증/미검증 분리 |
 
 **주의:** v11 모드 가구의 수치는 아래 CSV에 따로 저장되어 있고 **v10 SQLite에는 아직 통합하지 않았다**. 또한 55 정적 모델, 17 특수 모델, 19 레이어, 55 기하 요소는 서로 다른 집계 단위다. 합쳐서 '총 모델 수'로 쓰면 안 된다.
+
+### v11–v12 모드 실측 자료의 범위
+
+- [Another Furniture v11 템플릿 69종](research/furniture_mods/v11/template_metrics_69_total.csv): 299개 요소, 1,362개 UV면, 0두께 요소 34개. 모드 소스는 Minecraft 1.21.1; 브랜치 SHA `57eb624cbb7f408d43398c7434b0d38d312cb55d`.
+- [Handcrafted v12 작성 모델 120종 전체](research/furniture_mods/v12/handcrafted_authored_120_total.csv): 직접 정의된 810 요소, 4,860 UV 지정 면, 비영(0° 아님) 요소 회전 283건, 0두께 요소 183건. [생성형 16종 표본](research/furniture_mods/v12/handcrafted_generated_leaf_sample_16.csv), [블록 상태 12종](research/furniture_mods/v12/handcrafted_blockstates_12.csv), [PNG 헤더 12종](research/furniture_mods/v12/handcrafted_png_header_12.csv).
+- Handcrafted 출처: `terrarium-earth/Handcrafted` `1.21.x` 커밋 `8d21d1665916850c3fa3bdaf1370c50ec2ca7035` 고정. **120종은 authored 블록 모델 전체**, 11,989개 자동 생성 모델은 **경로만 전수**, 내용은 16종 표본을 확인한 것.
+- [두 모드의 의자·벤치·소파 대표 5쌍 사전 비교](research/furniture_mods/v12/another_vs_handcrafted_5_category_pairs.csv): 형태 기준 선택 쌍이며 디자인 품질 우열의 검증이 아니다.
+- **Macaw's Furniture** 1.21.11 Fabric 3.4.2 정식 게시 확인: https://modrinth.com/mod/macaws-furniture/version/xhmciaUD. 공식 공개 모델 원본 또는 배포 JAR의 직접 내용을 아직 확인하지 못함. **모델 실측 0건**이며 제3자 비검증 저장소를 원 제작자 소스로 쓰지 말 것.
+- 두 모드 원본 리소스(모델/PNG)는 **All Rights Reserved**, GitHub에는 추출 측정값과 경로/해시만 보관. 1.21.1 모드 데이터와 바닐라 1.21.11의 버전이 다름.
 
 ## 3. 데이터 위치와 버전 복원
 
@@ -113,7 +124,9 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 
 [새 채팅용 프롬프트 파일](docs/NEW_CHAT_START.md)을 열어 내용을 붙여넣거나 아래 한 문장을 사용한다.
 
-> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **마지막 체크포인트부터 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
+> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **v12 체크포인트부터 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
+
+**바로 다음 작업:** v12 실측 분석 파일을 참조해 정량 기반 UV·실제 PNG 픽셀 분석(04)을 확대하거나 Macaw의 검증된 정식 1.21.11 JAR을 확보해 03을 확장한다. 공식 바닐라 JAR/인게임 검증 보류를 해제하지 말 것.
 
 ## 7. 인수인계 유지 방법
 
