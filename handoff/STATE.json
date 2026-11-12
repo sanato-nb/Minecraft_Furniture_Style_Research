@@ -1,0 +1,105 @@
+{
+  "schema": "mc-furniture-handoff/v1",
+  "updated_at": "2026-11-12",
+  "timezone": "Asia/Seoul",
+  "current_checkpoint": "v10",
+  "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
+  "version": "Minecraft Java Edition 1.21.11",
+  "scope": {
+    "top_stages": [
+      "1: analyze vanilla and mod furniture modeling/textures",
+      "2: derive evidence-based modeling style guide"
+    ],
+    "excluded": [
+      "Project Zomboid furniture conversion",
+      "actual furniture model creation"
+    ]
+  },
+  "substeps": [
+    {
+      "id": "01",
+      "topic": "vanilla material and texture analysis",
+      "status": "sample_target_met_validation_pending",
+      "sample_count": 150,
+      "target": 150
+    },
+    {
+      "id": "02",
+      "topic": "vanilla model JSON, UV, states and special rendering",
+      "status": "in_progress",
+      "percent": null
+    },
+    {
+      "id": "03",
+      "topic": "mod furniture 3D model analysis",
+      "status": "not_started"
+    },
+    {
+      "id": "04",
+      "topic": "mod furniture textures and UV analysis",
+      "status": "not_started"
+    },
+    {
+      "id": "05",
+      "topic": "vanilla/mod comparison",
+      "status": "not_started"
+    }
+  ],
+  "completed_substeps": 0,
+  "total_substeps": 5,
+  "verified_sqlite_local": {
+    "integrity": "ok",
+    "foreign_key_issues": 0,
+    "table_counts": {
+      "texture_stats_v4": 150,
+      "models": 55,
+      "blockstates": 16,
+      "elements": 80,
+      "uv_faces_v6": 90,
+      "assembly_cases_v7": 21,
+      "assembly_parts_v7": 53,
+      "assembly_primitives_v7": 93,
+      "special_block_evidence_v8": 17,
+      "texture_atlases_v8": 6,
+      "special_model_layers_v9": 19,
+      "special_animation_clips_v9": 15,
+      "validation_audit_v10": 6
+    }
+  },
+  "v9": {
+    "special_model_ids": 17,
+    "layers": 19,
+    "geometry_elements": 55,
+    "zero_thickness": 15,
+    "animated_model_ids": 6,
+    "animation_clips": 15,
+    "sampled_keyframes": 304
+  },
+  "db": {
+    "git_tracked_baseline": "data/MC_Furniture_Style_Stage1_Research_v8.sqlite",
+    "migration": "data/migrations/v8_to_v10.sql",
+    "rebuild": "scripts/rebuild_v10_db.py",
+    "v10_binary_uploaded_to_github": false
+  },
+  "verification_pending": [
+    "official client.jar byte/hash comparison",
+    "in-game tint/UV/transparency/render and animation comparison"
+  ],
+  "canonical_docs": [
+    "HANDOFF.md",
+    "PROGRESS.md",
+    "SOURCES_AND_LIMITS.md",
+    "docs/NEW_CHAT_START.md",
+    "README.md"
+  ],
+  "next_work": [
+    "Verify latest GitHub checkpoint",
+    "Finish or explicitly defer outstanding vanilla model validations",
+    "Start actual mod furniture asset research with direct evidence when appropriate",
+    "Update all handoff/status files after each checkpoint"
+  ],
+  "sources": [
+    "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
+    "https://github.com/InventivetalentDev/minecraft-entity-models/tree/1.21.11"
+  ]
+}
