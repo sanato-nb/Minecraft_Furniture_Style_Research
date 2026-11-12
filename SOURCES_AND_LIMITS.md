@@ -57,3 +57,12 @@
 - 통계: 총 슬롯 51건 중 모드 경로 35(기존 실측 PNG에 상응 19 / v13 표본 밖 16) 및 바닐라 Minecraft 경로 16. 표본 밖의 **고유 모드 PNG 12종**은 원본 소스 부재로 이번 화소 재검증 미실시. v11 Another Furniture 완성형 CSV에는 실제 텍스처 override 경로가 없어 33종 face/PNG 연결 미확정.
 - **검증 수준:** `cross_record_reference_join`. 모델별 슬롯이 이미 분석된 어느 PNG 경로/해시에 연결되는지는 확인했으나, 원본 face JSON의 `texture` 지정 및 PNG 내 각 면의 실제 픽셀 영역/알파는 직접 확인하지 않았다. 이번 v14에서 새 원본 PNG/JSON 파일 **0개** 직접 디코딩. 이전 v13의 직접 관찰 수치와 구분하여 누적.
 - Handcrafted 리소스는 All Rights Reserved이며 원본 이미지·모델 JSON을 재배포하지 않는다. Minecraft 1.21.11 공식 JAR·게임 렌더 및 Macaw 원본 실측 0건 상태 변경 없음.
+
+## v15 신규 파생 기하 분석의 근거와 비교 한계
+
+- [v15 연구 보고서](research/furniture_mods/v15/00_v15_기하표현_계량비교_보고서.md) · [189 모델별 지표](research/furniture_mods/v15/model_geometry_derived_189.csv) · [계열별 22그룹](research/furniture_mods/v15/handcrafted_family_metrics_22.csv) · [원본 입력 blob SHA](research/furniture_mods/v15/v15_geometry_summary.json) · [오프라인 재검산 도구](scripts/verify_v15_geometry_research.py).
+- 연구자는 연결된 사용자 GitHub 저장소의 v11 Another Furniture 실측 CSV 69행, v12 Handcrafted 원형 실측 CSV 120행, v13 PNG 화소 CSV 24행을 **직접 재집계해 새 지표를 계산**했다. 새로 원 제작자 PNG/JSON 원본 파일을 직접 다운로드/디코딩/읽은 건수는 **0**. 직접 분석했다는 표현은 기존 GitHub 실측 CSV 및 해당 수치의 재집계에 한정한다.
+- 새 확인 수치: Another 299요소 가능한 방향 면 1,794개 중 JSON 명시 1,362개, 비명시 432개; Handcrafted 810요소 가능한 방향 면 4,860개 중 명시 4,860개. 초과 원시 bbox 모델: Another 3/69, Handcrafted 60/112(0요소 8개 제외). 이는 6면을 가질 수 있는 cuboid 요소라는 집계 관례에 따른 수치로, 실제 렌더링 면 수나 컬링 성능·충돌상자 규격이 아니다.
+- 두 모드는 **템플릿 69개 vs 작성 모델 120개**라는 다른 모집단을 측정했다. 이들의 회전·0두께·bbox 지표 차이를 모드 전체 우열이나 Minecraft 바닐라 '공식 규칙'으로 승격하지 않는다. 회전·0두께 요소는 겹칠 수 있다. 원시 bbox는 로컬 좌표이고 부모·블록 상태 변환 및 실제 렌더/충돌을 반영하지 않는다.
+- v13 PNG 기존 표본 12개씩의 가시 RGBA 색상수 중앙값은 두 모드 모두 7색(이전 픽셀 표본의 재통계), 반투명 픽셀 포함 PNG 0/12 각각. 전체 모드 텍스처에 일반화하지 않는다.
+- 본 v15의 Python 오프라인 검증 스크립트는 GitHub에 새로 게시했으나 **이 대화의 로컬 런타임에서 직접 실행하지 않았다**. 현재 측정은 GitHub 연결 데이터를 JavaScript로 처리하고 불변식을 검사한 것. 공식 Minecraft client.jar 및 인게임 그래픽 검증 상태 미완료; 저작권 원본 에셋 재배포 없음.
