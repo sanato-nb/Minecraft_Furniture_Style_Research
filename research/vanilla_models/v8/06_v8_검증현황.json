@@ -1,0 +1,32 @@
+{
+  "database_integrity": "ok",
+  "base_db": "v7 preserved",
+  "version": "1.21.11",
+  "checkpoints": {
+    "texture_stats_v4": 150,
+    "assembly_cases_v7": 21,
+    "special_block_evidence_v8": 17,
+    "texture_atlases_v8": 6,
+    "special_texture_metadata_v8": 19,
+    "rendering_conclusions_v8": 7
+  },
+  "class_count": {
+    "SPECIAL": 11,
+    "HYBRID": 4,
+    "JSON_ONLY": 2
+  },
+  "sources": "GitHub assets extract + Yarn 1.21.11 Javadoc + Mojang 26.2 release notes",
+  "checks": [
+    "each observed record uses git blob sha1",
+    "sqlite integrity_check",
+    "150 historical texture stats",
+    "21 historical assembly examples",
+    "PNG headers observed in connected GitHub base64 response"
+  ],
+  "not_verified": [
+    "official client.jar byte/sha comparison",
+    "runtime rendering",
+    "implementation details of BER"
+  ],
+  "published_material_contains_original_game_assets": false
+}
