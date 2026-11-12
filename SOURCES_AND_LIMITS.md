@@ -77,3 +77,12 @@
 - **검증 등급:** upstream JSON/PNG bytes and pixel decoding + direct texture path resolution + numeric UV-to-pixel bounds. **저작권 원본 JSON/PNG/JAR 바이너리를 재배포하지 않음**. 공식 Minecraft 1.21.11 `client.jar`와 Macaw 배포 원본 JAR, 인게임 시각 검증은 계속 미완료. 전체 세부 단계 최종 완료 **0/5**.
 
 - [v16 재현 Python 스크립트](scripts/reproduce_v16_handcrafted_originals.py)는 Python 표준 라이브러리 `hashlib`, `zlib`, `csv`, `json` 등을 이용해 고정 원본 SHA 및 12 PNG/16 leaf/14 parent의 기록을 재측정하도록 작성했다. **로컬 PyCompile 문법 검사 통과, 원본 고정 커밋으로의 end-to-end 재실행은 미수행**. 이전 GitHub Contents 환경에서의 직접 바이트 계측과 구분한다.
+
+## v17: 고정 원본 24 PNG의 실제 UV 면 사각형 픽셀 검증
+
+- [v17 상세 보고서](research/furniture_mods/v17/00_v17_면별실화소784_색상알파검증_보고서.md), [784 면별 원본 텍셀 통계](research/furniture_mods/v17/face_pixel_samples_784.csv), [24종 PNG별 사용 통계](research/furniture_mods/v17/texture_face_pixel_usage_24.csv), [입력 Git SHA와 전체 집계](research/furniture_mods/v17/v17_pixel_region_summary.json).
+- 직접 작업: 제작자 `terrarium-earth/Handcrafted` 고정 커밋 `8d21d1665916850c3fa3bdaf1370c50ec2ca7035`에서 PNG **기존 24종을 다시 직접 읽고** Git blob SHA·PNG IDAT/DEFLATE/필터·RGB/RGBA/팔레트 `tRNS`를 검사. v16에서 계산한 **16 leaf × 14 원형 부모의 Handcrafted 소유 PNG 면 인스턴스 784/784**에 대해 UV 사각형 내부 원본 픽셀을 직접 집계. **v17 신규 고유 PNG/모델 원본 증가는 0**이며 v13/v16 자료의 원본 재검증·정량 심화다.
+- 산출 수치: 784면 중 172면은 0면적 UV(사각형 내부 픽셀 없음), 612면이 비영 사각형; 비영 중 420면은 전부 불투명, 145면은 불투명·완전투명 혼합, 47면은 전부 투명. **41,290번의 UV 텍셀 읽기**(불투명 31,665, 투명 9,625, 부분 알파 0)이며 재사용 부모/모델 또는 서로 다른 면이 동일 텍셀을 반복 참조한 **중복 포함 누적 사용 횟수**이다.
+- 주의: `UV 사각형의 원본 픽셀이 불투명`은 **실제 인게임에 해당 면이 보인다**는 의미가 아니다. 조명·컬링·회전·알파 테스트·블록 상태·UV 보간·렌더링 관찰이 없으며 바닐라 기본 `oak_planks` PNG 2면은 미측정. 0면적 UV를 결함이나 미표시로 단정하지 않는다.
+- [실제로 사용한 JS PNG 픽셀 해독/샘플링 도구](scripts/v17_png_rgba_js_helper.js) 및 [독립 재검사용 Python/Pillow 스크립트](scripts/reproduce_v17_face_pixels.py)를 게시. **Python 스크립트의 실제 고정 원본 로컬 체크아웃에서 end-to-end 재실행 시험은 아직 하지 않았다.** 원본 All Rights Reserved 이미지/JSON 자체 재배포 없음.
+- 완료율 혼동 방지: **784/784 = 이번에 범위를 정한 Handcrafted 면 샘플 100%**. 공식 바닐라 JAR·Macaw JAR·인게임 최종 검증이 완료된 상위 1단계 작업은 **0/5**, 전체 연구 작업량의 유효한 총 백분율은 아직 없다.
