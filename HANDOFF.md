@@ -1,7 +1,7 @@
 # 인수인계 · Minecraft Furniture Style Research
 
 > **새 채팅 진입점 / 단일 인수인계 기준 문서**  
-> 최종 확인일: **2026-11-12 (KST)** · 현재 체크포인트: **v15**  
+> 최종 확인일: **2026-11-12 (KST)** · 현재 체크포인트: **v16**  
 > 저장소: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research  
 > **새 채팅에서 먼저 이 문서, [PROGRESS.md](PROGRESS.md), [SOURCES_AND_LIMITS.md](SOURCES_AND_LIMITS.md)를 읽고 기존 작업을 이어간다.**
 
@@ -19,13 +19,13 @@
 |---|---|---|
 | 01 | 바닐라 재질·텍스처 | **150/150종 표본 확보·분석 완료**, 공식 게임 파일 대조 및 인게임 검증 **미완료** |
 | 02 | 바닐라 3D 형태·모델 JSON·UV·상태·특수 렌더링 | **v10까지 연구 진행 중**, 전체 완료 판정 전 |
-| 03 | Another Furniture·Macaw's Furniture·Handcrafted 등 가구 모드의 실제 3D 모델 | **v11 Another Furniture 템플릿 69/완성형 33/상태 12, v12 Handcrafted 원형 120/생성형 16/상태 12. v15 기존 실측 원장 189개를 새로 교차 계량(면 선언·회전·평면·bbox)함. Macaw 공식 소스 실측 0개** |
-| 04 | 가구 모드 텍스처·UV·팔레트 | **v13 PNG 24종 실화소·13모델 UV 571면 정렬 측정. v14 기존 Handcrafted 16개 leaf의 텍스처 참조 51건 교차 결합(모드 35건 중 기존 PNG SHA 일치 19건 / v13 표본 밖 16건, 바닐라 의존 16건). 실제 face→PNG 화소 및 인게임 검증 미완료** |
+| 03 | Another Furniture·Macaw's Furniture·Handcrafted 등 가구 모드의 실제 3D 모델 | **v11 Another 템플릿 69/완성형 33, v12 Handcrafted 원형 120/생성형 16, v15 189개 구조 교차 계량. v16 Handcrafted 원본 JSON 30개(leaf 16/부모 14) 고정 커밋 직접 재확인·SHA 일치. Macaw 직접 실측 0** |
+| 04 | 가구 모드 텍스처·UV·팔레트 | **v13 PNG 24개 실화소(각 모드 12), v14 Handcrafted leaf 슬롯 51개 교차 결합. v16 Handcrafted 추가 PNG 12개 완전 디코딩(Handcrafted 실화소 확인 합계 24), 16 leaf에 상속된 face 인스턴스 786개 중 모드 PNG 784면 파일/SHA/UV 픽셀 격자·범위 확인, 바닐라 2면 미검증. 인게임·face 사각형 내부 색상/알파 별도 검증 보류** |
 | 05 | 바닐라 ↔ 가구 모드 비교·공통 특성 검증 | **사전 비교: 의자·벤치·소파 5쌍 비교표만 작성, 바닐라·인게임 최종 검증 미시작** |
 
 **확정 완료 0/5개.** 01의 100%는 **표본 수 목표**만 의미한다. 02는 미리 합의한 전체 분석 대상이 없어 퍼센트를 임의로 계산하면 안 된다.
 
-## 2. 누적 연구 결과: v1–v15
+## 2. 누적 연구 결과: v1–v16
 
 | 체크포인트 | 내용 | 확인할 자료 |
 |---|---|---|
@@ -42,6 +42,7 @@
 | v13 | 기존 24 PNG 실화소·13모델 571면 UV 픽셀 격자 정렬 | [v13 보고서](research/furniture_mods/v13/00_v13_모드PNG실화소_UV픽셀정렬_보고서.md) |
 | v14 | 기존 16 leaf의 텍스처 슬롯 51건과 PNG 실측 근거를 새로 결합 | [v14 보고서](research/furniture_mods/v14/00_v14_텍스처슬롯_근거연결_보고서.md) |
 | v15 | 기존 189개 모델 전체의 명시적 face 선언 밀도·회전·0두께·기본 블록 범위 초과를 **신규 파생 계량**, v13 PNG 24개 팔레트 중앙값 재집계 | [v15 보고서](research/furniture_mods/v15/00_v15_기하표현_계량비교_보고서.md) |
+| v16 | 고정 공식 제작자 커밋의 **미측정 PNG 12개 실제 화소 디코딩**과 원본 모델 JSON **30개 직접 SHA 대조**, **16 leaf의 786 면 인스턴스** 중 **784면→PNG/픽셀 좌표 결합** | [v16 보고서](research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md) |
 
 ### 실제 SQLite에서 확인된 행 수 (v10까지의 바닐라 DB)
 
@@ -63,7 +64,7 @@ v10 로컬 SQLite 스냅샷을 직접 열어 조회하고 `PRAGMA integrity_chec
 | `special_animation_clips_v9` | 15 | 특수 모델 애니메이션 클립 |
 | `validation_audit_v10` | 6 | 직접 검증/부분 검증/미검증 분리 |
 
-**주의:** v11~v15 모드 가구 측정·파생 수치는 CSV/MD로 저장되어 있으며 **v10 SQLite에는 아직 통합하지 않았다**. 또한 55 정적 모델, 17 특수 모델, 19 레이어, 55 기하 요소는 서로 다른 집계 단위다. 합쳐서 '총 모델 수'로 쓰면 안 된다.
+**주의:** v11~v16 모드 가구 측정·파생 수치는 CSV/MD로 저장되어 있으며 **v10 SQLite에는 아직 통합하지 않았다**. 또한 55 정적 모델, 17 특수 모델, 19 레이어, 55 기하 요소는 서로 다른 집계 단위다. 합쳐서 '총 모델 수'로 쓰면 안 된다.
 
 ### v11–v12 모드 실측 자료의 범위
 
@@ -90,13 +91,21 @@ v10 로컬 SQLite 스냅샷을 직접 열어 조회하고 `PRAGMA integrity_chec
 - **이번에는 외부 원본 파일 바이트를 새로 읽지 않았다.** 따라서 19건은 기존 기록의 참조/근거 연결이고, face의 화소를 직접 재검증한 결과가 아니다. Another Furniture 33개 leaf CSV는 개수만 있고 텍스처 경로 데이터가 없어 실제 슬롯/PNG 연결을 만들지 않았다.
 - 상위 1단계 세부 작업 완료 판정 **0/5**. v10 SQLite에 v11~v14 신규 가구 분석 결과를 통합한 것은 아니다.
 
+### v16 고정 원본 모델 JSON과 실제 PNG 화소·face 슬롯 연결 (현재 최신)
+
+- [v16 상세 보고서](research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md) · [신규 12 PNG 실화소 측정](research/furniture_mods/v16/handcrafted_12_new_png_pixel_metrics.csv) · [16 leaf 원본 51슬롯 확인](research/furniture_mods/v16/handcrafted_16_leaf_original_slots_confirmed.csv) · [16 leaf/36 재질·면 그룹](research/furniture_mods/v16/handcrafted_16_leaf_face_material_groups.csv) · [face 검증 감사 JSON](research/furniture_mods/v16/v16_original_face_mapping_audit.json).
+- **직접 새로 검증:** Handcrafted 원 제작자 커밋 `8d21d166...`에서 PNG 원본 **12종 추가 픽셀 완전 디코딩**(66,816픽셀; 가시 7,358/투명 59,458/부분 알파 0), 원본 JSON **30개**(생성형 16/원형 부모 14) Git blob SHA 재확인, leaf 텍스처 슬롯 **51개** 재확인.
+- **face 인스턴스 786개** 중 Handcrafted 모드 PNG 24종에 연결된 **784면 모두** 정확한 파일 경로와 SHA·크기를 확보, UV의 PNG 픽셀 정수 격자 정렬·범위 내 위치 확인. 나머지 **2면은 `minecraft:block/oak_planks`**(공식 PNG 미검증). `bench/cushion/none_cushion` 및 `shelf/overlay/none`은 가시 픽셀 0인 완전 투명 PNG.
+- **핵심 구분:** 786은 부모 기하가 복수 leaf에 재적용된 *면 인스턴스*, 고유 면 786개가 아니다. face 사각형 **내부**의 실제 픽셀 분포/알파 샘플링과 인게임 렌더 상태 확인은 여전히 미완료. 이전 v13 원본 PNG 12개와 v16 신규 12개로 Handcrafted 고유 24개 PNG의 실화소 근거 확보.
+- **전체 확정 완료 0/5**, v10 SQLite에 모드 v11~v16 내용 미통합. 원본 PNG/JSON 저작권 에셋 미재배포.
+
 ### v15 신규 기하학적 표현 전략 분석
 
 - [상세 보고서](research/furniture_mods/v15/00_v15_기하표현_계량비교_보고서.md) · [189개 모델별 지표](research/furniture_mods/v15/model_geometry_derived_189.csv) · [Handcrafted 계열 22종](research/furniture_mods/v15/handcrafted_family_metrics_22.csv) · [입력 blob SHA와 검증 수준](research/furniture_mods/v15/v15_geometry_summary.json) · [오프라인 재검산 코드](scripts/verify_v15_geometry_research.py).
 - Another Furniture 템플릿 69개(299요소)의 가능한 face 1,794개 중 **1,362면 명시·432면 비명시(75.92%)**, 회전 요소 17, 0두께 34, 원시 bbox 0..16 밖 모델 3개. Handcrafted 원형 120개 중 **112개 모델이 요소를 직접 보유**하고(8개 0요소), 가능한 face **4,860개 전부 명시(100%)**, 회전 요소 283, 0두께 183, 원시 bbox 밖 모델 60개.
 - `table/*` Handcrafted 16모델 80요소: 회전 0/0두께 48. `couch/*` 6모델 38요소: 회전 24/0두께 0. 같은 모드 안에서도 형태 구현 전략이 달라진다는 관찰 근거.
 - **v15에서 원본 게임/모드 JSON·PNG 바이트를 새로 읽지 않음.** 이전 체크포인트의 해시 보존 실측 CSV를 직접 다시 계산하여 파생 지표를 만들었음. 새 모델 실측 0건, 공식/인게임 검증 완료 0건. 원시 bbox는 렌더 최종 경계·충돌 모양이 아니다.
-- 가구 제작·좀보이드 변환은 여전히 프로젝트 제외. 5개 세부 단계 **최종 완료 0/5**, v10 SQLite에 v11~v15 내용 미통합.
+- 가구 제작·좀보이드 변환은 여전히 프로젝트 제외. 5개 세부 단계 **최종 완료 0/5**, v10 SQLite에 v11~v16 내용 미통합.
 
 ## 3. 데이터 위치와 버전 복원
 
@@ -151,13 +160,13 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 
 [새 채팅용 프롬프트 파일](docs/NEW_CHAT_START.md)을 열어 내용을 붙여넣거나 아래 한 문장을 사용한다.
 
-> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **v15 체크포인트부터 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
+> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **v16 체크포인트부터 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
 
-**바로 다음 작업:** v15의 모델별 189개 파생 지표를 기준으로, 실제 원본 모델 JSON/PNG에 접근 가능한 환경에서 v14의 **미측정 12 PNG**와 `face→#texture slot→실제 픽셀` 정합성을 확인한다. v15에서 발견한 로컬 bbox 0..16 밖 모델 63개(두 모드 합계)의 인게임 배치 결과도 별도로 검증한다. 공식 바닐라 JAR 및 Macaw 원본 실측/게임 렌더 검증 보류.
+**바로 다음 작업:** **v16에서 실제 원본 30 JSON·신규 12 PNG까지 직접 확인**, 784 모드 face의 PNG 해시·UV 픽셀 직교영역 확인. 다음에는 각 face 사각형의 **실제 픽셀별 알파·색상 분포 샘플링(v17)**, 바닐라 PNG 2면, 블록 상태 변환·렌더 결과 검증. 공식 Minecraft 1.21.11 client.jar 및 Macaw 정식 JAR·인게임 검증 보류.
 
 ## 7. 인수인계 유지 방법
 
-- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v15).
+- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v16).
 - **진행도:** `PROGRESS.md`.
 - **새 채팅 복사용:** `docs/NEW_CHAT_START.md`.
 - **기계 판독 상태:** `handoff/STATE.json`.
