@@ -1,0 +1,88 @@
+{
+  "checkpoint": "v16",
+  "date": "2026-11-12",
+  "source_repository": "terrarium-earth/Handcrafted",
+  "pinned_commit": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035",
+  "method": "16 pinned upstream generated leaf JSON SHA-verified and 14 authored parent JSON SHA-verified. Reconstructed parent textures (#0->#wood) plus leaf #wood concrete texture; counted each inherited face in 16 leaf instances; compared mapped UV x PNG dimensions and previously decoded PNG original hashes.",
+  "overall": {
+    "leaf_instances": 16,
+    "parent_unique": 14,
+    "source_json_files_verified": 30,
+    "leaf_original_texture_slots": 51,
+    "face_instances": 786,
+    "mod_faces": 784,
+    "vanilla_faces": 2,
+    "faces_with_original_png_pixel_evidence": 784,
+    "pixel_aligned": 784,
+    "uv_outside_png": 0,
+    "zero_area": 172,
+    "mirrored": 251,
+    "material_groups": 36,
+    "original_png_fully_decoded_new": 12,
+    "new_png_visible_pixels": 7358,
+    "new_png_transparent_pixels": 59458,
+    "new_png_partial_pixels": 0,
+    "fully_transparent_png": [
+      "bench/cushion/none_cushion",
+      "shelf/overlay/none"
+    ]
+  },
+  "unique_mod_texture_paths": [
+    "bench/cushion/none_cushion",
+    "bench/cushion/white_cushion",
+    "bench/oak_bench",
+    "chair/cherry_chair",
+    "chair/cushion/black_cushion",
+    "chair/cushion/white_cushion",
+    "chair/oak_chair",
+    "couch/cushion/white_cushion",
+    "couch/oak_couch",
+    "counter/oak_counter_1",
+    "counter/top/andesite",
+    "fancy_bed/cushion/white_cushion",
+    "fancy_bed/sheets/white_sheet",
+    "fancy_bed/single/oak_fancy_bed",
+    "shelf/oak/shelf_back",
+    "shelf/oak/shelf_left",
+    "shelf/oak/shelf_side_left",
+    "shelf/oak/shelf_side_right",
+    "shelf/overlay/none",
+    "table/desk/oak_desk",
+    "table/nightstand/oak_nightstand",
+    "table/sheet/white_sheet",
+    "table/side_table/oak_side_table",
+    "table/table/oak_table"
+  ],
+  "unique_vanilla_texture_paths": [
+    "minecraft:block/oak_planks"
+  ],
+  "material_face_counts_by_source": {
+    "v13_direct_pixels": 534,
+    "v16_direct_pixels": 250,
+    "": 2
+  },
+  "source_git_blobs": {
+    "research/furniture_mods/v16/handcrafted_16_leaf_face_material_groups.csv": "2644ba5a50d27fb6234ec8bfefddaae4022e999b",
+    "research/furniture_mods/v16/handcrafted_16_leaf_original_verification.json": "7f2d6e77fe738f7165f966578855004c025015c0",
+    "research/furniture_mods/v12/handcrafted_authored_120_total.csv": "a61fb64761dbe56d53cb18c83be07c8102c01ee4",
+    "research/furniture_mods/v16/handcrafted_12_new_png_audit.json": "f1d563de02adb04549b890d42fd586154f73faad"
+  },
+  "verification_levels": {
+    "upstream_model_json_bytes_read": true,
+    "upstream_generated_leaf_json_bytes_read": true,
+    "upstream_png_bytes_read_all24": true,
+    "upstream_png_pixels_decoded_new12": true,
+    "face_texture_path_resolved": true,
+    "face_png_uv_pixel_bounds_verified_mod_784": true,
+    "individual_face_png_alpha_region_sampled": false,
+    "vanilla_source_png_verified": false,
+    "in_game_render_verified": false
+  },
+  "cautions": [
+    "Face instances 786 are 16 leaf model instances with repeated parent geometry, not 786 distinct handcrafted model faces",
+    "Two explicit faces refer to Minecraft vanilla oak_planks; their PNG pixels were not inspected",
+    "Pixel-perfect UV geometry is not rendered-culling/alpha/tint verification",
+    "Fully transparent 'none' textures deliberately can yield zero visible pixels even where UV face is assigned",
+    "No original copyrighted PNG or JSON redistributed"
+  ]
+}
