@@ -1,7 +1,7 @@
 # 인수인계 · Minecraft Furniture Style Research
 
 > **새 채팅 진입점 / 단일 인수인계 기준 문서**  
-> 최종 확인일: **2026-11-12 (KST)** · 현재 체크포인트: **v12**  
+> 최종 확인일: **2026-11-12 (KST)** · 현재 체크포인트: **v13**  
 > 저장소: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research  
 > **새 채팅에서 먼저 이 문서, [PROGRESS.md](PROGRESS.md), [SOURCES_AND_LIMITS.md](SOURCES_AND_LIMITS.md)를 읽고 기존 작업을 이어간다.**
 
@@ -20,12 +20,12 @@
 | 01 | 바닐라 재질·텍스처 | **150/150종 표본 확보·분석 완료**, 공식 게임 파일 대조 및 인게임 검증 **미완료** |
 | 02 | 바닐라 3D 형태·모델 JSON·UV·상태·특수 렌더링 | **v10까지 연구 진행 중**, 전체 완료 판정 전 |
 | 03 | Another Furniture·Macaw's Furniture·Handcrafted 등 가구 모드의 실제 3D 모델 | **v11 Another Furniture(1.21.1) 템플릿 69개/완성형 33개/상태 12개, v12 Handcrafted(1.21.x) 원형 120개/생성형 16개/상태 12개 분석. Macaw 실측 0개(공식 출처 확인 후 진행)** |
-| 04 | 위 가구 모드의 텍스처·UV·팔레트 | **v11 Another Furniture PNG 12개 + v12 Handcrafted PNG 12개 헤더 확인. 실제 픽셀 디코딩·UV 이미지 매핑 미완료** |
+| 04 | 위 가구 모드의 텍스처·UV·팔레트 | **v13: 기존 PNG 24개 실화소 디코딩 완료(반투명 0), 모델 13개에서 UV 571면 픽셀 경계 정렬 검증. 정확한 모델 face→PNG 연결과 게임 렌더 검증 미완료** |
 | 05 | 바닐라 ↔ 가구 모드 비교·공통 특성 검증 | **사전 비교: 의자·벤치·소파 5쌍 비교표만 작성, 바닐라·인게임 최종 검증 미시작** |
 
 **확정 완료 0/5개.** 01의 100%는 **표본 수 목표**만 의미한다. 02는 미리 합의한 전체 분석 대상이 없어 퍼센트를 임의로 계산하면 안 된다.
 
-## 2. 누적 연구 결과: v1–v12
+## 2. 누적 연구 결과: v1–v13
 
 | 체크포인트 | 내용 | 확인할 자료 |
 |---|---|---|
@@ -59,7 +59,7 @@ v10 로컬 SQLite 스냅샷을 직접 열어 조회하고 `PRAGMA integrity_chec
 | `special_animation_clips_v9` | 15 | 특수 모델 애니메이션 클립 |
 | `validation_audit_v10` | 6 | 직접 검증/부분 검증/미검증 분리 |
 
-**주의:** v11·v12 모드 가구 측정 수치는 CSV/MD로 저장되어 있으며 **v10 SQLite에는 아직 통합하지 않았다**. 또한 55 정적 모델, 17 특수 모델, 19 레이어, 55 기하 요소는 서로 다른 집계 단위다. 합쳐서 '총 모델 수'로 쓰면 안 된다.
+**주의:** v11~v13 모드 가구 측정 수치는 CSV/MD로 저장되어 있으며 **v10 SQLite에는 아직 통합하지 않았다**. 또한 55 정적 모델, 17 특수 모델, 19 레이어, 55 기하 요소는 서로 다른 집계 단위다. 합쳐서 '총 모델 수'로 쓰면 안 된다.
 
 ### v11–v12 모드 실측 자료의 범위
 
@@ -69,6 +69,15 @@ v10 로컬 SQLite 스냅샷을 직접 열어 조회하고 `PRAGMA integrity_chec
 - [두 모드의 의자·벤치·소파 대표 5쌍 사전 비교](research/furniture_mods/v12/another_vs_handcrafted_5_category_pairs.csv): 형태 기준 선택 쌍이며 디자인 품질 우열의 검증이 아니다.
 - **Macaw's Furniture** 1.21.11 Fabric 3.4.2 정식 게시 확인: https://modrinth.com/mod/macaws-furniture/version/xhmciaUD. 공식 공개 모델 원본 또는 배포 JAR의 직접 내용을 아직 확인하지 못함. **모델 실측 0건**이며 제3자 비검증 저장소를 원 제작자 소스로 쓰지 말 것.
 - 두 모드 원본 리소스(모델/PNG)는 **All Rights Reserved**, GitHub에는 추출 측정값과 경로/해시만 보관. 1.21.1 모드 데이터와 바닐라 1.21.11의 버전이 다름.
+
+### v13 실제 텍스처·UV 직접 검증
+
+- [v13 상세 보고서](research/furniture_mods/v13/00_v13_모드PNG실화소_UV픽셀정렬_보고서.md)
+- [Another Furniture 12 PNG 픽셀 통계](research/furniture_mods/v13/another_png_12_pixel_metrics.csv) · [Handcrafted 12 PNG 픽셀 통계](research/furniture_mods/v13/handcrafted_png_12_pixel_metrics.csv) · [13 모델 571면 UV 정렬](research/furniture_mods/v13/uv_to_pixel_alignment_13_models.csv)
+- **24/24 PNG SHA·해상도 교차 검증 및 전체 픽셀 디코딩 완료.** Another 6,912픽셀 중 가시 3,352, Handcrafted 110,592픽셀 중 가시 22,730. 두 표본 모두 반투명 알파(1~254) **0**; 이 수치가 실제 렌더 면적/디자인 우열을 뜻하지는 않음.
+- **13개 모델, 571개 UV 면:** 모두 PNG 픽셀 경계에 정확히 정렬; 역방향 UV 면 190개, 0 면적 UV 면 64개(의도적 미러링/특수 기하 가능). **원본 모델의 정확한 face→PNG 픽셀 연결 및 인게임 관찰은 아직 하지 않음.**
+- 직접 측정이 아닌 구두 설명으로 표본 수를 늘리지 말고 실제 원본 PNG·모델 JSON을 읽어야 한다. 로컬 재검증 소스: [scripts/reproduce_mod_png_v13.py](scripts/reproduce_mod_png_v13.py).
+- 기존 1.21.11 바닐라 공식 JAR, Macaw 공식 JAR/모델 실측 0건, 게임 렌더 미검증 상태는 **그대로 유지**.
 
 ## 3. 데이터 위치와 버전 복원
 
@@ -107,7 +116,7 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 2. GitHub에서 **최신 파일/커밋 기준**으로 현재 상태를 확인한다. 새 채팅의 과거 기억과 충돌하면 GitHub 근거가 우선이며, 충돌 자체를 기록한다.
 3. 가능한 경우 공식 JAR 비교를 수행한다. JAR이 없으면 검증을 **보류**하고, 검증 가능한 모델 회전/렌더 좌표 및 대표 사례를 추가 분석한다. 사용자에게 게임 파일을 공개 업로드하라고 요구하지 말 것.
 4. 02번의 목표 범위·완료 조건을 정리하고 바닐라 연구 빈틈을 추적한다. **03번은 v11 Another Furniture와 v12 Handcrafted에서 실측을 수행했다.** 공식 게임 검증 보류 상태를 유지한 채 Macaw 공식 JAR 검증 또는 모드 UV·PNG 분석을 이어간다.
-5. Handcrafted 120개 원형 JSON은 이미 조사했으므로 중복하지 않는다. **다음에는 검증된 공식 Macaw 1.21.11 배포 JAR의 실제 모델 분석**, 또는 **Another Furniture/Handcrafted PNG의 실제 픽셀·UV 매핑 검증**을 진행한다. 스크린샷만 보고 모델의 부품 수를 단정하지 않는다.
+5. Handcrafted 120개 원형 JSON은 이미 조사했으므로 중복하지 않는다. **다음에는 검증된 공식 Macaw 1.21.11 배포 JAR 모델 분석**, 또는 **v13 PNG 실측 결과를 이용해 원본 face→텍스처 좌표/화소 정확한 대응 검증**을 진행한다. 스크린샷만 보고 모델의 부품 수를 단정하지 않는다.
 6. 작업이 끝날 때마다 새로운 보고서·CSV/SQLite·출처·검증 기록을 GitHub에 업로드한다. **[PROGRESS.md](PROGRESS.md), [README.md](README.md), 본 HANDOFF.md**도 새 체크포인트에 맞춰 함께 갱신한다.
 7. 사용자에게 실제 수행·검증 완료 수치와 남은 작업을 분리한 진행도를 제공한다.
 
@@ -123,13 +132,13 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 
 [새 채팅용 프롬프트 파일](docs/NEW_CHAT_START.md)을 열어 내용을 붙여넣거나 아래 한 문장을 사용한다.
 
-> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **v12 체크포인트부터 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
+> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **v13 체크포인트부터 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
 
-**바로 다음 작업:** v12 실측 분석 파일을 참조해 정량 기반 UV·실제 PNG 픽셀 분석(04)을 확대하거나 Macaw의 검증된 정식 1.21.11 JAR을 확보해 03을 확장한다. 공식 바닐라 JAR/인게임 검증 보류를 해제하지 말 것.
+**바로 다음 작업:** v13에서 PNG 24개 화소 및 571개 UV 면의 좌표 정렬은 완료했으므로, 실제 face에 쓰이는 원본 PNG 영역·알파·색상 대응(04)을 분석하거나 Macaw의 검증된 정식 1.21.11 JAR을 확보해 03을 확장한다. 공식 바닐라 JAR/인게임 검증 보류를 해제하지 말 것.
 
 ## 7. 인수인계 유지 방법
 
-- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v12).
+- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v13).
 - **진행도:** `PROGRESS.md`.
 - **새 채팅 복사용:** `docs/NEW_CHAT_START.md`.
 - **기계 판독 상태:** `handoff/STATE.json`.
