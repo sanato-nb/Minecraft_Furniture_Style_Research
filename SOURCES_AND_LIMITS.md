@@ -66,3 +66,12 @@
 - 두 모드는 **템플릿 69개 vs 작성 모델 120개**라는 다른 모집단을 측정했다. 이들의 회전·0두께·bbox 지표 차이를 모드 전체 우열이나 Minecraft 바닐라 '공식 규칙'으로 승격하지 않는다. 회전·0두께 요소는 겹칠 수 있다. 원시 bbox는 로컬 좌표이고 부모·블록 상태 변환 및 실제 렌더/충돌을 반영하지 않는다.
 - v13 PNG 기존 표본 12개씩의 가시 RGBA 색상수 중앙값은 두 모드 모두 7색(이전 픽셀 표본의 재통계), 반투명 픽셀 포함 PNG 0/12 각각. 전체 모드 텍스처에 일반화하지 않는다.
 - 본 v15의 Python 오프라인 검증 스크립트는 GitHub에 새로 게시했으나 **이 대화의 로컬 런타임에서 직접 실행하지 않았다**. 현재 측정은 GitHub 연결 데이터를 JavaScript로 처리하고 불변식을 검사한 것. 공식 Minecraft client.jar 및 인게임 그래픽 검증 상태 미완료; 저작권 원본 에셋 재배포 없음.
+
+## v16 원본 Handcrafted PNG·JSON 직접 재접근 및 UV 연결
+
+- [v16 상세 보고서](research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md) · [12종 PNG 실화소 CSV](research/furniture_mods/v16/handcrafted_12_new_png_pixel_metrics.csv) · [16 leaf 면/재질 그룹](research/furniture_mods/v16/handcrafted_16_leaf_face_material_groups.csv) · [원본 SHA·검증 JSON](research/furniture_mods/v16/v16_original_face_mapping_audit.json).
+- **원본 데이터 직접 접근에 성공:** 제작자 저장소 `terrarium-earth/Handcrafted` 고정 커밋 `8d21d1665916850c3fa3bdaf1370c50ec2ca7035`의 생성형 leaf **16 JSON**, 작성 부모 **14 JSON**, 신규 **12 PNG**를 GitHub Contents 읽기로 확보, 기존 v12 30 JSON의 Git blob SHA 일치 확인. v14에 기재되었던 미측정 PNG 12종의 원본 해시·IHDR·IDAT를 직접 디코딩했으며 66,816픽셀(가시 7,358, 알파 0 59,458, 알파 1~254 0)의 관찰이 가능해짐.
+- 원본 PNG 12개 중 **완전 투명** 2개 `bench/cushion/none_cushion` 및 `shelf/overlay/none`. 세부 통계/그림 픽셀은 재게시하지 않고 색상 수·픽셀 개수·해시만 저장.
+- 원본 16 leaf와 14 parent의 텍스처 슬롯 체인을 직접 해석하여 **786개의 재사용된 면 인스턴스**를 검사. **784개**는 원본 PNG 24종(v13 샘플 12 + v16 샘플 12)의 경로·SHA·크기까지 연결되었고, 선언된 UV를 픽셀 좌표로 환산했을 때 전부 정수 격자에 정렬되고 PNG 범위 내에 있음. 나머지 **2면**은 바닐라 `minecraft:block/oak_planks` 참조이며 공식 PNG를 새로 읽지 않았음.
+- **보류**: 784개 면의 UV 사각형 **내부 화소를 face별로 실제 샘플링**하지 않았으며, 뒤집힌 UV/0면적/부모 회전/알파 테스트/인게임 컬링·조명 최종 모습도 검증하지 않았다. 면 인스턴스 786은 고유 모델 면 수가 아니라 여러 leaf에 부모 원형을 반복 적용한 값이다.
+- **검증 등급:** upstream JSON/PNG bytes and pixel decoding + direct texture path resolution + numeric UV-to-pixel bounds. **저작권 원본 JSON/PNG/JAR 바이너리를 재배포하지 않음**. 공식 Minecraft 1.21.11 `client.jar`와 Macaw 배포 원본 JAR, 인게임 시각 검증은 계속 미완료. 전체 세부 단계 최종 완료 **0/5**.
