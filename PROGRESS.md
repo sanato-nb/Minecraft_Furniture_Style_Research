@@ -1,5 +1,7 @@
 # 학습 진행도
 
+**새 채팅 인수인계:** [HANDOFF.md](HANDOFF.md) · [복사용 시작 프롬프트](docs/NEW_CHAT_START.md) · [현재 상태 JSON](handoff/STATE.json)
+
 업데이트: 2026-11-12 / 체크포인트 v10
 
 | 1단계 세부 작업 | 상태 | 수치 |
