@@ -19,8 +19,9 @@
 | v10 | v8 SQLite에 v9 측정값 통합, 신규 DB 3개 테이블·SQL migration | 로컬 SQLite 무결성 검증 / 공식 JAR·인게임 검증 대기 |
 | v11 | Another Furniture(1.21.1) 모델 템플릿 **69개**, 완성형 상속 **33개**, 블록 상태 **12개**, PNG 헤더 **12개** 실측 | 03 모드 3D 분석 착수, 04 모드 텍스처 사전 표본 시작 |
 | v12 | Handcrafted 원형 120종(810 요소), 생성형 16종 상속, 12개 블록 상태, PNG 12개, 모드 간 5유형 비교 | 원본 파일 실측, 픽셀·인게임 검증과 Macaw 공식 JAR 실측 보류 |
+| v13 | Another Furniture·Handcrafted PNG **각 12개 실제 화소 분석(24개)**, UV **13모델·571면 정렬 실측** | 고정 Git 원본 SHA 일치, 정확한 재질/face 연결·인게임 결과는 미검증 |
 
-**학습 전체 5개 작업:** 01 바닐라 텍스처(표본 완료/검증 보류), 02 바닐라 3D(진행 중), 03 가구 모드 모델(v11~v12 실측 진행 중), 04 모드 텍스처·UV(PNG 헤더 24개 사전 실측), 05 바닐라/모드 비교(5쌍 사전 비교, 최종 검증 미착수). 최종 확정 완료는 **0/5**입니다.
+**학습 전체 5개 작업:** 01 바닐라 텍스처(표본 완료/검증 보류), 02 바닐라 3D(진행 중), 03 가구 모드 모델(v11~v12 실측 진행 중), 04 모드 텍스처·UV(PNG 24개 전체 실화소 및 13모델 571면 UV 표본 정렬 측정), 05 바닐라/모드 비교(5쌍 사전 비교, 최종 검증 미착수). 최종 확정 완료는 **0/5**입니다.
 
 ## 빠른 탐색
 
@@ -39,6 +40,8 @@
 - [v12: Handcrafted 전수 원형 120종 분석 및 모드 간 사전 비교](research/furniture_mods/v12/00_v12_Handcrafted_교차분석_보고서.md)
 - [v12 Handcrafted 120종 측정 CSV](research/furniture_mods/v12/handcrafted_authored_120_total.csv)
 - [v12 모드 대표 5쌍 구조 비교](research/furniture_mods/v12/another_vs_handcrafted_5_category_pairs.csv)
+- [v13: PNG 24개 직접 디코딩과 UV 13모델/571면 정량 검사](research/furniture_mods/v13/00_v13_모드PNG실화소_UV픽셀정렬_보고서.md)
+- [v13: 모델 PNG·픽셀 재계산 스크립트](scripts/reproduce_mod_png_v13.py)
 - [v10 SQL 증분 패치](data/migrations/v8_to_v10.sql)
 - [v10 SQLite 재구성 Python 스크립트](scripts/rebuild_v10_db.py)
 - [공식 1.21.11 client.jar 대조 도구](scripts/verify_official_jar.py) / [사용법](docs/official_client_jar_검증방법.md) — 실제 JAR 검사 미완료
@@ -55,7 +58,7 @@ Minecraft_Furniture_Style_Research/
 ├── research/
 │   ├── vanilla_textures/v1_30...v4_150/  # 버전별 보고서·측정 CSV·재현 코드·분석 도표
 │   ├── vanilla_models/v5...v10/           # 모델·블록상태·UV·특수 렌더링 연구 기록
-│   └── furniture_mods/v11...v12/          # Another Furniture·Handcrafted 실측 통계 (원본 에셋 미수록)
+│   └── furniture_mods/v11...v13/          # Another Furniture·Handcrafted 실측 통계 (원본 에셋 미수록)
 └── FILE_MANIFEST_SHA256.csv              # 저장소 파일 해시 목록
 ```
 
