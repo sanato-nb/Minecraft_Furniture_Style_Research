@@ -27,6 +27,7 @@
 | v18 | Another Furniture 제작자 고정 원본 **leaf 33/템플릿 30 SHA 직접 확인**, 상속 면 807개 재질 해결(804모드·3기본), **새 PNG 12종 실제 픽셀 검사** | Another PNG 참조 경로 53종 중 24종(45.28%) 실화소, 남은 29경로·면 UV 화소/인게임 미검증 |
 | v19 | Another Furniture 미측정 **PNG 29종 새 원본 직접 디코딩**, 누적 선택 모델의 **53/53 PNG**, 모드 면 **804/804 UV 내부 실제 RGBA 실측** | 선정 표본에서만 100%. 바닐라 dirt 3면, Macaw 및 인게임 검증 미완료 |
 | v20 | Another Furniture 기존 선정 원형 **69/69 제작자 원본 직접 재조회 및 SHA 대조**, **299 기하 요소·1,362 선언 면의 raw UV·회전·cullface 실측** | 39 원형은 이전 v18 선정 부모 30 바깥의 신규 상세검증 표본. Macaw 공식 JAR/인게임·바닐라 공식 검증 미완료 |
+| v21 | Another 제작자 블록 상태 **12개 원본 SHA/802 모델 적용** 직접 재검증, **새 leaf 38개·14 PNG 직접 픽셀·1,192면 실제 UV RGBA**, 원본 가구 유형·상속 확대 | **Another 누적 71 leaf/67 PNG/1,996면 원본 UV 픽셀**, Handcrafted 합산 91 PNG/2,780모드 면. 바닐라·Macaw/인게임 미검증 |
 
 **학습 전체 5개 작업:** 01 바닐라 텍스처(표본 완료/검증 보류), 02 바닐라 3D(진행 중), 03 가구 모드 모델(v11~v12 실측 진행 중), 04 모드 텍스처·UV(PNG 24개 전체 실화소 및 13모델 571면 UV 표본 정렬 측정), 05 바닐라/모드 비교(5쌍 사전 비교, 최종 검증 미착수). 최종 확정 완료는 **0/5**입니다.
 
@@ -47,6 +48,7 @@
 - [v12: Handcrafted 전수 원형 120종 분석 및 모드 간 사전 비교](research/furniture_mods/v12/00_v12_Handcrafted_교차분석_보고서.md)
 - [v12 Handcrafted 120종 측정 CSV](research/furniture_mods/v12/handcrafted_authored_120_total.csv)
 - [v12 모드 대표 5쌍 구조 비교](research/furniture_mods/v12/another_vs_handcrafted_5_category_pairs.csv)
+- [v21: Another 신규 38 leaf·14 PNG·1,192면 UV 내부 실제 RGBA 분석](research/furniture_mods/v21/00_v21_블록상태12_신규완성형38_신규PNG14_면1192_RGBA_보고서.md) · [신규 38 leaf 재질 면](research/furniture_mods/v21/another_new_38_leaf_face_resolution.csv) · [실제 RGBA 1,192면 CSV](research/furniture_mods/v21/another_new_38_leaf_all_rgba_1192.csv)
 - [v20: Another 원형 69개 전체 제작자 JSON/1,362 선언 면 기하·UV 분석](research/furniture_mods/v20/00_v20_Another원형69_원본JSON_UV면1362_보고서.md) · [69 모델 CSV](research/furniture_mods/v20/another_69_templates_direct_original_geometry.csv) · [원본 1,362면 CSV](research/furniture_mods/v20/another_69_templates_1362_original_faces.csv)
 - [v19: Another 53 PNG 원본·804면 실제 UV 내부 픽셀 RGBA 분석](research/furniture_mods/v19/00_v19_Another_원본29PNG_807면UV_804면RGBA_보고서.md) · [804면 CSV](research/furniture_mods/v19/another_804_face_actual_rgba.csv) · [Handcrafted/Another 선정 표본 UV/알파 비교](research/furniture_mods/v19/00_v19_모드간실제면UV픽셀_선정표본비교.md)
 - [v18: Another 원본 모델 63개·807면 재질 경로·새 PNG 12종 분석](research/furniture_mods/v18/00_v18_AnotherFurniture_원본63_JSON_12PNG_807면_분석보고서.md) · [113개 면 재질 그룹](research/furniture_mods/v18/another_face_material_groups_113.csv) · [12개 새 PNG](research/furniture_mods/v18/another_new_png_12_pixel_metrics.csv)
@@ -72,7 +74,7 @@ Minecraft_Furniture_Style_Research/
 ├── research/
 │   ├── vanilla_textures/v1_30...v4_150/  # 버전별 보고서·측정 CSV·재현 코드·분석 도표
 │   ├── vanilla_models/v5...v10/           # 모델·블록상태·UV·특수 렌더링 연구 기록
-│   └── furniture_mods/v11...v20/          # Another Furniture·Handcrafted 실측 통계 (원본 에셋 미수록)
+│   └── furniture_mods/v11...v21/          # Another Furniture·Handcrafted 실측 통계 (원본 에셋 미수록)
 └── FILE_MANIFEST_SHA256.csv              # 저장소 파일 해시 목록
 ```
 
