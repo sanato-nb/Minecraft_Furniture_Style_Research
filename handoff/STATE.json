@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-12",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v18",
+  "current_checkpoint": "v19",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -32,7 +32,7 @@
     {
       "id": "03",
       "topic": "mod furniture 3D model analysis",
-      "status": "v18_another_author_origin_63_json_sha_checked_with_807_inherited_face_texture_paths",
+      "status": "v19_another_selected_33_leaf_30_parent_source_face_uv_inspected_and_sha_checked",
       "sample": {
         "another_furniture": {
           "source": "crispytwig/AnotherFurniture",
@@ -72,13 +72,15 @@
         "v18_another_texture_override_slots_verified": 93,
         "v18_another_face_inherited_instances": 807,
         "v18_another_mod_png_face_instances": 804,
-        "v18_another_vanilla_dirt_face_instances": 3
+        "v18_another_vanilla_dirt_face_instances": 3,
+        "v19_another_parent_json_direct_sha_reverified": 30,
+        "v19_another_leaf_original_face_uv_coordinates_extracted": 807
       }
     },
     {
       "id": "04",
       "topic": "mod furniture textures and UV analysis",
-      "status": "v18_48_mod_png_pixels_handcrafted_784_uv_face_samples_and_another_807_texture_paths_in_progress",
+      "status": "v19_another_804_of_804_pinned_original_face_png_rgba_selected_sample_and_53_of_53_textures_decoded",
       "sample": {
         "another_furniture": {
           "png_headers_measured": 12
@@ -89,8 +91,8 @@
         "total_png_headers_measured": 24,
         "pixel_distribution_verified": true,
         "texture_uv_mapping_verified": true,
-        "actual_png_decoded": 48,
-        "actual_png_another": 24,
+        "actual_png_decoded": 77,
+        "actual_png_another": 53,
         "actual_png_handcrafted": 24,
         "uv_models_measured": 13,
         "uv_faces_pixel_aligned": 571,
@@ -121,7 +123,7 @@
         "v16_png_pixel_bounds_aligned": 784,
         "v16_vanilla_png_face_instances_unverified": 2,
         "v16_face_region_alpha_pixel_sampled": false,
-        "texture_uv_mapping_scope": "only 784 Handcrafted source face instances with direct model texture path resolution and numeric UV pixel bounds; two vanilla faces and actual face region RGBA sampling/in-game pending",
+        "texture_uv_mapping_scope": "v19 Another 804 selected mod PNG face instances original UV pixel rectangle actual RGBA sampled, v17 Handcrafted 784 selected mod PNG face instances actual RGBA sampled; 3 Another dirt and 2 Handcrafted oak_planks vanilla faces remain unverified; no in-game renderer evidence",
         "v17_handcrafted_face_sample_target": 784,
         "v17_handcrafted_face_samples_completed": 784,
         "v17_selected_face_region_coverage_pct": 100,
@@ -145,7 +147,29 @@
         "v18_another_png_subset_coverage_pct": 45.28,
         "v18_another_face_texture_paths_resolved": 807,
         "v18_another_face_uv_pixel_rectangles_verified": 0,
-        "v18_another_vanilla_dirt_faces_awaiting_official_source": 3
+        "v18_another_vanilla_dirt_faces_awaiting_official_source": 3,
+        "v19_new_another_png_direct_decoded": 29,
+        "v19_another_selected_png_paths_total": 53,
+        "v19_another_selected_png_paths_decoded": 53,
+        "v19_another_selected_png_paths_remaining": 0,
+        "v19_another_png_selected_scope_coverage_pct": 100,
+        "v19_another_mod_source_face_instances": 804,
+        "v19_another_face_original_uv_pixel_region_rgba_sampled": 804,
+        "v19_another_face_region_sample_selected_scope_pct": 100,
+        "v19_another_uv_zero_area_faces": 4,
+        "v19_another_uv_all_opaque_faces": 712,
+        "v19_another_uv_mixed_alpha_faces": 88,
+        "v19_another_uv_all_transparent_faces": 0,
+        "v19_another_uv_reversed_mod_face_instances": 221,
+        "v19_another_uv_texel_uses_including_repetition": 32531,
+        "v19_another_uv_visible_texel_uses": 31545,
+        "v19_another_uv_transparent_texel_uses": 986,
+        "v19_another_uv_partial_alpha_texel_uses": 0,
+        "v19_another_png_total_source_pixels": 17408,
+        "v19_another_png_total_source_visible": 11536,
+        "v19_another_png_total_source_transparent": 5872,
+        "v19_another_unverified_vanilla_dirt_face_instances": 3,
+        "v19_handcrafted_unverified_vanilla_oak_planks_face_instances": 2
       }
     },
     {
@@ -211,14 +235,15 @@
     "research/furniture_mods/v15/00_v15_기하표현_계량비교_보고서.md",
     "research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md",
     "research/furniture_mods/v17/00_v17_면별실화소784_색상알파검증_보고서.md",
-    "research/furniture_mods/v18/00_v18_AnotherFurniture_원본63_JSON_12PNG_807면_분석보고서.md"
+    "research/furniture_mods/v18/00_v18_AnotherFurniture_원본63_JSON_12PNG_807면_분석보고서.md",
+    "research/furniture_mods/v19/00_v19_Another_원본29PNG_807면UV_804면RGBA_보고서.md"
   ],
   "next_work": [
-    "v19: inspect the 29 remaining distinct Another Furniture mod PNG paths referenced by the selected 33 leaf models at immutable upstream commit",
-    "Directly measure exact face UV rectangles and pixel/alpha samples for all 807 Another Furniture inherited face instances; compare with v17's 784 Handcrafted face samples but do not equate cohorts",
-    "Confirm Minecraft default dirt (Another 3 faces) and oak_planks (Handcrafted 2 faces) using official 1.21.11 client.jar before marking vanilla pixel proof",
-    "Acquire official Macaw's Furniture distribution JAR and inspect actual original models, not unofficial mirrors",
-    "Verify in-game rendering/culling, tint, orientation, local bbox extension; keep completed substeps 0/5 and distinguish 24/53 PNG selected-sample coverage from whole-project progress"
+    "Use official Minecraft 1.21.11 client.jar to verify 3 Another minecraft:block/dirt faces and 2 Handcrafted minecraft:block/oak_planks face texture source pixels; no official-game pixel claims yet",
+    "Acquire and verify official Macaw's Furniture distribution JAR or official model assets; no Macaw model JSON inspected yet",
+    "Extend beyond selected 33 Another leaf and 16 Handcrafted generated leaf sample; 53 PNG 804 faces are not full mod coverage",
+    "Run independent Pillow offline replay against pinned official authors' source checkouts, then in-game compare face UV orientation alpha lighting culling blockstates",
+    "After official vanilla/Mod assets and in-game checks, finalize practical Minecraft furniture modeling style guide; keep strict substeps completed 0/5 without invented total project percent"
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -520,5 +545,67 @@
       "4-bit palette source image handled; 12 new PNG full source pixels, no face region RGB alpha analysis on Another models yet.",
       "All original model assets copyright-protected; no source JSON/PNG redistributed."
     ]
+  },
+  "v19": {
+    "report": "research/furniture_mods/v19/00_v19_Another_원본29PNG_807면UV_804면RGBA_보고서.md",
+    "source_repository": "crispytwig/AnotherFurniture",
+    "source_commit": "57eb624cbb7f408d43398c7434b0d38d312cb55d",
+    "source_minecraft_version": "1.21.1",
+    "evidence_class": "source_original_pngs_fully_decoded_53_and_json_face_uv_to_original_png_rectangle_rgba_inspected_804",
+    "selected_leaf_models": 33,
+    "selected_unique_template_models": 30,
+    "original_template_json_refetched_sha_verified": 30,
+    "leaf_texture_overrides_from_v18_sha_verified_reused": 33,
+    "all_inherited_face_instances_raw_uv_extracted": 807,
+    "mod_face_instances_rgba_sampled": 804,
+    "unverified_minecraft_dirt_face_instances": 3,
+    "source_png_original_binary_sha_validated_during_sampling": 53,
+    "new_png_originals_decoded_v19": 29,
+    "png_originals_cumulative_another": 53,
+    "png_originals_cumulative_handcrafted": 24,
+    "png_originals_cumulative_both": 77,
+    "source_original_png_total_pixels": 17408,
+    "source_png_visible_pixels": 11536,
+    "source_png_transparent_pixels": 5872,
+    "source_png_partial_alpha_pixels": 0,
+    "selected_png_path_coverage_percent": 100,
+    "integer_uv_pixel_grid_aligned_mod_faces": 804,
+    "inside_original_png_bounds_mod_faces": 804,
+    "nonzero_uv_mod_face_instances": 800,
+    "zero_uv_mod_face_instances": 4,
+    "source_uv_reversed_mod_face_instances": 221,
+    "all_opaque_uv_mod_face_instances": 712,
+    "mixed_opaque_transparent_uv_mod_face_instances": 88,
+    "fully_transparent_uv_mod_face_instances": 0,
+    "texel_uses_including_reuse": 32531,
+    "opaque_texel_uses": 31545,
+    "transparent_texel_uses": 986,
+    "partial_alpha_texel_uses": 0,
+    "face_source_keys_unique_and_matched": 804,
+    "handcrafted_v17_mod_face_rgba_sampled": 784,
+    "official_minecraft_1_21_11_client_jar_verified": false,
+    "macaw_official_model_json_inspected": 0,
+    "in_game_rendering_verified": false,
+    "sqlite_updated": false,
+    "offline_pillow_independent_replay_done": false,
+    "source_copyright_assets_republished": false,
+    "scope_note": "All numeric 100% figures refer only to 53 mod PNG texture paths and 804 mod face instances referenced by selected 33 Another Furniture leaf models; 3 vanilla dirt faces and full-mod enumeration are excluded.",
+    "outputs": [
+      "research/furniture_mods/v19/another_remaining_png_batch_1_of_3.csv",
+      "research/furniture_mods/v19/another_remaining_png_batch_2_of_3.csv",
+      "research/furniture_mods/v19/another_remaining_png_batch_3_of_3.csv",
+      "research/furniture_mods/v19/another_texture_53_png_source_manifest.csv",
+      "research/furniture_mods/v19/another_png_53_source_manifest_audit.json",
+      "research/furniture_mods/v19/another_33_leaf_807_face_uv_rects.csv",
+      "research/furniture_mods/v19/another_804_face_actual_rgba.csv",
+      "research/furniture_mods/v19/another_53_png_face_actual_rgba_summary.csv",
+      "research/furniture_mods/v19/another_33_leaf_actual_rgba_summary.csv",
+      "research/furniture_mods/v19/v19_original_png_face_rgba_audit.json",
+      "research/furniture_mods/v19/another_vs_handcrafted_face_rgba_selected_cohorts.csv",
+      "research/furniture_mods/v19/00_v19_모드간실제면UV픽셀_선정표본비교.md",
+      "research/furniture_mods/v19/00_v19_Another_원본29PNG_807면UV_804면RGBA_보고서.md"
+    ],
+    "substeps_final_completed": 0,
+    "substeps_total": 5
   }
 }
