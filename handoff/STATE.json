@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-12",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v17",
+  "current_checkpoint": "v18",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -32,7 +32,7 @@
     {
       "id": "03",
       "topic": "mod furniture 3D model analysis",
-      "status": "v16_30_original_handcrafted_json_source_blob_sha_verified_mod_study_in_progress",
+      "status": "v18_another_author_origin_63_json_sha_checked_with_807_inherited_face_texture_paths",
       "sample": {
         "another_furniture": {
           "source": "crispytwig/AnotherFurniture",
@@ -65,13 +65,20 @@
         "v15_original_source_json_fetched": 0,
         "v16_original_json_sha_checked": 30,
         "v16_leaf_source_json": 16,
-        "v16_parent_source_json": 14
+        "v16_parent_source_json": 14,
+        "v18_another_leaf_source_json_verified": 33,
+        "v18_another_template_source_json_verified": 30,
+        "v18_another_original_json_verified": 63,
+        "v18_another_texture_override_slots_verified": 93,
+        "v18_another_face_inherited_instances": 807,
+        "v18_another_mod_png_face_instances": 804,
+        "v18_another_vanilla_dirt_face_instances": 3
       }
     },
     {
       "id": "04",
       "topic": "mod furniture textures and UV analysis",
-      "status": "v17_handcrafted_784_of_784_preselected_mod_face_png_rgba_rectangles_directly_sampled_in_progress",
+      "status": "v18_48_mod_png_pixels_handcrafted_784_uv_face_samples_and_another_807_texture_paths_in_progress",
       "sample": {
         "another_furniture": {
           "png_headers_measured": 12
@@ -82,8 +89,8 @@
         "total_png_headers_measured": 24,
         "pixel_distribution_verified": true,
         "texture_uv_mapping_verified": true,
-        "actual_png_decoded": 36,
-        "actual_png_another": 12,
+        "actual_png_decoded": 48,
+        "actual_png_another": 24,
         "actual_png_handcrafted": 24,
         "uv_models_measured": 13,
         "uv_faces_pixel_aligned": 571,
@@ -130,7 +137,15 @@
         "v17_transparent_texel_use_count": 9625,
         "v17_partial_alpha_texel_use_count": 0,
         "v17_unresolved_vanilla_face_samples": 2,
-        "v17_renderer_validation_completed": false
+        "v17_renderer_validation_completed": false,
+        "v18_new_png_decoded": 12,
+        "v18_another_referenced_png_paths": 53,
+        "v18_another_png_paths_pixel_sampled": 24,
+        "v18_another_png_paths_remaining": 29,
+        "v18_another_png_subset_coverage_pct": 45.28,
+        "v18_another_face_texture_paths_resolved": 807,
+        "v18_another_face_uv_pixel_rectangles_verified": 0,
+        "v18_another_vanilla_dirt_faces_awaiting_official_source": 3
       }
     },
     {
@@ -195,14 +210,15 @@
     "research/furniture_mods/v14/00_v14_텍스처슬롯_근거연결_보고서.md",
     "research/furniture_mods/v15/00_v15_기하표현_계량비교_보고서.md",
     "research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md",
-    "research/furniture_mods/v17/00_v17_면별실화소784_색상알파검증_보고서.md"
+    "research/furniture_mods/v17/00_v17_면별실화소784_색상알파검증_보고서.md",
+    "research/furniture_mods/v18/00_v18_AnotherFurniture_원본63_JSON_12PNG_807면_분석보고서.md"
   ],
   "next_work": [
-    "Independently rerun v17 sample via Pillow/Python against legally obtained pinned author Handcrafted checkout; script not yet executed end-to-end",
-    "Verify the remaining two vanilla oak_planks face instances against official Minecraft 1.21.11 client.jar and image pixels",
-    "Use verified official Macaw Furniture 1.21.11 distribution JAR to add direct model geometry and UV study",
-    "Compare UV-reversed/zero-area/fully transparent face behavior with in-game rendering including culling, rotation, tint and lighting",
-    "Preserve distinctions between scope-complete v17 784/784 face regions and final project substeps completed 0/5; no arbitrary project completion percentage"
+    "v19: inspect the 29 remaining distinct Another Furniture mod PNG paths referenced by the selected 33 leaf models at immutable upstream commit",
+    "Directly measure exact face UV rectangles and pixel/alpha samples for all 807 Another Furniture inherited face instances; compare with v17's 784 Handcrafted face samples but do not equate cohorts",
+    "Confirm Minecraft default dirt (Another 3 faces) and oak_planks (Handcrafted 2 faces) using official 1.21.11 client.jar before marking vanilla pixel proof",
+    "Acquire official Macaw's Furniture distribution JAR and inspect actual original models, not unofficial mirrors",
+    "Verify in-game rendering/culling, tint, orientation, local bbox extension; keep completed substeps 0/5 and distinguish 24/53 PNG selected-sample coverage from whole-project progress"
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -447,5 +463,62 @@
     "denominator_note": "100% of v16's 784 specifically scoped Handcrafted mod PNG face instances, not 100% of all furniture mods or final research",
     "substeps_completed": 0,
     "substeps_total": 5
+  },
+  "v18": {
+    "report": "research/furniture_mods/v18/00_v18_AnotherFurniture_원본63_JSON_12PNG_807면_분석보고서.md",
+    "source_repository": "crispytwig/AnotherFurniture",
+    "source_commit": "57eb624cbb7f408d43398c7434b0d38d312cb55d",
+    "minecraft_version": "1.21.1",
+    "evidence_class": "direct_pinned_upstream_original_JSON_sha_and_inherited_texture_face_slot_resolution_plus_12_new_original_PNG_full_pixel_decodes",
+    "original_json_directly_fetched_and_sha_matched": 63,
+    "leaf_json": 33,
+    "template_json": 30,
+    "leaf_source_own_elements_total": 0,
+    "leaf_override_texture_slots": 93,
+    "template_face_unique_authored_declarations": 709,
+    "leaf_inherited_face_instances": 807,
+    "mod_png_face_instances_resolved": 804,
+    "vanilla_minecraft_dirt_face_instances_resolved": 3,
+    "unresolved_face_textures": 0,
+    "leaf_overridden_material_face_instances": 588,
+    "template_default_material_face_instances": 219,
+    "resolved_mod_png_paths_unique": 53,
+    "existing_v13_another_png_pixels": 12,
+    "v18_new_another_png_pixels": 12,
+    "another_png_pixels_cumulative": 24,
+    "another_remaining_source_png_paths_unmeasured": 29,
+    "another_png_sample_scope_pct": 45.28,
+    "new_png_pixel_total": 3072,
+    "new_png_opaque_pixels": 2156,
+    "new_png_transparent_pixels": 916,
+    "new_png_partial_alpha_pixels": 0,
+    "new_png_indexed_4bit_count": 1,
+    "mod_png_pixels_total_both_mods": 48,
+    "handcrafted_mod_face_pixel_regions_verified_v17": 784,
+    "another_face_png_uv_pixel_regions_verified": 0,
+    "official_vanilla_dirt_texture_verified": false,
+    "official_minecraft_1_21_11_client_jar_verified": false,
+    "official_macaw_model_verified": false,
+    "in_game_verified": false,
+    "sqlite_updated": false,
+    "source_assets_republished": false,
+    "outputs": [
+      "research/furniture_mods/v18/another_leaf_texture_resolved_33.csv",
+      "research/furniture_mods/v18/another_leaf_slots_93.csv",
+      "research/furniture_mods/v18/another_template_direct_30.csv",
+      "research/furniture_mods/v18/another_template_face_refs_all.csv",
+      "research/furniture_mods/v18/another_face_material_groups_113.csv",
+      "research/furniture_mods/v18/another_leaf_face_coverage_33.csv",
+      "research/furniture_mods/v18/another_new_png_12_pixel_metrics.csv",
+      "research/furniture_mods/v18/v18_original_model_audit_summary.json",
+      "scripts/v18_png_rgba_4bit_helper.js",
+      "research/furniture_mods/v18/00_v18_AnotherFurniture_원본63_JSON_12PNG_807면_분석보고서.md"
+    ],
+    "caveats": [
+      "807 means template faces instantiated for 33 leaf models, not 807 unique authored face JSON.",
+      "53 PNG resources only within these 33 selected Another leaf models; 24/53 is not entire Another Furniture mod completion.",
+      "4-bit palette source image handled; 12 new PNG full source pixels, no face region RGB alpha analysis on Another models yet.",
+      "All original model assets copyright-protected; no source JSON/PNG redistributed."
+    ]
   }
 }
