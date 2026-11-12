@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-12",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v16",
+  "current_checkpoint": "v17",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -71,7 +71,7 @@
     {
       "id": "04",
       "topic": "mod furniture textures and UV analysis",
-      "status": "v16_direct_original_png_12_full_pixel_decodes_and_784_mod_faces_uv_mapping_in_progress",
+      "status": "v17_handcrafted_784_of_784_preselected_mod_face_png_rgba_rectangles_directly_sampled_in_progress",
       "sample": {
         "another_furniture": {
           "png_headers_measured": 12
@@ -114,7 +114,23 @@
         "v16_png_pixel_bounds_aligned": 784,
         "v16_vanilla_png_face_instances_unverified": 2,
         "v16_face_region_alpha_pixel_sampled": false,
-        "texture_uv_mapping_scope": "only 784 Handcrafted source face instances with direct model texture path resolution and numeric UV pixel bounds; two vanilla faces and actual face region RGBA sampling/in-game pending"
+        "texture_uv_mapping_scope": "only 784 Handcrafted source face instances with direct model texture path resolution and numeric UV pixel bounds; two vanilla faces and actual face region RGBA sampling/in-game pending",
+        "v17_handcrafted_face_sample_target": 784,
+        "v17_handcrafted_face_samples_completed": 784,
+        "v17_selected_face_region_coverage_pct": 100,
+        "v17_original_handcrafted_png_decoded_again": 24,
+        "v17_nonzero_uv_rect_faces": 612,
+        "v17_zero_uv_area_faces": 172,
+        "v17_source_png_uv_rect_all_opaque_faces": 420,
+        "v17_source_png_uv_rect_mixed_alpha_faces": 145,
+        "v17_source_png_uv_rect_all_transparent_faces": 47,
+        "v17_source_png_uv_rect_partial_alpha_faces": 0,
+        "v17_texel_use_total_with_duplicate_face_instances": 41290,
+        "v17_opaque_texel_use_count": 31665,
+        "v17_transparent_texel_use_count": 9625,
+        "v17_partial_alpha_texel_use_count": 0,
+        "v17_unresolved_vanilla_face_samples": 2,
+        "v17_renderer_validation_completed": false
       }
     },
     {
@@ -178,14 +194,15 @@
     "research/furniture_mods/v13/00_v13_모드PNG실화소_UV픽셀정렬_보고서.md",
     "research/furniture_mods/v14/00_v14_텍스처슬롯_근거연결_보고서.md",
     "research/furniture_mods/v15/00_v15_기하표현_계량비교_보고서.md",
-    "research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md"
+    "research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md",
+    "research/furniture_mods/v17/00_v17_면별실화소784_색상알파검증_보고서.md"
   ],
   "next_work": [
-    "v17: for 784 already resolved mod PNG face instances, sample exact per-face PNG rectangle RGBA values (handle zero-area, mirrored UV, rotation without claiming in-game rendered equivalence)",
-    "v16 newly decoded 12 original PNG files and 30 model JSON files do not need to be reexamined in full; reuse hashes and metadata, extend only needed sample",
-    "Verify two vanilla oak_planks faces from official Minecraft 1.21.11 client.jar when available",
-    "Check local source bbox out-of-block transform vs in-game appearance; complete official Macaw JAR model inspection",
-    "Continue upstream resource copyright protections and keep validation status 0/5 until final official/in-game verification"
+    "Independently rerun v17 sample via Pillow/Python against legally obtained pinned author Handcrafted checkout; script not yet executed end-to-end",
+    "Verify the remaining two vanilla oak_planks face instances against official Minecraft 1.21.11 client.jar and image pixels",
+    "Use verified official Macaw Furniture 1.21.11 distribution JAR to add direct model geometry and UV study",
+    "Compare UV-reversed/zero-area/fully transparent face behavior with in-game rendering including culling, rotation, tint and lighting",
+    "Preserve distinctions between scope-complete v17 784/784 face regions and final project substeps completed 0/5; no arbitrary project completion percentage"
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -382,5 +399,53 @@
     "offline_verifier_script": "scripts/reproduce_v16_handcrafted_originals.py",
     "offline_verifier_syntax_checked": true,
     "offline_verifier_full_execution_with_upstream_checkout": false
+  },
+  "v17": {
+    "report": "research/furniture_mods/v17/00_v17_면별실화소784_색상알파검증_보고서.md",
+    "pinned_original_repo": "terrarium-earth/Handcrafted",
+    "pinned_commit": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035",
+    "evidence_class": "upstream_git_sha_checked_png_rgba_direct_decode_and_all_selected_uv_rect_texel_sample",
+    "source_pngs_read_again": 24,
+    "source_pngs_new_unique": 0,
+    "source_json_originals_v16_reused": 30,
+    "selected_mod_face_instance_target": 784,
+    "face_instance_png_region_sampled": 784,
+    "selected_coverage_percent": 100,
+    "nonzero_uv_face_instances": 612,
+    "zero_area_uv_face_instances": 172,
+    "all_opaque_face_instances": 420,
+    "mixed_opaque_transparent_face_instances": 145,
+    "fully_transparent_face_instances": 47,
+    "reversed_uv_face_instances": 251,
+    "texel_uses": 41290,
+    "opaque_texel_uses": 31665,
+    "transparent_texel_uses": 9625,
+    "partial_alpha_texel_uses": 0,
+    "handcrafted_png_count_cumulative": 24,
+    "another_png_count_cumulative": 12,
+    "mod_png_count_cumulative": 36,
+    "vanilla_oak_planks_face_instances_excluded": 2,
+    "official_minecraft_client_jar_verified": false,
+    "macaw_official_models_verified": 0,
+    "in_game_verified": false,
+    "sqlite_updated": false,
+    "source_licence_assets_republished": false,
+    "offline_js_sampler": "scripts/v17_png_rgba_js_helper.js",
+    "offline_python_verifier": "scripts/reproduce_v17_face_pixels.py",
+    "offline_python_verifier_run_against_pinned_checkout": false,
+    "outputs": [
+      "research/furniture_mods/v17/handcrafted_16_leaf_face_rects_786.csv",
+      "research/furniture_mods/v17/face_pixel_samples_batch_1_of_3.csv",
+      "research/furniture_mods/v17/face_pixel_samples_batch_2_of_3.csv",
+      "research/furniture_mods/v17/face_pixel_samples_batch_3_of_3.csv",
+      "research/furniture_mods/v17/face_pixel_samples_784.csv",
+      "research/furniture_mods/v17/texture_face_pixel_usage_24.csv",
+      "research/furniture_mods/v17/leaf_face_pixel_usage_16.csv",
+      "research/furniture_mods/v17/v17_pixel_region_summary.json",
+      "research/furniture_mods/v17/00_v17_면별실화소784_색상알파검증_보고서.md"
+    ],
+    "denominator_note": "100% of v16's 784 specifically scoped Handcrafted mod PNG face instances, not 100% of all furniture mods or final research",
+    "substeps_completed": 0,
+    "substeps_total": 5
   }
 }
