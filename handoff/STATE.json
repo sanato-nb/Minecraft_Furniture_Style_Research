@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-12",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v10",
+  "current_checkpoint": "v11",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -32,12 +32,24 @@
     {
       "id": "03",
       "topic": "mod furniture 3D model analysis",
-      "status": "not_started"
+      "status": "in_progress",
+      "sample": {
+        "mod": "Another Furniture",
+        "mc_version": "1.21.1",
+        "templates_measured": 69,
+        "leaf_models_measured": 33,
+        "blockstates_measured": 12
+      }
     },
     {
       "id": "04",
       "topic": "mod furniture textures and UV analysis",
-      "status": "not_started"
+      "status": "preliminary_header_analysis",
+      "sample": {
+        "mod": "Another Furniture",
+        "png_headers_measured": 12,
+        "pixel_distribution_verified": false
+      }
     },
     {
       "id": "05",
@@ -90,16 +102,37 @@
     "PROGRESS.md",
     "SOURCES_AND_LIMITS.md",
     "docs/NEW_CHAT_START.md",
-    "README.md"
+    "README.md",
+    "research/furniture_mods/v11/00_v11_AnotherFurniture_모델분석_보고서.md"
   ],
   "next_work": [
-    "Verify latest GitHub checkpoint",
-    "Finish or explicitly defer outstanding vanilla model validations",
-    "Start actual mod furniture asset research with direct evidence when appropriate",
-    "Update all handoff/status files after each checkpoint"
+    "Confirm GitHub v11 model and texture measurements and licensing",
+    "Analyze another furniture mod models with direct resource evidence",
+    "Analyze pixel samples and UV mappings while distinguishing game versions",
+    "Keep Vanilla official-client.jar verification as pending",
+    "Update v11+ research data and HANDOFF/PROGRESS after each checkpoint"
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
     "https://github.com/InventivetalentDev/minecraft-entity-models/tree/1.21.11"
-  ]
+  ],
+  "v11_mod": {
+    "mod": "Another Furniture",
+    "source_repo": "https://github.com/crispytwig/AnotherFurniture/tree/1.21.1",
+    "source_commit": "57eb624cbb7f408d43398c7434b0d38d312cb55d",
+    "game_version": "1.21.1",
+    "license": "All Rights Reserved for mod asset resources",
+    "template_json_total": 69,
+    "template_elements_total": 299,
+    "face_uv_definitions": 1362,
+    "flat_elements": 34,
+    "leaf_models_checked": 33,
+    "leaf_models_resolved": 33,
+    "blockstate_files_checked": 12,
+    "blockstate_entry_sum": 802,
+    "png_ihdr_checked": 12,
+    "pixel_analysis_complete": false,
+    "data_in_sqlite_v10": false,
+    "report": "research/furniture_mods/v11/00_v11_AnotherFurniture_모델분석_보고서.md"
+  }
 }
