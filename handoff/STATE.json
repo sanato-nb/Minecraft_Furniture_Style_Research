@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-12",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v15",
+  "current_checkpoint": "v16",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -32,7 +32,7 @@
     {
       "id": "03",
       "topic": "mod furniture 3D model analysis",
-      "status": "v15_geometry_expression_cross_record_189_derived_metrics_in_progress",
+      "status": "v16_30_original_handcrafted_json_source_blob_sha_verified_mod_study_in_progress",
       "sample": {
         "another_furniture": {
           "source": "crispytwig/AnotherFurniture",
@@ -62,13 +62,16 @@
           "status": "official_asset_not_acquired"
         },
         "v15_models_reaggregated": 189,
-        "v15_original_source_json_fetched": 0
+        "v15_original_source_json_fetched": 0,
+        "v16_original_json_sha_checked": 30,
+        "v16_leaf_source_json": 16,
+        "v16_parent_source_json": 14
       }
     },
     {
       "id": "04",
       "topic": "mod furniture textures and UV analysis",
-      "status": "v14_texture_binding_reference_audit_in_progress_not_face_pixel_verified",
+      "status": "v16_direct_original_png_12_full_pixel_decodes_and_784_mod_faces_uv_mapping_in_progress",
       "sample": {
         "another_furniture": {
           "png_headers_measured": 12
@@ -78,10 +81,10 @@
         },
         "total_png_headers_measured": 24,
         "pixel_distribution_verified": true,
-        "texture_uv_mapping_verified": false,
-        "actual_png_decoded": 24,
+        "texture_uv_mapping_verified": true,
+        "actual_png_decoded": 36,
         "actual_png_another": 12,
-        "actual_png_handcrafted": 12,
+        "actual_png_handcrafted": 24,
         "uv_models_measured": 13,
         "uv_faces_pixel_aligned": 571,
         "uv_faces_measured": 571,
@@ -97,7 +100,21 @@
         "v14_unverified_vanilla_texture_bindings": 16,
         "v14_leaf_all_mod_slots_matched": 7,
         "v14_leaf_any_mod_slot_matched": 13,
-        "v14_leaf_uv_parent_in_v13_sample": 9
+        "v14_leaf_uv_parent_in_v13_sample": 9,
+        "total_v16_new_png_decoded": 12,
+        "v16_original_png_total_pixels": 66816,
+        "v16_new_png_visible_pixels": 7358,
+        "v16_new_png_transparent_pixels": 59458,
+        "v16_new_png_partial_pixels": 0,
+        "v16_leaf_original_json_sha_verified": 16,
+        "v16_parent_original_json_sha_verified": 14,
+        "v16_leaf_texture_slot_count_verified": 51,
+        "v16_inherited_face_instances": 786,
+        "v16_handcrafted_png_face_instances_resolved": 784,
+        "v16_png_pixel_bounds_aligned": 784,
+        "v16_vanilla_png_face_instances_unverified": 2,
+        "v16_face_region_alpha_pixel_sampled": false,
+        "texture_uv_mapping_scope": "only 784 Handcrafted source face instances with direct model texture path resolution and numeric UV pixel bounds; two vanilla faces and actual face region RGBA sampling/in-game pending"
       }
     },
     {
@@ -160,14 +177,15 @@
     "research/furniture_mods/v11/00_v11_AnotherFurniture_모델분석_보고서.md",
     "research/furniture_mods/v13/00_v13_모드PNG실화소_UV픽셀정렬_보고서.md",
     "research/furniture_mods/v14/00_v14_텍스처슬롯_근거연결_보고서.md",
-    "research/furniture_mods/v15/00_v15_기하표현_계량비교_보고서.md"
+    "research/furniture_mods/v15/00_v15_기하표현_계량비교_보고서.md",
+    "research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md"
   ],
   "next_work": [
-    "Obtain exact pinned-commit model JSON and texture PNG bytes to map each face's #slot to concrete pixel rectangle and alpha (not measured in v15)",
-    "Analyze 12 previously unsampled Handcrafted mod PNG identified in v14 with SHA and raw pixels; do not redistribute copyrighted assets",
-    "Validate world-space transforms and in-game placement for 63 v15 models with raw bbox outside 0..16 across both distinct cohorts",
-    "Confirm official Minecraft 1.21.11 client.jar and Macaw 1.21.11 official JAR before marking their models verified",
-    "Never call derived counts 'new source inspection'; keep substep completion 0/5 until official and in-game verification"
+    "v17: for 784 already resolved mod PNG face instances, sample exact per-face PNG rectangle RGBA values (handle zero-area, mirrored UV, rotation without claiming in-game rendered equivalence)",
+    "v16 newly decoded 12 original PNG files and 30 model JSON files do not need to be reexamined in full; reuse hashes and metadata, extend only needed sample",
+    "Verify two vanilla oak_planks faces from official Minecraft 1.21.11 client.jar when available",
+    "Check local source bbox out-of-block transform vs in-game appearance; complete official Macaw JAR model inspection",
+    "Continue upstream resource copyright protections and keep validation status 0/5 until final official/in-game verification"
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -318,5 +336,47 @@
       "model sample populations across mods are not matched",
       "new source JSON/PNG read was blocked; prior pinned-commit CSV records used"
     ]
+  },
+  "v16": {
+    "report": "research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md",
+    "source": "terrarium-earth/Handcrafted",
+    "pin": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035",
+    "evidence_class": "direct_original_upstream_json_png_pixel_decode_and_face_texture_slot_uv_pixel_coordinate_resolution",
+    "source_json_direct_inspected": 30,
+    "source_leaf_json": 16,
+    "source_parent_json": 14,
+    "source_json_sha_matched_previous_v12": 30,
+    "leaf_original_texture_slots": 51,
+    "unique_png_new_source_bytes_fully_decoded": 12,
+    "original_png_pixels_decoded_new": 66816,
+    "png_visible": 7358,
+    "png_transparent": 59458,
+    "png_partial": 0,
+    "fully_transparent_png": [
+      "bench/cushion/none_cushion",
+      "shelf/overlay/none"
+    ],
+    "handcrafted_png_pixel_samples_total_v13_plus_v16": 24,
+    "another_furniture_png_pixel_samples_v13": 12,
+    "inherited_face_instances": 786,
+    "mod_png_resolved_face_instances": 784,
+    "mod_face_uv_grid_aligned": 784,
+    "mod_face_outside_png_bounds": 0,
+    "vanilla_unverified_face_instances": 2,
+    "source_json_face_region_alpha_sampling_verified": false,
+    "in_game_verified": false,
+    "macaw_original_model_verified": false,
+    "sqlite_updated": false,
+    "outputs": [
+      "research/furniture_mods/v16/handcrafted_12_new_png_pixel_metrics.csv",
+      "research/furniture_mods/v16/handcrafted_12_new_png_audit.json",
+      "research/furniture_mods/v16/handcrafted_16_leaf_original_slots_confirmed.csv",
+      "research/furniture_mods/v16/handcrafted_16_leaf_original_verification.json",
+      "research/furniture_mods/v16/handcrafted_16_leaf_face_material_groups.csv",
+      "research/furniture_mods/v16/handcrafted_16_leaf_face_summary.csv",
+      "research/furniture_mods/v16/v16_original_face_mapping_audit.json",
+      "research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md"
+    ],
+    "copyright_assets_republished": false
   }
 }
