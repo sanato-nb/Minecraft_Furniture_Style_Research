@@ -2,19 +2,19 @@
 
 **새 채팅 인수인계:** [HANDOFF.md](HANDOFF.md) · [복사용 시작 프롬프트](docs/NEW_CHAT_START.md) · [현재 상태 JSON](handoff/STATE.json)
 
-업데이트: 2026-11-12 / 체크포인트 v19
+업데이트: 2026-11-12 / 체크포인트 v20
 
 | 1단계 세부 작업 | 상태 | 수치 |
 |---|---|---|
 | 01. 바닐라 재질·텍스처 분석 | 표본 목표 달성 / 최종 검증 보류 | **150/150종, 표본 100%** |
 | 02. 바닐라 3D 모델·블록 구조 분석 | 진행 중 | 대표 모델·UV·연결형·특수 렌더링 v5–v10 |
-| 03. 가구 모드 3D 모델 분석 | **Another 원본 템플릿 30 JSON v19 재검증 및 UV 807면 파싱** | 기존 Another 템플릿 69/leaf 33, Handcrafted 원형 120/leaf 16. v18 Another 원본 JSON 63개 SHA 일치 확인, v19 원본 템플릿 30 JSON의 face UV 재분석. Macaw 공식 원본 직접 실측 0.
-| 04. 가구 모드 텍스처·UV 분석 | **원본 PNG 총 77종 직접 화소, 두 모드 선정 표본의 총 1,588 모드 면 실제 UV RGBA 검사** | **v19 Another 새 PNG 29개 → 53/53 경로**, 804/804 모드 면 직접 UV 영역 RGBA(712 불투명·88 혼합·4 면적 0). **v17 Handcrafted PNG 24종·784/784면** UV 실화소. 공식 바닐라 dirt 3면 + oak_planks 2면/전체 모델/인게임 미검증.
+| 03. 가구 모드 3D 모델 분석 | **v20 Another 제작자 고정 원본 JSON 69/69 직접 재조회·SHA 일치, 1,362면 raw UV·회전·cullface 감사** | 299 요소·원형 69, 그중 기존 선정 30 외 **39원형 신규 상세 원본 확인**. Handcrafted 원형 120 기존 분석, Macaw 공식 JAR 다운로드 실패/모델 실측 0.
+| 04. 가구 모드 텍스처·UV 분석 | **기존 두 모드 선정 표본 1,588면 실제 PNG UV RGBA 검증 유지, v20 Another 원형 1,362 선언 면 기하/UV 조사** | Another 선택 모델 PNG 53종·804면 원본 RGBA, Handcrafted PNG 24종·784면. 이번 원형 39개는 PNG 실화소 미연결, 바닐라·인게임 미검증.
 | 05. 바닐라 ↔ 가구 모드 비교 검증 | 사전 비교만 작성 / 최종 검증 미시작 | 두 모드의 의자·벤치·소파 5유형 구조 비교표 작성. 바닐라와의 인게임 비교는 미완료 |
 
 **전체 완료:** 0/5개. 일부 체크포인트의 100%는 *표본 수 달성*만을 뜻하며 공식 JAR/인게임 재현까지 마쳤음을 의미하지 않습니다. 02번도 모집단이 확정되지 않아 임의 완료율을 산출하지 않습니다.
 
-## 누적 근거 데이터 (v8 SQLite + v9 CSV + v10 SQL migration + v11~v19 모드 CSV)
+## 누적 근거 데이터 (v8 SQLite + v9 CSV + v10 SQL migration + v11~v20 모드 CSV)
 
 - 텍스처 측정 레코드: 150건
 - 최초 모델 근거: 55건
@@ -46,21 +46,26 @@
 
 - **v19 Another Furniture 원본 PNG 29종·UV 면별 직접 RGBA 분석:** v18에서 고른 **leaf 33개**의 참조 모드 PNG 미측정 **29종을 제작자 고정 원본에서 새로 직접 디코딩**, 누적 Another **53/53 PNG 원본 실화소**(52종 16×16 / 1종 64×64). 원본 전체 **17,408픽셀**(불투명 **11,536**, 완전투명 **5,872**, 부분알파 0). 템플릿 **30종 원본 JSON을 새로 읽고 SHA 재확인**, 총 **807면의 실제 선언 UV**를 추출한 뒤 **Another PNG에 연결된 804/804면(선정 표본 100%)의 실제 원본 사각형 RGBA** 샘플링 완료. 모두 정수 픽셀 정렬/PNG 경계 안, 4면은 UV 면적 0. 비영 800면 중 **712면 전체 불투명, 88면 혼합, 전체투명 0면**. 중복 면·텍스처 사용 포함 텍셀 사용 **32,531회** 중 불투명 **31,545·투명 986·부분 알파 0**; UV 반전 **221모드 면**. [v19 전체 보고서](research/furniture_mods/v19/00_v19_Another_원본29PNG_807면UV_804면RGBA_보고서.md) · [53 PNG/원본 SHA](research/furniture_mods/v19/another_texture_53_png_source_manifest.csv) · [804면 실화소 CSV](research/furniture_mods/v19/another_804_face_actual_rgba.csv) · [33 가구별 집계](research/furniture_mods/v19/another_33_leaf_actual_rgba_summary.csv) · [두 모드 선정 표본만 비교한 보고서](research/furniture_mods/v19/00_v19_모드간실제면UV픽셀_선정표본비교.md). **모드 전체 전수/바닐라 의존 3면·인게임 렌더·독립 로컬 PNG 재실행은 아직 미완료**.
 
+- **v20 Another 원형 원본 JSON 69/69 직접 재조회:** 제작자 1.21.1 고정 커밋에서 **기존 v11 69 원형 모두** 파일을 다시 읽어 **Git blob SHA·요소 수·명시 면 수 전부 일치**. v18 선정 원형 30 이외 **39개를 새로 직접 자세히 조사**, 총 **299 요소, 1,362 원본 선언 면**의 UV·회전·0두께·raw bbox·cullface 원본 데이터를 저장. **UV 반전 422면 / UV 회전 134면 / cullface 443면 / 0면적 UV 4면 / 회전 요소 17개 / 0두께 요소 34개 / 0~16 외부 원시 bbox 요소 11개(3개 템플릿)**. [전체 상세 보고서](research/furniture_mods/v20/00_v20_Another원형69_원본JSON_UV면1362_보고서.md) · [69 원형 CSV](research/furniture_mods/v20/another_69_templates_direct_original_geometry.csv) · [1,362 원시 면 CSV](research/furniture_mods/v20/another_69_templates_1362_original_faces.csv) · [SHA 감사 JSON](research/furniture_mods/v20/v20_another_69_original_template_audit.json). Macaw's Furniture 공식 1.21.11 Fabric 3.4.2 배포는 확인했으나 **현재 실행 환경에서 JAR을 다운로드하지 못했으므로 모델 실측 0건**. 이 69 모델은 이미 v11에서 선정한 **원형 표본 전수**로 전체 모드 모델 전수 아님. PNG 실화소 누적 **Another 53 + Handcrafted 24 = 77개** 그대로, 새 39 원형의 재질별 PNG 실측 추가 0. 공식 1.21.11 바닐라/인게임/전체 모드 검증 미완료.
+
 ## 다음 과제
 
 1. Minecraft Java 1.21.11 공식 `client.jar`와 비공식 미러 자료의 바이트/해시 비교. [로컬 검사 스크립트](scripts/verify_official_jar.py) 및 [사용법](docs/official_client_jar_검증방법.md) 준비 완료(실제 JAR 미실행).
 2. 실제 게임에서 잔디·잎의 색 변형, 투명도, 모델 조립 결과 검증.
 3. [v10 통합 보고서](research/vanilla_models/v10/00_v10_누적DB_통합검증_보고서.md) 및 [v9 특수 모델 자료](research/vanilla_models/v9/00_v9_실제부품구조_분석보고서.md)의 공식 클라이언트·인게임 교차검증 후 02번 종료 여부 판정.
 4. **03번 v12에서 Handcrafted 원형 120개 분석까지 완료:** 검증된 Macaw's Furniture 공식 1.21.11 배포 JAR(또는 공식 소스)을 확보하면 모델 구조를 직접 분석한다. 불확실한 제3자 복제본을 쓰지 않는다.
-5. **v17 Handcrafted 784/784면 + v19 Another 804/804모드 면의 원본 PNG UV 실제 픽셀 분석을 선정 표본 안에서는 완료.** Another 53 PNG 원본도 해당 선정 33 leaf의 참조 경로를 전부 검사. **다음은 공식 Minecraft 1.21.11 client.jar의 dirt 3면/oak_planks 2면, 공식 Macaw 원본 모델, 선정 표본 밖 모드 모델의 확장, 인게임 최종 렌더 검증**이다.
+5. **v20 Another 선정 원형 69/69 JSON 및 선언 면 1,362개의 raw UV·회전·cullface 원본 직접 검증**. 기존 선정 leaf 33개의 Another 804모드 면 및 Handcrafted 784모드 면 실화소 측정은 완료 유지. **다음은 다운로드/접근이 확인된 공식 Macaw JAR 실제 추출, 공식 Minecraft 1.21.11 client.jar, v20 추가 39 원형에 대한 leaf/PNG 연결, 인게임 렌더**이다.
 
-**주의:** GitHub에 추적된 SQLite 바이너리는 **v8**입니다. **v11~v19 모드 실측·파생 수치는 CSV/MD로 저장되었고 아직 SQLite에는 통합하지 않았습니다.** v10 SQLite 전체 파일은 로컬에서 생성해 무결성을 검사했으며, GitHub에서는 [v10 SQL migration](data/migrations/v8_to_v10.sql)과 [재구성 스크립트](scripts/rebuild_v10_db.py)를 통해 복원합니다. GitHub에 v10 SQLite 바이너리가 업로드된 상태는 아닙니다.
+**주의:** GitHub에 추적된 SQLite 바이너리는 **v8**입니다. **v11~v20 모드 실측·파생 수치는 CSV/MD로 저장되었고 아직 SQLite에는 통합하지 않았습니다.** v10 SQLite 전체 파일은 로컬에서 생성해 무결성을 검사했으며, GitHub에서는 [v10 SQL migration](data/migrations/v8_to_v10.sql)과 [재구성 스크립트](scripts/rebuild_v10_db.py)를 통해 복원합니다. GitHub에 v10 SQLite 바이너리가 업로드된 상태는 아닙니다.
 
 다른 대화에서 이어갈 때는 v8 DB와 v10 migration, v9 연구 자료, 이 진행도 파일을 함께 기준으로 삼으세요.
 
 ## 새 채팅용 체크포인트
 
-- **최신 v19:** [Another 선정 33 leaf가 참조한 고유 PNG 53/53종과 모드 면 UV 실제 RGBA 804/804면 전체 분석](research/furniture_mods/v19/00_v19_Another_원본29PNG_807면UV_804면RGBA_보고서.md). **선정된 표본만 100%**이고 바닐라·인게임·Macaw·전체 모드 전수는 미검증. 5개 작업 **최종 완료 0/5**.
+- **최신 v20:** [제작자 Another 원형 69개 전체 JSON SHA 재검증/1,362면 직접 UV·기하 실측](research/furniture_mods/v20/00_v20_Another원형69_원본JSON_UV면1362_보고서.md). 이 69는 v11 원형 선정 표본(모드 전체 원본 모델 1,451개 파일과 다름). Macaw 공식 1.21.11 Fabric 릴리스 존재는 확인했으나 **JAR 원본 바이너리 확보 실패, 실제 모델 조사 0**. 상위 1단계 확정 완료 **0/5**.
+
+
+- 이전 v19: [Another 선정 33 leaf가 참조한 고유 PNG 53/53종과 모드 면 UV 실제 RGBA 804/804면 전체 분석](research/furniture_mods/v19/00_v19_Another_원본29PNG_807면UV_804면RGBA_보고서.md). **선정된 표본만 100%**이고 바닐라·인게임·Macaw·전체 모드 전수는 미검증. 5개 작업 **최종 완료 0/5**.
 
 
 - 이전 v18: [Another Furniture 원본 모델 63개·807면 텍스처 경로·신규 PNG 12종 직접 픽셀 분석](research/furniture_mods/v18/00_v18_AnotherFurniture_원본63_JSON_12PNG_807면_분석보고서.md), 24/53 참조된 모드 PNG 경로 실화소(45.28%). 이 표본 검증률은 **전체 프로젝트 완료율이 아니다**. 전체 확정 완료 0/5.
