@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-12",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v19",
+  "current_checkpoint": "v20",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -32,7 +32,7 @@
     {
       "id": "03",
       "topic": "mod furniture 3D model analysis",
-      "status": "v19_another_selected_33_leaf_30_parent_source_face_uv_inspected_and_sha_checked",
+      "status": "v20_another_all_69_pinned_original_templates_sha_reverified_and_1362_source_face_geometry_uv_audited",
       "sample": {
         "another_furniture": {
           "source": "crispytwig/AnotherFurniture",
@@ -74,13 +74,29 @@
         "v18_another_mod_png_face_instances": 804,
         "v18_another_vanilla_dirt_face_instances": 3,
         "v19_another_parent_json_direct_sha_reverified": 30,
-        "v19_another_leaf_original_face_uv_coordinates_extracted": 807
+        "v19_another_leaf_original_face_uv_coordinates_extracted": 807,
+        "v20_another_source_original_templates_refetched": 69,
+        "v20_another_selected_30_parent_templates_refetched_again": 30,
+        "v20_another_additional_39_template_source_originals_direct_verified": 39,
+        "v20_another_all_69_original_json_source_sha_match": 69,
+        "v20_another_original_raw_geometry_elements_audited": 299,
+        "v20_another_original_source_declared_faces_audited": 1362,
+        "v20_another_original_source_uv_reversed_faces": 422,
+        "v20_another_original_source_uv_rotated_faces": 134,
+        "v20_another_original_source_cullface_faces": 443,
+        "v20_another_original_zero_uv_faces": 4,
+        "v20_another_original_flat_geometry_elements": 34,
+        "v20_another_original_rotated_geometry_elements": 17,
+        "v20_another_source_elements_outside_raw_0_16": 11,
+        "v20_macaw_official_1_21_11_release_identified": true,
+        "v20_macaw_official_jar_binary_acquired": false,
+        "v20_macaw_models_inspected": 0
       }
     },
     {
       "id": "04",
       "topic": "mod furniture textures and UV analysis",
-      "status": "v19_another_804_of_804_pinned_original_face_png_rgba_selected_sample_and_53_of_53_textures_decoded",
+      "status": "v20_raw_uv_1362_template_faces_examined_keeping_v19_another_804_rgba_and_v17_handcrafted_784_rgba_samples",
       "sample": {
         "another_furniture": {
           "png_headers_measured": 12
@@ -169,7 +185,10 @@
         "v19_another_png_total_source_visible": 11536,
         "v19_another_png_total_source_transparent": 5872,
         "v19_another_unverified_vanilla_dirt_face_instances": 3,
-        "v19_handcrafted_unverified_vanilla_oak_planks_face_instances": 2
+        "v19_handcrafted_unverified_vanilla_oak_planks_face_instances": 2,
+        "v20_another_raw_template_face_uv_declarations_examined": 1362,
+        "v20_additional_39_parent_template_faces_examined": 653,
+        "v20_additional_39_parent_face_png_rgba_verified": 0
       }
     },
     {
@@ -236,14 +255,15 @@
     "research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md",
     "research/furniture_mods/v17/00_v17_면별실화소784_색상알파검증_보고서.md",
     "research/furniture_mods/v18/00_v18_AnotherFurniture_원본63_JSON_12PNG_807면_분석보고서.md",
-    "research/furniture_mods/v19/00_v19_Another_원본29PNG_807면UV_804면RGBA_보고서.md"
+    "research/furniture_mods/v19/00_v19_Another_원본29PNG_807면UV_804면RGBA_보고서.md",
+    "research/furniture_mods/v20/00_v20_Another원형69_원본JSON_UV면1362_보고서.md"
   ],
   "next_work": [
-    "Use official Minecraft 1.21.11 client.jar to verify 3 Another minecraft:block/dirt faces and 2 Handcrafted minecraft:block/oak_planks face texture source pixels; no official-game pixel claims yet",
-    "Acquire and verify official Macaw's Furniture distribution JAR or official model assets; no Macaw model JSON inspected yet",
-    "Extend beyond selected 33 Another leaf and 16 Handcrafted generated leaf sample; 53 PNG 804 faces are not full mod coverage",
-    "Run independent Pillow offline replay against pinned official authors' source checkouts, then in-game compare face UV orientation alpha lighting culling blockstates",
-    "After official vanilla/Mod assets and in-game checks, finalize practical Minecraft furniture modeling style guide; keep strict substeps completed 0/5 without invented total project percent"
+    "v21: Acquire official Macaw's Furniture 3.4.2 Fabric Minecraft 1.21.11 JAR, verify official file hash, inspect authentic assets/mcwfurnitures models, textures and blockstates. Current model count remains zero and download failed in this environment.",
+    "Acquire official Minecraft Java 1.21.11 client.jar, verify source pixels for Another minecraft:block/dirt three faces and Handcrafted minecraft:block/oak_planks two faces.",
+    "Extend beyond the selected 33 Another leaf samples by mapping new leaf models to v20 other 39 authentic parent templates and their source PNG UV face texel evidence.",
+    "Expand Handcrafted beyond 16 selected generated leaf samples, and test real-game rendering including rotation, culling, texture sampling, state connections and lighting.",
+    "Distinguish all 69 selected template JSON verification from full upstream mod 1451 model paths; preserve strict full-stage 0/5 until game-source and in-game verification."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -607,5 +627,59 @@
     ],
     "substeps_final_completed": 0,
     "substeps_total": 5
+  },
+  "v20": {
+    "report": "research/furniture_mods/v20/00_v20_Another원형69_원본JSON_UV면1362_보고서.md",
+    "pinned_original_source": "crispytwig/AnotherFurniture",
+    "pinned_source_commit": "57eb624cbb7f408d43398c7434b0d38d312cb55d",
+    "source_version": "1.21.1",
+    "evidence_level": "all previously_v11_scoped_69_template_original_JSON_refetched_SHA_compared_and_face_geometry_parsed",
+    "template_json_refetched_and_sha_verified": 69,
+    "newly_directly_examined_beyond_v18_30_selected_template_subset": 39,
+    "previously_v18_selected_template_json_also_reread": 30,
+    "template_geometry_elements": 299,
+    "source_face_declarations": 1362,
+    "source_faces_missing_explicit_uv": 0,
+    "source_faces_reversed_uv": 422,
+    "source_faces_uv_rotation": 134,
+    "source_faces_cullface_declared": 443,
+    "source_faces_zero_uv_area": 4,
+    "source_faces_with_tintindex": 0,
+    "rotated_elements": 17,
+    "flat_elements": 34,
+    "elements_outside_raw_block_bbox_0_16": 11,
+    "templates_containing_bbox_outside": [
+      "chair_tucked",
+      "coat_hook",
+      "grandfather_clock_full"
+    ],
+    "additional_39_template_elements": 138,
+    "additional_39_template_source_faces": 653,
+    "additional_39_template_source_sha_consistent_with_v11": true,
+    "selected_another_33_leaf_mod_source_face_png_rgba_completed_v19": 804,
+    "selected_handcrafted_16_generated_leaf_mod_source_face_png_rgba_completed_v17": 784,
+    "cumulative_mod_png_direct_pixels_measured": 77,
+    "new_pngs_measured_v20": 0,
+    "macaw_official_modrinth_url": "https://modrinth.com/mod/macaws-furniture/version/xhmciaUD",
+    "macaw_1_21_11_fabric_version": "3.4.2",
+    "macaw_official_jar_asset_url": "https://cdn.modrinth.com/data/dtWC90iB/versions/xhmciaUD/mcw-furniture-3.4.2-mc1.21.11fabric.jar",
+    "macaw_official_jar_acquired": false,
+    "macaw_original_models_inspected": 0,
+    "macaw_original_png_pixels_inspected": 0,
+    "macaw_jar_blocker": "Container external DNS/network unavailable and direct binary download could not acquire official Modrinth JAR; only publisher release page verified. Official suggestions GitHub cannot substitute original model binaries.",
+    "official_minecraft_client_1_21_11_jar_verified": false,
+    "in_game_rendering_verified": false,
+    "sqlite_updated": false,
+    "copyright_original_assets_republished": false,
+    "complete_substeps": 0,
+    "total_substeps": 5,
+    "scope_note": "69/69 is v11's selected author template dataset, NOT all 1451 model paths in upstream Git tree. Original SHA+model declarations verified; 39 new-to-v18-subset template faces not mapped to particular generated leaves/PNG texel areas.",
+    "outputs": [
+      "research/furniture_mods/v20/another_69_templates_direct_original_geometry.csv",
+      "research/furniture_mods/v20/another_69_templates_1362_original_faces.csv",
+      "research/furniture_mods/v20/another_69_template_prefix_grouping.csv",
+      "research/furniture_mods/v20/v20_another_69_original_template_audit.json",
+      "research/furniture_mods/v20/00_v20_Another원형69_원본JSON_UV면1362_보고서.md"
+    ]
   }
 }
