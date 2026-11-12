@@ -23,6 +23,7 @@
 | v14 | Handcrafted 16개 생성형 leaf의 **51개 텍스처 슬롯 참조** 교차검사 | v13 PNG 근거 연결 19건·표본 밖 16건(고유 12 PNG)·Minecraft 의존 16건. 실제 face→PNG 픽셀 미검증 |
 | v15 | 189개 모델(Another Furniture 69 + Handcrafted 120)의 **면 선언률·회전·평면·bbox 초과** 신규 통계 및 v13 PNG 24개 표본 중앙값 재집계 | 기존 실측 CSV의 2차 분석이며 원본 게임 파일·인게임 신규 검증은 하지 않음 |
 | v16 | Handcrafted 고정 원본 **PNG 추가 12종 실화소·모델 JSON 30개 SHA 직접 검증**, 16 leaf 상속 face 786인스턴스 중 784모드 면의 실제 PNG/UV 정합성 | 바닐라 텍스처 의존 2면·면 내부 픽셀 샘플링·인게임 보류 |
+| v17 | Handcrafted 원본 PNG **24종을 고정 커밋에서 재디코딩**, 16 leaf의 **784/784 모드 face UV 사각형 전체 RGBA 텍셀 실측** | 612 비영 UV/172 면적 0; 420 전부 불투명/145 혼합/47 전부 투명. 바닐라 2면·인게임 보류 |
 
 **학습 전체 5개 작업:** 01 바닐라 텍스처(표본 완료/검증 보류), 02 바닐라 3D(진행 중), 03 가구 모드 모델(v11~v12 실측 진행 중), 04 모드 텍스처·UV(PNG 24개 전체 실화소 및 13모델 571면 UV 표본 정렬 측정), 05 바닐라/모드 비교(5쌍 사전 비교, 최종 검증 미착수). 최종 확정 완료는 **0/5**입니다.
 
@@ -43,6 +44,7 @@
 - [v12: Handcrafted 전수 원형 120종 분석 및 모드 간 사전 비교](research/furniture_mods/v12/00_v12_Handcrafted_교차분석_보고서.md)
 - [v12 Handcrafted 120종 측정 CSV](research/furniture_mods/v12/handcrafted_authored_120_total.csv)
 - [v12 모드 대표 5쌍 구조 비교](research/furniture_mods/v12/another_vs_handcrafted_5_category_pairs.csv)
+- [v17: 784개 면의 실제 UV 사각형 픽셀·알파 검사](research/furniture_mods/v17/00_v17_면별실화소784_색상알파검증_보고서.md) · [전체 784면 CSV](research/furniture_mods/v17/face_pixel_samples_784.csv) · [오프라인 Pillow 재검산 코드](scripts/reproduce_v17_face_pixels.py)
 - [v16: 고정 원본 PNG 12개/JSON 30개/면→PNG 정합성 검증](research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md) · [신규 12 PNG 실화소 CSV](research/furniture_mods/v16/handcrafted_12_new_png_pixel_metrics.csv) · [로컬 원본 재검증 스크립트](scripts/reproduce_v16_handcrafted_originals.py)
 - [v15: 모델 189개 표면·회전·평면·bbox 정량 비교](research/furniture_mods/v15/00_v15_기하표현_계량비교_보고서.md) · [189개 모델별 CSV](research/furniture_mods/v15/model_geometry_derived_189.csv) · [재검산 스크립트](scripts/verify_v15_geometry_research.py)
 - [v14: Handcrafted leaf 16개/51개 슬롯 연결 감사](research/furniture_mods/v14/00_v14_텍스처슬롯_근거연결_보고서.md) · [CSV](research/furniture_mods/v14/handcrafted_texture_bindings_51.csv)
@@ -64,7 +66,7 @@ Minecraft_Furniture_Style_Research/
 ├── research/
 │   ├── vanilla_textures/v1_30...v4_150/  # 버전별 보고서·측정 CSV·재현 코드·분석 도표
 │   ├── vanilla_models/v5...v10/           # 모델·블록상태·UV·특수 렌더링 연구 기록
-│   └── furniture_mods/v11...v16/          # Another Furniture·Handcrafted 실측 통계 (원본 에셋 미수록)
+│   └── furniture_mods/v11...v17/          # Another Furniture·Handcrafted 실측 통계 (원본 에셋 미수록)
 └── FILE_MANIFEST_SHA256.csv              # 저장소 파일 해시 목록
 ```
 
