@@ -1,5 +1,7 @@
 # Minecraft Furniture Style Research
 
+> **새 채팅에서 재개하려면 먼저 [HANDOFF.md](HANDOFF.md)를 읽으세요.** [새 채팅 시작 문장](docs/NEW_CHAT_START.md) · [기계 판독 상태](handoff/STATE.json) · [현재 진행도](PROGRESS.md)
+
 마인크래프트 바닐라 블록의 **재질·텍스처·3D 형상·UV·블록 상태·특수 렌더링** 연구 자료를 정리한 저장소입니다.
 
 > **범위:** Minecraft Java Edition **1.21.11** 기준, 가구 모델링 학습의 **1단계 분석 자료**입니다. 실제 가구 제작이나 Project Zomboid 가구 변환은 포함하지 않습니다.
