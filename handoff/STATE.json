@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-13",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v28",
+  "current_checkpoint": "v29",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -19,7 +19,7 @@
     {
       "id": "01",
       "topic": "vanilla material and texture analysis",
-      "status": "v28_existing_v4_png_2_original_bytes_full_rgba_rededuced_official_jar_validation_pending",
+      "status": "v29_oak_planks_pillow_git_sha_and_sha256_independently_recomputed_match_v4_150_selected_official_jar_pending",
       "sample_count": 150,
       "target": 150,
       "v26_pngs_full_rgba_decoded": 8,
@@ -30,12 +30,14 @@
       "v27_overlap_v4_existing": 1,
       "v28_png_redecoded_existing_v4": 2,
       "v28_opaque_pixels": 464,
-      "v28_transparent_pixels": 48
+      "v28_transparent_pixels": 48,
+      "v29_pngs_original_rehashed": 1,
+      "v29_new_png_paths": 0
     },
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v28_104_variants_state_rotation_uvlock_source_audit_40_oak_door_face_rgba_160_gate_source_faces_not_pixel_verified",
+      "status": "v29_fence_gate_four_templates_160_explicit_faces_direct_png_rgba_and_all_eight_geometry_deltas_completed_runtime_pending",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -53,7 +55,10 @@
       "v28_source_variant_records": 104,
       "v28_actual_door_face_rgba_samples": 40,
       "v28_uvlock_true_explicit": 51,
-      "v28_fence_gate_parent_face_declarations": 160
+      "v28_fence_gate_parent_face_declarations": 160,
+      "v29_gate_face_declarations_original_rgba_checked": 160,
+      "v29_gate_face_texel_uses": 1952,
+      "v29_in_wall_y_minus3_all_elements": true
     },
     {
       "id": "03",
@@ -390,11 +395,11 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "Continue vanilla stage 01/02: independent Mojang 1.21.11 official client.jar origin/hash comparison, not just user uploaded public GitHub copy or third-party mirror SHA.",
-    "Verify actual 1.21.11 runtime blockstate model x/y rotation and uvlock behavior, including source uvlock true/absent distinction: v28 direct source audit is not in-game proof.",
-    "Evaluate all 160 source-declared faces in fence gate four parent templates against reused v26 oak_planks original PNG actual pixels and/or investigate other vanilla furniture-like features without repeating the existing v28 oak_door 40-face sample.",
-    "Continue source texture/model evidence expansion with de-duplication; v28 oak_door PNG 2 paths already existed in v4 150 sample and were redecoded, not newly discovered textures.",
-    "Preserve v24 mod research unchanged, maintain 0/5 final completion status until evidence threshold, and warn public game source redistribution rights."
+    "Continue vanilla 01/02; independently verify Mojang 1.21.11 client.jar provenance/hash, not just uploaded GitHub resource and third party mirror.",
+    "Find and inspect actual 1.21.11 client model loader implementation or run the Minecraft client to validate uvlock/rotation/face culling and original fence-gate geometry, which are not proven by source JSON alone.",
+    "Prioritize other furniture-adjacent vanilla models and entity-rendered assets, especially cases not yet directly sampled; preserve v29 160 original fence gate UV faces from redundant recalc.",
+    "Develop evidence-graded design observations grounded in vanilla PNG/geometry/state results; defer final style guide and cross-mod final conclusions until verification.",
+    "Preserve v24 mod results unchanged, user public Minecraft raw assets redistribution warning, and stage 1 completion 0/5."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -1349,6 +1354,53 @@
       "research/vanilla_models/v28/06_two_v4_oak_door_metrics_crosscheck.csv",
       "research/vanilla_models/v28/07_two_door_png_mirror_sha_check.csv",
       "research/vanilla_models/v28/v28_four_states_and_door_uv_summary.json"
+    ]
+  },
+  "v29": {
+    "date_kst": "2026-11-13",
+    "priority": "vanilla_01_02",
+    "report": "research/vanilla_models/v29/00_v29_울타리문160면_실제PNG_UV_열림담장좌표비교보고서.md",
+    "source_root": "1.21.11/assets/minecraft",
+    "fence_gate_templates": 4,
+    "source_element_declarations": 32,
+    "source_face_declarations_actual_png_uv_verified": 160,
+    "actual_texel_uses": 1952,
+    "all_uses_opaque": true,
+    "source_uv_all_explicit": true,
+    "source_uv_reversed_count": 0,
+    "source_uv_zero_area_count": 0,
+    "per_template_texel_uses": [
+      512,
+      464,
+      512,
+      464
+    ],
+    "source_state_count": 16,
+    "source_uvlock_true_all_16": true,
+    "source_geometry_open_two_pillars_still_remaining_six_changed": true,
+    "source_geometry_in_wall_y_minus_3_for_all_eight": true,
+    "source_geometry_in_wall_y_minus_3_also_open_for_all_eight": true,
+    "independent_pillow_verified_png": "oak_planks.png",
+    "independent_pillow_png_byte_length": 195,
+    "independent_git_blob_sha": "e5a15780171bdff340a8bab625c31d0891e8ba5e",
+    "independent_sha256": "65665943ef9c8bcf63fc67d2083ed0c50243f724106d0e4bb1abea5d921b16d3",
+    "v4_sha256_matching": true,
+    "new_distinct_pngs": 0,
+    "v28_declared_160_faces_now_pixel_verified_not_new_discovered_faces": true,
+    "mojang_official_client_jar_verified": false,
+    "ingame_verified": false,
+    "runtime_uvlock_verified": false,
+    "prior_mod_v24_unchanged": true,
+    "stage1_completed_substeps": 0,
+    "stage1_total_substeps": 5,
+    "outputs": [
+      "research/vanilla_models/v29/01_fence_gate_160_source_face_uv_rgba.csv",
+      "research/vanilla_models/v29/02_fence_gate_32_source_elements.csv",
+      "research/vanilla_models/v29/03_fence_gate_16_state_source_profile.csv",
+      "research/vanilla_models/v29/04_four_template_pixel_summaries.csv",
+      "research/vanilla_models/v29/05_oak_planks_independent_sha256_pillow_v4_crosscheck.csv",
+      "research/vanilla_models/v29/06_eight_element_open_wall_geometry_deltas.csv",
+      "research/vanilla_models/v29/v29_fence_gate_full_uv_rgba_summary.json"
     ]
   }
 }

@@ -35,10 +35,13 @@
 | v26 | 바닐라 PNG **8종 실제 8,704 RGBA 픽셀** 전체 해독, 모델 고유 UV면 **36개/애니 포함 70기록**, PNG 3프레임·과거 표본 3종 일치 | 새 화소·면 실측, 미러 SHA 8/8 일치 / 공식 Mojang JAR·인게임 미검증 | 
 | v27 | 바닐라 32×32 선반 PNG/6원형 모델 **명시 UV20면/1,376 texel**, 24 multipart·32합성 상태; 퇴비통 암시 UV **26면/3,696 texel**. 새 PNG5종/2,048픽셀, UV 유도식 명시 참조23/23 | 원본 PNG/JSON 계량·일부 좌표 유도 / 공식 1.21.11 JAR·인게임 미검증 |
 | v28 | 바닐라 문·다락문·울타리문·계단 **104 variant 상태 전체**의 UVlock/회전 감사, 참나무 문 부모8종 **40 UV면/5,248 텍셀** 원본 PNG 분석, 울타리문 4원형 32요소/160면 기하 | 사용자 업로드 원본 SHA/PNG/JSON 직접 읽기 · 공식 client.jar/인게임 미검증 |
+| v29 | 참나무 울타리문 4원형 **160명시 UV면 전체 PNG RGBA 1,952 텍셀**, 열림 6요소 좌표 변화/담장 연결 8요소 y -3, `oak_planks` 독립 Pillow·SHA-256=v4 정확 일치 | 기존 PNG 재검증, 공식 Mojang JAR·인게임 UVlock은 미검증 |
 
 **학습 전체 5개 작업:** 01 바닐라 텍스처(표본 완료/검증 보류), 02 바닐라 3D(진행 중), 03 가구 모드 모델(v11~v12 실측 진행 중), 04 모드 텍스처·UV(PNG 24개 전체 실화소 및 13모델 571면 UV 표본 정렬 측정), 05 바닐라/모드 비교(5쌍 사전 비교, 최종 검증 미착수). 최종 확정 완료는 **0/5**입니다.
 
 ## 빠른 탐색
+
+- [**v29 최신 연구: 참나무 울타리 문 160면 실제 PNG·열림/담장 좌표 비교**](research/vanilla_models/v29/00_v29_울타리문160면_실제PNG_UV_열림담장좌표비교보고서.md) · [160면 원본 UV/화소 CSV](research/vanilla_models/v29/01_fence_gate_160_source_face_uv_rgba.csv) · [8요소 상태 델타](research/vanilla_models/v29/06_eight_element_open_wall_geometry_deltas.csv) · [요약 JSON](research/vanilla_models/v29/v29_fence_gate_full_uv_rgba_summary.json). 바닐라 우선, 완료 0/5.
 
 - [**v28 최신 바닐라: 문·다락문·울타리문·계단 104상태 / 문 UV 40면 원본 픽셀**](research/vanilla_models/v28/00_v28_바닐라문다락문게이트계단104상태_40면UV_RGBA.md) · [104 variants 증거표](research/vanilla_models/v28/01_four_blockstates_104_exact_variants.csv) · [40면 UV PNG 통계](research/vanilla_models/v28/03_oak_door_eight_templates_40_faces_uv_rgba.csv) · [요약 JSON](research/vanilla_models/v28/v28_four_states_and_door_uv_summary.json). 바닐라 01/02 우선·최종 0/5.
 

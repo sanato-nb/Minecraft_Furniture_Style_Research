@@ -1,7 +1,7 @@
 # 인수인계 · Minecraft Furniture Style Research
 
 > **새 채팅 진입점 / 단일 인수인계 기준 문서**  
-> 최종 확인일: **2026-11-13 (KST)** · 현재 체크포인트: **v28**  
+> 최종 확인일: **2026-11-13 (KST)** · 현재 체크포인트: **v29**  
 > 저장소: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research  
 > **새 채팅에서 먼저 이 문서, [PROGRESS.md](PROGRESS.md), [SOURCES_AND_LIMITS.md](SOURCES_AND_LIMITS.md)를 읽고 기존 작업을 이어간다.**
 
@@ -17,15 +17,15 @@
 
 | 번호 | 범위 | 2026-11-13 상태 |
 |---|---|---|
-| 01 | 바닐라 재질·텍스처 | 기존 150/150 표본 분석 달성, v26/v27 실제 원본 PNG 해독 계승. **v28 문 PNG 2경로 512픽셀 재디코딩(기존 v4 표본 중복)**, 공식 JAR·인게임 검증 미완료 |
-| 02 | 바닐라 3D 형태·모델 JSON·UV·상태·특수 렌더링 | v26 36면/70프레임, v27 명시20+유도26면 계승. v28 **4종 blockstate 104 variants 구조·rotation·uvlock 전수 감사** 및 문 **명시 UV 40면 5,248 텍셀 실화소**, 공식 JAR/인게임/완료 판정 미검증 |
+| 01 | 바닐라 재질·텍스처 | 기존 150/150 표본 확보. v29 `oak_planks.png` 원본 195바이트를 Pillow 독립 검증하고 Git blob SHA/독립 SHA-256을 v4 기록과 **완전 대조**. PNG 경로 추가 0, 공식 JAR·인게임 검증 미완료 |
+| 02 | 바닐라 3D 형태·모델 JSON·UV·상태·특수 렌더링 | v28 블록 상태 104 variant, 문 40면 원본 픽셀 계승. **v29 울타리문 4원형 160명시 UV면 전부 원본 PNG 실화소 대조(1,952 texel uses)**, 열림 시 6요소 좌표 변동/담장 연결시 y -3 일괄 이동 확인. 인게임 UVlock/공식 JAR 미검증 |
 | 03 | 가구 모드 3D 모델 | **v24: 의자 leaf 39개 제작자 원본 JSON·Git SHA 직접 검사**, 누적 Another **204 leaf**; 신규 10 상태 Another 모델 경로 **91/91** 읽기 완료. 원형 69/블록 상태 22/177 유지, Handcrafted 원형 120/leaf16, Macaw 모델 0 |
 | 04 | 가구 모드 텍스처·UV·팔레트 | **Another 모드 원본 PNG 151종/실제 UV RGBA 3,329면(기존 2,210+v23 1,119), Handcrafted 24 PNG/784면 → 두 모드 PNG 175종/면 4,113인스턴스.** 새 PNG 42종·모드 면 1,119 직접 원본 화소, 공식 바닐라 dirt 16면/oak_planks 2면·전체/인게임 미검증. |
 | 05 | 바닐라 ↔ 가구 모드 비교·공통 특성 검증 | **사전 비교: 의자·벤치·소파 5쌍 비교표만 작성, 바닐라·인게임 최종 검증 미시작** |
 
 **확정 완료 0/5개.** 01의 100%는 **표본 수 목표**만 의미한다. 02는 미리 합의한 전체 분석 대상이 없어 퍼센트를 임의로 계산하면 안 된다.
 
-## 2. 누적 연구 결과: v1–v28
+## 2. 누적 연구 결과: v1–v29
 
 | 체크포인트 | 내용 | 확인할 자료 |
 |---|---|---|
@@ -55,6 +55,7 @@
 | v26 | 업로드된 바닐라 PNG **8종 전 화소 8,704개** 직접 디코딩, 6 JSON 모델 원본 면 **36개/프레임별 UV RGBA 70건**, 과거 v4 표본 3종 통계 3/3 대조·PNG SHA 미러 8/8. 인게임·공식 JAR 미검증 | [v26 바닐라 PNG 실화소·UV 면 분석](research/vanilla_models/v26/00_v26_바닐라8PNG_전체RGBA_36면70프레임_실화소보고서.md) |
 | v27 | 바닐라 선반 `oak_shelf` 32×32 원본 PNG 전체·20명시 UV면 실제 픽셀, 상태 24규칙으로 32조합 평가. 퇴비통 새 4PNG 원본 픽셀, 암시UV 26면 실제 영역·UV 식 23/23 명시 사례 교차검증 | [v27 보고서](research/vanilla_models/v27/00_v27_선반32x32_퇴비통자동UV_원본화소검증보고서.md) |
 | v28 | 바닐라 문·다락문·울타리문·계단 **4 blockstate의 variant 104개**에 모델 경로/회전/`uvlock` 원본 전수 감사. 참나무 문 **8 leaf→8부모** + 명시 UV **40면/실화소 5,248사용**, 울타리 문 **4부모 32요소/160선언 면** | [v28 문 상태·UV 원본 보고서](research/vanilla_models/v28/00_v28_바닐라문다락문게이트계단104상태_40면UV_RGBA.md) |
+| v29 | 바닐라 참나무 울타리문 **4원형 전체 160 source UV면**에 기존 `oak_planks` 실제 RGBA **1,952회**, 열림 6요소 변화/담장 연결 시 전 요소 y -3. PNG 독립 Pillow·Git SHA/기존 v4 SHA-256 교차검증 | [v29 원본 픽셀/기하 보고서](research/vanilla_models/v29/00_v29_울타리문160면_실제PNG_UV_열림담장좌표비교보고서.md) |
 
 ### 실제 SQLite에서 확인된 행 수 (v10까지의 바닐라 DB)
 
@@ -250,6 +251,14 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 - 참나무 울타리 문 **4템플릿 각각8요소/40면 선언(원형 합32요소/160면 선언)**; 열림과 담장 연결에 따라 실제 원시 bbox 변경 확인. 원본 leaf는 `oak_planks` PNG 재사용(v26 디코딩), 160면의 원본 face→PNG 실제 화소 샘플은 이 턴에 하지 않음.
 - `uvlock` 런타임 의미, 각 `x/y` 회전 후 월드 실제 면/게임 화면은 **미검증**. 독립 Mojang 공식 JAR·인게임 검증 0. 모드 v24 누적 고정. **완료 0/5**, 바닐라 01/02 우선 지속.
 
+### v29 울타리 문 160면 PNG 실화소 및 상태별 기하 델타 검증 (2026-11-13)
+
+- [v29 전체 원본 보고서](research/vanilla_models/v29/00_v29_울타리문160면_실제PNG_UV_열림담장좌표비교보고서.md) · [원본 160면 UV·실제 RGBA](research/vanilla_models/v29/01_fence_gate_160_source_face_uv_rgba.csv) · [32 요소 좌표](research/vanilla_models/v29/02_fence_gate_32_source_elements.csv) · [16 블록상태→원형·uvlock](research/vanilla_models/v29/03_fence_gate_16_state_source_profile.csv) · [Pillow 및 독립 SHA-256/v4 검증](research/vanilla_models/v29/05_oak_planks_independent_sha256_pillow_v4_crosscheck.csv) · [열림/담장 8요소 좌표 델타](research/vanilla_models/v29/06_eight_element_open_wall_geometry_deltas.csv) · [기계 요약](research/vanilla_models/v29/v29_fence_gate_full_uv_rgba_summary.json).
+- v28 미해독이었던 **울타리문 4 원형×40면 = 160 source explicit UV면 전부 직접 PNG의 RGBA 텍셀 대조 완료**. 원본 `oak_planks` 16×16/7색, 원형별 **512/464/512/464 = 1,952 중복 포함 texel-uses**, 모두 알파255. **동일 원형의 160면은 v28 구조 근거에 이미 있으므로 누적 신규 face로 이중 가산 금지**.
+- 원본 8요소 비교 시 **열림 6요소 좌표 변화, 양쪽 기둥 2요소 불변**. `in_wall`이면 **8/8 요소 from/to.y가 정확히 -3 이동**, 열림 상태에서도 동일한 델타가 적용된다. 이는 소스의 정적 상태별 형상 차이이며 실시간 애니메이션 검증이 아님.
+- `oak_planks.png` 사용자 업로드 원본 195바이트에 대해 **독립 Pillow PNG 검증·RGBA 디코딩, Git SHA 및 SHA-256 재계산**. v4 150종 기록과 SHA-256 **일치**. v29 **새 고유 PNG 0종**. 16 blockstate 모두 명시적 `uvlock:true`; 실제 게임 로더의 UV 보정/회전 결과는 **미검증**.
+- **공식 Mojang 1.21.11 client.jar 인증·인게임 검증 아직 없음**, 모드 v24 연구 수치 변경 없음, 확정 완료 **0/5**. 다음은 클라이언트 원본 검증·실제 UVlock/회전·다른 바닐라 가구형 블록 및 특수 모델 분석.
+
 ## 5. 새 채팅이 곧바로 이어갈 실제 작업
 
 **작업 계획서를 반복 작성하지 말고 실제 데이터 분석을 진행한다.**
@@ -274,13 +283,13 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 
 [새 채팅용 프롬프트 파일](docs/NEW_CHAT_START.md)을 열어 내용을 붙여넣거나 아래 한 문장을 사용한다.
 
-> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **v28 체크포인트부터 바닐라 01/02 연구를 우선 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
+> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **v29 체크포인트부터 바닐라 01/02 연구를 우선 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
 
-**바로 다음 작업:** v28에서 문·다락문·울타리 문·계단 104 variant 원본/UVlock 감사, 문 부모8종·40면 원본 RGBA 완료. 다음은 **공식 Mojang 1.21.11 client.jar 독립 검증, 실제 모델 로더의 rotation/UVlock 처리, 울타리문 160면 및 다른 대표 바닐라 면 실화소, 인게임 검증**으로 바닐라 01/02 계속. v24 모드 결과는 유지하고 후순위. 최종 완료 0/5.
+**바로 다음 작업:** v29에서 울타리문 160원본 UV면 전체 PNG 실화소·Pillow 독립 원본 검증 및 8요소 상태별 좌표 델타 확인 완료. 다음은 **독립 Mojang 1.21.11 client.jar와 비교, 실제 UVlock/상태 회전 인게임 검증, 다른 바닐라 가구형 모델의 원본 픽셀/특수 렌더링 분석**을 우선한다. v24 모드 연구는 유지·후순위. 최종 0/5.
 
 ## 7. 인수인계 유지 방법
 
-- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v28).
+- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v29).
 - **진행도:** `PROGRESS.md`.
 - **새 채팅 복사용:** `docs/NEW_CHAT_START.md`.
 - **기계 판독 상태:** `handoff/STATE.json`.

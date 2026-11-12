@@ -188,3 +188,12 @@
 - `oak_fence_gate` leaf4/원형4 직접 JSON, **각 원형8요소·40선언면**, 원형 4건 합 32요소/160선언면. 이 160면에 `oak_planks` 원본 PNG를 이용한 실제 UV 텍셀 샘플링은 **아직 수행하지 않음**. 실제 충돌체/렌더 결과 아님.
 - `InventivetalentDev/minecraft-assets` 추출본 동일 1.21.11 PNG 2종과 Git blob SHA **2/2 일치**. 이것은 독립 Mojang 공식 게임 JAR 배포 해시 인증이나 게임 실행 확인을 대체하지 않는다. 원본 바이트에 대한 Pillow 독립 복호/PNG chunk CRC·Adler 검증 및 실시간 게임 시각 검증도 v28에서 수행하지 않았다.
 - 바닐라 01 표본 150/150 달성/최종검증 미완료, 02 대표 연구 진행, 03·04 v24 모드 누적값 변경 없음, 05 최종 비교 미시작. **상위 1단계 확정 완료 0/5**. 공개 원본 게임 `.class`/PNG/JSON의 재배포 권리는 추가 검토가 필요하며 이번 GitHub 커밋에 원본 리소스 자체를 복제하지 않음.
+
+## v29 — 참나무 울타리문 원형 160면 직접 PNG RGBA 픽셀 검증(2026-11-13)
+
+- [v29 원본 연구보고서](research/vanilla_models/v29/00_v29_울타리문160면_실제PNG_UV_열림담장좌표비교보고서.md) · [160면 실제 UV·RGB·alpha 파생 표](research/vanilla_models/v29/01_fence_gate_160_source_face_uv_rgba.csv) · [32원본 요소 좌표](research/vanilla_models/v29/02_fence_gate_32_source_elements.csv) · [16 source 상태↔선택 원형](research/vanilla_models/v29/03_fence_gate_16_state_source_profile.csv) · [8개 부품 열림·담장 위치 델타](research/vanilla_models/v29/06_eight_element_open_wall_geometry_deltas.csv) · [Pillow 원본 해시 재검사](research/vanilla_models/v29/05_oak_planks_independent_sha256_pillow_v4_crosscheck.csv).
+- v28에 `160 source face declaration`만 확인하고 실제 PNG 픽셀 검증하지 못했던 4개 울타리문 템플릿의 **160/160 `faces.*.uv` 전부 원본 이미지의 RGBA 텍셀 값에 대응**. 각 원형 8요소/40면, 4원형 **512+464+512+464 = 1,952 texel-uses**, 소스 픽셀의 알파 **모두 255**. 이 `160`면은 v28 문서의 동일 선언면이므로 새 고유 face로 다시 세지 않음.
+- GitHub `1.21.11/assets/minecraft/textures/block/oak_planks.png` 195바이트 직접 fetch → **독립 Python/Pillow `verify()`, RGBA 재해독** 및 파일 전체 Git blob SHA-1, SHA-256 재계산. Git blob SHA `e5a15780171bdff340a8bab625c31d0891e8ba5e`, SHA-256 `65665943ef9c8bcf63fc67d2083ed0c50243f724106d0e4bb1abea5d921b16d3`은 사용자 GitHub/기존 v4 선정 150텍스처 CSV 기록과 각각 **일치**했다. PNG **1종에 대한 독립 검증**이므로 다른 PNG 전체/공식 클라이언트 검증 완료로 확대해선 안 됨. v29 신규 PNG 종류 **0**.
+- 원본 요소 비교: 일반→열림 시 **두 기둥 2/8 원시 좌표 동일, 나머지 6/8 이동·형상 조정**, y는 모두 불변; `in_wall`이면 원시 from/to.y **8/8 전부 정확히 -3**, 열림에서도 8/8 동일하게 -3. 정적 모델 인스턴스 차이이며 인게임 실시간 보간·collision이나 renderer 확인이 아님.
+- 상태 16개는 4원형을 각각 4방향으로 선택하며 `uvlock:true`가 16/16 소스에 **명시**된다. **UVlock 실제 효과와 회전된 face 방향·인게임 화면은 미검증**. 독립 Mojang 공식 1.21.11 client.jar 확인도 미완료.
+- 기존 v25–v28 바닐라 연구 및 v24 모드 연구 결과·지표는 그대로 둔다. **상위 1단계 최종 완료 0/5**, 01 바닐라 텍스처 선정 표본 150/150(전체 게임 아님), 02 바닐라 모델/상태/UV 진행 중. 게임 원본 `.class`/JSON/PNG는 사용자의 **공개 repo**에서 재배포되고 있으므로 별도 배포 권한·저작권 검토 필요. v29 커밋에는 원본 리소스를 복제하지 않고 파생 데이터와 해시만 올림.
