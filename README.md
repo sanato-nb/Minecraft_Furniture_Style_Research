@@ -17,8 +17,9 @@
 | v8 | 특수 렌더링 관련 블록 **17종**, 아틀라스 6개, 텍스처 메타데이터 19건 | 대표 사례 기록 |
 | v9 | 특수 렌더링 실제 기하 모델 17종/55개 요소, 애니메이션 15개 클립 | 비공식 추출 모델 직접 분석 / 공식 JAR·인게임 검증 대기 |
 | v10 | v8 SQLite에 v9 측정값 통합, 신규 DB 3개 테이블·SQL migration | 로컬 SQLite 무결성 검증 / 공식 JAR·인게임 검증 대기 |
+| v11 | Another Furniture(1.21.1) 모델 템플릿 **69개**, 완성형 상속 **33개**, 블록 상태 **12개**, PNG 헤더 **12개** 실측 | 03 모드 3D 분석 착수, 04 모드 텍스처 사전 표본 시작 |
 
-**학습 전체 5개 작업:** 01 바닐라 텍스처(표본 완료/검증 보류), 02 바닐라 3D(진행 중), 03 가구 모드 모델(미시작), 04 모드 텍스처·UV(미시작), 05 바닐라/모드 비교(미시작). 최종 확정 완료는 **0/5**입니다.
+**학습 전체 5개 작업:** 01 바닐라 텍스처(표본 완료/검증 보류), 02 바닐라 3D(진행 중), 03 가구 모드 모델(v11 실측 진행 중), 04 모드 텍스처·UV(PNG 헤더 사전 실측), 05 바닐라/모드 비교(미시작). 최종 확정 완료는 **0/5**입니다.
 
 ## 빠른 탐색
 
@@ -32,6 +33,8 @@
 - [v9: 특수 렌더링 실제 3D 부품 구조](research/vanilla_models/v9/00_v9_실제부품구조_분석보고서.md)
 - [v9: 애니메이션 구성](research/vanilla_models/v9/03_v9_애니메이션_검토보고서.md)
 - [v10: 누적 DB 통합 검증 보고서](research/vanilla_models/v10/00_v10_누적DB_통합검증_보고서.md)
+- [v11: Another Furniture 실제 모델/텍스처 1차 실측 보고서](research/furniture_mods/v11/00_v11_AnotherFurniture_모델분석_보고서.md)
+- [v11: 모델 템플릿 69개 측정 CSV](research/furniture_mods/v11/template_metrics_69_total.csv)
 - [v10 SQL 증분 패치](data/migrations/v8_to_v10.sql)
 - [v10 SQLite 재구성 Python 스크립트](scripts/rebuild_v10_db.py)
 - [공식 1.21.11 client.jar 대조 도구](scripts/verify_official_jar.py) / [사용법](docs/official_client_jar_검증방법.md) — 실제 JAR 검사 미완료
@@ -47,7 +50,8 @@ Minecraft_Furniture_Style_Research/
 ├── data/                                  # 최신 누적 SQLite 데이터베이스
 ├── research/
 │   ├── vanilla_textures/v1_30...v4_150/  # 버전별 보고서·측정 CSV·재현 코드·분석 도표
-│   └── vanilla_models/v5...v10/           # 모델·블록상태·UV·특수 렌더링 연구 기록
+│   ├── vanilla_models/v5...v10/           # 모델·블록상태·UV·특수 렌더링 연구 기록
+│   └── furniture_mods/v11/                # Another Furniture 실측 통계 (원본 에셋 미수록)
 └── FILE_MANIFEST_SHA256.csv              # 저장소 파일 해시 목록
 ```
 
@@ -76,3 +80,8 @@ python scripts/rebuild_v10_db.py
 ```
 
 이 명령은 v8 SQLite를 읽고 SQL 패치를 적용한 새 v10 SQLite를 만듭니다. GitHub는 **v10 전체 바이너리가 아닌 v8 원본 + v10 증분**을 보관합니다.
+
+
+### v11 모드 소스의 라이선스 및 버전 주의
+
+Another Furniture의 1.21.1 소스 모델을 조사했으며, **기존 바닐라 1.21.11과 버전이 다릅니다**. 제작사 에셋 리소스는 [원본 LICENSE](https://github.com/crispytwig/AnotherFurniture/blob/1.21.1/LICENSE)상 **All Rights Reserved**이므로 JSON·PNG 원본은 재배포하지 않고 분석 통계와 해시/경로만 저장합니다.
