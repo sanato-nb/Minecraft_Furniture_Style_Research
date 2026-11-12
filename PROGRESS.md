@@ -2,19 +2,19 @@
 
 **새 채팅 인수인계:** [HANDOFF.md](HANDOFF.md) · [복사용 시작 프롬프트](docs/NEW_CHAT_START.md) · [현재 상태 JSON](handoff/STATE.json)
 
-업데이트: 2026-11-12 / 체크포인트 v15
+업데이트: 2026-11-12 / 체크포인트 v16
 
 | 1단계 세부 작업 | 상태 | 수치 |
 |---|---|---|
 | 01. 바닐라 재질·텍스처 분석 | 표본 목표 달성 / 최종 검증 보류 | **150/150종, 표본 100%** |
 | 02. 바닐라 3D 모델·블록 구조 분석 | 진행 중 | 대표 모델·UV·연결형·특수 렌더링 v5–v10 |
-| 03. 가구 모드 3D 모델 분석 | **v15 정량 교차비교까지 진행 중** | v11 Another Furniture 템플릿 69개 + v12 Handcrafted 원형 120개 실측 보존. v15 **189개 모델 face 선언/회전/평면/bbox 신규 파생 집계**. 공식 게임/맥코/인게임 검증 보류 |
-| 04. 가구 모드 텍스처·UV 분석 | **v14 교차 참조 근거 감사 진행 중** | v13 PNG 24종 실화소·13모델 UV 571면 정렬 표본. v14 Handcrafted 16 leaf의 슬롯 51건: 모드 35(기존 PNG SHA 일치 19, 표본 밖 16), Minecraft 의존 16. 실제 face/픽셀 미검증 |
+| 03. 가구 모드 3D 모델 분석 | **v16 원본 JSON 30개 추가 직접 검증** | Another Furniture 템플릿 69, Handcrafted 원형 120 실측 기록 유지, v16 Handcrafted leaf 16 + 원형 부모 14 고정 커밋 원본 SHA 재검사 성공. Macaw 공식 직접 실측 0.
+| 04. 가구 모드 텍스처·UV 분석 | **v16 원본 PNG/모델 face 직접 연결 확대** | v13 모드 PNG 24개 실화소(Another 12/Handcrafted 12) + v16 Handcrafted **추가 12 PNG 완전 디코딩**, 16 leaf × 원형 상속 **786 면 인스턴스** 중 **784 모드 face의 파일·SHA·PNG 픽셀 정렬·범위 대조**, 바닐라 2면 및 face 영역 내부 샘플링·인게임 보류.
 | 05. 바닐라 ↔ 가구 모드 비교 검증 | 사전 비교만 작성 / 최종 검증 미시작 | 두 모드의 의자·벤치·소파 5유형 구조 비교표 작성. 바닐라와의 인게임 비교는 미완료 |
 
 **전체 완료:** 0/5개. 일부 체크포인트의 100%는 *표본 수 달성*만을 뜻하며 공식 JAR/인게임 재현까지 마쳤음을 의미하지 않습니다. 02번도 모집단이 확정되지 않아 임의 완료율을 산출하지 않습니다.
 
-## 누적 근거 데이터 (v8 SQLite + v9 CSV + v10 SQL migration + v11~v15 모드 CSV)
+## 누적 근거 데이터 (v8 SQLite + v9 CSV + v10 SQL migration + v11~v16 모드 CSV)
 
 - 텍스처 측정 레코드: 150건
 - 최초 모델 근거: 55건
@@ -38,21 +38,25 @@
 
 - **v15 신규 정량 비교:** v11/v12 기록 189개 모델에서 면 선언 가능한 슬롯과 실제 기재 수를 비교. Another Furniture 69개/299요소/가능면 1,794개 중 **1,362면 선언(75.92%)**/생략 432, 회전 17·평면 34·원시 bbox 0..16 밖 모델 3개. Handcrafted 120개 원형 모델 중 자체 요소 112개/810요소/가능면 4,860개 중 **4,860면 선언(100%)**, 회전 283·평면 183·원시 bbox 밖 모델 60개. [v15 보고서](research/furniture_mods/v15/00_v15_기하표현_계량비교_보고서.md) · [모델별 189개 CSV](research/furniture_mods/v15/model_geometry_derived_189.csv) · [재계산 검증 코드](scripts/verify_v15_geometry_research.py). **기존 계측을 새 방식으로 집계한 2차 분석이며 v15 신규 원본 모델/PNG 직접 관찰은 0건.**
 
+- **v16 원본 직접 검증 확장:** 제작자 Handcrafted 고정 커밋에서 원본 JSON **30개**(16 leaf/14 부모) 직접 읽고 이전 v12 Git blob SHA와 일치 검증. v14에서 남았던 PNG **12개 원본**을 새로 디코딩해 **66,816픽셀** 실측(가시 7,358·투명 59,458·반투명 0). 완전 투명 PNG `bench/cushion/none_cushion`·`shelf/overlay/none` 2개. 원본 leaf 51슬롯 확인, 부모 geometry 면 **786 인스턴스** 중 **784 모드 면 모두 원본 PNG 이름·SHA·해상도·정수 UV 픽셀 격자·범위 대조 성공**, Minecraft 기본 텍스처 의존 2면 제외. [v16 보고서](research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md), [모드 면별 재질 그룹 36](research/furniture_mods/v16/handcrafted_16_leaf_face_material_groups.csv), [PNG 12 추가 픽셀 CSV](research/furniture_mods/v16/handcrafted_12_new_png_pixel_metrics.csv). **개별 면 사각형의 실제 픽셀/알파 샘플링 및 인게임 검증은 미완료**.
+
 ## 다음 과제
 
 1. Minecraft Java 1.21.11 공식 `client.jar`와 비공식 미러 자료의 바이트/해시 비교. [로컬 검사 스크립트](scripts/verify_official_jar.py) 및 [사용법](docs/official_client_jar_검증방법.md) 준비 완료(실제 JAR 미실행).
 2. 실제 게임에서 잔디·잎의 색 변형, 투명도, 모델 조립 결과 검증.
 3. [v10 통합 보고서](research/vanilla_models/v10/00_v10_누적DB_통합검증_보고서.md) 및 [v9 특수 모델 자료](research/vanilla_models/v9/00_v9_실제부품구조_분석보고서.md)의 공식 클라이언트·인게임 교차검증 후 02번 종료 여부 판정.
 4. **03번 v12에서 Handcrafted 원형 120개 분석까지 완료:** 검증된 Macaw's Furniture 공식 1.21.11 배포 JAR(또는 공식 소스)을 확보하면 모델 구조를 직접 분석한다. 불확실한 제3자 복제본을 쓰지 않는다.
-5. **v15는 기존 189개 모델의 기하 지표를 확장했으나 원본의 면별 실제 텍스처/렌더는 미검증이다.** v14에서 남은 미측정 PNG 12종, `face→#slot→PNG` 정확한 화소 대응, v15의 bbox 초과 사례를 공식·고정 원본으로 추가 검증한다.
+5. **v16에서 미측정 PNG 12종의 화소와 원본 모델 JSON 30개·face→#slot→PNG 크기/UV 좌표까지 실제 연결했다.** 다음은 784면의 대응 사각형 내부 픽셀별 알파·색상 직접 샘플링, 바닐라 2면 및 인게임 렌더 검증이다. v15 원시 bbox 확장도 인게임 배치에서 확인할 것.
 
-**주의:** GitHub에 추적된 SQLite 바이너리는 **v8**입니다. **v11~v15 모드 실측·파생 수치는 CSV/MD로 저장되었고 아직 SQLite에는 통합하지 않았습니다.** v10 SQLite 전체 파일은 로컬에서 생성해 무결성을 검사했으며, GitHub에서는 [v10 SQL migration](data/migrations/v8_to_v10.sql)과 [재구성 스크립트](scripts/rebuild_v10_db.py)를 통해 복원합니다. GitHub에 v10 SQLite 바이너리가 업로드된 상태는 아닙니다.
+**주의:** GitHub에 추적된 SQLite 바이너리는 **v8**입니다. **v11~v16 모드 실측·파생 수치는 CSV/MD로 저장되었고 아직 SQLite에는 통합하지 않았습니다.** v10 SQLite 전체 파일은 로컬에서 생성해 무결성을 검사했으며, GitHub에서는 [v10 SQL migration](data/migrations/v8_to_v10.sql)과 [재구성 스크립트](scripts/rebuild_v10_db.py)를 통해 복원합니다. GitHub에 v10 SQLite 바이너리가 업로드된 상태는 아닙니다.
 
 다른 대화에서 이어갈 때는 v8 DB와 v10 migration, v9 연구 자료, 이 진행도 파일을 함께 기준으로 삼으세요.
 
 ## 새 채팅용 체크포인트
 
-- **최신 v15:** [3D 모델 표현 방식 정량 비교](research/furniture_mods/v15/00_v15_기하표현_계량비교_보고서.md), 189모델·Handcrafted 22개 경로 그룹 신규 파생 통계. 면 선언 수는 최종 렌더 면이 아니며 bbox도 충돌체가 아님. 원본 자산 직접 검증 보류 상태 유지.
+- **최신 v16:** [원본 12 PNG/30 JSON/786 면 인스턴스 보고서](research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md), 원본 PNG 누락 표본 해결. 남은 검증은 면 사각형 실제 화소 샘플링·바닐라 2면·게임 렌더. 5개 세부 작업 최종 완료 0/5.
+
+- 이전 v15: [3D 모델 표현 방식 정량 비교](research/furniture_mods/v15/00_v15_기하표현_계량비교_보고서.md), 189모델·Handcrafted 22개 경로 그룹 신규 파생 통계. 면 선언 수는 최종 렌더 면이 아니며 bbox도 충돌체가 아님. 원본 자산 직접 검증 보류 상태 유지.
 
 - 이전 v14: [텍스처 슬롯 바인딩 분석](research/furniture_mods/v14/00_v14_텍스처슬롯_근거연결_보고서.md) / [51건 CSV](research/furniture_mods/v14/handcrafted_texture_bindings_51.csv) / [기계판독 JSON](research/furniture_mods/v14/v14_binding_audit_summary.json). 이후 작업은 원본 face→PNG 검증.
 
