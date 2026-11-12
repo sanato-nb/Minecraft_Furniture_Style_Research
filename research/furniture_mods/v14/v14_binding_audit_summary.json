@@ -1,0 +1,37 @@
+{
+  "checkpoint": "v14",
+  "date": "2026-11-12",
+  "source_mod": "Handcrafted",
+  "source_commit": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035",
+  "method": "Join prior measured v12 leaf model texture slots with v12 texture manifest and v13 decoded-PNG measurement metadata; no new original JSON/PNG fetched.",
+  "leaf_models": 16,
+  "texture_slot_bindings": 51,
+  "mod_namespace_bindings": 35,
+  "mod_v13_png_sha_matched_bindings": 19,
+  "mod_unmeasured_bindings": 16,
+  "vanilla_dependency_bindings": 16,
+  "other_namespace_bindings": 0,
+  "unsampled_mod_distinct_png": 12,
+  "leaves_with_all_mod_slots_sampled": 7,
+  "leaves_with_any_v13_png_match": 13,
+  "leaves_with_v13_parent_uv_aggregate": 9,
+  "another_furniture_v11_leaf_rows": 33,
+  "another_furniture_actual_leaf_texture_bindings_available_in_v11_csv": 0,
+  "face_to_png_coordinate_verified": false,
+  "source_assets_redecoded_v14": 0,
+  "macaw_official_assets_measured": 0,
+  "official_minecraft_jar_verified": false,
+  "in_game_verified": false,
+  "inputs": {
+    "research/furniture_mods/v12/handcrafted_generated_leaf_sample_16.csv": "6fe12dd9eca9a3f9c60ce3d2cf07d90cc4f22c53",
+    "research/furniture_mods/v12/handcrafted_png_header_12.csv": "cd3f61b2a651431d56af2dcc3564c117e113a359",
+    "research/furniture_mods/v13/handcrafted_png_12_pixel_metrics.csv": "c6a726d9cb596c18f45204f2662ae2eb2c719d5d",
+    "research/furniture_mods/v13/uv_to_pixel_alignment_13_models.csv": "637a8f060849012dc1ff927e8e57b14651376bfc",
+    "research/furniture_mods/v11/representative_models_33_resolved.csv": "85de8862225e9bd4313c2f587963d9bc8a4906a3"
+  },
+  "notes": [
+    "Matched means texture reference name, original PNG Git SHA, and dimensions agree across existing measurement records; no per-face image region is proven.",
+    "A mod PNG not in the v13 sample is not necessarily missing upstream. Minecraft particle slot is a separate dependency, not validated.",
+    "Handcrafted leaf source paths and Git blob SHAs come from historical v12 measurement tables."
+  ]
+}
