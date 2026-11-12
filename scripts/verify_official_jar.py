@@ -17,7 +17,7 @@ import zipfile
 from collections import Counter
 
 def git_blob_sha1(data):
-    return hashlib.sha1((f"blob {len(data)}\\0").encode("ascii").replace(b"\\0",b"\0")+data).hexdigest()
+    return hashlib.sha1(f"blob {len(data)}".encode("ascii")+bytes([0])+data).hexdigest()
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
