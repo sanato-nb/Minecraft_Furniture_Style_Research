@@ -75,3 +75,5 @@
 - 원본 16 leaf와 14 parent의 텍스처 슬롯 체인을 직접 해석하여 **786개의 재사용된 면 인스턴스**를 검사. **784개**는 원본 PNG 24종(v13 샘플 12 + v16 샘플 12)의 경로·SHA·크기까지 연결되었고, 선언된 UV를 픽셀 좌표로 환산했을 때 전부 정수 격자에 정렬되고 PNG 범위 내에 있음. 나머지 **2면**은 바닐라 `minecraft:block/oak_planks` 참조이며 공식 PNG를 새로 읽지 않았음.
 - **보류**: 784개 면의 UV 사각형 **내부 화소를 face별로 실제 샘플링**하지 않았으며, 뒤집힌 UV/0면적/부모 회전/알파 테스트/인게임 컬링·조명 최종 모습도 검증하지 않았다. 면 인스턴스 786은 고유 모델 면 수가 아니라 여러 leaf에 부모 원형을 반복 적용한 값이다.
 - **검증 등급:** upstream JSON/PNG bytes and pixel decoding + direct texture path resolution + numeric UV-to-pixel bounds. **저작권 원본 JSON/PNG/JAR 바이너리를 재배포하지 않음**. 공식 Minecraft 1.21.11 `client.jar`와 Macaw 배포 원본 JAR, 인게임 시각 검증은 계속 미완료. 전체 세부 단계 최종 완료 **0/5**.
+
+- [v16 재현 Python 스크립트](scripts/reproduce_v16_handcrafted_originals.py)는 Python 표준 라이브러리 `hashlib`, `zlib`, `csv`, `json` 등을 이용해 고정 원본 SHA 및 12 PNG/16 leaf/14 parent의 기록을 재측정하도록 작성했다. **로컬 PyCompile 문법 검사 통과, 원본 고정 커밋으로의 end-to-end 재실행은 미수행**. 이전 GitHub Contents 환경에서의 직접 바이트 계측과 구분한다.
