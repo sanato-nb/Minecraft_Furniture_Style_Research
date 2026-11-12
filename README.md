@@ -55,7 +55,7 @@ Minecraft_Furniture_Style_Research/
 ├── research/
 │   ├── vanilla_textures/v1_30...v4_150/  # 버전별 보고서·측정 CSV·재현 코드·분석 도표
 │   ├── vanilla_models/v5...v10/           # 모델·블록상태·UV·특수 렌더링 연구 기록
-│   └── furniture_mods/v11/                # Another Furniture 실측 통계 (원본 에셋 미수록)
+│   └── furniture_mods/v11...v12/          # Another Furniture·Handcrafted 실측 통계 (원본 에셋 미수록)
 └── FILE_MANIFEST_SHA256.csv              # 저장소 파일 해시 목록
 ```
 
@@ -86,6 +86,6 @@ python scripts/rebuild_v10_db.py
 이 명령은 v8 SQLite를 읽고 SQL 패치를 적용한 새 v10 SQLite를 만듭니다. GitHub는 **v10 전체 바이너리가 아닌 v8 원본 + v10 증분**을 보관합니다.
 
 
-### v11 모드 소스의 라이선스 및 버전 주의
+### v11–v12 모드 소스의 라이선스 및 버전 주의
 
 Another Furniture의 1.21.1 소스 모델을 조사했으며, **기존 바닐라 1.21.11과 버전이 다릅니다**. 제작사 에셋 리소스는 [원본 LICENSE](https://github.com/crispytwig/AnotherFurniture/blob/1.21.1/LICENSE)상 **All Rights Reserved**이므로 JSON·PNG 원본은 재배포하지 않고 분석 통계와 해시/경로만 저장합니다.
