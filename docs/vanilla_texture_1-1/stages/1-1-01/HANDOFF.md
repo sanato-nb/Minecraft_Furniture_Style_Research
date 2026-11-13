@@ -1,4 +1,17 @@
-# 1-1-01 목재·원목 전용 인수인계 — TEX01-R006
+# 1-1-01 목재·원목 전용 인수인계 — TEX01-R007
+
+## TEX01-R007 — D1 옆면·단면 비교 4수종 4/4 완료 (2026-11-13; 사용자 범위 확장)
+
+사용자 지시 **「확장해서해줘」**에 따라 이전의 고정 18개 PNG 옆면 원목 4종(`oak`, `spruce`, `birch`, `stripped_oak`) 중 누락된 **보조 단면 PNG 3개**(`spruce_log_top`, `birch_log_top`, `stripped_oak_log_top`)를 추가 분석했다. 원래 18 PNG 표본과 R001–R006 리비전은 그대로 보존한다. 보조 원본 3개만 신규 고유 PNG/768 RGBA 텍셀로 계산하며, 기존 표본 5개 재측정은 신규로 중복 가산하지 않는다.
+
+- 8개 원본 PNG 전체 SHA256/CRC/16×16 RGBA/불투명 검사 완료(32 PNG 청크). 원목 4쌍의 평균 Y(Rec.709 RGB 코드값 가중합)·S·표준편차·H/V 1픽셀 대조·동좌표 RGB 차이 256×4쌍을 직접 계산. **단면−옆면 Y 차이:** 참나무 **+36.7351**, 가문비 **+43.3348**, 자작 **−35.8294**, 껍질 벗긴 참나무 **−14.6445**. 단면이 늘 밝지는 않음.
+- 4종의 원본 블록상태, 세로/가로 원목 모델 JSON, 2개 공통 템플릿을 재확인. `#end` ↔ `*_log_top`, `#side` ↔ `*_log`, `axis=x/y/z` 모델 선택, 수평 모델 로컬 up UV 180° 연결도 검증. 모든 JSON은 이전 정적 연구와 중복이므로 신규 고유 JSON 개수 **0**.
+- 단면 전체 180° 회전 불일치 픽셀은 oak 100, spruce 98, birch 108, stripped oak 92. 이는 소스 PNG 변환이며 최종 게임 모델 베이크/인게임 장면 인증이 아님.
+- **D1 확장 상태: 원래 원목 옆면 4종의 단면 4/4 직접 비교 완료.** 원목 종류를 무한 확장해 조사한 것은 아님. 인게임·공식 JAR 인증은 사용자 정책상 제외; 애니메이션·PZ·실제 3D 가구 제작 보류.
+- [보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R007/REPORT.md) · [4쌍 측정 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R007/D1_SIDES_ENDS_4PAIRS.csv) · [PNG SHA/CRC 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R007/D1_SOURCE_PNG_LEDGER.csv) · [원본 모델 연결 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R007/D1_MODEL_END_SIDE_LINKS.csv) · [재현 Python](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R007/REPRODUCE_D1_SIDE_END.py) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R007/SUMMARY.json)
+- 현재 버전 `TEX01-R007`, 다음 `TEX01-R008`; **현재 D1 확대 범위에서는 실질 분석 완료**, 새 자료나 새 분류 확대 지시 없이 '계속해줘'만 반복하면 더 분석하지 말고 멈춰 알려줄 것. 루트/타 단계/v38 불변.
+
+
 
 ## 최신 우선 작업 기준 — 인게임 검증 제외 (2026-11-13)
 

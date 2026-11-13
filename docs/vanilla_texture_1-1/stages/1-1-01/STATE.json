@@ -7,10 +7,10 @@
   "stage_id": "1-1-01",
   "material_family": "목재·원목",
   "stage_prefix": "TEX01",
-  "current_revision": "TEX01-R006",
-  "next_revision": "TEX01-R007",
-  "revision_sequence": 6,
-  "revision_status": "R006_source_png_D4_orientation_126_tests_oak_endcap_180_full256_ingame_excluded_by_user_scope_policy_only",
+  "current_revision": "TEX01-R007",
+  "next_revision": "TEX01-R008",
+  "revision_sequence": 7,
+  "revision_status": "R007_D1_expanded_3_auxiliary_log_end_PNG_direct_RGB_crc_and_4_of_4_side_end_pairs_completed_ingame_excluded",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 18,
@@ -56,7 +56,7 @@
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "D1_R001_6_partial_D2_R001_native_R002_synthetic72_D3_R004_132_face_local_UV_6anchor_RGB_source_mapping_R005_D2_19584_pixel_pairs_D3_72_world_normal_math_R006_D2_texture_rotation_reflection_full256_D3_oak_log_top_local_UV180_100changed",
+      "status": "D1_R001_6_partial_D2_R001_native_R002_synthetic72_D3_R004_132_face_local_UV_6anchor_RGB_source_mapping_R005_D2_19584_pixel_pairs_D3_72_world_normal_math_R006_D2_texture_rotation_reflection_full256_D3_oak_log_top_local_UV180_100changed_R007_D1_extra3_log_top_PNG_side_end_4of4_complete",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
@@ -71,7 +71,7 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R006_D4_126_test_18source_AND_oak_full_180mask_saved",
+      "status": "R007_D1_auxiliary_three_PNG_direct_4_pairs_SOURCE_LEDGER_REPORT_REPRO_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -79,7 +79,7 @@
     {
       "id": "D1",
       "check": "판자 vs 원목 단면·옆면 색·명암·채도 차이",
-      "status": "partial_six_pairs_other_species_end_png_outside_fixed_scope"
+      "status": "completed_R007_4_of_4_existing_log_side_species_with_3_auxiliary_log_end_PNG_direct_source_RGB_comparison"
     },
     {
       "id": "D2",
@@ -631,12 +631,11 @@
     }
   ],
   "next_steps": [
-    "Current research scope is fixed 18 user-extracted textures and their source JSON/static UV evidence; this user-requested policy change is not a new measurement or new revision.",
-    "Do not request Minecraft game screenshots, in-game static scene comparison, official Mojang JAR certification, or engine-baked world UV as completion requirements.",
-    "Do not extrapolate R002/R006 synthetic PNG rotations/reflections to actual game rendering; report only source JSON-linked local UV and mathematical projections.",
-    "D1 comparison remains limited to in-scope PNG; other wood species log-top PNG lie outside fixed 18 PNG scope and are not blockers to finishing this fixed scope.",
-    "If all currently defined source-only work is complete, STOP and inform the user when they say '계속해줘'; do not pad progress with repetitive measurements. R007 only on genuinely new source-grounded evidence after re-reading live STATE and HEAD.",
-    "Keep R001–R006 immutable, original 18 source PNG/4608 unique pixel claims unchanged; no animation, PZ conversion, actual 3D furniture construction, global v38, or other stage writes."
+    "Within the user's explicitly expanded D1 scope, all four originally selected log side types now have source-verified end caps; no further D1 work required until user changes scope.",
+    "Keep 18 original PNG dataset distinct from three supplemental end-cap PNGs (21 distinct source PNG observed across 1-1-01 after extension); do not merge new RGB into original fixed sample metrics.",
+    "User explicitly excluded in-game screenshots and runtime render certification, also official Mojang JAR authentication; do not request these as completion blockers.",
+    "Do not repeat R001-R007 completed analyses to inflate progress; if the user says '계속해줘' without new work needed, stop and report completion per their instruction.",
+    "Further genuine source-based study only if newly requested, with live STATE/HEAD and next revision folder absence rechecked; keep animation, PZ conversion, furniture 3D creation, v38, other stages untouched."
   ],
   "ingame_static_render_verified": false,
   "animation_study_deferred": true,
@@ -656,9 +655,9 @@
   "stage_static_model_uv_source_linked_count": 18,
   "stage_static_source_json_files_read": 43,
   "stage_model_local_face_references": 150,
-  "last_result_path": "research/vanilla_textures/by_stage/1-1-01/TEX01-R006",
-  "last_result_parent_main_commit": "4a3e0a32567f6599421c23689da39a54d0cceef2",
-  "last_result_prewrite_state_blob_sha": "1cede1c53f86d728665410869879d225ff203cbf",
+  "last_result_path": "research/vanilla_textures/by_stage/1-1-01/TEX01-R007",
+  "last_result_parent_main_commit": "207b1645b8031311d873e003d7ff71843dfe85ba",
+  "last_result_prewrite_state_blob_sha": "61d107de30ec39b8e94ad154afd43bdfa0e6decc",
   "evidence_provenance": "user_attested_1.21.11_JAR_extracted_GitHub_files_direct_verified; original JAR distributor authenticity not part of current scope",
   "revision_history": [
     {
@@ -724,6 +723,19 @@
       "original_static_JSON_reread": 3,
       "incremental_source_JSON": 0,
       "ingame_static_render_count": 0
+    },
+    {
+      "revision": "TEX01-R007",
+      "result_path": "research/vanilla_textures/by_stage/1-1-01/TEX01-R007",
+      "user_authorized_scope_extension": "D1_missing_3_log_endcaps",
+      "additional_distinct_PNG": 3,
+      "new_distinct_RGBA_pixels": 768,
+      "supplemental_and_existing_direct_PNG_read": 8,
+      "verified_PNG_CRC_chunks": 32,
+      "source_side_end_pairs_completed": 4,
+      "source_JSON_files_reread": 14,
+      "incremental_new_unique_JSON": 0,
+      "ingame_static_required": false
     }
   ],
   "last_result_original_analysis_main_commit": "5ba46ce77b3c5304ec0cef96d6a05db2ec61d32a",
@@ -779,5 +791,32 @@
       "source": "direct user request",
       "touches_only_scope_policy": true
     }
-  ]
+  ],
+  "source_scope_extensions": [
+    {
+      "date": "2026-11-13",
+      "by": "user_explicit_expand_request",
+      "component": "D1",
+      "original_fixed_png_scope": 18,
+      "supplementary_png_ids": [
+        "spruce_log_top",
+        "birch_log_top",
+        "stripped_oak_log_top"
+      ],
+      "new_unique_source_png": 3,
+      "new_unique_source_RGBA_pixels": 768,
+      "new_completed_log_side_end_pairs": 4,
+      "added_to_original_fixed_item_array": false,
+      "scope_note": "Supplementary evidence for D1 only; 18 fixed samples unchanged."
+    }
+  ],
+  "d1_supplemental_source_png_count": 3,
+  "d1_new_unique_supplemental_RGBA_pixels": 768,
+  "d1_source_side_end_pairs_completed": 4,
+  "d1_source_side_end_pairs_total_in_original_log_side_scope": 4,
+  "d1_verified_supplemental_PNG_sha256": {
+    "spruce_log_top": "8583ff5fc439af8bbc108bef5d71e947fb1655734dadd9470478d8d26ca3900b",
+    "birch_log_top": "85f362f5c269af976a6b3dcea4130404b58687a7bbd963bc8c743a05817c8382",
+    "stripped_oak_log_top": "00aadf60b3de1d23bbcbb1659b4183b42b74350216c7b45c3c706ba34fd498a7"
+  }
 }
