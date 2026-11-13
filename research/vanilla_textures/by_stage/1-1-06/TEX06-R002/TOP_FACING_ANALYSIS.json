@@ -1,0 +1,128 @@
+{
+  "method": "8bit_RBG_RGB_channel_absolute_delta",
+  "source": "Actual pinned mirror PNG read with PIL numpy before integer 48-channel pair matrices were transferred to immutable CSV; original 16x16 PNG SHA rechecked; NOT official JAR",
+  "tag_commit": "7241a12cc2707abd7022f399c5d9033153e492e1",
+  "top_projection_hypotheses_not_ingame_authenticated": true,
+  "results": {
+    "black_glazed_terracotta": {
+      "source_mirror_png_sha256": "214ce8ca46c60a42b8863655b3895aca839c7ef7cfa511a192dc1974a0ca2758",
+      "source_mirror_blob_sha": "58832984e6700a295c890ab86b568929d36567d5",
+      "source_checked_against_R001_png": true,
+      "source_measured_unique_paths_this_revision": 0,
+      "source_png_reprocessed_this_revision": 1,
+      "source_rgba_pixels_reprocessed": 256,
+      "base_texture_top_uv": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "top_face_uv_rotation_declared_deg": 0,
+      "source_blockstate_model_y_deg_by_facing": {
+        "south": 0,
+        "west": 90,
+        "north": 180,
+        "east": 270
+      },
+      "enum_candidate_grid_count": 256,
+      "grid_order": "[top_left,top_right,bottom_left,bottom_right]",
+      "image_rotation_convention": "clockwise when inspecting texture PNG as 2D array",
+      "best_image_clockwise_rotations_deg": [
+        180,
+        270,
+        90,
+        0
+      ],
+      "best_hypothesis_facing_by_right_handed_positive_y_model_rotation": [
+        "north",
+        "west",
+        "east",
+        "south"
+      ],
+      "best_hypothesis_facing_by_opposite_view_projection": [
+        "north",
+        "east",
+        "west",
+        "south"
+      ],
+      "best_mean_four_boundary_rgb_mae": 4.770833,
+      "best_boundary_rgb_mae": [
+        4.770833,
+        4.770833,
+        4.770833,
+        4.770833
+      ],
+      "best_exact_rgb_pixel_pairs_out_of_64": 28,
+      "unrotated_mean_four_boundary_rgb_mae": 36.302083,
+      "unrotated_exact_rgb_pixel_pairs_out_of_64": 0,
+      "mae_reduction_percent_vs_unrotated": 86.86,
+      "all_256_mean_mae": 25.135417,
+      "all_256_median_mae": 25.140625,
+      "number_candidates_mae_below_10": 4,
+      "best_tie_count": 1,
+      "worst_mae": 39.0625,
+      "metric_definition": "Sum of per-channel absolute 8-bit RGB deltas on four seams (4 x 16 x 3=192 channel pairs), divided by 192",
+      "inferred_facing_not_ingame_verified": true
+    },
+    "white_glazed_terracotta": {
+      "source_mirror_png_sha256": "cb1ebf9f3f3e93009ff4cab1b2b2b70d41fd87caa40c71942ae51996d12498b4",
+      "source_mirror_blob_sha": "a500a876f14d6fab28d140023d32436f28f2512e",
+      "source_checked_against_R001_png": true,
+      "source_measured_unique_paths_this_revision": 0,
+      "source_png_reprocessed_this_revision": 1,
+      "source_rgba_pixels_reprocessed": 256,
+      "base_texture_top_uv": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "top_face_uv_rotation_declared_deg": 0,
+      "source_blockstate_model_y_deg_by_facing": {
+        "south": 0,
+        "west": 90,
+        "north": 180,
+        "east": 270
+      },
+      "enum_candidate_grid_count": 256,
+      "grid_order": "[top_left,top_right,bottom_left,bottom_right]",
+      "image_rotation_convention": "clockwise when inspecting texture PNG as 2D array",
+      "best_image_clockwise_rotations_deg": [
+        0,
+        90,
+        270,
+        180
+      ],
+      "best_hypothesis_facing_by_right_handed_positive_y_model_rotation": [
+        "south",
+        "east",
+        "west",
+        "north"
+      ],
+      "best_hypothesis_facing_by_opposite_view_projection": [
+        "south",
+        "west",
+        "east",
+        "north"
+      ],
+      "best_mean_four_boundary_rgb_mae": 2.145833,
+      "best_boundary_rgb_mae": [
+        2.145833,
+        2.145833,
+        2.145833,
+        2.145833
+      ],
+      "best_exact_rgb_pixel_pairs_out_of_64": 44,
+      "unrotated_mean_four_boundary_rgb_mae": 56.03125,
+      "unrotated_exact_rgb_pixel_pairs_out_of_64": 18,
+      "mae_reduction_percent_vs_unrotated": 96.17,
+      "all_256_mean_mae": 53.947917,
+      "all_256_median_mae": 53.414063,
+      "number_candidates_mae_below_10": 4,
+      "best_tie_count": 1,
+      "worst_mae": 90.5,
+      "metric_definition": "Sum of per-channel absolute 8-bit RGB deltas on four seams (4 x 16 x 3=192 channel pairs), divided by 192",
+      "inferred_facing_not_ingame_verified": true
+    }
+  }
+}

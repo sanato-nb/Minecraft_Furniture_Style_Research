@@ -7,10 +7,10 @@
   "stage_id": "1-1-06",
   "material_family": "도기·유광도기",
   "stage_prefix": "TEX06",
-  "current_revision": "TEX06-R001",
-  "next_revision": "TEX06-R002",
-  "revision_sequence": 1,
-  "revision_status": "R001_mirror_png_RGBA_static_json_verified_official_pending",
+  "current_revision": "TEX06-R002",
+  "next_revision": "TEX06-R003",
+  "revision_sequence": 2,
+  "revision_status": "R002_glazed_2x2_512_static_facing_analysis_official_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 8,
@@ -60,25 +60,25 @@
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "done_source_level_d1_d2_d3_ingame_mapping_pending",
+      "status": "extended_R002_512_2x2_facing_and_exact_pixel_seams",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "last_revision": "TEX06-R001"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "done_mirror_static_model_uv_8",
+      "status": "extended_R002_model_y_vs_image_rotation_projection_hypotheses_pending_game",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "last_revision": "TEX06-R001"
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_official_jar_and_ingame_static",
+      "status": "pending_Mojang_official_JAR_and_ingame_static",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "last_revision": "TEX06-R001"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "done_result_files_and_handoff",
+      "status": "R002_report_and_handoff_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "last_revision": "TEX06-R001"
     }
@@ -93,14 +93,14 @@
     {
       "id": "D2",
       "check": "무늬 이어붙이기와 UV/회전 상태에 따른 패턴 방향",
-      "status": "completed_d2_image_space_rotation_2_ingame_pending",
-      "last_revision": "TEX06-R001"
+      "status": "R002_512_2x2_hypotheses_64_boundary_pairwise_glazed_complete_image_space_ingame_pending",
+      "last_revision": "TEX06-R002"
     },
     {
       "id": "D3",
       "check": "특정 패턴을 만드는 블록 상태의 정적 회전·UV 연결",
-      "status": "completed_d3_mirror_model_uv_2_ingame_pending",
-      "last_revision": "TEX06-R001"
+      "status": "R002_model_y_facing_mapped_to_top_uv_two_conventions_not_ingame_verified",
+      "last_revision": "TEX06-R002"
     }
   ],
   "items": [
@@ -203,11 +203,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX06-R001",
-      "evidence_status": "mirror_sha_pixel_checked_static_json_uv_source_verified_official_pending",
+      "last_verified_revision": "TEX06-R002",
+      "evidence_status": "R001_binary_SHA_rechecked_R002_2x2_facing_hypotheses_official_pending",
       "mirror_png_blob_sha": "58832984e6700a295c890ab86b568929d36567d5",
       "mirror_model_blob_sha": "f973bbba2a75c5bfa1e93ad6004b2ae1ff97d41b",
-      "mirror_blockstate_blob_sha": "e20988dcdafdba18006a35e6a4437bb7d2e78f3f"
+      "mirror_blockstate_blob_sha": "e20988dcdafdba18006a35e6a4437bb7d2e78f3f",
+      "r002_reanalyzed_png": true
     },
     {
       "item_id": "1-1-06-008",
@@ -218,11 +219,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX06-R001",
-      "evidence_status": "mirror_sha_pixel_checked_static_json_uv_source_verified_official_pending",
+      "last_verified_revision": "TEX06-R002",
+      "evidence_status": "R001_binary_SHA_rechecked_R002_2x2_facing_hypotheses_official_pending",
       "mirror_png_blob_sha": "a500a876f14d6fab28d140023d32436f28f2512e",
       "mirror_model_blob_sha": "e33fbedc0fd18cda66fd3ec878211f2b00c5adc2",
-      "mirror_blockstate_blob_sha": "8c64ce09f7c0bf11dad8908ef220917b567673a9"
+      "mirror_blockstate_blob_sha": "8c64ce09f7c0bf11dad8908ef220917b567673a9",
+      "r002_reanalyzed_png": true
     }
   ],
   "revisions": [
@@ -241,12 +243,23 @@
       "report_path": "research/vanilla_textures/by_stage/1-1-06/TEX06-R001/REPORT.md",
       "source_ledger_path": "research/vanilla_textures/by_stage/1-1-06/TEX06-R001/SOURCE_LEDGER.csv",
       "summary_path": "research/vanilla_textures/by_stage/1-1-06/TEX06-R001/SUMMARY.json"
+    },
+    {
+      "revision": "TEX06-R002",
+      "kind": "two_existing_glazed_PNGs_512_2x2_state_hypotheses_and_exact_seam_count",
+      "source_files_reprocessed": 2,
+      "new_unique_source_paths": 0,
+      "static_facing_hypotheses_checked": 512,
+      "official_jar_authenticated": 0,
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-06/TEX06-R002/REPORT.md",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-06/TEX06-R002/SUMMARY.json"
     }
   ],
   "next_steps": [
-    "Obtain authenticated Mojang 1.21.11 client.jar and compare all 8 PNG/model/blockstates by byte/sha",
-    "Check real in-game static four-facing glazed terracotta UV mapping; avoid equating 2D image-plane rotations with model directions",
-    "Save new verified evidence under TEX06-R002 only after SHA/version collision check; continue animation pause"
+    "Acquire authenticated Mojang 1.21.11 client.jar and run provided verifier; record actual SHA1 + per-file matches (do not upload JAR)",
+    "Compare actual in-game four-facing top and side UV static screenshots to the two projection hypotheses",
+    "Only create TEX06-R003 after new real validation evidence; animation still deferred"
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -258,8 +271,11 @@
   ],
   "project_overall_completion_pct": null,
   "do_not_count_planning_as_research": true,
-  "stage_current_analysis_completed_count_definition": "8 source-level independently verified mirror PNG/JSON, not full A-G official/in-game completion",
+  "stage_current_analysis_completed_count_definition": "8 unique source mirror PNG checked across releases (R002 reprocesses 2 of these, not 2 new unique); official and ingame pending",
   "stage_fully_official_and_ingame_verified_count": 0,
   "stage_independent_mirror_sha_pixel_checked_count": 8,
-  "stage_static_model_blockstate_checked_count": 8
+  "stage_static_model_blockstate_checked_count": 8,
+  "last_reprocessed_png_count": 2,
+  "last_reprocessed_rgba_pixel_count": 512,
+  "last_2x2_top_facing_hypotheses_count": 512
 }

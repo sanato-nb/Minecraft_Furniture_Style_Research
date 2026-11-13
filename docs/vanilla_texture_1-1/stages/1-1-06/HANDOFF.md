@@ -74,3 +74,13 @@
 - **공식 Mojang client.jar 인증 0/8, 인게임 정적 검증 0/8**, 정적 파일 검수만 완료. 이미지 평면의 시계방향 회전 최적 조합을 실제 인게임 방향으로 단정하지 않는다. F 및 모든 A–G 최종 인증 미완료.
 - v35~v38 일부 역사 자료를 교차 검사해 이 8종 중복 집계 근거 없음. 전체 과거 자료 부재를 단정하지 않음.
 - 다음 R002는 공식 `client.jar`에서 원본 8개 및 모델 JSON을 추출하고 SHA로 검증하거나 인게임 정적 Facing 장면을 확인할 때만 생성. 애니메이션/Project Zomboid/가구 모델링 연구는 계속 보류.
+
+## TEX06-R002 — 2026-11-13 신규 정적 패턴·상태 연결 검증
+
+- 현재 고유 버전 **TEX06-R002** / 다음 **TEX06-R003**. 전체 통합 **v38** 불변.
+- R001 누적 미러 PNG 8/8 유지. R002는 **검정·흰색 유광 2종만 기존 PNG 직접 재열람·SHA 재확인**, 신규 고유 텍스처 **0개**.
+- [R002 상세 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R002/REPORT.md) · [512개 경우의 수 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R002/TOP_FACING_2X2_512_COMBINATIONS.csv) · [픽셀쌍 이음 근거](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R002/EDGE_SEAM_PAIRWISE.csv) · [독립 SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R002/SUMMARY.json).
+- 2개 유광 각각 **2×2 회전 조합 256개** 실측 → 총 **512개**. 최적 무늬 경계 RGB 완전 일치 픽셀쌍은 검정 **28/64**, 흰색 **44/64**; 오차가 0이거나 패턴 완전 일치가 아님.
+- 원본 정적 blockstates의 south0/west90/north180/east270 model Y 회전을 상단 PNG 이미지 회전과 **두 투영 관례로 구분**하여 조합별 방향 가설 생성. 추론을 실제 인게임 방향으로 확정하지 않음.
+- Mojang 공식 1.21.11 client.jar 다운로드를 실제 시도했으나 실행 환경 접근 실패. **공식 인증 0/8, 인게임 정적 0/8** 유지. 다음 채팅의 PC용 검증 스크립트 `VERIFY_OFFICIAL_1_21_11.py`는 공식 클라이언트에서 실제 실행·검증 전이므로 결과 인증에 포함하지 않음.
+- A–G 전체 인증 0/8; R002 새 근거는 D2/D3 정적 모델·화소 관계. 다른 단계 및 루트 파일·동적 기록 변경 금지. 애니메이션, PZ 변환, 가구 3D 제작 보류.
