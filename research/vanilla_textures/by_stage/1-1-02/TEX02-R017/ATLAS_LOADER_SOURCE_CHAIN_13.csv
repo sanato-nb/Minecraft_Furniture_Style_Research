@@ -1,0 +1,14 @@
+id,source,method,bytecode_or_JSON_anchor,interpretation,evidence_level,game_atlas_runtime_stitch_verified
+01,atlases/blocks.json,sources[0] directory,"source=block, prefix=block/",declares candidate resources from textures/block/; not evidence of runtime stitching,original_extracted_static_source_only,false
+02,ilw.class,a()V 76 bytes; <clinit>()V 59 bytes,ily.b codec registered for minecraft:directory,atlas source JSON directory type maps to actual original directory loader,original_extracted_static_source_only,false
+03,ilv.class,"a(baz,amo):ilv 189 bytes",atlases/{id}.json resource reads; ilw.b parse,loads atlas declaration definitions from selected ResourceManager,original_extracted_static_source_only,false
+04,ily.class,"a(baz,ilu$c):void 38 bytes","new amm(textures/block/, .png); Map.forEach",enumerates candidate original PNG resources in directory,original_extracted_static_source_only,false
+05,amm.class,a(baz):Map 17 bytes; b(amo):amo 35 bytes,prefix/extension resource listing and stripping,maps textures/block/X.png original resources,original_extracted_static_source_only,false
+06,ily.class,"a(amm,ilu$c,amo,bax):void 25 bytes","add prefix block/ to sprite identifier; ilu$c.a(sprite,resource)",sprite identifiers match minecraft:block/X,original_extracted_static_source_only,false
+07,ilu$c.class,"a(amo,bax):void 15 bytes",register supplier for sprite id and PNG resource,converts atlas candidate to sprite contents loader callback,original_extracted_static_source_only,false
+08,ilt.class,"a(Set,amo,bax):ilk 299 bytes",bax.d()->InputStream; fyh.a(InputStream); texture metadata,decodes supplied PNG and optional texture metadata into SpriteContents,original_extracted_static_source_only,false
+09,inw / inx$c.class,inx$c.b():iog 5 bytes,regular bake context returns sprite/texture resolver,connects model bake scope to sprite resolver dependency,original_extracted_static_source_only,false
+10,hqn.class,"a(List,hqp,inw,ioc,iny):iod 395 bytes PC281–300","inw.b() -> iog.a(hqp, hqc.c(),iny):ilp",resolves each model face #texture reference into baked sprite,original_extracted_static_source_only,false
+11,hqn.class,a(...):iod 395 bytes PC302–337,inw.c() -> hqi.FaceBakery with ilp sprite,bakes each source face with selected sprite & modelstate UV source,original_extracted_static_source_only,false
+12,hqm.class,"a(inw,amo,ioc):hqg 178 bytes",iof resolve->sprite; atlas acceptance check & missing model fallback,conditional source guard proves cannot assert final atlas acceptance merely from PNG file,original_extracted_static_source_only,false
+13,R013 31 slots and R017 19 models,source face resolution,"31 variants x 6 local faces = 186; 19 source sprite IDs, all 19 PNG files","source graph closed, not game-instance atlas stitch or GUI visual evidence",original_extracted_static_source_only,false

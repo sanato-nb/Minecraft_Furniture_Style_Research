@@ -1,6 +1,6 @@
 # 1-1-02 — 석재·벽돌 별도 채팅 인수인계
 
-> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R016` (17개 실제 블록 클래스의 시드 상속 전수 검증)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
+> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R017` (17종 아틀라스 연결 정적 소스 연구 최종 완료)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 ## 연구 목표와 정확한 표본
 
@@ -201,3 +201,12 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 - R015의 49개 가상 좌표 / 196개 원본 연계 모델 선택에서 '17개 구체 블록 subclass seed override 여부 미확인' 조건은 소스 차원에서 제거했다. 단 model atlas/스프라이트 바인딩·게임 실제 조명/UV/접합부 검증은 **0/17**, 전체 A–G 완료 0/17. 기존 17 PNG 및 186면/744정점/R012 UV40 등은 누적 재실측으로 중복 기재하지 않는다.
 - 사용자 요청에 따라 진행도는 **원본 PNG 소스 분석 100%(17/17) / 최신 TEX02-R016** 형식으로 표기; 전반적인 전체 프로젝트 완료율과 혼동 금지. 전역 `v38`, 다른 단계, 기존 불변 R001–R015 수정 안 함. 공식 Mojang 전체 JAR SHA-1 인증은 완료 필수 조건에서 제외/인증 주장 없음.
 - 다음 `TEX02-R017` 후보: 실제 원본 vanilla model atlas sprite 연결·수용 여부 확인. 새 독립 소스 증거 없이 게임 내 캡처/런타임이 필요한 지점에 도달하면 버전만 늘리지 말고 필요한 화면/파일을 요청.
+
+## TEX02-R017 — 17개 석재·벽돌 원본 아틀라스·스프라이트 정적 검증 최종 완료 (2026-11-13)
+
+- **단계 최종 판정:** 정적 소스 연구 17/17=100% 완료. 사용자 지시에 따라 인게임 렌더링 및 공식 Mojang JAR SHA-1 인증은 완료 조건 제외(실제 게임 관측 0/17, 인증 미실시); 애니메이션 연구 보류. 완료를 런타임 atlas stitch·GPU 렌더 검증으로 오인 금지.
+- [R017 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R017/REPORT.md) · [진행도/최종 판정](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R017/PROGRESS.md) · [19 sprite PNG SHA·원본 경로](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R017/ATLAS_PNG_RESOURCE_MATCH_19.csv) · [19 모델 부모·면별 sprite](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R017/MODEL_PARENT_SPRITE_RESOLUTION_19.csv) · [31 모델 선택 186면 atlas 연결](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R017/MODEL_FACE_SPRITE_BINDINGS_186.csv) · [56개 원본 SHA](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R017/SOURCE_LEDGER_56.csv) · [13개 로더 호출 근거](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R017/ATLAS_LOADER_SOURCE_CHAIN_13.csv) · [오프라인 재현 검사기](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R017/VERIFY_R017_ATLAS_CLOSURE.py) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R017/SUMMARY.json).
+- 원본 1.21.11 assets/minecraft/atlases/blocks.json(sha 541ce56ad0b09f258963dd2bf3e3cb6e786d2d79)의 directory source=block prefix=block/를 확인. 19 모델 JSON 및 7 부모를 직접 읽어 #all/#side/#end/#particle alias를 31 slot x 6면 = 186면에서 19개 sprite ID로 해결. 원본 PNG 19/19 경로 존재, 누락 0, 별도 top 2개 deepslate_top/blackstone_top, .png.mcmeta 0개.
+- ilw/ily/ilv/amm/ilu$c/ilt/inx$c/hqn/hqm 등 원본 9 class를 재검증해 atlas loader source~SpriteContents~face bake 연결. 런타임 최종 atlas stitch, resource pack 우선순위와 픽셀 화면은 관측하지 않음.
+- 전체 1-1 재질 11개/150 고정 표본 중 **10개 분류·132/150=88.0% 정적 소스 완료**, 목재·원목 1-1-01의 18개 미종결. 전역 v39 133/150종 통합은 별개의 범위이며 현재 변경하지 않음. 전체 프로젝트 5대 과제 최종 완료 0/5, 가구 제작 진행률 미산정.
+- 기존 R001–R016 및 다른 재질 단계/루트 PROGRESS/HANDOFF/global v39/v38 무수정. 새 독립 원본 증거 또는 사용자 범위 변경이 없는 한 R018을 자동으로 만들지 않고 이 소스 연구 단계는 종료.

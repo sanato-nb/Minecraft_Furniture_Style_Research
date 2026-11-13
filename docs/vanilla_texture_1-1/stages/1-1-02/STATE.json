@@ -7,15 +7,15 @@
   "stage_id": "1-1-02",
   "material_family": "석재·벽돌",
   "stage_prefix": "TEX02",
-  "current_revision": "TEX02-R016",
-  "next_revision": "TEX02-R017",
-  "revision_sequence": 16,
-  "revision_status": "R016_17_actual_vanilla_block_registry_types_and_render_seed_overrides_verified_from_dzs_static_initializer_16_dzq_1_egl_both_inherit_eog_default_hash_source_only_not_ingame",
+  "current_revision": "TEX02-R017",
+  "next_revision": "TEX02-R018",
+  "revision_sequence": 17,
+  "revision_status": "R017_FINAL_static_source_scope_completed_17_of_17_19_original_atlas_sprites_31_model_variants_19_leaf_7_parents_186_faces_56_SHA_originals_source_only_not_runtime",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 17,
   "v4_legacy_measurements_recorded": 17,
-  "stage_current_analysis_completed_count": 0,
+  "stage_current_analysis_completed_count": 17,
   "official_client_jar_authenticated_count": 0,
   "ingame_static_render_verified_count": 0,
   "paths": {
@@ -43,45 +43,59 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "R003_source_provenance_reused",
+      "status": "R017_completed_source_provenance_and_duplicate_recheck_17_of_17",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R004"
+      "last_evidence_revision": "TEX02-R017",
+      "completion_state": "completed_within_user_approved_static_scope",
+      "closeout_date": "2026-11-13"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R003_PNG_binary_17_reused",
+      "status": "R017_completed_original_user_extracted_PNG_SHA_CRC_17_plus_2_supplemental_reference_png_reused",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R004"
+      "last_evidence_revision": "TEX02-R017",
+      "completion_state": "completed_within_user_approved_static_scope",
+      "closeout_date": "2026-11-13"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R012_2_original_source_PNG_redecoded_64_deepslate_axis_x_z_north_synthetic_seams_reprojected_all_aggregate_metrics_equal_not_ingame",
+      "status": "R017_completed_source_RGBA_4352_original_fixed_pixels_and_prior_quantitative_pattern_analysis",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R012"
+      "last_evidence_revision": "TEX02-R017",
+      "completion_state": "completed_within_user_approved_static_scope",
+      "closeout_date": "2026-11-13"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R016_D3_actual_registered_17_block_classes_all_inherit_default_eog_position_seed_no_subclass_override_source_verified",
+      "status": "R017_completed_stone_brick_material_seam_static_and_variant_random_source_proofs_R001_to_R016",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R016"
+      "last_evidence_revision": "TEX02-R017",
+      "completion_state": "completed_within_user_approved_static_scope",
+      "closeout_date": "2026-11-13"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R016_17_actual_BlockRegistry_dzs_clinit_ctor_lambda_and_31_blockstate_choice_slots_bound_to_verified_inherited_position_seed_source_not_runtime",
+      "status": "R017_completed_31_variant_19_models_7_parent_186_face_texture_alias_to_19_original_atlas_sprites_0_unresolved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R016"
+      "last_evidence_revision": "TEX02-R017",
+      "completion_state": "completed_within_user_approved_static_scope",
+      "closeout_date": "2026-11-13"
     },
     "F": {
       "title": "F 인게임 정적 렌더·UV·이음새 검증 (Mojang 공식 JAR 인증 제외)",
-      "status": "ingame_static_pending_0_of_17_official_jar_auth_excluded_not_required",
+      "status": "excluded_by_user_from_source_only_completion_not_verified_in_game_0_of_17_official_JAR_SHA1_not_required_not_authenticated",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R005"
+      "last_evidence_revision": "TEX02-R017",
+      "completion_state": "excluded_by_user_not_required",
+      "closeout_date": "2026-11-13"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R016_8_new_immutable_files_17_block_registry_7_class_proof_31_model_state_seed_records_7_source_sha_ledger_verifier_progress",
+      "status": "R017_9_new_immutable_report_summary_progress_csv_source_ledger_verifier_final_scope_complete_17_of_17",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R016"
+      "last_evidence_revision": "TEX02-R017",
+      "completion_state": "completed_within_user_approved_static_scope",
+      "closeout_date": "2026-11-13"
     }
   },
   "material_specific_checks": [
@@ -111,7 +125,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R016",
+      "last_verified_revision": "TEX02-R017",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "c298969ccab004c2e37583b058c765598b05f69d",
       "mirror_model_git_blob_sha": "1a2f6a79a69ee5550a76697096cfb4cdb94499da",
@@ -228,7 +242,18 @@
         "concrete_override_a_BlockState_BlockPos_long": false,
         "actual_game_rendering_verified": false,
         "source_evidence_revision": "TEX02-R016"
-      }
+      },
+      "R017_original_atlas_static_source_closure": {
+        "source_only_complete": true,
+        "atlas_source": "1.21.11/assets/minecraft/atlases/blocks.json",
+        "sprite_directory": "minecraft:directory block/",
+        "source_model_and_face_sprite_resolved": true,
+        "required_source_png_paths_exist": true,
+        "runtime_atlas_stitch_measured": false,
+        "ingame_static_render_measured": false,
+        "version": "TEX02-R017"
+      },
+      "stage_source_only_analysis_complete": true
     },
     {
       "item_id": "1-1-02-002",
@@ -239,7 +264,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R016",
+      "last_verified_revision": "TEX02-R017",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "435a7afce8e98f7113ac1b491363b552ed342a48",
       "mirror_model_git_blob_sha": "ab65fe90879cc452d2a0ea1d5b78dc5a38fd01e6",
@@ -349,7 +374,18 @@
         "concrete_override_a_BlockState_BlockPos_long": false,
         "actual_game_rendering_verified": false,
         "source_evidence_revision": "TEX02-R016"
-      }
+      },
+      "R017_original_atlas_static_source_closure": {
+        "source_only_complete": true,
+        "atlas_source": "1.21.11/assets/minecraft/atlases/blocks.json",
+        "sprite_directory": "minecraft:directory block/",
+        "source_model_and_face_sprite_resolved": true,
+        "required_source_png_paths_exist": true,
+        "runtime_atlas_stitch_measured": false,
+        "ingame_static_render_measured": false,
+        "version": "TEX02-R017"
+      },
+      "stage_source_only_analysis_complete": true
     },
     {
       "item_id": "1-1-02-003",
@@ -360,7 +396,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R016",
+      "last_verified_revision": "TEX02-R017",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "bfbfd3884e37f2b93003310622aad632f3cfb408",
       "mirror_model_git_blob_sha": "87f6bbe0e26ca4347c00206d65f401b8946a82c6",
@@ -477,7 +513,18 @@
         "concrete_override_a_BlockState_BlockPos_long": false,
         "actual_game_rendering_verified": false,
         "source_evidence_revision": "TEX02-R016"
-      }
+      },
+      "R017_original_atlas_static_source_closure": {
+        "source_only_complete": true,
+        "atlas_source": "1.21.11/assets/minecraft/atlases/blocks.json",
+        "sprite_directory": "minecraft:directory block/",
+        "source_model_and_face_sprite_resolved": true,
+        "required_source_png_paths_exist": true,
+        "runtime_atlas_stitch_measured": false,
+        "ingame_static_render_measured": false,
+        "version": "TEX02-R017"
+      },
+      "stage_source_only_analysis_complete": true
     },
     {
       "item_id": "1-1-02-004",
@@ -488,7 +535,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R016",
+      "last_verified_revision": "TEX02-R017",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "51c7352fe11f5271198ae06ba4e674ccd9a203af",
       "mirror_model_git_blob_sha": "cebe5470a178a4881550933f49edbcee2e830f11",
@@ -605,7 +652,18 @@
         "concrete_override_a_BlockState_BlockPos_long": false,
         "actual_game_rendering_verified": false,
         "source_evidence_revision": "TEX02-R016"
-      }
+      },
+      "R017_original_atlas_static_source_closure": {
+        "source_only_complete": true,
+        "atlas_source": "1.21.11/assets/minecraft/atlases/blocks.json",
+        "sprite_directory": "minecraft:directory block/",
+        "source_model_and_face_sprite_resolved": true,
+        "required_source_png_paths_exist": true,
+        "runtime_atlas_stitch_measured": false,
+        "ingame_static_render_measured": false,
+        "version": "TEX02-R017"
+      },
+      "stage_source_only_analysis_complete": true
     },
     {
       "item_id": "1-1-02-005",
@@ -616,7 +674,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R016",
+      "last_verified_revision": "TEX02-R017",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "dc3c160d5bb78a493aeabcfb6330e5be1770e5f7",
       "mirror_model_git_blob_sha": "cd1067abfafc9f42650d5a1799ea56b0fb74fcd7",
@@ -726,7 +784,18 @@
         "concrete_override_a_BlockState_BlockPos_long": false,
         "actual_game_rendering_verified": false,
         "source_evidence_revision": "TEX02-R016"
-      }
+      },
+      "R017_original_atlas_static_source_closure": {
+        "source_only_complete": true,
+        "atlas_source": "1.21.11/assets/minecraft/atlases/blocks.json",
+        "sprite_directory": "minecraft:directory block/",
+        "source_model_and_face_sprite_resolved": true,
+        "required_source_png_paths_exist": true,
+        "runtime_atlas_stitch_measured": false,
+        "ingame_static_render_measured": false,
+        "version": "TEX02-R017"
+      },
+      "stage_source_only_analysis_complete": true
     },
     {
       "item_id": "1-1-02-006",
@@ -737,7 +806,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R016",
+      "last_verified_revision": "TEX02-R017",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "e1b2323c44aea2f7228f5f6f8f40674fc8087fe0",
       "mirror_model_git_blob_sha": "b3d7b55b5ca4ffef4f53ee364c40924a73e988db",
@@ -854,7 +923,18 @@
         "concrete_override_a_BlockState_BlockPos_long": false,
         "actual_game_rendering_verified": false,
         "source_evidence_revision": "TEX02-R016"
-      }
+      },
+      "R017_original_atlas_static_source_closure": {
+        "source_only_complete": true,
+        "atlas_source": "1.21.11/assets/minecraft/atlases/blocks.json",
+        "sprite_directory": "minecraft:directory block/",
+        "source_model_and_face_sprite_resolved": true,
+        "required_source_png_paths_exist": true,
+        "runtime_atlas_stitch_measured": false,
+        "ingame_static_render_measured": false,
+        "version": "TEX02-R017"
+      },
+      "stage_source_only_analysis_complete": true
     },
     {
       "item_id": "1-1-02-007",
@@ -865,7 +945,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R016",
+      "last_verified_revision": "TEX02-R017",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "62184f73f9c30187a1d041f8fc5ce4220c404b59",
       "mirror_model_git_blob_sha": "3ba4278bf92ebfe96a1a35ad3caa5478faf600e4",
@@ -975,7 +1055,18 @@
         "concrete_override_a_BlockState_BlockPos_long": false,
         "actual_game_rendering_verified": false,
         "source_evidence_revision": "TEX02-R016"
-      }
+      },
+      "R017_original_atlas_static_source_closure": {
+        "source_only_complete": true,
+        "atlas_source": "1.21.11/assets/minecraft/atlases/blocks.json",
+        "sprite_directory": "minecraft:directory block/",
+        "source_model_and_face_sprite_resolved": true,
+        "required_source_png_paths_exist": true,
+        "runtime_atlas_stitch_measured": false,
+        "ingame_static_render_measured": false,
+        "version": "TEX02-R017"
+      },
+      "stage_source_only_analysis_complete": true
     },
     {
       "item_id": "1-1-02-008",
@@ -986,7 +1077,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R016",
+      "last_verified_revision": "TEX02-R017",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "1e67b667b3df9bbbb037cdb5048b6327c238767d",
       "mirror_model_git_blob_sha": "def59d00c790df6c5e43fc64004f0492ae8fd5e4",
@@ -1096,7 +1187,18 @@
         "concrete_override_a_BlockState_BlockPos_long": false,
         "actual_game_rendering_verified": false,
         "source_evidence_revision": "TEX02-R016"
-      }
+      },
+      "R017_original_atlas_static_source_closure": {
+        "source_only_complete": true,
+        "atlas_source": "1.21.11/assets/minecraft/atlases/blocks.json",
+        "sprite_directory": "minecraft:directory block/",
+        "source_model_and_face_sprite_resolved": true,
+        "required_source_png_paths_exist": true,
+        "runtime_atlas_stitch_measured": false,
+        "ingame_static_render_measured": false,
+        "version": "TEX02-R017"
+      },
+      "stage_source_only_analysis_complete": true
     },
     {
       "item_id": "1-1-02-009",
@@ -1107,7 +1209,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R016",
+      "last_verified_revision": "TEX02-R017",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "00b9a81af1224a4ae9e1d6495e22b5fe0c0dc5a8",
       "mirror_model_git_blob_sha": "46f93fd8dc7ba4796ff215e90b67bd2a84064539",
@@ -1217,7 +1319,18 @@
         "concrete_override_a_BlockState_BlockPos_long": false,
         "actual_game_rendering_verified": false,
         "source_evidence_revision": "TEX02-R016"
-      }
+      },
+      "R017_original_atlas_static_source_closure": {
+        "source_only_complete": true,
+        "atlas_source": "1.21.11/assets/minecraft/atlases/blocks.json",
+        "sprite_directory": "minecraft:directory block/",
+        "source_model_and_face_sprite_resolved": true,
+        "required_source_png_paths_exist": true,
+        "runtime_atlas_stitch_measured": false,
+        "ingame_static_render_measured": false,
+        "version": "TEX02-R017"
+      },
+      "stage_source_only_analysis_complete": true
     },
     {
       "item_id": "1-1-02-010",
@@ -1228,7 +1341,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R016",
+      "last_verified_revision": "TEX02-R017",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "3a02f5ff6f069439a94508ae94ea2431d00fee5e",
       "mirror_model_git_blob_sha": "9f1f6eba3e0db4c4aff91eb85ed72a308a234852",
@@ -1338,7 +1451,18 @@
         "concrete_override_a_BlockState_BlockPos_long": false,
         "actual_game_rendering_verified": false,
         "source_evidence_revision": "TEX02-R016"
-      }
+      },
+      "R017_original_atlas_static_source_closure": {
+        "source_only_complete": true,
+        "atlas_source": "1.21.11/assets/minecraft/atlases/blocks.json",
+        "sprite_directory": "minecraft:directory block/",
+        "source_model_and_face_sprite_resolved": true,
+        "required_source_png_paths_exist": true,
+        "runtime_atlas_stitch_measured": false,
+        "ingame_static_render_measured": false,
+        "version": "TEX02-R017"
+      },
+      "stage_source_only_analysis_complete": true
     },
     {
       "item_id": "1-1-02-011",
@@ -1349,7 +1473,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R016",
+      "last_verified_revision": "TEX02-R017",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "4c1b7b215b10a3c234800804dd5cd9e3485bad38",
       "mirror_model_git_blob_sha": "99afb394efe2e0155ae21dc63738163c09deb515",
@@ -1459,7 +1583,18 @@
         "concrete_override_a_BlockState_BlockPos_long": false,
         "actual_game_rendering_verified": false,
         "source_evidence_revision": "TEX02-R016"
-      }
+      },
+      "R017_original_atlas_static_source_closure": {
+        "source_only_complete": true,
+        "atlas_source": "1.21.11/assets/minecraft/atlases/blocks.json",
+        "sprite_directory": "minecraft:directory block/",
+        "source_model_and_face_sprite_resolved": true,
+        "required_source_png_paths_exist": true,
+        "runtime_atlas_stitch_measured": false,
+        "ingame_static_render_measured": false,
+        "version": "TEX02-R017"
+      },
+      "stage_source_only_analysis_complete": true
     },
     {
       "item_id": "1-1-02-012",
@@ -1470,7 +1605,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R016",
+      "last_verified_revision": "TEX02-R017",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "53c96684ffd703a9e9ba1f4a1f67c1eb075e79c3",
       "mirror_model_git_blob_sha": "3f9f0234e6a0019dfb460616812fb0685e2ec6e2",
@@ -1580,7 +1715,18 @@
         "concrete_override_a_BlockState_BlockPos_long": false,
         "actual_game_rendering_verified": false,
         "source_evidence_revision": "TEX02-R016"
-      }
+      },
+      "R017_original_atlas_static_source_closure": {
+        "source_only_complete": true,
+        "atlas_source": "1.21.11/assets/minecraft/atlases/blocks.json",
+        "sprite_directory": "minecraft:directory block/",
+        "source_model_and_face_sprite_resolved": true,
+        "required_source_png_paths_exist": true,
+        "runtime_atlas_stitch_measured": false,
+        "ingame_static_render_measured": false,
+        "version": "TEX02-R017"
+      },
+      "stage_source_only_analysis_complete": true
     },
     {
       "item_id": "1-1-02-013",
@@ -1591,7 +1737,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R016",
+      "last_verified_revision": "TEX02-R017",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "bb7dc9ced1943d1dc86ab0cded598e8541fd280a",
       "mirror_model_git_blob_sha": "dff2a5c69138d558950260815f784ba554c34821",
@@ -1727,7 +1873,18 @@
         "concrete_override_a_BlockState_BlockPos_long": false,
         "actual_game_rendering_verified": false,
         "source_evidence_revision": "TEX02-R016"
-      }
+      },
+      "R017_original_atlas_static_source_closure": {
+        "source_only_complete": true,
+        "atlas_source": "1.21.11/assets/minecraft/atlases/blocks.json",
+        "sprite_directory": "minecraft:directory block/",
+        "source_model_and_face_sprite_resolved": true,
+        "required_source_png_paths_exist": true,
+        "runtime_atlas_stitch_measured": false,
+        "ingame_static_render_measured": false,
+        "version": "TEX02-R017"
+      },
+      "stage_source_only_analysis_complete": true
     },
     {
       "item_id": "1-1-02-014",
@@ -1738,7 +1895,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R016",
+      "last_verified_revision": "TEX02-R017",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "e7f36f6d883cb5e4372e29bb385e5fa8a65f6542",
       "mirror_model_git_blob_sha": "91ff5fcef34a040c8d0a3a422e4b0fbd89e6715b",
@@ -1848,7 +2005,18 @@
         "concrete_override_a_BlockState_BlockPos_long": false,
         "actual_game_rendering_verified": false,
         "source_evidence_revision": "TEX02-R016"
-      }
+      },
+      "R017_original_atlas_static_source_closure": {
+        "source_only_complete": true,
+        "atlas_source": "1.21.11/assets/minecraft/atlases/blocks.json",
+        "sprite_directory": "minecraft:directory block/",
+        "source_model_and_face_sprite_resolved": true,
+        "required_source_png_paths_exist": true,
+        "runtime_atlas_stitch_measured": false,
+        "ingame_static_render_measured": false,
+        "version": "TEX02-R017"
+      },
+      "stage_source_only_analysis_complete": true
     },
     {
       "item_id": "1-1-02-015",
@@ -1859,7 +2027,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R016",
+      "last_verified_revision": "TEX02-R017",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "314a2df0e85319d0493a3b10d8b692e23ae6cdd2",
       "mirror_model_git_blob_sha": "d6e7b5852a756aa4212e98f6f71bd44d677403f6",
@@ -1983,7 +2151,18 @@
         "concrete_override_a_BlockState_BlockPos_long": false,
         "actual_game_rendering_verified": false,
         "source_evidence_revision": "TEX02-R016"
-      }
+      },
+      "R017_original_atlas_static_source_closure": {
+        "source_only_complete": true,
+        "atlas_source": "1.21.11/assets/minecraft/atlases/blocks.json",
+        "sprite_directory": "minecraft:directory block/",
+        "source_model_and_face_sprite_resolved": true,
+        "required_source_png_paths_exist": true,
+        "runtime_atlas_stitch_measured": false,
+        "ingame_static_render_measured": false,
+        "version": "TEX02-R017"
+      },
+      "stage_source_only_analysis_complete": true
     },
     {
       "item_id": "1-1-02-016",
@@ -1994,7 +2173,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R016",
+      "last_verified_revision": "TEX02-R017",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "caa25fa5199428cef03c3e257440b8f03f20a095",
       "mirror_model_git_blob_sha": "41baabebd17d0fbf46efc91bda5022ff91459c21",
@@ -2104,7 +2283,18 @@
         "concrete_override_a_BlockState_BlockPos_long": false,
         "actual_game_rendering_verified": false,
         "source_evidence_revision": "TEX02-R016"
-      }
+      },
+      "R017_original_atlas_static_source_closure": {
+        "source_only_complete": true,
+        "atlas_source": "1.21.11/assets/minecraft/atlases/blocks.json",
+        "sprite_directory": "minecraft:directory block/",
+        "source_model_and_face_sprite_resolved": true,
+        "required_source_png_paths_exist": true,
+        "runtime_atlas_stitch_measured": false,
+        "ingame_static_render_measured": false,
+        "version": "TEX02-R017"
+      },
+      "stage_source_only_analysis_complete": true
     },
     {
       "item_id": "1-1-02-017",
@@ -2115,7 +2305,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R016",
+      "last_verified_revision": "TEX02-R017",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "5dec3c0f313431c5352327a95311048bc7571352",
       "mirror_model_git_blob_sha": "6bbb7c88a25a62b8e9cac02575c9317af52735d7",
@@ -2225,7 +2415,18 @@
         "concrete_override_a_BlockState_BlockPos_long": false,
         "actual_game_rendering_verified": false,
         "source_evidence_revision": "TEX02-R016"
-      }
+      },
+      "R017_original_atlas_static_source_closure": {
+        "source_only_complete": true,
+        "atlas_source": "1.21.11/assets/minecraft/atlases/blocks.json",
+        "sprite_directory": "minecraft:directory block/",
+        "source_model_and_face_sprite_resolved": true,
+        "required_source_png_paths_exist": true,
+        "runtime_atlas_stitch_measured": false,
+        "ingame_static_render_measured": false,
+        "version": "TEX02-R017"
+      },
+      "stage_source_only_analysis_complete": true
     }
   ],
   "revisions": [
@@ -2248,7 +2449,9 @@
   "scope_excluded": [
     "Project Zomboid conversion",
     "actual furniture 3D asset building",
-    "animation study until explicitly resumed"
+    "animation study until explicitly resumed",
+    "Mojang official client.jar SHA-1 authentication (not required by user, not performed)",
+    "in-game static render/GPU UV/atlas stitch verification (not required by user, observed 0/17)"
   ],
   "project_overall_completion_pct": null,
   "do_not_count_planning_as_research": true,
@@ -2509,16 +2712,36 @@
       "ingame_static_verified": 0,
       "fully_completed_A_to_G_items": 0,
       "original_jar_SHA1_auth_required": false
+    },
+    {
+      "revision": "TEX02-R017",
+      "path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R017/",
+      "evidence_tier": "original_model_json_parent_leaf_and_atlas_loader_classfiles_56_source_sha_static_graph_not_game",
+      "stage_scope_closeout_source_only": true,
+      "completed_fixed_items": 17,
+      "total_fixed_items": 17,
+      "source_model_leaf_json": 19,
+      "source_parent_model_json": 7,
+      "source_variant_declarations": 31,
+      "source_model_faces_to_atlas_sprite": 186,
+      "source_sprite_PNGs": 19,
+      "missing_sprite_pngs": 0,
+      "source_SHA_ledger_rows": 56,
+      "atlas_loader_classfile_evidence": 9,
+      "atlas_loader_call_chain_rows": 13,
+      "new_original_pngs": 0,
+      "new_rgba_pixels_measured": 0,
+      "actual_ingame_renderer_verified": 0,
+      "actual_runtime_atlas_stitch_verified": 0,
+      "official_jar_SHA1_auth_not_required": true,
+      "overall_1_1_source_completed_items": 132,
+      "overall_1_1_scope_items": 150,
+      "actual_furniture_completion_not_claimed": true,
+      "no_auto_R018": true
     }
   ],
-  "current_release_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R016/",
-  "remaining_blockers": [
-    "R016 closes R015 per-block seed override question for all fixed 17 vanilla blocks: dzs.<clinit> registers 16 as dzq and deepslate as egl; neither dzq nor egl declares seed override, eog default coordinate hash inherited; no actual game render was measured",
-    "R015 source-derived default position 49-grid and 196 possible first-choice rows now apply to the actual 17 registered vanilla block classes, but model atlas acceptance and runtime visual output remain unobserved",
-    "Vanilla model atlas sprite registration, model baking resource load acceptance, and GPU-filtered final texture rendering/seam behavior have not been executed or confirmed from the game",
-    "Real in-game static render screenshots and lighting/UV/adjacent-block seam verification remain 0/17; A-G all-conditions-complete remain 0/17",
-    "Other modded block render contexts or asset overrides are outside this fixed original source study and do not establish vanilla failures"
-  ],
+  "current_release_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R017/",
+  "remaining_blockers": [],
   "current_stream_supplemental_end_face_binary_verified_count": 2,
   "static_face_model_local_source_entries": 102,
   "blockstate_json_variant_entries_recorded": 31,
@@ -2766,5 +2989,43 @@
   "R016_generated_python_class_source_verifier_end_to_end_executed": false,
   "R016_real_game_render_observations": 0,
   "R016_new_unique_pngs": 0,
-  "R016_new_rgba_pixel_measurements": 0
+  "R016_new_rgba_pixel_measurements": 0,
+  "stage_status": "completed",
+  "stage_source_only_research_status": "completed_within_user_approved_static_scope",
+  "stage_source_closeout_revision": "TEX02-R017",
+  "stage_source_closeout_date": "2026-11-13",
+  "no_automatic_next_revision_after_source_closeout": true,
+  "R017_source_model_leaf_count": 19,
+  "R017_source_parent_model_count": 7,
+  "R017_source_variant_slot_count": 31,
+  "R017_source_local_face_sprite_binding_count": 186,
+  "R017_source_atlas_sprite_png_count": 19,
+  "R017_source_atlas_extra_top_png_count": 2,
+  "R017_missing_atlas_original_png_count": 0,
+  "R017_source_sprite_mcmeta_sidecars_found": 0,
+  "R017_original_source_SHA_ledger_rows": 56,
+  "R017_original_atlas_loader_classfiles_examined": 9,
+  "R017_original_atlas_loader_method_chain_rows": 13,
+  "R017_offline_source_verifier_created": true,
+  "R017_offline_source_verifier_executed_end_to_end": false,
+  "R017_new_unique_original_pngs": 0,
+  "R017_new_original_rgba_pixel_measurements": 0,
+  "R017_actual_runtime_atlas_stitches_verified": 0,
+  "R017_actual_ingame_static_render_verified": 0,
+  "R017_all_project_five_goals_complete": 0,
+  "R017_global_v39_integration_modified": false,
+  "R017_overall_source_scope_completed_materials": 10,
+  "R017_overall_source_scope_materials_total": 11,
+  "R017_overall_source_scope_completed_texture_targets": 132,
+  "R017_overall_source_scope_texture_target_total": 150,
+  "R017_overall_source_scope_completion_pct": 88,
+  "R017_global_v39_materials_integrated": 10,
+  "R017_global_v39_texture_paths_integrated": 133,
+  "R017_global_v39_integration_not_equivalent_to_completion": true,
+  "out_of_scope_unverified": [
+    "Actual Minecraft client sprite atlas resource-pack resolution, stitch coordinates, texture filtering, lighting and in-game seams were not executed/observed (0/17)",
+    "Official Mojang compressed JAR SHA-1 authenticity not verified and not an active completion requirement",
+    "Animation remains deferred; actual Project Zomboid furniture-model creation is a different project",
+    "Offline Python reproducer saved but was not executed end to end with the entire extracted source tree in current local runtime"
+  ]
 }
