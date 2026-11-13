@@ -83,3 +83,13 @@
 - 덩굴 10 multipart 원본 규칙을 5 부울값의 **32개 논리 조합**에 적용. 전체 85 인스턴스·170 선언 면, 모두 false fallback 5개가 선택됨; 실제 인게임 32상태 접근성은 미확인. 북/남 UV 좌우 반전 실화소 16개 샘플 기록.
 - [R002 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R002/REPORT.md), [알파 마스크](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R002/PIXEL_MASK_AUDIT.json), [덩굴 32 상태](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R002/VINE_32_STATIC_STATES.csv), [철쭉 차분](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R002/AZALEA_PAIR_DIFF.json).
 - **Mojang 공식 client.jar 인증·인게임 정적 검증 0/8 유지**: 공식 API 발견, 실제 서버 다운로드 불가. 애니메이션 보류, 전역 v38 유지. 이번 단계 버전 `TEX10-R002`; 다음 `TEX10-R003`은 신규 증거가 있을 때만 진행.
+
+---
+
+## TEX10-R003 — 2026-11-13 · 사용자 제공 JAR 추출본 출처 우선화 및 4중 검증 상태 분리
+
+- **원본 출처 정정:** [`1.21.11/`](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/1.21.11)은 사용자 진술에 따르면 **Minecraft Java 1.21.11 JAR을 사용자가 직접 압축 해제해 GitHub에 업로드한 파일**이다. 앞으로 이 저장소 추출본을 1차 분석 자료로 사용한다. **사용자 진술에 따른 추출 출처와 Mojang 공식 JAR의 SHA-1 인증은 별개**이며, 공식 인증 완료를 주장하지 않는다.
+- **중복 없는 실제 재검사:** 사용자 저장소의 PNG **8개 바이너리**, 개별 모델 JSON **8개**, blockstates JSON **8개**, 공통 상속 부모 JSON **4개** 등 **서로 다른 경로 28개**를 실제 조회. 현재 Git blob SHA 8×3이 이전 원장과 **24/24 일치**, 4개 부모도 해시 기록. blockstates→model→부모→PNG 참조 **8개 모두 연결 검증**. 7개 기본 `variants:{"":...}` / 덩굴 10 multipart. 이전 R001/R002의 픽셀·알파·UV 측정은 **재집계 없음**; 새 표본 텍스처 수 **0개**.
+- **네 검증 축:** (1) 사용자 제공 추출본 직접 파일·정적 참조 검증 **8/8**; (2) 기존 비공식 미러와 Git blob 일치 **8/8 — R001 계승, R003 재다운로드 0**; (3) Mojang 공식 JAR 전체 SHA-1 + 공식 메타데이터 인증 **0/8 미완료**; (4) 게임 실제 정적 렌더 확인 **0/8 미완료**. 첫 두 축의 완료가 나머지 둘을 완료시키지 않는다.
+- [R003 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R003/REPORT.md) / [출처·모델 경로 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R003/SOURCE_PROVENANCE_LEDGER.csv) / [모델 리소스 참조 폐쇄](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R003/RESOURCE_REFERENCE_CLOSURE.json) / [독립 검증 4축](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R003/FOUR_AXIS_VERIFICATION.json).
+- **현재 단계 `TEX10-R003`, 다음 `TEX10-R004`**. `TEX10-R001`, `TEX10-R002`, 옛 v4와 전체 `v38` 보존. 애니메이션 보류. Project Zomboid 변환·실제 가구 3D 제작 금지. 다른 단계·루트 상태 수정 금지.
