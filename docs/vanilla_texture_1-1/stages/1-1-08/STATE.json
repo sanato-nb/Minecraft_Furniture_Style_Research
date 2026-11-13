@@ -71,8 +71,8 @@
       "latest_revision": "TEX08-R004"
     },
     "F": {
-      "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_official_jar_sha1_and_ingame_static",
+      "title": "F 사용자 추출본 정적 적용 근거·인게임 관찰(가능한 범위) — 공식 JAR 인증 제외",
+      "status": "official_JAR_authentication_excluded_by_user;ingame_static_observation_unavailable",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "latest_revision": "TEX08-R004"
     },
@@ -553,12 +553,13 @@
     }
   ],
   "next_steps": [
-    "Read current own STATE.json and HANDOFF.md and continue only on next TEX08-R005 immutable folder after lease checks.",
-    "Prioritize user-extracted 1.21.11/assets/minecraft/ resources; mirror is only independent crosscheck.",
-    "Do not double count R001 21 PNG pixels, R002 62 texture-target faces, R003 direct model10, or R004 143 full model-template faces.",
-    "Important R004 correction: chiseled slot template particle=#texture is source-declared and child inherited; actual game particle combination not checked.",
-    "Official whole client JAR SHA1 against Mojang version metadata and ingame static render 0/21; do not mark done.",
-    "No animation, Project Zomboid conversion, 3D build, other stages or root v38 changes."
+    "Read this stage STATE.json + HANDOFF.md; continue only from TEX08-R005 after checking the stage revision and output-folder absence.",
+    "Use user-uploaded 1.21.11/assets/minecraft/ JAR extraction as primary static PNG/JSON/model source; mirror only for comparison.",
+    "Official Mojang client.jar SHA-1 and manifest authentication is EXCLUDED from the requested research and completion criteria. Do not attempt it by default or block other work on it.",
+    "Keep historical official-authentication counts of zero as historical facts, not as outstanding required tasks; never convert them to verified.",
+    "Real Minecraft in-game static rendering verification is distinct; if no in-game evidence, record not observed without inventing success.",
+    "Preserve TEX08-R001 through R004 and global v38; next actual new evidence must go in TEX08-R005 immutable folder.",
+    "Animation investigation remains paused; no Project Zomboid conversion or actual 3D furniture creation."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -575,7 +576,7 @@
   "stage_fully_official_and_ingame_verified_count": 0,
   "last_release_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R004/",
   "last_release_source_note": "Primary user-extracted 1.21.11 model JSON: 29 newly read + 10 prior=39; 8 parent JSON also read; 143 model-faces including templates, 29 explicit UV and 114 implicit; JAR SHA1 and ingame not verified.",
-  "stage_1_1_08_official_jar_blocker": "Local executable environment could not fetch official Mojang client.jar; do not infer authenticity from mirror or version URL",
+  "stage_1_1_08_official_jar_blocker": "SUPERSEDED_POLICY: official Mojang client.jar authentication removed from requirements by user on 2026-11-13; historical SHA-1 status remains unverified, not a blocker.",
   "stage_auxiliary_static_png_newly_examined_R002": [
     "barrel_top_open"
   ],
@@ -643,5 +644,20 @@
     "child_texture_resolves_particle": true,
     "previous_overlay_no_particle_claim_source_inaccurate": true,
     "actual_ingame_particle_aggregation_unverified": true
+  },
+  "official_authentication_policy": {
+    "applies_from": "2026-11-13",
+    "requirement": "excluded_from_current_stage_scope_and_completion_criteria",
+    "user_instruction": "공식 인증 빼",
+    "no_mojang_manifest_or_client_jar_sha1_verification_planned": true,
+    "preserve_historical_result_fields_and_immutable_reports": true,
+    "do_not_claim_verified_without_evidence": true,
+    "not_a_blocker_for_static_source_research": true
+  },
+  "research_success_criteria_1_1_08": {
+    "required": "user_provided_extracted_source + static texture/color/model/face/UV/blockstate verification + evidence report",
+    "optional_when_observable": "actual Minecraft in-game static rendering",
+    "excluded": "official Mojang full client.jar SHA-1 / version metadata authentication; animated frames/keyframes",
+    "note": "An absence of Mojang JAR authentication is not an incomplete required task."
   }
 }
