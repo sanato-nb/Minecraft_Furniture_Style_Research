@@ -137,3 +137,12 @@
 - 신규 가상 산술 검사: 16×16에서 2×2 64블록씩 **384셀**. 무색 `glass`는 32개 유효 블록에서 straight RGB 평균과 alpha-weighted RGB 평균이 다름(최대 RGB 한 채널 79.5); 착색 5종 각 64 유효 블록의 차이는 0. R004의 `mean` 설정의 실제 구현이나 게임의 밉맵 출력으로 오인하지 말 것.
 - 소스 정적 근거와 실제 게임 실행은 계속 구분. 인게임 정적 검증 **0/6 pending**. Mojang JAR 인증 **out of scope**. 애니메이션·PZ 변환·실제 가구 제작 제외.
 - 이 단계 다음 고유 리비전 **TEX05-R007**이며 새 증거가 생길 때만, 시작 시 라이브 STATE/HEAD/폴더 경합 재조회. 전체 전역 v38과 다른 단계의 파일은 건드리지 않음.
+
+
+## TEX05-R007 — 원본 `terrain` 셰이더와 include의 신규 정적 소스 검증 (2026-11-13)
+
+- 1차 출처 사용자 제공 `1.21.11/`에서 **신규 고유 정적 파일 6개** 직접 읽음: `shaders/core/terrain.fsh`, `terrain.vsh`, `shaders/include/{chunksection,globals,fog,projection}.glsl`. 기존 미러의 같은 파일과 Git blob SHA **6/6 동일**, 새 import 참조 **7/7** 사용자 추출 파일로 해소. 단계 누적 정적 자원 경로 **31→37**. 유리 고정 PNG 6·1,536 RGBA·36 UV·R006 팔레트/가상 proxy는 신규 수량 가산하지 않음.
+- `terrain.fsh`는 `sampleNearest`의 `textureGrad`, `sampleRGSS`의 네 오프셋·두 mip LOD `textureLod`·혼합, `UseRgss==1` 조건, `#ifdef ALPHA_CUTOUT`와 `discard`, `ChunkVisibility`·fog를 정적 코드로 포함. `terrain.vsh`는 chunk-relative position, `UV0→texCoord0`, `Sampler2/UV2` 광원맵 명시.
+- R004 일반 `block.fsh/vsh`와 다른 코드 경로를 확인했으나, **유리 6개가 이 terrain 셰이더를 실제 사용하는지·밉맵 생성/블렌딩/정렬·컷아웃 활성화/인게임 출력은 미검증**. R004 `glass.png.mcmeta=mean`을 RGSS 생성 방법과 동일시하지 않음.
+- [R007 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R007/REPORT.md) · [새 소스 6개](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R007/SOURCE_LEDGER.csv) · [정적 shader 비교](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R007/BLOCK_VS_TERRAIN_SHADER.csv) · [원본 코드 검증 스크립트](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R007/REPRODUCE_SHADER_AUDIT.py) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R007/SUMMARY.json).
+- 인게임 정적 유리 검증 여전히 **0/6**. 공식 전체 client.jar 인증은 사용자 정책상 **out of scope**, 실증 성공 아님. 후속 `TEX05-R008`은 새로운 증거가 있을 때만 생성. **현재 다음 핵심 단계는 실제 게임 정적 스크린샷/설정 확보 — 사용자 도움 필요**. 다른 단계, v38, 애니메이션/PZ/가구 제작 변경 없음.

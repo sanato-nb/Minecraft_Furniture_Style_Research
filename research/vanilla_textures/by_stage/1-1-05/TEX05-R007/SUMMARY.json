@@ -1,0 +1,53 @@
+{
+  "schema": "tex05-terrain-static-shader-audit-r007/v1",
+  "stage_id": "1-1-05",
+  "revision": "TEX05-R007",
+  "previous": "TEX05-R006",
+  "date": "2026-11-13",
+  "source_priority": "user_extracted_1.21.11/",
+  "new_distinct_static_source_paths_verified": 6,
+  "new_paths_third_party_git_blob_matches": 6,
+  "prior_distinct_static_paths_inherited": 31,
+  "cumulative_distinct_static_source_paths": 37,
+  "new_import_edges_resolved": 7,
+  "block_terrain_static_comparisons": 11,
+  "target_pngs_unchanged": 6,
+  "prior_rgba_pixels_inherited_not_added": 1536,
+  "prior_rgba_palette_entries_inherited_not_added": 20,
+  "prior_uv_face_bindings_inherited_not_added": 36,
+  "prior_2x2_proxy_cells_inherited_not_added": 384,
+  "findings": {
+    "terrain_shader_sources_present": true,
+    "terrain_fragment_has_sampleNearest_textureGrad": true,
+    "terrain_fragment_has_sampleRGSS_textureLod": true,
+    "terrain_fragment_UseRgss_conditional": true,
+    "terrain_fragment_conditional_alpha_cutout": true,
+    "terrain_fragment_uses_ChunkVisibility": true,
+    "terrain_vertex_uses_chunk_relative_position": true,
+    "terrain_vertex_passes_UV0": true,
+    "terrain_vertex_uses_Sampler2_UV2_lightmap": true,
+    "does_not_establish_actual_glass_terrain_bindings": true,
+    "does_not_establish_mipmap_strategy_mean_generation": true
+  },
+  "verification": {
+    "actual_gpu_or_ingame_static_samples": 0,
+    "verified_ingame_glass_pngs": 0,
+    "mojang_jar_whole_sha1": "out_of_scope_by_user_instruction"
+  },
+  "remaining_blockers": [
+    "actual_glass_shader_selection_at_runtime",
+    "actual_alpha_blend_sort_depth_and_face_culling",
+    "engine_generated_mipmap_or_LOD_tests",
+    "actual_ingame_views_for_six_glass_blocks"
+  ],
+  "animation_deferred": true,
+  "zomboid_and_furniture_build_excluded": true,
+  "files": [
+    "REPORT.md",
+    "SOURCE_LEDGER.csv",
+    "TERRAIN_IMPORT_GRAPH.csv",
+    "BLOCK_VS_TERRAIN_SHADER.csv",
+    "REPRODUCE_SHADER_AUDIT.py",
+    "SUMMARY.json"
+  ]
+}

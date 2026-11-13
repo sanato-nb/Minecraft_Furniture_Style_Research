@@ -1,0 +1,8 @@
+importer,dependency,static_symbol_or_use,found_in_user_extract,implies_glass_uses_shader
+terrain.fsh,fog.glsl,Fog+apply_fog,true,false
+terrain.fsh,globals.glsl,UseRgss,true,false
+terrain.fsh,chunksection.glsl,TextureSize+ChunkVisibility,true,false
+terrain.vsh,fog.glsl,fog_distances,true,false
+terrain.vsh,globals.glsl,CameraBlockPos+CameraOffset,true,false
+terrain.vsh,chunksection.glsl,ChunkPosition+ModelViewMat,true,false
+terrain.vsh,projection.glsl,ProjMat,true,false

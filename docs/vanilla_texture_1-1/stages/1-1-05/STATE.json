@@ -7,10 +7,10 @@
   "stage_id": "1-1-05",
   "material_family": "유리",
   "stage_prefix": "TEX05",
-  "current_revision": "TEX05-R006",
-  "next_revision": "TEX05-R007",
-  "revision_sequence": 6,
-  "revision_status": "R006_user_extracted_rgba_palette20_proxy384_static_not_runtime",
+  "current_revision": "TEX05-R007",
+  "next_revision": "TEX05-R008",
+  "revision_sequence": 7,
+  "revision_status": "R007_user_extracted_terrain_shader_six_new_static_source_paths_imports_verified_runtime_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 6,
@@ -66,9 +66,9 @@
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "leaf_models_to_block_atlas_directory_plus_block_shader_static_code_examined_runtime_binding_pending",
+      "status": "R007_terrain_fsh_vsh_plus_4_shader_includes_6_verified_new_sources_7_imports_user_extract_mirror_equal_actual_glass_shader_binding_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX05-R004"
+      "last_evidence_revision": "TEX05-R007"
     },
     "F": {
       "title": "F 인게임 정적 렌더 검증 (Mojang JAR 공식 인증 제외)",
@@ -80,9 +80,9 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "evidence_report_written_TEX05_R006",
+      "status": "evidence_report_written_TEX05_R007",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX05-R006"
+      "last_evidence_revision": "TEX05-R007"
     }
   },
   "material_specific_checks": [
@@ -147,7 +147,9 @@
       "r006_rgba_palette_and_proxy_checked": true,
       "r006_palette_entries": 5,
       "r006_proxy_straight_weighted_rgb_diff_blocks": 32,
-      "r006_static_proxy_is_not_game_mipmap": true
+      "r006_static_proxy_is_not_game_mipmap": true,
+      "r007_terrain_shader_sources_reviewed_not_proof_of_binding": true,
+      "r007_actual_shader_binding_unverified": true
     },
     {
       "item_id": "1-1-05-002",
@@ -193,7 +195,9 @@
       "r006_rgba_palette_and_proxy_checked": true,
       "r006_palette_entries": 3,
       "r006_proxy_straight_weighted_rgb_diff_blocks": 0,
-      "r006_static_proxy_is_not_game_mipmap": true
+      "r006_static_proxy_is_not_game_mipmap": true,
+      "r007_terrain_shader_sources_reviewed_not_proof_of_binding": true,
+      "r007_actual_shader_binding_unverified": true
     },
     {
       "item_id": "1-1-05-003",
@@ -239,7 +243,9 @@
       "r006_rgba_palette_and_proxy_checked": true,
       "r006_palette_entries": 3,
       "r006_proxy_straight_weighted_rgb_diff_blocks": 0,
-      "r006_static_proxy_is_not_game_mipmap": true
+      "r006_static_proxy_is_not_game_mipmap": true,
+      "r007_terrain_shader_sources_reviewed_not_proof_of_binding": true,
+      "r007_actual_shader_binding_unverified": true
     },
     {
       "item_id": "1-1-05-004",
@@ -285,7 +291,9 @@
       "r006_rgba_palette_and_proxy_checked": true,
       "r006_palette_entries": 3,
       "r006_proxy_straight_weighted_rgb_diff_blocks": 0,
-      "r006_static_proxy_is_not_game_mipmap": true
+      "r006_static_proxy_is_not_game_mipmap": true,
+      "r007_terrain_shader_sources_reviewed_not_proof_of_binding": true,
+      "r007_actual_shader_binding_unverified": true
     },
     {
       "item_id": "1-1-05-005",
@@ -331,7 +339,9 @@
       "r006_rgba_palette_and_proxy_checked": true,
       "r006_palette_entries": 3,
       "r006_proxy_straight_weighted_rgb_diff_blocks": 0,
-      "r006_static_proxy_is_not_game_mipmap": true
+      "r006_static_proxy_is_not_game_mipmap": true,
+      "r007_terrain_shader_sources_reviewed_not_proof_of_binding": true,
+      "r007_actual_shader_binding_unverified": true
     },
     {
       "item_id": "1-1-05-006",
@@ -377,7 +387,9 @@
       "r006_rgba_palette_and_proxy_checked": true,
       "r006_palette_entries": 3,
       "r006_proxy_straight_weighted_rgb_diff_blocks": 0,
-      "r006_static_proxy_is_not_game_mipmap": true
+      "r006_static_proxy_is_not_game_mipmap": true,
+      "r007_terrain_shader_sources_reviewed_not_proof_of_binding": true,
+      "r007_actual_shader_binding_unverified": true
     }
   ],
   "revisions": [
@@ -475,15 +487,27 @@
       "ingame_static_verified": 0,
       "report_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R006/REPORT.md",
       "summary_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R006/SUMMARY.json"
+    },
+    {
+      "revision": "TEX05-R007",
+      "kind": "direct_user_extracted_terrain_shader_includes_and_static_sampling_source_comparison",
+      "new_distinct_static_source_paths": 6,
+      "mirror_matching_git_blob_shas": 6,
+      "shader_import_edges_resolved": 7,
+      "model_and_png_recounted": 0,
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R007/REPORT.md",
+      "source_ledger_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R007/SOURCE_LEDGER.csv",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R007/SUMMARY.json"
     }
   ],
   "next_steps": [
-    "User policy (2026-11-13): do NOT pursue, require, or count Mojang official client.jar SHA-1 authentication. Mark it out_of_scope; do not represent it as passed.",
-    "Before any TEX05-R005 write, reread stage STATE/HANDOFF SHA, current revision, GitHub HEAD and ensure immutable release folder absent.",
-    "Continue to prioritize user-provided 1.21.11/ and separately record three currently applicable evidence lanes (user extract, mirror crosscheck, in-game); retain historical fourth lane as out-of-scope; metadata and general shaders cannot substitute for actual in-game bindings.",
-    "Investigate mipmap_strategy mean meaning only if verified actual engine source/docs; do not infer runtime filter from .mcmeta alone.",
-    "Resolve whether glass uses block.fsh and which ALPHA_CUTOUT defines, blend, sort, face visibility and game lighting only with runtime evidence or authoritative code binding plus test.",
-    "Keep animation study deferred; no PZ conversion/furniture modeling. Preserve global v38 and prior immutable releases."
+    "After R007, never increment to R008 without novel evidence; reread live STATE, HEAD, and folder before any write.",
+    "Requester assistance required for any actual 1.21.11 in-game glass appearance verification: static screenshot for all six glass blocks under documented lighting/graphics conditions, with comparative views of isolated, adjacent, overlapping glass.",
+    "R007 verifies terrain.fsh/vsh and four includes but does not prove that any of the six glass blocks actually binds terrain shader or chooses UseRgss, ALPHA_CUTOUT, blend/sort or mipmap strategy.",
+    "To make authoritative runtime claims use actual game capture or verified code binding plus tests; inherited R006 2x2 proxy and R004 glass mipmap_strategy mean are not actual game results.",
+    "Official Mojang client.jar full SHA-1 authenticity excluded from completion requirements by user policy, never claim it passed.",
+    "Animation research remains paused; PZ conversion and furniture creation excluded; do not modify other stages or global v38."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -609,7 +633,7 @@
   ],
   "r005_reverified_existing_png_count": 6,
   "r005_new_unique_source_paths": 0,
-  "cumulative_unique_static_asset_paths": 31,
+  "cumulative_unique_static_asset_paths": 37,
   "r005_high_alpha_4_connected_component_sizes": [
     60,
     1,
@@ -624,5 +648,10 @@
   "r006_new_rgba_palette_entries": 20,
   "r006_new_2x2_math_proxy_cells": 384,
   "r006_glass_proxy_max_rgb_delta": 79.5,
-  "r006_ingame_mipmap_and_render_still_unverified": true
+  "r006_ingame_mipmap_and_render_still_unverified": true,
+  "r007_new_distinct_static_source_files": 6,
+  "r007_resolved_shader_include_edges": 7,
+  "r007_user_mirror_blob_matches": 6,
+  "r007_block_terrain_comparison_rows": 11,
+  "r007_terrain_shader_present_not_glass_binding_proven": true
 }
