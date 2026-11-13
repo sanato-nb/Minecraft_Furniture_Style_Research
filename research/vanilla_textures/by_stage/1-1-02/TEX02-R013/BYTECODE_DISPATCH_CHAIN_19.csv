@@ -1,0 +1,20 @@
+ordinal,file,method,bytecode_anchor,stage,finding,evidence_tier,actual_runtime_executed
+1,hqf.class / hqf$b.class,"a(RecordCodecBuilder$Instance), <clinit>",root JSON variants map,variants,user-extracted client parser separates variants from multipart and uses hqh$b codec for each keyed alternative,direct CP + method bytecode,false
+2,hqh$b.class,a(RecordCodecBuilder$Instance) 47B,0xb2 00fc + ldc weight + iconst_1 + invokestatic,weight,optional weight defaults to integer 1 on variant entry; no weight key in 31 source records,direct bytecode + 17 JSON,false
+3,hqh$b.class,<clinit> 68B; a(List) 20B,"Codec.either(single variant, list variants)",variant alternatives,support single hqo$a and list ioj$a by codec branch,direct bytecode,false
+4,hqo$a.class,a(Linw;)Lhqh; 16B,hqq.a(inw) -> new hqo(hqg),single variant,single object produces single model wrapper without weighted chooser,direct bytecode,false
+5,hqh$b.class,a(Ljava/util/List;)Lioj$a; 20B,new ioj$a(cbn),list conversion,list alternatives mapped to weighted collection,direct bytecode,false
+6,ioj$a.class,a(Linw;)Lhqh; 21B,cbn.a(Function) -> new ioj(cbn),baked weighted variants,map each alternative via inw context then retain weights,direct bytecode,false
+7,cbm.class,"<init>(Object,int) 55B",weight<0 throws; weight=0 warns,weighted entry,weights are explicitly held as integers and negative not accepted,direct bytecode,false
+8,cbn.class,<init>(List) 87B,"cbo.a(List,ToIntFunction) / threshold bipush 64",selector construction,"calculate sum and choose cbn$c if sum below64, cbn$b otherwise",direct bytecode,false
+9,cbn$c.class,"<init>(List,int) 77B","Arrays.fill(Object[],start,end,value)",small selector,expand each entry into precisely weight repeated slots,direct bytecode,false
+10,cbn.class,b(Lbgr;)Ljava/lang/Object; 39B,bgr.a(totalWeight) -> cbn$d.a(index),one weighted draw,choose one slot from total-weight bound using provided random source,direct bytecode,false
+11,ioj.class,a(Lbgr;Ljava/util/List;)V 19B,"cbn.b(bgr) -> hqh.a(bgr,List)",render choice dispatch,delegate each model rendering to one selected baked model,direct bytecode,false
+12,bgr.class,a(I)I abstract method,next bounded int,random source,interface exists; RNG instance/seed scheduling not established,direct class interface,false
+13,hqq.class,a(Linw;)Lhqg; 16B,"hqq$a.a() ModelState -> hqm.a(inw,model,ioc)",single variant bake,variant rotation state passed into common model bake,reused prior source,false
+14,hqm.class,a(Linw;Lamo;Lioc;)Lhqg; 178B,"inw.a(model)->iof; iof.a(...,ioc)->iod",bake model dispatch,"retrieve unbaked geometry, bake, check sprite atlas, fallback if invalid",direct bytecode,false
+15,iof.class,"a(hqp,inw,ioc)->iod 16B","ioh.bake(hqp,inw,ioc,iny)",geometry bake dispatch,delegate actual element geometry bake to ioh implementation,direct bytecode,false
+16,hqn.class,"a(List,hqp,inw,ioc,iny)->iod 395B, PC302-337","inw.c() -> hqi.a(...,inw$a,...)",per-face bake,retrieve vertex transformer per face and invoke FaceBakery,direct bytecode,false
+17,hqn.class,"a(List,hqp,inw,ioc,iny)->iod 395B, PC339-382",hqc.a cullface or transformed cullface through ioc.a(),quad visibility culling,distinguish unculled vs culled face lists; cull normal transform,direct bytecode,false
+18,inw$a.class,a(FFF) 17B; a(Vector3fc) abstract,new Vector3f(FFF)->interface a(Vec3),vertex transform callback,abstraction confirms transform is NOT necessarily identity; concrete implementation not found,direct class methods,false
+19,hqi.class,bakeVertex 181B PC146-159,inw$a.a(Vector3fc) passed to vertex array,post-position callback,vertex callback occurs after model rotation and before packed quad array,reused prior source,false

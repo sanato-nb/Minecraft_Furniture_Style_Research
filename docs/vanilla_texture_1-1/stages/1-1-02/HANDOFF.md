@@ -1,6 +1,6 @@
 # 1-1-02 — 석재·벽돌 별도 채팅 인수인계
 
-> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R012` (40면 UV 교정·64개 합성 이음새 재측정)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
+> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R013` (블록상태 가중치·정점 콜백 호출 코드 검증)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 ## 연구 목표와 정확한 표본
 
@@ -166,3 +166,11 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 - **실제 원본 PNG 두 파일**(`deepslate.png` Git blob `bb7dc9...`; `deepslate_top.png` `a560cc...`)을 다시 가져와 SHA 대조하고 16×16 palette RGB **2×256=512 pixels 직접 디코딩**. corrected north-facing `deepslate axis=x` 4 variant, `axis=z` 4 variant 합계 **8개 2D 가상 면 투영** 후 R011 재평가 대기 64건의 가상 경계 RGB 집계 다시 측정(**1,024 픽셀 쌍**). 놀랍게도 R007 집계값 RGB 합/평균/불일치 픽셀 수와 **64/64 동일**, 집계가 달라진 행 0건. 이는 게임 화면 검증도 아니고 이전 픽셀별 차이맵 동일성 증명도 아님. `deepslate axis=x/z` 가상 seam 집계 재계산 대기는 해소되지만 실제 게임 비교 필요.
 - 기존 17 PNG, 31 variants, 186 face, R007 134 synthetic seam은 고정 분모·계승 실적. 이번에 새 고유 PNG / 새 독립적 이음새 쌍 **0개**, 재계산한 64건만 별도 성과. **인게임 F 0/17, A–G 전체 0/17**, 공식 JAR 인증 필수 조건 제외, 애니메이션·가구 모델링 보류, 전역 v38과 이전 R001–R011 불변.
 - 다음 후보 `TEX02-R013`: 라이브 상태 재확인 후 `inw$a` 정점 변형/ `hqm` bake dispatch 또는 랜덤 variant 선택 코드를 클라이언트 소스에서 추가 검증할 수 있음. 독립 증거 없거나 실제 게임 캡처가 필요하면 숫자만 올리지 말고 중단하여 사용자의 도움을 요청할 것.
+
+## TEX02-R013 — blockstates 가중치 선택 및 모델 베이크 정점 콜백 소스 연구 (2026-11-13)
+
+- [상세 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R013/REPORT.md) · [31 모델 선택 슬롯](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R013/BLOCKSTATE_CHOICE_SLOTS_31.csv) · [19 상태별 선택 그룹](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R013/SELECTOR_GROUPS_19.csv) · [동일 모델 회전 조합 통합 29 결과](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R013/STRUCTURAL_OUTCOME_ODDS_29.csv) · [모델 선택/정점 호출 소스 근거 19행](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R013/BYTECODE_DISPATCH_CHAIN_19.csv) · [22개 원본 클래스 SHA/중복 여부](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R013/CLASS_SOURCE_SHA_LEDGER.csv) · [표준 Python 재현 검증기](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R013/VERIFY_R013_SELECTION.py) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R013/SUMMARY.json).
+- **처음 직접 분석한 관련 클래스 18개**: `hqh$b`의 **`weight` 기본값 1**, `ioj/ioj$a` 가중치 모델 위임, `cbn`의 `bgr.a(total_weight)` 정수 슬롯 draw, `cbn$c`의 가중치만큼 배열 반복 저장 등을 소스 opcode로 직접 확인. 17 JSON 원문 재열람: **weight 키 0/31**, state 선택 그룹 **19개**(4개씩 나열된 목록 4개 + 단일 객체 15개), 전체 슬롯 **31개**, 구조적으로 동일한 2개 중복을 통합한 **29개 고유 조합**. `deepslate axis=x`에서 normal indices 0+2, mirrored indices 1+3, 균등 bounded RNG 가정하 각 2/4=50%이며 실제 월드 빈도 검증이 아님.
+- `hqn.class` 395바이트 bake 루프의 **PC 302–337**에서 `inw.c()`가 반환한 `inw$a` 정점 변환을 `hqi` FaceBakery에 전달하는 연결을 최초 직접 확인. `hqm`은 geometry bake 후 atlas 적합성을 검사하며 실패 시 fallback 사용. **정점 콜백의 실제 구현체/항등 여부, atlas 통과, world RNG/seed 및 게임 GPU 결과는 여전히 미확인.** 기존 R012 UV 186면을 런타임 검증으로 승격하지 말 것.
+- 신규 PNG/픽셀 측정 0; 과거 17 PNG/31 variant/186면/134 가상 seam/R011 방향32/R012 UV40·seam64 수량은 그대로 계승. **F 인게임 정적 검증 0/17, 전체 A–G 완료 0/17**. 공식 JAR SHA1 인증 필수 조건 제외, 애니메이션 및 가구 3D 모델링·좀보이드 변환은 현재 연구 범위 제외. 전역 v38, 다른 단계, 기존 R001–R012 파일 변경 금지.
+- 다음 `TEX02-R014` 후보: 라이브 HEAD/STATE 확인 후 `inw.c()`의 구체 변환 반환 경로를 원본 소스에서 찾아 R012의 정점/UV 가정을 검증. 원본 연구가 끝나거나 실제 게임 캡처/엔진 자료가 반드시 필요한 경우, 새 버전을 임의로 만들지 말고 멈춰서 사용자에게 필요한 자료를 구체적으로 요청.

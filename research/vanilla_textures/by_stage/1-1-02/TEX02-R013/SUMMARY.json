@@ -1,0 +1,76 @@
+{
+  "revision": "TEX02-R013",
+  "stage_id": "1-1-02",
+  "date": "2026-11-13",
+  "previous_revision": "TEX02-R012",
+  "next_revision": "TEX02-R014",
+  "evidence_type": "direct_user_extracted_java_classfiles_and_original_17_blockstate_JSONs_and_code_derived_conditional_probability",
+  "new_relevant_java_classfiles_directly_opened": 18,
+  "prior_java_classfiles_reused": 4,
+  "source_class_sha_ledger": 22,
+  "dispatch_chain_evidence_rows": 19,
+  "fixed_blockstate_jsons_reparsed": 17,
+  "model_choice_selector_groups": 19,
+  "weighted_list_choice_groups": 4,
+  "single_variant_choice_groups": 15,
+  "existing_variant_slots_with_weight_source_derived": 31,
+  "explicit_weight_keys": 0,
+  "effective_weight_per_slot": 1,
+  "weighted_group_total_weight": 4,
+  "weighted_selector_optimized_array_when_total_below_64": true,
+  "unique_structural_variant_outcomes_after_duplicate_collapse": 29,
+  "duplicate_variant_slots": 2,
+  "deepslate_axis_x_duplicate_model_indices": {
+    "deepslate": [
+      0,
+      2
+    ],
+    "deepslate_mirrored": [
+      1,
+      3
+    ]
+  },
+  "deepslate_axis_x_collapsed_probability_conditional": "2/4 each",
+  "stone_4_variant_probabilities": "1/4 each",
+  "all_probabilities_conditional_on_unbiased_rng_source_and_valid_loaded_models": true,
+  "actual_world_rng_frequencies_observed": false,
+  "bake_chain_verified": {
+    "hqq": "variant -> hqm",
+    "hqm": "inw model baking context -> iof / geometry bake + atlas guard",
+    "hqn": "each face, inw.c() -> hqi.a(FaceBakery), cullface dispatch",
+    "hqi": "inw$a.a(Vector3fc) post vertex transform"
+  },
+  "concrete_inw_a_vertex_transformer_proven_identity": false,
+  "actual_baked_quad_objects_observed": false,
+  "inherited_without_recount": {
+    "fixed_pngs": 17,
+    "source_rgba_pixels": 4352,
+    "variant_declarations": 31,
+    "face_rows": 186,
+    "R007_synthetic_seam_rows": 134,
+    "R011_world_direction_corrections": 32,
+    "R012_uv_corrections": 40,
+    "R012_recomputed_seams": 64
+  },
+  "new_unique_pngs": 0,
+  "new_pixels_measured": 0,
+  "new_ingame_screenshots": 0,
+  "ingame_static_render_verified_count": 0,
+  "fully_completed_A_to_G_count": 0,
+  "verifier_source_created": true,
+  "verifier_end_to_end_executed": false,
+  "official_jar_sha1_required": false,
+  "official_jar_sha1_authenticated_claim": false,
+  "global_v38_unchanged": true,
+  "animation_deferred": true,
+  "outputs": [
+    "REPORT.md",
+    "SUMMARY.json",
+    "CLASS_SOURCE_SHA_LEDGER.csv",
+    "BYTECODE_DISPATCH_CHAIN_19.csv",
+    "BLOCKSTATE_CHOICE_SLOTS_31.csv",
+    "SELECTOR_GROUPS_19.csv",
+    "STRUCTURAL_OUTCOME_ODDS_29.csv",
+    "VERIFY_R013_SELECTION.py"
+  ]
+}
