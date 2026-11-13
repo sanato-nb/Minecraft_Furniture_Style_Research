@@ -1,0 +1,263 @@
+{
+  "schema": "TEX10-R009/block-render-layer-JVM-evidence/v1",
+  "stage": "1-1-10",
+  "revision": "TEX10-R009",
+  "source": "user provided Minecraft Java 1.21.11 extracted class bytes, Git blob SHAs recorded",
+  "new_unique_source_paths": [
+    {
+      "path": "1.21.11/hoe.class",
+      "sha": "37261dd5ab84a889a0cc4f102d42faf86cd57a50",
+      "role": "BlockRenderLayers selection and CUTOUT registration"
+    },
+    {
+      "path": "1.21.11/hth.class",
+      "sha": "c576c543bacc18ee4ac2e3fbcffc47944d90b84e",
+      "role": "BlockRenderLayer enum -> RenderPipeline"
+    },
+    {
+      "path": "1.21.11/eei.class",
+      "sha": "36c615934501bf1098b379520eba5af52fae0e31",
+      "role": "abstract LeavesBlock supertype"
+    },
+    {
+      "path": "1.21.11/eir.class",
+      "sha": "3d418f51153c4a61b3b6ada08e7bb53a61a872ce",
+      "role": "tinted-particle leaf type -> eei"
+    },
+    {
+      "path": "1.21.11/eje.class",
+      "sha": "0be94527bd700114dd7d162b2745e99730ed3e1a",
+      "role": "untinted-particle leaf type -> eei"
+    },
+    {
+      "path": "1.21.11/ees.class",
+      "sha": "38609526bc7d509a614a87a94f902b2a5648bd08",
+      "role": "mangrove leaf type -> eir -> eei"
+    }
+  ],
+  "reused_sources_not_counted": [
+    "1.21.11/dzs.class",
+    "1.21.11/hpa.class",
+    "1.21.11/ggr.class",
+    "1.21.11/assets/minecraft/textures/block/{oak,spruce,birch,mangrove,azalea,flowering_azalea}_leaves.png.mcmeta"
+  ],
+  "official_class_name_secondary_mapping": {
+    "hoe": "BlockRenderLayers",
+    "hth": "BlockRenderLayer",
+    "eei": "LeavesBlock",
+    "eir": "TintedParticleLeavesBlock",
+    "eje": "UntintedParticleLeavesBlock",
+    "ees": "MangroveLeavesBlock"
+  },
+  "block_layer_method": {
+    "class": "hoe",
+    "method": "a(Leoh;)Lhth;",
+    "full_bytecode_hex": "2a b6 00 1f 4c 2b c1 00 21 99 00 13 b2 00 23 99 00 09 b2 00 28 a7 00 06 b2 00 2a b0 b2 00 2e 2b b9 00 34 02 00 c0 00 25 4d 2c c6 00 05 2c b0 b2 00 2a b0",
+    "class_refs": {
+      "0x21": "eei LeavesBlock",
+      "0x23": "hoe.c cutoutLeaves boolean",
+      "0x28": "hth.b CUTOUT",
+      "0x2A": "hth.a SOLID",
+      "0x2E": "hoe.a registration map",
+      "0x34": "Map.get"
+    },
+    "interpretation": "if block instanceof eei: return cutoutLeaves ? hth.b CUTOUT : hth.a SOLID. Otherwise return map.get(block) if present else hth.a SOLID; static source path, not observed game setting"
+  },
+  "leaf_option_setter": {
+    "method": "hoe.a(Z)V",
+    "bytecode_hex": "1a b3 00 23 b1",
+    "interpretation": "setter assigns hoe.c boolean; current user setting not read"
+  },
+  "block_registration": {
+    "method": "hoe.b(Ljava/util/HashMap;)V",
+    "code_length_bytes": 3013,
+    "local_cutout_assignment": {
+      "pc": 16,
+      "hex": "b2 00 28 4d",
+      "cp_ref": "hth.b CUTOUT => local2"
+    },
+    "map_put_pattern": "aload_0; getstatic dzs.field; aload_2; invokevirtual java/util/HashMap.put; pop",
+    "source_map_cutout_hits": [
+      {
+        "id": "oak_leaves",
+        "symbol": "dzs.aK",
+        "pc": 98
+      },
+      {
+        "id": "spruce_leaves",
+        "symbol": "dzs.aL",
+        "pc": 107
+      },
+      {
+        "id": "birch_leaves",
+        "symbol": "dzs.aM",
+        "pc": 134
+      },
+      {
+        "id": "mangrove_leaves",
+        "symbol": "dzs.aS",
+        "pc": 188
+      },
+      {
+        "id": "azalea_leaves",
+        "symbol": "dzs.aT",
+        "pc": 161
+      },
+      {
+        "id": "flowering_azalea_leaves",
+        "symbol": "dzs.aU",
+        "pc": 170
+      },
+      {
+        "id": "vine",
+        "symbol": "dzs.fN",
+        "pc": 1070
+      }
+    ],
+    "moss_block_not_referenced_in_hoe_class_constant_pool": true,
+    "moss_default_layer": "hth.a SOLID when not LeavesBlock and not map key"
+  },
+  "enum_pipeline_chain": {
+    "class": "hth",
+    "enum_init_static": "hth.a SOLID -> hpa.c; hth.b CUTOUT -> hpa.f",
+    "class_initializer_code_hex": "bb 00 02 59 12 54 03 b2 00 58 12 59 03 b7 00 5b b3 00 4a bb 00 02 59 12 5d 04 b2 00 5f 12 59 03 b7 00 5b b3 00 4c bb 00 02 59 12 61 05 b2 00 63 12 64 04 b7 00 5b b3 00 4e bb 00 02 59 12 66 06 b2 00 68 11 06 00 04 b7 00 5b b3 00 50 b8 00 6a b3 00 19 b1",
+    "prior_hpa_evidence_R007": "hpa.f CUTOUT_TERRAIN with shader define ALPHA_CUTOUT 0.5F; hpa.c SOLID_TERRAIN",
+    "separation": "0.5F is defined for the CUTOUT pipeline. Leaves may take SOLID instead under graphics option; no claim of runtime graphics setting"
+  },
+  "leaf_construction_bootstrap": {
+    "prior_registry_source": "1.21.11/dzs.class (R008 inherited Git SHA b58e7153fb0cfbb47313c3a59dd7c8516ee3642c)",
+    "target_rows": [
+      {
+        "id": "oak_leaves",
+        "field": "dzs.aK",
+        "registry_literal_pc": 3353,
+        "invokedynamic_cp_index": 2970,
+        "bootstrap_index": 46,
+        "lambda_factory": "dzs.hy",
+        "constructed_class": "eir",
+        "inherited_chain_to_LeavesBlock": "eei"
+      },
+      {
+        "id": "spruce_leaves",
+        "field": "dzs.aL",
+        "registry_literal_pc": 3373,
+        "invokedynamic_cp_index": 2979,
+        "bootstrap_index": 47,
+        "lambda_factory": "dzs.hx",
+        "constructed_class": "eir",
+        "inherited_chain_to_LeavesBlock": "eei"
+      },
+      {
+        "id": "birch_leaves",
+        "field": "dzs.aM",
+        "registry_literal_pc": 3393,
+        "invokedynamic_cp_index": 2987,
+        "bootstrap_index": 48,
+        "lambda_factory": "dzs.hw",
+        "constructed_class": "eir",
+        "inherited_chain_to_LeavesBlock": "eei"
+      },
+      {
+        "id": "mangrove_leaves",
+        "field": "dzs.aS",
+        "registry_literal_pc": 3637,
+        "invokedynamic_cp_index": 3037,
+        "bootstrap_index": 54,
+        "lambda_factory": "dzs.hq",
+        "constructed_class": "ees",
+        "inherited_chain_to_LeavesBlock": "ees→eir→eei"
+      },
+      {
+        "id": "azalea_leaves",
+        "field": "dzs.aT",
+        "registry_literal_pc": 3657,
+        "invokedynamic_cp_index": 3045,
+        "bootstrap_index": 55,
+        "lambda_factory": "dzs.hp",
+        "constructed_class": "eje",
+        "inherited_chain_to_LeavesBlock": "eei"
+      },
+      {
+        "id": "flowering_azalea_leaves",
+        "field": "dzs.aU",
+        "registry_literal_pc": 3677,
+        "invokedynamic_cp_index": 3055,
+        "bootstrap_index": 56,
+        "lambda_factory": "dzs.ho",
+        "constructed_class": "eje",
+        "inherited_chain_to_LeavesBlock": "eei"
+      }
+    ],
+    "new_concrete_class_source_superclasses": {
+      "eei": "dzq Block",
+      "eir": "eei LeavesBlock",
+      "eje": "eei LeavesBlock",
+      "ees": "eir TintedParticleLeavesBlock"
+    }
+  },
+  "target_layers": [
+    {
+      "id": "oak_leaves",
+      "color_mode": "biome_foliage",
+      "dynamic_choice": "leaf_toggle",
+      "true_layer": "CUTOUT",
+      "false_layer": "SOLID"
+    },
+    {
+      "id": "spruce_leaves",
+      "color_mode": "constant_#619961",
+      "dynamic_choice": "leaf_toggle",
+      "true_layer": "CUTOUT",
+      "false_layer": "SOLID"
+    },
+    {
+      "id": "birch_leaves",
+      "color_mode": "constant_#80A755",
+      "dynamic_choice": "leaf_toggle",
+      "true_layer": "CUTOUT",
+      "false_layer": "SOLID"
+    },
+    {
+      "id": "mangrove_leaves",
+      "color_mode": "biome_foliage",
+      "dynamic_choice": "leaf_toggle",
+      "true_layer": "CUTOUT",
+      "false_layer": "SOLID"
+    },
+    {
+      "id": "azalea_leaves",
+      "color_mode": "no_model_tint",
+      "dynamic_choice": "leaf_toggle",
+      "true_layer": "CUTOUT",
+      "false_layer": "SOLID"
+    },
+    {
+      "id": "flowering_azalea_leaves",
+      "color_mode": "no_model_tint",
+      "dynamic_choice": "leaf_toggle",
+      "true_layer": "CUTOUT",
+      "false_layer": "SOLID"
+    },
+    {
+      "id": "vine",
+      "color_mode": "biome_foliage",
+      "dynamic_choice": "map_static",
+      "true_layer": "CUTOUT",
+      "false_layer": "CUTOUT"
+    },
+    {
+      "id": "moss_block",
+      "color_mode": "no_model_tint",
+      "dynamic_choice": "map_default",
+      "true_layer": "SOLID",
+      "false_layer": "SOLID"
+    }
+  ],
+  "limits": [
+    "No in-game screenshots/actual graphics-option value (excluded per user).",
+    "No animated vegetation analysis.",
+    "No GPU framebuffer color, per-sample blending, mip-level alpha coverage or runtime screenshots claimed.",
+    "Foliage texture dark_cutout metadata 6 cases inherited R007, not newly measured.",
+    "Official whole client.jar SHA1 authentication excluded by user, not authenticated."
+  ]
+}

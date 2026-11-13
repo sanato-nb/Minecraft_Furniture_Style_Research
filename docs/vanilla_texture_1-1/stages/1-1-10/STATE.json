@@ -7,10 +7,10 @@
   "stage_id": "1-1-10",
   "material_family": "잎·식생",
   "stage_prefix": "TEX10",
-  "current_revision": "TEX10-R008",
-  "next_revision": "TEX10-R009",
-  "revision_sequence": 8,
-  "revision_status": "R008_8_blockcolors_provider_registry_verified_3_biome_2_constant_3_no_tint_vine32_states_and_520_single_biome_reference_rows_no_ingame_required",
+  "current_revision": "TEX10-R009",
+  "next_revision": "TEX10-R010",
+  "revision_sequence": 9,
+  "revision_status": "R009_BlocksRenderLayers_hoe_6_leaves_option_SOLID_CUTOUT_vine_CUTOUT_moss_SOLID_original_JVM_source_verified",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 8,
@@ -42,7 +42,7 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "R008_new_class_dzs_hns_2_and_existing_21_model_blockstate_color_provider_sha_blob_checked",
+      "status": "R009_6_unique_original_JVM_class_paths_direct_read_and_reused_dzs_hpa_source_SHA_crosschecked",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "B": {
@@ -57,12 +57,12 @@
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R008_8_target_block_color_provider_verified_3_biome_foliage_2_constant_3_untinted_item_vs_block_separated",
+      "status": "R009_color_providers_R008_inherited_6_leaves_render_layer_option_separate_from_color_tintindex",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R008_8_model_state_parent_face_UV_44_resolved_vine10_rules_32_logical_states_85_planes_all_states;render_pass_optional_pending",
+      "status": "R009_6_leaf_block_factory_inheritance_and_8_render_layers_static_verified_7_CUTOUT_map_targets_no_GPU_render_claim",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
@@ -72,7 +72,7 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "TEX10_R008_8_provider_model_geometry_vine_states_65x8_reference_reports_and_evidence_saved",
+      "status": "TEX10_R009_6_new_class_paths_render_layer_factory_enum_pipeline_REPORT_CSV_JSON_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -80,7 +80,7 @@
     {
       "id": "D1",
       "check": "잎·덩굴 알파 마스크·가시 영역·투명 외곽",
-      "status": "R008_vine32_10_multipart_rules_85_plane_instances_original_alpha_mask_R002_inherited_actual_GPU_not_required"
+      "status": "R009_6_leaf_optional_CUTOUT_SOLID_terrain_alpha_0_5_if_cutout_vine_cutout_moss_solid_static; actual_mip_alpha_not_yet_measured"
     },
     {
       "id": "D2",
@@ -90,7 +90,7 @@
     {
       "id": "D3",
       "check": "컷아웃 영역과 3D 요소의 담당 역할 구분",
-      "status": "R008_44_source_face_geometries_6_leaf_faces_6_cube_faces_2_vine_faces_32_vine_states_color_vs_geometry_explained"
+      "status": "R009_8_block_model_geometry_inherited_and_actual_static_layer_routing_hoe_hth_hpa_verified"
     }
   ],
   "items": [
@@ -151,7 +151,15 @@
       "block_color_provider_method": "ggr.i",
       "inherited_model_tintindex": 0,
       "item_tint_separated_from_block_color": true,
-      "color_analysis_ingame_required": false
+      "color_analysis_ingame_required": false,
+      "render_layer_static_R009": {
+        "on_cutout_leaves_true": "CUTOUT",
+        "on_cutout_leaves_false": "SOLID",
+        "lookup_mode": "leaf_toggle",
+        "source_class_path": "1.21.11/hoe.class",
+        "verified_revision": "TEX10-R009",
+        "actual_game_mode_not_measured": true
+      }
     },
     {
       "item_id": "1-1-10-002",
@@ -210,7 +218,15 @@
       "block_color_provider_method": "ggr.k",
       "inherited_model_tintindex": 0,
       "item_tint_separated_from_block_color": false,
-      "color_analysis_ingame_required": false
+      "color_analysis_ingame_required": false,
+      "render_layer_static_R009": {
+        "on_cutout_leaves_true": "CUTOUT",
+        "on_cutout_leaves_false": "SOLID",
+        "lookup_mode": "leaf_toggle",
+        "source_class_path": "1.21.11/hoe.class",
+        "verified_revision": "TEX10-R009",
+        "actual_game_mode_not_measured": true
+      }
     },
     {
       "item_id": "1-1-10-003",
@@ -269,7 +285,15 @@
       "block_color_provider_method": "ggr.j",
       "inherited_model_tintindex": 0,
       "item_tint_separated_from_block_color": false,
-      "color_analysis_ingame_required": false
+      "color_analysis_ingame_required": false,
+      "render_layer_static_R009": {
+        "on_cutout_leaves_true": "CUTOUT",
+        "on_cutout_leaves_false": "SOLID",
+        "lookup_mode": "leaf_toggle",
+        "source_class_path": "1.21.11/hoe.class",
+        "verified_revision": "TEX10-R009",
+        "actual_game_mode_not_measured": true
+      }
     },
     {
       "item_id": "1-1-10-004",
@@ -328,7 +352,15 @@
       "block_color_provider_method": "ggr.i",
       "inherited_model_tintindex": 0,
       "item_tint_separated_from_block_color": true,
-      "color_analysis_ingame_required": false
+      "color_analysis_ingame_required": false,
+      "render_layer_static_R009": {
+        "on_cutout_leaves_true": "CUTOUT",
+        "on_cutout_leaves_false": "SOLID",
+        "lookup_mode": "leaf_toggle",
+        "source_class_path": "1.21.11/hoe.class",
+        "verified_revision": "TEX10-R009",
+        "actual_game_mode_not_measured": true
+      }
     },
     {
       "item_id": "1-1-10-005",
@@ -387,7 +419,15 @@
       "block_color_provider_method": "not_registered_in_factory",
       "inherited_model_tintindex": null,
       "item_tint_separated_from_block_color": false,
-      "color_analysis_ingame_required": false
+      "color_analysis_ingame_required": false,
+      "render_layer_static_R009": {
+        "on_cutout_leaves_true": "CUTOUT",
+        "on_cutout_leaves_false": "SOLID",
+        "lookup_mode": "leaf_toggle",
+        "source_class_path": "1.21.11/hoe.class",
+        "verified_revision": "TEX10-R009",
+        "actual_game_mode_not_measured": true
+      }
     },
     {
       "item_id": "1-1-10-006",
@@ -446,7 +486,15 @@
       "block_color_provider_method": "not_registered_in_factory",
       "inherited_model_tintindex": null,
       "item_tint_separated_from_block_color": false,
-      "color_analysis_ingame_required": false
+      "color_analysis_ingame_required": false,
+      "render_layer_static_R009": {
+        "on_cutout_leaves_true": "SOLID",
+        "on_cutout_leaves_false": "SOLID",
+        "lookup_mode": "map_default",
+        "source_class_path": "1.21.11/hoe.class",
+        "verified_revision": "TEX10-R009",
+        "actual_game_mode_not_measured": true
+      }
     },
     {
       "item_id": "1-1-10-007",
@@ -505,7 +553,15 @@
       "block_color_provider_method": "ggr.i",
       "inherited_model_tintindex": 0,
       "item_tint_separated_from_block_color": true,
-      "color_analysis_ingame_required": false
+      "color_analysis_ingame_required": false,
+      "render_layer_static_R009": {
+        "on_cutout_leaves_true": "CUTOUT",
+        "on_cutout_leaves_false": "CUTOUT",
+        "lookup_mode": "map_static",
+        "source_class_path": "1.21.11/hoe.class",
+        "verified_revision": "TEX10-R009",
+        "actual_game_mode_not_measured": true
+      }
     },
     {
       "item_id": "1-1-10-008",
@@ -564,7 +620,15 @@
       "block_color_provider_method": "not_registered_in_factory",
       "inherited_model_tintindex": null,
       "item_tint_separated_from_block_color": false,
-      "color_analysis_ingame_required": false
+      "color_analysis_ingame_required": false,
+      "render_layer_static_R009": {
+        "on_cutout_leaves_true": "CUTOUT",
+        "on_cutout_leaves_false": "SOLID",
+        "lookup_mode": "leaf_toggle",
+        "source_class_path": "1.21.11/hoe.class",
+        "verified_revision": "TEX10-R009",
+        "actual_game_mode_not_measured": true
+      }
     }
   ],
   "revisions": [
@@ -896,5 +960,18 @@
       "biome_spatial_blending"
     ],
     "new_evidence_document_root": "research/vanilla_textures/by_stage/1-1-10/TEX10-R008/"
+  },
+  "r009_evidence": {
+    "new_unique_original_JVM_class_paths": 6,
+    "cumulative_source_paths_R003_R009": 142,
+    "render_layer_targets": 8,
+    "leaf_options_switch_targets": 6,
+    "cutout_map_registered_target_symbols": 7,
+    "vine_cutout_static": true,
+    "moss_solid_static": true,
+    "leaf_class_factory_links": 6,
+    "cutout_terrain_alpha_define_R007_inherited": 0.5,
+    "ingame_static_validation_excluded": true,
+    "static_mipmap_algorithm_unresolved": true
   }
 }
