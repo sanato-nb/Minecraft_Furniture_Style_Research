@@ -1,6 +1,6 @@
 # 1-1-02 — 석재·벽돌 별도 채팅 인수인계
 
-> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R013` (블록상태 가중치·정점 콜백 호출 코드 검증)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
+> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R014` (기본 베이크 정점 인터너 검증·744개 꼭짓점 재대조)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 ## 연구 목표와 정확한 표본
 
@@ -174,3 +174,11 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 - `hqn.class` 395바이트 bake 루프의 **PC 302–337**에서 `inw.c()`가 반환한 `inw$a` 정점 변환을 `hqi` FaceBakery에 전달하는 연결을 최초 직접 확인. `hqm`은 geometry bake 후 atlas 적합성을 검사하며 실패 시 fallback 사용. **정점 콜백의 실제 구현체/항등 여부, atlas 통과, world RNG/seed 및 게임 GPU 결과는 여전히 미확인.** 기존 R012 UV 186면을 런타임 검증으로 승격하지 말 것.
 - 신규 PNG/픽셀 측정 0; 과거 17 PNG/31 variant/186면/134 가상 seam/R011 방향32/R012 UV40·seam64 수량은 그대로 계승. **F 인게임 정적 검증 0/17, 전체 A–G 완료 0/17**. 공식 JAR SHA1 인증 필수 조건 제외, 애니메이션 및 가구 3D 모델링·좀보이드 변환은 현재 연구 범위 제외. 전역 v38, 다른 단계, 기존 R001–R012 파일 변경 금지.
 - 다음 `TEX02-R014` 후보: 라이브 HEAD/STATE 확인 후 `inw.c()`의 구체 변환 반환 경로를 원본 소스에서 찾아 R012의 정점/UV 가정을 검증. 원본 연구가 끝나거나 실제 게임 캡처/엔진 자료가 반드시 필요한 경우, 새 버전을 임의로 만들지 말고 멈춰서 사용자에게 필요한 자료를 구체적으로 요청.
+
+## TEX02-R014 — 실제 기본 베이크 정점 변환기 `inx$d`와 744개 정점 값 재검증 (2026-11-13)
+
+- [상세 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R014/REPORT.md) · [6개 신규 소스 클래스와 이전 근거의 SHA 15행](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R014/SOURCE_SHA_LEDGER_15.csv) · [변환기 생성부터 실제 quad bake 호출까지 16개 소스 PC 증거](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R014/MODEL_VERTEX_TRANSFORM_CALLCHAIN_16.csv) · [기존 186면×4=744개 normalized 정점 검수](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R014/INX_D_VERTEX_VALUES_744.csv) · [R012의 기존 186면 정점 순열 재검증](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R014/R012_GEOMETRY_CONTEXT_RECHECK_186.csv) · [Python 재현 검사](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R014/VERIFY_R014_INX_TRANSFORMER.py) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R014/SUMMARY.json).
+- 새 직접 확인한 `inx.class`는 121바이트 메서드 **PC0–7 `new inx$d()`**, PC8–17 누락 모델 컨텍스트, **PC19–31 일반 모델 베이크 `inx$c` 컨텍스트에 동일 transformer를 전달**. `inx$c.c()` 및 `inx$b$1.c()` 모두 전달받은 `inw$a`의 단순 field return. 새로 직접 확인한 `inx$d`는 `Interners.newStrongInterner()`를 생성하며, `a(Vector3fc)` 14바이트 구현은 **오로지 `Interner.intern(Vector3fc)` → 반환**으로 좌표 성분의 회전·이동·크기 변환이 없다. 일반 `inx` 경로의 R013 **구체 정점 변환기 미확인 문제는 소스 차원에서 해소**.
+- R011/R012/R013 기존 불변 CSV를 같은 variant+face key로 대조하며 **744개 정점 위치값**, **186개 world face canonical vertex 매핑** 186/186 일치. 인터닝에 의한 수치 좌표변경 0/744, R007 대비 R011 월드면 방향 차이 32 및 R012 UV 코너 차이 40 모두 기존대로. **이번 결론이 R012 값에 요구하는 새 교정 0건**. 메서드/정적 행렬 증거이지 실제 게임에서 관찰한 baked quad는 아님.
+- 최초 직접 열람한 연구 관련 classfiles 6, 새 원본 PNG/픽셀 측정 0. **인게임 F 0/17, A–G 완료 0/17**. Python 재현 검사기는 저장했으나 원본 사용자 파일이 로컬 장착되지 않아 종단 간 실행하지 않았음. 전체 Mojang JAR 인증은 필수 완료 조건 제외, 애니메이션 및 실제 모델링/좀보이드 변환은 현 범위 밖. 전역 `v38`과 다른 단계, 이전 R001–R013 파일은 변경하지 않음.
+- 다음 `TEX02-R015` 후보: **월드 블록 위치·seed에 따라 weighted `bgr` 모델 변형 선택이 얼마나 일관되게 결정되는지** 원본 renderer 호출 지점부터 추적. 독립 검증 증거가 더는 없거나 실제 게임 캡처가 필수라면 버전만 생성하지 말고 사용자에게 필요 데이터 요청.

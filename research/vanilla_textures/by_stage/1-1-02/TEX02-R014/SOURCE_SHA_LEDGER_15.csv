@@ -1,0 +1,16 @@
+source_path,git_blob_sha,source_role,purpose,actual_game_client_executed
+1.21.11/inx.class,176e5b8176abac37c563bbdc40c7a113a57e9b3f,R014_new_direct,builds single inx$d and injects inx$b and inx$c for standard model baking,false
+1.21.11/inx$d.class,9f94b3f0d327db052de34f4351cdc94fd7a55622,R014_new_direct,inw$a implementation returns Guava Interner.intern(Vector3fc); no arithmetic,false
+1.21.11/inx$c.class,12e3d8e6f914e9d4c2a81d2b5dd04d11af302543,R014_new_direct,"implements inw, c() returns captured inw$a transformer",false
+1.21.11/inx$b.class,c5a912de05193ebae946fa611b5567fa6d4cd2f3,R014_new_direct,initial missing model builder receives same transformer inw$a,false
+1.21.11/inx$b$1.class,baa80d3e67a5c02a3625c4eda1f1f23c6d4190d1,R014_new_direct,"implements inw, c() returns captured same inw$a",false
+1.21.11/inx$a.class,daedc42ed16691a4f7b31609906e051977f2b23e,R014_new_direct,"result record joins missing model and baked maps, no new transformer",false
+1.21.11/inw.class,0e9d9dc53507d3ed87ba73bb268cd6305ab8633f,R013_reused,model bake context with c():inw$a,false
+1.21.11/inw$a.class,0c8e5d9e66043f4b24681290493dc2e219c2af69,R013_reused,functional vector3 transform interface,false
+1.21.11/hqn.class,c72e56d607e70925eb6d1aa98a395a7b9e0d5579,R013_reused,per-element/per-face bake invokes inw.c then hqi,false
+1.21.11/hqi.class,5b64584e8cc09a8db90f802e0021bc0533e81ab1,R008_R012_reused,FaceBakery callback after model vertex position transform,false
+1.21.11/inm.class,672b186c8a8457082fec756114b443a48dc151d1,R010_reused,normal ModelState rotations and identity UV lock correction,false
+research/vanilla_textures/by_stage/1-1-02/TEX02-R012/REBAKED_UV_AUDIT_186.csv,b0a1925d36a0b61b0d5b1db46fc8dbdfffe9fe75,R012_frozen_prior,186 face orientations and UV mapping for revalidation,false
+research/vanilla_textures/by_stage/1-1-02/TEX02-R012/HOA_FACE_CORNERS_24.csv,d1bc3ee8c4c696c00419b7fda3ccf76075911878,R012_frozen_prior,six canonical face corner xyz tables; 24 source vertices,false
+research/vanilla_textures/by_stage/1-1-02/TEX02-R011/ROTATION_GROUP_MATRICES_5.csv,99e73caf1f302751fa0aa8a89c7bebd7be61f7b0,R011_frozen_prior,five rotation matrices for 31 variant states,false
+research/vanilla_textures/by_stage/1-1-02/TEX02-R013/BLOCKSTATE_CHOICE_SLOTS_31.csv,18f02c6f44fd18f2a522fca81b2f73ba7409f829,R013_frozen_prior,31 model-state slot records; current input scope,false

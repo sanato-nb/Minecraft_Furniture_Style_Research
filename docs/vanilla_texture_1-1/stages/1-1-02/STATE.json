@@ -7,10 +7,10 @@
   "stage_id": "1-1-02",
   "material_family": "석재·벽돌",
   "stage_prefix": "TEX02",
-  "current_revision": "TEX02-R013",
-  "next_revision": "TEX02-R014",
-  "revision_sequence": 13,
-  "revision_status": "R013_direct_18_new_client_classes_variants_weight_default1_cbn_slots_31_entries_19_groups_29_structural_outcomes_hqn_inw_vertex_callback_not_game",
+  "current_revision": "TEX02-R014",
+  "next_revision": "TEX02-R015",
+  "revision_sequence": 14,
+  "revision_status": "R014_source_inx_default_bake_vertex_callback_concrete_inx_d_strong_interner_no_coordinate_arithmetic_744_source_quad_vertices_reaudited_186_R012_face_mappings_unchanged_not_ingame",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 17,
@@ -61,15 +61,15 @@
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R013_source_model_variant_weight_default1_and_cbn_array_4_groups_31_variants_conditional_probabilities_not_game",
+      "status": "R014_D3_default_inx_vertex_callback_strong_interning_confirmed_no_numeric_coordinate_reprojection_changes_R012_186_uv_mapping_unchanged",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R013"
+      "last_evidence_revision": "TEX02-R014"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R013_hqn_bake_inw_c_vertex_callback_19_dispatch_callsite_evidence_hqm_atlas_guard_concrete_transformer_unresolved",
+      "status": "R014_concrete_inw_c_inx_c_and_inx_b_1_vertex_callback_inx_d_intern_744_vertices_all_preserved_source_only",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R013"
+      "last_evidence_revision": "TEX02-R014"
     },
     "F": {
       "title": "F 인게임 정적 렌더·UV·이음새 검증 (Mojang 공식 JAR 인증 제외)",
@@ -79,9 +79,9 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R013_8_immutable_source_artifacts_bytecode_19_group_19_slots_31_outcomes_29_verifier",
+      "status": "R014_7_immutable_files_6_new_relevant_classfiles_16_callsite_rows_744_vertex_recheck_186_face_recheck_verifier",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R013"
+      "last_evidence_revision": "TEX02-R014"
     }
   },
   "material_specific_checks": [
@@ -98,7 +98,7 @@
     {
       "id": "D3",
       "check": "모델 면 회전과 UV 반복이 벽면 패턴에 미치는 영향",
-      "status": "R013_weighted_variant_source_groups_19_slots_31_unique_29_quad_inw_c_callback_source_found_runtime_unknown"
+      "status": "R014_concrete_default_inx_model_vertex_inw_c_callback_verified_inx_d_strong_Interner_intern_without_numeric_transform_186_face_744_corner_source_math_checked"
     }
   ],
   "items": [
@@ -111,7 +111,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R013",
+      "last_verified_revision": "TEX02-R014",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "c298969ccab004c2e37583b058c765598b05f69d",
       "mirror_model_git_blob_sha": "1a2f6a79a69ee5550a76697096cfb4cdb94499da",
@@ -196,6 +196,16 @@
         "deepslate_axis_x_collapsed_probabilities": null,
         "game_rng_sampled": false,
         "actual_baked_quad_verified": false
+      },
+      "R014_default_bake_vertex_transformer": {
+        "concrete_class": "inx$d",
+        "method": "a(org.joml.Vector3fc)->Vector3fc",
+        "implementation": "com.google.common.collect.Interner.intern",
+        "source_coordinate_values_preserved": true,
+        "normalized_full_cube_quad_vertex_check_per_face": 4,
+        "R012_projection_mapping_change_required": false,
+        "runtime_baked_vertex_observed": false,
+        "scope": "normal inx model bake context; not all possible modded contexts"
       }
     },
     {
@@ -207,7 +217,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R013",
+      "last_verified_revision": "TEX02-R014",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "435a7afce8e98f7113ac1b491363b552ed342a48",
       "mirror_model_git_blob_sha": "ab65fe90879cc452d2a0ea1d5b78dc5a38fd01e6",
@@ -285,6 +295,16 @@
         "deepslate_axis_x_collapsed_probabilities": null,
         "game_rng_sampled": false,
         "actual_baked_quad_verified": false
+      },
+      "R014_default_bake_vertex_transformer": {
+        "concrete_class": "inx$d",
+        "method": "a(org.joml.Vector3fc)->Vector3fc",
+        "implementation": "com.google.common.collect.Interner.intern",
+        "source_coordinate_values_preserved": true,
+        "normalized_full_cube_quad_vertex_check_per_face": 4,
+        "R012_projection_mapping_change_required": false,
+        "runtime_baked_vertex_observed": false,
+        "scope": "normal inx model bake context; not all possible modded contexts"
       }
     },
     {
@@ -296,7 +316,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R013",
+      "last_verified_revision": "TEX02-R014",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "bfbfd3884e37f2b93003310622aad632f3cfb408",
       "mirror_model_git_blob_sha": "87f6bbe0e26ca4347c00206d65f401b8946a82c6",
@@ -381,6 +401,16 @@
         "deepslate_axis_x_collapsed_probabilities": null,
         "game_rng_sampled": false,
         "actual_baked_quad_verified": false
+      },
+      "R014_default_bake_vertex_transformer": {
+        "concrete_class": "inx$d",
+        "method": "a(org.joml.Vector3fc)->Vector3fc",
+        "implementation": "com.google.common.collect.Interner.intern",
+        "source_coordinate_values_preserved": true,
+        "normalized_full_cube_quad_vertex_check_per_face": 4,
+        "R012_projection_mapping_change_required": false,
+        "runtime_baked_vertex_observed": false,
+        "scope": "normal inx model bake context; not all possible modded contexts"
       }
     },
     {
@@ -392,7 +422,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R013",
+      "last_verified_revision": "TEX02-R014",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "51c7352fe11f5271198ae06ba4e674ccd9a203af",
       "mirror_model_git_blob_sha": "cebe5470a178a4881550933f49edbcee2e830f11",
@@ -477,6 +507,16 @@
         "deepslate_axis_x_collapsed_probabilities": null,
         "game_rng_sampled": false,
         "actual_baked_quad_verified": false
+      },
+      "R014_default_bake_vertex_transformer": {
+        "concrete_class": "inx$d",
+        "method": "a(org.joml.Vector3fc)->Vector3fc",
+        "implementation": "com.google.common.collect.Interner.intern",
+        "source_coordinate_values_preserved": true,
+        "normalized_full_cube_quad_vertex_check_per_face": 4,
+        "R012_projection_mapping_change_required": false,
+        "runtime_baked_vertex_observed": false,
+        "scope": "normal inx model bake context; not all possible modded contexts"
       }
     },
     {
@@ -488,7 +528,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R013",
+      "last_verified_revision": "TEX02-R014",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "dc3c160d5bb78a493aeabcfb6330e5be1770e5f7",
       "mirror_model_git_blob_sha": "cd1067abfafc9f42650d5a1799ea56b0fb74fcd7",
@@ -566,6 +606,16 @@
         "deepslate_axis_x_collapsed_probabilities": null,
         "game_rng_sampled": false,
         "actual_baked_quad_verified": false
+      },
+      "R014_default_bake_vertex_transformer": {
+        "concrete_class": "inx$d",
+        "method": "a(org.joml.Vector3fc)->Vector3fc",
+        "implementation": "com.google.common.collect.Interner.intern",
+        "source_coordinate_values_preserved": true,
+        "normalized_full_cube_quad_vertex_check_per_face": 4,
+        "R012_projection_mapping_change_required": false,
+        "runtime_baked_vertex_observed": false,
+        "scope": "normal inx model bake context; not all possible modded contexts"
       }
     },
     {
@@ -577,7 +627,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R013",
+      "last_verified_revision": "TEX02-R014",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "e1b2323c44aea2f7228f5f6f8f40674fc8087fe0",
       "mirror_model_git_blob_sha": "b3d7b55b5ca4ffef4f53ee364c40924a73e988db",
@@ -662,6 +712,16 @@
         "deepslate_axis_x_collapsed_probabilities": null,
         "game_rng_sampled": false,
         "actual_baked_quad_verified": false
+      },
+      "R014_default_bake_vertex_transformer": {
+        "concrete_class": "inx$d",
+        "method": "a(org.joml.Vector3fc)->Vector3fc",
+        "implementation": "com.google.common.collect.Interner.intern",
+        "source_coordinate_values_preserved": true,
+        "normalized_full_cube_quad_vertex_check_per_face": 4,
+        "R012_projection_mapping_change_required": false,
+        "runtime_baked_vertex_observed": false,
+        "scope": "normal inx model bake context; not all possible modded contexts"
       }
     },
     {
@@ -673,7 +733,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R013",
+      "last_verified_revision": "TEX02-R014",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "62184f73f9c30187a1d041f8fc5ce4220c404b59",
       "mirror_model_git_blob_sha": "3ba4278bf92ebfe96a1a35ad3caa5478faf600e4",
@@ -751,6 +811,16 @@
         "deepslate_axis_x_collapsed_probabilities": null,
         "game_rng_sampled": false,
         "actual_baked_quad_verified": false
+      },
+      "R014_default_bake_vertex_transformer": {
+        "concrete_class": "inx$d",
+        "method": "a(org.joml.Vector3fc)->Vector3fc",
+        "implementation": "com.google.common.collect.Interner.intern",
+        "source_coordinate_values_preserved": true,
+        "normalized_full_cube_quad_vertex_check_per_face": 4,
+        "R012_projection_mapping_change_required": false,
+        "runtime_baked_vertex_observed": false,
+        "scope": "normal inx model bake context; not all possible modded contexts"
       }
     },
     {
@@ -762,7 +832,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R013",
+      "last_verified_revision": "TEX02-R014",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "1e67b667b3df9bbbb037cdb5048b6327c238767d",
       "mirror_model_git_blob_sha": "def59d00c790df6c5e43fc64004f0492ae8fd5e4",
@@ -840,6 +910,16 @@
         "deepslate_axis_x_collapsed_probabilities": null,
         "game_rng_sampled": false,
         "actual_baked_quad_verified": false
+      },
+      "R014_default_bake_vertex_transformer": {
+        "concrete_class": "inx$d",
+        "method": "a(org.joml.Vector3fc)->Vector3fc",
+        "implementation": "com.google.common.collect.Interner.intern",
+        "source_coordinate_values_preserved": true,
+        "normalized_full_cube_quad_vertex_check_per_face": 4,
+        "R012_projection_mapping_change_required": false,
+        "runtime_baked_vertex_observed": false,
+        "scope": "normal inx model bake context; not all possible modded contexts"
       }
     },
     {
@@ -851,7 +931,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R013",
+      "last_verified_revision": "TEX02-R014",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "00b9a81af1224a4ae9e1d6495e22b5fe0c0dc5a8",
       "mirror_model_git_blob_sha": "46f93fd8dc7ba4796ff215e90b67bd2a84064539",
@@ -929,6 +1009,16 @@
         "deepslate_axis_x_collapsed_probabilities": null,
         "game_rng_sampled": false,
         "actual_baked_quad_verified": false
+      },
+      "R014_default_bake_vertex_transformer": {
+        "concrete_class": "inx$d",
+        "method": "a(org.joml.Vector3fc)->Vector3fc",
+        "implementation": "com.google.common.collect.Interner.intern",
+        "source_coordinate_values_preserved": true,
+        "normalized_full_cube_quad_vertex_check_per_face": 4,
+        "R012_projection_mapping_change_required": false,
+        "runtime_baked_vertex_observed": false,
+        "scope": "normal inx model bake context; not all possible modded contexts"
       }
     },
     {
@@ -940,7 +1030,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R013",
+      "last_verified_revision": "TEX02-R014",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "3a02f5ff6f069439a94508ae94ea2431d00fee5e",
       "mirror_model_git_blob_sha": "9f1f6eba3e0db4c4aff91eb85ed72a308a234852",
@@ -1018,6 +1108,16 @@
         "deepslate_axis_x_collapsed_probabilities": null,
         "game_rng_sampled": false,
         "actual_baked_quad_verified": false
+      },
+      "R014_default_bake_vertex_transformer": {
+        "concrete_class": "inx$d",
+        "method": "a(org.joml.Vector3fc)->Vector3fc",
+        "implementation": "com.google.common.collect.Interner.intern",
+        "source_coordinate_values_preserved": true,
+        "normalized_full_cube_quad_vertex_check_per_face": 4,
+        "R012_projection_mapping_change_required": false,
+        "runtime_baked_vertex_observed": false,
+        "scope": "normal inx model bake context; not all possible modded contexts"
       }
     },
     {
@@ -1029,7 +1129,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R013",
+      "last_verified_revision": "TEX02-R014",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "4c1b7b215b10a3c234800804dd5cd9e3485bad38",
       "mirror_model_git_blob_sha": "99afb394efe2e0155ae21dc63738163c09deb515",
@@ -1107,6 +1207,16 @@
         "deepslate_axis_x_collapsed_probabilities": null,
         "game_rng_sampled": false,
         "actual_baked_quad_verified": false
+      },
+      "R014_default_bake_vertex_transformer": {
+        "concrete_class": "inx$d",
+        "method": "a(org.joml.Vector3fc)->Vector3fc",
+        "implementation": "com.google.common.collect.Interner.intern",
+        "source_coordinate_values_preserved": true,
+        "normalized_full_cube_quad_vertex_check_per_face": 4,
+        "R012_projection_mapping_change_required": false,
+        "runtime_baked_vertex_observed": false,
+        "scope": "normal inx model bake context; not all possible modded contexts"
       }
     },
     {
@@ -1118,7 +1228,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R013",
+      "last_verified_revision": "TEX02-R014",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "53c96684ffd703a9e9ba1f4a1f67c1eb075e79c3",
       "mirror_model_git_blob_sha": "3f9f0234e6a0019dfb460616812fb0685e2ec6e2",
@@ -1196,6 +1306,16 @@
         "deepslate_axis_x_collapsed_probabilities": null,
         "game_rng_sampled": false,
         "actual_baked_quad_verified": false
+      },
+      "R014_default_bake_vertex_transformer": {
+        "concrete_class": "inx$d",
+        "method": "a(org.joml.Vector3fc)->Vector3fc",
+        "implementation": "com.google.common.collect.Interner.intern",
+        "source_coordinate_values_preserved": true,
+        "normalized_full_cube_quad_vertex_check_per_face": 4,
+        "R012_projection_mapping_change_required": false,
+        "runtime_baked_vertex_observed": false,
+        "scope": "normal inx model bake context; not all possible modded contexts"
       }
     },
     {
@@ -1207,7 +1327,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R013",
+      "last_verified_revision": "TEX02-R014",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "bb7dc9ced1943d1dc86ab0cded598e8541fd280a",
       "mirror_model_git_blob_sha": "dff2a5c69138d558950260815f784ba554c34821",
@@ -1311,6 +1431,16 @@
         "deepslate_axis_x_collapsed_probabilities": "normal_2/4_mirrored_2/4",
         "game_rng_sampled": false,
         "actual_baked_quad_verified": false
+      },
+      "R014_default_bake_vertex_transformer": {
+        "concrete_class": "inx$d",
+        "method": "a(org.joml.Vector3fc)->Vector3fc",
+        "implementation": "com.google.common.collect.Interner.intern",
+        "source_coordinate_values_preserved": true,
+        "normalized_full_cube_quad_vertex_check_per_face": 4,
+        "R012_projection_mapping_change_required": false,
+        "runtime_baked_vertex_observed": false,
+        "scope": "normal inx model bake context; not all possible modded contexts"
       }
     },
     {
@@ -1322,7 +1452,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R013",
+      "last_verified_revision": "TEX02-R014",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "e7f36f6d883cb5e4372e29bb385e5fa8a65f6542",
       "mirror_model_git_blob_sha": "91ff5fcef34a040c8d0a3a422e4b0fbd89e6715b",
@@ -1400,6 +1530,16 @@
         "deepslate_axis_x_collapsed_probabilities": null,
         "game_rng_sampled": false,
         "actual_baked_quad_verified": false
+      },
+      "R014_default_bake_vertex_transformer": {
+        "concrete_class": "inx$d",
+        "method": "a(org.joml.Vector3fc)->Vector3fc",
+        "implementation": "com.google.common.collect.Interner.intern",
+        "source_coordinate_values_preserved": true,
+        "normalized_full_cube_quad_vertex_check_per_face": 4,
+        "R012_projection_mapping_change_required": false,
+        "runtime_baked_vertex_observed": false,
+        "scope": "normal inx model bake context; not all possible modded contexts"
       }
     },
     {
@@ -1411,7 +1551,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R013",
+      "last_verified_revision": "TEX02-R014",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "314a2df0e85319d0493a3b10d8b692e23ae6cdd2",
       "mirror_model_git_blob_sha": "d6e7b5852a756aa4212e98f6f71bd44d677403f6",
@@ -1503,6 +1643,16 @@
         "deepslate_axis_x_collapsed_probabilities": null,
         "game_rng_sampled": false,
         "actual_baked_quad_verified": false
+      },
+      "R014_default_bake_vertex_transformer": {
+        "concrete_class": "inx$d",
+        "method": "a(org.joml.Vector3fc)->Vector3fc",
+        "implementation": "com.google.common.collect.Interner.intern",
+        "source_coordinate_values_preserved": true,
+        "normalized_full_cube_quad_vertex_check_per_face": 4,
+        "R012_projection_mapping_change_required": false,
+        "runtime_baked_vertex_observed": false,
+        "scope": "normal inx model bake context; not all possible modded contexts"
       }
     },
     {
@@ -1514,7 +1664,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R013",
+      "last_verified_revision": "TEX02-R014",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "caa25fa5199428cef03c3e257440b8f03f20a095",
       "mirror_model_git_blob_sha": "41baabebd17d0fbf46efc91bda5022ff91459c21",
@@ -1592,6 +1742,16 @@
         "deepslate_axis_x_collapsed_probabilities": null,
         "game_rng_sampled": false,
         "actual_baked_quad_verified": false
+      },
+      "R014_default_bake_vertex_transformer": {
+        "concrete_class": "inx$d",
+        "method": "a(org.joml.Vector3fc)->Vector3fc",
+        "implementation": "com.google.common.collect.Interner.intern",
+        "source_coordinate_values_preserved": true,
+        "normalized_full_cube_quad_vertex_check_per_face": 4,
+        "R012_projection_mapping_change_required": false,
+        "runtime_baked_vertex_observed": false,
+        "scope": "normal inx model bake context; not all possible modded contexts"
       }
     },
     {
@@ -1603,7 +1763,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R013",
+      "last_verified_revision": "TEX02-R014",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "5dec3c0f313431c5352327a95311048bc7571352",
       "mirror_model_git_blob_sha": "6bbb7c88a25a62b8e9cac02575c9317af52735d7",
@@ -1681,6 +1841,16 @@
         "deepslate_axis_x_collapsed_probabilities": null,
         "game_rng_sampled": false,
         "actual_baked_quad_verified": false
+      },
+      "R014_default_bake_vertex_transformer": {
+        "concrete_class": "inx$d",
+        "method": "a(org.joml.Vector3fc)->Vector3fc",
+        "implementation": "com.google.common.collect.Interner.intern",
+        "source_coordinate_values_preserved": true,
+        "normalized_full_cube_quad_vertex_check_per_face": 4,
+        "R012_projection_mapping_change_required": false,
+        "runtime_baked_vertex_observed": false,
+        "scope": "normal inx model bake context; not all possible modded contexts"
       }
     }
   ],
@@ -1907,14 +2077,31 @@
       "ingame_verified": 0,
       "fully_completed_A_to_G_items": 0,
       "official_jar_authentication_required": false
+    },
+    {
+      "revision": "TEX02-R014",
+      "path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R014/",
+      "evidence_tier": "user_supplied_1.21.11_inx_bytecode_concrete_bake_context_source_with_existing_186_source_faces_static_vertex_recheck_not_runtime",
+      "new_relevant_client_classfiles_directly_examined": 6,
+      "reused_client_classfiles": 5,
+      "source_method_chain_evidence": 16,
+      "existing_variant_states_rechecked": 31,
+      "prior_face_mappings_rechecked": 186,
+      "normalized_quad_vertices_recomputed": 744,
+      "coordinate_value_changes_from_default_interner": 0,
+      "R012_projection_corrections_needed_from_default_inx_callback": 0,
+      "newly_discovered_unique_pngs": 0,
+      "ingame_static_verified": 0,
+      "fully_completed_A_to_G_items": 0,
+      "official_jar_authentication_required": false
     }
   ],
-  "current_release_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R013/",
+  "current_release_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R014/",
   "remaining_blockers": [
-    "R013 confirms optional weight=1 from hqh$b codec, four weighted array groups totaling 31 variant entries across 19 state selector groups; theoretical per-slot 1/4 and deepslate axis=x grouped 2/4 for each duplicate model, not in-game counts",
-    "R013 confirms hqn obtains inw.c() vertex transformer per face and passes it to FaceBakery hqi; concrete implementation returned for these 17 model bake contexts is NOT yet proven identity",
-    "Actual seeded/world RNG sample frequencies, model atlas acceptance, GPU rendered UVs and 17 static in-game screenshots are still unverified (0/17)",
-    "Prior R012 source-projected 186 faces / 40 corrected UV corners and 64 synthetic seam remeasurements remain source-based, not executed runtime baked-quad measurements"
+    "R014 resolves R013 default inw.c() model vertex transformer by tracing normal inx context to inx$d strong Interner.intern(Vector3fc); 744 source-projected vertex values not altered, 186 R012 corner mappings stay consistent; never claim runtime measured",
+    "Remaining live game world RNG/seed and weighted model selection scheduling from position-dependent blockstate path is not confirmed",
+    "Actual 17 in-game static render screenshots and GPU final UV filtering/lighting/adjacent-block seam comparisons remain 0/17",
+    "Alternate/modded model bake contexts and whether all 17 assets load successfully into the runtime atlas are still unverified"
   ],
   "current_stream_supplemental_end_face_binary_verified_count": 2,
   "static_face_model_local_source_entries": 102,
@@ -2083,5 +2270,27 @@
   "R013_source_verification_script_created": true,
   "R013_source_verification_script_full_execution_verified": false,
   "R013_new_unique_fixed_PNG_count": 0,
-  "R013_new_rgba_pixel_measurements": 0
+  "R013_new_rgba_pixel_measurements": 0,
+  "R014_new_direct_relevant_java_classfiles": 6,
+  "R014_prior_java_classfiles_reused": 5,
+  "R014_source_callsite_records": 16,
+  "R014_inx_d_strong_interner_source_verified": true,
+  "R014_inx_d_coordinate_arithmetic_present": false,
+  "R014_inx_c_inw_c_returns_same_inx_d_transformer": true,
+  "R014_fallback_inx_b_1_inw_c_returns_same_inx_d_transformer": true,
+  "R014_source_frozen_variant_slots_rechecked": 31,
+  "R014_source_model_face_rows_reaudited": 186,
+  "R014_source_normalized_quad_vertex_rows_recomputed": 744,
+  "R014_vertex_numeric_changes_from_default_inx_interner": 0,
+  "R014_R012_face_vertex_mappings_matched": 186,
+  "R014_R011_R007_world_face_mismatches_preserved": 32,
+  "R014_R012_R007_uv_corner_mismatches_preserved": 40,
+  "R014_R012_geometry_projection_changes_due_to_default_interner": 0,
+  "R014_concrete_model_vertex_transformer_issue_resolved_for_default_inx_context": true,
+  "R014_other_possible_model_bake_contexts_or_modded_vertex_transforms_fully_verified": false,
+  "R014_source_reproduction_python_verifier_created": true,
+  "R014_source_reproduction_python_verifier_end_to_end_executed": false,
+  "R014_new_unique_pngs": 0,
+  "R014_new_rgba_pixel_measurements": 0,
+  "R014_runtime_baked_quad_objects_observed": 0
 }
