@@ -1,6 +1,15 @@
-# 1-1-01 목재·원목 전용 인수인계 — TEX01-R004
+# 1-1-01 목재·원목 전용 인수인계 — TEX01-R005
 
-현재 TEX01-R004, 다음 TEX01-R005. 기존 글로벌 v38 변경 금지. R001/R002/R003 원본·CSV·커밋 불변. 18 목재 PNG 고정.
+## TEX01-R005 새 분석과 다음 단계 (2026-11-13)
+
+원본 18 PNG SHA/PNG 청크 CRC 다시 확인. 기존 원본 픽셀 4,608개에 대해 **d=2/4/8 총 19,584 픽셀쌍의 새 RGB 공간대비** 분석 완료(새 고유 픽셀 수 0). 18개 사용자 제공 소스 JSON 재조회(기존 R001 43개 중 재검사). 원목 4종 × 3 blockstate 축 × 6면 = **72개 JSON 회전 행렬 기반 로컬→월드 면 투영** 신설. 수평 `up` 180° 로컬 UV 8면 중 범위 내 2면. 원래 R004 132면 RGB·792조회는 **계승만** 하며 새로 적립하지 않음.
+
+- [신규 REPORT](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R005/REPORT.md) · [18 PNG 2/4/8 거리측정 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R005/PNG_SPATIAL_LAG_METRICS.csv)
+- [72 로컬→월드 면 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R005/MODEL_AXIS_WORLD_FACE_MAP.csv) · [직접 재조회 JSON 18개 SHA](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R005/SOURCE_JSON_AUDIT.csv) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R005/SUMMARY.json)
+
+**F 미완료:** 실제 Minecraft 인게임 정적 검증 0/18. 수학적 면 투영·소스 텍셀 비교를 인게임 화면 검증으로 승격하지 말 것. 공식 Mojang JAR 전체 인증은 사용자 요청으로 범위 제외(인증 성공 아님). `TEX01-R006`은 신규 실측 근거를 확보한 경우에만 사용. 애니메이션·좀보이드·가구 3D 제작 제외. 이 단계 이외 STATE/HANDOFF 및 전역 v38 수정 금지.
+
+현재 TEX01-R005, 다음 TEX01-R006. 아래 R004 지시는 역사 기록으로 보존. 기존 글로벌 v38 변경 금지. R001/R002/R003 원본·CSV·커밋 불변. 18 목재 PNG 고정.
 
 ## 핵심 출처/검증
 
@@ -21,7 +30,7 @@
 - [MODEL_FACE_PIXEL_ANCHORS.csv](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R004/MODEL_FACE_PIXEL_ANCHORS.csv)
 - [SUMMARY.json](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R004/SUMMARY.json)
 
-## 다음 TEX01-R005
+## R004 당시의 후속 지시 (역사 기록)
 
 재진입 시 1-1-01 STATE.json 현재/다음 버전, SHA, main HEAD, 새 R005 폴더 존재 여부 확인. R001~R004 중복 완료량 적립 금지. A–G 절차의 F는 **인게임 정적 검증만** 해당하며, 공식 Mojang JAR SHA1/size 인증은 수행하거나 요구하지 않음. 실제 인게임 정적 장면 검증은 증거 확보 전 0 유지. 블록/월드 UV는 별도 소스 근거가 없으면 가정 금지. 사용자 JAR 추출본 최우선. R005 결과만 신규 폴더에 저장. 이 단계 HANDOFF.md, STATE.json만 갱신. 루트 HANDOFF.md/PROGRESS.md/handoff/STATE.json, v38, 다른 재질 1-1-nn 수정 금지. 애니메이션/PZ/실제 가구 3D 제작 보류.
 
