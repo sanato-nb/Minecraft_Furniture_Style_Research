@@ -7,10 +7,10 @@
   "stage_id": "1-1-09",
   "material_family": "토양·지면",
   "stage_prefix": "TEX09",
-  "current_revision": "TEX09-R005",
-  "next_revision": "TEX09-R006",
-  "revision_sequence": 5,
-  "revision_status": "R005_user_grass_colormap_65536_RGBA_white32640_nonwhite32896__28_source_face_paths__ingame_pending",
+  "current_revision": "TEX09-R006",
+  "next_revision": "TEX09-R007",
+  "revision_sequence": 6,
+  "revision_status": "R006_user_grass_podzol_side_512_new_RGB_texels_row_identity184_snow145__ingame_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 9,
@@ -48,27 +48,27 @@
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R005_user_colormap_sha256_png_CRC3_Adler_checked_prior_target9_unchanged",
+      "status": "R006_two_user_source_aux_side_png_sha256_git_blob_png_crc_pass_RGBA_total512_prior_snow_overlay_unchanged",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R005"
+      "last_updated_revision": "TEX09-R006"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R005_support_grass_colormap_65536_RGB_white_triangle32640_nonwhite32896__target9_prior",
+      "status": "R006_new_grass_podzol_side_pixel512_RBG_spatial_match184_snow_comparison145_row_masks16",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R005"
+      "last_updated_revision": "TEX09-R006"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R005_D3_overlay_alpha45_prior_tintindex_static_and_colormap_pixel_matrix_runtime_pending",
+      "status": "R006_D3_grass_podzol_snow_side_RGB_shared_lower_rows_and_overlay_mask_source_only_ingame_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R005"
+      "last_updated_revision": "TEX09-R006"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R005_four_state_28_derived_face_paths_10_explicit_UV_18_implicit_8_JSON_reparsed",
+      "status": "R006_source_static_grass_podzol_snow_models_5_JSON_reparsed_original_face_and_state_links_retained",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R005"
+      "last_updated_revision": "TEX09-R006"
     },
     "F": {
       "title": "F 인게임 정적 렌더 검증 (Mojang 공식 JAR 인증 요구 제외)",
@@ -79,9 +79,9 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "done_R005_colormap_RGB_row_audit_and_source_face_csv_handoff",
+      "status": "done_R006_side_pixel_metrics_exact_row_masks_pairs_3_source_handoff",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R005"
+      "last_updated_revision": "TEX09-R006"
     }
   },
   "material_specific_checks": [
@@ -100,8 +100,8 @@
     {
       "id": "D3",
       "check": "grass/podzol PNG와 인게임 tint·주변 블록 효과 구분",
-      "status": "R005_colormap_65536_source_RGB_and_R004_overlay45_tintindex_static_crosscheck_ingame_pending",
-      "last_verified_revision": "TEX09-R005"
+      "status": "R006_user_side_png_RGB_spatial_184_145_145_and_prior_overlay_alpha45_crosschecked_tint_runtime_ingame_pending",
+      "last_verified_revision": "TEX09-R006"
     }
   ],
   "items": [
@@ -427,6 +427,24 @@
       "ingame_static_verified": 0,
       "official_client_jar_authentication_not_required": true,
       "summary_path": "research/vanilla_textures/by_stage/1-1-09/TEX09-R005/SUMMARY.json"
+    },
+    "TEX09-R006": {
+      "new_fixed_target_png_count": 0,
+      "new_support_png_full_rgba_decodes": 2,
+      "new_support_png_texels": 512,
+      "repeat_support_png_decodes": 2,
+      "repeat_support_png_texels_not_new": 512,
+      "source_json_reparsed_without_new_count": 5,
+      "independent_rgb_coordinate_comparisons": 768,
+      "side_pair_pixel_matches": {
+        "grass_podzol": 184,
+        "grass_snow": 145,
+        "podzol_snow": 145
+      },
+      "prior_overlay_opaque_texels_not_recounted": 45,
+      "ingame_static_verified_count": 0,
+      "official_jar_authentication_required": false,
+      "summary_path": "research/vanilla_textures/by_stage/1-1-09/TEX09-R006/SUMMARY.json"
     }
   }
 }

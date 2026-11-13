@@ -127,3 +127,13 @@
 - 고정 9개 PNG·기존 26 JSON 연결 유지, 신규 고정 PNG 0, 실제 인게임 정적 확인 0/9. 실제 바이옴 tint RGB 및 colormap 런타임 좌표·엔진 조명·주변 블록 렌더 확인 안 됨.
 - Mojang 공식 client.jar 전체 SHA-1/메타데이터 인증은 사용자 정책으로 필수 제외, 공식 인증 성공 아님. 애니메이션 연구 전면 보류. 타 단계, 공용 HANDOFF/PROGRESS, 전역 v38 수정 금지.
 - 현재 TEX09-R005 / 다음 후보 TEX09-R006. 반드시 새 작업 시 LIVE STATE/HEAD 및 마지막 릴리스 근거 재조회. 실제 인게임 정적 관측·검증 가능한 런타임 색상표 룩업이 없는 한 F를 완료하지 말 것.
+
+## TEX09-R006 — 사용자 grass/podzol/snow 측면 16×16 RGBA 동일 좌표 비교 (2026-11-13)
+
+- [보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R006/REPORT.md), [동일 위치 16행 마스크](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R006/SIDE_PAIR_EQUALITY_MASK_ROWS.csv), [3쌍 요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R006/SIDE_PAIR_SUMMARY.csv), [4 PNG 측정 출처](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R006/SOURCE_PIXEL_STATS.csv), [PNG·JSON 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R006/SOURCE_LEDGER.csv), [요약 JSON](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R006/SUMMARY.json).
+- 사용자 1.21.11/ 원본 `grass_block_side.png`(329 bytes, RGB 40종), `podzol_side.png`(395 bytes, RGB 58종) **2개 보조 PNG 512 texel 신규 완전 RGBA 디코드**. 두 파일의 PNG CRC 4/4 각각, 원본 SHA256·Git blob 재검증. 둘의 파일 존재/출처 자체는 R003 계승이므로 새로 발견한 경로 2개로 계상하지 않음.
+- 기존 `grass_block_snow.png`, `grass_block_side_overlay.png` 2개를 비교용으로 재디코드했지만 R004 신규 관측으로 중복 계상하지 않는다. 모델/상태 JSON 5개 재파싱, 신규 JSON 0개.
+- 16×16 동일 좌표 RGBA 256개씩 3쌍 총 **768 비교**: grass↔podzol 동일 184/256 (y5~15 176 전부, y4 추가 8), grass↔snow 동일 145/256 (y7~15 144 전부, y5 추가 1), podzol↔snow 동일 145/256 (동일 행 분포). 이 비교 건수는 새로운 PNG·독립 texel 개수와 다름.
+- R004 계승 overlay 45 불투명/211 투명은 이번에 중복 가산 금지. 측정된 45개 보이는 overlay RGB는 grass base 같은 좌표 RGB와 전부 달랐음(0/45 동일). 이는 정적 색상/알파에 대한 결과이며 tint가 실제 적용된 게임 렌더는 아님.
+- 고정 9개 표본 유지, 인게임 정적 검증 0/9. grass/podzol/snow 실제 바이옴 틴트, 광원, 이웃 가림, 게임 화면 미검증. 공식 JAR SHA-1 인증은 사용자 지시로 연구 필수 제외하되 인증 성공 아님. 애니메이션 전면 보류·전체 v38·타 단계·루트 비수정.
+- 이제 **현재 TEX09-R006 / 다음 후보 TEX09-R007**. 신규 작업은 반드시 live STATE/HEAD/R006 결과물부터 재조회하고, 검증 가능한 게임 런타임 tint 규칙 또는 정적 인게임 관찰 증거가 있을 때만 F를 갱신한다.
