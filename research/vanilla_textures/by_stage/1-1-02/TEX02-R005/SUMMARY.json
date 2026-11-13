@@ -1,0 +1,51 @@
+{
+  "stage_id": "1-1-02",
+  "revision": "TEX02-R005",
+  "prior_revision": "TEX02-R004",
+  "next_revision": "TEX02-R006",
+  "date": "2026-11-13",
+  "revision_kind": "scope_and_completion_policy_only",
+  "source_priority": "user_provided_1.21.11_unpacked_files",
+  "official_mojang_jar_sha1": {
+    "required": false,
+    "in_scope": false,
+    "completion_gate": false,
+    "status": "not_required",
+    "historical_authenticated_count": 0
+  },
+  "official_version_metadata": {
+    "required": false,
+    "in_scope": false,
+    "completion_gate": false
+  },
+  "ingame_static_render": {
+    "required": true,
+    "status": "pending",
+    "verified_count": 0
+  },
+  "required_work": [
+    "A existing source comparison",
+    "B png SHA/CRC",
+    "C RGBA/pixel analysis",
+    "D material-specific texture analysis",
+    "E model/UV/blockstate analysis",
+    "F ingame static render verification",
+    "G stage-local reporting"
+  ],
+  "carried_forward": {
+    "target_textures": 17,
+    "R001_rgba_pixels": 4352,
+    "R002_base_model_faces": 102,
+    "R003_user_extraction_png_verified": 17,
+    "R004_variant_face_rows": 186,
+    "R004_deepslate_duplicate_declarations": 2
+  },
+  "new_research_results": 0,
+  "fully_completed_A_to_G_items": 0,
+  "global_checkpoint_unchanged": "v38",
+  "animation_deferred": true,
+  "outputs": [
+    "POLICY_CHANGE.md",
+    "SUMMARY.json"
+  ]
+}

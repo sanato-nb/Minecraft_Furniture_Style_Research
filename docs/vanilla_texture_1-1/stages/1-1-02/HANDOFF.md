@@ -1,6 +1,6 @@
 # 1-1-02 — 석재·벽돌 별도 채팅 인수인계
 
-> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R004` (31개 상태별 186면 분석)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
+> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R005` (공식 인증 제외·정책 변경)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 ## 연구 목표와 정확한 표본
 
@@ -24,7 +24,7 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 | 1-1-02-C | C RGBA·밝기·알파·반복 정량 검사 | TEX02-R001 미러 PNG/모델 직접 검수 / 공식 검증 대기 |
 | 1-1-02-D | D 재질 특화 세부 검사 | TEX02-R001 미러 PNG/모델 직접 검수 / 공식 검증 대기 |
 | 1-1-02-E | E 정적 모델 JSON·UV·상태 연결 | TEX02-R001 미러 PNG/모델 직접 검수 / 공식 검증 대기 |
-| 1-1-02-F | F 공식 Mojang client.jar·인게임 정적 검증 | TEX02-R001 미러 PNG/모델 직접 검수 / 공식 검증 대기 |
+| 1-1-02-F | F 인게임 정적 렌더·UV·이음새 검증 | **공식 JAR 인증은 범위·완료 조건에서 제외**, 인게임 검증 0/17 대기 |
 | 1-1-02-G | G 근거 보고서·단계 인수인계 저장 | TEX02-R001 미러 PNG/모델 직접 검수 / 공식 검증 대기 |
 
 **D 재질 특화 기준**
@@ -59,8 +59,8 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 
 ## 버전 상태·저장 경로·갱신 규칙
 
-- 현재 **`TEX02-R004`**: R003의 사용자 추출본 17종 검증 승계 + 31개 blockstate 변형을 186개 소스 면으로 전개, deepslate axis=x 중복 2건 확인. 공식/인게임 인증 0/17.
-- 최신 검증 결과: **`TEX02-R004`**; 저장 경로 `research/vanilla_textures/by_stage/1-1-02/TEX02-R004/`. 다음은 이 단계만 **`TEX02-R005`**...
+- 현재 **`TEX02-R005`**: R001~R004 실측 기록 보전, **공식 Mojang client.jar SHA-1 및 버전 매니페스트 인증은 연구 범위와 완료 조건에서 제외**. 인게임 정적 검증은 여전히 0/17.
+- 최신 단계 개정: **`TEX02-R005`** (정책 변경만); 저장 경로 `research/vanilla_textures/by_stage/1-1-02/TEX02-R005/`. 다음은 이 단계만 **`TEX02-R006`**.
 - 이 단계 진행 관리: [STATE.json](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/docs/vanilla_texture_1-1/stages/1-1-02/STATE.json)와 이 `HANDOFF.md`만 단계 자체 채팅에서 갱신.
 - 다른 번호 단계의 `STATE/HANDOFF` 및 루트 프로젝트 공통 체크포인트·진행 문서는 **수정 금지**. 통합 시 최종 집계 담당자가 별도로 확인.
 - 소스 증거의 신뢰도는 최소 `legacy_only`, `mirror_sha_pixel_checked`, `official_jar_authenticated`, `ingame_static_verified`로 구분하되, 서로 상충·불충분하면 `pending` 유지.
@@ -100,3 +100,10 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 - [보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R004/REPORT.md) · [186면 매핑](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R004/EXPANDED_VARIANT_FACES.csv) · [31 변형·중복 체크](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R004/VARIANT_DUPLICATES.csv) · [수치/4수준 검증 SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R004/SUMMARY.json).
 - R003 사용자 제공 `1.21.11/`를 우선 소스로 R002 면별 JSON 연결을 재검토. **31상태×6면=186**, 구조상 고유 29/31, deepslate axis=x의 index 0=2·1=3 동일 중복 2개. `#all` 108면, `#side` 52면, `#end` 26면, explicit mirror UV 48면, 기본 UV 138면. R001 4,352 RGBA 픽셀 및 R002 102 기본면 재계측 없음.
 - 월드 면 방향 표는 수학적 추론이지 엔진/인게임 확인 아님. 공식 Mojang JAR+메타데이터 SHA-1 및 인게임 정적 인증 **각 0/17**. 다음 **TEX02-R005**, 애니메이션 보류. 전역 v38 및 다른 재질 단계·기존 릴리스 무변경.
+
+## TEX02-R005 공식 인증 제외 정책 (2026-11-13)
+
+- [정책 변경 전문](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R005/POLICY_CHANGE.md) · [기계 판독 설정](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R005/SUMMARY.json).
+- **Mojang 원본 `client.jar` SHA-1/공식 버전 JSON 인증을 연구 및 완료 조건에서 제외**. 다음 버전에서 해당 인증을 요구하거나 공식 인증 0건 때문에 완료를 차단하지 않는다. 공식 인증의 기존 0건 기록은 **과거 사실**로만 보존한다.
+- 계속 유지: 사용자 업로드 `1.21.11/` 직접 PNG·JSON 분석, 필요한 미러 교차 검증, 정적 모델·UV·블록 상태·색상·줄눈 분석, 실제 인게임 정적 검증(0/17 보류), G 보고서. 애니메이션은 보류.
+- 이 버전은 **정책 개정만**, 새 측정·연구 진도 0건. R001–R004 및 다른 단계·전체 v38 불변. **다음 TEX02-R006**.

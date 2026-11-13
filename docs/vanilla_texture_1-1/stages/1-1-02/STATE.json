@@ -7,10 +7,10 @@
   "stage_id": "1-1-02",
   "material_family": "석재·벽돌",
   "stage_prefix": "TEX02",
-  "current_revision": "TEX02-R004",
-  "next_revision": "TEX02-R005",
-  "revision_sequence": 4,
-  "revision_status": "R004_expanded_31_blockstate_entries_into_186_static_face_rows_2_JSON_duplicate_entries",
+  "current_revision": "TEX02-R005",
+  "next_revision": "TEX02-R006",
+  "revision_sequence": 5,
+  "revision_status": "R005_policy_only_official_mojang_jar_authentication_removed_from_scope_and_completion_static_ingame_still_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 17,
@@ -72,16 +72,16 @@
       "last_evidence_revision": "TEX02-R004"
     },
     "F": {
-      "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_official_Mojang_client.jar_SHA1_and_ingame_static_0_of_17",
+      "title": "F 인게임 정적 렌더·UV·이음새 검증 (Mojang 공식 JAR 인증 제외)",
+      "status": "ingame_static_pending_0_of_17_official_jar_auth_excluded_not_required",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R004"
+      "last_evidence_revision": "TEX02-R005"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R004_variant_face_mapping_report_committed",
+      "status": "R005_policy_revision_saved_no_new_source_measurements",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R004"
+      "last_evidence_revision": "TEX02-R005"
     }
   },
   "material_specific_checks": [
@@ -935,12 +935,23 @@
       "new_png_rgba_measured": 0,
       "official_count": 0,
       "ingame_count": 0
+    },
+    {
+      "revision": "TEX02-R005",
+      "path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R005/",
+      "kind": "policy_scope_change_only",
+      "new_binary_measurements": 0,
+      "new_source_items": 0,
+      "new_pixel_measurements": 0,
+      "official_jar_authentication_required": false,
+      "ingame_count": 0,
+      "fully_completed_A_to_G_items": 0
     }
   ],
-  "current_release_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R004/",
+  "current_release_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R005/",
   "remaining_blockers": [
-    "Official Mojang metadata and compressed original client.jar unavailable to verify SHA-1",
-    "Minecraft actual static renderer and screenshots unavailable"
+    "Ingame static renderer screenshots unavailable; 0/17 verified",
+    "Static model source predictions require in-game UV/light/seam observation"
   ],
   "current_stream_supplemental_end_face_binary_verified_count": 2,
   "static_face_model_local_source_entries": 102,
@@ -975,12 +986,32 @@
       "reason": "No original client.jar SHA-1 comparison against authenticated Mojang metadata"
     },
     "ingame_static": {
-      "status": "unverified",
-      "verified": 0,
-      "reason": "No game render"
+      "status": "pending",
+      "required": true,
+      "verified_count": 0
+    },
+    "mojang_official_jar": {
+      "status": "not_required",
+      "required": false,
+      "in_completion_criteria": false,
+      "verified": false,
+      "historical_auth_count": 0
     }
   },
   "new_static_variant_face_rows_R004": 186,
   "new_structural_unique_variants_R004": 29,
-  "new_deepslate_axis_x_source_duplicates_R004": 2
+  "new_deepslate_axis_x_source_duplicates_R004": 2,
+  "official_verification_required": false,
+  "official_verification_policy": "excluded_from_scope_and_completion_2026-11-13_user_request",
+  "required_verification_levels": [
+    "user_provided_asset_inspection",
+    "mirror_hash_crosscheck_when_needed",
+    "static_texture_model_uv_analysis",
+    "ingame_static_render_verification",
+    "stage_artifact_handoff"
+  ],
+  "excluded_verification_levels": [
+    "mojang_official_jar_sha1",
+    "mojang_official_version_manifest_authentication"
+  ]
 }
