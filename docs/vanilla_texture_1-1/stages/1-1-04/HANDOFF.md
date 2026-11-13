@@ -1,6 +1,18 @@
 # 1-1-04 — 직물·양털 전용 채팅 인수인계
 
-> **현재 단계 고유 버전: `TEX04-R006` (2026-11-13)** · 다음 후보 `TEX04-R007` · 전역 역사적 `v38` 유지.
+> **현재 단계 고유 버전: `TEX04-R007` (2026-11-13)** · 다음 후보 `TEX04-R008` · 전체 역사적 v38 불변.
+
+## TEX04-R007 — 양털 전체 명도 순위 반례·주기 이동 (2026-11-13)
+
+[보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R007/REPORT.md) · [36색쌍 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R007/RANK_PAIRWISE_36.csv) · [9색 순환 이동 요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R007/PERIODICITY_PER_COLOUR_9.csv) · [재현 코드](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R007/REPRODUCE_R007.py).
+
+- 기존 사용자 추출본 PNG 9개 SHA256/PNG CRC 재검사; **새 고유 PNG 0, 2,304픽셀/54면 계승**.
+- 임의 픽셀 위치쌍 36색상 비교 1,175,040 후보 중 양쪽 비동률 1,130,924, 같은 순서 1,130,851, 역전 **73** (전부 green 관련 7개 조합, 서로 다른 위치쌍 16), 제외한 동률 44,116.
+- 9색×255 주기 이동 2,295건: 비영점 최고 (8,8), 완전 정확한 소주기 0. **게임 화면 인증 아님**.
+- 공식 전체 client.jar SHA1·메타데이터는 필수 분모 제외(인증 완료 아님). 인게임 **0/9** 유지, 애니메이션·PZ·모델 제작 보류.
+- 다음 R008은 라이브 상태/HEAD/폴더 경합 확인 후 신규 실제 근거가 있을 때만.
+
+---
 
 ## TEX04-R006 — 신규 아이템 JSON 9개 정적 모델 경로 + R005 재현 코드 정오표 (2026-11-13)
 
