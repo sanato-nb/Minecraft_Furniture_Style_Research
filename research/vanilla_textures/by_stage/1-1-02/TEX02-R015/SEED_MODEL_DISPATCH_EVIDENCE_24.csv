@@ -1,0 +1,25 @@
+id,source_class,method,bytecode_anchor,source_supported_interpretation,branch,game_baked_quad_observed,specialized_block_seed_override_eliminated
+01,hpw.class,"<init>(hpv,inu,ggr)",bgr.a(),"Create reusable default source random for dispatch, later reseeded per block",dispatch instance construction,false,false
+02,hpw.class,"a(eoh,is,dvq,fzm,fzp) 82 bytes",hpv.b(eoh),Resolve selected BlockStateModel before drawing breaking texture,breaking block,false,false
+03,hpw.class,"a(eoh,is,dvq,fzm,fzp) 82 bytes",eoh.b(is):J,Read per-state per-position rendering seed,breaking block,false,false
+04,hpw.class,"a(eoh,is,dvq,fzm,fzp) 82 bytes",bgr.b(J):V,Reset same RNG to state.getSeed(position) before selection,breaking block,false,false
+05,hpw.class,"a(eoh,is,dvq,fzm,fzp) 82 bytes","hqh.a(bgr,List):V",Collect random chosen parts using reseeded RNG,breaking block,false,false
+06,htp.class,"a(jw,htn,fzr,hpd) 473 bytes",bgr.a():bgr,Construct local RNG for chunk rebuild loop,chunk building,false,false
+07,htp.class,"a(jw,htn,fzr,hpd) 473 bytes",eoh.b(is):J,Read rendering seed on each encountered block position,chunk building,false,false
+08,htp.class,"a(jw,htn,fzr,hpd) 473 bytes",bgr.b(J):V,Reset before collecting models for that block,chunk building,false,false
+09,htp.class,"a(jw,htn,fzr,hpd) 473 bytes",hpw.a(eoh):hqh,Resolve selected blockstate model,chunk building,false,false
+10,htp.class,"a(jw,htn,fzr,hpd) 473 bytes","hqh.a(bgr,List):V","Collect only selected parts; pass list into hpw.a(...,List)",chunk building,false,false
+11,eog$a.class,b(is):J 13 bytes,"get owning dzq; dzq.a(eoh,is):J virtual",BlockState seed dispatch is overridable by concrete block,state seed,false,false
+12,eog.class,"a(eoh,is):J 5 bytes",bgj.a(jy):J,Default BlockBehaviour uses position hash; no world seed input,default seed,false,false
+13,bgj.class,a(jy):J 16 bytes,"jy.u(),jy.v(),jy.w() -> bgj.b(III):J","Extract x,y,z integer coordinates and call hash",position hash,false,false
+14,bgj.class,b(III):J 35 bytes,imul 3129871; xor z*116129781L; xor y; square*42317861L + n*11L; lshr16,Java int then long signed wrap and shift16,position hash,false,false
+15,bgr.class,a():bgr 7 bytes,evf.a():J -> bgr.a(J),"Initial RNG factory seed created, overwritten by later per-position reset",random creation,false,false
+16,bgr.class,a(J):bgr 9 bytes,new eur(seed),Default random source factory chooses eur implementation,random creation,false,false
+17,eur.class,b(J):V 41 bytes,(seed XOR 25214903917L) AND ((1L<<48)-1),Legacy 48-bit LCG seed state resetting,seed reset,false,false
+18,eur.class,c(I):I 52 bytes,"(oldState*25214903917L + 11L) & ((1L<<48)-1), unsigned shift 48-bits",Generate requested number of bits from 48-bit LCG,next bits,false,false
+19,euf.class,a(I):I 64 bytes,power-of-two nextInt(4) -> (4L*c(31))>>31,"For exactly four equally weighted variants, first bounded draw is 0,1,2,3",bounded RNG,false,false
+20,cbn.class,b(bgr):Object 39 bytes,bgr.a(total_weight) then cbn$d.a(randomIndex),Map one RNG bounded slot to weighted entry,weighted model choice,false,false
+21,cbn$c.class,"constructor(List,int) 77 bytes",Arrays.fill repeated copies of each weighted value,"R013 four groups all weight one -> array slots [0,1,2,3]",weighted model choice,false,false
+22,ioj.class,"a(bgr,List):V 19 bytes","cbn.b(bgr) -> chosen hqh.a(bgr,List)",Forward selected model to parts collector,weighted model choice,false,false
+23,hpy.class,"a(Pose,VertexConsumer,hqh,float,float,float,int,int) 123 bytes",ldc2_w #362=42L; bgr.a(42L); hqh.a(bgr),Non-world fixed 42 seed for this single-block draw path,preview/nonworld block,false,false
+24,hpw.class,"a(eoh,Pose,MultiBufferSource,int,int) 107 bytes","getBlockModel -> hpy.a(Pose,...,hqh,...)",Single-block draw bypasses BlockPos world seeding,preview/nonworld block,false,false

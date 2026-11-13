@@ -1,6 +1,6 @@
 # 1-1-02 — 석재·벽돌 별도 채팅 인수인계
 
-> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R014` (기본 베이크 정점 인터너 검증·744개 꼭짓점 재대조)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
+> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R015` (블록 위치 난수 시드·가중치 모델 선택 추적)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 ## 연구 목표와 정확한 표본
 
@@ -182,3 +182,13 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 - R011/R012/R013 기존 불변 CSV를 같은 variant+face key로 대조하며 **744개 정점 위치값**, **186개 world face canonical vertex 매핑** 186/186 일치. 인터닝에 의한 수치 좌표변경 0/744, R007 대비 R011 월드면 방향 차이 32 및 R012 UV 코너 차이 40 모두 기존대로. **이번 결론이 R012 값에 요구하는 새 교정 0건**. 메서드/정적 행렬 증거이지 실제 게임에서 관찰한 baked quad는 아님.
 - 최초 직접 열람한 연구 관련 classfiles 6, 새 원본 PNG/픽셀 측정 0. **인게임 F 0/17, A–G 완료 0/17**. Python 재현 검사기는 저장했으나 원본 사용자 파일이 로컬 장착되지 않아 종단 간 실행하지 않았음. 전체 Mojang JAR 인증은 필수 완료 조건 제외, 애니메이션 및 실제 모델링/좀보이드 변환은 현 범위 밖. 전역 `v38`과 다른 단계, 이전 R001–R013 파일은 변경하지 않음.
 - 다음 `TEX02-R015` 후보: **월드 블록 위치·seed에 따라 weighted `bgr` 모델 변형 선택이 얼마나 일관되게 결정되는지** 원본 renderer 호출 지점부터 추적. 독립 검증 증거가 더는 없거나 실제 게임 캡처가 필수라면 버전만 생성하지 말고 사용자에게 필요 데이터 요청.
+
+## TEX02-R015 — 블록 좌표 시드·48-bit RNG·4가중치 모델 선택의 사용자 원본 바이트코드 검증 (2026-11-13)
+
+- [R015 상세 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R015/REPORT.md) · [핵심 원본 클래스 SHA 원장 16건](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R015/SOURCE_SHA_LEDGER_16.csv) · [렌더/시드/난수/모델 선택 경로 24건](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R015/SEED_MODEL_DISPATCH_EVIDENCE_24.csv) · [기본 위치 시드 7×7=49건](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R015/DEFAULT_POSITION_SEED_GRID_49.csv) · [4개 가중치 그룹의 첫 모델 선택 196건](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R015/FIRST_WEIGHTED_MODEL_CHOICE_196.csv) · [서로 다른 좌표의 동일 기본 시드 충돌 10쌍](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R015/POSITION_HASH_COLLISIONS_10.csv) · [단일 블록 비월드 고정시드 42의 4가상 그룹 결과](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R015/NON_WORLD_FIXED_SEED42_MODELS_4.csv) · [Python 오프라인 소스/수식 검증기](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R015/VERIFY_R015_POSITION_SEED.py) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R015/SUMMARY.json).
+- 이번 새 원본 직접 열람한 관련 Java classfiles **10개**. `hpw.class` 82바이트 block breaking render 및 `htp.class` 473바이트 chunk mesh loop가 **`eoh.b(pos)` → `bgr.b(seed)` → `hqh.collectParts(bgr,list)`**를 실제로 호출. `eog$a.b(pos)`는 블록별 `dzq.a(state,pos)`로 **가상 호출**하며, `eog` 기본 구현은 `bgj`의 좌표 해시이다. 따라서 **사용한 17개 블록의 개별 override 확인이 다음 연구의 별도 조건**이며, 현재 결과가 월드에서 실측됐거나 모든 서브클래스에 무조건 적용된다고 하면 안 된다.
+- `bgj.b(III)`의 3129871/116129781/42317861/11 및 32/64비트 Java overflow+signed>>16을 직접 확인하고, `bgr` 기본 `eur`의 48-bit LCG multiplier 25214903917L / increment 11L / mask (2^48−1), `euf.nextInt(4)`의 power-of-two bounded draw 경로를 직접 확인. `R013` 4개 가중치 모델 목록(모두 weight1)과 조립하여 y64, x/z -3..3 **49가상 좌표/196가상 모델 선택**, 첫 slot 빈도 0=6/1=12/2=19/3=12. 49 중 **고유 기본 시드 39, 동일 시드인 서로 다른 좌표 쌍 10개**. 이는 실제 월드 확률이나 게임 화면 측정이 아님.
+- 월드 외 **단일 블록 `hpy` 코드에 `ldc2_w 42L`**이 있어, 같은 4개 weighted 그룹을 이 함수로 넘기는 가상 조건이면 첫 slot은 2. 이 데이터를 실제 인벤토리에서 축 x/y/z가 별도로 렌더된다는 주장으로 쓰지 말 것.
+- 원본 SHA 확인 및 JS BigInt 기반 소스 수식과 별도 Python 체크포인트 계산까지 했으나, 저장한 Python 오프라인 검증 파일의 **15개 추출 classfile 전체 종단 간 검증 실행은 아직 하지 않음**. 기존 17 PNG·31 모델 변형·186 face·134 가상 seams/R011 32 방향/R012 40 UV/R014 744 vertices는 중복 가산 금지.
+- **F 실제 게임 정적 렌더 0/17, 전체 A–G 완료 0/17**, 공식 전체 JAR 인증 필수 제외, 기존 R001–R014 및 전역 `v38`과 다른 단계/애니메이션·가구 모델링은 수정하지 않음.
+- 다음 `TEX02-R016`: 17개 실제 vanilla 블록 하위 클래스의 **`getSeed` override 여부** 및 필요 시 client atlas 등록 경로 확인. 추가 독립 증거가 없고 게임 실행 자료만 필요하면 리비전 번호를 억지로 만들지 말고 사용자에게 필요한 화면/파일을 요청.

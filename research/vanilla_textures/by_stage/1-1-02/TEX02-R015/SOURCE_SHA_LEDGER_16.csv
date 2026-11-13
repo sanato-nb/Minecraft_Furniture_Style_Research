@@ -1,0 +1,17 @@
+path,git_blob_sha,role,what_verified,source_binary_checked_by_connector,actual_minecraft_client_executed
+1.21.11/hpw.class,8eb9a7e281fc91d8466823451f5e662f6d168d60,R015_new_direct,block render dispatch; breaking texture reseed and collectParts; single-block nonworld route,true,false
+1.21.11/htp.class,fb4b050995f58c73b7e9970bd42f40b98a7a0f5f,R015_new_direct,chunk geometry rebuild; per-BlockPos reseed and collect parts,true,false
+1.21.11/hpy.class,079f96415a68d41461f35e88d713e2aa7a910bc1,R015_new_direct,single-block model render uses bgr.a(42L) to collect parts,true,false
+1.21.11/hpv.class,0a342c41475f4b181ceabb65692ac2b8025d4cbe,R015_new_direct,BlockModelShaper resolves hqh model for blockstate,true,false
+1.21.11/eog$a.class,35c882743a59ae8d99fee1da9dfe0f21e8c6aa7c,R015_new_direct,"blockstate.getSeed pos dispatches to dzq.a(BlockState,BlockPos)",true,false
+1.21.11/eog.class,bee52d0356520a1872a94b0a15b0c98ea5407154,R015_new_direct,"default BlockBehaviour a(BlockState,BlockPos)-> bgj.a(Vec3i)",true,false
+1.21.11/bgj.class,89604a1a7dfc4e63be8bc0eb170352b59c7f5374,R015_new_direct,Mth coordinate seed hash with Java int/long overflow and signed >>16,true,false
+1.21.11/eur.class,90617f9abceb3596e047accf8659a50e78df1a88,R015_new_direct,default RandomSource concrete 48-bit atomic LCG seed and next(bits),true,false
+1.21.11/euf.class,ad7284b632a86ce7e2f58c686c461c8027ee8e59,R015_new_direct,BitRandomSource nextInt(4) power-of-two next(31) multiplication route,true,false
+1.21.11/evf.class,27cda5fa260b97c1c5a34ef39102c07c0b9b30e3,R015_new_direct,"initial random unique seed before per-block reset, not world seed in hash",true,false
+1.21.11/bgr.class,c5dda84653eb3ff0088cb6d9a0f26b2a7c79e44d,R013_reused,"RandomSource factory a(), a(long) -> eur and setSeed b(long)",true,false
+1.21.11/hqh.class,d9578e0174edc24b857ba9b2b21f1aed21e78bbf,R013_reused,"BlockStateModel collectParts(RandomSource,List)",true,false
+1.21.11/cbn.class,06beacc3dbb751045895507672a2015e0aaec596,R013_reused,WeightedList nextInt(total) + select object,true,false
+1.21.11/cbn$c.class,4beaebeeee6ad3b740c093c6c68e779800f99aba,R013_reused,under-64 weighted array repeats item per weight,true,false
+1.21.11/ioj.class,d6f961ace90f5846affd9f05498a5b90781e83ae,R013_reused,weighted baked BlockStateModel selects cbn then collectParts,true,false
+research/vanilla_textures/by_stage/1-1-02/TEX02-R013/BLOCKSTATE_CHOICE_SLOTS_31.csv,18f02c6f44fd18f2a522fca81b2f73ba7409f829,R013_frozen_prior,31 blockstate model slot definitions and rotations,true,false
