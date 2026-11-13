@@ -1,0 +1,37 @@
+{
+  "schema": "tex05-official-client-verification-provenance/v1",
+  "date": "2026-11-13",
+  "target_version": "1.21.11",
+  "mirror_repo": "PrismLauncher/meta-upstream",
+  "mirror_ref": "master",
+  "manifest_copy_path": "mojang/version_manifest_v2.json",
+  "version_json_copy_path": "mojang/versions/1.21.11.json",
+  "version_json_copy_git_blob_sha": "578fbc7890857517695c7a381c58f117ed191415",
+  "manifest_entry": {
+    "id": "1.21.11",
+    "type": "release",
+    "releaseTime": "2025-12-09T12:23:30+00:00",
+    "sha1": "812ee7fdfdf648bb872f7a1dca33718de4e786b4",
+    "url": "https://piston-meta.mojang.com/v1/packages/812ee7fdfdf648bb872f7a1dca33718de4e786b4/1.21.11.json",
+    "time": "2026-11-10T06:55:03+00:00"
+  },
+  "mirror_version_json_raw_sha1": "eecf92276648e276e0b108a1f14fff2316ae805c",
+  "mirror_matches_manifest_sha1": false,
+  "hash_calculation_test": {
+    "sha1_known_abc": "a9993e364706816aba3e25717850c26c9cd0d89d",
+    "reconstructed_git_blob_sha1": "578fbc7890857517695c7a381c58f117ed191415",
+    "matches_github_git_blob": true
+  },
+  "reported_client": {
+    "sha1": "ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd",
+    "size": 31152600,
+    "url": "https://piston-data.mojang.com/v1/objects/ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd/client.jar"
+  },
+  "official_get_attempted": true,
+  "official_get_success": false,
+  "local_official_jar_available": false,
+  "evidence_level": "third_party_metadata_copy_information_only",
+  "warning": "The mirrored version JSON bytes do not match the SHA-1 referenced by the mirrored version manifest. It may be reserialized, updated or altered. Do not treat metadata or jar as officially authenticated until independently retrieved and checked against Mojang HTTPS.",
+  "runtime_status": "pending",
+  "animation_study_deferred": true
+}

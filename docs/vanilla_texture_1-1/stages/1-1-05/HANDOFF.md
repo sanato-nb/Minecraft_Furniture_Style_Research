@@ -2,7 +2,7 @@
 
 > Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 초기 고유 버전 **`TEX05-R000` (계획만 저장)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
-**현재 최신 실제 검사 버전: `TEX05-R001` (2026-11-13). 다음 후보 `TEX05-R002`.** 이 문서의 기존 R000 '미시작' 기술은 최초 계획 당시의 이력이며 현재 상태는 하단 R001 결과와 `STATE.json`을 우선한다.
+**현재 최신 실제 검사 버전: `TEX05-R002` (2026-11-13). 다음 후보 `TEX05-R003`.** 이 문서의 기존 R000 '미시작' 기술은 최초 계획 당시의 이력이며 현재 상태는 하단 R001 결과와 `STATE.json`을 우선한다.
 
 ## 연구 목표와 정확한 표본
 
@@ -51,7 +51,7 @@
 ## 버전 상태·저장 경로·갱신 규칙
 
 - 최초 **`TEX05-R000`**: 단계 분리/작업 안내만 저장한 계획 상태(역사적 이력).
-- 최신 실제 검증 결과: **`TEX05-R001`**; 보존 위치 `research/vanilla_textures/by_stage/1-1-05/TEX05-R001/`. 향후 새 증거 발견 시 다음 **`TEX05-R002`**(그때 STATE 재확인).
+- 이전 불변 검증 결과: **`TEX05-R001`**; 보존 위치 `research/vanilla_textures/by_stage/1-1-05/TEX05-R001/`. 최신 신규 분석 **`TEX05-R002`**; 새 증거 발생 시 다음 **`TEX05-R003`**(쓰기 전 STATE 재확인).
 - 이 단계 진행 관리: [STATE.json](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/docs/vanilla_texture_1-1/stages/1-1-05/STATE.json)와 이 `HANDOFF.md`만 단계 자체 채팅에서 갱신.
 - 다른 번호 단계의 `STATE/HANDOFF` 및 루트 프로젝트 공통 체크포인트·진행 문서는 **수정 금지**. 통합 시 최종 집계 담당자가 별도로 확인.
 - 소스 증거의 신뢰도는 최소 `legacy_only`, `mirror_sha_pixel_checked`, `official_jar_authenticated`, `ingame_static_verified`로 구분하되, 서로 상충·불충분하면 `pending` 유지.
@@ -76,3 +76,13 @@
 - **G**: [보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R001/REPORT.md) · [소스 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R001/SOURCE_LEDGER.csv) · [요약 JSON](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R001/SUMMARY.json) · [좌표 마스크](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R001/ALPHA_MASKS.md) · [원본 픽셀 1536행](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R001/PIXEL_RGBA.csv) · [정적 UV 36행](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R001/UV_FACE_LEDGER.csv).
 
 최신 단계 상태: **정적 소스 재검증 6/6**, **공식 JAR/인게임 0/6**, **A–G 공식 완료 0/6**; 전체 전역 v38과 전체 완료 0/5는 불변. 다음 버전 **TEX05-R002**는 STATE, SHA, 다음 릴리스 경로 재검사 후 새 실증이 있을 때만 개시한다.
+
+## TEX05-R002 — 2026-11-13 이어서 수행한 신규 실측과 공식 검증 경계
+
+- 기존 6종 PNG를 **별도 Pillow 분석**으로 다시 재해시·RGBA 전수 판독. 동일 1,536픽셀 재검산이므로 신규 고유 파일/픽셀을 6개/1,536개 추가 계산하지 않음.
+- 새 경계 시험: glass 좌우 RGBA 일치 **2/16**, 상하 **1/16**, 좌우 RGB 절댓값 평균 **40.9583**, 상하 **38.4583**(v4 레거시 경계 기록과 일치). 착색 5종은 좌우/상하 각 RGBA **16/16** 일치, RGB MAE 0. 여섯 원본 모두 가장자리 알파는 양방향 16/16 일치, 가로/세로 내부 인접 알파 변화 각각 38/240.
+- PrismLauncher `meta-upstream` 제3자 메타데이터 미러에서 1.21.11 매니페스트와 1.21.11 JSON을 직접 읽음. **매니페스트가 지정한 버전 JSON SHA-1 `812ee7fd...`와 복제 JSON 실제 SHA-1 `eecf9227...` 불일치**. 단순 미러는 공식 인증이 아님. 사본이 기록한 클라이언트 후보: SHA1 `ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd`, 길이 **31,152,600 bytes**.
+- 공식 Mojang HTTPS 메타데이터와 클라이언트 JAR 직접 접근 실패. 따라서 F 공식 `client.jar` 인증 **0/6**, D3 인게임 정적 render layer/정렬 **0/6** 그대로 **pending**. 무색/착색 원본 PNG 측정과 실제 렌더 실험을 절대로 혼동하지 않음.
+- 공식 자료가 제공될 때 사용 가능한 [독립 JAR 검증 코드](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R002/VERIFY_OFFICIAL_CLIENT.py)는 공식 Mojang 메타데이터를 실제 조회하고 로컬 `client.jar`의 SHA1·길이·내부 6 PNG SHA를 검사하도록 준비. **이번에 공식 JAR로 검사했다는 뜻 아님**.
+- 새 결과: [R002 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R002/REPORT.md) · [6종 경계 실측 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R002/EDGE_RGBA_AUDIT.csv) · [요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R002/SUMMARY.json) · [메타데이터 출처·불일치 증거](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R002/METADATA_PROVENANCE.json) · [원본 PNG 재실측 코드](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R002/REPRODUCE_EDGE_AUDIT.py).
+- 상위 전역 **v38**과 공통 완료 0/5는 변경하지 않았으며, 애니메이션·동작·실제 가구 제작은 여전히 제외. 다음 단계 고유번호는 `TEX05-R003`을 시작 전에 GitHub에서 확인해야 한다.

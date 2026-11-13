@@ -1,0 +1,102 @@
+{
+  "schema": "tex05-glass-r002/v1",
+  "stage": "1-1-05",
+  "revision": "TEX05-R002",
+  "previous_revision": "TEX05-R001",
+  "scope": "six_fixed_glass_textures_only",
+  "date": "2026-11-13",
+  "global_checkpoint_unchanged": "v38",
+  "new_analysis": {
+    "source_pngs_reopened": 6,
+    "independent_sha256_matches": 6,
+    "rgba_pixels_reprocessed": 1536,
+    "new_left_right_exact_rgba_counts": [
+      2,
+      16,
+      16,
+      16,
+      16,
+      16
+    ],
+    "new_top_bottom_exact_rgba_counts": [
+      1,
+      16,
+      16,
+      16,
+      16,
+      16
+    ],
+    "lr_rgb_mae": [
+      40.958333333333336,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "tb_rgb_mae": [
+      38.458333333333336,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "all_left_right_alpha_equal_16_of_16": true,
+    "all_top_bottom_alpha_equal_16_of_16": true,
+    "alpha_horizontal_neighbor_transition_counts": [
+      38,
+      38,
+      38,
+      38,
+      38,
+      38
+    ],
+    "alpha_vertical_neighbor_transition_counts": [
+      38,
+      38,
+      38,
+      38,
+      38,
+      38
+    ],
+    "v4_legacy_glass_boundary_values_independently_matched": true,
+    "stained_alpha_histogram_identical_per_file": {
+      "102": 191,
+      "155": 5,
+      "163": 60
+    }
+  },
+  "metadata_provenance": {
+    "source": "PrismLauncher/meta-upstream, not direct Mojang API",
+    "version": "1.21.11",
+    "reported_official_version_json_sha1": "812ee7fdfdf648bb872f7a1dca33718de4e786b4",
+    "observed_prism_copy_json_sha1": "eecf92276648e276e0b108a1f14fff2316ae805c",
+    "mirror_version_json_bytes_identical_to_reported_official_sha1": false,
+    "client_jar_reported_sha1": "ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd",
+    "client_jar_reported_size": 31152600,
+    "official_metadata_direct_fetch_succeeded": false,
+    "client_jar_download_succeeded": false,
+    "official_sha1_size_authentication_passed": false
+  },
+  "official_client_jar_authenticated_count": 0,
+  "ingame_static_verified_count": 0,
+  "D3": "pending_official_runtime",
+  "F": "pending_official_client_jar_and_ingame",
+  "active_release_files": [
+    "REPORT.md",
+    "SOURCE_LEDGER.csv",
+    "SUMMARY.json",
+    "METADATA_PROVENANCE.json",
+    "EDGE_RGBA_AUDIT.csv",
+    "REPRODUCE_EDGE_AUDIT.py",
+    "VERIFY_OFFICIAL_CLIENT.py"
+  ],
+  "reused_not_recounted": "R001 6 unique source png and 1536 texels; R002 rechecks same 6 and adds seams/metadata provenance",
+  "source_interpretation_limits": [
+    "Extracted PNG alpha cannot establish render layer/sorting/culling",
+    "PrismLauncher archived metadata JSON not byte-identical to manifest referenced JSON",
+    "Do not call third-party metadata official authenticated",
+    "No official jar or in-game static verification; no animation"
+  ]
+}
