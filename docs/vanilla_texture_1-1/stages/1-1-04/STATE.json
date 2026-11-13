@@ -10,7 +10,7 @@
   "current_revision": "TEX04-R008",
   "next_revision": "TEX04-R009",
   "revision_sequence": 8,
-  "revision_status": "TEX04_R008_source_based_9_of_9_finished_no_required_ingame_verification_user_policy_2026_11_13",
+  "revision_status": "TEX04_R008_SOURCE_STUDY_COMPLETE_USER_SCOPE_FINAL_REPORT_UPLOADED",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 9,
@@ -90,7 +90,7 @@
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "excluded_from_required_scope_by_user_official_jar_and_ingame_both_optional_not_verified",
+      "status": "EXCLUDED_optional_ingame_and_official_JAR_by_user_not_verified",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "last_revision": "TEX04-R004",
       "note_r002": "Candidate Mojang SHA1 found only in third-party indexes, jar bytes unavailable",
@@ -101,9 +101,10 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "saved_R008_stage_source_only_scope_closed_no_mandatory_ingame_gate",
+      "status": "COMPLETED_source_only_R001_R008_final_completion_record_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX04-R008"
+      "last_revision": "TEX04-R008",
+      "completion_record": "research/vanilla_textures/by_stage/1-1-04/COMPLETION_SOURCE_ONLY_2026-11-13.md"
     }
   },
   "material_specific_checks": [
@@ -629,13 +630,11 @@
     }
   ],
   "next_steps": [
-    "1-1-04 source-based study of the nine original wool PNGs + static block/item JSON is COMPLETE within user-approved source-only scope through R008; do not invent additional work.",
-    "Do not request 1.21.11 in-game screenshots, F3, resource-pack/shader screenshots or run game solely to complete this stage. In-game static 0/9 is excluded, not verified.",
-    "Continue source-only research only when user supplies new original textures/models or a genuinely distinct unstudied source question; otherwise when user says '계속해줘' say this scope is finished and pause.",
-    "To create R009 only if new source evidence/analysis actually exists: live re-fetch STATE/HANDOFF, main HEAD, check absent revision folder and preserve past immutable releases.",
-    "Keep original existing nine PNG / 2304 pixels / 54 UV faces and R007/R008 findings as inherited, not additional distinct files/pixels.",
-    "Mojang official full client.jar SHA1 and official metadata remain excluded and unauthenticated; never imply cryptographically verified provenance.",
-    "Animations, other 1-1 stages, Project Zomboid conversion and furniture 3D modeling still outside current stage."
+    "STOP: user-approved 1-1-04 nine-wool static source research is completed and final report has been uploaded; do not loop, advance release or ask for screenshots.",
+    "Keep R001–R008 reports immutable, original 2,304 pixels and 54 model faces counted once; final completion record is research/vanilla_textures/by_stage/1-1-04/COMPLETION_SOURCE_ONLY_2026-11-13.md.",
+    "In-game 0/9 and official JAR verification 0 are explicitly excluded from mandatory research, not verified; source/actual-game claims remain distinguished.",
+    "Only reopen with genuinely new source evidence or user-defined research scope; re-read live STATE/HANDOFF and GitHub HEAD, and check folder absence before first R009.",
+    "Other 1-1 texture stages, animation, PZ and 3D furniture building are not completed by this stage."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -766,5 +765,32 @@
     "official_client_jar_full_sha1_and_mojang_metadata": "already excluded from required denominator; not authenticated",
     "limits": "Only provenance supported by uploaded extracted source bytes; cannot claim verified GUI screenshot, renderer shading, runtime texture pack compatibility, or official distribution authenticity.",
     "no_new_revision_for_policy_change": true
+  },
+  "research_source_completion": {
+    "status": "COMPLETE_WITHIN_USER_APPROVED_SOURCE_ONLY_SCOPE",
+    "recorded_date": "2026-11-13",
+    "completed_required_phase_keys": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "G"
+    ],
+    "excluded_optional_phase_keys": [
+      "F"
+    ],
+    "source_pngs_completed": 9,
+    "source_pngs_total": 9,
+    "source_pixels_distinct_checked": 2304,
+    "static_block_model_face_links_checked": 54,
+    "item_json_source_links_checked": 9,
+    "current_last_evidence_revision": "TEX04-R008",
+    "do_not_promote_revision_for_completion_metadata": true,
+    "proof_document": "research/vanilla_textures/by_stage/1-1-04/COMPLETION_SOURCE_ONLY_2026-11-13.md",
+    "in_game_verified_count_historically": 0,
+    "in_game_required": false,
+    "official_jar_authenticated_count_historically": 0,
+    "official_jar_mandatory": false
   }
 }
