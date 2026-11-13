@@ -1,0 +1,6 @@
+x,y,z,source_f_enum,source_f_name,source_h_permutation,source_h_axes,source_flip_bits,matrix_rowX,matrix_rowY,matrix_rowZ,determinant,group_composition_in_g,group_alias_source,engine_runtime_verified
+0,0,0,f.a,IDENTITY,h.a,0:1:2,0:0:0,1:0:0,0:1:0,0:0:1,1,"g.a(a,a,a)",none,false
+0,180,0,f.c,ROT_180_FACE_XZ,h.a,0:1:2,1:0:1,-1:0:0,0:1:0,0:0:-1,1,"g.a(a,c,a)",g.c.y=f.aa=f.c,false
+90,0,0,f.s,ROT_90_X_NEG,h.c,0:2:1,0:0:1,1:0:0,0:0:1,0:-1:0,1,"g.a(b,a,a)",g.b.x=f.Y=f.s,false
+90,180,0,f.r,ROT_180_EDGE_YZ_POS,h.c,0:2:1,1:0:0,-1:0:0,0:0:1,0:1:0,1,"g.a(b,c,a)",f.aa=f.c multiplied f.Y=f.s,false
+90,90,0,f.l,ROT_120_PPP,h.d,2:0:1,0:0:0,0:1:0,0:0:1,1:0:0,1,"g.a(b,b,a)",f.ab=f.u multiplied f.Y=f.s,false

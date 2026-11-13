@@ -1,6 +1,6 @@
 # 1-1-02 — 석재·벽돌 별도 채팅 인수인계
 
-> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R010` (uvlock false 기본값과 일반 ModelState 경로 확정)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
+> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R011` (회전 행렬 검증·R007 32면 방향 교정)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 ## 연구 목표와 정확한 표본
 
@@ -149,3 +149,12 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 - 31 상태의 `(x,y,z)` 튜플 5종: (0,0,0) 19개, (0,180,0) 4개, (90,90,0) 4개, (90,0,0) 2개, (90,180,0) 2개. 새 쿼드/실제 픽셀 측정/인게임 스크린샷 **0건**. 과거 31 상태·186면·R007 134 이음새 수량 누적 금지.
 - **인게임 정적 검증 0/17, A–G 전체 완료 0/17**. 공식 JAR SHA-1 인증은 연구 기준 제외, 성공 주장 없음. 애니메이션 보류, 전역 v38과 타 단계 변경 없음.
 - 다음 후보 **`TEX02-R011`**: 라이브 STATE/HEAD 재확인 후 사용자 추출 `f.class`의 실제 XYZ 90도 회전 및 `hqi` 정점 재배열까지 추적하여 모델 월드면의 UV 정확성 추가 검증. 현재 사용자 도움 없이 원본 소스 검사는 추가 가능.
+
+## TEX02-R011 — f/h/g 원본 회전 그룹에 따른 R007 32면 방향 정정 (2026-11-13)
+
+- [보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R011/REPORT.md) · [원본 회전 행렬 5종](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R011/ROTATION_GROUP_MATRICES_5.csv) · [R007 기존 186면 전수 감사](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R011/WORLD_FACE_AUDIT_186.csv) · [교정이 필요한 32면](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R011/R007_WORLD_FACE_CORRECTIONS_32.csv) · [이음새 재평가 대상 64행](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R011/R007_NORTH_SEAM_REEVALUATION_64.csv) · [원본 Git SHA 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R011/SOURCE_LEDGER.csv) · [오프라인 재현 코드](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R011/REPRODUCE_R011_ROTATION_AUDIT.py) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R011/SUMMARY.json).
+- 사용자 추출 `1.21.11/`에서 **새 `.class` 2개** `f.class`(48개 signed-permutation 상수)·`h.class`(6개 축 순열)를 직접 조사. R009 `g.class`·R010 `inm.class` 재사용. `g`의 정수 90도는 소스의 `ROT_90_X_NEG` 같은 **음의 회전 부호 그룹**으로 매핑한다는 사실을 확인.
+- R010에서 계승한 기존 31상태의 5개 XYZ 회전 조합을 소스 행렬로 유도. **이전 R007 186면 월드 방향 중 154건 일치, 32건 불일치**. 전부 `deepslate axis=x` 16면 + `axis=z` 16면이며, R011 교정 CSV로 별도 보존. **기존 R007 무수정**, 파생 연구의 오류만 새 버전에서 표시.
+- R007의 가상 2D 이음새 134행 중 `deepslate axis=x` 32 + `axis=z` 32 = **64행은 수정 행렬로 다시 투영할 필요**. **64개 밝기 수치가 전부 틀렸다는 뜻은 아니며, 실측 인게임 자료는 전혀 아니다**. 나머지 70행도 소스 수치 유지만 할 뿐 게임 검증 완료가 아님.
+- 신규 PNG/픽셀 측정 0건, 기존 원본 17 PNG/31 선언/186면/134 가상 seam 실적 계승. **실제 인게임 0/17, A–G 전체 완료 0/17**. 공식 JAR 전체 SHA-1 인증은 필수 연구 조건 제외. 애니메이션 및 3D 가구 제작/좀보이드 변환 제외.
+- 다음 후보 `TEX02-R012`: 라이브 HEAD/STATE 확인 후 수정된 행렬과 `hoa/hqi` bake 정점·UV 처리로 **실제 코너 수치와 영향받는 64개 2D seam 가설 재계산**. 원본 코드로 연구 가능한 부분이 남아 있어 현재 사용자 협조 없이 이어갈 수 있음.
