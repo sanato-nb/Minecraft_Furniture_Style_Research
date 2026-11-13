@@ -1,5 +1,20 @@
 # 1-1-07 콘크리트·색면 — 최신 인수인계
 
+## TEX07-R003 / 사용자 제공 1.21.11 자료 검증 (2026-11-13)
+
+- 사용자 직접 JAR 추출이라고 알려준 [`1.21.11/` 폴더](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/1.21.11)의 7 콘크리트 PNG, 7 blockstate, 7 block model, 7 item, 공통 모델 3 = **31개 파일 원본 직접 조회**.
+- 비공식 InventivetalentDev 미러 1.21.11과 실제 PNG 바이트/JSON 내용 및 Git blob SHA가 **31/31 일치**. 사용자 추출본 PNG **7/7 SHA256·CRC 정합**, 42개 모델 면 참조/UV 수치 명시 0·유도 42도 확인. 조사 당시 source commit `2a43897b8f605b4e0c96a272bca476ee6b70058e`.
+- 새 [R003 REPORT](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R003/REPORT.md) 및 [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R003/SUMMARY.json)와 31/7/7행의 교차검증 CSV 참조.
+- 증거 수준 4축 구분: **사용자 제공 추출본 7/7**, **미러 교차 7/7**, **Mojang 공식 JAR SHA-1 인증 0/7**, **인게임 정적 검증 0/7**. 추출본과 미러가 같아도 Mojang 공식 인증이 아님.
+- R001/R002 픽셀 결과 중복 집계 금지. 기존 기록 보존. 다른 1-1 단계 및 글로벌 `v38` 수정 금지. 애니메이션 보류, PZ 변환과 가구 실제 3D 제작 금지.
+- 다음 **TEX07-R004**: 최신 STATE SHA·버전·R004 출력 충돌 확인 후 공식 전체 JAR 및 실제 인게임 정적 증거가 확보될 때만 해당 검증을 진척시킬 것.
+
+---
+
+## 이전 R002/R001/R000 인수인계 기록 (아래는 역사적 상태)
+
+# 1-1-07 콘크리트·색면 — 최신 인수인계
+
 ## 최신: TEX07-R002 (2026-11-13)
 
 - 범위는 그대로 7색 콘크리트만. R001의 비공식 미러 PNG 7개를 **R002에서 같은 바이트로 다시 SHA256/CRC/Pillow 디코딩 재검사 7/7**. R001과 R002를 합쳐 14개 고유 경로로 세지 말 것.
