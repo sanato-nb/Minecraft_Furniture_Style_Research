@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-13",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v35",
+  "current_checkpoint": "v36",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -59,7 +59,7 @@
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v35_p1_15_leaf_source_sha_checked_bell33_explicit_cake42_implicit_bee_cube6_source_faces_24_material_applications_71_blockstates",
+      "status": "v36_p1_v35_15_plus_v36_6_direct_source_sha_and_24_static_variants_no_official_jar",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -113,7 +113,16 @@
       "v35_unique_declared_source_faces": 81,
       "v35_face_material_application_records": 99,
       "v35_source_variants": 71,
-      "v35_bell_special_renderer_unverified": true
+      "v35_bell_special_renderer_unverified": true,
+      "v36_p1_added_leaf_json_sha_matches": 6,
+      "v36_p1_v35_v36_direct_sha_checked_leaf_count": 21,
+      "v36_selected_prior_evidence_csv": 18,
+      "v36_prior_sha_matched_models": 83,
+      "v36_unmatched_in_selected_csv": 446,
+      "v36_prior_full_historical_reconciliation_complete": false,
+      "v36_new_static_variants": 24,
+      "v36_face_material_rows": 36,
+      "v36_original_png_rgba_new": 0
     },
     {
       "id": "03",
@@ -1890,5 +1899,33 @@
       "research/vanilla_models/v35/13_sixteen_png_v4_150_overlap_crosscheck.csv",
       "research/vanilla_models/v35/14_six_png_independent_pillow_sha256_rgba.csv"
     ]
+  },
+  "v36": {
+    "date": "2026-11-13",
+    "report": "research/vanilla_models/v36/00_v36_P1_544과거SHA대조_화로용광로훈연기6모델_24상태_정적분석.md",
+    "crosswalk": "research/vanilla_models/v36/01_p1_544_historical_sha_evidence_crosswalk.csv",
+    "p1_candidate_files": 544,
+    "prior_csv_sources_selected": 18,
+    "prior_sha_matches": 83,
+    "v35_direct_leaf": 15,
+    "v36_new_direct_leaf": 6,
+    "unmatched_in_selected_sources": 446,
+    "full_reconciliation_done": false,
+    "sha_conflict_names": [
+      "chiseled_bookshelf",
+      "oak_shelf"
+    ],
+    "parent_json_read": 3,
+    "blockstates_json_read": 3,
+    "static_source_variants": 24,
+    "unique_source_cube_faces": 6,
+    "inherited_face_material_rows": 36,
+    "texture_paths_identified": 13,
+    "png_full_rgba_newly_decoded": 0,
+    "implicit_uv_is_inference": true,
+    "official_jar_authenticated": false,
+    "ingame_static_renderer_verified": false,
+    "animations_deferred": true,
+    "final_completed_substeps": 0
   }
 }
