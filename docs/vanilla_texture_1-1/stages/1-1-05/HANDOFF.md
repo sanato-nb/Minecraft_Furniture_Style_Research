@@ -1,5 +1,7 @@
 # 1-1-05 — 유리 별도 채팅 인수인계
 
+> **현재 우선 적용 정책 (2026-11-13): 사용자가 "공식 인증 빼"라고 지시함.** `1-1-05` 유리 연구에서는 Mojang 공식 `client.jar` 전체 SHA-1·공식 버전 메타데이터 인증을 **연구 범위에서 제외**하고, 완료 조건·다음 할 일·진행률 분모에 넣지 않는다. **인증 완료를 뜻하지 않는다.** 이전 R001~R004 보고서의 `official pending` 등은 작성 당시 이력으로 보존한다. 현재 연구는 **사용자 제공 `1.21.11/` 파일 직접 분석 / 기존 미러 교차검증 / 실제 인게임 정적 렌더 검증**으로 계속한다. 정적 소스만으로 인게임 검증을 완료 판정하지 않는다. 애니메이션·PZ 변환·실제 가구 모델 제작은 계속 제외. **현재 `TEX05-R004`, 다음 검증 증거 버전 `TEX05-R005`, 전역 `v38` 유지.**
+
 > Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 초기 고유 버전 **`TEX05-R000` (계획만 저장)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 **현재 최신 실제 검사 버전: `TEX05-R004` (2026-11-13). 다음 후보 `TEX05-R005`.** 이 문서의 기존 R000 '미시작' 기술은 최초 계획 당시의 이력이며 현재 상태는 하단 R001 결과와 `STATE.json`을 우선한다.
@@ -108,3 +110,11 @@
 - 4단계 증거: (1) 사용자 추출본 고유 소스 경로 31건, (2) 미러 동일 Git blob SHA 31건, (3) 공식 `client.jar` SHA-1 **0/6 pending**, (4) 인게임 유리 정적 검증 **0/6 pending**. 공식 완료 A–G 판정 계속 미충족. 기존 공통 `v38` 유지.
 - 산출물: [R004 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R004/REPORT.md), [신규 4개 소스 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R004/SOURCE_LEDGER.csv), [유리 6종 메타데이터 매트릭스](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R004/SPRITE_METADATA_MATRIX.csv), [셰이더 증거 제한 문서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R004/STATIC_RESOURCE_CONSTRAINTS.md), [단계 SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R004/SUMMARY.json).
 - 다음 고유 릴리스 **TEX05-R005**. 사용자 제공 JAR 추출본 우선, 애니메이션 분석 보류, Project Zomboid 변환 및 실제 가구 3D 모델 제작 제외. 저장 전 HEAD/STATE/새 경로 충돌 검사 필수.
+
+## 작업 기준 변경 — 공식 JAR 인증 제외 (2026-11-13, 버전 번호 증분 없음)
+
+- **유효 지시:** 사용자 요청에 따라 Mojang 원본 JAR SHA-1·공식 배포 메타데이터 인증 **범위 제외(out_of_scope)**. 완료 요구·다음 할 일·미진행률 계산의 필수 조건에서 제거. 이전 미완료 기록을 `verified`로 바꾸지 않음.
+- 적용되는 세 증거 영역: **① 사용자 제공 `1.21.11/` 실제 PNG/JSON/모델/셰이더 검증 ② 기존 비공식 미러와 교차검증 ③ 인게임 정적 렌더 증거가 실제 존재할 때에만 검증**.
+- 과거 **TEX05-R001~R004** 결과·원장·커밋을 보존하고, `TEX05-R005`는 새로운 *분석 증거*가 발생할 때 생성. 이번은 **정책·인수인계만 갱신했으므로 R004 유지**.
+- F 단계는 **인게임 정적 검증만 남고 공식 JAR 인증 절차는 요구하지 않음**. 인게임 테스트 데이터가 없으므로 인게임 부분은 계속 pending.
+- 다른 연구 단계, 루트 공통 문서, 전체 `v38`, 애니메이션 보류/제외 조건은 수정하지 않음.
