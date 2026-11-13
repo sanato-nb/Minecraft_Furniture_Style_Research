@@ -71,8 +71,8 @@
       "last_revision": "TEX06-R006"
     },
     "F": {
-      "title": "F 인게임 정적 렌더·UV·facing 검증 (공식 원본 JAR 인증 제외)",
-      "status": "pending_ingame_static_only_official_JAR_SHA1_excluded_by_user",
+      "title": "F 인게임 정적 렌더·UV·facing 검증 (사용자 지시로 연구 범위 제외)",
+      "status": "excluded_by_user_not_required_historical_0_of_8_preserved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "last_revision": "TEX06-R004"
     },
@@ -381,10 +381,11 @@
     }
   ],
   "next_steps": [
-    "Compare actual Minecraft Java 1.21.11 static glazed terracotta north/east/south/west wall 2x2 panels and item-view captures to source-projection variants without claiming render verification from source only",
-    "Read live next_revision and latest 1-1-06 state before starting R007; preserve older TEX06 releases and global v38",
-    "User-provided 1.21.11 PNG/JSON is primary evidence; Mojang compressed client.jar SHA-1 authentication excluded by user",
-    "Animation, PZ conversion, and furniture 3D construction remain deferred"
+    "On next '계속해줘', assess whether source-grounded 1.21.11 PNG/parent/leaf model/blockstate/item analysis has any substantive new unanswered question; investigate only if additional verifiable source evidence is available",
+    "Do not require Minecraft execution, block/item screenshots or renderer UV validation; preserve historical count 0 without treating as completion blocker",
+    "Do not require Mojang compressed client.jar SHA-1 authentication; primary user-supplied unpacked 1.21.11 assets and fixed mirror crosscheck remain valid",
+    "If source-only research is exhausted or further progress needs unavailable primary data, stop and tell the user rather than issuing an unsupported TEX06-R007",
+    "Keep prior TEX06 releases and global v38 unchanged, with no animation, PZ conversion or furniture 3D construction"
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -392,7 +393,8 @@
   "scope_excluded": [
     "Project Zomboid conversion",
     "actual furniture 3D asset building",
-    "animation study until explicitly resumed"
+    "animation study until explicitly resumed",
+    "in-game static render verification and in-game screenshots"
   ],
   "project_overall_completion_pct": null,
   "do_not_count_planning_as_research": true,
@@ -441,9 +443,12 @@
       "note": "Historical unauthenticated count retained; not a blocker, completion condition, or next-step task from 2026-11-13"
     },
     "ingame_static_render": {
-      "status": "pending",
+      "status": "excluded_by_user",
+      "required": false,
+      "in_scope": false,
       "count": 0,
-      "reason": "static 4-panel comparison commands prepared but not executed"
+      "reason": "user_explicitly_excluded_actual_Minecraft_gameplay_or_static_screenshots_from_required_research_2026-11-13",
+      "historical_unverified_count_retained": true
     }
   },
   "user_unpacked_item_JSON_checked_count": 8,
@@ -453,7 +458,7 @@
   "in_game_test_panels_executed": 0,
   "research_scope_policy": {
     "updated_at": "2026-11-13",
-    "update_type": "user_requested_methodology_change_not_new_evidence",
+    "update_type": "user_requested_source_only_scope_exclude_ingame_and_official_JAR_not_new_evidence",
     "current_stage": "1-1-06",
     "official_Mojang_compressed_jar_SHA1_certification": {
       "required": false,
@@ -470,14 +475,25 @@
       "status": "8_of_8_verified"
     },
     "actual_ingame_static_render": {
-      "required": true,
-      "status": "pending",
-      "count": 0
+      "required": false,
+      "in_scope": false,
+      "status": "excluded_by_user",
+      "count": 0,
+      "historical_count_preserved": true,
+      "not_a_completion_blocker": true
     },
     "animation": "deferred",
     "project_zomboid_or_furniture_3D": "excluded",
     "immutable_releases_R001_through_R004": "preserved",
-    "global_project_checkpoint": "v38_unchanged"
+    "global_project_checkpoint": "v38_unchanged",
+    "source_only_research": {
+      "required": true,
+      "status": "8_of_8_source_textures_and_model_JSON_crosschecked",
+      "runtime_orientation_not_certified": true
+    },
+    "next_release_trigger": "new_verifiable_source_evidence_only",
+    "continue_command_policy": "Continue source-analysis if feasible; stop and inform user if source research is exhausted or fresh primary data would be needed; never require in-game screenshots",
+    "immutable_releases_R001_through_R006": "preserved"
   },
   "version_advance_for_this_policy_update": false,
   "official_client_jar_authentication_policy": "excluded_by_user_not_claimed",
@@ -492,5 +508,7 @@
     "new_independent_RGBA_texels": 0,
     "ingame_static_verified_count": 0,
     "output_root": "research/vanilla_textures/by_stage/1-1-06/TEX06-R006/"
-  }
+  },
+  "source_only_completion_basis": "8/8 primary user-unpacked PNG and related model/item/blockstates crosschecked, separate from in-game render verification",
+  "ingame_verification_requirement_removed_by_user": true
 }

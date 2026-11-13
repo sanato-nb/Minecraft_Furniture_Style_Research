@@ -134,3 +134,16 @@
 - 각 월드 측면과 두 UV 부호 가정에서 2×2 최적값은 검정 RGB L1 916 / MAE 4.770833 / 28/64 동일, 흰색 412 / 2.145833 / 44/64 동일. **측면/UV 부호에 따른 최적값 불변이므로 최적 이음 점수만으로 실제 게임 facing/부호를 판별할 수 없음**. 원본 모델/PNG의 조건부 2D 계산이며 실제 게임 시각 인증이 아님.
 - [R006 REPORT](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R006/REPORT.md) · [측면 소스 UV 매핑](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R006/SIDE_FACE_SOURCE_MAP.csv) · [측면 경계 512행](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R006/SIDE_EDGE_PAIRWISE.csv) · [2×2 최적 16행](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R006/SIDE_PANEL_OPTIMA.csv) · [재현 Python](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R006/REPRODUCE_SIDE_PIXEL_AUDIT.py) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R006/SUMMARY.json).
 - **인게임 정적 렌더 0/8**. 사용자 지시로 공식 client.jar SHA-1 인증은 범위 제외(성공 인증 아님). 애니메이션, PZ 변환, 실제 가구 3D 모델 제작 모두 보류. 다음 R007은 신규 근거가 있을 때만.
+
+## 연구 기준 변경 — 2026-11-13 (인게임 검증 제외 · 새 TEX06 릴리스 아님)
+
+**사용자 최신 지시: "인게임 검증은 제외해줘 어차피 모델링이랑 텍스텨있는데 필요없을거같아".** 본 변경은 과거 보고서의 정적 인게임 검증 요청이나 보류 표기보다 우선한다.
+
+- **실제 Minecraft 실행, 정적 인게임 스크린샷, 아이템/블록 화면 UV 및 facing 관찰·검증을 연구 요구사항과 완료 조건에서 제외**한다. 더는 사용자에게 이를 필수 작업·R007 선행 조건으로 요청하지 않는다.
+- 계속 사용하는 근거는 사용자 제공 `1.21.11/`의 **PNG 바이너리·RGBA 픽셀, 부모/리프 모델 JSON, item JSON, blockstates JSON, face UV 및 상태별 수학적 변환**과 관련 고정 미러 교차 검사다. 이러한 근거로 보이는 외형·무늬 패턴의 정적 **소스 수준** 구조를 판단한다.
+- 모델 JSON과 원본 텍스처만으로 해당 버전 자산의 선언된 모델/색상/기하/UV를 분석할 수 있으므로 실게임은 필수 아님. **단, 게임 엔진이 실제 렌더링한 시점·면의 방향이나 회전/조명 결과를 검증했다는 뜻이 아니다**. R005/R006의 UV 부호 후보를 확정 사실로 격상시키지 않는다. 실제 PBR 반사나 런타임 동작도 추정으로 인증하지 않는다.
+- **사용자 압축 해제 1.21.11 PNG·관련 JSON 및 비공식 미러 교차 검증 8/8 유지**. 이는 8개 파일 경로에 대한 소스 기반 검증 성과이며, 모든 가능한 배치/렌더 결과에 대한 완전 인증은 아니다. 과거 `ingame_static_render_verified_count=0` 등은 **역사적 관찰 기록으로 유지**하되 추가해야 할 8개 검증을 의미하지 않는다.
+- 기존 사용자 지시대로 Mojang 공식 압축 JAR SHA-1 인증도 제외 유지. 범위 제외는 인증 성공과 다르다.
+- 변경은 **방법론/범위 설정만 수정**했으므로 `current_revision=TEX06-R006`, `next_revision=TEX06-R007` 그대로 유지. R001–R006 불변 릴리스 및 공통 `v38`는 손대지 않는다. **신규 소스 근거가 있을 때만 R007** 생성.
+- 이후 사용자가 "계속해줘"라고 요청하면 재입장 후 **남아 있는 소스 기반 실증 분석만** 계속한다. 소스 관점에서 할 연구가 다 끝났거나 사용자 제공 원본이 부족해 실제 더 진행할 수 없다면 **버전/성과를 억지로 늘리지 말고 멈춰서 사유와 필요한 자료를 알려준다**. 단순히 인게임 캡처가 없다는 사유만으로 중단/도움 요청하지 않는다.
+- 애니메이션 분석, Project Zomboid 변환, 실제 가구 3D 모델링 제작은 별도 지시까지 이 단계 범위 밖이다.
