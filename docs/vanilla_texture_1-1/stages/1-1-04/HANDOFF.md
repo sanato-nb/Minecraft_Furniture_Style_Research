@@ -12,6 +12,18 @@
 
 ---
 
+## TEX04-R005 — 9색 양털 색상치환·명도 부호·D4 패턴·정적 상태 신규 비교 (2026-11-13)
+
+[새 R005 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R005/REPORT.md) · [요약 JSON](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R005/SUMMARY.json) · [색상 치환 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R005/COLOR_SUBSTITUTION.csv) · [D4 방향성 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R005/D4_ORIENTATION.csv) · [36색쌍 인접부호 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R005/PAIRWISE_GRADIENT_SIGNS.csv) · [정적 모델 상태 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R005/MODEL_STATE_COMPARISON.csv) · [재현 코드](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R005/REPRODUCE_R005.py).
+
+- 라이브 전 릴리스 `TEX04-R004`의 SHA-384 MANIFEST/SF 30파일 내부 체인 결과 계승; 9 PNG를 사용자 제공 `1.21.11/`에서 다시 직접 바이트로 열고 SHA256·CRC 검증. **신규 고유 PNG 0, 고유 2,304픽셀·54면 계승(추가 집계 금지)**.
+- 새 지표 **126행**: 색상별 9행·D4 72행·36쌍 인접 명도부호·9종 모델/상태 비교. 36쌍 × 480 = 17,280 후보 중 두 쪽 모두 명도차가 있는 **16,404 비교(가로 7,933+세로 8,471) 전부 부호 일치**, 876건 무변화 포함 비교 제외.
+- D4 8공간변환 검사에서 **9색 모두 회전/반사 없는 상태가 최고 상관**. 그러나 색상별 RGB 팔레트가 같지 않고, 채널별 1차 치환 잔차가 있으므로 RGB 값 자체를 동일하다고 보지 않는다.
+- 9 leaf 모델/9 blockstate/3 부모 JSON을 직접 재열람: 동일 `cube_all→cube→block`, 단일 기본 blockstate variant, 정적 JSON의 추가 기하·UV 회전·색상별 orientation 차이 0. **실제 게임 3D face의 샘플링과 조명은 확인 안 됨**.
+- 사용자 변경 정책: Mojang 배포 client.jar **전체 SHA-1/공식 메타데이터 인증은 필수 연구·완료 분모에서 제외**, 역사적 인증 실패/미검증 상태 0 유지. **인게임 정적 0/9**, RSA/PKCS7 서명 인증 주장 금지. 애니메이션·PZ·가구 제작 제외.
+- **다음 번호 `TEX04-R006`**: 새 정적 소스 반례나 실제 통제된 게임 정적 스크린샷 등 *새 근거* 확보 시에만, 새 채팅 HEAD/STATE/폴더 재확인 후 발행.
+
+---
 ## TEX04-R004 — 원본 추출본의 JAR 서명 메타데이터 SHA-384 연결 신규 검증 (2026-11-13)
 
 **이번 신규 연구는 R003 이후 실제 미검증 범위만 추가했다.** 사용자 제공 `1.21.11/META-INF/MANIFEST.MF` (Git blob `a6f3479fade23b634eba8e18a25a96377b2fb844`), `MOJANGCS.SF` (blob `206d3c15590b05c53a565463d3776d0c73231f90`)를 읽어 9개 양털 PNG + 9개 모델 leaf JSON + 9개 blockstates JSON + 3개 상속 부모 JSON = **30개 실제 파일**의 SHA-384을 대조했다.
@@ -76,15 +88,3 @@ R001의 **동일한 양털 9개** 미러 PNG를 SHA-256 재검사해 모두 기�
 5. **애니메이션 연구 전면 보류.** 물리적인 실·쿠션 재질을 이미지 단독으로 확정 금지. PZ 변환/실제 가구 3D 제작은 이 단계가 아니다.
 
 **진행도 오해 주의:** v4 9/9는 기존 측정 기록; TEX04-R001 9/9는 비공식 미러의 새 바이너리·픽셀 및 정적 모델 근거. 공식 인증/인게임 시각 확정은 **여전히 0/9**. 단계 전체 완료 %는 추정하지 않는다.
-## TEX04-R005 — 9색 양털 색상치환·명도 부호·D4 패턴·정적 상태 신규 비교 (2026-11-13)
-
-[새 R005 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R005/REPORT.md) · [요약 JSON](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R005/SUMMARY.json) · [색상 치환 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R005/COLOR_SUBSTITUTION.csv) · [D4 방향성 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R005/D4_ORIENTATION.csv) · [36색쌍 인접부호 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R005/PAIRWISE_GRADIENT_SIGNS.csv) · [정적 모델 상태 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R005/MODEL_STATE_COMPARISON.csv) · [재현 코드](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R005/REPRODUCE_R005.py).
-
-- 라이브 전 릴리스 `TEX04-R004`의 SHA-384 MANIFEST/SF 30파일 내부 체인 결과 계승; 9 PNG를 사용자 제공 `1.21.11/`에서 다시 직접 바이트로 열고 SHA256·CRC 검증. **신규 고유 PNG 0, 고유 2,304픽셀·54면 계승(추가 집계 금지)**.
-- 새 지표 **126행**: 색상별 9행·D4 72행·36쌍 인접 명도부호·9종 모델/상태 비교. 36쌍 × 480 = 17,280 후보 중 두 쪽 모두 명도차가 있는 **16,404 비교(가로 7,933+세로 8,471) 전부 부호 일치**, 876건 무변화 포함 비교 제외.
-- D4 8공간변환 검사에서 **9색 모두 회전/반사 없는 상태가 최고 상관**. 그러나 색상별 RGB 팔레트가 같지 않고, 채널별 1차 치환 잔차가 있으므로 RGB 값 자체를 동일하다고 보지 않는다.
-- 9 leaf 모델/9 blockstate/3 부모 JSON을 직접 재열람: 동일 `cube_all→cube→block`, 단일 기본 blockstate variant, 정적 JSON의 추가 기하·UV 회전·색상별 orientation 차이 0. **실제 게임 3D face의 샘플링과 조명은 확인 안 됨**.
-- 사용자 변경 정책: Mojang 배포 client.jar **전체 SHA-1/공식 메타데이터 인증은 필수 연구·완료 분모에서 제외**, 역사적 인증 실패/미검증 상태 0 유지. **인게임 정적 0/9**, RSA/PKCS7 서명 인증 주장 금지. 애니메이션·PZ·가구 제작 제외.
-- **다음 번호 `TEX04-R006`**: 새 정적 소스 반례나 실제 통제된 게임 정적 스크린샷 등 *새 근거* 확보 시에만, 새 채팅 HEAD/STATE/폴더 재확인 후 발행.
-
----
