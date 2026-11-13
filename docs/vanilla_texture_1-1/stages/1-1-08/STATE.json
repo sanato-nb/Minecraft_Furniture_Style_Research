@@ -7,15 +7,15 @@
   "stage_id": "1-1-08",
   "material_family": "복합·기능면",
   "stage_prefix": "TEX08",
-  "current_revision": "TEX08-R000",
-  "next_revision": "TEX08-R001",
-  "revision_sequence": 0,
-  "revision_status": "R000_initial_handoff_created_no_new_analysis",
+  "current_revision": "TEX08-R001",
+  "next_revision": "TEX08-R002",
+  "revision_sequence": 1,
+  "revision_status": "R001_21_png_mirror_sha_rgba_crc_model_uv_checked_official_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 21,
   "v4_legacy_measurements_recorded": 21,
-  "stage_current_analysis_completed_count": 0,
+  "stage_current_analysis_completed_count": 21,
   "official_client_jar_authenticated_count": 0,
   "ingame_static_render_verified_count": 0,
   "paths": {
@@ -42,55 +42,65 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "not_audited_in_isolated_workstream",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "status": "completed_mirror_source_level_only_official_pending",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "latest_revision": "TEX08-R001"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "not_audited_in_isolated_workstream",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "status": "completed_mirror_source_level_only_official_pending",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "latest_revision": "TEX08-R001"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "not_audited_in_isolated_workstream",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "status": "completed_mirror_source_level_only_official_pending",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "latest_revision": "TEX08-R001"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "not_audited_in_isolated_workstream",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "status": "completed_mirror_source_level_only_official_pending",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "latest_revision": "TEX08-R001"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "not_audited_in_isolated_workstream",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "status": "completed_mirror_source_level_only_official_pending",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "latest_revision": "TEX08-R001"
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "not_audited_in_isolated_workstream",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "status": "pending_official_jar_and_ingame_static",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "latest_revision": "TEX08-R001"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "not_audited_in_isolated_workstream",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "status": "completed_stage_only_report_and_handoff_saved",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "latest_revision": "TEX08-R001"
     }
   },
   "material_specific_checks": [
     {
       "id": "D1",
       "check": "작업대·화로·훈연기·책장·통의 정면·측면·상단 기능적 재질 분할",
-      "status": "pending"
+      "status": "checked_static_mirror_source_level_not_ingame",
+      "latest_revision": "TEX08-R001"
     },
     {
       "id": "D2",
       "check": "꺼짐·켜짐 등 두 고정 텍스처 차이만 비교, 다중 프레임 해독 금지",
-      "status": "pending"
+      "status": "checked_static_mirror_source_level_not_ingame",
+      "latest_revision": "TEX08-R001"
     },
     {
       "id": "D3",
       "check": "기능면의 #all·#front·#side 슬롯 및 실제 face UV/particle 분리",
-      "status": "pending"
+      "status": "checked_static_mirror_source_level_not_ingame",
+      "latest_revision": "TEX08-R001"
     }
   ],
   "items": [
@@ -100,11 +110,14 @@
       "source_path": "assets/minecraft/textures/block/crafting_table_front.png",
       "v4_sha256": "1659c76a33039640e8bd5584af8db04bf626486432a389bcaf1567e1a45c6464",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-002",
@@ -112,11 +125,14 @@
       "source_path": "assets/minecraft/textures/block/barrel_side.png",
       "v4_sha256": "30f31d8cecfbd44412af13983eee56220bcffbf7ce8dd5a948f1ab73c98d8dc8",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-003",
@@ -124,11 +140,14 @@
       "source_path": "assets/minecraft/textures/block/bookshelf.png",
       "v4_sha256": "cf2b8c0da8e7164162ad4991916492b724c62c31de6c18b2abb7d60ec19ba418",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-004",
@@ -136,11 +155,14 @@
       "source_path": "assets/minecraft/textures/block/crafting_table_side.png",
       "v4_sha256": "e9755fc6da763909b285342eae12c5f7d1cc8462fab695bb157504ea207cda8c",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-005",
@@ -148,11 +170,14 @@
       "source_path": "assets/minecraft/textures/block/smithing_table_front.png",
       "v4_sha256": "f7a5479a3e1d3e3f604ec1b22634736ea952b676fef20e954a9607f15fb13ba0",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-006",
@@ -160,11 +185,14 @@
       "source_path": "assets/minecraft/textures/block/barrel_top.png",
       "v4_sha256": "6b4cb64b1c34bd87225147479100bec9889ac69c7dcdb5694003248e3004fe1e",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-007",
@@ -172,11 +200,14 @@
       "source_path": "assets/minecraft/textures/block/barrel_bottom.png",
       "v4_sha256": "1addc57c6221210107b7e64db8d2756983458a14828d8eb85b61f13bbf5a1028",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-008",
@@ -184,11 +215,14 @@
       "source_path": "assets/minecraft/textures/block/loom_side.png",
       "v4_sha256": "526372c59e91f10c1d690124d3f72a3938a154081cbc1a26a6151b924c8293f2",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-009",
@@ -196,11 +230,14 @@
       "source_path": "assets/minecraft/textures/block/furnace_front.png",
       "v4_sha256": "aae808f71f1bddf4a25592f7dd3d7f6e9b3adaa739502170766424f4eb6bf9c5",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-010",
@@ -208,11 +245,14 @@
       "source_path": "assets/minecraft/textures/block/smoker_front.png",
       "v4_sha256": "ce2bec2d026b954529024c4ead234a39932335cf5367ac0a71c380b055150795",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-011",
@@ -220,11 +260,14 @@
       "source_path": "assets/minecraft/textures/block/blast_furnace_front.png",
       "v4_sha256": "df580828cf9079059e167dc13b51713d8029cdcf0f0b20374367c71a805d7f62",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-012",
@@ -232,11 +275,14 @@
       "source_path": "assets/minecraft/textures/block/smithing_table_side.png",
       "v4_sha256": "de6b8a0f0da0b27b275371a4fec5f2fbb2aa473ef104a1c5abcc41db4dda5f73",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-013",
@@ -244,11 +290,14 @@
       "source_path": "assets/minecraft/textures/block/fletching_table_front.png",
       "v4_sha256": "1fef8372dbf5790428505f20ab0679faa77543e75fae2f181da50b19799bb258",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-014",
@@ -256,11 +305,14 @@
       "source_path": "assets/minecraft/textures/block/jukebox_side.png",
       "v4_sha256": "ce5e56da299713779c49b55fcdb705fbdc1381d4f449615b932877ba13c9fabb",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-015",
@@ -268,11 +320,14 @@
       "source_path": "assets/minecraft/textures/block/note_block.png",
       "v4_sha256": "ce5e56da299713779c49b55fcdb705fbdc1381d4f449615b932877ba13c9fabb",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-016",
@@ -280,11 +335,14 @@
       "source_path": "assets/minecraft/textures/block/enchanting_table_side.png",
       "v4_sha256": "fed6f599ec71ce4307f6e9d08985dc40bedec60d50033e32c6a3c80496939a6a",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-017",
@@ -292,11 +350,14 @@
       "source_path": "assets/minecraft/textures/block/beehive_front.png",
       "v4_sha256": "3d3fa761ee64d179fa1d29344e3eebbbcae609e2a8053421908dc854181b1dfa",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-018",
@@ -304,11 +365,14 @@
       "source_path": "assets/minecraft/textures/block/chiseled_bookshelf_empty.png",
       "v4_sha256": "a756e5f993f698a566b73b24c0610b9832781d4a5f20358f38442b77d028841d",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-019",
@@ -316,11 +380,14 @@
       "source_path": "assets/minecraft/textures/block/chiseled_bookshelf_occupied.png",
       "v4_sha256": "a314c81a2dd8c3f14bec2428a0252322e6b37e95810d56316ac23c938540fb4e",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-020",
@@ -328,11 +395,14 @@
       "source_path": "assets/minecraft/textures/block/pumpkin_side.png",
       "v4_sha256": "8f67ee060dd5c1ecc66913caed4294937e3cda8a11d0e0866ec8f558c157c30d",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     },
     {
       "item_id": "1-1-08-021",
@@ -340,11 +410,14 @@
       "source_path": "assets/minecraft/textures/block/target_side.png",
       "v4_sha256": "58e9e93f74111c7fbfdb4ef0e8aa4cdf44dd2f4db59ac9347a98d14983ad98bb",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX08-R001",
+      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "source_png_rgba_verified": true,
+      "png_crc_adler_checked": true,
+      "model_uv_source_checked": true
     }
   ],
   "revisions": [
@@ -370,5 +443,10 @@
     "animation study until explicitly resumed"
   ],
   "project_overall_completion_pct": null,
-  "do_not_count_planning_as_research": true
+  "do_not_count_planning_as_research": true,
+  "stage_source_png_rgba_verified_count": 21,
+  "stage_model_uv_source_checked_count": 21,
+  "stage_fully_official_and_ingame_verified_count": 0,
+  "last_release_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R001/",
+  "last_release_source_note": "GitHub unofficial asset mirror 1.21.11, all 21 original PNG v4 SHA-256 match, source model JSON UV; no official jar or game verification"
 }
