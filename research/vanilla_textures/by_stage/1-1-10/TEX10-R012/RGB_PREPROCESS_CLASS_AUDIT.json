@@ -1,0 +1,96 @@
+{
+  "schema": "TEX10-R012/original-JVM-TextureUtil-and-NativeImage-static-source-audit/v1",
+  "new_primary_evidence": [
+    {
+      "path": "1.21.11/com/mojang/blaze3d/platform/TextureUtil.class",
+      "sha": "848d481bd69d54c23b970d42227c0200ff2aacca"
+    },
+    {
+      "path": "1.21.11/fyh.class",
+      "sha": "1396022da9cc9060e2c9ca27a30c6834f08139ce"
+    }
+  ],
+  "TextureUtil": {
+    "class_major": 65,
+    "methods": [
+      {
+        "name": "solidify",
+        "desc": "(Lfyh;)V",
+        "code_bytes": 359,
+        "behavior": "for each nonzero-alpha source pixel push into multi-source FIFO, propagate RGB by 4-neighbor BFS to nearest zero-alpha pixel, copy RGB with alpha=0"
+      },
+      {
+        "name": "fillEmptyAreasWithDarkColor",
+        "desc": "(Lfyh;)V",
+        "code_bytes": 214,
+        "behavior": "find min sum(R+G+B) among alpha!=0 pixels with x-major/y-minor tie order; apply floor(3*channel/4) to transparent pixels"
+      },
+      {
+        "name": "pack",
+        "desc": "(III)I",
+        "code_bytes": 6,
+        "behavior": "x+y*width"
+      }
+    ],
+    "DIRECTIONS": [
+      [
+        1,
+        0
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        -1
+      ]
+    ],
+    "seed_iteration_order": "x-major, then y",
+    "BFS_equidistance_tie_order": "FIFO source seed order then neighbor order",
+    "vine_transparent_distance_histogram": {
+      "1": 81,
+      "2": 27,
+      "3": 2
+    },
+    "vine_distinct_propagated_source_RGB_colors": 4,
+    "dark_fill_by_id": {
+      "oak_leaves": "#4E4B4E",
+      "spruce_leaves": "#313131",
+      "birch_leaves": "#545154",
+      "mangrove_leaves": "#373636",
+      "azalea_leaves": "#2B391C",
+      "flowering_azalea_leaves": "#2B391C"
+    }
+  },
+  "NativeImage": {
+    "class": "fyh",
+    "getPixelRGBA": "a(II)I length10",
+    "setPixelRGBA": "b(III)V length11",
+    "native_int_channels": "ABGR",
+    "export_replay_channels": "RGBA"
+  },
+  "reused": "R011 bel.class gamma LUT, R010 ild.class, 8 original PNGs exact sha256 verified",
+  "experiment": {
+    "method": "Python Pillow + numpy.float32 bytecode-guided translation",
+    "base_images": 8,
+    "base_positions": 2048,
+    "base_alpha_zero_RGB_modified": 556,
+    "base_alpha_modified": 0,
+    "derived_mip_levels": 32,
+    "derived_mip_RGBA_pixels": 680,
+    "R011_alpha_crc_matches": 32,
+    "raw_blob_sha256_base": "2e7396cbf6ee1039256a5cfc4a757d8b9332a5bd62416a714a90da6e31bc60b6",
+    "raw_blob_sha256_mip": "d41e8edda12ebe1be8f00c96b46fabd261724af5a05d487bf3e14713e9b5f036"
+  },
+  "limits": [
+    "Not original Java/JVM execution",
+    "No guarantee of byte-for-byte full RGB matching Java Math.pow/gamma LUT implementation",
+    "16x16 isolated sprite inputs with four mip levels and no item prefix",
+    "No actual atlas, graphics GPU, biome render, game screenshot, animation or furniture generation"
+  ]
+}

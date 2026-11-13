@@ -7,10 +7,10 @@
   "stage_id": "1-1-10",
   "material_family": "잎·식생",
   "stage_prefix": "TEX10",
-  "current_revision": "TEX10-R011",
-  "next_revision": "TEX10-R012",
-  "revision_sequence": 11,
-  "revision_status": "R011_8_raw_PNG_SHA256_recheck_680_derived_alpha_pixels_32_layers_two_independent_source_guided_simulations_all_crc_match",
+  "current_revision": "TEX10-R012",
+  "next_revision": "TEX10-R013",
+  "revision_sequence": 12,
+  "revision_status": "R012_TextureUtil_NativeImage_2_new_classes_556_base_RGB_changed_680_full_RGBA_mip_32_alpha_crc_match",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 8,
@@ -42,27 +42,27 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "R011_original_bel_class_blob_new_sha_and_8_original_PNG_SHA256_recheck_Python_local_32_level_CRC_cross_verified",
+      "status": "R012_2_new_original_JVM_class_paths_TextureUtil_fyh_checked_SHA",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R011_8_original_PNG_binary_raw_SHA256_rechecked_and_RGBA_2048_pixels_redecoded_same_unique_positions",
+      "status": "R012_source_png8_SHA256_verified_2048_RGBA_base_reprocessed_556_transparent_RGB_changed_alpha_unchanged",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R011_source_guided_680_derived_mip_alpha_pixels_32_levels_python_js_CRC_pass_not_JVM_byte_exact",
+      "status": "R012_8_base_8192_raw_RGBA_bytes_32_mip_levels_2720_raw_RGBA_bytes_680_derived_pixels",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R011_DARK_CUTOUT_6_CUTOUT_1_MEAN_1_original_mipmap_opacity_simulation_alpha_only",
+      "status": "R012_6_dark_fill_446_RGB_cells_vine_BFS_110_moss_unmodified",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R011_previous_R008_models_R009_render_layer_R010_mipmap_branches_inherited_derived_alpha_not_GPU",
+      "status": "R012_32_full_RGBA_mip_source_guided_Python_reconstruction_32_alpha_crc_agree_R011_not_JVM_byte_exact",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
@@ -72,7 +72,7 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "TEX10_R011_8_PNG_SHA256_recheck_680_alpha_HEX_32_metrics_2_implementation_crc_all_saved",
+      "status": "TEX10_R012_two_portable_zlib_b64_RGBA_datasets_and_original_bytecode_evidence_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -80,7 +80,7 @@
     {
       "id": "D1",
       "check": "잎·덩굴 알파 마스크·가시 영역·투명 외곽",
-      "status": "R011_8_raw_16x16_PNG_SHA256_rechecked_680_source_guided_derived_alpha_values_32_CRC_Python_JS_agree_non_JVM_verified"
+      "status": "R012_8_base_RGBA_preprocessing_556_changed_32_mip_680_derived_RGBA_source_guided_only"
     },
     {
       "id": "D2",
@@ -90,7 +90,7 @@
     {
       "id": "D3",
       "check": "컷아웃 영역과 3D 요소의 담당 역할 구분",
-      "status": "R010_render_layer_and_mipmap_separately_verified_mip_pixel_levels_not_simulated"
+      "status": "R012_8_static_texture_RGB_preprocess_and_680_mip_full_RGBA_derived_original_JVM_proof_pending"
     }
   ],
   "items": [
@@ -175,6 +175,13 @@
           "d80241aa"
         ],
         "source_guided_not_original_JVM_byte_exact": true
+      },
+      "R012_RGBA_experiment": {
+        "transparent_RGB_changed": 84,
+        "alpha_changed": 0,
+        "mip_RGBA_derived_cells": 85,
+        "level4_RGBA_hex": "7b7c7b8e",
+        "JVM_byte_exact_verified": false
       }
     },
     {
@@ -258,6 +265,13 @@
           "cc031de5"
         ],
         "source_guided_not_original_JVM_byte_exact": true
+      },
+      "R012_RGBA_experiment": {
+        "transparent_RGB_changed": 96,
+        "alpha_changed": 0,
+        "mip_RGBA_derived_cells": 85,
+        "level4_RGBA_hex": "6a6a6a92",
+        "JVM_byte_exact_verified": false
       }
     },
     {
@@ -341,6 +355,13 @@
           "af05713c"
         ],
         "source_guided_not_original_JVM_byte_exact": true
+      },
+      "R012_RGBA_experiment": {
+        "transparent_RGB_changed": 112,
+        "alpha_changed": 0,
+        "mip_RGBA_derived_cells": 85,
+        "level4_RGBA_hex": "6565658f",
+        "JVM_byte_exact_verified": false
       }
     },
     {
@@ -424,6 +445,13 @@
           "220d7cc9"
         ],
         "source_guided_not_original_JVM_byte_exact": true
+      },
+      "R012_RGBA_experiment": {
+        "transparent_RGB_changed": 44,
+        "alpha_changed": 0,
+        "mip_RGBA_derived_cells": 85,
+        "level4_RGBA_hex": "7d7c7c90",
+        "JVM_byte_exact_verified": false
       }
     },
     {
@@ -507,6 +535,13 @@
           "c5b551ce"
         ],
         "source_guided_not_original_JVM_byte_exact": true
+      },
+      "R012_RGBA_experiment": {
+        "transparent_RGB_changed": 59,
+        "alpha_changed": 0,
+        "mip_RGBA_derived_cells": 85,
+        "level4_RGBA_hex": "5269279e",
+        "JVM_byte_exact_verified": false
       }
     },
     {
@@ -590,6 +625,13 @@
           "ff000000"
         ],
         "source_guided_not_original_JVM_byte_exact": true
+      },
+      "R012_RGBA_experiment": {
+        "transparent_RGB_changed": 0,
+        "alpha_changed": 0,
+        "mip_RGBA_derived_cells": 85,
+        "level4_RGBA_hex": "5a6f2cff",
+        "JVM_byte_exact_verified": false
       }
     },
     {
@@ -673,6 +715,13 @@
           "af05713c"
         ],
         "source_guided_not_original_JVM_byte_exact": true
+      },
+      "R012_RGBA_experiment": {
+        "transparent_RGB_changed": 110,
+        "alpha_changed": 0,
+        "mip_RGBA_derived_cells": 85,
+        "level4_RGBA_hex": "7878788f",
+        "JVM_byte_exact_verified": false
       }
     },
     {
@@ -756,6 +805,13 @@
           "af05713c"
         ],
         "source_guided_not_original_JVM_byte_exact": true
+      },
+      "R012_RGBA_experiment": {
+        "transparent_RGB_changed": 51,
+        "alpha_changed": 0,
+        "mip_RGBA_derived_cells": 85,
+        "level4_RGBA_hex": "62674a8f",
+        "JVM_byte_exact_verified": false
       }
     }
   ],
@@ -1124,5 +1180,28 @@
     "two_independent_simulations_agree": true,
     "byte_exact_JVM_not_verified": true,
     "ingame_excluded": true
+  },
+  "r012_evidence": {
+    "new_verified_source_paths": 2,
+    "cumulative_unique_original_source_paths_R003_R012": 148,
+    "original_8_PNG_SHA256_verified": true,
+    "base_RGBA_positions_processed": 2048,
+    "base_alpha_zero_RGB_modified": 556,
+    "base_alpha_modified": 0,
+    "leaf6_dark_fill_pixels": 446,
+    "vine_BFS_pixels": 110,
+    "moss_pixels_modified": 0,
+    "vine_distances": {
+      "1": 81,
+      "2": 27,
+      "3": 2
+    },
+    "mip_RGBA_derived_pixels": 680,
+    "mip_images": 32,
+    "prior_R011_alpha_CRC32_checks_equal": 32,
+    "base_RGBA_raw_SHA256": "2e7396cbf6ee1039256a5cfc4a757d8b9332a5bd62416a714a90da6e31bc60b6",
+    "mip_RGBA_raw_SHA256": "d41e8edda12ebe1be8f00c96b46fabd261724af5a05d487bf3e14713e9b5f036",
+    "full_RGBA_experiment_not_original_JVM_executed": true,
+    "ingame_not_required": true
   }
 }

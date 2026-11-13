@@ -204,3 +204,14 @@
 - 전 8종 원본 16×16에서 8×8/4×4/2×2/1×1 **각 85개×8=680개 alpha 값 실험 재계산**. Python numpy.float32+Pillow 구현 vs JavaScript Math.fround 구현이 **32/32 레벨 CRC32 일치**, 전체 680바이트 CRC `2171e3da`. 595개 부분 알파/85개 불투명/0개 완전 투명 값(재현 실험 산출, 게임 결과 아님).
 - [보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R011/REPORT.md), [alpha 680개 행별 hex](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R011/ALPHA_LEVELS_HEX_8.json), [32개 레벨 계측 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R011/MIP_ALPHA_METRICS_32.csv), [원본 PNG 8 SHA256](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R011/ORIGINAL_PNG_REHASH_8.csv), [원본 코드/한계](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R011/BYTECODE_ALPHA_MATH_AUDIT.json).
 - **두 재구현의 일치 ≠ 실제 Java NativeImage/JVM 실행 byte-exact 검증**. full RGB/PNG atlas GPU 화면 검증 0, 인게임 검증 의무 제외. 새 source 1개, 누적 고유 경로 **145→146**. 기존 R001–R010 및 전역 v38·타 단계 불변. 후속은 `TEX10-R012`, 새 정적 실제 근거가 있을 때만. 애니메이션/PZ변환/실제 가구 제작 보류.
+
+---
+
+## TEX10-R012 — 2026-11-13 · TextureUtil/NativeImage RGB 보정 + 680 full RGBA mip 산출
+
+- 원본 클래스 2개 신규 직접 읽기: `1.21.11/com/mojang/blaze3d/platform/TextureUtil.class`(359-byte `solidify`, 214-byte `fillEmptyAreasWithDarkColor`), `1.21.11/fyh.class`(NativeImage get/set). 원본 고유 경로 누적 146→148.
+- 원본 PNG 8개 SHA256 재확인 후 16×16×8 원본 RGBA 2048셀에 원본 전처리 적용: **잎 6종 446개** 투명 RGB를 각 텍스처의 가장 어두운 불투명 색×3/4로 채우고, **덩굴 110개**는 FIFO 4방향 BFS로 이웃 색 복사(1칸 81, 2칸 27, 3칸 2). 이끼 변경 0. 투명 RGB 총 556개 변경, alpha 변경 0.
+- 새 full RGB 포함 8종×4 mip 수준=32개 이미지/680개 RGBA 픽셀 실험 재생성. R011 alpha CRC32 32개 모두 일치. 이는 **Python으로 원본 바이트코드를 재현한 실험이지 실제 Java VM 결과와의 byte-identical 인증이 아님**.
+- 결과 10개 경로 `research/vanilla_textures/by_stage/1-1-10/TEX10-R012/`에 기록: 두 raw RGBA zlib+base64 텍스트(`BASE_RGBA_ZLIB_B64.txt` 8192 raw bytes, `MIP_RGBA_ZLIB_B64.txt` 2720 raw bytes), `DATASET_LAYOUT.json`/`REPRODUCE.md` 해시·복구 방법, `SOURCE_PREPROCESS_8.csv`, `MIP_LEVEL4_RGB_8.csv`, `RGB_PREPROCESS_CLASS_AUDIT.json`, `REPORT.md`, `SUMMARY.json`, `SOURCE_LEDGER.csv`.
+- [R012 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R012/REPORT.md) 및 [데이터 복원 형식](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R012/DATASET_LAYOUT.json).
+- **현재 TEX10-R012, 다음 TEX10-R013**. 추가 정적 연구는 Java 실제 소스 메서드 실행 검증/atlas 데이터 검증 등이 후보. 인게임 검증 의무 제외, 전체 JAR SHA1 필수 제외(인증 성공 아님), 애니메이션/PZ/가구 작업 보류, 이전 Rxxx/전역 v38/다른 단계 불변.

@@ -1,0 +1,64 @@
+{
+  "schema": "TEX10-R012/zlib-b64-raw-RGBA/v1",
+  "order": [
+    "oak_leaves",
+    "spruce_leaves",
+    "birch_leaves",
+    "mangrove_leaves",
+    "azalea_leaves",
+    "flowering_azalea_leaves",
+    "vine",
+    "moss_block"
+  ],
+  "channel_order": "R,G,B,A",
+  "pixel_order": "row-major, top-to-bottom",
+  "encoding": "UTF-8 text, base64(zlib(raw_RGBA_byte_stream)); newline ignored by decoder",
+  "base": {
+    "file": "BASE_RGBA_ZLIB_B64.txt",
+    "base64_characters": 1676,
+    "resolution": "16x16",
+    "pixels_per_texture": 256,
+    "bytes_per_texture": 1024,
+    "decoded_total_bytes": 8192,
+    "raw_SHA256": "2e7396cbf6ee1039256a5cfc4a757d8b9332a5bd62416a714a90da6e31bc60b6",
+    "zlib_SHA256": "d599506aa0104cc02d6ef5299b35662fee1c3bfe74c28e32e29ea31e2f012272",
+    "git_blob_sha": "e62cea3018b9d2fb6e29c1acb5f0a311dec174a2"
+  },
+  "mip": {
+    "file": "MIP_RGBA_ZLIB_B64.txt",
+    "base64_characters": 2308,
+    "levels_per_texture": [
+      {
+        "level": 1,
+        "w": 8,
+        "h": 8,
+        "bytes": 256
+      },
+      {
+        "level": 2,
+        "w": 4,
+        "h": 4,
+        "bytes": 64
+      },
+      {
+        "level": 3,
+        "w": 2,
+        "h": 2,
+        "bytes": 16
+      },
+      {
+        "level": 4,
+        "w": 1,
+        "h": 1,
+        "bytes": 4
+      }
+    ],
+    "bytes_per_texture": 340,
+    "decoded_total_bytes": 2720,
+    "raw_SHA256": "d41e8edda12ebe1be8f00c96b46fabd261724af5a05d487bf3e14713e9b5f036",
+    "zlib_SHA256": "5496ae8d7c90f8d605467a5196854c83b164f3300a2176b254421b88ba0632c5",
+    "git_blob_sha": "993b392c176473a6c4bb78376721283b00d6dc7d"
+  },
+  "verified_R011_alpha_CRC32_levels": 32,
+  "limit": "Full RGBA derived using Python source-guided simulation; NOT execution of original JVM or official byte-for-byte result"
+}
