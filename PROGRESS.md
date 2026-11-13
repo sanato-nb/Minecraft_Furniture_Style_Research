@@ -6,6 +6,14 @@
 
 **사용자 최신 작업 지시(2026-11-13): 애니메이션 분석은 일단 보류.** 새로운 애니메이션 프레임 해독, 키프레임·클립 분석, 움직임 재현 및 애니메이션 인게임 검증을 진행하지 않는다. 기존 v9/v26/v31 애니메이션 관련 기록은 삭제하지 않고 보존하되, 새로운 진행도에 포함하지 않는다. 우선순위는 **정적 바닐라 3D 모델·기하·텍스처·UV·블록 상태·정적 렌더링 검증·공식 원본 무결성**이다. 애니메이션 연구는 사용자가 명시적으로 재개를 요청할 때까지 유지 보류.
 
+## 1-1 11개 개별 채팅 — 독립 시작 프롬프트·인수인계·버전 격리 (2026-11-13)
+
+- **[새 채팅 시작 통합 런처](docs/vanilla_texture_1-1/NEW_CHAT_LAUNCHER.md)** · [TEXnn-Rxxx 고유 버전/동시 수정 방지 규칙](docs/vanilla_texture_1-1/ISOLATED_CHAT_VERSIONING.md) · [11개 파일별 1-1 상세 계획](docs/vanilla_texture_1-1/README.md).
+- 각 `1-1-01`~`1-1-11`에는 GitHub `docs/vanilla_texture_1-1/stages/1-1-nn/` 아래 **START_PROMPT.md + HANDOFF.md + STATE.json** 생성. v4 150개 표본을 **18/17/16/9/6/8/7/21/9/8/31**로 독립 배분.
+- **버전 충돌 없음:** `TEX01-R000`~`TEX11-R000` 11개 초기 계획 상태. 새 실제 근거 검증 때 각 단계에서만 `TEXnn-R001`, `R002`로 증가하며, 원래 전체 프로젝트 `v38` 및 다른 단계와 같은 릴리스명·경로를 공유하지 않는다.
+- **별도 채팅 쓰기 규칙:** 그 채팅은 자기 단계의 `STATE.json`, `HANDOFF.md`와 `research/vanilla_textures/by_stage/1-1-nn/TEXnn-Rxxx/` 결과 폴더만 수정. 이 루트 인수인계·`PROGRESS.md`·`handoff/STATE.json`·다른 재질 단계를 직접 갱신하면 안 됨. 같은 단계 동시 쓰기는 금지/명시적 조정. 최종 통합 검수는 별도.
+- 이번은 **인수인계 인프라 생성**으로 새 PNG/RGBA 원본 분석을 수행한 것이 아니다. 11개 초기 파일의 새 단계 검사완료 0, v4 레거시 실측 보존, 공식 Mojang `client.jar`/인게임 검증 미완료, 애니메이션 보류, 전체 프로젝트 현재 체크포인트 **v38 / 완료 0/5** 유지.
+
 ## 1-1 실행 작업번호 확정 — 재질 11분류·150 텍스처 추적표 (2026-11-13)
 
 - [1-1 작업 통합 목록과 A–G 검증 절차](docs/vanilla_texture_1-1/README.md) · [11개 번호별 독립 실행 문서](docs/vanilla_texture_1-1/) · [v4 150개 텍스처 파일별 번호·원본 SHA256 추적 CSV](research/vanilla_textures/1-1_150_texture_numbered_task_ledger.csv).
