@@ -1,4 +1,7 @@
 # 1-1 단계별 새 채팅 시작 — 11개 독립 인수인계
+> **전역 v41 (2026-11-14):** [11개 재질·150 PNG 통합 보고서](../../research/vanilla_textures/integrations/v41_INT-1-1-11steps_150_R017_REFRESH/REPORT.md). 본문 R000/R004 안내는 과거 시작 스냅샷이므로 각 채팅의 최신 `STATE.json`을 먼저 읽을 것. 석재·벽돌은 R017 소스 완료, 목재·원목은 R008 기준 아직 완료 판정 전.
+
+
 
 > **최신 전역 v39 통합:** [10개 재질·133개 대상 증거 통합(1-1-02 제외)](../../research/vanilla_textures/integrations/v39_INT-1-1-10steps_133/REPORT.md). 아래 R000 표는 계획 당시의 **역사적 기록**이므로, 재시작 시 최신 독립 STATE/HANDOFF를 우선하며 제외된 석재·벽돌을 전역 통합에 자동 추가하지 말 것.
 

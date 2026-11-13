@@ -1,4 +1,7 @@
 # Minecraft Furniture Style Research
+> **최신 통합 v41:** [11개 재질·150 원장 / 소스 연구 132개 완료](research/vanilla_textures/integrations/v41_INT-1-1-11steps_150_R017_REFRESH/REPORT.md). 석재·벽돌 R017(17/17) 최신 반영, 목재·원목 18개 미종결, 상위 과제 0/5 유지. 과거 v39/v40 불변.
+
+
 
 ## 최신 기록: v40 바닐라 1-1 정적 근거 통합
 

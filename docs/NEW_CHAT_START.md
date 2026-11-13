@@ -1,4 +1,7 @@
 # 새로운 ChatGPT 채팅에서 Minecraft 가구 모델링 학습 이어하기
+> **현재 전역 v41:** [11단계·150종 통합, 1-1-02 최신 R017 반영](../research/vanilla_textures/integrations/v41_INT-1-1-11steps_150_R017_REFRESH/REPORT.md). 소스 연구 완료 132/150(88%), 1-1-01 목재·원목 18종 미종결. 아래 v40/v38 인수인계 텍스트는 과거 기록이므로 이 최신 참조와 각 단계 라이브 STATE를 우선한다.
+
+
 
 # 새 채팅 시작 — 최신 전역 통합 v40
 
