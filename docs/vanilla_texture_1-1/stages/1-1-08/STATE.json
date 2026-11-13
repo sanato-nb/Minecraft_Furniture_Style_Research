@@ -7,10 +7,10 @@
   "stage_id": "1-1-08",
   "material_family": "복합·기능면",
   "stage_prefix": "TEX08",
-  "current_revision": "TEX08-R004",
-  "next_revision": "TEX08-R005",
-  "revision_sequence": 4,
-  "revision_status": "39_extracted_model_JSON_all_directly_read_8_parent_templates_143_model_faces_chiseled_geometry_particle_evidence_official_and_ingame_pending",
+  "current_revision": "TEX08-R005",
+  "next_revision": "TEX08-R006",
+  "revision_sequence": 5,
+  "revision_status": "source_verified_62_static_state_pairs_beehive_24_of_256_RGBA_same_21_target_no_ingame",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 21,
@@ -48,27 +48,27 @@
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "user_extracted_png_sha21_and_direct_header6_plus_aux1;prior_R001_pixel_crc_record_preserved",
+      "status": "R003_primary_21_sha_preserved;R005_honey_front_and_side_aux_png_SHA_CRC_RGBA_checked",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R003"
+      "latest_revision": "TEX08-R005"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R001_RGBA_retained_without_duplicate_measurements",
+      "status": "R001_RGBA_21_preserved;R005_beehive_honey_vs_base_24_of_256_static_pairwise",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R001"
+      "latest_revision": "TEX08-R005"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "static_model_faces_slots_and_chiseled_particle_source_corrected_R004",
+      "status": "R004_all_model_faces_preserved;R005_static_state_specific_face_and_particle_differences",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R004"
+      "latest_revision": "TEX08-R005"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "all_39_model_JSON_and_8_parents_143_faces_inheritance_source_audited",
+      "status": "R004_39_model_8_parents_143_faces_preserved;R005_62_transition_source_matrix",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R004"
+      "latest_revision": "TEX08-R005"
     },
     "F": {
       "title": "F 사용자 추출본 정적 적용 근거·인게임 관찰(가능한 범위) — 공식 JAR 인증 제외",
@@ -78,9 +78,9 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R004_new_immutable_stage_release_saved",
+      "status": "R005_immutable_release_and_stage_handoff_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R004"
+      "latest_revision": "TEX08-R005"
     }
   },
   "material_specific_checks": [
@@ -93,14 +93,14 @@
     {
       "id": "D2",
       "check": "꺼짐·켜짐 등 두 고정 텍스처 차이만 비교, 다중 프레임 해독 금지",
-      "status": "source_mirror_static_json_and_png_checked_official_pending",
-      "latest_revision": "TEX08-R002"
+      "status": "R005_beehive_honey_static_24_of_256_pairwise;animation_deferred",
+      "latest_revision": "TEX08-R005"
     },
     {
       "id": "D3",
       "check": "기능면의 #all·#front·#side 슬롯 및 실제 face UV/particle 분리",
-      "status": "source_mirror_static_json_and_png_checked_official_pending",
-      "latest_revision": "TEX08-R002"
+      "status": "R005_62_model_local_state_face_UV_particle_comparisons",
+      "latest_revision": "TEX08-R005"
     }
   ],
   "items": [
@@ -550,16 +550,26 @@
       "report_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R004/REPORT.md",
       "official_client_jar_verified": false,
       "ingame_verified": false
+    },
+    {
+      "revision": "TEX08-R005",
+      "kind": "user_extracted_static_state_face_UV_particle_and_beehive_RGBA_pairwise",
+      "state_pairwise_rows": 62,
+      "legacy_source_model_face_rows_newly_counted": 0,
+      "aux_png_directly_rechecked": 2,
+      "static_png_difference_pixels": 24,
+      "report_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R005/REPORT.md",
+      "official_jar_authentication_excluded": true,
+      "ingame_verified": false
     }
   ],
   "next_steps": [
-    "Read this stage STATE.json + HANDOFF.md; continue only from TEX08-R005 after checking the stage revision and output-folder absence.",
-    "Use user-uploaded 1.21.11/assets/minecraft/ JAR extraction as primary static PNG/JSON/model source; mirror only for comparison.",
-    "Official Mojang client.jar SHA-1 and manifest authentication is EXCLUDED from the requested research and completion criteria. Do not attempt it by default or block other work on it.",
-    "Keep historical official-authentication counts of zero as historical facts, not as outstanding required tasks; never convert them to verified.",
-    "Real Minecraft in-game static rendering verification is distinct; if no in-game evidence, record not observed without inventing success.",
-    "Preserve TEX08-R001 through R004 and global v38; next actual new evidence must go in TEX08-R005 immutable folder.",
-    "Animation investigation remains paused; no Project Zomboid conversion or actual 3D furniture creation."
+    "Re-read live STATE and HANDOFF; next revision TEX08-R006 only when new source evidence exists.",
+    "Keep 21 fixed target PNG/5376 legacy target pixels, and R004 39 models+8 parents/143 faces unchanged.",
+    "Auxiliary beehive honey/side PNG are outside fixed target; do not call them globally unique or double count v35.",
+    "In-game static UV/particle validation requires actual Minecraft screenshots/measurements; remain 0/21.",
+    "Animation frames deferred; official Mojang client.jar full authentication excluded by user.",
+    "Before any future write, check HEAD, STATE blob SHA and nonexistence of next release directory."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -574,8 +584,8 @@
   "stage_source_png_rgba_verified_count": 21,
   "stage_model_uv_source_checked_count": 21,
   "stage_fully_official_and_ingame_verified_count": 0,
-  "last_release_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R004/",
-  "last_release_source_note": "Primary user-extracted 1.21.11 model JSON: 29 newly read + 10 prior=39; 8 parent JSON also read; 143 model-faces including templates, 29 explicit UV and 114 implicit; JAR SHA1 and ingame not verified.",
+  "last_release_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R005/",
+  "last_release_source_note": "62 static source state pairs (38 variants+24 overlays), 22 regular face changes, beehive static honey-front RGBA 24/256, 3 PNG direct CRC/RGBA checks (2 auxiliary outside fixed 21); prior JSON/models inherited, game not observed.",
   "stage_1_1_08_official_jar_blocker": "SUPERSEDED_POLICY: official Mojang client.jar authentication removed from requirements by user on 2026-11-13; historical SHA-1 status remains unverified, not a blocker.",
   "stage_auxiliary_static_png_newly_examined_R002": [
     "barrel_top_open"
@@ -659,5 +669,23 @@
     "optional_when_observable": "actual Minecraft in-game static rendering",
     "excluded": "official Mojang full client.jar SHA-1 / version metadata authentication; animated frames/keyframes",
     "note": "An absence of Mojang JAR authentication is not an incomplete required task."
+  },
+  "stage_static_state_face_pairwise_R005": {
+    "state_pairwise_rows": 62,
+    "regular_state_pairs": 38,
+    "changed_regular_model_local_faces": 22,
+    "unchanged_beehive_adjacent_pairs": 16,
+    "chiseled_slot_toggle_pairs": 24,
+    "model_level_lit_particle_reference_changes": 12,
+    "slot_child_model_particle_reference_changes": 24,
+    "changed_face_UV_texel_reference_area_uses": 6656,
+    "beehive_static_rgba_changed_pixels": 24,
+    "beehive_alpha_changed_pixels": 0,
+    "aux_png_rechecked_outside_target": [
+      "beehive_front_honey",
+      "beehive_side"
+    ],
+    "new_unique_project_pixels_claimed": 0,
+    "ingame_verified": 0
   }
 }

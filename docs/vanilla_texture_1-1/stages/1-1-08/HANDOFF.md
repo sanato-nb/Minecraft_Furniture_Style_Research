@@ -1,4 +1,20 @@
-# 1-1-08 — 복합·기능면 단계 전용 인수인계 (현재 TEX08-R004)
+# 1-1-08 — 복합·기능면 단계 전용 인수인계 (현재 TEX08-R005)
+
+> **2026-11-13 · 라이브 다음 버전 `TEX08-R006` · 대상 21 PNG · 전체 v38 변경 없음**
+
+## R005 신규 소스 비교
+- 사용자 제공 `1.21.11/`의 원본 blockstate/model/부모를 다시 읽고, 기존 R004의 직접 소스 기하·상속 및 chiseled 책장 particle 수정 사항을 유지.
+- **새 상태쌍 비교 62행:** 통 open 6, 화로류 lit 12, 벌통 honey 인접 단계 20, 조각된 책장 슬롯 변경 24. 일반 모델 로컬 면 변경 22쌍, 벌통 변화 없는 16쌍; lit 12쌍에서 모델 particle `#front` 참조도 바뀜.
+- 새 정적 PNG 비교: `beehive_front`와 `beehive_front_honey`는 **24/256픽셀 RGBA 변경**, 알파 변경 **0**, bbox `(1,4)..(14,13)`. 사용자 추출본에서 `beehive_front_honey`, `beehive_side` 보조 PNG 직접 SHA/CRC/RGBA 확인. 두 보조 PNG는 **고정 21개 밖**이고 v35 선행 연구의 전역 신규 픽셀로 가산하지 않음.
+- 상태쌍 기준 변경 UV 면적 **6,656 uses**는 기존 R004 32,512 uses 및 R001 5,376 원본 픽셀에 합산하지 말 것. `chiseled_bookshelf` 템플릿 `particle=#texture`는 자식에서 해결되지만 실제 multipart particle 렌더 선택은 **미확인**.
+- 실게임 정적 렌더 **0/21**, 공식 전체 JAR 인증은 **사용자 범위 제외**(공식 인증 성공 아님). 애니메이션·다중 프레임/좀보이드 변환/가구 3D 제작 미수행.
+- 불변 결과 경로: [TEX08-R005 REPORT](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-08/TEX08-R005/REPORT.md), `STATIC_STATE_FACE_TRANSITIONS.csv`, `STATIC_PNG_BINARY.csv`, `BEEHIVE_RGBA_DIFFERENCE.csv`, `SOURCE_RECHECK_LEDGER.csv`, `SUMMARY.json`.
+- 이후 새 근거가 있으면 **라이브 `next_revision`과 HEAD, STATE blob SHA 및 출력 폴더 부재를 다시 조회**하고 오직 1-1-08 전용 폴더·STATE·HANDOFF만 변경.
+
+---
+
+## 이전 R004 시점 인수인계 원문 (당시의 '다음 R005' 지시는 만료됨)
+
 
 > 2026-11-13 · 다음 `TEX08-R005` · 고정 PNG 21개 · 전체 `v38` 불변 · R001–R004는 새 원본이 있어도 수정/삭제 금지.
 
