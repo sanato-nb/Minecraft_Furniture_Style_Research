@@ -147,3 +147,16 @@
 - 컬러맵 RGB 완전 디코드: `foliage` 및 `grass` 기존 R004의 **131,072화소 재조회·대조**, `dry_foliage` 신규 **65,536화소/268고유 RGB** + 3파일 청크 CRC32/zlib Adler32 통과. 사용자 제공 바이옴 JSON 65개를 float32 정밀도로 변환해 **195개 색상표 조회 셀**, foliage/dry 명시 JSON override 우선 적용 표 작성. 화면 RGB 실측 아님.
 - 이번 신규 경로 **13 = class 7 + sidecar 6**; R003 이후 누적 **134**. [R007 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R007/REPORT.md), [65 바이옴 좌표·RGB](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R007/BIOME_COLORMAP_LOOKUP_65.csv), [바이트코드](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R007/CLASS_BYTECODE_AUDIT.json), [mipmap 8](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R007/MIPMAP_STRATEGY_8.csv), [색상표 검증](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R007/COLORMAP_RECHECK.json).
 - **인게임 정적 확인 0/8** 유지. 게임의 실제 촬영·블록별 실제 파이프라인 배정과 블렌딩에는 추가 증거 필요. 사용자가 요청한 규칙에 따라 사용자 도움이 필요한 인게임 검증 단계에서는 멈추고 안내할 것. 공식 JAR 전체 SHA1 필수 절차 제외(인증 성공 아님). 기존 `v38`, 타 단계·R001–R006 불변. 현재 `TEX10-R007`, 다음 `TEX10-R008`은 실제 새 근거로만.
+
+---
+
+## 연구 범위 정책 변경 — 2026-11-13 · 인게임 검증도 필수 조건에서 제외 (연구 릴리스 증가 없음)
+
+**사용자 지시:** “인게임 검증은 제외해줘 어차피 모델링이랑 텍스텨있는데 필요없을거같아.”
+
+- **1-1-10 잎·식생 연구에 한정**하여 Minecraft 실제 실행, 스크린샷 수집, 8개 블록 인게임 정적 렌더 판정은 연구의 **필수 검증·완료 조건·진행률 분모에서 제외**한다. 더 이상 이 작업을 위해 사용자에게 게임 캡처를 요구하거나 `계속해줘` 요청에서 **0/8을 이유로 연구를 중단하지 말 것**.
+- 검증 기준은 **사용자 제공 Minecraft 1.21.11 원본 PNG 바이트와 RGBA 계측, 정적 모델 JSON/부모·블록상태/UV 연결, tintindex·바이옴 데이터·컬러맵·관련 셰이더 및 클래스 바이트코드** 등의 독립 확인 가능한 근거다. 출처·해시·추론/실측 구분을 계속 유지한다.
+- **인게임 검증 0/8은 과거 조사 기록으로 남긴다.** 현재 정책상 `excluded/not required`이며 연구 미완료 항목으로 세지 않는다. 원본 정적 자료만으로 확인하지 못한 **실제 GPU 화면 색상, 실시간 주변 바이옴 보간, 광원·렌더 패스 배정** 등을 검증 성공으로 주장하지 않는다. 필요시 **정적 소스에서 해석할 수 있는 부분까지만** 규명하고 한계를 문서화한다.
+- 앞서 사용자 지시로 제외한 **Mojang 공식 전체 client.jar SHA-1 인증** 역시 필수 절차에서 제외한 상태를 유지한다(인증 성공 아님).
+- **현재 연구 버전 `TEX10-R007` 그대로**, 다음 신규 정적 분석·근거를 실제로 추가할 때만 `TEX10-R008` 생성. **정책 변경만으로 새 연구 R008 릴리스를 만들지 않는다.** 이전 R001–R007 연구 보고서는 작성 당시 기록으로 불변. 전체 `v38`, 다른 단계의 요구사항과 파일도 변경하지 않는다. 애니메이션 연구·실제 가구 3D 작업·PZ→Minecraft 변환 보류 유지.
+- 사용자가 `계속해줘`라고 하면 이 업데이트를 우선 적용하여 **정적 검증에서 아직 남아 있는 독립 검증 사항을 조사**할 것. 정적 범위 연구가 완전히 끝났거나, 필수 원본을 추가로 제공해야 해서 더 이상 진행할 수 없을 때에만 사용자에게 멈춘 이유와 정확한 필요 자료를 알릴 것.

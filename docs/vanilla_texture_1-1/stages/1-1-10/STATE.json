@@ -10,7 +10,7 @@
   "current_revision": "TEX10-R007",
   "next_revision": "TEX10-R008",
   "revision_sequence": 7,
-  "revision_status": "R007_7_JVM_classes_exact_colormap_XY_biome_optional_overrides_cutout_pipeline_0_5_mipmap6_new_dry_RGB65536_ingame0",
+  "revision_status": "R007_7_JVM_classes_exact_colormap_XY_biome_optional_overrides_cutout_pipeline_0_5_mipmap6_new_dry_RGB65536_ingame0_policy_ingame_static_excluded_no_new_research_revision",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 8,
@@ -28,7 +28,7 @@
     "version_policy": "docs/vanilla_texture_1-1/ISOLATED_CHAT_VERSIONING.md",
     "output_root": "research/vanilla_textures/by_stage/1-1-10/"
   },
-  "source_note": "애니메이션/흔들림 연구는 보류; 정적 이미지와 인게임 정적 검증만 허용. 사용자 지시(2026-11-13): 공식 JAR 인증 필수 절차 제외; 인게임 정적 검증은 유지.",
+  "source_note": "애니메이션/흔들림 연구는 보류. Minecraft Java 1.21.11 원본 PNG/모델·블록상태/틴트·셰이더/바이트코드의 정적 근거로 분석. 사용자 지시(2026-11-13): Mojang 공식 전체 client.jar SHA1 인증과 실제 인게임 정적 렌더 검증은 모두 필수 절차·완료 분모에서 제외. 0/8은 과거 수행 사실 기록일 뿐 미완료 조건이 아님.",
   "allowed_write_paths": [
     "docs/vanilla_texture_1-1/stages/1-1-10/HANDOFF.md",
     "docs/vanilla_texture_1-1/stages/1-1-10/STATE.json",
@@ -66,8 +66,8 @@
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
-      "title": "F 인게임 정적 검증 (공식 Mojang JAR 인증 제외)",
-      "status": "pending_ingame_static_0_of_8; user_game_capture_needed_for_in_game_validation; official_mojang_original_clientjar_sha1_excluded_by_user",
+      "title": "F 인게임 정적 렌더 검증 (사용자 정책상 제외; 의무 아님)",
+      "status": "excluded_by_user_policy_not_required_not_in_completion_denominator_historical_0_of_8; original Mojang clientjar SHA1 also excluded",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "G": {
@@ -80,7 +80,7 @@
     {
       "id": "D1",
       "check": "잎·덩굴 알파 마스크·가시 영역·투명 외곽",
-      "status": "R007_original_hpa_CUTOUT_terrain_block_0_5F_static_and_dark_cutout_mcmeta6_mip_alpha_actual_ingame_pending"
+      "status": "R007_original_hpa_CUTOUT_terrain_block_0_5F_static_and_dark_cutout_mcmeta6_mip_alpha_actual_ingame_pending_ingame_proof_excluded_by_policy"
     },
     {
       "id": "D2",
@@ -90,7 +90,7 @@
     {
       "id": "D3",
       "check": "컷아웃 영역과 3D 요소의 담당 역할 구분",
-      "status": "R007_block_mipmap_metadata_6_and_shader_pipeline_compile_static_confirmed_block_specific_render_path_and_game_screenshot_pending"
+      "status": "R007_block_mipmap_metadata_6_and_shader_pipeline_compile_static_confirmed_block_specific_render_path_and_game_screenshot_pending_game_screenshot_not_required_by_policy"
     }
   ],
   "items": [
@@ -134,7 +134,11 @@
           "in_completion_denominator": false
         },
         "ingame_static_render": {
-          "verified": false
+          "verified": false,
+          "policy_status": "excluded_by_user_not_required",
+          "required": false,
+          "in_completion_denominator": false,
+          "note": "Historical verified:false retained; not pending/required for the current stage."
         }
       },
       "item_definition_git_blob_sha": "dde03296145175f502ffd81a9ad6250492e41593",
@@ -182,7 +186,11 @@
           "in_completion_denominator": false
         },
         "ingame_static_render": {
-          "verified": false
+          "verified": false,
+          "policy_status": "excluded_by_user_not_required",
+          "required": false,
+          "in_completion_denominator": false,
+          "note": "Historical verified:false retained; not pending/required for the current stage."
         }
       },
       "item_definition_git_blob_sha": "48be842cf8fdcb18b786329c0512459894de448f",
@@ -230,7 +238,11 @@
           "in_completion_denominator": false
         },
         "ingame_static_render": {
-          "verified": false
+          "verified": false,
+          "policy_status": "excluded_by_user_not_required",
+          "required": false,
+          "in_completion_denominator": false,
+          "note": "Historical verified:false retained; not pending/required for the current stage."
         }
       },
       "item_definition_git_blob_sha": "f06b0a4ad6810d9081cef69821630c0c9390490c",
@@ -278,7 +290,11 @@
           "in_completion_denominator": false
         },
         "ingame_static_render": {
-          "verified": false
+          "verified": false,
+          "policy_status": "excluded_by_user_not_required",
+          "required": false,
+          "in_completion_denominator": false,
+          "note": "Historical verified:false retained; not pending/required for the current stage."
         }
       },
       "item_definition_git_blob_sha": "3314939b86ed7bb0dccc15fb9544796bf6ec9665",
@@ -326,7 +342,11 @@
           "in_completion_denominator": false
         },
         "ingame_static_render": {
-          "verified": false
+          "verified": false,
+          "policy_status": "excluded_by_user_not_required",
+          "required": false,
+          "in_completion_denominator": false,
+          "note": "Historical verified:false retained; not pending/required for the current stage."
         }
       },
       "item_definition_git_blob_sha": "107c301f480c94df90e744ff02b0143bdda23fff",
@@ -374,7 +394,11 @@
           "in_completion_denominator": false
         },
         "ingame_static_render": {
-          "verified": false
+          "verified": false,
+          "policy_status": "excluded_by_user_not_required",
+          "required": false,
+          "in_completion_denominator": false,
+          "note": "Historical verified:false retained; not pending/required for the current stage."
         }
       },
       "item_definition_git_blob_sha": "f9be9776774371a1207992e40213a143dfc51477",
@@ -422,7 +446,11 @@
           "in_completion_denominator": false
         },
         "ingame_static_render": {
-          "verified": false
+          "verified": false,
+          "policy_status": "excluded_by_user_not_required",
+          "required": false,
+          "in_completion_denominator": false,
+          "note": "Historical verified:false retained; not pending/required for the current stage."
         }
       },
       "item_definition_git_blob_sha": "e13000c145d4a7fdcc4e3ceaeb6610f37ab32d3e",
@@ -470,7 +498,11 @@
           "in_completion_denominator": false
         },
         "ingame_static_render": {
-          "verified": false
+          "verified": false,
+          "policy_status": "excluded_by_user_not_required",
+          "required": false,
+          "in_completion_denominator": false,
+          "note": "Historical verified:false retained; not pending/required for the current stage."
         }
       },
       "item_definition_git_blob_sha": "35fe16d993c1040a8a213d0b477d1fe1f6676603",
@@ -702,5 +734,36 @@
     "target_block_specific_render_pipeline_verified": false,
     "in_game_verified": 0,
     "upcoming_need": "user Minecraft 1.21.11 game/screenshots for 8 static block appearance checks"
+  },
+  "validation_policy": {
+    "effective_date": "2026-11-13",
+    "scope": "only_stage_1-1-10_leaf_vegetation",
+    "primary_required_evidence": [
+      "user_provided_1_21_11_extracted_texture_PNG_bytes_and_decoded_pixels",
+      "model_JSON_blockstate_JSON_UV_tintindex_and_resolved_parent_references",
+      "relevant_static_code_shader_and_biome_colormap_when_source_available",
+      "source_file_hash_and_cross_reference_audit"
+    ],
+    "ingame_static_render": {
+      "required": false,
+      "policy_status": "excluded_by_user_not_required",
+      "in_completion_denominator": false,
+      "proof_of_game_visual_output": false,
+      "reason": "user chooses source PNG, model, and static-code research without Minecraft in-game screenshots",
+      "historic_verified_count": 0,
+      "do_not_request_screenshots_or_stop_for_this_reason": true
+    },
+    "mojang_official_client_jar_SHA1": {
+      "required": false,
+      "policy_status": "excluded_by_user_not_required",
+      "in_completion_denominator": false
+    },
+    "version_policy": "policy_only_change_do_not_increment_TEX10_Rxxx_until_new_primary_source_verification",
+    "limits": [
+      "Source-based reconstruction and static tint/geometry verification may be completed without in-game verification.",
+      "Do not label actual rendered screenshots, GPU framebuffer colors, runtime visual appearance or gameplay as validated.",
+      "Preserve prior R001-R007 immutable reports, results and historical 0/8 measurements.",
+      "No animation, furniture modeling or Project Zomboid to Minecraft conversion in this stage."
+    ]
   }
 }
