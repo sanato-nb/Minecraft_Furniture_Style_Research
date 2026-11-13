@@ -1,0 +1,95 @@
+{
+  "schema": "tex05-user-provided-extraction-v1",
+  "revision": "TEX05-R003",
+  "stage_id": "1-1-05",
+  "date": "2026-11-13",
+  "from_revision": "TEX05-R002",
+  "global_checkpoint": "v38",
+  "user_source": {
+    "repo": "sanato-nb/Minecraft_Furniture_Style_Research",
+    "branch": "main",
+    "root": "1.21.11/",
+    "provenance": "user_reports_extracted_from_own_Minecraft_Java_1.21.11_JAR",
+    "user_claim_not_official_integrity_certification": true,
+    "total_files_directly_retrieved": 27,
+    "source_png_count": 6,
+    "source_json_count": 21,
+    "source_png_direct_raw_sha256_matches_v4": 6,
+    "blockstate_json_parsed_and_ref_valid": 6,
+    "leaf_block_models_json_parsed_and_ref_valid": 6,
+    "item_descriptor_json_parsed_and_ref_valid": 6,
+    "common_parent_models": 3,
+    "root_block_display_mode_count": 7,
+    "root_gui_light": "side"
+  },
+  "legacy_mirror": {
+    "repo": "InventivetalentDev/minecraft-assets",
+    "ref": "1.21.11",
+    "match_git_blob_sha_files": 27,
+    "compared_files": 27,
+    "exact_png_base64_compared": 6,
+    "exact_parent_json_content_compared": 3
+  },
+  "verification_tiers": {
+    "user_supplied_extraction": {
+      "status": "verified",
+      "files": 27,
+      "denominator": 27,
+      "meaning": "Direct repository bytes and static JSON/texture reference validation, not official provenance"
+    },
+    "legacy_mirror_crosscheck": {
+      "status": "verified",
+      "files_identical": 27,
+      "denominator": 27,
+      "meaning": "Same Git blob SHA for each file (SHA-1 over Git blob object); does not validate original Mojang distribution"
+    },
+    "mojang_official_jar_authentication": {
+      "status": "pending",
+      "authenticated_pngs": 0,
+      "denominator": 6,
+      "client_jar_binary_sha1_checked": false,
+      "official_version_metadata_direct_sha1_confirmed": false
+    },
+    "in_game_static_render": {
+      "status": "pending",
+      "verified": 0,
+      "denominator": 6,
+      "render_layer_sorting_adjacency_lighting_unverified": true
+    }
+  },
+  "legacy_errata": {
+    "affected_file": "research/vanilla_textures/by_stage/1-1-05/TEX05-R001/SOURCE_LEDGER.csv",
+    "item_id": "1-1-05-005",
+    "field": "blockstate_git_blob_sha",
+    "recorded_39char_sha": "ca4fec4067cffd89000ee64251f878bf0d530a8",
+    "actual_40char_sha": "ca4fec4067cffd89000ee64251f878bf0d530a8a",
+    "record_not_rewritten": true,
+    "authentic_source_equals_live_mirror": true,
+    "other_invalid_length_hash_count": 0
+  },
+  "static_model_root_extension": {
+    "chain": "block_model/<id> -> cube_all -> cube -> block",
+    "root_block_model_sha": "f9c72559950abcb186b8e3959e135c0f2d542bdf",
+    "root_gui_light": "side",
+    "root_display_modes": [
+      "gui",
+      "ground",
+      "fixed",
+      "on_shelf",
+      "thirdperson_righthand",
+      "firstperson_righthand",
+      "firstperson_lefthand"
+    ],
+    "per_glass_six_faces_have_cullface": true,
+    "explicit_uv_per_glass": 0
+  },
+  "accounting": {
+    "new_unique_textures": 0,
+    "same_existing_glass_pngs": 6,
+    "previous_measured_rgba_pixels_not_recounted": 1536,
+    "direct_verified_source_files": 27
+  },
+  "animation_deferred": true,
+  "project_zomboid_conversion_excluded": true,
+  "actual_furniture_modeling_excluded": true
+}
