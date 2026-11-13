@@ -7,10 +7,10 @@
   "stage_id": "1-1-09",
   "material_family": "토양·지면",
   "stage_prefix": "TEX09",
-  "current_revision": "TEX09-R007",
-  "next_revision": "TEX09-R008",
-  "revision_sequence": 7,
-  "revision_status": "TEX09-R007_source_only_scope_sufficient__both_official_and_ingame_validation_excluded_by_2026_11_13_user_policy",
+  "current_revision": "TEX09-R008",
+  "next_revision": "TEX09-R009",
+  "revision_sequence": 8,
+  "revision_status": "TEX09-R008_animation_unpaused_9_target_4_aux_mcmeta_absent_13of13_single_16x16_positive_controls_3",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 9,
@@ -66,9 +66,9 @@
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R007_existing_7_model_blockstate_JSON_reparsed_dirt_base_and_side_texture_reference",
+      "status": "R008_9_blockstates_10_models_reparsed_no_animation_time_keys_static_rotations_and_snow_state_only",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R007"
+      "last_updated_revision": "TEX09-R008"
     },
     "F": {
       "title": "F 인게임 정적 렌더 검증 — 사용자 정책으로 제외 (미검증, 완료 아님)",
@@ -79,9 +79,9 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "done_R007_source_evidence_handoff_and_2026_11_13_scope_override_no_new_revision",
+      "status": "done_R008_animation_source_metadata_13_absent_positive_controls_3_source_handoff",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R007"
+      "last_updated_revision": "TEX09-R008"
     }
   },
   "material_specific_checks": [
@@ -341,22 +341,39 @@
       "new_dirt_side_comparisons": 768,
       "ingame_static_verified": 0,
       "report_path": "research/vanilla_textures/by_stage/1-1-09/TEX09-R007/REPORT.md"
+    },
+    {
+      "revision": "TEX09-R008",
+      "kind": "user_resumed_animation_source_png_frame_and_mcmeta_audit",
+      "fixed_target_png": 9,
+      "support_png": 4,
+      "checked_adjacent_mcmeta_count": 13,
+      "absent_mcmeta_count": 13,
+      "png_single_16x16_count": 13,
+      "animations_from_png_assets_in_target": 0,
+      "out_of_scope_positive_animation_controls": 3,
+      "source_files_new_unique_png": 0,
+      "source_files_new_unique_json": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-09/TEX09-R008/REPORT.md",
+      "official_jar_verified": 0,
+      "ingame_static_verified": 0
     }
   ],
   "next_steps": [
-    "For the current 1-1-09 scope, accept the nine user-extracted PNGs, their recorded pixels, blockstates, models, parent chains, UV and static tintindex as research evidence; historical source results are preserved in TEX09-R001..R007",
-    "Both Mojang JAR official authentication and Minecraft in-game screenshot/static render checks are excluded from requirements; do not request them, and do not present in-game facts as verified",
-    "If a future '계속해줘' arrives with no new independent static asset evidence, report completion of current source-only scope and stop; no placeholder revision",
-    "Only commit TEX09-R008 if genuinely new independently verifiable source/analysis evidence emerges and LIVE STATE/HEAD checks pass",
-    "Keep animation deferred and furniture/Project Zomboid conversions out of this stage; preserve global v38, prior immutable releases and all other stages"
+    "Current 1-1-09 static PNG/model/UV/colormap source studies completed in R001..R007; animation metadata study explicitly resumed and completed in R008",
+    "13 user-extracted stage-related PNGs 16x16 single tile with no adjacent .png.mcmeta; target 9 contain zero source-defined PNG frame animations",
+    "Do not treat y rotations, snowy variants, tintindex or biome color maps as time-based frames; engine/procedural changes not proven absent",
+    "Do not ask for in-game screenshots or Mojang JAR hash authentication; both excluded by user policy",
+    "If next '계속해줘' gives no new evidence, STOP and report no frames in the fixed 9 targets; do not manufacture frames or create placeholder R009",
+    "New source evidence or explicit extension to other stage(s) permits later separate research following each stage's rules, with prewrite LIVE STATE/HEAD checks",
+    "Preserve global v38, prior immutable releases and other stages; furniture/Zomboid conversion still out of scope"
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
-  "animation_study_deferred": true,
+  "animation_study_deferred": false,
   "scope_excluded": [
     "Project Zomboid conversion",
     "actual furniture 3D asset building",
-    "animation study until explicitly resumed",
     "in-game static render validation (user excluded; historic verification remains 0/9)"
   ],
   "project_overall_completion_pct": null,
@@ -441,7 +458,8 @@
     "active_validation_track": [
       "user_provided_1.21.11_extracted_png_json_model_direct_checks",
       "crosscheck_extracted_files_with_existing_asset_mirror",
-      "static PNG pixels and blockstate/model parent UV/tintindex/source-colormap relationships; distinguish from actual runtime behavior"
+      "static PNG pixels and blockstate/model parent UV/tintindex/source-colormap relationships",
+      "animation metadata .png.mcmeta and PNG frame-stack analysis (resumed for 1-1-09 only)"
     ],
     "ingame_static_render": {
       "required": false,
@@ -454,9 +472,21 @@
       "historic_ingame_verified_count": 0,
       "not_equal_to_ingame_verified": true,
       "rationale": "User says models and original textures are sufficient; do not require or request in-game screenshots."
+    },
+    "animation_study": {
+      "resumed": true,
+      "enabled_for_future_study": true,
+      "deferred": false,
+      "effective_date": "2026-11-13",
+      "scope": "1-1-09 only",
+      "status": "user_resumed_and_source_metadata_audit_completed",
+      "evidence": "TEX09-R008 9 target plus 4 support PNG single 16x16 and 13 missing .png.mcmeta; 3 out-of-scope animated positives",
+      "not_override_other_stages": true,
+      "not_claim_all_engine_behaviors_static": true,
+      "rationale": "User explicitly requested '보류한 애니메이션 하자'"
     }
   },
-  "revision_policy_note": "2026-11-13 user-directed scope update: exclude both official JAR authentication and in-game verification in 1-1-09; keep TEX09-R007 current and TEX09-R008 candidate unchanged because no new PNG/JSON/pixel evidence was added. Prior reports are immutable.",
+  "revision_policy_note": "2026-11-13: user explicitly unpaused animation study in 1-1-09; TEX09-R008 adds new checks for source PNG/.png.mcmeta frame evidence; previous ingame and official authentication exclusions remain. No other stages or global v38 changed.",
   "supporting_source_analyses": {
     "TEX09-R005": {
       "new_target_png": 0,
@@ -512,17 +542,57 @@
       "ingame_static_verified_count": 0,
       "official_authentication_out_of_scope": true,
       "summary_path": "research/vanilla_textures/by_stage/1-1-09/TEX09-R007/SUMMARY.json"
+    },
+    "TEX09-R008": {
+      "kind": "texture_animation_source_png_mcmeta_frame_audit",
+      "new_target_png": 0,
+      "new_support_png": 0,
+      "fixed_targets_checked": 9,
+      "aux_png_checked": 4,
+      "total_png_ihdr_checked": 13,
+      "png_16x16_single_tile": 13,
+      "metadata_404_missing": 13,
+      "animated_texture_count_in_stage_targets": 0,
+      "blockstate_json_reparsed_not_new": 9,
+      "model_json_reparsed_not_new": 10,
+      "out_of_stage_positive_animation_controls": 3,
+      "positive_control_names": [
+        "lava_still",
+        "lava_flow",
+        "fire_0"
+      ],
+      "user_unpaused_animation": true,
+      "source_based_png_frame_animation_complete": true,
+      "ingame_static_render_required": false,
+      "official_jar_authentication_required": false,
+      "summary_path": "research/vanilla_textures/by_stage/1-1-09/TEX09-R008/SUMMARY.json"
     }
   },
   "study_gate": {
-    "source_only_analysis_status": "complete_for_current_9_fixed_PNG_static_source_and_related_model_blockstate_UV_scope_as_recorded_R001_R007",
+    "source_only_analysis_status": "complete_for_9_fixed_textures_R001_R007_and_their_png_animation_metadata_R008",
     "stage_source_research_sufficient_for_current_scope": true,
-    "next_substantive_step": "no pending mandatory validation; investigate only genuinely new static source evidence, conflicting findings or newly provided sources",
+    "texture_animation_study_resumed": true,
+    "target_texture_frame_animation_count": 0,
+    "next_substantive_step": "no source-defined animated frames in the nine fixed soil/ground PNGs; do not invent animation; only continue on new independent evidence or explicit stage expansion",
     "user_input_required": false,
     "needed_from_user": null,
     "ingame_static_render_excluded": true,
     "official_jar_authentication_excluded": true,
-    "on_continue_without_evidence": "stop_and_report_source_track_complete; no screenshot request, do not create empty revision",
-    "last_checked_revision": "TEX09-R007"
+    "on_continue_without_evidence": "stop_and_report_animation_frame_study_complete_nothing_to_animate_here; no empty revision",
+    "last_checked_revision": "TEX09-R008"
+  },
+  "animation_source_audit": {
+    "scope": "original user-extracted Minecraft Java 1.21.11 folder as committed to GitHub",
+    "target_png": 9,
+    "support_png": 4,
+    "checked_png_count": 13,
+    "checked_adjacent_mcmeta_count": 13,
+    "mcmeta_present_count": 0,
+    "single_16x16_png_count": 13,
+    "texture_frame_animation_defined_count": 0,
+    "out_of_scope_animated_controls_checked": 3,
+    "temporal_behavior_in_engine_not_studied": true,
+    "assets_frame_study_status": "source_png_frame_metadata_checked_no_frames_defined_for_9_targets",
+    "last_verified_revision": "TEX09-R008"
   }
 }

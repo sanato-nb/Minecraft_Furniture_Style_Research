@@ -1,0 +1,85 @@
+{
+  "stage_id": "1-1-09",
+  "revision": "TEX09-R008",
+  "date": "2026-11-13",
+  "source": "user_provided_extracted_minecraft_1.21.11_git_main",
+  "research_dimension": "texture_animation_metadata_and_png_frame_strip_audit",
+  "user_unpaused_animation": true,
+  "scope": {
+    "target_png": 9,
+    "auxiliary_png_covered": 4,
+    "png_checked_total": 13,
+    "metadata_paths_checked_total": 13,
+    "metadata_files_present": 0,
+    "metadata_files_missing_404": 13,
+    "valid_png_ihdr_single_square_tile": 13,
+    "source_texture_frame_animations_found": 0,
+    "source_stacked_multiframe_png_found": 0
+  },
+  "existing_asset_counts_not_recounted": {
+    "target_png_new": 0,
+    "aux_png_new": 0,
+    "blockstates_new": 0,
+    "models_new": 0
+  },
+  "json_static_versus_temporal": {
+    "blockstates_checked": 9,
+    "models_checked": 10,
+    "blockstates_with_time_animation_fields": 0,
+    "models_with_time_animation_fields": 0,
+    "rotation_options_are_static": true,
+    "snowy_state_is_variant_not_animation": true
+  },
+  "positive_controls_outside_scope": [
+    {
+      "texture": "lava_still",
+      "png": [
+        16,
+        320
+      ],
+      "stack_tiles": 20,
+      "mcmeta_exists": true,
+      "frametime_ticks": 2,
+      "explicit_playback_entries": 38,
+      "metadata_git_blob": "7ceb36394159b6d5174974a0edbcfdd4ee4cf880"
+    },
+    {
+      "texture": "lava_flow",
+      "png": [
+        32,
+        512
+      ],
+      "stack_tiles": 16,
+      "mcmeta_exists": true,
+      "frametime_ticks": 3,
+      "explicit_playback_entries": null,
+      "metadata_git_blob": "8e55e43bafee8fe8235066910b91e2dc2f90e1f9"
+    },
+    {
+      "texture": "fire_0",
+      "png": [
+        16,
+        512
+      ],
+      "stack_tiles": 32,
+      "mcmeta_exists": true,
+      "frametime_ticks": null,
+      "explicit_playback_entries": 32,
+      "metadata_git_blob": "76446714d8dabdfbe85df6629bfc39692ac76b86"
+    }
+  ],
+  "source_atlas": "1.21.11/assets/minecraft/atlases/blocks.json",
+  "scope_conclusion": "No explicit animated PNG frame sequence for the nine target textures and four referenced support textures in the provided vanilla asset extract; static texture animation scope complete",
+  "limitations": [
+    "No runtime/class decompilation to rule out all procedural simulation or code-driven world/state changes",
+    "No resource pack overrides evaluated",
+    "Ingame verification excluded by user",
+    "Official client JAR authentication excluded by user"
+  ],
+  "animation_study_deferred": false,
+  "ingame_static_render_verified_count": 0,
+  "official_jar_verified": false,
+  "global_v38_unchanged": true,
+  "other_stages_untouched": true,
+  "next_revision_candidate": "TEX09-R009_ONLY_IF_NEW_EVIDENCE"
+}
