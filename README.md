@@ -41,6 +41,7 @@
 | v32 | **애니메이션 보류 유지**. 통 닫힘/열림·베틀·4작업대 총7 leaf가 공통 `cube` 선언6면을 상속하여 **42 face×material**, 25 PNG/6,400 화소 실측(전부 불투명), **10,752 암시 full-face UV uses**, 6 blockstate 20 variants, 통 윗면 132픽셀 차이 | 정적 상속/원본 PNG 검증, 공식 client.jar/게임 정적 UV 미확인 |
 | v33 | 애니메이션 보류 유지. 가마솥·호퍼(아래·측면)·퇴비통(본체+내용물) **12소스모델/40요소/148원본면**, **12 PNG경로/3,072RGBA 픽셀**(불투명2,332/투명740), UV 명시없음→기하유도 추론 **9,280 uses** 전부 불투명, 15원본 정적 상태·퇴비통 9수준 선택 계산, 4PNG 독립 Pillow | 공식 Mojang JAR/실제 게임 UV방향 미검증 |
 | v34 | Git tree 원본 모델 **2,390 JSON**, 상태 **1,168 JSON**, 블록 PNG **1,111 경로** 전체 SHA 인벤토리 확보(검토 완료 아님). 랜턴·촛불·막대 8 정적 원형/42요소·153 명시 UV면 중 **122면 실제 원본3PNG/888 texel-uses**, 랜턴 31면 PNG 보류, 정적 상태30. **애니메이션 연구 계속 보류** | 파일 경로 모집단 확보, 공식 Mojang JAR/인게임 UV 검증 미완료, 최종 0/5 |
+| v35 | P1 후보544개 중 **이번 회차 원본 소스15 leaf SHA·JSON** 대조(나머지529는 이번에만 미검토). 종33명시 UV·케이크42암시 UV·벌 공유cube6면/24사용, **16PNG/4,096원본 RGBA**, **99 face×material/10,900 PNG texel uses**, 4 상태JSON/71원본 규칙, 꿀정면 차이24/25픽셀. **애니메이션 보류** | Python/Pillow 6PNG 독립 검사, 공식 Mojang JAR/종 본체·게임 정적 UV 미확인, 완료0/5 |
 
 **학습 전체 5개 작업:** 01 바닐라 텍스처(표본 완료/검증 보류), 02 바닐라 3D(진행 중), 03 가구 모드 모델(v11~v12 실측 진행 중), 04 모드 텍스처·UV(PNG 24개 전체 실화소 및 13모델 571면 UV 표본 정렬 측정), 05 바닐라/모드 비교(5쌍 사전 비교, 최종 검증 미착수). 최종 확정 완료는 **0/5**입니다.
 
@@ -52,6 +53,8 @@
 **전체 바닐라 모델 연구 예정 대상:** [블록 모델 JSON 2,390개를 13개 분야로 분류한 전체 목록](docs/VANILLA_STATIC_MODELS_FULL_STUDY_LIST_v34.md) · [2,390개 전체 우선순위 CSV](research/vanilla_models/v34/10_all_2390_future_review_queue_filename_categories.csv). P1 544/P2 1,039/P3 807. **기존 연구와의 완료 상태 대조 전인 파일명 기반 후보 분류**이며 실제 분석 완료 수가 아님. 블록 상태1,168/PNG1,111은 v34 원본 인벤토리 별도 링크. 애니메이션 보류 유지.
 
 ## 빠른 탐색
+
+- [**v35 최신 P1 종·케이크·벌통·벌집 15 모델/71 상태/16 PNG 직접 분석**](research/vanilla_models/v35/00_v35_P1_종케이크벌통벌집_15모델_71상태_16PNG_분석보고서.md) · [P1 544파일 이번 회차 검수 원장](research/vanilla_models/v35/12_p1_544_static_source_review_ledger.csv) · [99 UV face×material 표본: 종/케이크75](research/vanilla_models/v35/08_bell_cake_75_faces_png_uv_sampling.csv) · [벌24](research/vanilla_models/v35/10_four_bee_leaf_24_parent_face_texel_records.csv) · [독립 Pillow6](research/vanilla_models/v35/14_six_png_independent_pillow_sha256_rgba.csv) · [v35 기계요약](research/vanilla_models/v35/v35_p1_bell_cake_bee_summary.json). **종 본체 특수 렌더러·공식 JAR 미검증, 애니메이션 보류, 최종0/5**.
 
 - [**v34 최신: 정적 랜턴·촛불·막대 153명시 UV면, 2,390 모델 전체 목록**](research/vanilla_models/v34/00_v34_바닐라2390모델_정적랜턴촛불_153면UV_전체목록.md) · [블록 모델 전수 SHA 목록](research/vanilla_models/v34/01_inventory_2390_block_model_paths_git_shas.csv) · [blockstates 전수 SHA 목록](research/vanilla_models/v34/02_inventory_1168_blockstate_paths_git_shas.csv) · [블록 PNG 전체 목록](research/vanilla_models/v34/03_inventory_1111_block_texture_png_paths_git_shas.csv) · [원본 153면 조사](research/vanilla_models/v34/05_eight_source_models_153_explicit_uv_faces_static_alpha.csv) · [Pillow 원본3 PNG](research/vanilla_models/v34/06_three_static_png_pillow_sha256_alpha_masks.csv). **애니메이션 보류, 최종 0/5**.
 

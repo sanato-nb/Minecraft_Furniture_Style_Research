@@ -1,7 +1,7 @@
 # 인수인계 · Minecraft Furniture Style Research
 
 > **새 채팅 진입점 / 단일 인수인계 기준 문서**  
-> 최종 확인일: **2026-11-13 (KST)** · 현재 체크포인트: **v34**
+> 최종 확인일: **2026-11-13 (KST)** · 현재 체크포인트: **v35**
 
 **사용자 최신 작업 지시(2026-11-13): 애니메이션 분석은 일단 보류.** 새로운 애니메이션 프레임 해독, 키프레임·클립 분석, 움직임 재현 및 애니메이션 인게임 검증을 진행하지 않는다. 기존 v9/v26/v31 애니메이션 관련 기록은 삭제하지 않고 보존하되, 새로운 진행도에 포함하지 않는다. 우선순위는 **정적 바닐라 3D 모델·기하·텍스처·UV·블록 상태·정적 렌더링 검증·공식 원본 무결성**이다. 애니메이션 연구는 사용자가 명시적으로 재개를 요청할 때까지 유지 보류.  
 > 저장소: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research  
@@ -25,15 +25,15 @@
 
 | 번호 | 범위 | 2026-11-13 상태 |
 |---|---|---|
-| 01 | 바닐라 재질·텍스처 | v4 선정표본 **150/150** 유지. v34 사용자 업로드 원본 `textures/block` **1,111 PNG 파일 경로/1,100고유 blob SHA** 전체 Git tree 목록 확정(화소 전수 디코딩 아님). `candle/end_rod/lightning_rod` **3PNG/768픽셀** 직접 Pillow·SHA256·Git blob 교차검증(불투명119/투명649); lantern 16×48 PNG 픽셀은 애니메이션 보류에 따라 미검사 |
-| 02 | 바닐라 3D 형태·모델 JSON·UV·상태·특수 렌더링 | v34 `models/block` **2,390경로(고유 SHA2,374)**·`blockstates` **1,168경로(고유 SHA1,015)** Git 원본 전수 경로/해시 표 확보. 정적 원형 **8모델/42요소/153명시 UV면**, `candle`100·엔드막대11·피뢰침11 = **122면 888 uses** 실제 Pillow 픽셀 전부 불투명; 랜턴31면은 기하/UV만 조사. 원본 source variants 30, 공식 client.jar/인게임 미검증, 애니메이션 보류 |
+| 01 | 바닐라 재질·텍스처 | v4 선정표본 **150/150** 및 v34 블록 PNG **1,111경로 전체 목록** 유지. v35 P1 종·케이크·벌 계열 **16원본 PNG/4,096 RGBA픽셀** 해독(불투명3,496/완전투명600), UV 면별 **10,900 texel-uses 전부 불투명**, 6 PNG Python/Pillow 독립 SHA256/픽셀 재검증. 종 `bell_bottom`은 particle 전용이며 face UV 검사에서는 제외. 공식 client.jar/인게임 미검증 |
+| 02 | 바닐라 3D 형태·모델 JSON·UV·상태·특수 렌더링 | v34 2,390 블록 모델 인벤토리/P1 **544개 후보** 유지. v35 이 중 **15 leaf 모델 JSON/SHA 직접 검토**, `bell`4·`cake`7·`beehive/bee_nest`4, 부모2 JSON. 종 **33원본 명시 UV면**, 케이크 **42암시 UV면**, 벌 공통 `cube` **6고유 선언면/4 leaf 24재질적용**. source 선언면 합 81/실화소 적용행99, 정적 blockstates 4/71 variants. 종 본체 renderer·공식 JAR 미검증, 애니메이션 보류 |
 | 03 | 가구 모드 3D 모델 | **v24: 의자 leaf 39개 제작자 원본 JSON·Git SHA 직접 검사**, 누적 Another **204 leaf**; 신규 10 상태 Another 모델 경로 **91/91** 읽기 완료. 원형 69/블록 상태 22/177 유지, Handcrafted 원형 120/leaf16, Macaw 모델 0 |
 | 04 | 가구 모드 텍스처·UV·팔레트 | **Another 모드 원본 PNG 151종/실제 UV RGBA 3,329면(기존 2,210+v23 1,119), Handcrafted 24 PNG/784면 → 두 모드 PNG 175종/면 4,113인스턴스.** 새 PNG 42종·모드 면 1,119 직접 원본 화소, 공식 바닐라 dirt 16면/oak_planks 2면·전체/인게임 미검증. |
 | 05 | 바닐라 ↔ 가구 모드 비교·공통 특성 검증 | **사전 비교: 의자·벤치·소파 5쌍 비교표만 작성, 바닐라·인게임 최종 검증 미시작** |
 
 **확정 완료 0/5개.** 01의 100%는 **표본 수 목표**만 의미한다. 02는 미리 합의한 전체 분석 대상이 없어 퍼센트를 임의로 계산하면 안 된다.
 
-## 2. 누적 연구 결과: v1–v34
+## 2. 누적 연구 결과: v1–v35
 
 | 체크포인트 | 내용 | 확인할 자료 |
 |---|---|---|
@@ -69,6 +69,7 @@
 | v32 | 사용자 요청대로 **애니메이션 분석 보류**. 통(닫힘/열림)·베틀·4작업대 7 leaf가 공통 `cube` 형상 상속; **42면×재질 인스턴스(공통 원본 선언면은 6)**, PNG **25경로/6,400픽셀 전 RGBA**(전부 불투명), 암시적 전체면 UV 기반 **10,752 uses**, blockstates **20 variants**, 통 윗면 두 PNG 실제 **132픽셀 차이** | [v32 정적 모델·PNG 연구보고서](research/vanilla_models/v32/00_v32_정적통베틀작업대_25PNG_42면암시UV_20상태보고서.md) |
 | v33 | **애니메이션 보류**. 가마솥·호퍼(아래/옆)·퇴비통(본체+내용물8종) **12 JSON/40요소/148선언면**; 원본 **12 PNG/3,072픽셀**(불투명2,332/투명740), 암시적 UV 추론 후 **9,280 텍셀 참조**(전부 불투명). 호퍼 출구1요소만 변경, 퇴비통 `level 0–8` 고정상태9개·height 3→15/최종 재질 교체. Pillow 4PNG 독립 검사 | [v33 원본 정적 연구보고서](research/vanilla_models/v33/00_v33_가마솥호퍼퇴비통_148면_암시UV_PNG정적분석.md) |
 | v34 | 사용자 원본 Git 트리 `models/block` **2,390 JSON**, `blockstates` **1,168 JSON**, `textures/block` **1,111 PNG** 전체 경로·SHA 인벤토리 확정(완료율 아님). 랜턴 설치형/매달기형·촛불 1–4·엔드 막대·피뢰침 **8 정적 원형/42요소/153 명시 UV 면**, 그중 **122면 실제 3PNG Pillow RGBA·888 texel-uses 모두 불투명**, 랜턴31면 PNG는 애니메이션 보류로 미대조. source 상태30, `uvlock` 부재30 | [v34 정적 모델·전체파일 목록 보고서](research/vanilla_models/v34/00_v34_바닐라2390모델_정적랜턴촛불_153면UV_전체목록.md) |
+| v35 | **P1 544 후보 중 이번 회차 15 leaf 원본 SHA·JSON 검수**(나머지 529는 *이번 회차 미검토*, 과거 전체 미분석 아님). 종 지지대4모델33명시 UV면·케이크7모델42암시 UV면·벌통/벌집4leaf 공통 cube6원본면/24재질적용. **16 PNG·4,096픽셀**(불투명3,496/투명600), **99 face×material/10,900 텍셀 참조 모두 불투명**, 4상태 JSON/71variants, 꿀정면 RGBA 차이24·25픽셀. 독립 Pillow 6PNG·애니메이션 보류 | [v35 P1 직접 분석 보고서](research/vanilla_models/v35/00_v35_P1_종케이크벌통벌집_15모델_71상태_16PNG_분석보고서.md) |
 
 ### 실제 SQLite에서 확인된 행 수 (v10까지의 바닐라 DB)
 
@@ -316,6 +317,16 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 - 원본 blockstate **5파일·30 variants**(lantern2/soul2/candle8/end_rod6/lightning_rod12), source x비0 15/y비0 9,`uvlock` 키 미기재30. candle lit/powered 등은 정적 source state **선택 규칙만 기록**했고 lit/불꽃 PNG 동적 재생·프레임/시간 변화를 분석하지 않았다.
 - **바닐라 애니메이션 보류 유지.** 원본 Mojang client.jar 자체 인증 및 게임 UV/조명/컬링 미검증. v24 모드 지표·이전 연구 보존, 단계 완료 판정 **0/5**.
 
+### v35 P1 첫 소스검수: 종·케이크·벌통/벌집 15 leaf (2026-11-13)
+
+- [v35 원본 연구 보고서](research/vanilla_models/v35/00_v35_P1_종케이크벌통벌집_15모델_71상태_16PNG_분석보고서.md) · [P1 544 파일별 v35 검수 원장](research/vanilla_models/v35/12_p1_544_static_source_review_ledger.csv) · [11 bell/cake 소스 모델](research/vanilla_models/v35/01_bell_cake_eleven_source_models.csv) · [75 직접 선언면](research/vanilla_models/v35/03_bell_cake_75_source_declared_faces.csv) · [4 source blockstates/71행](research/vanilla_models/v35/04_four_static_blockstates_71_variants.csv) · [종/케이크 7 PNG](research/vanilla_models/v35/07_bell_cake_seven_png_rgba_full.csv) · [종33/케이크42면 실제 PNG 픽셀](research/vanilla_models/v35/08_bell_cake_75_faces_png_uv_sampling.csv) · [벌9 PNG](research/vanilla_models/v35/09_nine_bee_png_full_rgba.csv) · [벌 공통 cube 24면×leaf](research/vanilla_models/v35/10_four_bee_leaf_24_parent_face_texel_records.csv) · [6PNG Pillow 검증](research/vanilla_models/v35/14_six_png_independent_pillow_sha256_rgba.csv) · [요약](research/vanilla_models/v35/v35_p1_bell_cake_bee_summary.json).
+- v34의 **P1 544 후보**에서 15 leaf 원본 모델과 부모2 JSON을 읽어 **15/15 원본 SHA가 기존 P1 Git 목록과 일치**함을 재검증. 과거 v5–v34 연구 겹침 전체 검수는 미완료; 따라서 **v35의 15/544는 이번 회차 source 점검 범위**일 뿐 정밀 분석 완료 퍼센트 아님.
+- 종 `bell_floor/ceiling/wall/between_walls` **6요소/33 source 명시 UV face**, `attachment4×facing4=16` 원본 상태. **종 본체의 전체 메시·별도 renderer는 JSON으로 확인되지 않아 게임 실제 렌더와 분리/보류**. `bell_bottom` PNG는 particle 전용, bell face 실화소 724 uses에 포함하지 않음.
+- 케이크 `cake` + `slice1..6` **7요소/42 source 암시 UV면**, `from.x=1,3,5,7,9,11,13`로 줄고 안쪽 cut 면에 `cake_inner`. `bites=0..6` 7고정 상태. UV 방향별 좌표는 원본 기하 유도 **추론**이며 42면 PNG 실화소 직사각형 조회 **4,032 texel-uses 전부 불투명**. 종 33 명시 UV는 724 uses 불투명.
+- 벌통·벌집 4 leaf 원본 자체요소0, `orientable_with_bottom→cube` 1원본 요소/6원본 면 공유. **24 face×material 적용/6,144 full-face 암시 UV texel-uses** 전부 불투명. `honey_level0..4`는 empty, `5`는 honey; `facing4×level6×두 블록=48상태`. 전면 PNG 좌표별 rgba 다른 곳 **벌통24픽셀/벌집25픽셀**.
+- PNG **16경로/4,096전 화소(불투명3,496/투명600/부분0)**, source UV 반복 사용 합 **10,900 불투명 텍셀 참조**(종724+케이크4,032+벌6,144). 원본 source face **81선언**(33+42+공통cube6), face×material **99사용행**(33+42+24)을 구분. Python/Pillow 6PNG 독립 `verify()`/SHA256/RGBA 검사 성공. 기존 v4 선정150 PNG와 직접 중복 경로0, 전체 선행연구 중복여부는 별도.
+- **총 4 blockstate JSON/71 variants**, `uvlock` 키는 71건 모두 원본 미명시. Mojang 공식 client.jar/종 본체·정적 게임 UV/컬링/조명 미검증. **사용자 애니메이션 분석 보류 지속**, v24 모드 수치 보존, 단계1 최종 완료 **0/5**.
+
 ## 5. 새 채팅이 곧바로 이어갈 실제 작업
 
 **작업 계획서를 반복 작성하지 말고 실제 데이터 분석을 진행한다.**
@@ -340,13 +351,13 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 
 [새 채팅용 프롬프트 파일](docs/NEW_CHAT_START.md)을 열어 내용을 붙여넣거나 아래 한 문장을 사용한다.
 
-> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **v34 체크포인트부터 바닐라 01/02 연구를 우선 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
+> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **v35 체크포인트부터 바닐라 01/02 연구를 우선 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
 
-**바로 다음 작업(애니메이션 보류):** v34에서 Minecraft Java 1.21.11 사용자 업로드 자료의 **전체 block model 2,390 JSON / blockstates 1,168 / block PNG 1,111 경로 인벤토리**를 확보했고, 랜턴/촛불/막대 정적 8원형 153명시 UV면 중 122면·3PNG의 실제 픽셀을 검증했다. **다음은 이 인벤토리에서 객관적 가구형 정적 분석 대상 부분집합을 선정하고, 공식 Mojang 1.21.11 client.jar 인증, 게임의 정적 모델 UV/컬링/조명 대조, 미조사 정적 가구 형상 원본 UV 검증**을 진행한다. 파일 개수 분모만으로 전체 연구 %를 계산하지 말고, lantern 31면은 PNG 미샘플로 유지. 사용자 명시 재개 전 모든 애니메이션 보류; v24 모드 자료·과거 동적 기록 보존, 0/5.
+**바로 다음 작업(애니메이션 보류):** v35에서 P1 544개 중 이번 회차 15 leaf JSON/관련 16 PNG/71 상태를 source 직접 읽기·RGBA로 점검했다. **P1 544 원장에 v5–v34 과거 연구를 대조하여 과거 포함 정확히 몇 모델이 source/UV/인게임까지 검증됐는지 별도 산정**하고, P1 나머지 모델의 새로운 정적 구조 검증을 계속할 것. 종 본체의 실제 렌더러·공식 client.jar 무결성 및 정적 UV/culling은 미완료, 유도 UV는 추론. **애니메이션은 명시적 재개 전까지 보류**, v24 모드 보존, 완료0/5.
 
 ## 7. 인수인계 유지 방법
 
-- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v34).
+- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v35).
 - **진행도:** `PROGRESS.md`.
 - **새 채팅 복사용:** `docs/NEW_CHAT_START.md`.
 - **기계 판독 상태:** `handoff/STATE.json`.
