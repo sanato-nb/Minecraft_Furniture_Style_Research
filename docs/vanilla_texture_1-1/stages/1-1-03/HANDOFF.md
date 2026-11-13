@@ -1,6 +1,19 @@
 # 1-1-03 금속·금속부품 — 독립 채팅 인수인계
 
-**최종 완료 단계: TEX03-R007 / 다음 신규 연구 없음(새 근거로 재개 시 R008) / 전역 공통 v38 그대로.** 2026-11-13. 공식 JAR 인증 및 인게임 렌더 검증 제외 정책 반영(연구 릴리스 번호 유지).
+**최신 완료 단계: TEX03-R008 애니메이션 에셋 조사 완료 / 정적 소스 TEX03-R007 완료 보존 / 필수 다음 연구 없음 / 전역 v38 그대로.** 2026-11-13. 공식 JAR 인증 및 인게임 렌더 검증 제외 정책 반영(연구 릴리스 번호 유지).
+
+## TEX03-R008 — 보류했던 애니메이션 연구 재개 후 에셋 차원 조사 완료 (2026-11-13)
+
+[애니메이션 소스 연구 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-03/TEX03-R008/REPORT.md) · [SUMMARY.json](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-03/TEX03-R008/SUMMARY.json) · [24개 모델 상태 양 끝](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-03/TEX03-R008/OPEN_CLOSE_STATIC_ENDPOINTS.csv)
+
+**사용자 명시 지시로 애니메이션 연구 보류를 해제함.** 사용자 인게임 검증 제외·Mojang 공식 전체 JAR 인증 제외는 계속 적용. R007 정적 소스 완료 결과는 변경하지 않음.
+
+- 대상 원본 PNG **16종 모두 16×16 단일 프레임**, 대응 `<texture>.png.mcmeta` **16/16 부재(직접 GitHub 원본 파일 조회)**. 별도 프레임 애니메이션 0종.
+- 같은 사용자 추출 원본의 애니메이션 **양성 대조 3종**: `water_still` 16×512, `lava_still` 16×320, `fire_0` 16×512 PNG 및 각각 `.mcmeta.animation`을 직접 확인. 이 3종은 고정 금속 연구 샘플 16개에 **합산하지 않음**.
+- 사용자 원본 관련 **39 models JSON + 14 blockstates JSON** 직접 재검사, 재생 시간·프레임·키프레임·타임라인 필드 **0건**. 모델 회전·GUI display 변화는 시간상의 프레임이 아닌 정적 설정.
+- `iron_door` **16쌍**(위/아래 두 반쪽 포함, 완성 문은 8 facing×hinge 조합), `iron_trapdoor` **8쌍**의 `open=false↔true` 양 끝 모델을 직접 매칭하여 새 정적 대응 **24행** 기록. 24쌍 모델 참조·좌표 투영 경계 변화 확인; 중간 interpolation 프레임/시간 정보 **0건**. 이를 신규 고유 모델 24개로 중복 집계 금지.
+- 구리 산화 단계는 **서로 다른 정적 PNG**, 모루 회전은 **정적 facing 모델**. 낙하·산화 속도 같은 런타임 동작은 이번 에셋이 인증할 수 없으므로 검증 성공으로 표기하지 않음.
+- **애니메이션 관련 에셋 소스 조사는 완료.** 다음에 `계속해줘`를 받으면 고정 16종 연구가 끝났음을 알리고 멈춘다. 새로운 원본/범위, 구체적 오류, 사용자 지정 커스텀 animation 제작 요청 때만 R009 재개 후보 검토.
 
 ## 최종 상태 — TEX03-R007 (2026-11-13): 1-1-03 정적 소스 연구 완료
 
@@ -77,4 +90,4 @@
 
 GitHub `STATE.json`/`HANDOFF.md`/R004/HEAD 우선 확인 후 **새 증거가 있을 때만** R007 신규 저장. 새로운 비중복 정적 소스 검증 근거를 우선하며, 실제 게임 화면 증거를 요구하지 않는다. **공식 Mojang 원본 JAR 인증을 요구하거나 후속 과제로 지정하지 않는다.** 정적 JSON의 회전/UV는 실제 빛·면 가려짐·광택을 입증하지 못하지만 그런 실게임 검증은 현행 연구 완료 조건에서 제외됐다.
 
-**애니메이션·키프레임·움직임 연구 보류**; Project Zomboid 변환 및 가구 3D 제작 금지. 다른 단계나 루트 `HANDOFF.md`, `PROGRESS.md`, `handoff/STATE.json`, 전역 `v38` 수정 금지. **기존 R001~R007 릴리스 파일 영구 불변.** 현 단계 완료이므로 신규 쓰기는 요구되지 않는다. 새 연구 재개 시에는 이 단계 전용 `TEX03-R008/` 신규 경로와 해당 단계 `STATE.json`/`HANDOFF.md`만 변경 허용.
+**애니메이션·키프레임·움직임 연구 보류**; Project Zomboid 변환 및 가구 3D 제작 금지. 다른 단계나 루트 `HANDOFF.md`, `PROGRESS.md`, `handoff/STATE.json`, 전역 `v38` 수정 금지. **기존 R001~R008 릴리스 파일 영구 불변.** 현 단계 소스 정적/애니메이션 연구는 모두 완료. 신규 쓰기는 요구되지 않으며, 새 연구 재개 시 `TEX03-R009/` 후보와 해당 단계 `STATE.json`/`HANDOFF.md`만 수정 가능.

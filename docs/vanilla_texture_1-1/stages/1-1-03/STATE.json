@@ -7,10 +7,10 @@
   "stage_id": "1-1-03",
   "material_family": "금속·금속부품",
   "stage_prefix": "TEX03",
-  "current_revision": "TEX03-R007",
+  "current_revision": "TEX03-R008",
   "next_revision": null,
-  "revision_sequence": 7,
-  "revision_status": "completed_source_only_final_audit_16_PNG_14_blockstates_39_models_63_variants_406_faces_zero_linkage_mismatch",
+  "revision_sequence": 8,
+  "revision_status": "TEX03_R008_animation_asset_source_audit_completed_16_texture_no_mcmeta_39_models_14_blockstates_no_timeline_24_static_open_close_pairs",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 16,
@@ -27,7 +27,7 @@
     "version_policy": "docs/vanilla_texture_1-1/ISOLATED_CHAT_VERSIONING.md",
     "output_root": "research/vanilla_textures/by_stage/1-1-03/"
   },
-  "source_note": "v4 표본에 iron_door, iron_trapdoor, anvil_top 등 포함. 금속 반사/광택 표현은 원본 PNG 통계와 런타임 셰이더를 구분할 것. TEX03-R003: 사용자가 풀어 올린 1.21.11/ 69개 소스를 실제 직접 검사, 미러 Git Blob SHA-1 69/69 및 PNG SHA-256 16/16 일치; 공식 Mojang JAR 전체 SHA-1 인증 아님. TEX03-R005: 6 source PNG raw alpha XY positions, 14 blockstates and 14 geometry JSON templates, 272 mask UV crosschecks and source-projected world face directions; not an in-game rendering claim. TEX03-R006: directly redecoded 3 user-extracted PNGs and verified source blockstate/leaf/parent paths; differentiated mirrored alpha0 masks from opaque RGB on 70 existing static alpha face occurrences. 2026-11-13 administrative change: in-game visual/render verification excluded from active stage verification by user; historical 0/16 retained, static source evidence only, R006/R007 numbering unchanged. TEX03-R007 closed fixed 16-PNG stage after direct re-verification of 69 user original assets and 406 cross-release face links; documented one historical R003 heavy_core face-count metadata error without altering immutable results. Official JAR/in-game excluded, animation deferred.",
+  "source_note": "v4 표본에 iron_door, iron_trapdoor, anvil_top 등 포함. 금속 반사/광택 표현은 원본 PNG 통계와 런타임 셰이더를 구분할 것. TEX03-R003: 사용자가 풀어 올린 1.21.11/ 69개 소스를 실제 직접 검사, 미러 Git Blob SHA-1 69/69 및 PNG SHA-256 16/16 일치; 공식 Mojang JAR 전체 SHA-1 인증 아님. TEX03-R005: 6 source PNG raw alpha XY positions, 14 blockstates and 14 geometry JSON templates, 272 mask UV crosschecks and source-projected world face directions; not an in-game rendering claim. TEX03-R006: directly redecoded 3 user-extracted PNGs and verified source blockstate/leaf/parent paths; differentiated mirrored alpha0 masks from opaque RGB on 70 existing static alpha face occurrences. 2026-11-13 administrative change: in-game visual/render verification excluded from active stage verification by user; historical 0/16 retained, static source evidence only, R006/R007 numbering unchanged. TEX03-R007 closed fixed 16-PNG stage after direct re-verification of 69 user original assets and 406 cross-release face links; documented one historical R003 heavy_core face-count metadata error without altering immutable results. Official JAR/in-game excluded, animation deferred. TEX03-R008: animation scope explicitly reopened; checked 16 PNG .png.mcmeta absence with positive 3 animated-control assets, rescanned 39 model and 14 blockstate JSON for timelines, paired 24 open/close endpoints, documented no source frame duration; preserves static R007. User in-game and official JAR exclusions remain.",
   "allowed_write_paths": [
     "docs/vanilla_texture_1-1/stages/1-1-03/HANDOFF.md",
     "docs/vanilla_texture_1-1/stages/1-1-03/STATE.json",
@@ -127,7 +127,13 @@
       "ingame_verification_requirement": "not_applicable_excluded_by_user_2026-11-13",
       "source_only_research_complete": true,
       "source_only_completion_revision": "TEX03-R007",
-      "source_only_audit_status": "passed_2026_11_13"
+      "source_only_audit_status": "passed_2026_11_13",
+      "animation_asset_checked_revision": "TEX03-R008",
+      "source_texture_frame_count": 1,
+      "source_texture_mcmeta_present": false,
+      "source_texture_animation_class": "single_frame_no_animation_mcmeta",
+      "asset_animation_source_research_complete": true,
+      "asset_animation_source_open_close_pairs": 0
     },
     {
       "item_id": "1-1-03-002",
@@ -163,7 +169,13 @@
       "ingame_verification_requirement": "not_applicable_excluded_by_user_2026-11-13",
       "source_only_research_complete": true,
       "source_only_completion_revision": "TEX03-R007",
-      "source_only_audit_status": "passed_2026_11_13"
+      "source_only_audit_status": "passed_2026_11_13",
+      "animation_asset_checked_revision": "TEX03-R008",
+      "source_texture_frame_count": 1,
+      "source_texture_mcmeta_present": false,
+      "source_texture_animation_class": "single_frame_no_animation_mcmeta",
+      "asset_animation_source_research_complete": true,
+      "asset_animation_source_open_close_pairs": 0
     },
     {
       "item_id": "1-1-03-003",
@@ -199,7 +211,13 @@
       "ingame_verification_requirement": "not_applicable_excluded_by_user_2026-11-13",
       "source_only_research_complete": true,
       "source_only_completion_revision": "TEX03-R007",
-      "source_only_audit_status": "passed_2026_11_13"
+      "source_only_audit_status": "passed_2026_11_13",
+      "animation_asset_checked_revision": "TEX03-R008",
+      "source_texture_frame_count": 1,
+      "source_texture_mcmeta_present": false,
+      "source_texture_animation_class": "single_frame_no_animation_mcmeta",
+      "asset_animation_source_research_complete": true,
+      "asset_animation_source_open_close_pairs": 0
     },
     {
       "item_id": "1-1-03-004",
@@ -235,7 +253,13 @@
       "ingame_verification_requirement": "not_applicable_excluded_by_user_2026-11-13",
       "source_only_research_complete": true,
       "source_only_completion_revision": "TEX03-R007",
-      "source_only_audit_status": "passed_2026_11_13"
+      "source_only_audit_status": "passed_2026_11_13",
+      "animation_asset_checked_revision": "TEX03-R008",
+      "source_texture_frame_count": 1,
+      "source_texture_mcmeta_present": false,
+      "source_texture_animation_class": "single_frame_no_animation_mcmeta",
+      "asset_animation_source_research_complete": true,
+      "asset_animation_source_open_close_pairs": 0
     },
     {
       "item_id": "1-1-03-005",
@@ -271,7 +295,13 @@
       "ingame_verification_requirement": "not_applicable_excluded_by_user_2026-11-13",
       "source_only_research_complete": true,
       "source_only_completion_revision": "TEX03-R007",
-      "source_only_audit_status": "passed_2026_11_13"
+      "source_only_audit_status": "passed_2026_11_13",
+      "animation_asset_checked_revision": "TEX03-R008",
+      "source_texture_frame_count": 1,
+      "source_texture_mcmeta_present": false,
+      "source_texture_animation_class": "single_frame_no_animation_mcmeta",
+      "asset_animation_source_research_complete": true,
+      "asset_animation_source_open_close_pairs": 0
     },
     {
       "item_id": "1-1-03-006",
@@ -307,7 +337,13 @@
       "ingame_verification_requirement": "not_applicable_excluded_by_user_2026-11-13",
       "source_only_research_complete": true,
       "source_only_completion_revision": "TEX03-R007",
-      "source_only_audit_status": "passed_2026_11_13"
+      "source_only_audit_status": "passed_2026_11_13",
+      "animation_asset_checked_revision": "TEX03-R008",
+      "source_texture_frame_count": 1,
+      "source_texture_mcmeta_present": false,
+      "source_texture_animation_class": "single_frame_no_animation_mcmeta",
+      "asset_animation_source_research_complete": true,
+      "asset_animation_source_open_close_pairs": 0
     },
     {
       "item_id": "1-1-03-007",
@@ -343,7 +379,13 @@
       "ingame_verification_requirement": "not_applicable_excluded_by_user_2026-11-13",
       "source_only_research_complete": true,
       "source_only_completion_revision": "TEX03-R007",
-      "source_only_audit_status": "passed_2026_11_13"
+      "source_only_audit_status": "passed_2026_11_13",
+      "animation_asset_checked_revision": "TEX03-R008",
+      "source_texture_frame_count": 1,
+      "source_texture_mcmeta_present": false,
+      "source_texture_animation_class": "single_frame_no_animation_mcmeta",
+      "asset_animation_source_research_complete": true,
+      "asset_animation_source_open_close_pairs": 0
     },
     {
       "item_id": "1-1-03-008",
@@ -384,7 +426,13 @@
       "ingame_verification_requirement": "not_applicable_excluded_by_user_2026-11-13",
       "source_only_research_complete": true,
       "source_only_completion_revision": "TEX03-R007",
-      "source_only_audit_status": "passed_2026_11_13"
+      "source_only_audit_status": "passed_2026_11_13",
+      "animation_asset_checked_revision": "TEX03-R008",
+      "source_texture_frame_count": 1,
+      "source_texture_mcmeta_present": false,
+      "source_texture_animation_class": "single_frame_no_animation_mcmeta",
+      "asset_animation_source_research_complete": true,
+      "asset_animation_source_open_close_pairs": 0
     },
     {
       "item_id": "1-1-03-009",
@@ -425,7 +473,13 @@
       "ingame_verification_requirement": "not_applicable_excluded_by_user_2026-11-13",
       "source_only_research_complete": true,
       "source_only_completion_revision": "TEX03-R007",
-      "source_only_audit_status": "passed_2026_11_13"
+      "source_only_audit_status": "passed_2026_11_13",
+      "animation_asset_checked_revision": "TEX03-R008",
+      "source_texture_frame_count": 1,
+      "source_texture_mcmeta_present": false,
+      "source_texture_animation_class": "single_frame_no_animation_mcmeta",
+      "asset_animation_source_research_complete": true,
+      "asset_animation_source_open_close_pairs": 8
     },
     {
       "item_id": "1-1-03-010",
@@ -463,7 +517,13 @@
       "ingame_verification_requirement": "not_applicable_excluded_by_user_2026-11-13",
       "source_only_research_complete": true,
       "source_only_completion_revision": "TEX03-R007",
-      "source_only_audit_status": "passed_2026_11_13"
+      "source_only_audit_status": "passed_2026_11_13",
+      "animation_asset_checked_revision": "TEX03-R008",
+      "source_texture_frame_count": 1,
+      "source_texture_mcmeta_present": false,
+      "source_texture_animation_class": "single_frame_no_animation_mcmeta",
+      "asset_animation_source_research_complete": true,
+      "asset_animation_source_open_close_pairs": 8
     },
     {
       "item_id": "1-1-03-011",
@@ -499,7 +559,13 @@
       "ingame_verification_requirement": "not_applicable_excluded_by_user_2026-11-13",
       "source_only_research_complete": true,
       "source_only_completion_revision": "TEX03-R007",
-      "source_only_audit_status": "passed_2026_11_13"
+      "source_only_audit_status": "passed_2026_11_13",
+      "animation_asset_checked_revision": "TEX03-R008",
+      "source_texture_frame_count": 1,
+      "source_texture_mcmeta_present": false,
+      "source_texture_animation_class": "single_frame_no_animation_mcmeta",
+      "asset_animation_source_research_complete": true,
+      "asset_animation_source_open_close_pairs": 0
     },
     {
       "item_id": "1-1-03-012",
@@ -535,7 +601,13 @@
       "ingame_verification_requirement": "not_applicable_excluded_by_user_2026-11-13",
       "source_only_research_complete": true,
       "source_only_completion_revision": "TEX03-R007",
-      "source_only_audit_status": "passed_2026_11_13"
+      "source_only_audit_status": "passed_2026_11_13",
+      "animation_asset_checked_revision": "TEX03-R008",
+      "source_texture_frame_count": 1,
+      "source_texture_mcmeta_present": false,
+      "source_texture_animation_class": "single_frame_no_animation_mcmeta",
+      "asset_animation_source_research_complete": true,
+      "asset_animation_source_open_close_pairs": 0
     },
     {
       "item_id": "1-1-03-013",
@@ -573,7 +645,13 @@
       "ingame_verification_requirement": "not_applicable_excluded_by_user_2026-11-13",
       "source_only_research_complete": true,
       "source_only_completion_revision": "TEX03-R007",
-      "source_only_audit_status": "passed_2026_11_13"
+      "source_only_audit_status": "passed_2026_11_13",
+      "animation_asset_checked_revision": "TEX03-R008",
+      "source_texture_frame_count": 1,
+      "source_texture_mcmeta_present": false,
+      "source_texture_animation_class": "single_frame_no_animation_mcmeta",
+      "asset_animation_source_research_complete": true,
+      "asset_animation_source_open_close_pairs": 0
     },
     {
       "item_id": "1-1-03-014",
@@ -614,7 +692,13 @@
       "ingame_verification_requirement": "not_applicable_excluded_by_user_2026-11-13",
       "source_only_research_complete": true,
       "source_only_completion_revision": "TEX03-R007",
-      "source_only_audit_status": "passed_2026_11_13"
+      "source_only_audit_status": "passed_2026_11_13",
+      "animation_asset_checked_revision": "TEX03-R008",
+      "source_texture_frame_count": 1,
+      "source_texture_mcmeta_present": false,
+      "source_texture_animation_class": "single_frame_no_animation_mcmeta",
+      "asset_animation_source_research_complete": true,
+      "asset_animation_source_open_close_pairs": 8
     },
     {
       "item_id": "1-1-03-015",
@@ -650,7 +734,13 @@
       "ingame_verification_requirement": "not_applicable_excluded_by_user_2026-11-13",
       "source_only_research_complete": true,
       "source_only_completion_revision": "TEX03-R007",
-      "source_only_audit_status": "passed_2026_11_13"
+      "source_only_audit_status": "passed_2026_11_13",
+      "animation_asset_checked_revision": "TEX03-R008",
+      "source_texture_frame_count": 1,
+      "source_texture_mcmeta_present": false,
+      "source_texture_animation_class": "single_frame_no_animation_mcmeta",
+      "asset_animation_source_research_complete": true,
+      "asset_animation_source_open_close_pairs": 0
     },
     {
       "item_id": "1-1-03-016",
@@ -688,7 +778,13 @@
       "ingame_verification_requirement": "not_applicable_excluded_by_user_2026-11-13",
       "source_only_research_complete": true,
       "source_only_completion_revision": "TEX03-R007",
-      "source_only_audit_status": "passed_2026_11_13"
+      "source_only_audit_status": "passed_2026_11_13",
+      "animation_asset_checked_revision": "TEX03-R008",
+      "source_texture_frame_count": 1,
+      "source_texture_mcmeta_present": false,
+      "source_texture_animation_class": "single_frame_no_animation_mcmeta",
+      "asset_animation_source_research_complete": true,
+      "asset_animation_source_open_close_pairs": 0
     }
   ],
   "revisions": [
@@ -847,27 +943,51 @@
       "item_audit": "research/vanilla_textures/by_stage/1-1-03/TEX03-R007/SOURCE_ONLY_ITEM_CLOSEOUT.csv",
       "completion_json": "research/vanilla_textures/by_stage/1-1-03/TEX03-R007/SOURCE_ONLY_COMPLETION_AUDIT.json",
       "next_revision": null
+    },
+    {
+      "revision": "TEX03-R008",
+      "kind": "animation_source_inspection_after_explicit_user_resume",
+      "status": "completed_source_only_animation_asset_survey",
+      "target_pngs": 16,
+      "animated_png_mcmeta_found": 0,
+      "original_model_json_temporal_fields_scanned": 39,
+      "model_timeline_keys_found": 0,
+      "original_blockstate_json_scanned": 14,
+      "blockstate_timeline_keys_found": 0,
+      "positive_controls_animated_PNG_mcmeta_verified": 3,
+      "iron_door_static_endpoints": 16,
+      "iron_trapdoor_static_endpoints": 8,
+      "total_static_endpoint_pairs": 24,
+      "intermediate_keyframes_found": 0,
+      "real_duration_known_from_assets": false,
+      "official_JAR": "excluded_by_user",
+      "in_game": "excluded_by_user",
+      "original_static_source_completion": "TEX03-R007_retained",
+      "new_unique_pngs": 0,
+      "new_unique_source_model_faces": 0,
+      "report": "research/vanilla_textures/by_stage/1-1-03/TEX03-R008/REPORT.md",
+      "summary": "research/vanilla_textures/by_stage/1-1-03/TEX03-R008/SUMMARY.json",
+      "next_revision": null
     }
   ],
   "next_steps": [
-    "Source-only stage 1-1-03 completed at immutable TEX03-R007. Stop on a subsequent '계속해줘' for this same finished scope; report completion, do not manufacture more release revisions.",
-    "Do not request in-game screenshots or official Mojang full JAR authentication, both excluded; animation remains deferred.",
-    "Reopen only if user provides a new source, identifies a concrete unresolved discrepancy, or explicitly expands the defined 16-PNG scope. If reopened, candidate TEX03-R008 and preserve immutable R001-R007.",
-    "Legacy R003 heavy_core explicit_geometry_faces=0 is an inaccurate metadata field; original has six faces and prior R002/R004 six-face analysis correct, final R007 exception ledger is canonical corrective note.",
-    "Other texture stages, root handoff/progress and global legacy checkpoint v38 unchanged. This does not mean full Minecraft furniture style research project is done."
+    "TEX03-R007 static source analysis completed and TEX03-R008 animation asset source research completed; on generic continue for this stage stop and report completion, do not create a manufactured R009.",
+    "16 original fixed metal PNGs have no matching .png.mcmeta and no multiple frames; 24 open/closed endpoint pairs represent a discrete model state swap, not a timed mesh tween.",
+    "No screenshots, gameplay capture, official whole JAR authentication required; both excluded by user.",
+    "Actual runtime physics, time interpolation or redstone mechanics are not certified from these texture/model/blockstate files; a new explicit task/scope would be needed for runtime code inspection or custom animation generation.",
+    "No Project Zomboid conversion or furniture 3D building, no changes outside stage; v38 unchanged."
   ],
   "ingame_static_render_verified": false,
-  "animation_study_deferred": true,
+  "animation_study_deferred": false,
   "scope_excluded": [
     "Project Zomboid conversion",
     "actual furniture 3D asset building",
-    "animation study until explicitly resumed",
     "Mojang official client.jar SHA-1 authentication and official metadata verification (excluded by user request 2026-11-13)",
     "Minecraft in-game static render/screenshots and gameplay observation (excluded by user 2026-11-13; historical verification 0 preserved)"
   ],
   "project_overall_completion_pct": null,
   "do_not_count_planning_as_research": true,
-  "scope_completion_note": "TEX03-R007 FINAL: source-only research completed for fixed 16 metal PNGs using original user-provided 1.21.11 assets; A-E+G passed with 16 source PNG CRC/Git blob matches, 14 blockstate JSON/63 variants, 39 model JSON, 145 inherited template face measurements and 406 model face references reconciled 406/406, 70 alpha face reference matches, 0 source blocking inconsistencies. One historical R003 heavy_core explicit_geometry_faces metadata count corrected in R007 exception (0 recorded vs 6 original; R002/R004 already correct). In-game static renders and full official JAR authentication excluded by user, animation deferred. Not overall project completion.",
+  "scope_completion_note": "TEX03-R007 FINAL: source-only research completed for fixed 16 metal PNGs using original user-provided 1.21.11 assets; A-E+G passed with 16 source PNG CRC/Git blob matches, 14 blockstate JSON/63 variants, 39 model JSON, 145 inherited template face measurements and 406 model face references reconciled 406/406, 70 alpha face reference matches, 0 source blocking inconsistencies. One historical R003 heavy_core explicit_geometry_faces metadata count corrected in R007 exception (0 recorded vs 6 original; R002/R004 already correct). In-game static renders and full official JAR authentication excluded by user, animation deferred. Not overall project completion. TEX03-R008: user explicitly reopened animation study; target 16 assets have no corresponding .png.mcmeta and are 16x16 single frames; scanned 39 models/14 blockstates with no temporal fields; 24 open/closed static model endpoint pairs verified, 3 positive animated texture controls. Animation asset research completed; runtime physical motion/timing not directly certified.",
   "source_preference": "user_provided_1.21.11_extraction_first",
   "user_extraction_base_path": "1.21.11/",
   "verification_tracks": {
@@ -911,21 +1031,23 @@
   },
   "active_verification_policy": {
     "effective_date": "2026-11-13",
-    "reason": "User expressly excluded in-game render verification because original textures, models and blockstates suffice for this static source-research scope; official Mojang full JAR authentication already excluded",
+    "reason": "User expressly reopened animation-source research after source-only static completion; animation PNG metadata, model timeline fields and blockstate open/closed endpoints now in scope. In-game and official JAR checks remain user-excluded.",
     "active_tracks": [
       "user_provided_extraction",
       "previous_mirror_crosscheck",
-      "source_png_rgba_and_uv_model_blockstate_static_validation"
+      "source_png_rgba_and_uv_model_blockstate_static_validation",
+      "source_asset_texture_animation_metadata_and_static_model_endpoint_analysis"
     ],
     "excluded_tracks": [
       "mojang_official_JAR",
       "in_game_render"
     ],
-    "research_version_unchanged": "TEX03-R006",
-    "next_research_revision_unchanged": "TEX03-R007",
+    "research_version_unchanged": null,
+    "next_research_revision_unchanged": null,
     "historical_reports_unchanged": true,
-    "interpretation_limit": "Source-based model and texture correctness only; do not describe unobserved lighting, runtime occlusion, shaders, or gameplay pixels as tested",
-    "reentry_rule": "Do not request gameplay screenshots as a blocking condition. If no distinct new source evidence remains, stop and report source-only research status."
+    "interpretation_limit": "Texture animation in selected 16 PNGs and timeline keys in selected 39 model/14 blockstate JSONs can be judged from assets. Real runtime movement, physics/timing, lighting and culling not directly certified.",
+    "reentry_rule": "R007 static and R008 animation source audit completed; do not create new version on generic continue. Reopen only user-specified new scope, asset or concrete inconsistency.",
+    "last_completed_research_revision": "TEX03-R008"
   },
   "administrative_policy_updates": [
     {
@@ -946,6 +1068,14 @@
       "factual_historical_ingame_verified_count_preserved": 0,
       "source_only_verification": true,
       "historical_result_files_preserved": true
+    },
+    {
+      "date": "2026-11-13",
+      "kind": "explicit_user_scope_reopen",
+      "decision": "resume_previous_deferred_animation_asset_research",
+      "prior_static_revision_preserved": "TEX03-R007",
+      "new_animation_research_revision": "TEX03-R008",
+      "in_game_and_official_JAR_exclusions_unchanged": true
     }
   ],
   "alpha_spatial_resolution": {
@@ -975,7 +1105,7 @@
     "in_game_render_evidence": 0,
     "prior_R004_406_faces_not_added_as_new_measured_faces": true
   },
-  "current_release_path": "research/vanilla_textures/by_stage/1-1-03/TEX03-R007/",
+  "current_release_path": "research/vanilla_textures/by_stage/1-1-03/TEX03-R008/",
   "alpha_mirror_source_resolution": {
     "revision": "TEX03-R006",
     "source_PNG_direct": 3,
@@ -1002,14 +1132,16 @@
     "authoritative_inputs": [
       "1.21.11/assets/minecraft/textures/block/*.png",
       "1.21.11/assets/minecraft/models/block/*.json",
-      "1.21.11/assets/minecraft/blockstates/*.json"
+      "1.21.11/assets/minecraft/blockstates/*.json",
+      "1.21.11/assets/minecraft/textures/block/*.png.mcmeta (checked corresponding 16 names; all absent)"
     ],
     "verification_methods": [
       "original file byte and format integrity",
       "decoded RGBA and spatial alpha/RGB evidence",
       "model parent and texture slot resolution",
       "blockstate variant/rotation and static model-face UV crosschecks",
-      "source-grounded repeated-measurement and exact-count evidence"
+      "source-grounded repeated-measurement and exact-count evidence",
+      "Asset-only animation metadata .png.mcmeta, model/blockstate temporal fields, state-transition endpoints with prior UV/geometry links"
     ],
     "not_required": [
       "game screenshots",
@@ -1018,7 +1150,7 @@
       "official Mojang full-JAR authentication"
     ],
     "status_rule": "source_verified is not an in_game_test_pass",
-    "research_revision_unchanged": "TEX03-R006"
+    "research_revision_unchanged": "TEX03-R007_completed_as_historical_static_scope"
   },
   "static_source_research_completion": {
     "status": "completed",
@@ -1062,5 +1194,52 @@
     "next_research_version_required": false,
     "report": "research/vanilla_textures/by_stage/1-1-03/TEX03-R007/REPORT.md",
     "per_item_audit": "research/vanilla_textures/by_stage/1-1-03/TEX03-R007/SOURCE_ONLY_ITEM_CLOSEOUT.csv"
+  },
+  "animation_asset_research_completion": {
+    "status": "completed_asset_source_scope",
+    "revision": "TEX03-R008",
+    "evaluated_on": "2026-11-13",
+    "source_game_version": "Minecraft Java Edition 1.21.11",
+    "user_animation_deferment_lifted": true,
+    "source_animation_types": [
+      "PNG frame metadata and actual multi-frame spritesheets",
+      "model/blockstate JSON temporal keyframe/timing fields",
+      "paired state-selected open=false/true static models"
+    ],
+    "findings": {
+      "target_PNGs_checked": 16,
+      "target_PNG_16x16_single_frame": 16,
+      "target_png_mcmeta_present": 0,
+      "target_png_mcmeta_absent": 16,
+      "positive_control_animated_textures_direct_verified": 3,
+      "model_JSON_time_axis_scanned": 39,
+      "model_time_axis_keyfields_found": 0,
+      "blockstate_JSON_time_axis_scanned": 14,
+      "blockstate_time_axis_keyfields_found": 0,
+      "original_blockstate_static_variants_retained": 63,
+      "iron_door_open_close_state_pairs": 16,
+      "iron_door_two_half_assembly_facing_hinge_configurations": 8,
+      "iron_trapdoor_open_close_state_pairs": 8,
+      "total_static_end_state_pairs": 24,
+      "changed_leaf_model_between_endpoints": 24,
+      "bounds_changed_between_endpoints": 24,
+      "alpha0_UV_face_reference_changes_between_endpoints": 0,
+      "intermediate_animation_frames_present_in_scoped_assets": 0,
+      "animation_duration_from_scoped_assets": null,
+      "original_models_or_pixel_measurements_newly_added": 0
+    },
+    "real_world_limitations": "No runtime code, rendering or live gameplay verification. External Minecraft Wiki describes immediate door/trapdoor orientation changes, separate from source measurements. Falling anvil and copper oxidation mechanics not a keyframe animation in selected texture/model JSON; real tick behavior not measured.",
+    "prior_static_completion_revision": "TEX03-R007",
+    "report": "research/vanilla_textures/by_stage/1-1-03/TEX03-R008/REPORT.md",
+    "summary": "research/vanilla_textures/by_stage/1-1-03/TEX03-R008/SUMMARY.json",
+    "files": [
+      "TEXTURE_ANIMATION_META_AUDIT.csv",
+      "MODEL_TIMELINE_AUDIT.csv",
+      "BLOCKSTATE_ANIMATION_CLASSIFICATION.csv",
+      "OPEN_CLOSE_STATIC_ENDPOINTS.csv",
+      "CONTROL_ANIMATED_TEXTURES.json"
+    ],
+    "next_research_required": false,
+    "next_candidate_only_if_new_source": "TEX03-R009"
   }
 }

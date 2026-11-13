@@ -1,0 +1,43 @@
+{
+  "schema": "TEX03-R008_positive_control_texture_animation_metadata/v1",
+  "purpose": "Confirm same user-extracted assets preserve animated .png.mcmeta files. Controls are outside fixed metal 16 PNG sample and must not add to original 16-PNG denominator",
+  "source_root": "1.21.11/assets/minecraft/textures/block/",
+  "examples": [
+    {
+      "name": "water_still",
+      "PNG_dimensions": "16x512",
+      "inferred_frame_count_from_16x16_tiles": 32,
+      "mcmeta_git_blob_sha1": "0645f48c6224d94c9c299da2550a5b34016719fb",
+      "PNG_git_blob_sha1": "276e8a2f755c6e4d9527a785d208c3c660e04761",
+      "source_animation": {
+        "frametime": 2
+      }
+    },
+    {
+      "name": "lava_still",
+      "PNG_dimensions": "16x320",
+      "inferred_frame_count_from_16x16_tiles": 20,
+      "mcmeta_git_blob_sha1": "7ceb36394159b6d5174974a0edbcfdd4ee4cf880",
+      "PNG_git_blob_sha1": "a09790fefd6be3223baeb70fe04ca04af4bcfcb6",
+      "source_animation": {
+        "frametime": 2,
+        "frame_sequence_length": 38,
+        "frame_sequence_sample": "0→1→…→19→18→…→1"
+      }
+    },
+    {
+      "name": "fire_0",
+      "PNG_dimensions": "16x512",
+      "inferred_frame_count_from_16x16_tiles": 32,
+      "mcmeta_git_blob_sha1": "76446714d8dabdfbe85df6629bfc39692ac76b86",
+      "PNG_git_blob_sha1": "7a0474c68907f9f074aa2f32add212cd849af3df",
+      "source_animation": {
+        "frames_length": 32,
+        "start": 16,
+        "end": 15
+      }
+    }
+  ],
+  "note": "Minecraft Wiki resource pack animation documentation confirms .png.mcmeta animation semantics; these metadata/PNG bytes were directly found in user extracted original, no game runtime test",
+  "wiki": "https://minecraft.wiki/w/Resource_packs#Texture_animation"
+}

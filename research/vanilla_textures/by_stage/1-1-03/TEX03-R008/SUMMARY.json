@@ -1,0 +1,89 @@
+{
+  "schema": "TEX03-R008_animation_asset_source_audit/v1",
+  "stage": "1-1-03",
+  "date": "2026-11-13",
+  "revision": "TEX03-R008",
+  "prior_static_research": "TEX03-R007",
+  "static_research_preserved": "completed",
+  "animation_study_reopened_by_user": true,
+  "animation_asset_scope_status": "completed",
+  "primary_source": "user_extracted_1.21.11_assets",
+  "legacy_v38_preserved": true,
+  "source_inspections": {
+    "target_png": 16,
+    "PNG_dimensions": "16x16_all",
+    "single_frame_target_PNG": 16,
+    "corresponding_png_mcmeta_checked": 16,
+    "corresponding_png_mcmeta_found": 0,
+    "original_model_JSON_refetched_and_time_axis_scanned": 39,
+    "original_blockstates_JSON_refetched_and_time_axis_scanned": 14,
+    "model_time_axis_fields_found": 0,
+    "blockstate_time_axis_fields_found": 0,
+    "static_variants_in_source": 63,
+    "unique_model_geometry_faces_direct": 91,
+    "legacy_template_UV_faces_reused_not_additive": 145,
+    "legacy_expanded_model_face_references_reused_not_additive": 406,
+    "positive_control_animated_PNG_and_metadata_scanned": 3
+  },
+  "positive_controls": {
+    "water_still": "16x512 png + frametime2 mcmeta present",
+    "lava_still": "16x320 png + frametime2 and 38 frame references mcmeta present",
+    "fire_0": "16x512 png + 32 frame references mcmeta present",
+    "outside_target_16_PNG": true
+  },
+  "open_state_endpoints": {
+    "iron_door_variants": 32,
+    "iron_door_false_true_pairs": 16,
+    "iron_door_complete_two_half_assembly_configurations": 8,
+    "iron_trapdoor_variants": 16,
+    "iron_trapdoor_false_true_pairs": 8,
+    "pairs_total": 24,
+    "unique_pairs_with_distinct_leaf_models": 24,
+    "model_bound_differences": 24,
+    "transparent_face_reference_count_changes": 0,
+    "transformed_blockstate_model_y_delta_mod360_counts": {
+      "0": 2,
+      "90": 10,
+      "180": 2,
+      "270": 10
+    },
+    "intermediate_model_keyframes_in_original_asset_files": 0,
+    "animation_durations_declared_in_JSON": 0
+  },
+  "other_static_variants": {
+    "anvil_facing_only": 4,
+    "single_state_blockstates": 11,
+    "copper_weathering_PNGs_in_sample": 4,
+    "copper_oxidation_in_assets": "different individual static PNG and blockstates; external runtime mechanism not source-verified"
+  },
+  "conclusions": {
+    "texture_frame_animations_in_fixed_sample": 0,
+    "time_based_geometry_keyframe_anim_in_relevant_39_model_JSON": 0,
+    "source_open_close_model_selection_pairs": 24,
+    "gameplay_toggle_instant_claim": "Minecraft Wiki external info, no direct runtime verification",
+    "source_data_cannot_authenticate_actual_runtime_motion": true
+  },
+  "verification_policy": {
+    "in_game_visual": "excluded_by_user",
+    "mojang_official_entire_JAR_authentication": "excluded_by_user",
+    "runtime_code_timing_and_physics": "not evaluated by asset inspection",
+    "animations_in_source": "explicitly_reopened_and_studied",
+    "Project_Zomboid_conversion": "excluded",
+    "furniture_model_creation": "excluded"
+  },
+  "output_files": [
+    "REPORT.md",
+    "SUMMARY.json",
+    "TEXTURE_ANIMATION_META_AUDIT.csv",
+    "MODEL_TIMELINE_AUDIT.csv",
+    "BLOCKSTATE_ANIMATION_CLASSIFICATION.csv",
+    "OPEN_CLOSE_STATIC_ENDPOINTS.csv",
+    "CONTROL_ANIMATED_TEXTURES.json"
+  ],
+  "next_release": null,
+  "notes": [
+    "This is completion of animation ASSET research, not claim of testing gameplay or physics",
+    "Door/trapdoor endpoint model pairs are pre-existing variant assets newly paired, not 24 new models or extra animation frames",
+    "External Minecraft Wiki reference links used for file format and general gameplay observations; user extracted files are primary evidence"
+  ]
+}
