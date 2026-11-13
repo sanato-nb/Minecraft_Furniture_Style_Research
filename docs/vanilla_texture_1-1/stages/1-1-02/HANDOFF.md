@@ -1,6 +1,6 @@
 # 1-1-02 — 석재·벽돌 별도 채팅 인수인계
 
-> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R011` (회전 행렬 검증·R007 32면 방향 교정)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
+> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R012` (40면 UV 교정·64개 합성 이음새 재측정)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 ## 연구 목표와 정확한 표본
 
@@ -158,3 +158,11 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 - R007의 가상 2D 이음새 134행 중 `deepslate axis=x` 32 + `axis=z` 32 = **64행은 수정 행렬로 다시 투영할 필요**. **64개 밝기 수치가 전부 틀렸다는 뜻은 아니며, 실측 인게임 자료는 전혀 아니다**. 나머지 70행도 소스 수치 유지만 할 뿐 게임 검증 완료가 아님.
 - 신규 PNG/픽셀 측정 0건, 기존 원본 17 PNG/31 선언/186면/134 가상 seam 실적 계승. **실제 인게임 0/17, A–G 전체 완료 0/17**. 공식 JAR 전체 SHA-1 인증은 필수 연구 조건 제외. 애니메이션 및 3D 가구 제작/좀보이드 변환 제외.
 - 다음 후보 `TEX02-R012`: 라이브 HEAD/STATE 확인 후 수정된 행렬과 `hoa/hqi` bake 정점·UV 처리로 **실제 코너 수치와 영향받는 64개 2D seam 가설 재계산**. 원본 코드로 연구 가능한 부분이 남아 있어 현재 사용자 협조 없이 이어갈 수 있음.
+
+## TEX02-R012 — FaceBakery 정점+UV 재정렬·R007 40개 UV 교정·64개 합성 이음새 재측정 (2026-11-13)
+
+- [R012 상세 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R012/REPORT.md) · [원본 HOA 6방향×4 꼭짓점](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R012/HOA_FACE_CORNERS_24.csv) · [전체 186면의 새로운 UV 감사표](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R012/REBAKED_UV_AUDIT_186.csv) · [R007 UV 코너 교정 40면](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R012/R007_UV_CORNER_CORRECTIONS_40.csv) · [소스 PNG 기반 north face 8형태](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R012/NORTH_FACE_SOURCE_UV_8.csv) · [R007 기존 가상 이음새 64건의 직접 재측정](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R012/R007_NORTH_SEAMS_RECALCULATED_64.csv) · [재현용 Python](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R012/REPRODUCE_R012_QUAD_UV_SEAMS.py) · [소스 Git SHA 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R012/SOURCE_LEDGER.csv) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R012/SUMMARY.json).
+- **새 최초 발굴 클래스 0개**; 이전에 이미 열람한 `hoa`, `hoa$a`, `hqi`, `hqc$b` 등의 내용을 *더 깊게 재분석*. `hoa` 원본 클래스 `<clinit>`의 6면×4코너 표와 `FaceBakery`의 **정점·UV 배열 쌍방 swap**를 대조하고 R011 회전행렬에 적용. 고정 원본 모델 31상태/186면의 UV projection을 재작성: **146 UV 코너 패턴 일치, 40개 R007 코너 패턴 불일치(모두 deepslate axis=x 24 / axis=z 16)**. 세계 방향은 R011 때 32개 교정된 상태 그대로, 이 32개는 40개 UV mismatch 안에 포함. 세계 방향 일치 + UV mismatch 추가 8면.
+- **실제 원본 PNG 두 파일**(`deepslate.png` Git blob `bb7dc9...`; `deepslate_top.png` `a560cc...`)을 다시 가져와 SHA 대조하고 16×16 palette RGB **2×256=512 pixels 직접 디코딩**. corrected north-facing `deepslate axis=x` 4 variant, `axis=z` 4 variant 합계 **8개 2D 가상 면 투영** 후 R011 재평가 대기 64건의 가상 경계 RGB 집계 다시 측정(**1,024 픽셀 쌍**). 놀랍게도 R007 집계값 RGB 합/평균/불일치 픽셀 수와 **64/64 동일**, 집계가 달라진 행 0건. 이는 게임 화면 검증도 아니고 이전 픽셀별 차이맵 동일성 증명도 아님. `deepslate axis=x/z` 가상 seam 집계 재계산 대기는 해소되지만 실제 게임 비교 필요.
+- 기존 17 PNG, 31 variants, 186 face, R007 134 synthetic seam은 고정 분모·계승 실적. 이번에 새 고유 PNG / 새 독립적 이음새 쌍 **0개**, 재계산한 64건만 별도 성과. **인게임 F 0/17, A–G 전체 0/17**, 공식 JAR 인증 필수 조건 제외, 애니메이션·가구 모델링 보류, 전역 v38과 이전 R001–R011 불변.
+- 다음 후보 `TEX02-R013`: 라이브 상태 재확인 후 `inw$a` 정점 변형/ `hqm` bake dispatch 또는 랜덤 variant 선택 코드를 클라이언트 소스에서 추가 검증할 수 있음. 독립 증거 없거나 실제 게임 캡처가 필요하면 숫자만 올리지 말고 중단하여 사용자의 도움을 요청할 것.

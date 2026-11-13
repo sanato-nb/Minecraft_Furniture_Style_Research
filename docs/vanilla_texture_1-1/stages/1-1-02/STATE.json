@@ -7,10 +7,10 @@
   "stage_id": "1-1-02",
   "material_family": "석재·벽돌",
   "stage_prefix": "TEX02",
-  "current_revision": "TEX02-R011",
-  "next_revision": "TEX02-R012",
-  "revision_sequence": 11,
-  "revision_status": "R011_f_h_source_rotation_matrices_5_recheck_186_old_world_faces_32_source_mismatch_64_deepslate_hypothetical_seams_to_reproject_not_ingame",
+  "current_revision": "TEX02-R012",
+  "next_revision": "TEX02-R013",
+  "revision_sequence": 12,
+  "revision_status": "R012_hoa_24_vertex_corner_source_hqi_quad_paired_UV_swap_186_rebaked_40_prior_UV_diffs_64_synthetic_north_png_edge_metrics_all_reproduced_not_ingame",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 17,
@@ -55,21 +55,21 @@
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R011_R007_134_synthetic_seam_inherited_64_deepslate_axis_x_z_requires_reprojection_not_game",
+      "status": "R012_2_original_source_PNG_redecoded_64_deepslate_axis_x_z_north_synthetic_seams_reprojected_all_aggregate_metrics_equal_not_ingame",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R011"
+      "last_evidence_revision": "TEX02-R012"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R011_D3_native_client_signed_permutation_group_f_h_g_matrix_source_recheck_5_transforms_32_R007_direction_corrections",
+      "status": "R012_D3_24_hoa_canonical_corners_source_186_uv_audit_40_old_R007_corner_differences_32_old_direction_differences",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R011"
+      "last_evidence_revision": "TEX02-R012"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R011_5_source_rotation_matrices_31_variant_transforms_186_face_direction_audit_32_R007_mismatch",
+      "status": "R012_31_existing_variants_186_source_canonical_quad_vertex_permutations_40_R007_UV_corners_corrected",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R011"
+      "last_evidence_revision": "TEX02-R012"
     },
     "F": {
       "title": "F 인게임 정적 렌더·UV·이음새 검증 (Mojang 공식 JAR 인증 제외)",
@@ -79,9 +79,9 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R011_8_immutable_files_direction_corrections_and_source_chain_reproducer",
+      "status": "R012_9_immutable_files_source_report_hoa_24_uv_186_corrections_40_north_8_seams_64_verifier",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R011"
+      "last_evidence_revision": "TEX02-R012"
     }
   },
   "material_specific_checks": [
@@ -98,7 +98,7 @@
     {
       "id": "D3",
       "check": "모델 면 회전과 UV 반복이 벽면 패턴에 미치는 영향",
-      "status": "R011_model_rotation_group_source_verified_5_matrices_R007_32_wrong_face_mapping_64_seam_reprojection_needed"
+      "status": "R012_hoa_24_corner_enum_and_FaceBakery_quad_uv_paired_swap_186_mathematical_reprojection_40_R007_uv_mismatches_not_ingame"
     }
   ],
   "items": [
@@ -111,7 +111,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R011",
+      "last_verified_revision": "TEX02-R012",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "c298969ccab004c2e37583b058c765598b05f69d",
       "mirror_model_git_blob_sha": "1a2f6a79a69ee5550a76697096cfb4cdb94499da",
@@ -178,6 +178,15 @@
         "R007_synthetic_seams_reprojection_needed_for_this_texture": 0,
         "actual_final_uv_verified": false,
         "actual_game_render_verified": false
+      },
+      "R012_quad_uv_audit": {
+        "source_hoa_face_4corners_verified": true,
+        "relevant_static_face_count": 24,
+        "R007_UV_corner_corrections": 0,
+        "R007_world_face_directions_corrected_in_R011": 0,
+        "R007_north_synthetic_seams_recomputed": 0,
+        "prior_synthetic_seam_metric_agreements": 0,
+        "actual_ingame_verified": false
       }
     },
     {
@@ -189,7 +198,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R011",
+      "last_verified_revision": "TEX02-R012",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "435a7afce8e98f7113ac1b491363b552ed342a48",
       "mirror_model_git_blob_sha": "ab65fe90879cc452d2a0ea1d5b78dc5a38fd01e6",
@@ -249,6 +258,15 @@
         "R007_synthetic_seams_reprojection_needed_for_this_texture": 0,
         "actual_final_uv_verified": false,
         "actual_game_render_verified": false
+      },
+      "R012_quad_uv_audit": {
+        "source_hoa_face_4corners_verified": true,
+        "relevant_static_face_count": 6,
+        "R007_UV_corner_corrections": 0,
+        "R007_world_face_directions_corrected_in_R011": 0,
+        "R007_north_synthetic_seams_recomputed": 0,
+        "prior_synthetic_seam_metric_agreements": 0,
+        "actual_ingame_verified": false
       }
     },
     {
@@ -260,7 +278,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R011",
+      "last_verified_revision": "TEX02-R012",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "bfbfd3884e37f2b93003310622aad632f3cfb408",
       "mirror_model_git_blob_sha": "87f6bbe0e26ca4347c00206d65f401b8946a82c6",
@@ -327,6 +345,15 @@
         "R007_synthetic_seams_reprojection_needed_for_this_texture": 0,
         "actual_final_uv_verified": false,
         "actual_game_render_verified": false
+      },
+      "R012_quad_uv_audit": {
+        "source_hoa_face_4corners_verified": true,
+        "relevant_static_face_count": 6,
+        "R007_UV_corner_corrections": 0,
+        "R007_world_face_directions_corrected_in_R011": 0,
+        "R007_north_synthetic_seams_recomputed": 0,
+        "prior_synthetic_seam_metric_agreements": 0,
+        "actual_ingame_verified": false
       }
     },
     {
@@ -338,7 +365,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R011",
+      "last_verified_revision": "TEX02-R012",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "51c7352fe11f5271198ae06ba4e674ccd9a203af",
       "mirror_model_git_blob_sha": "cebe5470a178a4881550933f49edbcee2e830f11",
@@ -405,6 +432,15 @@
         "R007_synthetic_seams_reprojection_needed_for_this_texture": 0,
         "actual_final_uv_verified": false,
         "actual_game_render_verified": false
+      },
+      "R012_quad_uv_audit": {
+        "source_hoa_face_4corners_verified": true,
+        "relevant_static_face_count": 6,
+        "R007_UV_corner_corrections": 0,
+        "R007_world_face_directions_corrected_in_R011": 0,
+        "R007_north_synthetic_seams_recomputed": 0,
+        "prior_synthetic_seam_metric_agreements": 0,
+        "actual_ingame_verified": false
       }
     },
     {
@@ -416,7 +452,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R011",
+      "last_verified_revision": "TEX02-R012",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "dc3c160d5bb78a493aeabcfb6330e5be1770e5f7",
       "mirror_model_git_blob_sha": "cd1067abfafc9f42650d5a1799ea56b0fb74fcd7",
@@ -476,6 +512,15 @@
         "R007_synthetic_seams_reprojection_needed_for_this_texture": 0,
         "actual_final_uv_verified": false,
         "actual_game_render_verified": false
+      },
+      "R012_quad_uv_audit": {
+        "source_hoa_face_4corners_verified": true,
+        "relevant_static_face_count": 6,
+        "R007_UV_corner_corrections": 0,
+        "R007_world_face_directions_corrected_in_R011": 0,
+        "R007_north_synthetic_seams_recomputed": 0,
+        "prior_synthetic_seam_metric_agreements": 0,
+        "actual_ingame_verified": false
       }
     },
     {
@@ -487,7 +532,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R011",
+      "last_verified_revision": "TEX02-R012",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "e1b2323c44aea2f7228f5f6f8f40674fc8087fe0",
       "mirror_model_git_blob_sha": "b3d7b55b5ca4ffef4f53ee364c40924a73e988db",
@@ -554,6 +599,15 @@
         "R007_synthetic_seams_reprojection_needed_for_this_texture": 0,
         "actual_final_uv_verified": false,
         "actual_game_render_verified": false
+      },
+      "R012_quad_uv_audit": {
+        "source_hoa_face_4corners_verified": true,
+        "relevant_static_face_count": 6,
+        "R007_UV_corner_corrections": 0,
+        "R007_world_face_directions_corrected_in_R011": 0,
+        "R007_north_synthetic_seams_recomputed": 0,
+        "prior_synthetic_seam_metric_agreements": 0,
+        "actual_ingame_verified": false
       }
     },
     {
@@ -565,7 +619,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R011",
+      "last_verified_revision": "TEX02-R012",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "62184f73f9c30187a1d041f8fc5ce4220c404b59",
       "mirror_model_git_blob_sha": "3ba4278bf92ebfe96a1a35ad3caa5478faf600e4",
@@ -625,6 +679,15 @@
         "R007_synthetic_seams_reprojection_needed_for_this_texture": 0,
         "actual_final_uv_verified": false,
         "actual_game_render_verified": false
+      },
+      "R012_quad_uv_audit": {
+        "source_hoa_face_4corners_verified": true,
+        "relevant_static_face_count": 6,
+        "R007_UV_corner_corrections": 0,
+        "R007_world_face_directions_corrected_in_R011": 0,
+        "R007_north_synthetic_seams_recomputed": 0,
+        "prior_synthetic_seam_metric_agreements": 0,
+        "actual_ingame_verified": false
       }
     },
     {
@@ -636,7 +699,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R011",
+      "last_verified_revision": "TEX02-R012",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "1e67b667b3df9bbbb037cdb5048b6327c238767d",
       "mirror_model_git_blob_sha": "def59d00c790df6c5e43fc64004f0492ae8fd5e4",
@@ -696,6 +759,15 @@
         "R007_synthetic_seams_reprojection_needed_for_this_texture": 0,
         "actual_final_uv_verified": false,
         "actual_game_render_verified": false
+      },
+      "R012_quad_uv_audit": {
+        "source_hoa_face_4corners_verified": true,
+        "relevant_static_face_count": 6,
+        "R007_UV_corner_corrections": 0,
+        "R007_world_face_directions_corrected_in_R011": 0,
+        "R007_north_synthetic_seams_recomputed": 0,
+        "prior_synthetic_seam_metric_agreements": 0,
+        "actual_ingame_verified": false
       }
     },
     {
@@ -707,7 +779,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R011",
+      "last_verified_revision": "TEX02-R012",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "00b9a81af1224a4ae9e1d6495e22b5fe0c0dc5a8",
       "mirror_model_git_blob_sha": "46f93fd8dc7ba4796ff215e90b67bd2a84064539",
@@ -767,6 +839,15 @@
         "R007_synthetic_seams_reprojection_needed_for_this_texture": 0,
         "actual_final_uv_verified": false,
         "actual_game_render_verified": false
+      },
+      "R012_quad_uv_audit": {
+        "source_hoa_face_4corners_verified": true,
+        "relevant_static_face_count": 6,
+        "R007_UV_corner_corrections": 0,
+        "R007_world_face_directions_corrected_in_R011": 0,
+        "R007_north_synthetic_seams_recomputed": 0,
+        "prior_synthetic_seam_metric_agreements": 0,
+        "actual_ingame_verified": false
       }
     },
     {
@@ -778,7 +859,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R011",
+      "last_verified_revision": "TEX02-R012",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "3a02f5ff6f069439a94508ae94ea2431d00fee5e",
       "mirror_model_git_blob_sha": "9f1f6eba3e0db4c4aff91eb85ed72a308a234852",
@@ -838,6 +919,15 @@
         "R007_synthetic_seams_reprojection_needed_for_this_texture": 0,
         "actual_final_uv_verified": false,
         "actual_game_render_verified": false
+      },
+      "R012_quad_uv_audit": {
+        "source_hoa_face_4corners_verified": true,
+        "relevant_static_face_count": 6,
+        "R007_UV_corner_corrections": 0,
+        "R007_world_face_directions_corrected_in_R011": 0,
+        "R007_north_synthetic_seams_recomputed": 0,
+        "prior_synthetic_seam_metric_agreements": 0,
+        "actual_ingame_verified": false
       }
     },
     {
@@ -849,7 +939,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R011",
+      "last_verified_revision": "TEX02-R012",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "4c1b7b215b10a3c234800804dd5cd9e3485bad38",
       "mirror_model_git_blob_sha": "99afb394efe2e0155ae21dc63738163c09deb515",
@@ -909,6 +999,15 @@
         "R007_synthetic_seams_reprojection_needed_for_this_texture": 0,
         "actual_final_uv_verified": false,
         "actual_game_render_verified": false
+      },
+      "R012_quad_uv_audit": {
+        "source_hoa_face_4corners_verified": true,
+        "relevant_static_face_count": 6,
+        "R007_UV_corner_corrections": 0,
+        "R007_world_face_directions_corrected_in_R011": 0,
+        "R007_north_synthetic_seams_recomputed": 0,
+        "prior_synthetic_seam_metric_agreements": 0,
+        "actual_ingame_verified": false
       }
     },
     {
@@ -920,7 +1019,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R011",
+      "last_verified_revision": "TEX02-R012",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "53c96684ffd703a9e9ba1f4a1f67c1eb075e79c3",
       "mirror_model_git_blob_sha": "3f9f0234e6a0019dfb460616812fb0685e2ec6e2",
@@ -980,6 +1079,15 @@
         "R007_synthetic_seams_reprojection_needed_for_this_texture": 0,
         "actual_final_uv_verified": false,
         "actual_game_render_verified": false
+      },
+      "R012_quad_uv_audit": {
+        "source_hoa_face_4corners_verified": true,
+        "relevant_static_face_count": 6,
+        "R007_UV_corner_corrections": 0,
+        "R007_world_face_directions_corrected_in_R011": 0,
+        "R007_north_synthetic_seams_recomputed": 0,
+        "prior_synthetic_seam_metric_agreements": 0,
+        "actual_ingame_verified": false
       }
     },
     {
@@ -991,7 +1099,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R011",
+      "last_verified_revision": "TEX02-R012",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "bb7dc9ced1943d1dc86ab0cded598e8541fd280a",
       "mirror_model_git_blob_sha": "dff2a5c69138d558950260815f784ba554c34821",
@@ -1077,6 +1185,15 @@
         "R007_synthetic_seams_reprojection_needed_for_this_texture": 64,
         "actual_final_uv_verified": false,
         "actual_game_render_verified": false
+      },
+      "R012_quad_uv_audit": {
+        "source_hoa_face_4corners_verified": true,
+        "relevant_static_face_count": 72,
+        "R007_UV_corner_corrections": 40,
+        "R007_world_face_directions_corrected_in_R011": 32,
+        "R007_north_synthetic_seams_recomputed": 64,
+        "prior_synthetic_seam_metric_agreements": 64,
+        "actual_ingame_verified": false
       }
     },
     {
@@ -1088,7 +1205,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R011",
+      "last_verified_revision": "TEX02-R012",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "e7f36f6d883cb5e4372e29bb385e5fa8a65f6542",
       "mirror_model_git_blob_sha": "91ff5fcef34a040c8d0a3a422e4b0fbd89e6715b",
@@ -1148,6 +1265,15 @@
         "R007_synthetic_seams_reprojection_needed_for_this_texture": 0,
         "actual_final_uv_verified": false,
         "actual_game_render_verified": false
+      },
+      "R012_quad_uv_audit": {
+        "source_hoa_face_4corners_verified": true,
+        "relevant_static_face_count": 6,
+        "R007_UV_corner_corrections": 0,
+        "R007_world_face_directions_corrected_in_R011": 0,
+        "R007_north_synthetic_seams_recomputed": 0,
+        "prior_synthetic_seam_metric_agreements": 0,
+        "actual_ingame_verified": false
       }
     },
     {
@@ -1159,7 +1285,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R011",
+      "last_verified_revision": "TEX02-R012",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "314a2df0e85319d0493a3b10d8b692e23ae6cdd2",
       "mirror_model_git_blob_sha": "d6e7b5852a756aa4212e98f6f71bd44d677403f6",
@@ -1233,6 +1359,15 @@
         "R007_synthetic_seams_reprojection_needed_for_this_texture": 0,
         "actual_final_uv_verified": false,
         "actual_game_render_verified": false
+      },
+      "R012_quad_uv_audit": {
+        "source_hoa_face_4corners_verified": true,
+        "relevant_static_face_count": 6,
+        "R007_UV_corner_corrections": 0,
+        "R007_world_face_directions_corrected_in_R011": 0,
+        "R007_north_synthetic_seams_recomputed": 0,
+        "prior_synthetic_seam_metric_agreements": 0,
+        "actual_ingame_verified": false
       }
     },
     {
@@ -1244,7 +1379,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R011",
+      "last_verified_revision": "TEX02-R012",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "caa25fa5199428cef03c3e257440b8f03f20a095",
       "mirror_model_git_blob_sha": "41baabebd17d0fbf46efc91bda5022ff91459c21",
@@ -1304,6 +1439,15 @@
         "R007_synthetic_seams_reprojection_needed_for_this_texture": 0,
         "actual_final_uv_verified": false,
         "actual_game_render_verified": false
+      },
+      "R012_quad_uv_audit": {
+        "source_hoa_face_4corners_verified": true,
+        "relevant_static_face_count": 6,
+        "R007_UV_corner_corrections": 0,
+        "R007_world_face_directions_corrected_in_R011": 0,
+        "R007_north_synthetic_seams_recomputed": 0,
+        "prior_synthetic_seam_metric_agreements": 0,
+        "actual_ingame_verified": false
       }
     },
     {
@@ -1315,7 +1459,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R011",
+      "last_verified_revision": "TEX02-R012",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "5dec3c0f313431c5352327a95311048bc7571352",
       "mirror_model_git_blob_sha": "6bbb7c88a25a62b8e9cac02575c9317af52735d7",
@@ -1375,6 +1519,15 @@
         "R007_synthetic_seams_reprojection_needed_for_this_texture": 0,
         "actual_final_uv_verified": false,
         "actual_game_render_verified": false
+      },
+      "R012_quad_uv_audit": {
+        "source_hoa_face_4corners_verified": true,
+        "relevant_static_face_count": 6,
+        "R007_UV_corner_corrections": 0,
+        "R007_world_face_directions_corrected_in_R011": 0,
+        "R007_north_synthetic_seams_recomputed": 0,
+        "prior_synthetic_seam_metric_agreements": 0,
+        "actual_ingame_verified": false
       }
     }
   ],
@@ -1560,14 +1713,31 @@
       "ingame_verified": 0,
       "fully_completed_A_to_G_items": 0,
       "official_jar_authentication_required": false
+    },
+    {
+      "revision": "TEX02-R012",
+      "path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R012/",
+      "evidence_tier": "original_client_classfile_hoa_FaceBakery_source_and_2_PNG_indexed_palette_corrected_static_projection_not_game",
+      "reused_source_classfiles_reanalyzed": 5,
+      "new_first_time_classfiles": 0,
+      "hoa_corner_records": 24,
+      "old_face_UV_reprojected": 186,
+      "old_UV_mismatches_corrected": 40,
+      "source_pngs_redecoded": 2,
+      "prior_synthetic_north_seams_recalculated": 64,
+      "synthetic_old_seam_aggregate_matches": 64,
+      "new_unique_synthetic_adjacency_definitions": 0,
+      "ingame_verified": 0,
+      "fully_completed_A_to_G_items": 0,
+      "official_jar_authentication_required": false
     }
   ],
-  "current_release_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R011/",
+  "current_release_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R012/",
   "remaining_blockers": [
-    "R011 corrects 32 of R007's 186 world-face directions from actual user extracted f/h/g class rotation source; R007 world face mapping must not be treated as wholly correct",
-    "64 of R007's 134 deepslate axis=x/z synthetic north-face seam records require new projection under corrected matrix; this does NOT mean all 64 numeric seams are proved wrong",
-    "Actual 186 baked quad UV corner positions and 17 in-game static screenshots remain unverified (0/17)",
-    "Random variant selection, runtime renderer lighting/texture filtering and true neighboring-block seams remain unverified"
+    "R012 corrected 40 R007 face UV corner interpretations (32 also had wrong world direction); reference R012 audit for geometry instead of treating all R007 rows as source validated",
+    "R012 resampled two user-provided source PNGs and reproduced all 64 deepslate axis=x/z R007 synthetic seam aggregate metrics, but actual pixelwise old diff maps and in-game seams remain unverified",
+    "Complete inw$a/bake model transformation and weighted random state selection implementation for this client remain source research candidates",
+    "17 static in-game block textures, GPU texture filtering, lighting and real adjacent block seams remain 0/17 verified"
   ],
   "current_stream_supplemental_end_face_binary_verified_count": 2,
   "static_face_model_local_source_entries": 102,
@@ -1694,5 +1864,27 @@
   "R011_R007_existing_uv_corners_final_engine_verified": false,
   "R011_ingame_baked_quad_numeric_verified": false,
   "R011_new_unique_fixed_png_count": 0,
-  "R011_new_pixel_measurements": 0
+  "R011_new_pixel_measurements": 0,
+  "R012_existing_client_classfiles_reexamined": 5,
+  "R012_new_unique_classfiles_opened": 0,
+  "R012_native_face_canonical_vertices_extracted": 24,
+  "R012_existing_modelstate_variants_analyzed": 31,
+  "R012_face_rebaked_source_projection_audit_rows": 186,
+  "R012_R007_face_UV_corners_matched": 146,
+  "R012_R007_face_UV_corners_mismatched": 40,
+  "R012_R007_face_world_direction_mismatches_inherited": 32,
+  "R012_face_uv_mismatches_without_world_direction_mismatch": 8,
+  "R012_deepslate_axis_x_UV_corner_corrections": 24,
+  "R012_deepslate_axis_z_UV_corner_corrections": 16,
+  "R012_original_16x16_PNG_files_redecoded": 2,
+  "R012_original_indexed_pixels_redecoded": 512,
+  "R012_new_unique_pngs": 0,
+  "R012_north_face_source_uv_projections": 8,
+  "R012_existing_synthetic_north_seams_recalculated": 64,
+  "R012_synthetic_edge_pixel_pairs_recalculated": 1024,
+  "R012_synthetic_rgb_channel_pairs_recalculated": 3072,
+  "R012_R007_synthetic_seam_aggregate_metrics_reproduced": 64,
+  "R012_R007_synthetic_seam_aggregate_metrics_changed": 0,
+  "R012_R007_remaining_synthetic_seams_not_recalculated": 70,
+  "R012_in_game_GPU_or_actual_baked_quad_observed": false
 }
