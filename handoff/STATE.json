@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-13",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v38",
+  "current_checkpoint": "v39",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -19,7 +19,7 @@
     {
       "id": "01",
       "topic": "vanilla material and texture analysis",
-      "status": "v38_oak_shelf_2_original_png_pillow_1280_rgba_all_opaque_38_actual_uv_region_2304_uses",
+      "status": "v39_integrated_vanilla_material_source_evidence_10_of_11_stages_133_of_150_unique_targets_excluding_1_1_02_17_no_final_completion",
       "sample_count": 150,
       "target": 150,
       "v26_pngs_full_rgba_decoded": 8,
@@ -498,11 +498,12 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "Respect explicit user animation deferral indefinitely until user explicitly resumes it. No movement, animated PNG frames, runtime animations, books/flames oscillation studies.",
-    "Reconcile source-level P1 544 filename queue with all prior v5-v34 original evidence: distinguish reviewed this v35 run (15 leaf), earlier verified, still unaudited, and runtime unverified. Do not call 15/544 full study completion.",
-    "Continue direct P1 static vanilla furniture object source audits with JSON parent/geometry/UV + PNG actual alpha and hashes; prioritize higher-value complex non-cube models and avoid double counting leaf vs inherited source faces.",
-    "Independently authenticate Mojang Minecraft Java 1.21.11 official client.jar and assess true in-game static model renderer/UV orientation/culling/light; bell body special renderer not established from support JSON.",
-    "Preserve all v24 mod research and v34 full census 2390 block models, 1168 blockstates, 1111 block PNG; do not alter Stage1 completion 0/5."
+    "Current v39 integrated 10/11 stage latest snapshots (133 PNG source IDs), explicitly excludes 1-1-02 stone/brick 17 files. Do not import excluded stage without a new user instruction.",
+    "All 10 TEX stages may continue independently, but new TEX releases are not automatically merged into v39. Pin source blob SHAs in a new integration checkpoint when requested.",
+    "Continue evidence-based vanilla/model and existing furniture mod comparison, then material-based style guideline research; 1-1 fully completed claim withheld because 1-1-02 was excluded.",
+    "Official JAR SHA certification and actual in-game screenshots/runtime verification are user-excluded mandatory requirements; never call them successfully verified.",
+    "Animation source work resumed for 01/03/04/05/06/07/08/09/11; 10 defers it by its latest independent state. Preserve all older source and animation evidence.",
+    "Maintain old v24 furniture mod and v38 original research; do not alter 0/5 global final substep completed count."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -2156,5 +2157,202 @@
     ],
     "scoped_output_root": "research/vanilla_textures/by_stage/{id}/{TEXnn-Rxxx}/",
     "animation_study_deferred": true
+  },
+  "v39": {
+    "date": "2026-11-13",
+    "source_integration_commit": "20f5a4c140b2c921582161c42ad4c61f22be4059",
+    "integration_id": "INT-1-1-20261113-01",
+    "report": "research/vanilla_textures/integrations/v39_INT-1-1-10steps_133/REPORT.md",
+    "stage_ledger": "research/vanilla_textures/integrations/v39_INT-1-1-10steps_133/STAGE_INTEGRATION_LEDGER.csv",
+    "texture_ledger": "research/vanilla_textures/integrations/v39_INT-1-1-10steps_133/TEXTURE_133_SCOPE_LEDGER.csv",
+    "manifest": "research/vanilla_textures/integrations/v39_INT-1-1-10steps_133/MANIFEST.json",
+    "source_main_commit_pinned": "e20d1bef908bb5f3f5d3727a72513d3957a66b54",
+    "stage_count_integrated": 10,
+    "stage_count_excluded": 1,
+    "excluded_stage": "1-1-02",
+    "excluded_revision_pinned": "TEX02-R015",
+    "original_v4_targets": 150,
+    "integrated_unique_texture_ids": 133,
+    "excluded_unique_texture_ids": 17,
+    "new_png_pixels_measured_during_integration": 0,
+    "integrated_stages": [
+      {
+        "id": "1-1-01",
+        "revision": "TEX01-R008",
+        "state_sha": "92fa4e87399990eb6f0e97eb90586a9d6e1bc18e",
+        "report_sha": "cf9697bdd89070cb436b2fff2c74b710a3de5d97",
+        "summary_sha": "c611146f46db299db5a87a91412c98152e6d111b",
+        "target_png_count": 18
+      },
+      {
+        "id": "1-1-03",
+        "revision": "TEX03-R008",
+        "state_sha": "c8cda5b5b7d830f53c44deadb5ffc6c45581e95b",
+        "report_sha": "d99329eb4cd167634a9213082b3a5743e821bcf8",
+        "summary_sha": "a979cf6306e2785aa67052a07e1d99439fa00e5c",
+        "target_png_count": 16
+      },
+      {
+        "id": "1-1-04",
+        "revision": "TEX04-R009",
+        "state_sha": "55d6656280d2c33261a5a3559d3955da5936f4a9",
+        "report_sha": "13effb986f2c1cfe15b3a19a1acebe7ebe894497",
+        "summary_sha": "c5603adfb67e8ebee460b26c3d100904d445c312",
+        "target_png_count": 9
+      },
+      {
+        "id": "1-1-05",
+        "revision": "TEX05-R008",
+        "state_sha": "6dba81b485cf626be9e39f26f187095a4546ac32",
+        "report_sha": "1a779027d8e4faccbc502c3488ad1c1560cb217f",
+        "summary_sha": "3801637c9a15286d88ec0563ff590e9ea5bd1572",
+        "target_png_count": 6
+      },
+      {
+        "id": "1-1-06",
+        "revision": "TEX06-R008",
+        "state_sha": "bde2583094d11ccd7b275469d92251367c356c80",
+        "report_sha": "2f900ddc74e2f756ea7c82d1a4805a6594b845ae",
+        "summary_sha": "605f45e84db179c20de250bcbd5c7de5d3bc2fed",
+        "target_png_count": 8
+      },
+      {
+        "id": "1-1-07",
+        "revision": "TEX07-R008",
+        "state_sha": "19336be69c40437c495d3e201d52c5dd72aa33ec",
+        "report_sha": "93a6ecb7a4d554fd6d614eba119af834f2389e0c",
+        "summary_sha": "2996edc8489159130c9c326856ae01968893c264",
+        "target_png_count": 7
+      },
+      {
+        "id": "1-1-08",
+        "revision": "TEX08-R008",
+        "state_sha": "ba780589ac47e865596f72001c5b7e77b5c8083d",
+        "report_sha": "43d01867495fe44e16eb065d2e071d8088c42d04",
+        "summary_sha": "a570aa30782fd7facd2719a9e220ff9ceba6ba30",
+        "target_png_count": 21
+      },
+      {
+        "id": "1-1-09",
+        "revision": "TEX09-R008",
+        "state_sha": "fd10f98e02b63222dee9be007f68449852aad894",
+        "report_sha": "a4e72a0600489cce069935d588d61c4cb9551ad0",
+        "summary_sha": "5b79b89f8aaaa9fee52a164f332d7c1ce4570bf5",
+        "target_png_count": 9
+      },
+      {
+        "id": "1-1-10",
+        "revision": "TEX10-R014",
+        "state_sha": "1b92885d4605554d40014a192ed04f0e9143707a",
+        "report_sha": "dc2044cd2b07029d83228da707e0bd22232f4e5b",
+        "summary_sha": "5e7e7c16e2366d5caec0032f02069399df6881b1",
+        "target_png_count": 8
+      },
+      {
+        "id": "1-1-11",
+        "revision": "TEX11-R013",
+        "state_sha": "2801db63c5599e5dec27589e150ee48496ef1ff1",
+        "report_sha": "c2127526aca0a249e341ad658d4cee83c9dbb5ed",
+        "summary_sha": "fea34774f4aaad4190690f2e84b3a49ff44a0acf",
+        "target_png_count": 31
+      }
+    ],
+    "latest_stage_revisions": [
+      {
+        "id": "1-1-01",
+        "rev": "TEX01-R008",
+        "state_sha": "92fa4e87399990eb6f0e97eb90586a9d6e1bc18e"
+      },
+      {
+        "id": "1-1-03",
+        "rev": "TEX03-R008",
+        "state_sha": "c8cda5b5b7d830f53c44deadb5ffc6c45581e95b"
+      },
+      {
+        "id": "1-1-04",
+        "rev": "TEX04-R009",
+        "state_sha": "55d6656280d2c33261a5a3559d3955da5936f4a9"
+      },
+      {
+        "id": "1-1-05",
+        "rev": "TEX05-R008",
+        "state_sha": "6dba81b485cf626be9e39f26f187095a4546ac32"
+      },
+      {
+        "id": "1-1-06",
+        "rev": "TEX06-R008",
+        "state_sha": "bde2583094d11ccd7b275469d92251367c356c80"
+      },
+      {
+        "id": "1-1-07",
+        "rev": "TEX07-R008",
+        "state_sha": "19336be69c40437c495d3e201d52c5dd72aa33ec"
+      },
+      {
+        "id": "1-1-08",
+        "rev": "TEX08-R008",
+        "state_sha": "ba780589ac47e865596f72001c5b7e77b5c8083d"
+      },
+      {
+        "id": "1-1-09",
+        "rev": "TEX09-R008",
+        "state_sha": "fd10f98e02b63222dee9be007f68449852aad894"
+      },
+      {
+        "id": "1-1-10",
+        "rev": "TEX10-R014",
+        "state_sha": "1b92885d4605554d40014a192ed04f0e9143707a"
+      },
+      {
+        "id": "1-1-11",
+        "rev": "TEX11-R013",
+        "state_sha": "2801db63c5599e5dec27589e150ee48496ef1ff1"
+      }
+    ],
+    "global_completed_substeps": 0,
+    "total_substeps": 5,
+    "source_only_not_full_final": true,
+    "official_compressed_jar_certification_not_required": true,
+    "ingame_visual_verification_not_required": true,
+    "ingame_actual_verified_count": 0,
+    "anim_source_resumed_stages": 9,
+    "anim_source_deferred_stages": [
+      "1-1-10"
+    ],
+    "original_mod_and_v38_research_preserved": true,
+    "legacy_next_work_v38": [
+      "Respect explicit user animation deferral indefinitely until user explicitly resumes it. No movement, animated PNG frames, runtime animations, books/flames oscillation studies.",
+      "Reconcile source-level P1 544 filename queue with all prior v5-v34 original evidence: distinguish reviewed this v35 run (15 leaf), earlier verified, still unaudited, and runtime unverified. Do not call 15/544 full study completion.",
+      "Continue direct P1 static vanilla furniture object source audits with JSON parent/geometry/UV + PNG actual alpha and hashes; prioritize higher-value complex non-cube models and avoid double counting leaf vs inherited source faces.",
+      "Independently authenticate Mojang Minecraft Java 1.21.11 official client.jar and assess true in-game static model renderer/UV orientation/culling/light; bell body special renderer not established from support JSON.",
+      "Preserve all v24 mod research and v34 full census 2390 block models, 1168 blockstates, 1111 block PNG; do not alter Stage1 completion 0/5."
+    ]
+  },
+  "current_user_scope_2026_11_13": {
+    "priority": "This supersedes earlier global animation deferral and official-JAR-verification requirements in old v38/v35 contexts",
+    "primary_source": "User supplied 1.21.11 installed client JAR extracted folder; not Mojang official binary certification",
+    "official_compressed_JAR_SHA1_authentication": "not_required_by_user_not_performed",
+    "ingame_render_or_animation_runtime_authentication": "not_required_by_user_not_verified",
+    "animation_source_resumed_stage_ids": [
+      "1-1-01",
+      "1-1-03",
+      "1-1-04",
+      "1-1-05",
+      "1-1-06",
+      "1-1-07",
+      "1-1-08",
+      "1-1-09",
+      "1-1-11"
+    ],
+    "animation_source_deferred_stage_ids": [
+      "1-1-10"
+    ],
+    "excluded_from_current_global_integration": [
+      "1-1-02"
+    ],
+    "excluded_product_goals": [
+      "Project Zomboid conversion",
+      "actual furniture 3D model construction"
+    ]
   }
 }

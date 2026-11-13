@@ -1,5 +1,8 @@
 # Minecraft Furniture Style Research
 
+> **최신 전역 체크포인트 v39 (2026-11-13):** [1-1 연구 10개 분류·133개 PNG 부분 통합](research/vanilla_textures/integrations/v39_INT-1-1-10steps_133/REPORT.md). **1-1-02 석재·벽돌 17개 제외**, 원본 150개 표본 및 독립 TEX 버전 보존, 연구 전체 완료 0/5 유지. 사용자 최신 범위에서는 공식 JAR 인증·인게임 렌더 검증이 필수 완료 조건에서 제외되고, 애니메이션 재개 여부는 단계별 최신 기록에 따름.
+
+
 > **새 채팅에서 재개하려면 먼저 [HANDOFF.md](HANDOFF.md)를 읽으세요.** [새 채팅 시작 문장](docs/NEW_CHAT_START.md) · [기계 판독 상태](handoff/STATE.json) · [현재 진행도](PROGRESS.md)
 
 마인크래프트 바닐라 블록의 **재질·텍스처·3D 형상·UV·블록 상태·특수 렌더링** 연구 자료를 정리한 저장소입니다.
