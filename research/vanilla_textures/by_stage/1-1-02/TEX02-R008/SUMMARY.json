@@ -1,0 +1,78 @@
+{
+  "stage_id": "1-1-02",
+  "revision": "TEX02-R008",
+  "previous_revision": "TEX02-R007",
+  "next_revision": "TEX02-R009",
+  "date": "2026-11-13",
+  "revision_kind": "direct_user_extracted_client_bytecode_default_UV_validation",
+  "fixed_texture_target_count": 17,
+  "new_fixed_PNG": 0,
+  "new_pixel_measurements": 0,
+  "new_blockstate_declarations": 0,
+  "new_face_connections": 0,
+  "new_bytecode_class_files_directly_read": 3,
+  "class_file_paths": [
+    "1.21.11/hqi.class",
+    "1.21.11/hqi$1.class",
+    "1.21.11/iz.class"
+  ],
+  "classes_git_blob_shas": {
+    "1.21.11/hqi.class": "5b64584e8cc09a8db90f802e0021bc0533e81ab1",
+    "1.21.11/hqi$1.class": "237bb887fe196bc3d707a0f75ca5664c9baf8553",
+    "1.21.11/iz.class": "e820016d321253132b9f33de2da4b1b07f358e91"
+  },
+  "new_verified_bytecode_switch_cases": 6,
+  "new_verified_default_uv_directions": [
+    "down",
+    "up",
+    "north",
+    "south",
+    "west",
+    "east"
+  ],
+  "new_bakeQuad_missing_uv_fallback_verified": true,
+  "full_cube_uv_rectangle_all_directions": [
+    0,
+    0,
+    16,
+    16
+  ],
+  "R007_default_uv_basis_confirmed_directions": 6,
+  "inherited_not_recounted": {
+    "fixed_texture_png": 17,
+    "rgba_pixels": 4352,
+    "variant_declarations": 31,
+    "face_entries": 186,
+    "implicit_uv_faces": 138,
+    "explicit_mirrored_uv_faces": 48,
+    "axis_x_duplicate_declarations": 2,
+    "R007_uv_projected_faces": 186,
+    "R007_synthetic_seam_comparisons": 134
+  },
+  "source_confirmation_only": [
+    "implicit UV mapping per local cube face",
+    "face JSON null UV invokes FaceBakery.defaultFaceUV"
+  ],
+  "not_confirmed": [
+    "actual client modelstate rotation implementation",
+    "uvlock transformation behavior",
+    "final baked quad UV vertex ordering after rotation",
+    "world neighboring rendered texture seam",
+    "lighting/filtering/culling/screenshots",
+    "variant random choice frequency"
+  ],
+  "game_static_render_verified": 0,
+  "fully_completed_A_to_G_items": 0,
+  "official_jar_sha1_required": false,
+  "official_jar_claim_authenticated": false,
+  "animation_deferred": true,
+  "global_legacy_checkpoint_unchanged": "v38",
+  "outputs": [
+    "REPORT.md",
+    "SUMMARY.json",
+    "CLIENT_CLASS_LEDGER.csv",
+    "DEFAULT_UV_BYTECODE_CASES.csv",
+    "R007_AUTO_UV_BASIS_RECONCILIATION.csv",
+    "VERIFY_DEFAULT_UV_BYTECODE.py"
+  ]
+}

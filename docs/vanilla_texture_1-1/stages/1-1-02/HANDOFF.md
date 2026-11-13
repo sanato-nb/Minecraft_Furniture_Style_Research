@@ -1,6 +1,6 @@
 # 1-1-02 — 석재·벽돌 별도 채팅 인수인계
 
-> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R007` (정적 UV 좌표·픽셀 접합 연구)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
+> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R008` (렌더러 기본 UV 클래스 바이트코드 검증)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 ## 연구 목표와 정확한 표본
 
@@ -123,3 +123,11 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 - 중요한 구별: 모델 JSON에서 `uv=[16,0,0,16]`과 회전각 X/Y가 선언된 것은 실제 원문이지만 **미기재 UV 자동 생성 축과 world 접평면 좌표 및 X→Y 회전 부호는 R007 연구의 명시적인 수학 가정**이다. R007의 면 배치/0 픽셀 접합을 실제 게임의 렌더 인증으로 오인 금지. 특히 deepslate axis=x 동일 선언 2개는 과거 R004 근거 계승이고 이번 발견 아님.
 - 공식 client.jar SHA-1 인증은 완료 분모에서 제외(인증 성공 아님). **인게임 정적 실측 0/17, A–G 전체 완료 0/17**, 애니메이션 보류, 전역 v38과 타 단계 변경 없음.
 - 다음 후보 **`TEX02-R008`**; 시작은 라이브 STATE + 현재 릴리스 재조회, 이후 게임 캡처·렌더러 증거 확보 시 UV 축 가정과 픽셀 접합 비교.
+
+## TEX02-R008 — 사용자 제공 1.21.11 클라이언트 바이트코드의 기본 UV 생성 규칙 직접 검증 (2026-11-13)
+
+- [보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R008/REPORT.md) · [3개 원본 클래스 blob 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R008/CLIENT_CLASS_LEDGER.csv) · [6방향 기본 UV 공식](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R008/DEFAULT_UV_BYTECODE_CASES.csv) · [R007 수학적 축 가정과 실제 바이트코드 교차검증](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R008/R007_AUTO_UV_BASIS_RECONCILIATION.csv) · [오프라인 바이트코드 재현검사](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R008/VERIFY_DEFAULT_UV_BYTECODE.py) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R008/SUMMARY.json).
+- **이번에 새로 검증한 소스 3개:** 사용자 제공 `1.21.11/hqi.class` (렌더러 `FaceBakery`), `hqi$1.class` (6방향 enum switch), `iz.class` (방향 enum 초기화). `defaultFaceUV`의 6개 case별 실제 `[u1,v1,u2,v2]` 인자를 bytecode에서 추출, `bakeQuad`의 UV 필드 null 시 기본 UV 호출 조건 확인.
+- **중요한 신규 결론:** R007의 '자동 생성 UV 기본 축은 수학적 가정' 중 **모델 로컬 6면의 U/V 기본 축 6/6은 클라이언트 원본 바이트코드가 확인해 줌**. 16×16 완전 큐브의 기본 UV는 6면 모두 [0,0,16,16]. 이전의 명시 UV 미러 48면은 이 자동 계산의 직접 대상이 아니며, 이전 기본 UV 138면 분류를 계승한다. R007 월드 좌표로 회전된 최종 UV 및 134개 접합은 여전히 **엔진 최종 투영/인게임 검증 전**.
+- **신규 PNG/픽셀 재측정 0건, 기존 31 variant/186면/138 기본 UV/48 명시 반전 UV 등 모두 이전 실적 계승**. 게임 정적 렌더 0/17, A–G 전체 완료 0/17, 공식 Mojang client.jar SHA-1 인증은 연구 필수 기준에서 제외. 애니메이션 계속 보류.
+- 다음 후보 **`TEX02-R009`**. 진행 가능하다면 사용자 추출 클라이언트의 `ModelState` 변환/UV 잠금과 실제 baked quad 코드를 추가 분석하고, 스크린샷 검증은 자료가 있을 때만 수행.
