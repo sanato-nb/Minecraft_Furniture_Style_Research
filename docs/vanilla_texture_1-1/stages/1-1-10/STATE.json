@@ -7,10 +7,10 @@
   "stage_id": "1-1-10",
   "material_family": "잎·식생",
   "stage_prefix": "TEX10",
-  "current_revision": "TEX10-R001",
-  "next_revision": "TEX10-R002",
-  "revision_sequence": 1,
-  "revision_status": "R001_extracted_mirror_PNG_RGBA_SHA_CRC_static_JSON_UV_checked_official_ingame_pending",
+  "current_revision": "TEX10-R002",
+  "next_revision": "TEX10-R003",
+  "revision_sequence": 2,
+  "revision_status": "R002_new_mask_edge_seam_azalea_comparison_vine_32_static_states_official_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 8,
@@ -57,22 +57,22 @@
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "D1_D2_D3_source_checked_8_of_8_runtime_tint_pending",
+      "status": "D1_D2_D3_source_checked_R002_additional_alpha_mask_boundary_and_azalea_pixel_diff_8_of_8",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "static_model_blockstate_uv_source_checked_8_of_8",
+      "status": "static_model_blockstate_uv_source_checked_8_of_8_vine_32_boolean_states_uv_sampled",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_official_jar_and_ingame_0_of_8",
+      "status": "pending_official_client_jar_auth_0_of_8_ingame_0_of_8",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "evidence_saved_TEX10-R001",
+      "status": "R002_evidence_saved_stage_specific",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -103,14 +103,16 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX10-R001",
-      "evidence_status": "mirror_sha_pixel_checked_static_json_uv_checked_official_ingame_pending",
+      "last_verified_revision": "TEX10-R002",
+      "evidence_status": "mirror_sha_pixel_checked_R002_static_masks_uv_vine_logic_checked_official_ingame_pending",
       "repository_png_git_blob_sha": "0f1793d68df14a8551ca59d4c428bba24acb9c50",
       "independent_sha256": "69c9c7048695e014aee6b8a2c4cb080607bd7a2a5291c06218b8134cbfcdc04f",
       "model_json_git_blob_sha": "192ebd67006a71ddb4e930a72dc4a3970bc634d1",
       "blockstate_json_git_blob_sha": "8d60eedb41f3b7342cd8612f1eadba7f6788b6d9",
       "visible_pixels": 172,
-      "transparent_pixels": 84
+      "transparent_pixels": 84,
+      "edge_transparent_pixels": 19,
+      "mask_transition_count": 201
     },
     {
       "item_id": "1-1-10-002",
@@ -121,14 +123,16 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX10-R001",
-      "evidence_status": "mirror_sha_pixel_checked_static_json_uv_checked_official_ingame_pending",
+      "last_verified_revision": "TEX10-R002",
+      "evidence_status": "mirror_sha_pixel_checked_R002_static_masks_uv_vine_logic_checked_official_ingame_pending",
       "repository_png_git_blob_sha": "85e413b57168a3dc0334326c9a19c5bd0d954740",
       "independent_sha256": "538a4d679a8677d710cde7a99c44f9dd95d1e117aa42844d1dad1e24ed47fb16",
       "model_json_git_blob_sha": "fe8ae0dd7ddfbdba571cf91ec8c27ccc83d14d04",
       "blockstate_json_git_blob_sha": "c823b6c700c165882c0951b6d3d60cc975f3fb7b",
       "visible_pixels": 160,
-      "transparent_pixels": 96
+      "transparent_pixels": 96,
+      "edge_transparent_pixels": 22,
+      "mask_transition_count": 250
     },
     {
       "item_id": "1-1-10-003",
@@ -139,14 +143,16 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX10-R001",
-      "evidence_status": "mirror_sha_pixel_checked_static_json_uv_checked_official_ingame_pending",
+      "last_verified_revision": "TEX10-R002",
+      "evidence_status": "mirror_sha_pixel_checked_R002_static_masks_uv_vine_logic_checked_official_ingame_pending",
       "repository_png_git_blob_sha": "1ea855f93be7379eec41199cb63afd994db8f5bc",
       "independent_sha256": "03ea357f700a55a3e830e9bd0264c8b0a6c2901e3d1d328808adc1c7c97cc330",
       "model_json_git_blob_sha": "6f7f331c3008bc77acf02d880937fc4c01b55d18",
       "blockstate_json_git_blob_sha": "45a5921d746e1fd2c4c2240dc4b7c830a7a87db6",
       "visible_pixels": 144,
-      "transparent_pixels": 112
+      "transparent_pixels": 112,
+      "edge_transparent_pixels": 29,
+      "mask_transition_count": 245
     },
     {
       "item_id": "1-1-10-004",
@@ -157,14 +163,16 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX10-R001",
-      "evidence_status": "mirror_sha_pixel_checked_static_json_uv_checked_official_ingame_pending",
+      "last_verified_revision": "TEX10-R002",
+      "evidence_status": "mirror_sha_pixel_checked_R002_static_masks_uv_vine_logic_checked_official_ingame_pending",
       "repository_png_git_blob_sha": "b85bfd39664b8f226887eb15023bb36877c9177a",
       "independent_sha256": "1044dd96b9d2225d56bcdf9549e7890283c29f434fd80740c0ad0d8c571915c5",
       "model_json_git_blob_sha": "1500d997250613c9851d495d300cf8a8c8a0b8e6",
       "blockstate_json_git_blob_sha": "49ae2e02ff4b816d92b570f7b404e29ea6a0a7fc",
       "visible_pixels": 212,
-      "transparent_pixels": 44
+      "transparent_pixels": 44,
+      "edge_transparent_pixels": 9,
+      "mask_transition_count": 94
     },
     {
       "item_id": "1-1-10-005",
@@ -175,14 +183,16 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX10-R001",
-      "evidence_status": "mirror_sha_pixel_checked_static_json_uv_checked_official_ingame_pending",
+      "last_verified_revision": "TEX10-R002",
+      "evidence_status": "mirror_sha_pixel_checked_R002_static_masks_uv_vine_logic_checked_official_ingame_pending",
       "repository_png_git_blob_sha": "83c96ec13141621ae355fd5c61c89ac253938612",
       "independent_sha256": "fdfa370f1bc7460a0f51d70fd57c691a86ee9269bbaba5b7e46693bb2de09a2a",
       "model_json_git_blob_sha": "4c6814a55eadc7a99ff83bc9508f63c5b4dee5e3",
       "blockstate_json_git_blob_sha": "091af72e81618a156220c433db1dcee148b6684e",
       "visible_pixels": 197,
-      "transparent_pixels": 59
+      "transparent_pixels": 59,
+      "edge_transparent_pixels": 15,
+      "mask_transition_count": 135
     },
     {
       "item_id": "1-1-10-006",
@@ -193,14 +203,16 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX10-R001",
-      "evidence_status": "mirror_sha_pixel_checked_static_json_uv_checked_official_ingame_pending",
+      "last_verified_revision": "TEX10-R002",
+      "evidence_status": "mirror_sha_pixel_checked_R002_static_masks_uv_vine_logic_checked_official_ingame_pending",
       "repository_png_git_blob_sha": "a1ee8448fb69d6643ca0f73991d6d3639b425683",
       "independent_sha256": "863aae6a09178ccd3700c7ee6e3e9f2448e99f51cbbd8c157dd0126f8c749c80",
       "model_json_git_blob_sha": "3c2c9bcce0fa5ec6b891d9335274be9f295c7915",
       "blockstate_json_git_blob_sha": "8c2eaa3a8709dc868354fb828cab3874bca6416a",
       "visible_pixels": 256,
-      "transparent_pixels": 0
+      "transparent_pixels": 0,
+      "edge_transparent_pixels": 0,
+      "mask_transition_count": 0
     },
     {
       "item_id": "1-1-10-007",
@@ -211,14 +223,16 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX10-R001",
-      "evidence_status": "mirror_sha_pixel_checked_static_json_uv_checked_official_ingame_pending",
+      "last_verified_revision": "TEX10-R002",
+      "evidence_status": "mirror_sha_pixel_checked_R002_static_masks_uv_vine_logic_checked_official_ingame_pending",
       "repository_png_git_blob_sha": "fb75e7f5d570ad8bf4be0277eda3b9ea81dd12c1",
       "independent_sha256": "5ca6b688ee8cce05df9d90a8d0f7bb669361ce27dba4a761dcb209819e0d232e",
       "model_json_git_blob_sha": "6a48a470895c2ca9ae641ddcccc43ac14b2f59cb",
       "blockstate_json_git_blob_sha": "66222182c58ec387e15134b8e795ad63a67c5ca4",
       "visible_pixels": 146,
-      "transparent_pixels": 110
+      "transparent_pixels": 110,
+      "edge_transparent_pixels": 30,
+      "mask_transition_count": 142
     },
     {
       "item_id": "1-1-10-008",
@@ -229,14 +243,16 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX10-R001",
-      "evidence_status": "mirror_sha_pixel_checked_static_json_uv_checked_official_ingame_pending",
+      "last_verified_revision": "TEX10-R002",
+      "evidence_status": "mirror_sha_pixel_checked_R002_static_masks_uv_vine_logic_checked_official_ingame_pending",
       "repository_png_git_blob_sha": "a99c5f310cff760758cc484521c15ab5d1cd3ecf",
       "independent_sha256": "b6e494ed60f5e4fa2704645777d56d585ac0aa4b2c7493879f286a954ce9a9d6",
       "model_json_git_blob_sha": "f5caf1d7da3e0871bbc6303c9d85f45942129dc1",
       "blockstate_json_git_blob_sha": "9731fdb0456595dd7fa64d71c71c18b6cbb40e4b",
       "visible_pixels": 205,
-      "transparent_pixels": 51
+      "transparent_pixels": 51,
+      "edge_transparent_pixels": 13,
+      "mask_transition_count": 125
     }
   ],
   "revisions": [
@@ -255,13 +271,23 @@
       "summary_path": "research/vanilla_textures/by_stage/1-1-10/TEX10-R001/SUMMARY.json",
       "official_client_jar_authenticated_count": 0,
       "ingame_static_verified_count": 0
+    },
+    {
+      "revision": "TEX10-R002",
+      "kind": "8_source_png_alpha_mask_edge_plus_azalea_diff_32_vine_logical_states",
+      "source_files_reviewed_as_new": 8,
+      "additional_unique_texture_count": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-10/TEX10-R002/REPORT.md",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-10/TEX10-R002/SUMMARY.json",
+      "official_client_jar_authenticated_count": 0,
+      "ingame_static_verified_count": 0
     }
   ],
   "next_steps": [
-    "Official Mojang client.jar authentic verification if official jar accessible",
-    "Ingame static tint/biome and vine multipart verification",
-    "Re-fetch SHA/HEAD/next revision and ensure immutable output path absent before next write",
-    "Keep animation/frame/movement research deferred"
+    "Official 1.21.11 client.jar byte retrieval from Mojang, validate official version manifest and compare PNGs",
+    "Actual Minecraft 1.21.11 static biome tint and vine geometry screenshot cross validation",
+    "Keep animation research deferred until explicitly unlocked",
+    "Recheck Github stage SHA, current revision and immutable next release directory prior to any edits"
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -276,5 +302,9 @@
   "stage_static_source_a_to_e_checked_count": 8,
   "stage_fully_authenticated_and_ingame_verified_count": 0,
   "mirror_png_sha_crc_verified_count": 8,
-  "static_model_uv_source_checked_count": 8
+  "static_model_uv_source_checked_count": 8,
+  "mask_bit_rows_verified": 128,
+  "vine_static_boolean_states_evaluated": 32,
+  "vine_boolean_states_model_instances_sum": 85,
+  "azalea_pair_rgba_changed_pixels": 39
 }
