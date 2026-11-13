@@ -1,0 +1,98 @@
+{
+  "revision": "TEX11-R013",
+  "date": "2026-11-13",
+  "stage": "1-1-11",
+  "kind": "user_resumed_deferred_animation_source_research",
+  "source_png": {
+    "count": 31,
+    "crc_verified": 31,
+    "px16_square": 26,
+    "px32_square": 5,
+    "animation_mcmeta_found": 0,
+    "APNG_chunk_frames_found": 0
+  },
+  "source_json": {
+    "blockstates": 24,
+    "leaf_models": 122,
+    "template_models": 20,
+    "total": 166,
+    "git_blob_SHA_match": 166,
+    "animation_timing_related_keys": 0
+  },
+  "source_static_transitions": {
+    "source_blocks_count": 24,
+    "source_state_variants_total": 576,
+    "door_open_candidate_pairs": 112,
+    "trapdoor_open_candidate_pairs": 96,
+    "shelf_power_candidate_pairs": 80,
+    "shelf_chain_property_candidate_pairs": 240,
+    "shelf_chain_powered_true_candidate_pairs": 120,
+    "shelf_chain_powered_false_no_model_change": 120,
+    "all_source_single_property_candidate_pairs": 528,
+    "total_selection_different": 408,
+    "total_selection_unchanged": 120,
+    "door_open_Ychanged": 112,
+    "trapdoor_open_Xchanged": 40,
+    "trapdoor_open_Ychanged": 52,
+    "texture_frame_metadata_for_target_PNG_count": 0,
+    "frames_or_animation_keys_in_source_JSON": 0,
+    "model_resolution_missing": 0,
+    "no_runtime_timing_or_easing_from_source": true
+  },
+  "static_endpoint_geometry": [
+    {
+      "family": "door",
+      "variable": "open",
+      "endpoint_pairs": 112,
+      "geometry_bounds_change": 0,
+      "static_rotation_change": 112,
+      "UV_layout_change": 112,
+      "texture_slot_change": 0,
+      "both_geometry_and_rotation_change": 0,
+      "only_face_atlas_change": 0
+    },
+    {
+      "family": "trapdoor",
+      "variable": "open",
+      "endpoint_pairs": 96,
+      "geometry_bounds_change": 96,
+      "static_rotation_change": 52,
+      "UV_layout_change": 96,
+      "texture_slot_change": 0,
+      "both_geometry_and_rotation_change": 52,
+      "only_face_atlas_change": 0
+    },
+    {
+      "family": "shelf",
+      "variable": "powered",
+      "endpoint_pairs": 80,
+      "geometry_bounds_change": 0,
+      "static_rotation_change": 0,
+      "UV_layout_change": 80,
+      "texture_slot_change": 0,
+      "both_geometry_and_rotation_change": 0,
+      "only_face_atlas_change": 80
+    }
+  ],
+  "historical": {
+    "R012_source_only_completed": 31,
+    "R009_R011_full_model_face_RGBA_patches": 596,
+    "R009_R011_UV_texel_ref_uses": 68960,
+    "R006_static_states_excluding_historic_oak_shelf": 544,
+    "v38_historic_oak_shelf_states": 32,
+    "source_static_states_including_historic_oak_shelf": 576
+  },
+  "excluded_and_not_claimed": {
+    "in_game_runtime_verification_required": false,
+    "in_game_verified_historical": 0,
+    "official_original_JAR_SHA1_required": false,
+    "real_tween_duration_easing_pivot_verified": false,
+    "actual_3D_animation_clips_created": 0
+  },
+  "reference_original_Git_trees": {
+    "textures": "9a7172896d4a28b405b990733d51b77dcb50930c",
+    "blockstates": "7a36f7d757e62aa61ee61aebcd8d5689bc462a8d",
+    "models": "57eb7fbc4d0af0e931a04de94b4b6a766242d36e"
+  },
+  "no_previous_release_mutations": true
+}

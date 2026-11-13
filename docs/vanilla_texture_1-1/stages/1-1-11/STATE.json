@@ -7,10 +7,10 @@
   "stage_id": "1-1-11",
   "material_family": "목재·구조부품",
   "stage_prefix": "TEX11",
-  "current_revision": "TEX11-R012",
-  "next_revision": "TEX11-R013",
-  "revision_sequence": 12,
-  "revision_status": "R012_source_only_FIXED_31_PNG_COMPLETE_31_OF_31_ingame_verification_EXCLUDED_USER_DECISION_no_new_source_measurement",
+  "current_revision": "TEX11-R013",
+  "next_revision": "TEX11-R014",
+  "revision_sequence": 13,
+  "revision_status": "R013_ANIMATION_SOURCE_ONLY_RESUMED_31PNG_MCMeta0_APNG0_166_JSON_TIME_FIELDS0_528_STATIC_STATE_EDGES_288_GEOMETRY_ENDPOINTS",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 31,
@@ -57,22 +57,22 @@
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R011_224_thin_side_face_seam_records_zero_alpha_mismatch_448_total_side_seams_cherry_broad128_repeated",
+      "status": "R013_animation_source_31PNG_metadata_and_APNG_absent_528_blockstate_candidate_edges",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R011_224_original_door_variants_1120_oriented_source_state_faces_146944_repeated_texel_refs_all31_source_full_face_survey_complete",
+      "status": "R013_166_JSON_SHA_matched_288_core_static_endpoint_geometry_UV_comparisons",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
       "title": "F 인게임 정적 렌더·GPU 컬링·조명 검증 (2026-11-13 사용자 결정에 따라 필수 범위 제외)",
-      "status": "R012_EXCLUDED_FROM_REQUIRED_COMPLETION_BY_USER_not_verified_zero_of_31_historical_only_no_screenshot_needed",
+      "status": "R013_runtime_game_validation_excluded_by_user_0_of_31_historical_only_no_screenshots_needed",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R012_scope_change_recorded_SOURCE_ONLY_31_of_31_completed_with_prior_R009_R010_R011_evidence_no_new_pixel_measurements",
+      "status": "R013_immutable_REPORT_SUMMARY_6CSV_EXAMPLES_METHODS_STAGE_FILES_only",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -91,6 +91,11 @@
       "id": "D3",
       "check": "v38 oak_shelf 7 leaf·38원본 explicit UV면·32 정적 상태 평가 근거 재사용 후 미검증 파생목재 확대",
       "status": "R010_R011_source_full_face_census_completed_R009_R010_R011_31_fixed_PNG_historic_v38_oak_shelf32_not_recounted"
+    },
+    {
+      "id": "D4",
+      "check": "애니메이션 재개: PNG 프레임·상태 전환 끝점",
+      "status": "R013_31PNG_no_mcmeta_no_APNG_166_JSON_timekeys0_528_candidate_state_pairs_288_geometry_endpoints_source_only"
     }
   ],
   "items": [
@@ -120,7 +125,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-002",
@@ -148,7 +156,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-003",
@@ -176,7 +187,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-004",
@@ -204,7 +218,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-005",
@@ -232,7 +249,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-006",
@@ -260,7 +280,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-007",
@@ -288,7 +311,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-008",
@@ -316,7 +342,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-009",
@@ -344,7 +373,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-010",
@@ -372,7 +404,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-011",
@@ -400,7 +435,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-012",
@@ -428,7 +466,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-013",
@@ -456,7 +497,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-014",
@@ -484,7 +528,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-015",
@@ -512,7 +559,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-016",
@@ -540,7 +590,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-017",
@@ -568,7 +621,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-018",
@@ -596,7 +652,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-019",
@@ -624,7 +683,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-020",
@@ -652,7 +714,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-021",
@@ -680,7 +745,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-022",
@@ -708,7 +776,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-023",
@@ -736,7 +807,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-024",
@@ -764,7 +838,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-025",
@@ -792,7 +869,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-026",
@@ -820,7 +900,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-027",
@@ -848,7 +931,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-028",
@@ -876,7 +962,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-029",
@@ -904,7 +993,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-030",
@@ -932,7 +1024,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     },
     {
       "item_id": "1-1-11-031",
@@ -960,7 +1055,10 @@
       "source_only_scope_completed": true,
       "ingame_static_validation_required": false,
       "ingame_static_validation_excluded_from_completion": true,
-      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending"
+      "evidence_status_before_R012_scope_change": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
+      "r013_animation_source_metadata_checked": true,
+      "r013_animation_sprite_meta_present": false,
+      "r013_static_state_endpoint_source_studied": true
     }
   ],
   "revisions": [
@@ -1159,22 +1257,35 @@
       "new_JSON_measurements": 0,
       "report_path": "research/vanilla_textures/by_stage/1-1-11/TEX11-R012/SCOPE_CHANGE.md",
       "summary_path": "research/vanilla_textures/by_stage/1-1-11/TEX11-R012/SUMMARY.json"
+    },
+    {
+      "revision": "TEX11-R013",
+      "kind": "animation_research_resumed_no_sprite_frames_and_528_static_blockstate_transition_candidates",
+      "date": "2026-11-13",
+      "target_png_CRC_ok": 31,
+      "target_png_mcmeta_found": 0,
+      "source_JSON_SHA_matched": 166,
+      "source_frame_timing_keys": 0,
+      "static_state_comparison_pairs": 528,
+      "source_core_endpoint_pairs": 288,
+      "runtime_animation_verified": false,
+      "source_only_completed_count": 31,
+      "report_path": "research/vanilla_textures/by_stage/1-1-11/TEX11-R013/REPORT.md"
     }
   ],
   "next_steps": [
-    "Fixed 31 PNG source-only stage 1-1-11 completed 31/31 under user-approved revised definition; do not ask for screenshots or in-game evidence.",
-    "If the user says only '계속해줘', STOP and explain this fixed scope is complete, without fabricating another revision.",
-    "Do not treat the 0/31 historical in-game verified metric as a source-only blocker or as game evidence; runtime and Mojang official JAR SHA1 were explicitly excluded by user.",
-    "Continue on a separate clearly specified task, new independent source material or user-directed stage expansion; keep prior R001-R011 immutable and avoid double-counting historic measurements.",
-    "No animation unless user explicitly resumes; no Project Zomboid conversion, actual 3D furniture modeling, v38 root, or other stage writes."
+    "User resumed animation study. TEX11-R013 source-only frame metadata and static state endpoint census done for fixed 31 PNGs. Animation is no longer deferred.",
+    "If user says bare '계속해줘', explain that fixed original source animation research is complete and STOP; do not fabricate animation frames or another revision.",
+    "If user specifically asks to BUILD smooth animations/3D models, those are separate implementation tasks requiring explicitly designed duration, hinge pivot and easing. None is specified by original PNG/model JSON.",
+    "Preserve user decision excluding Minecraft in-game verification and official JAR SHA1 from required completion; historical in-game verified count 0/31 not a blocker.",
+    "Original 31 PNG, 596 model-face sampled patches, previous 544 source states plus v38 oak shelf32 unchanged; no root v38 or other stage edits."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
-  "animation_study_deferred": true,
+  "animation_study_deferred": false,
   "scope_excluded": [
     "Project Zomboid conversion",
     "actual furniture 3D asset building",
-    "animation study until explicitly resumed",
     "Mojang official original client.jar SHA-1 authentication / official-version-metadata comparison (explicitly excluded by user, 2026-11-13)",
     "Minecraft in-game static render/GPU culling/lighting/screenshot validation (explicitly excluded from required completion by user, 2026-11-13)"
   ],
@@ -1214,10 +1325,19 @@
   "original_jar_sha1_will_not_be_requested_for_this_stage": true,
   "source_face_RGBA_coverage": "R009_R010_R011_all_fixed_31_PNGs_596_distinct_model_face_patches_68960_UV_texel_refs_source_only",
   "runtime_user_evidence_required_for_next_core_step": false,
-  "source_only_completion_status": "complete_for_fixed_31_PNG_scope",
+  "source_only_completion_status": "complete_for_fixed_31_PNG_scope_including_R013_source_animation_metadata_discrete_state_endpoint_study",
   "source_only_completion_count": 31,
   "source_only_target_count": 31,
   "completion_criteria_definition": "User-approved source-only: user-extracted PNG CRC/RGBA and model JSON UV/geometry and blockstates, without any required in-game runtime verification or official JAR SHA1 authentication.",
   "ingame_static_validation_required": false,
-  "ingame_static_validation_excluded_from_completion": true
+  "ingame_static_validation_excluded_from_completion": true,
+  "animation_study_resumed_date": "2026-11-13",
+  "animation_study_source_status": "R013_complete_31_PNG_frames_metadata_and_166_JSON_source_timing_fields_and_528_property_comparisons_288_core_model_geometry_endpoint_pairs",
+  "animation_source_scope_complete_count": 31,
+  "animation_source_scope_total_count": 31,
+  "animation_texture_meta_found": 0,
+  "animation_JSON_timing_key_hits": 0,
+  "animation_state_transition_candidates": 528,
+  "animation_core_endpoint_pairs": 288,
+  "animation_runtime_interpolation_verified": false
 }

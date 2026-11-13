@@ -1,5 +1,18 @@
 # 1-1-11 — 목재·구조부품 별도 채팅 인수인계
 
+## 최신: TEX11-R013 — 애니메이션 보류 해제 및 원본 31 PNG 애니메이션 에셋 조사 완료 (2026-11-13)
+
+- **현재 R013, 다음 R014는 명시적 독립 신규 목표가 있을 때만.** 사용자가 보류된 애니메이션 연구 재개를 요청했다. `animation_study_deferred=false`. **인게임 검증 제외·공식 JAR SHA-1 제외는 유지**.
+- **실측:** 고정 31 PNG 전부 원본 바이트 CRC 통과, 26개16×16+5개32×32. APNG 프레임 표시 chunk 없음, 대응 `.png.mcmeta` **0/31**. 같은 Minecraft 블록 텍스처 디렉터리에는 다른 대상 `.png.mcmeta` 99개가 있어 absence 검사 의미 있음.
+- **원본 JSON 166개**(blockstate24, model leaf122, template20) Git tree blob SHA 전부 일치. 애니메이션 frame/timing/easing 관련 JSON 키 0.
+- **이산 상태 비교:** 문7종 open 112쌍, 다락문12종 open96쌍, 선반5종 powered80쌍 = **핵심 정적 끝점 288쌍**. 선반 side_chain 조합240쌍 추가하여 **528 원본 상태 변화 후보**(모델 선택 실제 변경408, 불변120=unpowered shelf). 임의 side_chain 조합은 게임 내 직접 발생 보장이 없는 수학적 후보.
+- **기하/UV:** 문112쌍 local element bounds 유지, 정적 Y회전/UV변화. 다락문96쌍 수평↔수직 geometry 바뀜, source Xrotation변화40, Yrotation변화52. 선반 powered80쌍 본체/전면 형상과 각도 불변, 전면 UV선택 변화80. **실제 시간 프레임·부드러운 회전·hinge pivot·duration·easing은 원본 PNG/JSON만으로 나오지 않는다**. 게임 엔진 실행·모션 클립 제작 없음.
+- **근거:** https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/research/vanilla_textures/by_stage/1-1-11/TEX11-R013/ — REPORT, SUMMARY, 6개의 CSV(31PNG,166JSON,528전환,4그룹,288끝점,3그룹), SOURCE_STATIC_ENDPOINT_EXAMPLES, REPRODUCIBILITY.
+- **1-1-11 source-only 완료 31/31** 유지. R009–R011의 596모델-면 RGBA patch/68,960 참조는 역사적 근거로 유지(이번 R013 신규 pix 수 아님). 과거 source 544상태+v38 oak_shelf32=576이라는 의미도 구분한다. 이전 릴리스/전역 v38/다른 단계 불변.
+- **연속작업 규칙:** 사용자 `계속해줘`만이면 고정 31개 PNG의 소스 기반 텍스처/정적 상태/애니메이션 원본 연구가 끝났음을 알리고 멈춘다. 실제 부드러운 개폐 **애니메이션을 별도 제작**하려면 새 작업 범위를 정해야 하며, 그때 재생시간·pivot·easing은 Minecraft 원본 인증값이라고 하지 않는다. 사용자 인게임 스크린샷은 **요구하지 않음**.
+
+---
+
 ## 최신 범위 변경: TEX11-R012 — 인게임 검증 제외·소스 기반 31/31 완료 (2026-11-13)
 
 - **현재 `TEX11-R012` / 다음 `TEX11-R013`은 새로운 독립 과제·원본·확장 범위가 있을 때만.** 사용자가 명시적으로 **“인게임 검증은 제외해줘 어차피 모델링이랑 텍스텨있는데 필요없을거같아”**라고 요청했으므로 Minecraft 게임 화면/스크린샷/실제 GPU 컬링·조명 테스트를 **단계 1-1-11 필수 완료 조건에서 제외**했다. 사용자가 `계속해줘`만 말해도 스크린샷을 요구하지 않는다.
