@@ -1,21 +1,24 @@
-# 1-1-08 복합·기능면 인수인계 — 현재 TEX08-R003
+# 1-1-08 — 복합·기능면 단계 전용 인수인계 (현재 TEX08-R004)
 
-> 2026-11-13 · 다음 버전 **TEX08-R004** · 대상 PNG 21개 고정 · 통합 v38 그대로 · R001/R002/R003 불변 파일 정책 유지.
+> 2026-11-13 · 다음 `TEX08-R005` · 고정 PNG 21개 · 전체 `v38` 불변 · R001–R004는 새 원본이 있어도 수정/삭제 금지.
 
-## 원본 출처 (사용자 확인 사항)
-사용자가 직접 Minecraft Java 1.21.11 `client.jar`을 압축 해제해 GitHub에 올린 [`1.21.11/` 폴더](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/1.21.11)를 **1차 리소스 분석 기준**으로 사용한다. 과거 [비공식 추출 미러](https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11)를 **2차 해시 교차검증 기준**으로만 사용한다. 압축 해제된 사용자 소스 ≠ Mojang JAR 전체 SHA1 인증 ≠ 실제 인게임 검증.
+## 원본 / 검증 분리
+- 1차: **사용자가 직접 client.jar을 압축 해제했다고 명시한** [GitHub `1.21.11/`](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/1.21.11) 내 `assets/minecraft/`.
+- 2차: 이전 미러 `InventivetalentDev/minecraft-assets` 1.21.11, 파일 SHA 교차용.
+- (3) 공식 JAR SHA1 + Mojang metadata 실물 인증 **0/21**, (4) 실제 게임 정적 렌더 관찰 **0/21**. 추출본 SHA 일치나 모델 해석으로 완료 처리 금지.
 
-## R003 추가 원본 확인 (기존 실측 중복 금지)
-- 추출본 **77 고유 파일 Git blob SHA 검사:** PNG21 + 보조 PNG1 + blockstate JSON16 + 모델 JSON39, 누락 0.
-- R001/R002에 기존 비교 해시가 있는 **71개 전부 일치**. 모델 추가 6종(통 개폐/화로·훈연기·용광로 lit 상태/벌통 honey/chiseled 책장 base)은 추출본에서 확인했지만 기존 미러 비교 범위로 세지 않음.
-- 실제 파일 파싱: blockstates JSON 16종 (variants73, multipart52), 모델 JSON 10종, PNG binary header 7종 (대상6 + 보조1), signature 및 IHDR 16×16 확인.
-- 새 RGBA/UV/애니메이션 픽셀 실측 **0회**. 기존 R001/R002 보고서 누적값 그대로.
-- **공식 Mojang `client.jar` 압축본 SHA1 인증 0/21**, **인게임 정적 UV 0/21**; 언제나 별도로 보류 기록.
+## 누적, 중복 없는 단계 기록
+- `TEX08-R001`: 21 PNG/5,376 원본 픽셀 분석, 고정 대상 62 모델 face 자료; 비공식 미러 근거.
+- `TEX08-R002`: 16 blockstate/73 variants+52 multipart, 정적 통 open/closed 비교, 62 대상 face UV 면적 13,056 uses; 미러 기반.
+- `TEX08-R003`: 사용자 추출본 77 고유 파일 Git blob SHA 확인, 기존 미러 SHA 71/71 동일; JSON 직접 파싱 blockstate16 + model10, PNG 헤더7.
+- **`TEX08-R004` 새 실측:** R003에서 읽지 않았던 모델 29개의 추출본 JSON 직접 파싱 + 공통 부모 8개 파싱. 단계 모델 **39/39 실제 JSON 소스 확인**, 부모 포함 47 고유 JSON 경로. **143 model-face rows / 명시 UV29 / 암시 UV114 / UV 면적32,512 uses(픽셀 신규 측정치 아님)**.
+- `chiseled_bookshelf`: 본체 정면 north 미선언(5면), 슬롯 6개 zero-depth 평면 x 좌우 반전 UV, 템플릿 particle=`#texture`가 child에서 상속 해결됨. **기존 R001/R002의 'overlay particle 없음' 표현을 모델 선언 차원에서 정정**. 실제 게임 최종 particle 렌더링 선택은 아직 미검증.
+- `chiseled_bookshelf` blockstate yaw north0/east90/south180/west270; base `uvlock=true`, 12 slot 규칙/방향은 uvlock 생략. 52 규칙 신규 카운트 가산 금지.
+- 정적 소스 해석용 결과: `research/vanilla_textures/by_stage/1-1-08/TEX08-R004/` 의 `REPORT.md`, `SOURCE_LEDGER.csv`, `MODEL_INHERITANCE.csv`, `MODEL_FACE_RESOLUTION.csv`, `CHISELED_SLOT_GEOMETRY.csv`, `CHISELED_FACING_UVLOCK.csv`, `SUMMARY.json`.
 
-## 파일 / 새 채팅 재개
-- [R001 불변 결과](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/research/vanilla_textures/by_stage/1-1-08/TEX08-R001)
-- [R002 불변 결과](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/research/vanilla_textures/by_stage/1-1-08/TEX08-R002)
-- [R003 새 결과](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/research/vanilla_textures/by_stage/1-1-08/TEX08-R003): `REPORT.md`, `SOURCE_LEDGER.csv`, `BLOCKSTATE_DIRECT_READ.csv`, `MODEL_DIRECT_READ.csv`, `PNG_HEADER_DIRECT_READ.csv`, `SUMMARY.json`.
-- 차기 R004 전에 이 [STATE.json](STATE.json) 및 HEAD 커밋 재조회, 버전·blob SHA·R004 존재 유무 확인, 이전 릴리스 불변.
-- 변경 허용: **오직** 이 단계 `STATE.json`, `HANDOFF.md`, 그리고 신규 `TEX08-R004/` 결과. 다른 단계/루트 `HANDOFF.md`, `PROGRESS.md`, `handoff/STATE.json`, v38 변경 금지.
-- A–G 계속. 정적 소스·모델·UV·색상·블록 상태만; **애니메이션 프레임/움직임 보류**. Project Zomboid 변환과 실제 가구 3D 제작 제외.
+## 재개
+1. GitHub 이 단계 `STATE.json`과 `HANDOFF.md`를 다시 읽고 `next_revision=TEX08-R005`, 파일 blob SHA 및 새 릴리스 미존재 확인.
+2. 사용자 추출본에서만 정적 추가 근거 확인, 과거 픽셀 재실측/누적 부풀리기 방지.
+3. 공식 원본 JAR 실물 및 Minecraft 인게임 정적 검증은 별도 미완료 유지. 새 근거 없으면 임의 완료/버전 증가 금지.
+4. 이 단계 `HANDOFF.md`, `STATE.json` 및 새 `TEX08-R005` 외 파일 수정 금지. 다른 단계/루트/전체 v38은 건드리지 않음.
+5. **애니메이션 프레임·움직임 연구 보류**, PZ 변환 및 실제 3D 가구 제작 금지.
