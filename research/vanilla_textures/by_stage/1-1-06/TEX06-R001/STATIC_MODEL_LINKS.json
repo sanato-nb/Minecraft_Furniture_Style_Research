@@ -1,0 +1,236 @@
+{
+  "source_mirror": "InventivetalentDev/minecraft-assets",
+  "source_commit_pinned_to_annotated_tag": "7241a12cc2707abd7022f399c5d9033153e492e1",
+  "tag": "1.21.11",
+  "official_mojang_authentication": false,
+  "parents": [
+    {
+      "path": "assets/minecraft/models/block/cube_all.json",
+      "git_blob_sha": "fa2f9e776173224b2b523b8b537c695b921267f6",
+      "parent": "block/cube",
+      "slots": {
+        "particle": "#all",
+        "down": "#all",
+        "up": "#all",
+        "north": "#all",
+        "east": "#all",
+        "south": "#all",
+        "west": "#all"
+      }
+    },
+    {
+      "path": "assets/minecraft/models/block/cube.json",
+      "git_blob_sha": "1b9780b479aee527f79bde950656b82f1524128b",
+      "parent": "block/block",
+      "geometry": {
+        "from": [
+          0,
+          0,
+          0
+        ],
+        "to": [
+          16,
+          16,
+          16
+        ]
+      },
+      "faces": [
+        "down",
+        "up",
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "explicit_uv": false
+    },
+    {
+      "path": "assets/minecraft/models/block/template_glazed_terracotta.json",
+      "git_blob_sha": "c6574a9f94db43f5cae8e925e94ad309bc4f145b",
+      "parent": "block/cube",
+      "geometry": {
+        "from": [
+          0,
+          0,
+          0
+        ],
+        "to": [
+          16,
+          16,
+          16
+        ]
+      },
+      "faces_uv": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "face_rotation_degrees": {
+        "down": 0,
+        "up": 0,
+        "north": 90,
+        "south": 270,
+        "west": 0,
+        "east": 180
+      },
+      "texture_slot": "#pattern"
+    }
+  ],
+  "items": [
+    {
+      "item_id": "1-1-06-001",
+      "texture_id": "terracotta",
+      "model_json_path": "assets/minecraft/models/block/terracotta.json",
+      "model_blob_sha": "abdc18d7e9e6d39dede014dd610b7ec4de277158",
+      "model_parent": "minecraft:block/cube_all",
+      "texture_slot": "all",
+      "texture_ref": "minecraft:block/terracotta",
+      "blockstate_json_path": "assets/minecraft/blockstates/terracotta.json",
+      "blockstate_blob_sha": "985d001a504fd95a239f68233c2c0421e9dc152b",
+      "variants": {
+        "": {
+          "model": "minecraft:block/terracotta"
+        }
+      }
+    },
+    {
+      "item_id": "1-1-06-002",
+      "texture_id": "white_terracotta",
+      "model_json_path": "assets/minecraft/models/block/white_terracotta.json",
+      "model_blob_sha": "eb6bc0069fb4a9ab235dfc376efd6689ffc3a8d0",
+      "model_parent": "minecraft:block/cube_all",
+      "texture_slot": "all",
+      "texture_ref": "minecraft:block/white_terracotta",
+      "blockstate_json_path": "assets/minecraft/blockstates/white_terracotta.json",
+      "blockstate_blob_sha": "184ea80877d8a7c708fbf2705746e1a3613a449e",
+      "variants": {
+        "": {
+          "model": "minecraft:block/white_terracotta"
+        }
+      }
+    },
+    {
+      "item_id": "1-1-06-003",
+      "texture_id": "orange_terracotta",
+      "model_json_path": "assets/minecraft/models/block/orange_terracotta.json",
+      "model_blob_sha": "2d5e41a14fa07722dd02f04063f372ef2de53684",
+      "model_parent": "minecraft:block/cube_all",
+      "texture_slot": "all",
+      "texture_ref": "minecraft:block/orange_terracotta",
+      "blockstate_json_path": "assets/minecraft/blockstates/orange_terracotta.json",
+      "blockstate_blob_sha": "6d644c41fbd3b7868ff69263248412ee6081b9a2",
+      "variants": {
+        "": {
+          "model": "minecraft:block/orange_terracotta"
+        }
+      }
+    },
+    {
+      "item_id": "1-1-06-004",
+      "texture_id": "blue_terracotta",
+      "model_json_path": "assets/minecraft/models/block/blue_terracotta.json",
+      "model_blob_sha": "ead569747ba5fc4e2de54ecb40303ceebbad4782",
+      "model_parent": "minecraft:block/cube_all",
+      "texture_slot": "all",
+      "texture_ref": "minecraft:block/blue_terracotta",
+      "blockstate_json_path": "assets/minecraft/blockstates/blue_terracotta.json",
+      "blockstate_blob_sha": "972492b109f10b6a09e822132e92d4e0421179dc",
+      "variants": {
+        "": {
+          "model": "minecraft:block/blue_terracotta"
+        }
+      }
+    },
+    {
+      "item_id": "1-1-06-005",
+      "texture_id": "green_terracotta",
+      "model_json_path": "assets/minecraft/models/block/green_terracotta.json",
+      "model_blob_sha": "8c13900745d15b5d8e6034595915eee3f444f685",
+      "model_parent": "minecraft:block/cube_all",
+      "texture_slot": "all",
+      "texture_ref": "minecraft:block/green_terracotta",
+      "blockstate_json_path": "assets/minecraft/blockstates/green_terracotta.json",
+      "blockstate_blob_sha": "3bf40d83e0da20f3468ca3d9ffca2bcd4c53f351",
+      "variants": {
+        "": {
+          "model": "minecraft:block/green_terracotta"
+        }
+      }
+    },
+    {
+      "item_id": "1-1-06-006",
+      "texture_id": "yellow_terracotta",
+      "model_json_path": "assets/minecraft/models/block/yellow_terracotta.json",
+      "model_blob_sha": "8f3e76eed5749cc77c83b296a7ef2df5739a3539",
+      "model_parent": "minecraft:block/cube_all",
+      "texture_slot": "all",
+      "texture_ref": "minecraft:block/yellow_terracotta",
+      "blockstate_json_path": "assets/minecraft/blockstates/yellow_terracotta.json",
+      "blockstate_blob_sha": "4a2aca6bd3af502ac2e2aa4277939d89e4ab3e67",
+      "variants": {
+        "": {
+          "model": "minecraft:block/yellow_terracotta"
+        }
+      }
+    },
+    {
+      "item_id": "1-1-06-007",
+      "texture_id": "black_glazed_terracotta",
+      "model_json_path": "assets/minecraft/models/block/black_glazed_terracotta.json",
+      "model_blob_sha": "f973bbba2a75c5bfa1e93ad6004b2ae1ff97d41b",
+      "model_parent": "minecraft:block/template_glazed_terracotta",
+      "texture_slot": "pattern",
+      "texture_ref": "minecraft:block/black_glazed_terracotta",
+      "blockstate_json_path": "assets/minecraft/blockstates/black_glazed_terracotta.json",
+      "blockstate_blob_sha": "e20988dcdafdba18006a35e6a4437bb7d2e78f3f",
+      "variants": {
+        "facing=east": {
+          "model": "minecraft:block/black_glazed_terracotta",
+          "y": 270
+        },
+        "facing=north": {
+          "model": "minecraft:block/black_glazed_terracotta",
+          "y": 180
+        },
+        "facing=south": {
+          "model": "minecraft:block/black_glazed_terracotta",
+          "y": 0
+        },
+        "facing=west": {
+          "model": "minecraft:block/black_glazed_terracotta",
+          "y": 90
+        }
+      }
+    },
+    {
+      "item_id": "1-1-06-008",
+      "texture_id": "white_glazed_terracotta",
+      "model_json_path": "assets/minecraft/models/block/white_glazed_terracotta.json",
+      "model_blob_sha": "e33fbedc0fd18cda66fd3ec878211f2b00c5adc2",
+      "model_parent": "minecraft:block/template_glazed_terracotta",
+      "texture_slot": "pattern",
+      "texture_ref": "minecraft:block/white_glazed_terracotta",
+      "blockstate_json_path": "assets/minecraft/blockstates/white_glazed_terracotta.json",
+      "blockstate_blob_sha": "8c64ce09f7c0bf11dad8908ef220917b567673a9",
+      "variants": {
+        "facing=east": {
+          "model": "minecraft:block/white_glazed_terracotta",
+          "y": 270
+        },
+        "facing=north": {
+          "model": "minecraft:block/white_glazed_terracotta",
+          "y": 180
+        },
+        "facing=south": {
+          "model": "minecraft:block/white_glazed_terracotta",
+          "y": 0
+        },
+        "facing=west": {
+          "model": "minecraft:block/white_glazed_terracotta",
+          "y": 90
+        }
+      }
+    }
+  ]
+}

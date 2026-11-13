@@ -64,3 +64,13 @@
 2. 과거 v4 측정과 타 버전(해당되면 v35~v38)의 동일 경로 SHA/화소를 대조해 **새로 분석할 실제 빈틈**을 고른다.
 3. 자료를 직접 검사하고 `REPORT.md`·`SOURCE_LEDGER.csv`·`SUMMARY.json`을 고유 릴리스 폴더에 보존한다. 미완료 작업은 근거/차단 원인을 기록한다.
 4. 마지막으로 이 `HANDOFF.md`·본 단계 `STATE.json`만 갱신하고 다음 채팅에서 그 다음 미완료 부분으로 이어가게 한다.
+
+## TEX06-R001 — 2026-11-13 직접 검증 후 인수인계
+
+- 현재 고유 버전 **TEX06-R001** · 다음 **TEX06-R002** · 공식 전체 프로젝트 **v38 유지**.
+- [신규 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R001/REPORT.md), [파일별 출처](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R001/SOURCE_LEDGER.csv), [요약 JSON](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R001/SUMMARY.json).
+- 대상 8/8 PNG를 비공식 미러 1.21.11 태그(커밋 `7241a12cc2707abd7022f399c5d9033153e492e1`)에서 실제 이진 복원하고 SHA-256, Pillow verify, 모든 PNG 청크 CRC32, RGBA **2,048픽셀** 독립 검증. SHA 8/8 기존 v4 일치. 본 단계 새 실측 8종이지, 기존 기록을 중복 누적한 값이 아니다.
+- 리프 모델 8·blockstates 8·부모 3의 JSON/UV를 열람. 일반 6종 `cube_all` vs 유광 2종 `template_glazed_terracotta`; 유광은 면 UV 회전과 facing별 모델 y회전 각각 확인. D1 8종, D2 2종 2×2×256 조합, D3 2종 **정적 자료 수준** 확인.
+- **공식 Mojang client.jar 인증 0/8, 인게임 정적 검증 0/8**, 정적 파일 검수만 완료. 이미지 평면의 시계방향 회전 최적 조합을 실제 인게임 방향으로 단정하지 않는다. F 및 모든 A–G 최종 인증 미완료.
+- v35~v38 일부 역사 자료를 교차 검사해 이 8종 중복 집계 근거 없음. 전체 과거 자료 부재를 단정하지 않음.
+- 다음 R002는 공식 `client.jar`에서 원본 8개 및 모델 JSON을 추출하고 SHA로 검증하거나 인게임 정적 Facing 장면을 확인할 때만 생성. 애니메이션/Project Zomboid/가구 모델링 연구는 계속 보류.

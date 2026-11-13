@@ -1,0 +1,59 @@
+{
+  "method": "256 candidate 2x2 placements per glazed PNG; each source tile independently rotated in 2D image space clockwise 0/90/180/270 degrees; average absolute RGB-channel difference along top-row horizontal, bottom-row horizontal, left-column vertical and right-column vertical seams. Lower is smoother.",
+  "units": "RGB-channel MAE 0..255 per seam; NOT verified world-facing rotation",
+  "black_glazed_terracotta": {
+    "best_rotations_cw_2x2": [
+      180,
+      270,
+      90,
+      0
+    ],
+    "best": 4.770833,
+    "unrotated": 36.302084,
+    "worst": 39.0625,
+    "seam4": [
+      4.7708,
+      4.7708,
+      4.7708,
+      4.7708
+    ],
+    "best_ties": 1
+  },
+  "white_glazed_terracotta": {
+    "best_rotations_cw_2x2": [
+      0,
+      90,
+      270,
+      180
+    ],
+    "best": 2.145833,
+    "unrotated": 56.03125,
+    "worst": 90.5,
+    "seam4": [
+      2.1458,
+      2.1458,
+      2.1458,
+      2.1458
+    ],
+    "best_ties": 1
+  },
+  "static_model_y_rotation_from_blockstates": {
+    "facing=south": 0,
+    "facing=west": 90,
+    "facing=north": 180,
+    "facing=east": 270
+  },
+  "uv_face_rotation": {
+    "down": 0,
+    "up": 0,
+    "north": 90,
+    "south": 270,
+    "west": 0,
+    "east": 180
+  },
+  "limits": [
+    "2D clockwise image rotation not proven equal to in-game world-facing mapping",
+    "edge color MAE alone cannot prove intended motif connection",
+    "no official JAR or game scene authenticated"
+  ]
+}
