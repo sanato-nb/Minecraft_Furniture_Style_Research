@@ -1,4 +1,18 @@
-# 1-1-01 목재·원목 전용 인수인계 — TEX01-R007
+# 1-1-01 목재·원목 전용 인수인계 — TEX01-R008
+
+## TEX01-R008 — 애니메이션 보류 해제 및 목재 관련 원본 프레임 분석 (2026-11-13)
+
+사용자가 명시적으로 **「보류한 애니메이션하자」**라고 요청하여 **1-1-01 연구의 애니메이션 분석 보류를 해제**했다. 기존 정적 연구 R001–R007 결과는 그대로 유지. **인게임 검증과 공식 JAR 원본 인증 제외 정책은 변경하지 않음**.
+
+- 원래 **18 기본 PNG + R007 보조 원목 단면 3 PNG = 21개**: 원본 1.21.11 블록 텍스처 Git tree의 **21개 PNG와 대응 `.png.mcmeta` 부재 21개 직접 확인**. 모두 이전 디코딩에서 16×16 정적 이미지였다. 기존 21 PNG/5,376 고유 픽셀 중복 연구량 증가 없음.
+- 별도 **목재 관련 애니메이션 보조 PNG 4개 신규 직접 분석**: `crimson_stem`(5프레임, 10틱/프레임), `warped_stem`(5,10), `campfire_log_lit`(4,20), `soul_campfire_log_lit`(4,20). 모두 사용자 제공 PNG 바이너리 SHA256 및 청크 CRC 검증, 메타의 `interpolate=true`, 명시 `frames` 키 없음 확인. **총 4개 신규 원본 PNG, 18개 프레임, 4,608개 신규 소스 프레임 텍셀**. 기존 고정 18+보조 단면 3과 별개 분모.
+- RGB 전환 행 **18건×256=4,608 좌표쌍**. 진홍/뒤틀린 자루 5개, 일반/영혼 모닥불 장작 4개의 각각 대응 프레임 전환 **변화 위치 마스크가 전부 정확 일치(9/9, 불일치 0개)**. RGB 색 자체가 같다는 뜻은 아님.
+- 원본 모델 JSON과 blockstates에서 `crimson_stem` 및 `warped_stem`의 `#side`, 모닥불의 켜진 모델에 해당하는 `#lit_log` 9면 연결 확인. 인게임 실제 재생/보간/광원/베이크 결과 인증은 하지 않음.
+- 전체 블록 폴더의 `.png.mcmeta`는 99개이나 **애니메이션 외 metadata(예: 잎의 mipmap)도 있으므로 전체 99개를 애니메이션 완료로 세지 않는다**.
+- [R008 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R008/REPORT.md) · [4종 소스 PNG/메타 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R008/ANIMATION_SOURCE_LEDGER.csv) · [18개 프레임 전환 측정](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R008/ANIMATION_FRAME_TRANSITIONS.csv) · [9개 동일 변화 위치 비교](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R008/MATCHED_FRAME_CHANGE_MASKS.csv) · [21 정적 표본 감사](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R008/STATIC_21_ANIMATION_AUDIT.csv) · [모델 연결](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R008/ANIMATION_MODEL_LINKS.csv) · [재현 스크립트](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R008/REPRODUCE_ANIMATION.py) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R008/SUMMARY.json)
+- **현재 리비전 TEX01-R008, 다음 TEX01-R009 후보**. 해당 목재 연관 애니메이션 자료를 검증한 현 범위에서는 추가 자료 없이 버전을 인위적으로 늘리지 않는다. 타 재질 단계, 전체 v38, 과거 리비전 변경 금지.
+
+
 
 ## TEX01-R007 — D1 옆면·단면 비교 4수종 4/4 완료 (2026-11-13; 사용자 범위 확장)
 
