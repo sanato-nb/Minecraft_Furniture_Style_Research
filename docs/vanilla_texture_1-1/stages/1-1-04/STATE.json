@@ -7,10 +7,10 @@
   "stage_id": "1-1-04",
   "material_family": "직물·양털",
   "stage_prefix": "TEX04",
-  "current_revision": "TEX04-R004",
-  "next_revision": "TEX04-R005",
-  "revision_sequence": 4,
-  "revision_status": "R004_user_extracted_30_source_file_manifest_sf_sha384_links_checked_no_official_auth",
+  "current_revision": "TEX04-R005",
+  "next_revision": "TEX04-R006",
+  "revision_sequence": 5,
+  "revision_status": "R005_user_extracted_9_colour_substitution_edge_order_D4_static_state_comparison",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 9,
@@ -59,41 +59,45 @@
       "title": "C RGBA·밝기·알파·반복 정량 검사",
       "status": "measured_rgba_16x16_9_of_9_2304_pixels",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX04-R002",
+      "last_revision": "TEX04-R005",
       "note_r002": "New 36 pairwise 256-pixel luma spatial comparisons and nine opposite-edge seam comparisons",
       "note_r003": "R001 RGBA 2304 pixels reused without recount, user extracted bytes identical to legacy mirror 9/9",
-      "note_r004": "R001-R002 RGBA and spatial pattern measurements reused, no new pixel/color counts"
+      "note_r004": "R001-R002 RGBA and spatial pattern measurements reused, no new pixel/color counts",
+      "note_r005": "Existing 2304 unique pixels reused; new per-colour affine RGB residual and D4 transform metrics on same 9 sources"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
       "status": "D1_D2_numeric_9_of_9_D3_hypothesis_separated",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX04-R002",
+      "last_revision": "TEX04-R005",
       "note_r002": "Near-identical luma rank layouts across colors; PNG palette indices not interchangeable RGB; horizontal edges show higher delta than internal horizontal neighbors",
       "note_r003": "D1/D2 from R001/R002 remain valid for identical user supplied PNG bytes, D3 source fact/hypothesis separated",
-      "note_r004": "D1-D3 previously completed; no new material property claims"
+      "note_r004": "D1-D3 previously completed; no new material property claims",
+      "note_r005": "36 colour-pair horizontal/vertical nonzero gradient sign comparisons 16404 of 16404 concordant; 876 candidates excluded on zero differences"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
       "status": "user_source_9_leaf_9_blockstate_3_parent_json_sha384_manifest_sf_chains_21_of_21_54_existing_uv_faces",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX04-R004",
-      "note_r004": "21 exact static JSON Git blob byte sources match per-file SHA384 of MANIFEST and 21 CRLF reconstructed paragraphs match SF; 54 existing UV face references remain reused"
+      "last_revision": "TEX04-R005",
+      "note_r004": "21 exact static JSON Git blob byte sources match per-file SHA384 of MANIFEST and 21 CRLF reconstructed paragraphs match SF; 54 existing UV face references remain reused",
+      "note_r005": "18 leaf/state JSONs + 3 inherited parents compared by colour: no extra model geometry, explicit face UV rotation or blockstate orientation variation; 54 faces previously counted"
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_official_client_jar_and_ingame_static_0_of_9",
+      "status": "mandatory_official_jar_auth_excluded_by_user_no_auth_claim__ingame_static_pending_0_of_9",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "last_revision": "TEX04-R004",
       "note_r002": "Candidate Mojang SHA1 found only in third-party indexes, jar bytes unavailable",
       "note_r003": "User-uploaded extracted folder confirms internal version.json but source JAR entire bytes and Mojang official distribution SHA1 unauthenticated",
-      "note_r004": "Signature metadata SHA384 digests self-consistent, PKCS7 MOJANGCS.RSA not cryptographically verified, full JAR SHA1 and Mojang metadata unavailable"
+      "note_r004": "Signature metadata SHA384 digests self-consistent, PKCS7 MOJANGCS.RSA not cryptographically verified, full JAR SHA1 and Mojang metadata unavailable",
+      "note_r005": "Official whole client.jar SHA1/Mojang metadata verification removed from mandatory scope/denominator by user; historic 0/9 remains. In-game static 0/9 remains mandatory evidential gap."
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "saved_TEX04_R004_signed_manifest_30_file_sha384_chain_and_handoff",
+      "status": "saved_TEX04_R005_source_colour_D4_gradient_model_state_reproducible",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX04-R004"
+      "last_revision": "TEX04-R005"
     }
   },
   "material_specific_checks": [
@@ -126,7 +130,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R004",
+      "last_verified_revision": "TEX04-R005",
       "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_with_unsigned_manifest_sf_digest_chain_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
@@ -145,7 +149,11 @@
       "r004_png_content_sha384_matches_user_manifest": true,
       "r004_png_manifest_section_crlf_sha384_matches_user_signature_file": true,
       "r004_leaf_model_json_manifest_sha384_checked": true,
-      "r004_blockstate_json_manifest_sha384_checked": true
+      "r004_blockstate_json_manifest_sha384_checked": true,
+      "r005_colour_affine_measured": true,
+      "r005_D4_eight_transform_comparison": true,
+      "r005_pairwise_gradient_order_checked": true,
+      "r005_static_variant_comparison": true
     },
     {
       "item_id": "1-1-04-002",
@@ -156,7 +164,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R004",
+      "last_verified_revision": "TEX04-R005",
       "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_with_unsigned_manifest_sf_digest_chain_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
@@ -175,7 +183,11 @@
       "r004_png_content_sha384_matches_user_manifest": true,
       "r004_png_manifest_section_crlf_sha384_matches_user_signature_file": true,
       "r004_leaf_model_json_manifest_sha384_checked": true,
-      "r004_blockstate_json_manifest_sha384_checked": true
+      "r004_blockstate_json_manifest_sha384_checked": true,
+      "r005_colour_affine_measured": true,
+      "r005_D4_eight_transform_comparison": true,
+      "r005_pairwise_gradient_order_checked": true,
+      "r005_static_variant_comparison": true
     },
     {
       "item_id": "1-1-04-003",
@@ -186,7 +198,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R004",
+      "last_verified_revision": "TEX04-R005",
       "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_with_unsigned_manifest_sf_digest_chain_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
@@ -205,7 +217,11 @@
       "r004_png_content_sha384_matches_user_manifest": true,
       "r004_png_manifest_section_crlf_sha384_matches_user_signature_file": true,
       "r004_leaf_model_json_manifest_sha384_checked": true,
-      "r004_blockstate_json_manifest_sha384_checked": true
+      "r004_blockstate_json_manifest_sha384_checked": true,
+      "r005_colour_affine_measured": true,
+      "r005_D4_eight_transform_comparison": true,
+      "r005_pairwise_gradient_order_checked": true,
+      "r005_static_variant_comparison": true
     },
     {
       "item_id": "1-1-04-004",
@@ -216,7 +232,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R004",
+      "last_verified_revision": "TEX04-R005",
       "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_with_unsigned_manifest_sf_digest_chain_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
@@ -235,7 +251,11 @@
       "r004_png_content_sha384_matches_user_manifest": true,
       "r004_png_manifest_section_crlf_sha384_matches_user_signature_file": true,
       "r004_leaf_model_json_manifest_sha384_checked": true,
-      "r004_blockstate_json_manifest_sha384_checked": true
+      "r004_blockstate_json_manifest_sha384_checked": true,
+      "r005_colour_affine_measured": true,
+      "r005_D4_eight_transform_comparison": true,
+      "r005_pairwise_gradient_order_checked": true,
+      "r005_static_variant_comparison": true
     },
     {
       "item_id": "1-1-04-005",
@@ -246,7 +266,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R004",
+      "last_verified_revision": "TEX04-R005",
       "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_with_unsigned_manifest_sf_digest_chain_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
@@ -265,7 +285,11 @@
       "r004_png_content_sha384_matches_user_manifest": true,
       "r004_png_manifest_section_crlf_sha384_matches_user_signature_file": true,
       "r004_leaf_model_json_manifest_sha384_checked": true,
-      "r004_blockstate_json_manifest_sha384_checked": true
+      "r004_blockstate_json_manifest_sha384_checked": true,
+      "r005_colour_affine_measured": true,
+      "r005_D4_eight_transform_comparison": true,
+      "r005_pairwise_gradient_order_checked": true,
+      "r005_static_variant_comparison": true
     },
     {
       "item_id": "1-1-04-006",
@@ -276,7 +300,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R004",
+      "last_verified_revision": "TEX04-R005",
       "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_with_unsigned_manifest_sf_digest_chain_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
@@ -295,7 +319,11 @@
       "r004_png_content_sha384_matches_user_manifest": true,
       "r004_png_manifest_section_crlf_sha384_matches_user_signature_file": true,
       "r004_leaf_model_json_manifest_sha384_checked": true,
-      "r004_blockstate_json_manifest_sha384_checked": true
+      "r004_blockstate_json_manifest_sha384_checked": true,
+      "r005_colour_affine_measured": true,
+      "r005_D4_eight_transform_comparison": true,
+      "r005_pairwise_gradient_order_checked": true,
+      "r005_static_variant_comparison": true
     },
     {
       "item_id": "1-1-04-007",
@@ -306,7 +334,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R004",
+      "last_verified_revision": "TEX04-R005",
       "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_with_unsigned_manifest_sf_digest_chain_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
@@ -325,7 +353,11 @@
       "r004_png_content_sha384_matches_user_manifest": true,
       "r004_png_manifest_section_crlf_sha384_matches_user_signature_file": true,
       "r004_leaf_model_json_manifest_sha384_checked": true,
-      "r004_blockstate_json_manifest_sha384_checked": true
+      "r004_blockstate_json_manifest_sha384_checked": true,
+      "r005_colour_affine_measured": true,
+      "r005_D4_eight_transform_comparison": true,
+      "r005_pairwise_gradient_order_checked": true,
+      "r005_static_variant_comparison": true
     },
     {
       "item_id": "1-1-04-008",
@@ -336,7 +368,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R004",
+      "last_verified_revision": "TEX04-R005",
       "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_with_unsigned_manifest_sf_digest_chain_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
@@ -355,7 +387,11 @@
       "r004_png_content_sha384_matches_user_manifest": true,
       "r004_png_manifest_section_crlf_sha384_matches_user_signature_file": true,
       "r004_leaf_model_json_manifest_sha384_checked": true,
-      "r004_blockstate_json_manifest_sha384_checked": true
+      "r004_blockstate_json_manifest_sha384_checked": true,
+      "r005_colour_affine_measured": true,
+      "r005_D4_eight_transform_comparison": true,
+      "r005_pairwise_gradient_order_checked": true,
+      "r005_static_variant_comparison": true
     },
     {
       "item_id": "1-1-04-009",
@@ -366,7 +402,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R004",
+      "last_verified_revision": "TEX04-R005",
       "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_with_unsigned_manifest_sf_digest_chain_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
@@ -385,7 +421,11 @@
       "r004_png_content_sha384_matches_user_manifest": true,
       "r004_png_manifest_section_crlf_sha384_matches_user_signature_file": true,
       "r004_leaf_model_json_manifest_sha384_checked": true,
-      "r004_blockstate_json_manifest_sha384_checked": true
+      "r004_blockstate_json_manifest_sha384_checked": true,
+      "r005_colour_affine_measured": true,
+      "r005_D4_eight_transform_comparison": true,
+      "r005_pairwise_gradient_order_checked": true,
+      "r005_static_variant_comparison": true
     }
   ],
   "revisions": [
@@ -466,16 +506,41 @@
       "repro_script_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R004/VERIFY_SIGNED_MANIFEST_CHAIN.py",
       "signature_limitations_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R004/SIGNATURE_LIMITATIONS_AND_NEXT_GATE.md",
       "summary_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R004/SUMMARY.json"
+    },
+    {
+      "revision": "TEX04-R005",
+      "kind": "source_static_RGB_affine_36pair_edge_sign_9xD4_and_9_static_model_state_comparison",
+      "new_unique_texture_count": 0,
+      "unique_rgba_pixels_reused": 2304,
+      "static_face_uv_links_reused": 54,
+      "new_colour_rows": 9,
+      "new_d4_rows": 72,
+      "new_pairwise_rows": 36,
+      "new_model_state_rows": 9,
+      "candidate_gradient_comparisons": 17280,
+      "nonzero_common_gradient_comparisons": 16404,
+      "agreeing_common_gradient_signs": 16404,
+      "ingame_static_verified": 0,
+      "official_whole_jar_auth_out_of_mandatory_scope": true,
+      "official_jar_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R005/REPORT.md",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R005/SUMMARY.json",
+      "metrics_paths": [
+        "research/vanilla_textures/by_stage/1-1-04/TEX04-R005/COLOR_SUBSTITUTION.csv",
+        "research/vanilla_textures/by_stage/1-1-04/TEX04-R005/D4_ORIENTATION.csv",
+        "research/vanilla_textures/by_stage/1-1-04/TEX04-R005/PAIRWISE_GRADIENT_SIGNS.csv",
+        "research/vanilla_textures/by_stage/1-1-04/TEX04-R005/MODEL_STATE_COMPARISON.csv"
+      ],
+      "reproduction_script": "research/vanilla_textures/by_stage/1-1-04/TEX04-R005/REPRODUCE_R005.py"
     }
   ],
   "next_steps": [
-    "Re-fetch current stage STATE.json/HANDOFF.md and check current_revision, next_revision and Git blob SHAs; do not overwrite another chat",
-    "Carry forward R001-R003 file/UV/pixel evidence and R004 30-file SHA384 MANIFEST->SF consistency without recounting",
-    "If complete original client.jar and original Mojang version JSON available, verify whole JAR size and SHA1 vs downloads.client",
-    "Cryptographically validate PKCS7 MOJANGCS.RSA signature over original SF bytes and certificate chain only when original signed data is available",
-    "Verify nine 1.21.11 original wool file hashes within authenticated JAR; then separately seek controlled ingame static screenshots",
-    "Do not mark official_client_jar_authenticated or ingame_static_render_verified true without direct evidence; both remain zero",
-    "Never modify other stage/global v38; animation and actual furniture modeling deferred"
+    "Before any new TEX04-R006 release, re-fetch the live stage STATE/HANDOFF and verify main HEAD, STATE blob and unused next release directory",
+    "Retain prior unique 9 textures/2304 RGBA pixels/54 static faces and R004 30-file manifest/SF internal SHA384 linkage without counting as new",
+    "Seek user-provided original Minecraft 1.21.11 controlled in-game STATIC screenshots; mark verified only on real game evidence, current 0/9",
+    "If new static source counterexamples or variation are found, verify their exact 1.21.11 user extracted assets and report rather than assuming screen projection equals rendering",
+    "Whole client.jar SHA1 and official Mojang metadata are optional excluded from mandatory research denominator by explicit user instruction; do not claim authentication",
+    "Do not change other stage/global v38 or release animation study, PZ conversion, or 3D furniture modeling"
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -530,7 +595,7 @@
       "total": 9
     },
     "mojang_official_binary": {
-      "status": "pending",
+      "status": "historically_pending_but_excluded_from_mandatory_denominator_by_user",
       "verified_files": 0,
       "total": 9,
       "jar_sha1_not_verified": true
@@ -558,5 +623,21 @@
   "r004_manifest_main_attributes_digest_matches_sf": 1,
   "r004_rsa_signature_cryptographically_verified": false,
   "r004_original_client_jar_bytes_available": false,
-  "r004_new_unique_texture_ids_added": 0
+  "r004_new_unique_texture_ids_added": 0,
+  "mandatory_scope_2026_11_13": {
+    "official_jar_whole_sha1_required": false,
+    "official_mojang_metadata_required": false,
+    "official_authenticated_count_historically": 0,
+    "ingame_static_verification_required_for_claim": true,
+    "ingame_static_verified_count": 0
+  },
+  "r005_new_unique_texture_count": 0,
+  "r005_metric_rows": 126,
+  "r005_candidate_gradient_count": 17280,
+  "r005_nonzero_both_gradient_count": 16404,
+  "r005_equal_direction_count": 16404,
+  "r005_excluded_zero_count": 876,
+  "r005_d4_identity_best_count": 9,
+  "r005_new_face_count": 0,
+  "r005_existing_2304_pixels_reused_not_new": true
 }
