@@ -7,10 +7,10 @@
   "stage_id": "1-1-10",
   "material_family": "잎·식생",
   "stage_prefix": "TEX10",
-  "current_revision": "TEX10-R006",
-  "next_revision": "TEX10-R007",
-  "revision_sequence": 6,
-  "revision_status": "R006_65_biome_json_colors_7_foliage_overrides_7_glsl_new_dry_foliage_png_crc_biome_runtime_pending",
+  "current_revision": "TEX10-R007",
+  "next_revision": "TEX10-R008",
+  "revision_sequence": 7,
+  "revision_status": "R007_7_JVM_classes_exact_colormap_XY_biome_optional_overrides_cutout_pipeline_0_5_mipmap6_new_dry_RGB65536_ingame0",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 8,
@@ -42,37 +42,37 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "R006_user_extracted_65_biome_json_7_shader_1_colormap_new_unique_paths_attributed",
+      "status": "R007_seven_original_JVM_classes_and_six_leaf_PNG_sidecars_unique_paths_checked",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R006_supplemental_dry_foliage_png_IHDR_IDAT_IEND_CRC32_checked_prior_8_target_png_recheck_inherited",
+      "status": "R007_three_colormap_PNG_CRC32_Adler32_valid_foliage_and_grass_rechecked_dry_newly_RGB_decoded;prior_target_PNG8_inherited",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R006_biome_JSON_65_color_fields_static_derived_no_new_RGB_or_RGBA_decoded_pixel_count",
+      "status": "R007_dry_foliage_65536_new_RGB_pixels_268_colors_3_colormaps_65_biome_triplets_195_computed_values_not_ingame",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R006_biome_foliage_color_7_explicit_swamp_mangrove_counterexample_grass_dry_modifiers_static;runtime_mapping_pending",
+      "status": "R007_BiomeColors_class_exact_float32_clamp_XY_index_Optional_foliage_dry_precedence_65_lookup_rows",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R006_extra_block_entity_shader_conditional_ALPHA_CUTOUT_and_particle_0_1_separate_shader_paths;block_cutout_threshold_pending",
+      "status": "R007_six_leaves_dark_cutout_mcmeta_and_CUTOUT_TERRAIN_CUTOUT_BLOCK_ALPHA_CUTOUT_0_5F_class_static_target_pass_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
       "title": "F 인게임 정적 검증 (공식 Mojang JAR 인증 제외)",
-      "status": "pending_ingame_static_0_of_8; official_mojang_original_clientjar_sha1_excluded_by_user_not_required",
+      "status": "pending_ingame_static_0_of_8; user_game_capture_needed_for_in_game_validation; official_mojang_original_clientjar_sha1_excluded_by_user",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "TEX10_R006_stage_only_biome65_shader7_dry_png_support_report_and_evidence_saved",
+      "status": "TEX10_R007_static_original_JVM_code_65_biome_lookup_RGB_dark_cutout_metadata_and_report_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -80,17 +80,17 @@
     {
       "id": "D1",
       "check": "잎·덩굴 알파 마스크·가시 영역·투명 외곽",
-      "status": "R006_glsl_conditional_cutout_terrain_block_entity_source_checked_no_render_threshold_8_alpha_masks_inherited"
+      "status": "R007_original_hpa_CUTOUT_terrain_block_0_5F_static_and_dark_cutout_mcmeta6_mip_alpha_actual_ingame_pending"
     },
     {
       "id": "D2",
       "check": "PNG의 녹색과 생물군계 tintindex의 차이",
-      "status": "R006_65_biomes_7_explicit_foliage_colors_equal_climate_different_overrides_color_map_XY_runtime_pending"
+      "status": "R007_verified_dvy_BiomeColors_XY_index_dxo_Optional_override_65_biomes_lookup_and_3_colormap_RBG_samples"
     },
     {
       "id": "D3",
       "check": "컷아웃 영역과 3D 요소의 담당 역할 구분",
-      "status": "R006_shader_7_paths_reviewed_previous_block_and_vine_geometry_UV_44_inherited_render_path_pending"
+      "status": "R007_block_mipmap_metadata_6_and_shader_pipeline_compile_static_confirmed_block_specific_render_path_and_game_screenshot_pending"
     }
   ],
   "items": [
@@ -684,5 +684,23 @@
     "biome_coordinate_lookup_rule_verified": false,
     "block_alpha_cutout_runtime_value_verified": false,
     "ingame_static_render_verified_count": 0
+  },
+  "r007_evidence": {
+    "new_unique_source_paths": 13,
+    "original_JVM_class_paths": 7,
+    "leaf_dark_cutout_mcmeta_present": 6,
+    "leaf_sidecars_absent": 2,
+    "static_colormap_index_formula_verified": true,
+    "biome_climate_float32_clamp_verified": true,
+    "biome_foliage_override_first_verified": true,
+    "biome_dry_override_first_verified": true,
+    "biome_lookup_rows": 65,
+    "derived_map_RGB_value_cells": 195,
+    "new_decoded_dry_foliage_RGB_pixel_positions": 65536,
+    "dry_foliage_unique_colors": 268,
+    "CUTOUT_BLOCK_and_CUTOUT_TERRAIN_ALHPA_CUTOUT_0_5F_static": true,
+    "target_block_specific_render_pipeline_verified": false,
+    "in_game_verified": 0,
+    "upcoming_need": "user Minecraft 1.21.11 game/screenshots for 8 static block appearance checks"
   }
 }

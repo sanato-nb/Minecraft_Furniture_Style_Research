@@ -1,0 +1,93 @@
+{
+  "schema": "TEX10-R007/reproducible-three-colormap-validation/v1",
+  "source_version": "user_extracted_1.21.11",
+  "observations": [
+    {
+      "colormap": "foliage",
+      "path": "1.21.11/assets/minecraft/textures/colormap/foliage.png",
+      "sha": "d58fce229108e9e6e188ed13baa75bc432ead19a",
+      "PNG_encoded_bytes": 14154,
+      "width": 256,
+      "height": 256,
+      "decoded_RGB_pixels": 65536,
+      "unique_RGB": 8837,
+      "white_count": 0,
+      "scanline_filter_histogram": [
+        0,
+        7,
+        236,
+        0,
+        13
+      ],
+      "all_chunk_CRC32_valid": true,
+      "zlib_Adler32_valid": true,
+      "deflate_blocks": 2,
+      "historical_measurement_attribution": "R004 measured original 65536; R007 recomputed for new biome-based lookups, no new unique colormap pixels",
+      "samples": {
+        "top_left": "#1ABF00",
+        "middle": "#5BAB47",
+        "bottom_right": "#60A17B",
+        "control_32_224": "#95A830"
+      }
+    },
+    {
+      "colormap": "grass",
+      "path": "1.21.11/assets/minecraft/textures/colormap/grass.png",
+      "sha": "f2e783063d40120245cd7141349681305e773831",
+      "PNG_encoded_bytes": 5930,
+      "width": 256,
+      "height": 256,
+      "decoded_RGB_pixels": 65536,
+      "unique_RGB": 4536,
+      "white_count": 32640,
+      "scanline_filter_histogram": [
+        0,
+        0,
+        256,
+        0,
+        0
+      ],
+      "all_chunk_CRC32_valid": true,
+      "zlib_Adler32_valid": true,
+      "deflate_blocks": 2,
+      "historical_measurement_attribution": "R004 measured original 65536; R007 recomputed for new biome-based lookups, no new unique colormap pixels",
+      "samples": {
+        "top_left": "#47CD33",
+        "middle": "#7CBD6C",
+        "bottom_right": "#80B497",
+        "control_32_224": "#AABA5A"
+      }
+    },
+    {
+      "colormap": "dry_foliage",
+      "path": "1.21.11/assets/minecraft/textures/colormap/dry_foliage.png",
+      "sha": "b5750169dd2c6588a32674565b2f668624ece00d",
+      "PNG_encoded_bytes": 8979,
+      "width": 256,
+      "height": 256,
+      "decoded_RGB_pixels": 65536,
+      "unique_RGB": 268,
+      "white_count": 0,
+      "scanline_filter_histogram": [
+        256,
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_chunk_CRC32_valid": true,
+      "zlib_Adler32_valid": true,
+      "deflate_blocks": 1,
+      "historical_measurement_attribution": "R007 65536 new RGB pixel positions",
+      "samples": {
+        "top_left": "#A35F46",
+        "middle": "#A37146",
+        "bottom_right": "#8F7A5A",
+        "control_32_224": "#A37B46"
+      }
+    }
+  ],
+  "distinct_new_RGB_pixels_R007": 65536,
+  "distinct_prior_RGB_pixels_R004": 131072,
+  "total_unique_RGB_positions_across_3_maps": 196608
+}

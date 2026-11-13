@@ -1,0 +1,131 @@
+{
+  "schema": "TEX10-R007/bytecode-map-calculation-exact/v1",
+  "source_version": "1.21.11 (user extracted)",
+  "mapping_references": {
+    "Biome": "https://maven.fabricmc.net/docs/yarn-1.21.11%2Bbuild.1/net/minecraft/world/biome/Biome.html",
+    "BiomeColors": "https://maven.fabricmc.net/docs/yarn-1.21.11%2Bbuild.1/net/minecraft/world/biome/BiomeColors.html",
+    "FoliageColors": "https://maven.fabricmc.net/docs/yarn-1.21.11%2Bbuild.1/net/minecraft/world/biome/FoliageColors.html",
+    "DryFoliageColors": "https://maven.fabricmc.net/docs/yarn-1.21.11%2Bbuild.6/net/minecraft/world/biome/DryFoliageColors.html",
+    "RenderPipelines": "https://maven.fabricmc.net/docs/yarn-1.21.11%2Bbuild.1/net/minecraft/client/gl/RenderPipelines.html",
+    "BlockColors": "https://maven.fabricmc.net/docs/yarn-1.21.11%2Bbuild.1/net/minecraft/client/color/block/BlockColors.html"
+  },
+  "observations": {
+    "dvy.class": {
+      "named": "net.minecraft.world.biome.BiomeColors",
+      "official": "dvy",
+      "blob": "295f71dda375e904346ef6af12baa2a4740fd071",
+      "method": "a(DD[II)I",
+      "code_hex": "28 26 6b 49 0f 26 67 14 00 08 6b 8e 36 06 0f 28 67 14 00 08 6b 8e 36 07 15 07 10 08 78 15 06 80 36 08 15 08 19 04 be a1 00 06 15 05 ac 19 04 15 08 2e ac",
+      "verified_semantics": "downfall*=temperature; x=(int)((1-temperature)*255.0); y=(int)((1-downfall)*255.0); index=(y<<8)|x; return index>=colormap.length?fallback:colormap[index]; requires caller-clamped inputs to avoid negative index"
+    },
+    "dxo.class": {
+      "named": "net.minecraft.world.biome.Biome",
+      "official": "dxo",
+      "blob": "97adf9e3b39c3e49d17426338c1ab223dc4c54f8",
+      "method_hex": {
+        "getFoliageColor_d": "2a b4 00 71 b6 01 4f 2a ba 01 55 00 00 b6 01 59 c0 01 39 b6 01 3c ac",
+        "getDefaultFoliageColor_l": "2a b4 00 69 b4 01 42 0b 0c b8 01 47 8d 48 2a b4 00 69 b4 01 49 0b 0c b8 01 47 8d 4a 27 29 b8 01 5c ac",
+        "getDryFoliageColor_e": "2a b4 00 71 b6 01 5e 2a ba 01 62 00 00 b6 01 59 c0 01 39 b6 01 3c ac",
+        "getDefaultDryFoliageColor_m": "2a b4 00 69 b4 01 42 0b 0c b8 01 47 8d 48 2a b4 00 69 b4 01 49 0b 0c b8 01 47 8d 4a 27 29 b8 01 65 ac",
+        "getDefaultGrassColor_k": "2a b4 00 69 b4 01 42 0b 0c b8 01 47 8d 48 2a b4 00 69 b4 01 49 0b 0c b8 01 47 8d 4a 27 29 b8 01 4d ac"
+      },
+      "resolved_constant_pool": {
+        "0x147": "bgj.a(FFF)F float clamp",
+        "0x14d": "dwm.a(DD)I grass",
+        "0x14f": "dxu.b() Optional foliageColor",
+        "0x159": "java.util.Optional.orElseGet(Supplier)",
+        "0x15c": "dwk.a(DD)I foliage",
+        "0x15e": "dxu.c() Optional dryFoliageColor",
+        "0x165": "dwd.a(DD)I dry"
+      },
+      "verified_semantics": "Biome foliage and dry getters use Optional.orElseGet when a JSON effect color is defined; default path uses separately clamped float temperature/downfall [0,1] then double conversion and corresponding colormap getter; class does not alone prove actual client colormap upload, biome block shading or in-game screenshot"
+    },
+    "dwk.class": {
+      "named": "net.minecraft.world.biome.FoliageColors",
+      "official": "dwk",
+      "blob": "38f7065fbcbea973d8ec59f1cefd4c1cde85c9e6",
+      "method": "a(DD)I",
+      "code_hex": "26 28 b2 00 19 12 0c b8 00 20 ac",
+      "array_size_static": 65536,
+      "fallback_ARGB": "#FF48B518",
+      "constants_ARGB": {
+        "spruce": "#FF619961",
+        "birch": "#FF80A755",
+        "default": "#FF48B518",
+        "mangrove": "#FF92C648"
+      },
+      "reference_method": "dvy.a(DD[II)I"
+    },
+    "dwd.class": {
+      "named": "net.minecraft.world.biome.DryFoliageColors",
+      "official": "dwd",
+      "blob": "f701071c9fdea0ebd5ec1cce3b5a7956a558d56e",
+      "method": "a(DD)I",
+      "code_hex": "26 28 b2 00 13 12 08 b8 00 1a ac",
+      "array_size_static": 65536,
+      "fallback_ARGB": "#FF5C3C32",
+      "reference_method": "dvy.a(DD[II)I"
+    },
+    "dwm.class": {
+      "named": "net.minecraft.world.biome.GrassColors",
+      "official": "dwm",
+      "blob": "0bbe30446a805595d1cdc6b58189ed7dbf9dca80",
+      "method": "a(DD)I",
+      "code_hex": "26 28 b2 00 10 12 13 b8 00 18 ac",
+      "array_size_static": 65536,
+      "fallback_ARGB": "#FFFF00FF",
+      "reference_method": "dvy.a(DD[II)I"
+    },
+    "hpa.class": {
+      "named": "net.minecraft.client.gl.RenderPipelines",
+      "official": "hpa",
+      "blob": "6a8e5b08e79fecc96d14bcfbb251fbfb38be9e87",
+      "class_initializer_code_len": 5239,
+      "resolved_constant_pool": {
+        "0x193": "ALPHA_CUTOUT",
+        "0x194": "float 0.5F (bits 0x3F000000)",
+        "0x197": "RenderPipeline.Builder.withShaderDefine(String,float)",
+        "0x199": "putstatic hpa.e CUTOUT_BLOCK",
+        "0x19d": "putstatic hpa.f CUTOUT_TERRAIN"
+      },
+      "source_bytecode_evidence": [
+        "13 01 91 b6 01 75 13 01 93 13 01 94 b6 01 97 b6 01 79 b8 01 7b b3 01 99",
+        "13 01 9b b6 01 75 13 01 93 13 01 94 b6 01 97 b6 01 79 b8 01 7b b3 01 9d"
+      ],
+      "alpha_cutout_0_5_explicit_for": [
+        "CUTOUT_BLOCK",
+        "CUTOUT_TERRAIN"
+      ],
+      "target_specific_pass_assignment_verified": false,
+      "note": "Original jar class defines static pipeline 0.5F, NOT proof that each of 8 target blocks actually uses a particular pipeline in-game"
+    },
+    "ggr.class": {
+      "named": "net.minecraft.client.color.block.BlockColors",
+      "official": "ggr",
+      "blob": "386634bd8081e5fde55a7381ad8dd2c427ae4f75",
+      "method_count": 21,
+      "source_constant_observations": [
+        "#FF80A755",
+        "#FF619961",
+        "#FF48B518"
+      ],
+      "references_BiomeColors_helpers": true,
+      "note": "Found constants in block-colors provider class but no full per-block provider registration assertion made in this revision"
+    }
+  },
+  "normalized_formula": {
+    "step1": "t = (double) clamp((float) sourceBiomeTemperature, 0.0F, 1.0F)",
+    "step2": "d = (double) clamp((float) sourceBiomeDownfall, 0.0F, 1.0F)",
+    "step3": "x = (int)((1.0 - t) * 255.0)",
+    "step4": "y = (int)((1.0 - t * d) * 255.0)",
+    "step5": "colormap_index = (y << 8) | x",
+    "step6": "RGB = [colormap image scanline y][pixel x]; foliageColor() and dryFoliageColor() Optional override bypass colormap default when present"
+  },
+  "limits": [
+    "float32 representation changes x near integer pixel boundary",
+    "temperature_modifier frozen not assumed to alter color lookup: compute solely from weather temperature and downfall",
+    "not actual in-game biome tint blending or screenshot",
+    "grass_color_modifier may alter grass shade after default grass mapping",
+    "mipmap_strategy does not establish runtime mip-level alpha sampling of target block"
+  ]
+}
