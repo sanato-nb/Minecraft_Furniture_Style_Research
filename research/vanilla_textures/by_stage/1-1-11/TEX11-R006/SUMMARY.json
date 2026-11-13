@@ -1,0 +1,52 @@
+{
+  "revision": "TEX11-R006",
+  "source": "user-provided Minecraft 1.21.11 extracted PNG+JSON; R004 directly parsed source evidence",
+  "time": "2026-11-13",
+  "fixed_pngs": 31,
+  "source_models": 127,
+  "source_rule_rows": 512,
+  "static_states": 544,
+  "static_states_by_kind": {
+    "door": 224,
+    "trapdoor": 192,
+    "shelf": 128
+  },
+  "model_instances": 672,
+  "model_instances_by_kind": {
+    "door": 224,
+    "trapdoor": 192,
+    "shelf": 256
+  },
+  "oriented_faces": 4320,
+  "oriented_faces_by_kind": {
+    "door": 1120,
+    "trapdoor": 1152,
+    "shelf": 2048
+  },
+  "door_lower_upper_pairs": 112,
+  "aligned_door_pairs": 112,
+  "geometry_out_of_bounds": 0,
+  "materials_unresolved": 0,
+  "normals_unresolved": 0,
+  "UV_out_of_bounds": 0,
+  "source_fail": 0,
+  "missing_template": 0,
+  "missing_template_face": 0,
+  "shelf_not_two_models": 0,
+  "state_count_errors": 0,
+  "geometry_reference_convention": "coordinate block 0..16; apply +X then +Y right-handed 90-degree rotations around (8,8,8); face normals transformed identically; these are source-derived test-space projections, NOT Minecraft rendering confirmation",
+  "game_runtime_verified": 0,
+  "official_jar_authentication_required": false,
+  "historic_oak_shelf_static_states_from_global_v38_not_recounted": 32,
+  "historic_oak_shelf_leafs_referenced_R004": 7,
+  "scope_source_static_states_newly_projected_excluding_historic_oak_shelf": 544,
+  "ingame_static_test_matrix_png_rows": 31,
+  "ingame_static_test_matrix_verified_rows": 0,
+  "next_revision": "TEX11-R007",
+  "notes": [
+    "31 fixed PNGs source material slots linked in R004, including oak_shelf historical leaf; R006 new static-state transforms cover 23 stage blockstates not historical oak_shelf blockstate",
+    "No actual PNG pixel rasterization, anisotropic filtering, alpha test, shading, culling or game screenshots performed; geometric/world face normals are source-derived under recorded coordinate rotation convention",
+    "Official original client.jar SHA-1 authentication was removed from mandatory research criteria by user in R005; no such verification requested or attempted",
+    "Door half alignment is geometric xz footprint and y rotation matching; pixel-level top/bottom seam continuity still requires visual/pixel sampling review"
+  ]
+}
