@@ -1,6 +1,6 @@
 # 1-1-02 — 석재·벽돌 별도 채팅 인수인계
 
-> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R009` (렌더러 quad UV 경로·uvlock 소스 조사)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
+> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R010` (uvlock false 기본값과 일반 ModelState 경로 확정)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 ## 연구 목표와 정확한 표본
 
@@ -140,3 +140,12 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 - 17개 원본 blockstate JSON 전부 재열람. R004의 **기존 31개 변형 선언 중 `uvlock` 명시 0건**. 그러나 이는 선택되는 실제 ModelState 행렬/인게임 최종 UV까지 검증했다는 뜻은 아님. `ioc` 기본 구현은 공용 identity matrix 사용.
 - **신규 픽셀/PNG 0건, 원본 고정 17, 이전 31 variant/186 face와 R007 134 픽셀 접합은 계승**, 다른 연구 실적 중복 가산 금지. 공식 jar SHA-1 인증 완료 기준 제외. **인게임 0/17, A-G 완료 0/17**, 애니메이션 제외.
 - 다음 후보 `TEX02-R010`: 최신 STATE 재조회 후 `ioc` 구현체 선택과 ModelState 회전 파서의 실제 조건을 추가 확인할 수 있음. 당장은 사용자 협조 없이 소스 연구 가능.
+
+## TEX02-R010 — 원본 Java 클라이언트의 uvlock 기본값 → ModelState → UV 행렬 경로 검증 (2026-11-13)
+
+- [상세 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R010/REPORT.md) · [31개 상태별 effective uvlock/모델 상태/행렬 경로](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R010/EFFECTIVE_UVLOCK_31_VARIANTS.csv) · [클래스 바이트코드 15개 연결 근거](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R010/UVLOCK_CLASS_BYTECODE_CHAIN.csv) · [6개 클래스 Git SHA 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R010/CLASS_SOURCE_SHA_LEDGER.csv) · [로컬 재현 Python 스크립트](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R010/REPRODUCE_UVLOCK_PATH.py) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R010/SUMMARY.json).
+- 사용자 제공 `1.21.11/` 원본에서 **새 클라이언트 클래스 4개**(`hqq$a.class`, `hqq.class`, `inm.class`, `inm$a.class`)를 직접 읽고, 기존 `ioc.class`/ `hqi.class` 코드를 결합했다. **JSON 17개 원본 재열람 + 기존 31 선언에 코드 경로 연결 31행**, 새 JSON 선언이나 새 PNG 발견 0개.
+- **R009의 미확정 해결:** `hqq$a` MapCodec은 `uvlock` 옵션 기본값을 `false`로 둔다. `false`는 일반 회전 ModelState `inm`, `true`만 `inm$a` UV 잠금 래퍼를 선택. `inm`는 방향별 UV 메서드를 재정의하지 않아 `ioc.b(Direction)`의 **공용 항등행렬**을 사용한다. 따라서 원본 31개 전부 **`uvlock=false` / 일반 `inm` / UV 잠금 보정용 항등행렬**이라는 *코드상 추론*이 가능하다. 그러나 정점 모델 회전은 그대로 수행하며 실제 월드 면 UV와 영상은 미검증.
+- 31 상태의 `(x,y,z)` 튜플 5종: (0,0,0) 19개, (0,180,0) 4개, (90,90,0) 4개, (90,0,0) 2개, (90,180,0) 2개. 새 쿼드/실제 픽셀 측정/인게임 스크린샷 **0건**. 과거 31 상태·186면·R007 134 이음새 수량 누적 금지.
+- **인게임 정적 검증 0/17, A–G 전체 완료 0/17**. 공식 JAR SHA-1 인증은 연구 기준 제외, 성공 주장 없음. 애니메이션 보류, 전역 v38과 타 단계 변경 없음.
+- 다음 후보 **`TEX02-R011`**: 라이브 STATE/HEAD 재확인 후 사용자 추출 `f.class`의 실제 XYZ 90도 회전 및 `hqi` 정점 재배열까지 추적하여 모델 월드면의 UV 정확성 추가 검증. 현재 사용자 도움 없이 원본 소스 검사는 추가 가능.

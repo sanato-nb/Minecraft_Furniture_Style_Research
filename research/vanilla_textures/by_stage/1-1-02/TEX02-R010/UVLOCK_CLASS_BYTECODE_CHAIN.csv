@@ -1,0 +1,16 @@
+file,method,pc,fact,source_evidence,tier
+hqq$a.class,a(RecordCodecBuilder Instance),61-75,"MapCodec of three axis Quadrants x,y,z","three g.e default codec fields with literal x,y,z",bytecode_source
+hqq$a.class,a(RecordCodecBuilder Instance),67-82,uvlock optional MapCodec.Boolean with default false,"Codec.BOOL, literal uvlock, iconst_0, optionalFieldOf",bytecode_source
+hqq$a.class,<clinit>,8-31,default hqq$a object uses g.a for three axes and false,"g.a repeated 3 times then iconst_0 invoked (g,g,g,Z)",bytecode_source
+hqq$a.class,a()Lioc;,0-16,"f.a(x,y,z) composed and inm.a(f) normal modelstate constructed","getfield c,d,e, invokestatic f.a, invokestatic inm.a",bytecode_source
+hqq$a.class,a()Lioc;,17-34,UV lock wrapper only selected if f boolean field true,"getfield f:Z, ifeq -> return inm; otherwise invoke inm.b",bytecode_source
+hqq.class,a(Linw;)Lhqg;,0-15,Variant bake passes hqq$a.a() modelstate to bake function,"getfield hqq.d, invokevirtual hqq$a.a()Lioc;, invokestatic hqm.a",bytecode_source
+inm.class,a(Lf;)Linm;,0-12,normal modelstate selected by f keyed map,getstatic inm.c Map; Map.get(f); checkcast inm,bytecode_source
+inm.class,b()Lioc;,0-4,explicit withUVLock implementation returns inm.h,getfield h:Linm$a; areturn,bytecode_source
+inm.class,declared methods,method table,no per-face ioc.a(Direction) or ioc.b(Direction) overrides,all declared methods enumerated; class implements ioc,classfile_structure
+inm$a.class,a(Liz;)LMatrix4fc;,0-19,withUVLock face matrix reads parent inm.f map,"getfield inm.f Map; getOrDefault(direction,identity)",bytecode_source
+inm$a.class,b(Liz;)LMatrix4fc;,0-19,withUVLock inverse face matrix reads parent inm.g map,"getfield inm.g Map; getOrDefault(direction,identity)",bytecode_source
+ioc.class,a(Liz;)LMatrix4fc;,0-3,default face matrix is common identity field ioc.b,getstatic ioc.b areturn,bytecode_source
+ioc.class,b(Liz;)LMatrix4fc;,0-3,default inverse face matrix is common identity field ioc.b,getstatic ioc.b areturn,bytecode_source
+ioc.class,<clinit>,0-10,common UV matrix constructed by new Matrix4f() identity constructor,new Matrix4f; invokespecial <init>(); putstatic ioc.b,bytecode_source
+hqi.class,bakeQuad,20-29,quad UV path queries ModelState.b(Direction),invokeinterface ioc.b(Direction) returns Matrix4fc,R009_reused_source

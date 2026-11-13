@@ -1,0 +1,82 @@
+{
+  "stage_id": "1-1-02",
+  "revision": "TEX02-R010",
+  "previous_revision": "TEX02-R009",
+  "next_revision": "TEX02-R011",
+  "date": "2026-11-13",
+  "fixed_png_target": 17,
+  "new_unique_fixed_pngs": 0,
+  "new_pixel_measurements": 0,
+  "new_ingame_screenshots": 0,
+  "source_type": "user_extracted_1.21.11_java_classfiles_and_blockstates",
+  "new_direct_classfiles_opened": 4,
+  "new_classfiles": [
+    "hqq$a.class",
+    "hqq.class",
+    "inm.class",
+    "inm$a.class"
+  ],
+  "reused_classfiles": [
+    "ioc.class",
+    "hqi.class"
+  ],
+  "source_class_ledger_entries": 6,
+  "source_blockstates_reopened": 17,
+  "source_variant_declarations_inherited_and_recomputed": 31,
+  "new_variant_declarations_discovered": 0,
+  "new_code_path_evidence_rows": 15,
+  "new_state_by_state_effective_uvlock_rows": 31,
+  "source_assertions": {
+    "uvlock_json_key_present": 0,
+    "uvlock_optional_field_default": false,
+    "default_not_locked_class": "inm",
+    "locked_class": "inm$a",
+    "normal_inm_inherits_ioc_direction_uv_matrix_defaults": true,
+    "ioc_uv_matrix_default": "new Matrix4f() identity",
+    "bake_quad_queries": "ioc.b(Direction)"
+  },
+  "derived_all_31": {
+    "uvlock_effective_false": 31,
+    "normal_rotation_modelstate_path": 31,
+    "locked_wrapper_modelstate_path": 0,
+    "identity_uvlock_compensation_matrix_path": 31
+  },
+  "rotation_triples_source_variants": {
+    "0,0,0": 19,
+    "0,180,0": 4,
+    "90,90,0": 4,
+    "90,0,0": 2,
+    "90,180,0": 2
+  },
+  "inherited_without_recount": {
+    "existing_target_pngs": 17,
+    "existing_rgba_pixels": 4352,
+    "existing_variants": 31,
+    "existing_face_rows": 186,
+    "existing_auto_uv_face_rows": 138,
+    "existing_explicit_mirror_uv_face_rows": 48,
+    "existing_R007_synthetic_seams": 134,
+    "existing_R008_default_uv_directions": 6,
+    "existing_R009_uv_calls": 21
+  },
+  "not_proven": [
+    "Executed Minecraft runtime loaded those 31 states",
+    "All numerical final baked quad vertices/UV after spatial rotations and vertex reordering",
+    "In-game screenshot and rendered seam behavior",
+    "Random variant effective selection probabilities and lighting/filtering"
+  ],
+  "ingame_static_verified_count": 0,
+  "fully_completed_A_to_G_count": 0,
+  "official_jar_sha1_required": false,
+  "official_jar_authenticated_claim": false,
+  "animation_deferred": true,
+  "global_checkpoint_unchanged": "v38",
+  "outputs": [
+    "REPORT.md",
+    "SUMMARY.json",
+    "EFFECTIVE_UVLOCK_31_VARIANTS.csv",
+    "UVLOCK_CLASS_BYTECODE_CHAIN.csv",
+    "CLASS_SOURCE_SHA_LEDGER.csv",
+    "REPRODUCE_UVLOCK_PATH.py"
+  ]
+}
