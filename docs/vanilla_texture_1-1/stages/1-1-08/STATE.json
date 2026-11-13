@@ -7,10 +7,10 @@
   "stage_id": "1-1-08",
   "material_family": "복합·기능면",
   "stage_prefix": "TEX08",
-  "current_revision": "TEX08-R002",
-  "next_revision": "TEX08-R003",
-  "revision_sequence": 2,
-  "revision_status": "R002_static_blockstates_16_uv_texel_62_barrel_static_pair_checked_official_pending",
+  "current_revision": "TEX08-R003",
+  "next_revision": "TEX08-R004",
+  "revision_sequence": 3,
+  "revision_status": "user_extracted_77_source_sha_71_prior_mirror_sha_matches_16_blockstates_json_10_model_json_7_png_headers_official_jar_and_ingame_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 21,
@@ -42,45 +42,45 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "completed_mirror_source_level_only_official_pending",
+      "status": "user_extracted_source_and_prior_mirror_sha_reconciled",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R001"
+      "latest_revision": "TEX08-R003"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "completed_mirror_source_level_only_official_pending",
+      "status": "user_extracted_png_sha21_and_direct_header6_plus_aux1;prior_R001_pixel_crc_record_preserved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R001"
+      "latest_revision": "TEX08-R003"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "completed_mirror_source_level_only_official_pending",
+      "status": "R001_RGBA_retained_without_duplicate_measurements",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "latest_revision": "TEX08-R001"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "completed_source_level_official_and_ingame_pending",
+      "status": "static_source_reconciled_no_animation_official_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R002"
+      "latest_revision": "TEX08-R003"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "completed_source_level_official_and_ingame_pending",
+      "status": "user_extracted_16_blockstates_json_parsed_39_models_sha_10_models_json_parsed",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R002"
+      "latest_revision": "TEX08-R003"
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_client_jar_download_failed_and_ingame_static_unavailable",
+      "status": "pending_original_jar_archive_sha1_and_ingame_static",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R002"
+      "latest_revision": "TEX08-R003"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "completed_source_level_official_and_ingame_pending",
+      "status": "R003_stage_only_immutable_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R002"
+      "latest_revision": "TEX08-R003"
     }
   },
   "material_specific_checks": [
@@ -118,7 +118,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "feeff497dbbf6735f2d67f84ed77e1f6c062ee2e",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-002",
@@ -134,7 +137,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "467eb676362c03864a57751f1d412a93b5e2a7d7",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-003",
@@ -150,7 +156,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "388f266ba2fc37b0bd0c6347b1917ad4dcf4ed9e",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-004",
@@ -166,7 +175,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "92f0f33e84338d2da020946d4f68634e1fbfdeff",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-005",
@@ -182,7 +194,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "8f097917f01b902acc9c2d5dbf1f8c9e6f3de54a",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-006",
@@ -198,7 +213,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "23cc94ee74b6bcecb4a9307a09137b9185e93ff8",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-007",
@@ -214,7 +232,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "789e979f2da4122d1877059df0da7fc303ba9207",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-008",
@@ -230,7 +251,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "9509a0064e53d9d73d2e7f639e18636c911c4c4c",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-009",
@@ -246,7 +270,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "db854a715a9ab076946d274b30c2fb70a561c2da",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-010",
@@ -262,7 +289,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "50dcaadecb8bd99810b4cfa646d1712b9d631911",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-011",
@@ -278,7 +308,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "0246e9f925c7a9ce72f7732a4cdd29dffad7e560",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-012",
@@ -294,7 +327,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "88a8efbbc2779c3eba4cd5da91f420749bd6daaf",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-013",
@@ -310,7 +346,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "b0292daab7535107658a072c1c1de28a69ce0a35",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-014",
@@ -326,7 +365,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "91b503680ee704a9baa1ad877c13a8f8fc541fe4",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-015",
@@ -342,7 +384,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "91b503680ee704a9baa1ad877c13a8f8fc541fe4",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-016",
@@ -358,7 +403,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "66d3e316357cadc8aae94e460e71a9d6d937e732",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-017",
@@ -374,7 +422,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "598010688ad48ef1aadabf6567bccbe2e024db62",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-018",
@@ -390,7 +441,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "29d77a11027de067bcd2d3f9b7d6d0716c6ec612",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-019",
@@ -406,7 +460,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "cc9ef27b4ff5f252ae0b38e46454aeee30067981",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-020",
@@ -422,7 +479,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "770aa62d33aa35065e6b01e46154d149e6aa7a5b",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     },
     {
       "item_id": "1-1-08-021",
@@ -438,7 +498,10 @@
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
       "model_uv_source_checked": true,
-      "last_state_uv_crosscheck_revision": "TEX08-R002"
+      "last_state_uv_crosscheck_revision": "TEX08-R002",
+      "user_extracted_git_blob_sha1": "e2bc3eb2323c6c08392ff3799979ad52bfc95cc0",
+      "user_extracted_mirror_blob_equal": true,
+      "user_extracted_sha_reconciled_revision": "TEX08-R003"
     }
   ],
   "revisions": [
@@ -447,13 +510,23 @@
       "kind": "planning_handoff_only",
       "source_files_reviewed_as_new": 0,
       "report_path": null
+    },
+    {
+      "revision": "TEX08-R003",
+      "kind": "user_provided_1_21_11_extracted_resource_provenance_sha_and_json_audit",
+      "source_git_paths_checked": 77,
+      "prior_mirror_sha_matches": 71,
+      "report_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R003/REPORT.md",
+      "official_jar_sha1_authenticated": false,
+      "ingame_static_verified": false
     }
   ],
   "next_steps": [
-    "read handoff and source category plan",
-    "reconcile existing v4 and relevant later sources",
-    "perform direct source verification and save stage-specific immutable evidence",
-    "advance own revision only after new work was actually verified"
+    "Read this stage's STATE.json+HANDOFF.md before work and start from TEX08-R004.",
+    "Use user-provided 1.21.11/assets/minecraft/ as primary source; mirror only for cross-check.",
+    "Maintain 4 separate evidence levels and do not infer official JAR SHA-1 from a decompressed directory.",
+    "Original JAR checksum vs Mojang metadata and actual in-game static observation remain unverified.",
+    "Keep animation frames deferred and do not edit other stages, overall v38 or R001-R003."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -468,8 +541,8 @@
   "stage_source_png_rgba_verified_count": 21,
   "stage_model_uv_source_checked_count": 21,
   "stage_fully_official_and_ingame_verified_count": 0,
-  "last_release_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R002/",
-  "last_release_source_note": "Original 1.21.11 unofficial mirror 16 blockstates and new auxiliary barrel_top_open PNG; 62-face Pillow UV re-sampling inherited from R001; official Jar not accessed",
+  "last_release_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R003/",
+  "last_release_source_note": "User-attested own 1.21.11 JAR extraction in repository; 77 SHA-checked paths, 71 prior mirror SHA matches, 6 stage-only models; no official archive SHA1 authentication.",
   "stage_1_1_08_official_jar_blocker": "Local executable environment could not fetch official Mojang client.jar; do not infer authenticity from mirror or version URL",
   "stage_auxiliary_static_png_newly_examined_R002": [
     "barrel_top_open"
@@ -485,5 +558,35 @@
     "opaque_texel_uses": 13056,
     "explicit_uv_faces": 16,
     "inferred_uv_faces": 46
+  },
+  "source_priority_1_1_08": {
+    "primary": "User-provided extracted 1.21.11/assets/minecraft/",
+    "secondary": "InventivetalentDev/minecraft-assets 1.21.11 as SHA cross-check only",
+    "official_jar_is_not_authenticated_by_extracted_file_hashes": true
+  },
+  "source_verification_four_levels": {
+    "user_extracted": {
+      "target_png_git_sha": 21,
+      "aux_png_git_sha": 1,
+      "blockstates_git_sha": 16,
+      "models_git_sha": 39,
+      "direct_png_header_reads": 7,
+      "direct_blockstate_json_parses": 16,
+      "direct_model_json_parses": 10,
+      "missing_or_sha_mismatch": 0
+    },
+    "mirror_crosscheck": {
+      "prior_sha_equal": 71,
+      "prior_sha_different": 0,
+      "extra_unpaired_models": 6
+    },
+    "mojang_official_client_jar": {
+      "jar_sha1_and_metadata_checked": false,
+      "official_png_authenticated": 0
+    },
+    "ingame_static_render": {
+      "observed": false,
+      "verified_png": 0
+    }
   }
 }
