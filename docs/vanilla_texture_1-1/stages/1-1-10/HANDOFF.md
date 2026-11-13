@@ -226,3 +226,15 @@
 - [R013 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R013/REPORT.md), [8종 mip 상한 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R013/ATLAS_MIP_LIMIT_8.csv), [atlas UV 수식](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R013/ATLAS_UV_FORMULAS.json), [클래스 호출 근거](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R013/SPRITE_SOURCE_CALLGRAPH_AUDIT.json).
 - R012 680 full RGBA 재생성은 과거의 **source-guided Python 실험**을 계승, R013에 신규 RGBA 계산 0. 원본 JVM 실행 비교/실제 GPU 아틀라스 인증은 완료 주장하지 않음. 인게임 검증 의무 제외, 공식 전체 client.jar SHA1 의무 제외(인증 성공 아님), 애니메이션/PZ/가구 제작 보류.
 - **현재 TEX10-R013 / 다음 TEX10-R014**. 구체 SpriteOpener lambda/atlas 배치 문맥의 정적 검증이 남아 있으면 추가 근거 있을 때만. 다른 연구 단계·전역 `v38`·기존 R001–R012 무변경.
+
+---
+
+## TEX10-R014 — 2026-11-13 · 블록 아틀라스 directory→SpriteContents와 메타데이터 파서 연결
+
+- 사용자 추출본 신규 **고유 9개 경로**: 8 classes (`ilv`,`ilw`,`ily`,`ilv$1`,`amm`,`ilu$c`,`bax`,`bbb`) + `atlases/items.json`. 누적 **153→162**. R004 `atlases/blocks.json`은 **이미 집계된 기존 증거**, R013 `ilt.class`는 **새 메서드 분석만** 하여 경로 수 중복 가산 안 함.
+- `blocks.json` source=`block`, prefix=`block/` → `ilw` directory codec → `ily`+`amm`가 `textures/block/*.png`를 열거해 `minecraft:block/{id}` 후보 생성 → `ilu$c` callback → `ilv$1` 중복 교체/close → `ilt` 실제 metadata optional + NativeImage PNG decode → `ilk` MipmapHelper 연결 (기존 R013) 검증.
+- 현재 원본 저장소 트리에서 **block PNG 1111 / item PNG 792 / block PNG.mcmeta 99**. 지정 8종 block PNG **8/8**; 잎 6종 `texture.mipmap_strategy=dark_cutout` 직접 재읽기, vine/moss sidecar 없음. 런타임 팩 우선순위나 최종 stitched atlas 수 인증은 **아님**.
+- 독립 `atlases/items.json`: `item/` source 및 trim permutations, 8개 같은 이름 item PNG 0. 이것은 item 모델이 block 텍스처를 사용할 수 없다는 뜻이 아님.
+- R012 full RGBA 680픽셀은 기존 Python 재현 결과로만 유지, 이번 새 화소 0. 인게임 검증 의무 제외, 공식 JAR SHA1 제외(인증 성공 아님), 애니메이션/가구/PZ 변환 제외.
+- [R014 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R014/REPORT.md) · [8개 원본-아틀라스 경로](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R014/ATLAS_DIRECTORY_MATCH_8.csv) · [클래스/메타데이터 호출 증거](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R014/ATLAS_RESOURCE_LOADER_TRACE.json).
+- **현재 `TEX10-R014`, 다음 `TEX10-R015`**. 계속할 경우 실제 resource pack selection / JSON→model bake 연결 등 새로운 원본 정적 증거가 있어야 함. 다른 단계 및 전역 v38 불변.

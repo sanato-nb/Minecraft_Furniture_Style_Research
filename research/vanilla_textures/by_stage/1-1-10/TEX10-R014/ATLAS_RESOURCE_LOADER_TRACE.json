@@ -1,0 +1,167 @@
+{
+  "schema": "TEX10-R014/atlas-source-and-resource-metadata-bytecode-closure/v1",
+  "primary_new_paths": [
+    {
+      "path": "1.21.11/ilv.class",
+      "sha": "4e1be1401de704d3bf1a515d55ba9658f9f357a4",
+      "role": "reads and combines atlas definition JSON across pack resource lists"
+    },
+    {
+      "path": "1.21.11/ilw.class",
+      "sha": "29ab49c2feaf215e3cf5ab798850c1e07b2db83d",
+      "role": "registers single/directory/filter/unstitch/paletted_permutations MapCodec and sources field"
+    },
+    {
+      "path": "1.21.11/ily.class",
+      "sha": "bed4891836969772eb559949f7c818e2b77fc8c7",
+      "role": "directory source: list resource PNG with amm and apply prefix"
+    },
+    {
+      "path": "1.21.11/ilv$1.class",
+      "sha": "b1b40ec26e8c82d29507266236eda8d7091441df",
+      "role": "collector map put duplicate replacement and old supplier close"
+    },
+    {
+      "path": "1.21.11/amm.class",
+      "sha": "e0b1b96f5871e5c9e4b4a1aafe0eaede29846ecc",
+      "role": "resource path prefix/suffix filter and stripping logic"
+    },
+    {
+      "path": "1.21.11/ilu$c.class",
+      "sha": "50cdc35c50182d85fb01d7bc5171d4d47ac9e4bb",
+      "role": "atlas source output callback maps Resource to delayed SpriteOpener loadSprite"
+    },
+    {
+      "path": "1.21.11/bax.class",
+      "sha": "d077ab5961208f9d91b3377c696df194f60d98d8",
+      "role": "resource stream and lazy ResourceMetadata reader"
+    },
+    {
+      "path": "1.21.11/bbb.class",
+      "sha": "692a6848dd82dc17a5a01a2fd67572e03be72119",
+      "role": "JSON metadata parser and optional section access"
+    },
+    {
+      "path": "1.21.11/assets/minecraft/atlases/items.json",
+      "sha": "811935d8d6ac2ae1030c221ee74153dc52eec5bd",
+      "role": "separate item/ directory atlas declaration and trim permutations"
+    }
+  ],
+  "reused_primary_paths": [
+    {
+      "path": "1.21.11/assets/minecraft/atlases/blocks.json",
+      "sha": "541ce56ad0b09f258963dd2bf3e3cb6e786d2d79",
+      "prior_revision": "TEX10-R004"
+    },
+    {
+      "path": "1.21.11/ilt.class",
+      "sha": "59ad784d006bb046b47ca097de5bd006f2667500",
+      "prior_revision": "TEX10-R013",
+      "new_method_examined_this_revision": "static a(Set,Identifier,Resource) length 299"
+    },
+    {
+      "path": "1.21.11/inj.class",
+      "sha": "87c376c6c9a4b7de2fc0d598c74794eafc25fe31",
+      "prior_revision": "TEX10-R010"
+    }
+  ],
+  "class_chain": [
+    {
+      "source": "ilw.class",
+      "method": "a()V",
+      "length": 76,
+      "proof": "registers atlas type 'directory' → ily.b MapCodec; also single/filter/unstitch/paletted_permutations",
+      "source_literal": [
+        "directory",
+        "single",
+        "filter",
+        "unstitch",
+        "paletted_permutations"
+      ]
+    },
+    {
+      "source": "ilw.class",
+      "method": "<clinit>()V",
+      "length": 59,
+      "proof": "declares listOf atlas sources under JSON key 'sources'"
+    },
+    {
+      "source": "ilv.class",
+      "method": "a(ResourceManager,Identifier) atlas loader",
+      "descriptor": "a(Lbaz;Lamo;)Lilv;",
+      "length": 189,
+      "proof": "uses amm('atlases','.json') path; lists ResourceManager.getAllResources, parses JSON with ilw.b Codec, appends source entries from packs; invalid atlas definition logged"
+    },
+    {
+      "source": "ily.class",
+      "method": "a(ResourceManager,AtlasSource.Output)",
+      "descriptor": "a(Lbaz;Lilu$c;)V",
+      "length": 38,
+      "proof": "uses amm('textures/'+source+'/', '.png'); enumerates .png resource map and calls output callback"
+    },
+    {
+      "source": "ily.class",
+      "method": "a(PathConverter,AtlasOutput,Identifier,Resource)",
+      "descriptor": "a(Lamm;Lilu$c;Lamo;Lbax;)V",
+      "length": 25,
+      "proof": "converts textures/<source>/*.png to atlas sprite id with prefix, calls output.a(Identifier,Resource)"
+    },
+    {
+      "source": "amm.class",
+      "method": "b(Identifier) Identifier",
+      "descriptor": "b(Lamo;)Lamo;",
+      "length": 35,
+      "proof": "strips prefix and suffix from resource path, yielding the directory-relative Identifier"
+    },
+    {
+      "source": "ilu$c.class",
+      "method": "a(Identifier,Resource)",
+      "descriptor": "a(Lamo;Lbax;)V",
+      "length": 15,
+      "proof": "wraps resource in lazy supplier for sprite and sends to a(Identifier,SpriteSupplier) callback"
+    },
+    {
+      "source": "ilv$1.class",
+      "method": "a(Identifier,SpriteSupplier)",
+      "descriptor": "a(Lamo;Lilu$a;)V",
+      "length": 26,
+      "proof": "map.put replaces duplicate sprite id, closes previous supplier if non-null; cannot assert actual pack priority without ordering context"
+    },
+    {
+      "source": "ilt.class",
+      "method": "a(Set,Identifier,Resource)",
+      "descriptor": "a(Ljava/util/Set;Lamo;Lbax;)Lilk;",
+      "length": 299,
+      "proof": "reads resource metadata via bax.f(), requests texture section via bbb.a(inj.e), decodes NativeImage from resource InputStream, selects frame size (metadata-defined or PNG extent), returns SpriteContents with metadata Optional"
+    },
+    {
+      "source": "bax.class",
+      "method": "f()",
+      "descriptor": "f()Lbbb;",
+      "length": 28,
+      "proof": "lazily obtains and caches resource metadata reader from Resource metadata supplier"
+    },
+    {
+      "source": "bbb.class",
+      "method": "a(InputStream)",
+      "descriptor": "a(Ljava/io/InputStream;)Lbbb;",
+      "length": 55,
+      "proof": "parses UTF-8 stream to JsonObject through reader"
+    },
+    {
+      "source": "ilv.class",
+      "method": "a(ResourceManager)",
+      "descriptor": "a(Lbaz;)Ljava/util/List;",
+      "length": 68,
+      "proof": "iterates source definitions, collects sprite suppliers, inserts a missing sprite supplier and map values"
+    }
+  ],
+  "source_and_runtime_limits": [
+    "blocks.json has directory source source='block' prefix='block/' and all 8 target original PNGs match. It does not enumerate individual target names, nor prove final runtime atlas included all eight.",
+    "ResourceManager may combine/override resource packs. Effective resource selection/atlas x-y/texture padding and mip level not measured.",
+    "Image 'texture' mcmeta section is confirmed for six leaves. No same-name sidecar for vine/moss in extracted tree; fallback policy inherited R010.",
+    "items.json is a separate item/ directory plus trim permutations; no matching same-name item/ PNGs in vanilla tree. This does not mean item models cannot refer to block textures.",
+    "Animation metadata Optional lookup occurs in ilt class, but frame animation semantics intentionally not studied.",
+    "No native-JVM byte-exact RGBA comparison or in-game screenshot performed."
+  ]
+}
