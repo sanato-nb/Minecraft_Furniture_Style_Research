@@ -1,0 +1,65 @@
+{
+  "schema": "mc-furniture-texture-stage-result/v1",
+  "stage_id": "1-1-06",
+  "revision": "TEX06-R003",
+  "base_revision": "TEX06-R002",
+  "date": "2026-11-13",
+  "official_global_checkpoint_unchanged": "v38",
+  "source": {
+    "repository": "sanato-nb/Minecraft_Furniture_Style_Research",
+    "subdirectory": "1.21.11",
+    "commit": "e06206f3cf2fad1d1f9ea3839e9d36a548fe9f4f",
+    "origin": "user-claimed uncompressed Java 1.21.11 client.jar"
+  },
+  "fixed_unique_texture_target": 8,
+  "new_unique_texture_paths_added": 0,
+  "verification_level_1_user_unpacked_png_sha256_and_png_crc": 8,
+  "verification_level_1_user_unpacked_model_json": 8,
+  "verification_level_1_user_unpacked_blockstates_json": 8,
+  "verification_level_1_parent_json": 4,
+  "verification_level_2_mirror_png_same_sha256_and_blob": 8,
+  "verification_level_2_mirror_model_same_blob": 8,
+  "verification_level_2_mirror_blockstates_same_blob": 8,
+  "verification_level_2_mirror_parent_same_blob": 4,
+  "verification_level_3_official_Mojang_client_jar_sha1_authenticated": 0,
+  "verification_level_4_ingame_static_render_verified": 0,
+  "user_extracted_png_image_dimensions": "8 x 16x16",
+  "source_pngs_direct_binary_read_count": 8,
+  "new_independent_RGBA_pixels_recomputed": 0,
+  "old_R001_2048_pixel_metrics_preserved": true,
+  "old_R002_glazed_512_2x2_combinations_preserved": true,
+  "direct_access_count": {
+    "PNG": 8,
+    "model_JSON": 8,
+    "blockstates_JSON": 8,
+    "parent_model_JSON": 4,
+    "version_JSON": 1
+  },
+  "file_level_SHA256_hash_algorithm_selftest": {
+    "input": "abc",
+    "expected": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+    "passed": true
+  },
+  "pending": [
+    "original_compressed_1.21.11_client.jar_SHA1_vs_Mojang_manifest",
+    "in_game_static_facing_and_UV"
+  ],
+  "animations_deferred": true,
+  "project_zomboid_and_furniture_modeling_excluded": true,
+  "phases": {
+    "A": "user_unpacked_to_R001_R002_source_crosswalk",
+    "B": "8_PNG_source_SHA256_and_crc",
+    "C": "R001_mirror_pixel_statistics_reused_after_byte_identity",
+    "D": "R001_R002_D1_to_D3_reused_without_recount",
+    "E": "8_leaf_models_8_blockstates_4_parent_models_static_JSON_compared",
+    "F": "Mojang_original_JAR_and_in_game_render_pending",
+    "G": "saved_R003_stage_only_reports_state_handoff"
+  },
+  "outputs": [
+    "REPORT.md",
+    "SOURCE_LEDGER.csv",
+    "FOUR_TIER_VERIFICATION.csv",
+    "STATIC_SOURCE_AUDIT.json",
+    "SUMMARY.json"
+  ]
+}

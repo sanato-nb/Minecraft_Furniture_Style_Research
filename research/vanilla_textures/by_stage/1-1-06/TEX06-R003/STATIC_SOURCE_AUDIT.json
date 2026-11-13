@@ -1,0 +1,207 @@
+{
+  "version": "TEX06-R003",
+  "source_repository": "sanato-nb/Minecraft_Furniture_Style_Research",
+  "source_commit_at_snapshot": "e06206f3cf2fad1d1f9ea3839e9d36a548fe9f4f",
+  "source_path_prefix": "1.21.11/",
+  "user_claim": "User unpacked Minecraft Java Edition 1.21.11 client.jar and uploaded contents",
+  "official_JAR_checksum_verified": false,
+  "source_version_json": {
+    "path": "1.21.11/version.json",
+    "blob_sha": "b49974d3ebd6cb73291d9e4c92d23b3192dadd66",
+    "id": "1.21.11",
+    "world_version": 4671,
+    "protocol_version": 774,
+    "build_time": "2025-12-09T12:20:42+00:00",
+    "is_not_official_jar_sha1_certification": true
+  },
+  "files_directly_read": {
+    "png": 8,
+    "leaf_model_json": 8,
+    "blockstates_json": 8,
+    "parent_model_json": 4,
+    "version_json": 1
+  },
+  "parents": [
+    {
+      "name": "cube_all",
+      "path": "1.21.11/assets/minecraft/models/block/cube_all.json",
+      "git_blob_sha": "fa2f9e776173224b2b523b8b537c695b921267f6",
+      "parent": "block/cube",
+      "mirror_blob_identical": true
+    },
+    {
+      "name": "cube",
+      "path": "1.21.11/assets/minecraft/models/block/cube.json",
+      "git_blob_sha": "1b9780b479aee527f79bde950656b82f1524128b",
+      "parent": "block/block",
+      "mirror_blob_identical": true
+    },
+    {
+      "name": "template_glazed_terracotta",
+      "path": "1.21.11/assets/minecraft/models/block/template_glazed_terracotta.json",
+      "git_blob_sha": "c6574a9f94db43f5cae8e925e94ad309bc4f145b",
+      "parent": "block/cube",
+      "mirror_blob_identical": true
+    },
+    {
+      "name": "block",
+      "path": "1.21.11/assets/minecraft/models/block/block.json",
+      "git_blob_sha": "f9c72559950abcb186b8e3959e135c0f2d542bdf",
+      "parent": null,
+      "mirror_blob_identical": true
+    }
+  ],
+  "glazed_parent_details": {
+    "path": "1.21.11/assets/minecraft/models/block/template_glazed_terracotta.json",
+    "texture_slot": "#pattern",
+    "all_faces_uv": [
+      0,
+      0,
+      16,
+      16
+    ],
+    "face_uv_rotations": {
+      "down": 0,
+      "up": 0,
+      "north": 90,
+      "south": 270,
+      "west": 0,
+      "east": 180
+    },
+    "cube_geometry_from": [
+      0,
+      0,
+      0
+    ],
+    "cube_geometry_to": [
+      16,
+      16,
+      16
+    ]
+  },
+  "blockstates_glazed_y_rotations_by_facing": {
+    "south": 0,
+    "west": 90,
+    "north": 180,
+    "east": 270
+  },
+  "standard_terracotta": {
+    "count": 6,
+    "parent": "minecraft:block/cube_all",
+    "texture_slot": "all",
+    "blockstate_variants": [
+      ""
+    ]
+  },
+  "glazed_terracotta": {
+    "count": 2,
+    "parent": "minecraft:block/template_glazed_terracotta",
+    "texture_slot": "pattern",
+    "blockstate_variants": [
+      "facing=east",
+      "facing=north",
+      "facing=south",
+      "facing=west"
+    ]
+  },
+  "textures": [
+    {
+      "texture_id": "terracotta",
+      "png_path": "1.21.11/assets/minecraft/textures/block/terracotta.png",
+      "png_sha256": "b2458267eac6b6f35d02990ee3244edf1f43fbe258bd6dfe15189cf2eaf42ae8",
+      "model_json": "1.21.11/assets/minecraft/models/block/terracotta.json",
+      "model_git_blob": "abdc18d7e9e6d39dede014dd610b7ec4de277158",
+      "blockstate_json": "1.21.11/assets/minecraft/blockstates/terracotta.json",
+      "blockstate_git_blob": "985d001a504fd95a239f68233c2c0421e9dc152b",
+      "parent": "minecraft:block/cube_all",
+      "slot": "all",
+      "all_source_bytes_match_prior_mirror": true
+    },
+    {
+      "texture_id": "white_terracotta",
+      "png_path": "1.21.11/assets/minecraft/textures/block/white_terracotta.png",
+      "png_sha256": "9feeb13f19514ea58a5b6e942df7a8595330e61173f8d0a13c83b78acd1bd62e",
+      "model_json": "1.21.11/assets/minecraft/models/block/white_terracotta.json",
+      "model_git_blob": "eb6bc0069fb4a9ab235dfc376efd6689ffc3a8d0",
+      "blockstate_json": "1.21.11/assets/minecraft/blockstates/white_terracotta.json",
+      "blockstate_git_blob": "184ea80877d8a7c708fbf2705746e1a3613a449e",
+      "parent": "minecraft:block/cube_all",
+      "slot": "all",
+      "all_source_bytes_match_prior_mirror": true
+    },
+    {
+      "texture_id": "orange_terracotta",
+      "png_path": "1.21.11/assets/minecraft/textures/block/orange_terracotta.png",
+      "png_sha256": "3074d90b0a27d1c149df2f3eacc9c6895c4cc0548999f864146dc18f64bcab5a",
+      "model_json": "1.21.11/assets/minecraft/models/block/orange_terracotta.json",
+      "model_git_blob": "2d5e41a14fa07722dd02f04063f372ef2de53684",
+      "blockstate_json": "1.21.11/assets/minecraft/blockstates/orange_terracotta.json",
+      "blockstate_git_blob": "6d644c41fbd3b7868ff69263248412ee6081b9a2",
+      "parent": "minecraft:block/cube_all",
+      "slot": "all",
+      "all_source_bytes_match_prior_mirror": true
+    },
+    {
+      "texture_id": "blue_terracotta",
+      "png_path": "1.21.11/assets/minecraft/textures/block/blue_terracotta.png",
+      "png_sha256": "99b4ec0a8a02a9d609d4987cbb7ba594a59f93c76b5fd98e3a1f12c2df1f9a70",
+      "model_json": "1.21.11/assets/minecraft/models/block/blue_terracotta.json",
+      "model_git_blob": "ead569747ba5fc4e2de54ecb40303ceebbad4782",
+      "blockstate_json": "1.21.11/assets/minecraft/blockstates/blue_terracotta.json",
+      "blockstate_git_blob": "972492b109f10b6a09e822132e92d4e0421179dc",
+      "parent": "minecraft:block/cube_all",
+      "slot": "all",
+      "all_source_bytes_match_prior_mirror": true
+    },
+    {
+      "texture_id": "green_terracotta",
+      "png_path": "1.21.11/assets/minecraft/textures/block/green_terracotta.png",
+      "png_sha256": "ffe10089bcef9873c74f18be35e605c5d035f472c06bf677746d39ff8a656c07",
+      "model_json": "1.21.11/assets/minecraft/models/block/green_terracotta.json",
+      "model_git_blob": "8c13900745d15b5d8e6034595915eee3f444f685",
+      "blockstate_json": "1.21.11/assets/minecraft/blockstates/green_terracotta.json",
+      "blockstate_git_blob": "3bf40d83e0da20f3468ca3d9ffca2bcd4c53f351",
+      "parent": "minecraft:block/cube_all",
+      "slot": "all",
+      "all_source_bytes_match_prior_mirror": true
+    },
+    {
+      "texture_id": "yellow_terracotta",
+      "png_path": "1.21.11/assets/minecraft/textures/block/yellow_terracotta.png",
+      "png_sha256": "7c00bf901f78ad628a06335d47310a6b18c1419243d4150e32cdf01d51bafca6",
+      "model_json": "1.21.11/assets/minecraft/models/block/yellow_terracotta.json",
+      "model_git_blob": "8f3e76eed5749cc77c83b296a7ef2df5739a3539",
+      "blockstate_json": "1.21.11/assets/minecraft/blockstates/yellow_terracotta.json",
+      "blockstate_git_blob": "4a2aca6bd3af502ac2e2aa4277939d89e4ab3e67",
+      "parent": "minecraft:block/cube_all",
+      "slot": "all",
+      "all_source_bytes_match_prior_mirror": true
+    },
+    {
+      "texture_id": "black_glazed_terracotta",
+      "png_path": "1.21.11/assets/minecraft/textures/block/black_glazed_terracotta.png",
+      "png_sha256": "214ce8ca46c60a42b8863655b3895aca839c7ef7cfa511a192dc1974a0ca2758",
+      "model_json": "1.21.11/assets/minecraft/models/block/black_glazed_terracotta.json",
+      "model_git_blob": "f973bbba2a75c5bfa1e93ad6004b2ae1ff97d41b",
+      "blockstate_json": "1.21.11/assets/minecraft/blockstates/black_glazed_terracotta.json",
+      "blockstate_git_blob": "e20988dcdafdba18006a35e6a4437bb7d2e78f3f",
+      "parent": "minecraft:block/template_glazed_terracotta",
+      "slot": "pattern",
+      "all_source_bytes_match_prior_mirror": true
+    },
+    {
+      "texture_id": "white_glazed_terracotta",
+      "png_path": "1.21.11/assets/minecraft/textures/block/white_glazed_terracotta.png",
+      "png_sha256": "cb1ebf9f3f3e93009ff4cab1b2b2b70d41fd87caa40c71942ae51996d12498b4",
+      "model_json": "1.21.11/assets/minecraft/models/block/white_glazed_terracotta.json",
+      "model_git_blob": "e33fbedc0fd18cda66fd3ec878211f2b00c5adc2",
+      "blockstate_json": "1.21.11/assets/minecraft/blockstates/white_glazed_terracotta.json",
+      "blockstate_git_blob": "8c64ce09f7c0bf11dad8908ef220917b567673a9",
+      "parent": "minecraft:block/template_glazed_terracotta",
+      "slot": "pattern",
+      "all_source_bytes_match_prior_mirror": true
+    }
+  ],
+  "evidence_limit": "static JSON declarations verified; no Minecraft in-game render; no official client.jar SHA1 authentication",
+  "old_RGBA_statistics_and_R002_512_pattern_hypotheses_reused_not_remeasured": true
+}

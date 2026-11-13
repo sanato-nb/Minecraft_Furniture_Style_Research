@@ -84,3 +84,14 @@
 - 원본 정적 blockstates의 south0/west90/north180/east270 model Y 회전을 상단 PNG 이미지 회전과 **두 투영 관례로 구분**하여 조합별 방향 가설 생성. 추론을 실제 인게임 방향으로 확정하지 않음.
 - Mojang 공식 1.21.11 client.jar 다운로드를 실제 시도했으나 실행 환경 접근 실패. **공식 인증 0/8, 인게임 정적 0/8** 유지. 다음 채팅의 PC용 검증 스크립트 `VERIFY_OFFICIAL_1_21_11.py`는 공식 클라이언트에서 실제 실행·검증 전이므로 결과 인증에 포함하지 않음.
 - A–G 전체 인증 0/8; R002 새 근거는 D2/D3 정적 모델·화소 관계. 다른 단계 및 루트 파일·동적 기록 변경 금지. 애니메이션, PZ 변환, 가구 3D 제작 보류.
+
+## TEX06-R003 — 2026-11-13 사용자 제공 1.21.11/ 원본 검증 반영
+
+- 현재 **TEX06-R003**, 다음 **TEX06-R004**. 전체 공식 프로젝트 **v38 불변**.
+- 새 우선 출처: 사용자가 직접 1.21.11 JAR을 압축 해제했다고 설명한 [GitHub `1.21.11/`](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/e06206f3cf2fad1d1f9ea3839e9d36a548fe9f4f/1.21.11). 직접 읽은 버전 JSON의 ID는 1.21.11. 이것만으로 Mojang 공식 JAR SHA-1 인증이 되지는 않음.
+- **8/8 PNG**: 실제 사용자 바이너리의 SHA256 재계산·PNG 청크 CRC 검사 및 16×16 확인; v4/R001 비공식 미러와 **8/8 SHA256 및 Git blob 동일**.
+- **8 리프 모델 JSON + 8 blockstates JSON + 4 공통 부모 모델 JSON** 직접 열람·구조 검사, 기존 미러와 SHA 동일. 유광 UV 면별 회전과 4방향 상태 모델 Y 회전 유지.
+- 이전 **R001 2,048픽셀** 및 **R002 512개 2×2 회전 조합** 결과는 입력 파일 바이트가 같으므로 재사용만 했으며 **이번 신규 픽셀 측정 0**, 새 고유 텍스처 0.
+- 검증 등급 1. 사용자 추출본 **8/8** / 2. 미러 바이트 일치 **8/8** / 3. Mojang 공식 JAR SHA-1 **0/8** / 4. 인게임 정적 화면 **0/8**.
+- [R003 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R003/REPORT.md) · [PNG/모델/블록 상태 해시 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R003/SOURCE_LEDGER.csv) · [정적 JSON·UV 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R003/STATIC_SOURCE_AUDIT.json) · [4계층 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R003/FOUR_TIER_VERIFICATION.csv).
+- 후속 **TEX06-R004**: 압축 원본 JAR 해시 공식 인증 혹은 인게임 정적 렌더 추가 증거 확보. 애니메이션/PZ 변환/가구 3D 제작 중지 유지.
