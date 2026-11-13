@@ -128,3 +128,12 @@
 - 비중첩 2×2 산술 알파 평균 proxy(가상 8×8): `glass` 최소 0/최대 191.25, 착색 5개 각각 최소 102/최대 147.75. **실제 게임의 밉맵 계산·LOD·셰이더·투명 정렬을 검증한 것이 아님**. R004 `glass.png.mcmeta`의 `mean`은 명시적 정적 설정일 뿐 동작 수식 단정 금지.
 - 실제 인게임 정적 렌더 **0/6 pending** 유지. Mojang 공식 전체 JAR 인증은 사용자 정책상 **out of scope**이며 검증 성공이 아니다.
 - 새 분석 증거 발생 시 라이브 STATE를 다시 확인하여 다음 단계 전용 `TEX05-R006`을 사용. 기존 R000–R005 변경 금지. 전체 `v38`과 타 단계, 애니메이션 보류·PZ 변환/가구 제작 제외 유지.
+
+## TEX05-R006 — 원본 PNG의 정확한 RGBA 팔레트·가상 2×2 색상 혼합 분석 (2026-11-13)
+
+- 새 실측 결과: [REPORT](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R006/REPORT.md) · [20 RGBA 팔레트](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R006/RGBA_PALETTE_20.csv) · [6종 2×2 비교](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R006/PROXY_COMPARISON_6.csv) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R006/SUMMARY.json) · [재현 스크립트](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R006/REPRODUCE_STATIC_PALETTE.py).
+- 사용자 추출 `1.21.11/` PNG 6개를 새로 디코딩하고 SHA **6/6 기존 원장 일치**. 고유 PNG/경로 신규 증가 **0**, 누적 정적 소스 경로 **31**, R001의 1,536 RGBA 및 36면 UV 중복 가산 금지.
+- 신규 관찰: 실제 RGBA 색·알파 조합 **20엔트리**의 픽셀별 개수. 무색 `glass`는 알파0 RGB `#808080` 191개, 불투명 65개는 RGB 네 색. 착색 5종은 각 원본의 256픽셀 RGB 값 일정(빨강 #993333, 검정 #191919, 파랑 #334CB2, 초록 #667F33, 흰색 #FFFFFF), 알파 배열 5/5 동일.
+- 신규 가상 산술 검사: 16×16에서 2×2 64블록씩 **384셀**. 무색 `glass`는 32개 유효 블록에서 straight RGB 평균과 alpha-weighted RGB 평균이 다름(최대 RGB 한 채널 79.5); 착색 5종 각 64 유효 블록의 차이는 0. R004의 `mean` 설정의 실제 구현이나 게임의 밉맵 출력으로 오인하지 말 것.
+- 소스 정적 근거와 실제 게임 실행은 계속 구분. 인게임 정적 검증 **0/6 pending**. Mojang JAR 인증 **out of scope**. 애니메이션·PZ 변환·실제 가구 제작 제외.
+- 이 단계 다음 고유 리비전 **TEX05-R007**이며 새 증거가 생길 때만, 시작 시 라이브 STATE/HEAD/폴더 경합 재조회. 전체 전역 v38과 다른 단계의 파일은 건드리지 않음.

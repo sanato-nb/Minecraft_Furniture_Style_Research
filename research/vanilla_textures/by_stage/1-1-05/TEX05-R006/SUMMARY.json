@@ -1,0 +1,73 @@
+{
+  "schema": "tex05-static-palette-proxy-r006/v1",
+  "stage_id": "1-1-05",
+  "revision": "TEX05-R006",
+  "previous": "TEX05-R005",
+  "date": "2026-11-13",
+  "global_checkpoint_unchanged": "v38",
+  "source_priority": "user_provided_jar_extracted_1.21.11_png",
+  "source_png_redecoded_sha_matched": 6,
+  "new_unique_source_paths": 0,
+  "cumulative_distinct_static_paths": 31,
+  "fixed_png_targets": 6,
+  "prior_original_rgba_pixels_inherited_not_recounted": 1536,
+  "prior_uv_faces_inherited_not_recounted": 36,
+  "new_exact_rgba_palette_rows": 20,
+  "derived_2x2_proxy_blocks_measured": 384,
+  "original_png_palette": {
+    "glass": {
+      "unique_rgba": 5,
+      "alpha0_rgb_hex": "#808080",
+      "alpha0_pixels": 191,
+      "opaque_color_count": 4
+    },
+    "stained_5": {
+      "rgb_constant_within_each": true,
+      "alpha_arrays_identical": true,
+      "unique_rgba_each": 3,
+      "alpha_counts": {
+        "102": 191,
+        "155": 5,
+        "163": 60
+      }
+    }
+  },
+  "proxy_method": "non_overlapping_2x2_straight_rgb_mean_vs_alpha_weighted_rgb_mean_math_only_not_game",
+  "proxy_results": {
+    "glass": {
+      "valid_alpha_sum_blocks": 32,
+      "undefined_alpha0_blocks": 32,
+      "different_rgb_mean_blocks": 32,
+      "max_channel_abs_difference": 79.5
+    },
+    "stained_5_each": {
+      "valid_alpha_sum_blocks": 64,
+      "different_rgb_mean_blocks": 0,
+      "max_channel_abs_difference": 0
+    }
+  },
+  "verification": {
+    "ingame_static_render_verified_count": 0,
+    "official_client_jar_authentication": "out_of_scope_by_user_instruction",
+    "actual_mipmap_verified": false,
+    "actual_glass_shader_binding_verified": false
+  },
+  "nonclaim": [
+    "this_is_not_the_game_mipmap",
+    "this_is_not_Gpu_renderer",
+    "this_does_not_prove_transparent_sorting",
+    "this_does_not_certify_official_mojang_jar"
+  ],
+  "files": [
+    "REPORT.md",
+    "RGBA_PALETTE_20.csv",
+    "PROXY_COMPARISON_6.csv",
+    "SOURCE_LEDGER.csv",
+    "REPRODUCE_STATIC_PALETTE.py",
+    "SOURCE_LIMITATIONS.md",
+    "SUMMARY.json"
+  ],
+  "animation_deferred": true,
+  "zomboid_conversion_excluded": true,
+  "furniture_3d_build_excluded": true
+}
