@@ -1,0 +1,243 @@
+{
+  "schema": "TEX03-R007_source_only_completion_audit/v1",
+  "date": "2026-11-13",
+  "stage": "1-1-03",
+  "release": "TEX03-R007",
+  "prior": "TEX03-R006",
+  "primary_source": "user-provided_1.21.11_extracted_assets",
+  "verification_boundaries": {
+    "in_game_render": "excluded_by_user",
+    "Mojang_official_whole_JAR_auth": "excluded_by_user",
+    "animation": "deferred",
+    "real_time_lighting_and_occlusion": "not_verified_not_required"
+  },
+  "cumulative_counts_not_additive": {
+    "original_pngs_direct_rechecked": 16,
+    "original_blockstate_JSON_direct_rechecked": 14,
+    "original_model_JSON_direct_rechecked": 39,
+    "original_source_files_verified": 69,
+    "all_original_PNG_CRC_and_blob_sha_match": 16,
+    "all_original_blockstate_SHA_and_variant_sets_match": 14,
+    "all_original_model_SHA_parent_element_matches": 39,
+    "texture_RGBA_pixels_legacy_unchanged": 4096,
+    "source_PNG_alpha0_legacy": 321,
+    "source_PNG_partial_alpha_legacy": 0,
+    "UV_template_faces_legacy": 145,
+    "blockstate_variants": 63,
+    "blockstate_model_faces": 406,
+    "model_faces_newly_cross_checked_against_R002_and_R005": 406,
+    "state_aggregates_cross_checked": 63,
+    "alpha_including_face_occurrences": 70,
+    "R006_alpha_face_rows_cross_checked": 70,
+    "total_UV_sample_references": 53392,
+    "total_alpha0_UV_sample_references": 3150,
+    "source_only_texture_closeouts": 16
+  },
+  "audit_metadata": {
+    "source_manifest_sha1": {
+      "r2": "a6de0e1c135ffe4347937d02102100bf39ec77a2",
+      "r1": "5388a889949ad155b6fd63f4f43f48c131184d57",
+      "r3png": "55e680fe46695c43ccb22bdc345f5358756273ff",
+      "r3model": "44b6e208c422c11a2969ca1c63bebcee59b4b013",
+      "r4variant": "aa542c8477f87e14ce8aa7d513e6ae16d16aa3ae",
+      "r3block": "62cdb89def96066cbe17867b9446a32b2d93be4e",
+      "r4face": "1466a2b2449b987f077baac7d21e0804e3f325dd",
+      "r5face": "ffdba6790215ecc2b1d22e4303ebf2e6bf3b96a0",
+      "r6face": "2992cdbebce9afb48f7e81bc393f5bec2758b30a"
+    },
+    "per_texture_summary": [
+      {
+        "name": "iron_block",
+        "source_sha": "b7bb5794b7f74da3156fbf51d88e43eb11dd1f89",
+        "source_sha256": "dafa9944ba49fe71958553eded50e87d7bea9c7410cfe568745989bede101c49",
+        "alpha0": 0,
+        "partial": 0,
+        "mean_luma": 220.0311,
+        "model_faces": 6,
+        "template_faces": 6,
+        "alphaUVfaces": 0
+      },
+      {
+        "name": "copper_block",
+        "source_sha": "c994d8abb7eaea0315bda72715e3d76880721ae8",
+        "source_sha256": "1b0aaab59d19b4f909a9ac1208b02363bd2796637b10641a8b7cb0ed587c2aa7",
+        "alpha0": 0,
+        "partial": 0,
+        "mean_luma": 123.6668,
+        "model_faces": 6,
+        "template_faces": 6,
+        "alphaUVfaces": 0
+      },
+      {
+        "name": "exposed_copper",
+        "source_sha": "c823e36424abbce6d31906edd92d94fd1f6459cd",
+        "source_sha256": "cfb6c192d230fa65f83c7691a4e8d5b686d904b1df329949e792ad85ae372fb7",
+        "alpha0": 0,
+        "partial": 0,
+        "mean_luma": 131.6521,
+        "model_faces": 6,
+        "template_faces": 6,
+        "alphaUVfaces": 0
+      },
+      {
+        "name": "oxidized_copper",
+        "source_sha": "c36a46dcb9fc9ed5882a045cfc1c0206fd3b64a8",
+        "source_sha256": "c784fc83327169877d6a125f2eae00a5fbf784b9caaaa64e2fbc015d664d0bfb",
+        "alpha0": 0,
+        "partial": 0,
+        "mean_luma": 143.4569,
+        "model_faces": 6,
+        "template_faces": 6,
+        "alphaUVfaces": 0
+      },
+      {
+        "name": "cut_copper",
+        "source_sha": "38decb0d9e47a41a3191c9cfebab598084313a09",
+        "source_sha256": "4bfc7253ccb07028fcefd90b4f7960873cd843521a1fdaaa6d4c450e7d032bba",
+        "alpha0": 0,
+        "partial": 0,
+        "mean_luma": 122.8914,
+        "model_faces": 6,
+        "template_faces": 6,
+        "alphaUVfaces": 0
+      },
+      {
+        "name": "exposed_cut_copper",
+        "source_sha": "a8a085bd1f47ef44616e949da1d249c88fba7622",
+        "source_sha256": "7d2bd18a2b2d92204face126960c1afdf9564d48be015dc9cce9c63435bdf43f",
+        "alpha0": 0,
+        "partial": 0,
+        "mean_luma": 127.2705,
+        "model_faces": 6,
+        "template_faces": 6,
+        "alphaUVfaces": 0
+      },
+      {
+        "name": "weathered_copper",
+        "source_sha": "7061d0aab247b2df9163ac48f8744e6f3d36cba6",
+        "source_sha256": "c41c28938fb64540576d5f607c87a2446a18bf8b78a388dbc5e147779925062a",
+        "alpha0": 0,
+        "partial": 0,
+        "mean_luma": 140.4203,
+        "model_faces": 6,
+        "template_faces": 6,
+        "alphaUVfaces": 0
+      },
+      {
+        "name": "copper_grate",
+        "source_sha": "92c5ac8f4c662956fae6dc676ef03ad2e50642db",
+        "source_sha256": "c704177ce251df01260937e301723ceadc29fb6f586ea669782cc7174aa32b72",
+        "alpha0": 77,
+        "partial": 0,
+        "mean_luma": 123.4864,
+        "model_faces": 6,
+        "template_faces": 6,
+        "alphaUVfaces": 6
+      },
+      {
+        "name": "iron_trapdoor",
+        "source_sha": "2eaab820b34da1fc5dd293d0fc9c29edaac0121b",
+        "source_sha256": "ca84a5c288bcfe8c9a53f066536175f50effa21e85cfb933094805527c5894ba",
+        "alpha0": 36,
+        "partial": 0,
+        "mean_luma": 202.3948,
+        "model_faces": 96,
+        "template_faces": 18,
+        "alphaUVfaces": 32
+      },
+      {
+        "name": "iron_door_bottom",
+        "source_sha": "9c163edcefffd9481c27e99a728140124eb63094",
+        "source_sha256": "e9d6c7dc182ca275a3d455ba28a8df325d1ad0c1539aace4ee11d0359f6fc83a",
+        "alpha0": 0,
+        "partial": 0,
+        "mean_luma": 194.9708,
+        "model_faces": 80,
+        "template_faces": 20,
+        "alphaUVfaces": 0
+      },
+      {
+        "name": "gold_ore",
+        "source_sha": "50658812eabb224e1cae671c3dec82b7f48e11c0",
+        "source_sha256": "5253e5a8ea32739a5c8cb1d844f0e46c8c85641f77c3d07dcc03645e2914dd1f",
+        "alpha0": 0,
+        "partial": 0,
+        "mean_luma": 134.3017,
+        "model_faces": 6,
+        "template_faces": 6,
+        "alphaUVfaces": 0
+      },
+      {
+        "name": "raw_iron_block",
+        "source_sha": "7736fc2619fe0a1f75e219f203261f059b3b962a",
+        "source_sha256": "e2133b553079d3eb43c6b6dcecbe7f0b3feebc05766a9e28b789ca779a1159f3",
+        "alpha0": 0,
+        "partial": 0,
+        "mean_luma": 140.1744,
+        "model_faces": 6,
+        "template_faces": 6,
+        "alphaUVfaces": 0
+      },
+      {
+        "name": "heavy_core",
+        "source_sha": "96e70ae30b4e4b07396999fbb06179b5fc560f59",
+        "source_sha256": "c74cc835fa46f5c24688cb163ee76122538a6920f806d36151260cc13e8242cc",
+        "alpha0": 64,
+        "partial": 0,
+        "mean_luma": 85.9443,
+        "model_faces": 6,
+        "template_faces": 6,
+        "alphaUVfaces": 0
+      },
+      {
+        "name": "iron_door_top",
+        "source_sha": "62b9a1d7ba6a08f9e1da08e605e0f6e4bb6fb311",
+        "source_sha256": "54930bb1139268de1855ea03ce5b95097717e25307cbfa1ecce6e665e6da8d88",
+        "alpha0": 48,
+        "partial": 0,
+        "mean_luma": 193.3538,
+        "model_faces": 80,
+        "template_faces": 20,
+        "alphaUVfaces": 32
+      },
+      {
+        "name": "anvil",
+        "source_sha": "1c3cee9b89691acb529572b6cfb1f0fc7168f714",
+        "source_sha256": "2266db251b99f5df98d8f049e3f7dd6cd85e8146b46011f6918995f392721e48",
+        "alpha0": 0,
+        "partial": 0,
+        "mean_luma": 68.5273,
+        "model_faces": 80,
+        "template_faces": 20,
+        "alphaUVfaces": 0
+      },
+      {
+        "name": "anvil_top",
+        "source_sha": "caff2b757288904d74180e8e4770a94756741bfd",
+        "source_sha256": "757d6f79099583c159e3f95e9981efe0b16b524bed90739ae213142ad40fad26",
+        "alpha0": 96,
+        "partial": 0,
+        "mean_luma": 72.5312,
+        "model_faces": 4,
+        "template_faces": 1,
+        "alphaUVfaces": 0
+      }
+    ],
+    "original_files_rechecked_by_this_audit": "16 PNG bytes and CRC/Git SHA (not fresh SHA256 computation), 14 original blockstate JSON and 39 model JSON all refetched",
+    "new_research_output": "fresh original-file source audit and cross-release consistency checking; legacy R001-R006 unique pixels/faces/states not counted again",
+    "correction": "R003 heavy_core explicit_geometry_faces=0, original source six faces; R002 and R004 geometry correct, record exception without modifying R003",
+    "blocking_source_mismatches": 0
+  },
+  "phase_decision": {
+    "A": "completed_source_only_original_ledger_sha_provenance_and_dedup",
+    "B": "completed_user_png_16_of_16_current_CRC_and_blob_sha_R003_sha256_inherited",
+    "C": "completed_RGBA_brightness_palette_legacy_R001_with_original_byte_identity",
+    "D1": "completed_color_and_luma_by_metal_family_legacy_R001",
+    "D2": "completed_alpha_holes_actual_used_UV_and_iron_door_flip_R002_R005_R006",
+    "D3": "completed_63_original_static_variants_14_blockstates",
+    "E": "completed_39_models_parent_UV_textures_406_face_correspondences",
+    "F": "excluded_by_user_no_screenshots",
+    "G": "completed_after_immutable_release_and_state_handoff_commit"
+  },
+  "sources_persisted_at": "research/vanilla_textures/by_stage/1-1-03/TEX03-R007/"
+}

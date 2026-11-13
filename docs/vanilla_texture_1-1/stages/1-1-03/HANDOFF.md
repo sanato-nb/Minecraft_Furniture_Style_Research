@@ -1,6 +1,17 @@
 # 1-1-03 금속·금속부품 — 독립 채팅 인수인계
 
-**현재 단계: TEX03-R006 / 다음 신규 후보: TEX03-R007 / 전역 공통: v38 그대로.** 2026-11-13. 공식 JAR 인증 및 인게임 렌더 검증 제외 정책 반영(연구 릴리스 번호 유지).
+**최종 완료 단계: TEX03-R007 / 다음 신규 연구 없음(새 근거로 재개 시 R008) / 전역 공통 v38 그대로.** 2026-11-13. 공식 JAR 인증 및 인게임 렌더 검증 제외 정책 반영(연구 릴리스 번호 유지).
+
+## 최종 상태 — TEX03-R007 (2026-11-13): 1-1-03 정적 소스 연구 완료
+
+[최종 R007 연구 검수 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-03/TEX03-R007/REPORT.md) · [16종별 최종 감사 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-03/TEX03-R007/SOURCE_ONLY_ITEM_CLOSEOUT.csv) · [A~G 완료 판정 JSON](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-03/TEX03-R007/SOURCE_ONLY_COMPLETION_AUDIT.json) · [기존 R003 오류 정정 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-03/TEX03-R007/LEGACY_LEDGER_EXCEPTIONS.csv)
+
+**검수 결과: A·B·C·D1·D2·D3·E·G 완료. F 인게임 사용자 제외, Mojang 전체 JAR 인증 제외, 애니메이션 보류.** 고정 대상 16종만의 정적 소스 연구를 완료 처리한다. 전체 프로젝트 완료가 아니다.
+
+- 사용자 제공 `1.21.11/` **원본 PNG 16개**를 직접 다시 읽고 16×16/시그니처/CRC/Git SHA 검증 **16/16 일치**. 총 3,176바이트. SHA-256은 선행 R003 검증 계승. 4,096 고유 RGBA 픽셀 새 측정으로 중복 가산하지 않음.
+- 사용자 원본 blockstates JSON **14/14**, models JSON **39/39** 직접 재취득·파싱해 해시/부모/상태 연결 검사. 정적 states **63개**, UV 부모 템플릿 **145면**(R002), 상태×모델 면 **406개**(R004)를 교차 대조. **406/406** 값 일치, 상태별 합계 **63/63** 일치, R006 투명 면 **70/70** 일치. 새 원본 경로 누락 0건.
+- **과거 자료 메타데이터 오류 1건 정정 기록:** `TEX03-R003/USER_MODEL_JSON_CROSSCHECK.csv`에 `heavy_core` `explicit_geometry_faces=0`이라고 적혀 있지만 원본 JSON의 모델 요소는 **실제 6면**. R002·R004 실제 UV/모델 면 집계는 이미 6면으로 올바르므로 분석 누락·완료 방해는 아님. 과거 릴리스 내용은 변경하지 않았음.
+- **다음에 `계속해줘`를 받으면**, 같은 16종 범위에 대해 새 버전을 인위적으로 만들지 말고 **연구 완료를 알리고 정지**. 사용자가 신규 원본·새 오류·확장 범위를 지정할 때만 `TEX03-R008` 후보를 평가한다. 스크린샷이나 게임 실행 요청 금지.
 
 ## 현행 검증 범위 결정 (2026-11-13, 사용자 지시)
 
@@ -12,7 +23,7 @@
 - `TEX03-R006` 현재 버전, `TEX03-R007` 다음 후보, 전역 `v38` 그대로. 이번 정책만 변경하므로 신규 연구 릴리스/고유 픽셀·면 실적을 만들지 않았다.
 - 앞으로 사용자가 **`계속해줘`**라고 하면 새 소스 근거가 있을 때만 정적 연구를 수행한다. 새로 확인할 비중복 정적 증거가 없으면 **중단하고 그 사실을 알리며, 인게임 자료 제출을 요청하지 않는다.**
 
-## TEX03-R006 — 최신 소스 기반 RGB·투명 마스크/정적 UV 미러 분석
+## TEX03-R006 — 이전 최신 소스 기반 RGB·투명 마스크/정적 UV 미러 분석
 
 [최신 R006 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-03/TEX03-R006/REPORT.md) · [R006 SUMMARY.json](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-03/TEX03-R006/SUMMARY.json)
 
@@ -66,4 +77,4 @@
 
 GitHub `STATE.json`/`HANDOFF.md`/R004/HEAD 우선 확인 후 **새 증거가 있을 때만** R007 신규 저장. 새로운 비중복 정적 소스 검증 근거를 우선하며, 실제 게임 화면 증거를 요구하지 않는다. **공식 Mojang 원본 JAR 인증을 요구하거나 후속 과제로 지정하지 않는다.** 정적 JSON의 회전/UV는 실제 빛·면 가려짐·광택을 입증하지 못하지만 그런 실게임 검증은 현행 연구 완료 조건에서 제외됐다.
 
-**애니메이션·키프레임·움직임 연구 보류**; Project Zomboid 변환 및 가구 3D 제작 금지. 다른 단계나 루트 `HANDOFF.md`, `PROGRESS.md`, `handoff/STATE.json`, 전역 `v38` 수정 금지. **기존 R001/R002/R003/R004/R005/R006 릴리스 파일 영구 불변**, 이 단계 전용 새 `TEX03-R007/` 결과와 이 단계 `STATE.json`/`HANDOFF.md`만 이후 쓰기 허용.
+**애니메이션·키프레임·움직임 연구 보류**; Project Zomboid 변환 및 가구 3D 제작 금지. 다른 단계나 루트 `HANDOFF.md`, `PROGRESS.md`, `handoff/STATE.json`, 전역 `v38` 수정 금지. **기존 R001~R007 릴리스 파일 영구 불변.** 현 단계 완료이므로 신규 쓰기는 요구되지 않는다. 새 연구 재개 시에는 이 단계 전용 `TEX03-R008/` 신규 경로와 해당 단계 `STATE.json`/`HANDOFF.md`만 변경 허용.
