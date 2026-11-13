@@ -10,7 +10,7 @@
   "current_revision": "TEX05-R004",
   "next_revision": "TEX05-R005",
   "revision_sequence": 4,
-  "revision_status": "R004_four_user_extracted_static_sidecar_atlas_block_shaders_checked_mirror_same_D3_F_pending",
+  "revision_status": "R004_static_resources_verified_official_jar_auth_out_of_scope_by_user_policy_ingame_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 6,
@@ -71,10 +71,12 @@
       "last_evidence_revision": "TEX05-R004"
     },
     "F": {
-      "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_official_sha1_and_ingame_transparency_sorting_no_shader_runtime_attribution",
+      "title": "F 인게임 정적 렌더 검증 (Mojang JAR 공식 인증 제외)",
+      "status": "pending_ingame_static_render_only_official_jar_auth_out_of_scope",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX05-R004"
+      "last_evidence_revision": "TEX05-R004",
+      "official_jar_auth_requirement": false,
+      "ingame_static_render_requirement": "verify_only_with_actual_game_evidence"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
@@ -348,11 +350,11 @@
     }
   ],
   "next_steps": [
+    "User policy (2026-11-13): do NOT pursue, require, or count Mojang official client.jar SHA-1 authentication. Mark it out_of_scope; do not represent it as passed.",
     "Before any TEX05-R005 write, reread stage STATE/HANDOFF SHA, current revision, GitHub HEAD and ensure immutable release folder absent.",
-    "Continue to prioritize user-provided 1.21.11/ and separately record four provenance levels; metadata and general shaders cannot substitute for actual in-game bindings.",
+    "Continue to prioritize user-provided 1.21.11/ and separately record three currently applicable evidence lanes (user extract, mirror crosscheck, in-game); retain historical fourth lane as out-of-scope; metadata and general shaders cannot substitute for actual in-game bindings.",
     "Investigate mipmap_strategy mean meaning only if verified actual engine source/docs; do not infer runtime filter from .mcmeta alone.",
     "Resolve whether glass uses block.fsh and which ALPHA_CUTOUT defines, blend, sort, face visibility and game lighting only with runtime evidence or authoritative code binding plus test.",
-    "Verify original Mojang 1.21.11 complete client.jar SHA-1 and official metadata only if original binary available; current state 0/6 official.",
     "Keep animation study deferred; no PZ conversion/furniture modeling. Preserve global v38 and prior immutable releases."
   ],
   "official_client_jar_available": false,
@@ -361,7 +363,8 @@
   "scope_excluded": [
     "Project Zomboid conversion",
     "actual furniture 3D asset building",
-    "animation study until explicitly resumed"
+    "animation study until explicitly resumed",
+    "Mojang official client.jar full SHA-1 authentication (removed from required research by user)"
   ],
   "project_overall_completion_pct": null,
   "do_not_count_planning_as_research": true,
@@ -408,10 +411,13 @@
       "new_r004_auxiliary_source_paths_same_blob": 4
     },
     "mojang_official_client_jar": {
-      "status": "pending",
+      "status": "out_of_scope_user_removed",
       "authenticated_count": 0,
       "denominator_png": 6,
-      "official_client_jar_sha1_authenticated": false
+      "official_client_jar_sha1_authenticated": false,
+      "required": false,
+      "completion_gate": false,
+      "historical_count_only": true
     },
     "minecraft_ingame_static_render": {
       "status": "pending",
@@ -447,5 +453,30 @@
     "shader_block_vertex_lightmap": "static_code_only_not_glass_runtime_proof",
     "packed_atlas_uv_unknown": true,
     "real_game_render_blending_unknown": true
-  }
+  },
+  "research_policy": {
+    "amended_on": "2026-11-13",
+    "latest_instruction": "User explicitly removed Mojang official JAR authentication from the 1-1-05 research requirements.",
+    "mojang_official_jar_sha1_authentication_required": false,
+    "mojang_official_jar_sha1_authentication_status": "out_of_scope_not_evaluated_not_verified",
+    "active_verification_lanes": [
+      "user_provided_1.21.11_extracted_source",
+      "legacy_mirror_crosscheck",
+      "ingame_static_render_when_actual_evidence_available"
+    ],
+    "remove_official_authentication_from_completion_gate": true,
+    "historical_previous_report_statements_preserved": true,
+    "policy_change_only_no_new_source_evidence": true
+  },
+  "policy_amendments": [
+    {
+      "date": "2026-11-13",
+      "kind": "scope_change_only_not_new_verified_revision",
+      "revision_unchanged": "TEX05-R004",
+      "next_revision_unchanged": "TEX05-R005",
+      "field": "mojang_official_client_jar_authentication",
+      "new_value": "out_of_scope",
+      "reason": "explicit user instruction: 공식 인증 빼"
+    }
+  ]
 }
