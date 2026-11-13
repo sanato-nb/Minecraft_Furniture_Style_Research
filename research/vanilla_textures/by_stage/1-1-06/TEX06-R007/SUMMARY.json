@@ -1,0 +1,78 @@
+{
+  "schema": "mc-furniture-texture-stage-result/v1",
+  "revision": "TEX06-R007",
+  "base_revision": "TEX06-R006",
+  "stage_id": "1-1-06",
+  "date": "2026-11-13",
+  "checkpoint_unchanged": "v38",
+  "research_type": "new_cross_texture_luminance_spatial_pattern_alignment_not_new_unique_source_textures",
+  "source_primary": "user_uploaded_1.21.11_extracted_8_PNGs",
+  "source_paths": {
+    "1.21.11/assets/minecraft/textures/block/terracotta.png": "b2458267eac6b6f35d02990ee3244edf1f43fbe258bd6dfe15189cf2eaf42ae8",
+    "1.21.11/assets/minecraft/textures/block/white_terracotta.png": "9feeb13f19514ea58a5b6e942df7a8595330e61173f8d0a13c83b78acd1bd62e",
+    "1.21.11/assets/minecraft/textures/block/orange_terracotta.png": "3074d90b0a27d1c149df2f3eacc9c6895c4cc0548999f864146dc18f64bcab5a",
+    "1.21.11/assets/minecraft/textures/block/blue_terracotta.png": "99b4ec0a8a02a9d609d4987cbb7ba594a59f93c76b5fd98e3a1f12c2df1f9a70",
+    "1.21.11/assets/minecraft/textures/block/green_terracotta.png": "ffe10089bcef9873c74f18be35e605c5d035f472c06bf677746d39ff8a656c07",
+    "1.21.11/assets/minecraft/textures/block/yellow_terracotta.png": "7c00bf901f78ad628a06335d47310a6b18c1419243d4150e32cdf01d51bafca6",
+    "1.21.11/assets/minecraft/textures/block/black_glazed_terracotta.png": "214ce8ca46c60a42b8863655b3895aca839c7ef7cfa511a192dc1974a0ca2758",
+    "1.21.11/assets/minecraft/textures/block/white_glazed_terracotta.png": "cb1ebf9f3f3e93009ff4cab1b2b2b70d41fd87caa40c71942ae51996d12498b4"
+  },
+  "source_files_read_and_sha256_checked": 8,
+  "source_png_CRC32_checked": 8,
+  "source_image_size_px": "16x16",
+  "source_RGB_pixel_positions_redecoded": 2048,
+  "new_unique_texture_paths": 0,
+  "new_distinct_source_texel_claim": 0,
+  "derived_pairwise_unique_texture_pairs": 28,
+  "transform_hypotheses_per_pair": 1024,
+  "derived_transform_scores_computed": 28672,
+  "rotation_degrees_CCW": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "wraparound_translations_per_axis": 16,
+  "aligned_identity_wins": 15,
+  "pair_categories": {
+    "ordinary_dyed_5": 10,
+    "ordinary_uncolored_vs_dyed": 5,
+    "ordinary_vs_glazed": 12,
+    "glazed_pair": 1
+  },
+  "aligned_pearson_ranges": {
+    "ordinary_dyed_5": [
+      0.95588,
+      0.992976
+    ],
+    "ordinary_uncolored_vs_dyed": [
+      0.482668,
+      0.490693
+    ],
+    "ordinary_vs_glazed": [
+      -0.062656,
+      -0.009486
+    ],
+    "glazed_pair": [
+      0.123941,
+      0.123941
+    ]
+  },
+  "sample_count_per_corr": 256,
+  "sRGB_weighted_luma_coefficients": [
+    0.2126,
+    0.7152,
+    0.0722
+  ],
+  "controlled_limitation": "Pearson of 8-bit sRGB code-value weighted luma is not linear optical luminance; correlation does not prove a common artist source or exact texture recoloring. Cyclic wrap translation search does not represent block tiling.",
+  "ingame_verification": "excluded_by_user",
+  "official_Mojang_compressed_client_jar_SHA1": "excluded_by_user",
+  "animation": "deferred",
+  "PZ_or_3D_furniture": "excluded",
+  "outputs": [
+    "REPORT.md",
+    "PAIRWISE_LUMA_28.csv",
+    "SUMMARY.json",
+    "REPRODUCE_LUMA_CORRELATION.py"
+  ]
+}

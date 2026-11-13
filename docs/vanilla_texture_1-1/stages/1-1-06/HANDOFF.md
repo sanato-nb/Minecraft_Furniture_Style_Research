@@ -147,3 +147,12 @@
 - 변경은 **방법론/범위 설정만 수정**했으므로 `current_revision=TEX06-R006`, `next_revision=TEX06-R007` 그대로 유지. R001–R006 불변 릴리스 및 공통 `v38`는 손대지 않는다. **신규 소스 근거가 있을 때만 R007** 생성.
 - 이후 사용자가 "계속해줘"라고 요청하면 재입장 후 **남아 있는 소스 기반 실증 분석만** 계속한다. 소스 관점에서 할 연구가 다 끝났거나 사용자 제공 원본이 부족해 실제 더 진행할 수 없다면 **버전/성과를 억지로 늘리지 말고 멈춰서 사유와 필요한 자료를 알려준다**. 단순히 인게임 캡처가 없다는 사유만으로 중단/도움 요청하지 않는다.
 - 애니메이션 분석, Project Zomboid 변환, 실제 가구 3D 모델링 제작은 별도 지시까지 이 단계 범위 밖이다.
+
+## TEX06-R007 — 2026-11-13 8개 원본 PNG의 색상별 명암 무늬 교차상관 신규 검증
+
+- **현재 `TEX06-R007`, 다음 `TEX06-R008`**. 고정 `1-1-06` 8종, 공통 `v38` 불변. 기존 R001–R006의 불변 파일 보존. `STATE.revisions`에 누락됐던 기존 **R005 릴리스 색인 항목만 복원**했고 R005 파일은 수정하지 않았음.
+- 사용자 제공 `1.21.11/` **8 PNG 모두를 바이너리 SHA256·PNG 청크 CRC 재검증하고 16×16 RGB 직접 재디코딩**. 이전 R001–R006의 같은 PNG 2,048 원본 화소를 별도 목적에 재사용; 신규 고유 PNG **0**, 신규 미관찰 고유 텍셀 **0**.
+- **기존 R001~R006에서 없던 정적 비교:** RGB를 BT.709 가중 8비트 코드값 명도(선형 광학값 아님)로 변환, 같은 위치의 정규화된 256픽셀 Pearson r를 계산. **총 28쌍 × 1,024가지(4 회전×16×16 순환 이동)=28,672개의 정렬 점수**, 최적 배치와 두 번째 후보를 CSV로 기록. 이는 회전·순환 통계 비교수이며 신규 텍스처·화소 수치에 중복 가산하지 않음.
+- **염색 일반 테라코타 5종끼리 10쌍:** 동일 위치 r **0.955880–0.992976**. **기본 terracotta ↔ 염색 5종 5쌍:** r **0.482668–0.490693**. 일반 계열 내부의 **15쌍 전부 회전0·이동0이 1,024개 중 최적**. 일반↔유광 12쌍은 같은 위치 r **-0.062656 ~ -0.009486**, 검정↔흰색 유광 1쌍은 r **0.123941**. 색상 다른 원본이 동일 원본을 도색했다는 제작 이력의 직접 증명은 아님.
+- [R007 연구 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R007/REPORT.md) · [28쌍 전체 계산 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R007/PAIRWISE_LUMA_28.csv) · [재현 Python](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R007/REPRODUCE_LUMA_CORRELATION.py) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R007/SUMMARY.json).
+- 사용자 최신 범위대로 **인게임 검증·Mojang 공식 압축 JAR 인증 제외** 유지. 기존 `0/8`은 역사적 계수이며 미완료 차단 요소가 아님. 애니메이션, PZ 변환, 실제 가구 3D 모델 제작 제외. 다음 진행 때 새로운 **실제 소스 기반** 질문/근거가 없으면 R008을 만들지 말고 중단 안내.

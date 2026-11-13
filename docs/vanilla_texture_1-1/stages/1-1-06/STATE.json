@@ -7,10 +7,10 @@
   "stage_id": "1-1-06",
   "material_family": "도기·유광도기",
   "stage_prefix": "TEX06",
-  "current_revision": "TEX06-R006",
-  "next_revision": "TEX06-R007",
-  "revision_sequence": 6,
-  "revision_status": "R006_64_conditional_side_UV_maps_512_edge_comparisons_4096_panels_R005_RGB_inherited",
+  "current_revision": "TEX06-R007",
+  "next_revision": "TEX06-R008",
+  "revision_sequence": 7,
+  "revision_status": "R007_8_source_PNG_SHA_CRC_redecoded_28_pairwise_28672_rotshift_correlation_pattern_alignment",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 8,
@@ -48,21 +48,21 @@
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R005_2_existing_glazed_PNG_source_SHA_CRC",
+      "status": "R007_8_original_user_PNG_SHA256_CRC_direct_recheck",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX06-R005"
+      "last_revision": "TEX06-R007"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R005_256_RGB_position_rows_R002_aggregates_reproduced_not_recounted",
+      "status": "R007_28_cross_texture_256px_luminance_correlations_from_redecoded_user_PNG",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX06-R005"
+      "last_revision": "TEX06-R007"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R006_side_world_UV_and_512_conditional_seam_pairwise",
+      "status": "R007_5_dyed_share_aligned_spatial_pattern_r_0_955880_to_0_992976_rest_distinct",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX06-R006"
+      "last_revision": "TEX06-R007"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
@@ -78,17 +78,17 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R006_report_3_CSV_summary_reproducer_and_handoff",
+      "status": "R007_28_pairwise_CSV_REPRODUCE_REPORT_SUMMARY_bookkeeping_restored_R005",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX06-R006"
+      "last_revision": "TEX06-R007"
     }
   },
   "material_specific_checks": [
     {
       "id": "D1",
       "check": "일반 테라코타와 유광 도기의 팔레트·명도",
-      "status": "completed_d1_mirror_palette_8",
-      "last_revision": "TEX06-R004",
+      "status": "R007_source_28_luminance_correlation_pairs_5_dyed_10_high_alignment_pairs",
+      "last_revision": "TEX06-R007",
       "source_user_extracted_verification_revision": "TEX06-R003"
     },
     {
@@ -116,8 +116,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX06-R004",
-      "evidence_status": "R003_png_static_json_verified_plus_R004_item_definition_verified_official_ingame_pending",
+      "last_verified_revision": "TEX06-R007",
+      "evidence_status": "R007_user_unpacked_original_PNG_SHA256_CRC_cross_texture_spatial_luminance_test_prior_model_JSON_source_validated_ingame_excluded",
       "mirror_png_blob_sha": "4bb00863b656bdf3641d7d7fb64fe935d9d6e1d8",
       "mirror_model_blob_sha": "abdc18d7e9e6d39dede014dd610b7ec4de277158",
       "mirror_blockstate_blob_sha": "985d001a504fd95a239f68233c2c0421e9dc152b",
@@ -129,7 +129,9 @@
       "user_unpacked_blockstates_json_matches_prior_mirror": true,
       "user_unpacked_item_json_checked": true,
       "user_unpacked_item_json_blob_sha": "690ee81533ce62832abc12751ebaad7aeb13d9c8",
-      "item_json_mirror_byte_identical": true
+      "item_json_mirror_byte_identical": true,
+      "R007_direct_png_sha256_crc_checked": true,
+      "R007_pairwise_luma_comparison_degree": 7
     },
     {
       "item_id": "1-1-06-002",
@@ -140,8 +142,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX06-R004",
-      "evidence_status": "R003_png_static_json_verified_plus_R004_item_definition_verified_official_ingame_pending",
+      "last_verified_revision": "TEX06-R007",
+      "evidence_status": "R007_user_unpacked_original_PNG_SHA256_CRC_cross_texture_spatial_luminance_test_prior_model_JSON_source_validated_ingame_excluded",
       "mirror_png_blob_sha": "47ac87250e25365a12dc0e18d51ab5af36d55326",
       "mirror_model_blob_sha": "eb6bc0069fb4a9ab235dfc376efd6689ffc3a8d0",
       "mirror_blockstate_blob_sha": "184ea80877d8a7c708fbf2705746e1a3613a449e",
@@ -153,7 +155,9 @@
       "user_unpacked_blockstates_json_matches_prior_mirror": true,
       "user_unpacked_item_json_checked": true,
       "user_unpacked_item_json_blob_sha": "af76a078548cc0fc54ea182d9ea42719ce3a0604",
-      "item_json_mirror_byte_identical": true
+      "item_json_mirror_byte_identical": true,
+      "R007_direct_png_sha256_crc_checked": true,
+      "R007_pairwise_luma_comparison_degree": 7
     },
     {
       "item_id": "1-1-06-003",
@@ -164,8 +168,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX06-R004",
-      "evidence_status": "R003_png_static_json_verified_plus_R004_item_definition_verified_official_ingame_pending",
+      "last_verified_revision": "TEX06-R007",
+      "evidence_status": "R007_user_unpacked_original_PNG_SHA256_CRC_cross_texture_spatial_luminance_test_prior_model_JSON_source_validated_ingame_excluded",
       "mirror_png_blob_sha": "4dd8081875fef2dce3c5adb3d4422b995f1a0931",
       "mirror_model_blob_sha": "2d5e41a14fa07722dd02f04063f372ef2de53684",
       "mirror_blockstate_blob_sha": "6d644c41fbd3b7868ff69263248412ee6081b9a2",
@@ -177,7 +181,9 @@
       "user_unpacked_blockstates_json_matches_prior_mirror": true,
       "user_unpacked_item_json_checked": true,
       "user_unpacked_item_json_blob_sha": "5d3bdc715c8a08041b7348288f346c72fd51167e",
-      "item_json_mirror_byte_identical": true
+      "item_json_mirror_byte_identical": true,
+      "R007_direct_png_sha256_crc_checked": true,
+      "R007_pairwise_luma_comparison_degree": 7
     },
     {
       "item_id": "1-1-06-004",
@@ -188,8 +194,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX06-R004",
-      "evidence_status": "R003_png_static_json_verified_plus_R004_item_definition_verified_official_ingame_pending",
+      "last_verified_revision": "TEX06-R007",
+      "evidence_status": "R007_user_unpacked_original_PNG_SHA256_CRC_cross_texture_spatial_luminance_test_prior_model_JSON_source_validated_ingame_excluded",
       "mirror_png_blob_sha": "4088eaa696de7d9ec35115becc7c00bd1ea3b867",
       "mirror_model_blob_sha": "ead569747ba5fc4e2de54ecb40303ceebbad4782",
       "mirror_blockstate_blob_sha": "972492b109f10b6a09e822132e92d4e0421179dc",
@@ -201,7 +207,9 @@
       "user_unpacked_blockstates_json_matches_prior_mirror": true,
       "user_unpacked_item_json_checked": true,
       "user_unpacked_item_json_blob_sha": "db5cdb28ede045b88ec0e1348dcc7d0fa16950b5",
-      "item_json_mirror_byte_identical": true
+      "item_json_mirror_byte_identical": true,
+      "R007_direct_png_sha256_crc_checked": true,
+      "R007_pairwise_luma_comparison_degree": 7
     },
     {
       "item_id": "1-1-06-005",
@@ -212,8 +220,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX06-R004",
-      "evidence_status": "R003_png_static_json_verified_plus_R004_item_definition_verified_official_ingame_pending",
+      "last_verified_revision": "TEX06-R007",
+      "evidence_status": "R007_user_unpacked_original_PNG_SHA256_CRC_cross_texture_spatial_luminance_test_prior_model_JSON_source_validated_ingame_excluded",
       "mirror_png_blob_sha": "c71e655228f5fc70bfabaab1a67d3162a5078ad9",
       "mirror_model_blob_sha": "8c13900745d15b5d8e6034595915eee3f444f685",
       "mirror_blockstate_blob_sha": "3bf40d83e0da20f3468ca3d9ffca2bcd4c53f351",
@@ -225,7 +233,9 @@
       "user_unpacked_blockstates_json_matches_prior_mirror": true,
       "user_unpacked_item_json_checked": true,
       "user_unpacked_item_json_blob_sha": "b86f81064c508740fc8ddd6781516a0ee4aa0bea",
-      "item_json_mirror_byte_identical": true
+      "item_json_mirror_byte_identical": true,
+      "R007_direct_png_sha256_crc_checked": true,
+      "R007_pairwise_luma_comparison_degree": 7
     },
     {
       "item_id": "1-1-06-006",
@@ -236,8 +246,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX06-R004",
-      "evidence_status": "R003_png_static_json_verified_plus_R004_item_definition_verified_official_ingame_pending",
+      "last_verified_revision": "TEX06-R007",
+      "evidence_status": "R007_user_unpacked_original_PNG_SHA256_CRC_cross_texture_spatial_luminance_test_prior_model_JSON_source_validated_ingame_excluded",
       "mirror_png_blob_sha": "48d004d198c1f6c521ed7622b5ac567f68be02c7",
       "mirror_model_blob_sha": "8f3e76eed5749cc77c83b296a7ef2df5739a3539",
       "mirror_blockstate_blob_sha": "4a2aca6bd3af502ac2e2aa4277939d89e4ab3e67",
@@ -249,7 +259,9 @@
       "user_unpacked_blockstates_json_matches_prior_mirror": true,
       "user_unpacked_item_json_checked": true,
       "user_unpacked_item_json_blob_sha": "411c0705ab7a955e92ca142c35723f3332688c6c",
-      "item_json_mirror_byte_identical": true
+      "item_json_mirror_byte_identical": true,
+      "R007_direct_png_sha256_crc_checked": true,
+      "R007_pairwise_luma_comparison_degree": 7
     },
     {
       "item_id": "1-1-06-007",
@@ -260,8 +272,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX06-R006",
-      "evidence_status": "R006_source_side_UV_geometry_R005_RGBA_inherited_not_ingame_rendered",
+      "last_verified_revision": "TEX06-R007",
+      "evidence_status": "R007_user_unpacked_original_PNG_SHA256_CRC_cross_texture_spatial_luminance_test_prior_model_JSON_source_validated_ingame_excluded",
       "mirror_png_blob_sha": "58832984e6700a295c890ab86b568929d36567d5",
       "mirror_model_blob_sha": "f973bbba2a75c5bfa1e93ad6004b2ae1ff97d41b",
       "mirror_blockstate_blob_sha": "e20988dcdafdba18006a35e6a4437bb7d2e78f3f",
@@ -279,7 +291,9 @@
       "R005_top_corner_records": 20,
       "R006_side_UV_map_rows": 32,
       "R006_side_pairwise_rows": 256,
-      "R006_new_independent_RGBA_texels": 0
+      "R006_new_independent_RGBA_texels": 0,
+      "R007_direct_png_sha256_crc_checked": true,
+      "R007_pairwise_luma_comparison_degree": 7
     },
     {
       "item_id": "1-1-06-008",
@@ -290,8 +304,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX06-R006",
-      "evidence_status": "R006_source_side_UV_geometry_R005_RGBA_inherited_not_ingame_rendered",
+      "last_verified_revision": "TEX06-R007",
+      "evidence_status": "R007_user_unpacked_original_PNG_SHA256_CRC_cross_texture_spatial_luminance_test_prior_model_JSON_source_validated_ingame_excluded",
       "mirror_png_blob_sha": "a500a876f14d6fab28d140023d32436f28f2512e",
       "mirror_model_blob_sha": "e33fbedc0fd18cda66fd3ec878211f2b00c5adc2",
       "mirror_blockstate_blob_sha": "8c64ce09f7c0bf11dad8908ef220917b567673a9",
@@ -309,7 +323,9 @@
       "R005_top_corner_records": 20,
       "R006_side_UV_map_rows": 32,
       "R006_side_pairwise_rows": 256,
-      "R006_new_independent_RGBA_texels": 0
+      "R006_new_independent_RGBA_texels": 0,
+      "R007_direct_png_sha256_crc_checked": true,
+      "R007_pairwise_luma_comparison_degree": 7
     }
   ],
   "revisions": [
@@ -367,6 +383,19 @@
       "summary_path": "research/vanilla_textures/by_stage/1-1-06/TEX06-R004/SUMMARY.json"
     },
     {
+      "revision": "TEX06-R005",
+      "kind": "direct_source_2_glazed_PNG_SHA_CRC_recheck_256_source_RGB_seam_coordinate_pairs_40_top_UV_source_corners",
+      "source_textures_reprocessed": 2,
+      "new_unique_texture_paths": 0,
+      "R005_source_pair_position_rows": 256,
+      "R005_source_UV_top_corner_rows": 40,
+      "new_distinct_RGB_source_texels_claimed": 0,
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-06/TEX06-R005/REPORT.md",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-06/TEX06-R005/SUMMARY.json",
+      "bookkeeping_note": "Previously omitted from STATE.revisions index; existing immutable R005 release and original HANDOFF confirm publication; index-only correction during R007"
+    },
+    {
       "revision": "TEX06-R006",
       "kind": "conditional_source_world_side_UV_geometry_and_side_RGB_seam_mapping",
       "new_unique_textures": 0,
@@ -378,14 +407,28 @@
       "ingame_static_verified": 0,
       "report_path": "research/vanilla_textures/by_stage/1-1-06/TEX06-R006/REPORT.md",
       "summary_path": "research/vanilla_textures/by_stage/1-1-06/TEX06-R006/SUMMARY.json"
+    },
+    {
+      "revision": "TEX06-R007",
+      "kind": "8_user_PNG_SHA_CRC_recheck_28_cross_texture_luma_pair_correlations_28672_rot_shift_hypotheses",
+      "source_png_reverified": 8,
+      "source_PNG_RGB_pixels_reprocessed": 2048,
+      "new_unique_texture_paths": 0,
+      "new_unique_RGB_texels_claimed": 0,
+      "new_cross_texture_pairwise_luma_metrics": 28,
+      "cyclic_rotshift_hypotheses_checked": 28672,
+      "ordinary_texture_identity_alignment_wins": 15,
+      "source_only": true,
+      "ingame_not_required_by_user": true,
+      "report_path": "research/vanilla_textures/by_stage/1-1-06/TEX06-R007/REPORT.md",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-06/TEX06-R007/SUMMARY.json"
     }
   ],
   "next_steps": [
-    "On next '계속해줘', assess whether source-grounded 1.21.11 PNG/parent/leaf model/blockstate/item analysis has any substantive new unanswered question; investigate only if additional verifiable source evidence is available",
-    "Do not require Minecraft execution, block/item screenshots or renderer UV validation; preserve historical count 0 without treating as completion blocker",
-    "Do not require Mojang compressed client.jar SHA-1 authentication; primary user-supplied unpacked 1.21.11 assets and fixed mirror crosscheck remain valid",
-    "If source-only research is exhausted or further progress needs unavailable primary data, stop and tell the user rather than issuing an unsupported TEX06-R007",
-    "Keep prior TEX06 releases and global v38 unchanged, with no animation, PZ conversion or furniture 3D construction"
+    "On the next '계속해줘', check whether a genuinely distinct source-grounded question remains in 1-1-06; if no substantive research gap remains, stop and tell user instead of manufacturing R008",
+    "Source-grounded knowledge now includes R007 spatial luminance co-patterns in all 28 texture pairs; do not count 28672 statistical transformations as 28672 new pixel observations",
+    "Do not request gameplay screenshots, in-game renderer confirmation, or Mojang compressed client.jar SHA-1 verification",
+    "Keep all 8 fixed PNG source paths, source-only validation, prior immutable releases, global v38, and all other 1-1-xx stages unchanged; no animations, PZ conversion, 3D furniture builds"
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -402,8 +445,8 @@
   "stage_fully_official_and_ingame_verified_count": 0,
   "stage_independent_mirror_sha_pixel_checked_count": 8,
   "stage_static_model_blockstate_checked_count": 8,
-  "last_reprocessed_png_count": 2,
-  "last_reprocessed_rgba_pixel_count": 512,
+  "last_reprocessed_png_count": 8,
+  "last_reprocessed_rgba_pixel_count": 2048,
   "last_2x2_top_facing_hypotheses_count": 512,
   "user_unpacked_source_root": "1.21.11/",
   "user_unpacked_source_commit": "e06206f3cf2fad1d1f9ea3839e9d36a548fe9f4f",
@@ -493,21 +536,21 @@
     },
     "next_release_trigger": "new_verifiable_source_evidence_only",
     "continue_command_policy": "Continue source-analysis if feasible; stop and inform user if source research is exhausted or fresh primary data would be needed; never require in-game screenshots",
-    "immutable_releases_R001_through_R006": "preserved"
+    "immutable_releases_R001_through_R006": "preserved",
+    "immutable_releases_R001_through_R007": "preserved"
   },
   "version_advance_for_this_policy_update": false,
   "official_client_jar_authentication_policy": "excluded_by_user_not_claimed",
   "new_in_current_revision": {
-    "new_unique_PNG": 0,
-    "new_direct_PNG_SHA_CRC_tests": 0,
-    "inherited_R005_border_source_coordinates_per_glazed": 60,
-    "new_conditional_world_side_UV_map_rows": 64,
-    "new_conditional_pairwise_side_seam_metric_rows": 512,
-    "new_conditional_side_2x2_layouts_tested": 4096,
-    "new_2x2_optimum_rows": 16,
-    "new_independent_RGBA_texels": 0,
-    "ingame_static_verified_count": 0,
-    "output_root": "research/vanilla_textures/by_stage/1-1-06/TEX06-R006/"
+    "existing_png_files_SHA256_and_CRC_directly_reverified": 8,
+    "existing_source_RGB_pixel_positions_redecoded": 2048,
+    "new_unique_textures": 0,
+    "new_distinct_source_RGBA_texels_claimed": 0,
+    "new_cross_texture_luminance_pair_rows": 28,
+    "new_2d_rotation_cyclic_shift_statistical_hypotheses": 28672,
+    "identity_layout_best_within_ordinary_15_pairs": 15,
+    "ingame_static_test_required": false,
+    "output_root": "research/vanilla_textures/by_stage/1-1-06/TEX06-R007/"
   },
   "source_only_completion_basis": "8/8 primary user-unpacked PNG and related model/item/blockstates crosschecked, separate from in-game render verification",
   "ingame_verification_requirement_removed_by_user": true
