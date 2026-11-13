@@ -73,3 +73,13 @@
 - 정적 모델/상태 JSON 8쌍, 상속 부모 4종, 정적 UV 면 **44행**, vine 10 multipart 조건 확인. **D1** 7종 이진 컷아웃 + moss 1종 완전 불투명, **D2** 모델 tintindex 0인 5종 vs 미기재 3종, **D3** 큐브/덩굴 양면 평면+알파 외곽 역할 구분.
 - [독립 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R001/REPORT.md), [SHA·출처 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R001/SOURCE_LEDGER.csv), [PNG 픽셀 증거](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R001/PIXEL_AUDIT.json), [면별 UV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R001/MODEL_UV_AUDIT.csv), [상태 요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R001/SUMMARY.json).
 - **F 미완료:** Mojang 공식 JAR 진본 인증 0/8, 인게임 정적 렌더 0/8. 추출 미러 동일성=공식 인증 아님. 애니메이션 보류 계속, 전역 v38 유지. **현재 `TEX10-R001`, 다음 `TEX10-R002`**. 저장 직전 상태/SHA 충돌 재확인 필수.
+
+---
+
+## TEX10-R002 — 추가 정적 실측 / 2026-11-13
+
+- 대상은 기존 **8개로 동일**, 각각 원본 SHA·blob SHA 재확인. 실제 RGB/알파 이미지 2,048픽셀에 대해 **128행 이진 마스크**, 경계 60픽셀/장, 4-인접 전환 및 반복 경계 좌우/상하 차이 추가 기록. R001의 8/8을 누적 16개로 계산 금지.
+- 철쭉/개화 철쭉 같은 좌표 256픽셀 RGBA 직접 대조: **동일 217, 변경 39**(공통 불투명 RGB 변경 21, 한쪽만 가시 18).
+- 덩굴 10 multipart 원본 규칙을 5 부울값의 **32개 논리 조합**에 적용. 전체 85 인스턴스·170 선언 면, 모두 false fallback 5개가 선택됨; 실제 인게임 32상태 접근성은 미확인. 북/남 UV 좌우 반전 실화소 16개 샘플 기록.
+- [R002 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R002/REPORT.md), [알파 마스크](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R002/PIXEL_MASK_AUDIT.json), [덩굴 32 상태](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R002/VINE_32_STATIC_STATES.csv), [철쭉 차분](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R002/AZALEA_PAIR_DIFF.json).
+- **Mojang 공식 client.jar 인증·인게임 정적 검증 0/8 유지**: 공식 API 발견, 실제 서버 다운로드 불가. 애니메이션 보류, 전역 v38 유지. 이번 단계 버전 `TEX10-R002`; 다음 `TEX10-R003`은 신규 증거가 있을 때만 진행.
