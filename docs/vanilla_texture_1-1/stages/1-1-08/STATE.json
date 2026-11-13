@@ -7,10 +7,10 @@
   "stage_id": "1-1-08",
   "material_family": "복합·기능면",
   "stage_prefix": "TEX08",
-  "current_revision": "TEX08-R005",
-  "next_revision": "TEX08-R006",
-  "revision_sequence": 5,
-  "revision_status": "source_verified_62_static_state_pairs_beehive_24_of_256_RGBA_same_21_target_no_ingame",
+  "current_revision": "TEX08-R006",
+  "next_revision": "TEX08-R007",
+  "revision_sequence": 6,
+  "revision_status": "2_rechecked_target_png_156_of_256_pairwise_rgba_changes_6_UV_regions_64_unique_atlas_256_conditions_checked_no_ingame",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 21,
@@ -48,27 +48,27 @@
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R003_primary_21_sha_preserved;R005_honey_front_and_side_aux_png_SHA_CRC_RGBA_checked",
+      "status": "R003_previous_target21_SHA_preserved;R006_2_chiseled_static_original_PNG_SHA_CRC_reverified",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R005"
+      "latest_revision": "TEX08-R006"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R001_RGBA_21_preserved;R005_beehive_honey_vs_base_24_of_256_static_pairwise",
+      "status": "R001_21_RGBA_retained;R006_chiseled_empty_occupied_pairwise_RGBA_156_of_256_and_6_slot_partitions",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R005"
+      "latest_revision": "TEX08-R006"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R004_all_model_faces_preserved;R005_static_state_specific_face_and_particle_differences",
+      "status": "R005_status_matrix_preserved;R006_64_static_source_atlas_compositions_all_distinct",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R005"
+      "latest_revision": "TEX08-R006"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R004_39_model_8_parents_143_faces_preserved;R005_62_transition_source_matrix",
+      "status": "R004_39_model_8_parents_143_face_preserved;R006_chiseled_256_blockstate_cases_evaluated_against_source",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R005"
+      "latest_revision": "TEX08-R006"
     },
     "F": {
       "title": "F 사용자 추출본 정적 적용 근거·인게임 관찰(가능한 범위) — 공식 JAR 인증 제외",
@@ -78,9 +78,9 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R005_immutable_release_and_stage_handoff_saved",
+      "status": "R006_immutable_data_report_verifier_and_handoff_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R005"
+      "latest_revision": "TEX08-R006"
     }
   },
   "material_specific_checks": [
@@ -93,14 +93,14 @@
     {
       "id": "D2",
       "check": "꺼짐·켜짐 등 두 고정 텍스처 차이만 비교, 다중 프레임 해독 금지",
-      "status": "R005_beehive_honey_static_24_of_256_pairwise;animation_deferred",
-      "latest_revision": "TEX08-R005"
+      "status": "R006_static_chiseled_slot_RGBA_156_of_256_64_atlases_no_animation",
+      "latest_revision": "TEX08-R006"
     },
     {
       "id": "D3",
       "check": "기능면의 #all·#front·#side 슬롯 및 실제 face UV/particle 분리",
-      "status": "R005_62_model_local_state_face_UV_particle_comparisons",
-      "latest_revision": "TEX08-R005"
+      "status": "R006_6_template_uv_exact_256_full_multipart_state_selection_checked",
+      "latest_revision": "TEX08-R006"
     }
   ],
   "items": [
@@ -561,15 +561,27 @@
       "report_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R005/REPORT.md",
       "official_jar_authentication_excluded": true,
       "ingame_verified": false
+    },
+    {
+      "revision": "TEX08-R006",
+      "kind": "chiseled_bookcase_static_slot_RGBA_pairwise_atlas64_and_full_state256",
+      "source_PNG_binary_rechecked": 2,
+      "source_model_template_JSON_direct_reread": 6,
+      "new_pairwise_rgba_changed_pixels": 156,
+      "atlas_sha_unique": 64,
+      "full_conditions_verified": 256,
+      "source_new_unique_count": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R006/REPORT.md",
+      "ingame_verified": false
     }
   ],
   "next_steps": [
-    "Re-read live STATE and HANDOFF; next revision TEX08-R006 only when new source evidence exists.",
-    "Keep 21 fixed target PNG/5376 legacy target pixels, and R004 39 models+8 parents/143 faces unchanged.",
-    "Auxiliary beehive honey/side PNG are outside fixed target; do not call them globally unique or double count v35.",
-    "In-game static UV/particle validation requires actual Minecraft screenshots/measurements; remain 0/21.",
-    "Animation frames deferred; official Mojang client.jar full authentication excluded by user.",
-    "Before any future write, check HEAD, STATE blob SHA and nonexistence of next release directory."
+    "Re-read live 1-1-08 STATE/HANDOFF, next TEX08-R007 only with new static source evidence.",
+    "Do not double-count R006 256 paired pixel positions or 64 2D atlases as new unique PNG pixels.",
+    "256 multipart combinations were evaluated from JSON; not an ingame image or particle render certification.",
+    "Actual Minecraft in-game static UV winding/particle and uvlock screen behavior still unobserved (0/21).",
+    "Mojang full official client.jar SHA1 metadata authentication excluded by user, not verified; animation study paused.",
+    "Any next release must be immutable, and stage-only after checking live HEAD and STATE SHA."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -584,8 +596,8 @@
   "stage_source_png_rgba_verified_count": 21,
   "stage_model_uv_source_checked_count": 21,
   "stage_fully_official_and_ingame_verified_count": 0,
-  "last_release_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R005/",
-  "last_release_source_note": "62 static source state pairs (38 variants+24 overlays), 22 regular face changes, beehive static honey-front RGBA 24/256, 3 PNG direct CRC/RGBA checks (2 auxiliary outside fixed 21); prior JSON/models inherited, game not observed.",
+  "last_release_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R006/",
+  "last_release_source_note": "R006 primary extracted chiseled bookshelf empty and occupied PNG CRC/SHA/RGBA rechecked; 156/256 pairwise changed pixels partitioned into 6 UV slots; 64 source-only atlas compositions unique; all 256 actual blockstate selections valid 1 body+6 slots; in-game 0.",
   "stage_1_1_08_official_jar_blocker": "SUPERSEDED_POLICY: official Mojang client.jar authentication removed from requirements by user on 2026-11-13; historical SHA-1 status remains unverified, not a blocker.",
   "stage_auxiliary_static_png_newly_examined_R002": [
     "barrel_top_open"
@@ -687,5 +699,25 @@
     ],
     "new_unique_project_pixels_claimed": 0,
     "ingame_verified": 0
+  },
+  "stage_chiseled_slot_RGBA_R006": {
+    "pairwise_rgba_positions": 256,
+    "different_rgba_positions": 156,
+    "alpha_changed": 0,
+    "source_slot_geometry_UV_regions": 6,
+    "per_slot_rgba_changed": [
+      25,
+      29,
+      24,
+      29,
+      25,
+      24
+    ],
+    "nonoverlapping_source_UV_coverage": 256,
+    "distinct_atlas_raw_rgba_hashes": 64,
+    "blockstate_full_combinations_evaluated": 256,
+    "seven_applied_models_each_state": true,
+    "ingame_verified": 0,
+    "animation_frames_studied": 0
   }
 }

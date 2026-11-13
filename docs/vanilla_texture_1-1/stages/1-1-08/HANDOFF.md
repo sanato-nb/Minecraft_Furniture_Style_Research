@@ -1,3 +1,20 @@
+# 1-1-08 — 복합·기능면 단계 인수인계 (현재 TEX08-R006)
+
+> 2026-11-13 · 다음 `TEX08-R007` · 대상 PNG 21개 · 전체 v38 불변
+
+## R006 새 정적 소스 근거
+- 원본 `1.21.11/`에서 `chiseled_bookshelf_empty.png`와 `chiseled_bookshelf_occupied.png`를 직접 SHA-256·Git SHA·PNG CRC32·16×16 RGBA 디코딩 재검증(기존 대상 2 PNG, 고유 신규 파일 0).
+- 두 PNG 사이 256좌표 RGBA 비교 중 **156 변경(60.9375%), alpha 변화 0**. 6개 템플릿 원본 UV 재검증 및 256픽셀 중복 없는 분할, 슬롯별 변경 `25,29,24,29,25,24`.
+- empty/occupied의 각 UV 조각을 선택한 **64개 소스 아틀라스의 RGBA raw SHA256 모두 다름**. 실제 게임 화면이 아니며 회전/조명/uvlock을 인증한 게 아님.
+- blockstate 52개 multipart 선언에 실제 4 facing × 64 점유 마스크 조건을 적용한 **256개 경우 모두 본체 1 + 슬롯 6의 정확한 7개 모델 선택**. R002 이론적 256조합과 달리 이번에는 실데이터 조건 평가 검증.
+- GitHub 새 폴더: [TEX08-R006 결과](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/research/vanilla_textures/by_stage/1-1-08/TEX08-R006/). `REPORT.md`, `SUMMARY.json`, `SLOT_RGBA_AUDIT.csv` (6), `ATLAS_64_COMBINATIONS.csv` (64), `BLOCKSTATE_256_SELECTIONS.csv` (256), `SOURCE_LEDGER.csv` (9), `VERIFY_STATIC_SLOTS.py`.
+- 과거 21 PNG/5,376 원본 픽셀, R004 39모델+8부모/143면, R005 62상태쌍은 그대로 계승·중복 가산 0. 실제 게임 내 렌더 검증 **0/21**. 공식 client.jar 전체 인증은 사용자 연구 범위 제외(성공 인증 아님). 애니메이션 및 PZ 변환/3D 가구 제작 보류.
+- 이후 새 근거 확보 시만 라이브 `TEX08-R007`, GitHub HEAD/STATE blob SHA/경로 미존재 확인 후 기록. 타 단계 및 루트 파일 수정 금지.
+
+---
+
+## 과거 R005 인수인계 (이하 과거 '다음 R006' 안내는 만료됨)
+
 # 1-1-08 — 복합·기능면 단계 전용 인수인계 (현재 TEX08-R005)
 
 > **2026-11-13 · 라이브 다음 버전 `TEX08-R006` · 대상 21 PNG · 전체 v38 변경 없음**
