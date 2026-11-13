@@ -1,5 +1,16 @@
 # 1-1-11 — 목재·구조부품 별도 채팅 인수인계
 
+## 2026-11-13 신규 독립 검증 — TEX11-R001
+
+- 단계 최신 버전 **TEX11-R001**, 다음 **TEX11-R002**. 기존 전역 v38 불변. 아래 R000 계획 문구는 최초 설정 당시 기록이다.
+- 실제 비공식 미러 PNG 31/31을 독립 재해시(v4 SHA 대조)·CRC/디코딩/RGBA 확인. 원본 11,776 픽셀(불투명 11,153, 투명 623, 부분 0), 16×16 26개/32×32 선반 5개. bamboo_shelf는 4-bit indexed PNG 예외.
+- D1 문 7쌍 알파 경계(cherry만 불일치 4열) 및 다락문 12종 UV; D2 선반 5 atlas×5 UV 영역 25 실화소 크롭; D3/E 파생 선반 28 leaf 및 128개 정적 상태, 문 56 leaf/다락문 36 leaf, 공유 템플릿 21 JSON. 선반 38 explicit UV면/2,304 texel uses 기존 v38과 재대조, oak_shelf v38 7 leaf는 신규 계산에 불포함.
+- 공식 Mojang client.jar 인증 **0/31**, 실제 인게임 정적 **0/31**. 반복 주기·실제 UV투영·문양 연결 미검증. 애니메이션 연구 계속 보류.
+- 결과: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/research/vanilla_textures/by_stage/1-1-11/TEX11-R001/
+- 다음 채팅은 GitHub STATE 재조회 후 TEX11-R002에서 공식/인게임 미검증 항목부터 재개.
+
+---
+
 > Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 초기 고유 버전 **`TEX11-R000` (계획만 저장)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 ## 연구 목표와 정확한 표본
