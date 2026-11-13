@@ -48,6 +48,9 @@
 
 **사용자 최신 작업 지시(2026-11-13): 애니메이션 분석은 일단 보류.** 새로운 애니메이션 프레임 해독, 키프레임·클립 분석, 움직임 재현 및 애니메이션 인게임 검증을 진행하지 않는다. 기존 v9/v26/v31 애니메이션 관련 기록은 삭제하지 않고 보존하되, 새로운 진행도에 포함하지 않는다. 우선순위는 **정적 바닐라 3D 모델·기하·텍스처·UV·블록 상태·정적 렌더링 검증·공식 원본 무결성**이다. 애니메이션 연구는 사용자가 명시적으로 재개를 요청할 때까지 유지 보류.
 
+
+**전체 바닐라 모델 연구 예정 대상:** [블록 모델 JSON 2,390개를 13개 분야로 분류한 전체 목록](docs/VANILLA_STATIC_MODELS_FULL_STUDY_LIST_v34.md) · [2,390개 전체 우선순위 CSV](research/vanilla_models/v34/10_all_2390_future_review_queue_filename_categories.csv). P1 544/P2 1,039/P3 807. **기존 연구와의 완료 상태 대조 전인 파일명 기반 후보 분류**이며 실제 분석 완료 수가 아님. 블록 상태1,168/PNG1,111은 v34 원본 인벤토리 별도 링크. 애니메이션 보류 유지.
+
 ## 빠른 탐색
 
 - [**v34 최신: 정적 랜턴·촛불·막대 153명시 UV면, 2,390 모델 전체 목록**](research/vanilla_models/v34/00_v34_바닐라2390모델_정적랜턴촛불_153면UV_전체목록.md) · [블록 모델 전수 SHA 목록](research/vanilla_models/v34/01_inventory_2390_block_model_paths_git_shas.csv) · [blockstates 전수 SHA 목록](research/vanilla_models/v34/02_inventory_1168_blockstate_paths_git_shas.csv) · [블록 PNG 전체 목록](research/vanilla_models/v34/03_inventory_1111_block_texture_png_paths_git_shas.csv) · [원본 153면 조사](research/vanilla_models/v34/05_eight_source_models_153_explicit_uv_faces_static_alpha.csv) · [Pillow 원본3 PNG](research/vanilla_models/v34/06_three_static_png_pillow_sha256_alpha_masks.csv). **애니메이션 보류, 최종 0/5**.

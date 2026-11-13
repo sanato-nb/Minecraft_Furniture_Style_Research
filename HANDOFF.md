@@ -7,6 +7,12 @@
 > 저장소: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research  
 > **새 채팅에서 먼저 이 문서, [PROGRESS.md](PROGRESS.md), [SOURCES_AND_LIMITS.md](SOURCES_AND_LIMITS.md)를 읽고 기존 작업을 이어간다.**
 
+
+### 사용자 요청: 바닐라 앞으로 진행할 전체 모델 목록 (2026-11-13, v34 범위 계획 부록)
+
+- [바닐라 블록 모델 JSON 2,390개 **전체 파일명을 13개 분야로 정리한 연구 예정 목록**](docs/VANILLA_STATIC_MODELS_FULL_STUDY_LIST_v34.md) · [2,390개 파일별 우선순위/분류 CSV](research/vanilla_models/v34/10_all_2390_future_review_queue_filename_categories.csv). P1 **544**, P2 **1,039**, P3 **807** 파일. 각 파일명은 정확히 한 번 분류되며 **파일명 기반 자동 분류(휴리스틱)·검토 후보 목록**으로 기존 v5–v34 검증 결과와의 중복 대조는 별도 수행해야 함.
+- 별도 원본 파일 목록: [blockstates 1,168개](research/vanilla_models/v34/02_inventory_1168_blockstate_paths_git_shas.csv), [block texture PNG 1,111개](research/vanilla_models/v34/03_inventory_1111_block_texture_png_paths_git_shas.csv). **2,390개 파일 전부를 JSON 내용/실제 PNG·UV까지 분석 완료한 것이 아님**. 바닐라 가구형 정밀 분석 대상의 최종 분모/전체 완료율은 여전히 미정. **사용자의 애니메이션 연구 보류 지시 유지**. 이 부록 저장만으로 v34 연구 체크포인트를 올리거나 완료 진도를 올리지 않음.
+
 ## 1. 프로젝트 목표와 변경 불가 범위
 
 - 상위 목표는 **마인크래프트와 잘 어울리는 가구 모델링 방식을 근거 기반으로 학습**하는 것.
