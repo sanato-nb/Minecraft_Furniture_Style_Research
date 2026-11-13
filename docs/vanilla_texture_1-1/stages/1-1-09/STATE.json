@@ -71,10 +71,11 @@
       "last_updated_revision": "TEX09-R004"
     },
     "F": {
-      "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_official_original_client_jar_sha1_and_ingame_tint_or_snow_render",
+      "title": "F 인게임 정적 렌더 검증 (Mojang 공식 JAR 인증 요구 제외)",
+      "status": "pending_ingame_static_only__official_authentication_excluded_by_user_policy",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R004"
+      "last_updated_revision": "TEX09-R004",
+      "policy_change": "2026-11-13: official Mojang JAR SHA-1 and manifest validation explicitly excluded from stage requirements; not a completion claim"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
@@ -316,11 +317,11 @@
     }
   ],
   "next_steps": [
-    "Re-read STATE.json and HEAD; expected next R005 if latest unchanged",
-    "For F, independently acquire original Mojang client.jar and compare SHA-1 against official version metadata; user extraction alone does not authenticate the JAR",
-    "Collect static game screenshots in known biome for grass/podzol overlay tint, snowy=true model, lighting and adjacent block overlays",
-    "Do not count context support textures as additional target samples; target stays 9",
-    "Animation research deferred; no Zomboid conversion or 3D furniture production; global v38 unchanged"
+    "Before a new substantive release re-read STATE.json/HEAD; next candidate TEX09-R005 remains reserved",
+    "Continue user-provided 1.21.11 source texture/model/UV/color research and mirror crosschecks without repeating prior counted samples",
+    "If game screenshots become available, examine grass/podzol biome tint, snowy=true, lighting and neighboring block effects; otherwise mark ingame as pending",
+    "Do not perform official JAR SHA-1 authentication or Mojang manifest verification for 1-1-09 unless user explicitly changes policy",
+    "Animation remains deferred; no Project Zomboid conversion or furniture 3D modeling; preserve global v38 and other stages"
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -394,5 +395,23 @@
     "snow_side_opaque_pixels": 256,
     "podzol_top_reread_not_new": true,
     "ingame_color_verified": false
-  }
+  },
+  "policy_overrides": {
+    "official_authentication": {
+      "required": false,
+      "enabled_for_future_work": false,
+      "status": "excluded_by_user_request",
+      "effective_date": "2026-11-13",
+      "scope": "1-1-09 only",
+      "applies_to": "future research, status evaluations, and next-steps; previous releases remain immutable",
+      "keep_old_counters_as_historical": true,
+      "rationale": "User explicitly requested '공식 인증 빼'"
+    },
+    "active_validation_track": [
+      "user_provided_1.21.11_extracted_png_json_model_direct_checks",
+      "crosscheck_extracted_files_with_existing_asset_mirror",
+      "in_game_static_render_validation_when_accessible"
+    ]
+  },
+  "revision_policy_note": "2026-11-13 user-directed administrative scope update; kept current_revision TEX09-R004 and next_revision TEX09-R005 because no new source measurement was performed"
 }
