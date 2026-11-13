@@ -1,6 +1,6 @@
 # 1-1-02 — 석재·벽돌 별도 채팅 인수인계
 
-> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 초기 고유 버전 **`TEX02-R000` (계획만 저장)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
+> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R001` (비공식 미러 원본 PNG+정적 모델 검수)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 ## 연구 목표와 정확한 표본
 
@@ -9,7 +9,7 @@
 - 분류별 원본 계획: [1-1-02 A–G 상세 작업 목록](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/docs/vanilla_texture_1-1/1-1-02_석재벽돌.md).
 - 새 채팅 첫 메시지: [전용 START_PROMPT.md](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/docs/vanilla_texture_1-1/stages/1-1-02/START_PROMPT.md).
 - 절대 규칙: [독립 채팅 버전·쓰기 경계](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/docs/vanilla_texture_1-1/ISOLATED_CHAT_VERSIONING.md).
-- 이전 통합 성과(역사적 관찰, 새 결과로 중복 계산 금지): **v4 선정 17/17 항목의 측정 기록 존재**; 현재 이 별도 작업의 A–G 체크는 아직 시작하지 않았다. **공식 Mojang 1.21.11 client.jar / 인게임 정적 검증 미완료**, 전체 프로젝트 완료 `0/5`. 기존 `v1`~`v38` 파일 및 수치를 보존한다.
+- 이전 통합 성과(역사적 관찰, 새 결과로 중복 계산 금지): **v4 선정 17/17 항목의 측정 기록 존재**; TEX02-R001에서 비공식 미러 A–E 소스 검수와 G 저장을 수행했다. F 공식/인게임 검증은 대기 상태이다. **공식 Mojang 1.21.11 client.jar / 인게임 정적 검증 미완료**, 전체 프로젝트 완료 `0/5`. 기존 `v1`~`v38` 파일 및 수치를 보존한다.
 
 ## 해당 단계의 기존 연구 연결 및 주의점
 
@@ -19,13 +19,13 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 
 | 코드 | 작업 | 독립 단계 현황 |
 |---|---|---|
-| 1-1-02-A | A 기존 출처·파일·중복 대조 | 이 단계에서 신규 완료 확인 전 / v4 증거 별도 존재 |
-| 1-1-02-B | B PNG 실제 바이너리·SHA·CRC 검증 | 이 단계에서 신규 완료 확인 전 / v4 증거 별도 존재 |
-| 1-1-02-C | C RGBA·밝기·알파·반복 정량 검사 | 이 단계에서 신규 완료 확인 전 / v4 증거 별도 존재 |
-| 1-1-02-D | D 재질 특화 세부 검사 | 이 단계에서 신규 완료 확인 전 / v4 증거 별도 존재 |
-| 1-1-02-E | E 정적 모델 JSON·UV·상태 연결 | 이 단계에서 신규 완료 확인 전 / v4 증거 별도 존재 |
-| 1-1-02-F | F 공식 Mojang client.jar·인게임 정적 검증 | 이 단계에서 신규 완료 확인 전 / v4 증거 별도 존재 |
-| 1-1-02-G | G 근거 보고서·단계 인수인계 저장 | 이 단계에서 신규 완료 확인 전 / v4 증거 별도 존재 |
+| 1-1-02-A | A 기존 출처·파일·중복 대조 | TEX02-R001 미러 PNG/모델 직접 검수 / 공식 검증 대기 |
+| 1-1-02-B | B PNG 실제 바이너리·SHA·CRC 검증 | TEX02-R001 미러 PNG/모델 직접 검수 / 공식 검증 대기 |
+| 1-1-02-C | C RGBA·밝기·알파·반복 정량 검사 | TEX02-R001 미러 PNG/모델 직접 검수 / 공식 검증 대기 |
+| 1-1-02-D | D 재질 특화 세부 검사 | TEX02-R001 미러 PNG/모델 직접 검수 / 공식 검증 대기 |
+| 1-1-02-E | E 정적 모델 JSON·UV·상태 연결 | TEX02-R001 미러 PNG/모델 직접 검수 / 공식 검증 대기 |
+| 1-1-02-F | F 공식 Mojang client.jar·인게임 정적 검증 | TEX02-R001 미러 PNG/모델 직접 검수 / 공식 검증 대기 |
+| 1-1-02-G | G 근거 보고서·단계 인수인계 저장 | TEX02-R001 미러 PNG/모델 직접 검수 / 공식 검증 대기 |
 
 **D 재질 특화 기준**
 
@@ -59,8 +59,8 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 
 ## 버전 상태·저장 경로·갱신 규칙
 
-- 현재 **`TEX02-R000`**: 단계 분리/작업 안내만 저장, 실측 신규 완료 0.
-- 다음 검증 보고서: **`TEX02-R001`**; 저장 경로 `research/vanilla_textures/by_stage/1-1-02/TEX02-R001/`. 다음은 이 단계만 `TEX02-R002`...
+- 현재 **`TEX02-R001`**: 미러 PNG 17/17 SHA·CRC·RGBA 재측정, 정적 모델·상태 17/17 대조. 공식/인게임 인증 0/17.
+- 최신 검증 결과: **`TEX02-R001`**; 저장 경로 `research/vanilla_textures/by_stage/1-1-02/TEX02-R001/`. 다음은 이 단계만 **`TEX02-R002`**...
 - 이 단계 진행 관리: [STATE.json](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/docs/vanilla_texture_1-1/stages/1-1-02/STATE.json)와 이 `HANDOFF.md`만 단계 자체 채팅에서 갱신.
 - 다른 번호 단계의 `STATE/HANDOFF` 및 루트 프로젝트 공통 체크포인트·진행 문서는 **수정 금지**. 통합 시 최종 집계 담당자가 별도로 확인.
 - 소스 증거의 신뢰도는 최소 `legacy_only`, `mirror_sha_pixel_checked`, `official_jar_authenticated`, `ingame_static_verified`로 구분하되, 서로 상충·불충분하면 `pending` 유지.
@@ -73,3 +73,10 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 2. 과거 v4 측정과 타 버전(해당되면 v35~v38)의 동일 경로 SHA/화소를 대조해 **새로 분석할 실제 빈틈**을 고른다.
 3. 자료를 직접 검사하고 `REPORT.md`·`SOURCE_LEDGER.csv`·`SUMMARY.json`을 고유 릴리스 폴더에 보존한다. 미완료 작업은 근거/차단 원인을 기록한다.
 4. 마지막으로 이 `HANDOFF.md`·본 단계 `STATE.json`만 갱신하고 다음 채팅에서 그 다음 미완료 부분으로 이어가게 한다.
+
+## 최신 실측 결과 — TEX02-R001 (2026-11-13)
+
+- 결과: [정적 검증 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R001/REPORT.md) · [17종 파일별 SOURCE_LEDGER](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R001/SOURCE_LEDGER.csv) · [MODEL_UV_LEDGER](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R001/MODEL_UV_LEDGER.csv) · [D2 행별 에지 피크](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R001/D2_ROW_PEAKS.csv) · [SUMMARY.json](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R001/SUMMARY.json).
+- 미러 PNG SHA-256/청크 CRC/디코드 **17/17**, RGBA 불투명 **4,352/4,352 픽셀**; v4 SHA와 17/17 일치. 모델 및 blockstates JSON 17/17 확인; 15 cube_all / 2 cube_column. 실제 인게임 동작은 인증하지 않음.
+- **F 공식 Mojang client.jar 인증 0/17, 인게임 정적 장면 0/17**. 전체 A–G 완료 0/17 유지. 비공식 미러 증거 수준을 공식으로 올리지 말 것.
+- 후속: **TEX02-R002** (STATE와 HEAD/SHA 다시 읽기 필수). 공식 JAR 확보 → 끝면 텍스처 연결 예외 검토(17개 분모 유지) → 정적 장면 UV/접합 검증. 애니메이션 계속 보류.

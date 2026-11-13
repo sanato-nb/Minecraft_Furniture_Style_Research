@@ -1,0 +1,62 @@
+{
+  "schema": "mc-furniture-texture-stage-result/v1",
+  "stage_id": "1-1-02",
+  "revision": "TEX02-R001",
+  "base_previous_revision": "TEX02-R000",
+  "date": "2026-11-13",
+  "source": {
+    "type": "unofficial_extraction_mirror",
+    "repository": "InventivetalentDev/minecraft-assets",
+    "ref": "1.21.11",
+    "tag_object_sha": "2c88d59b52a423044768ec7064697a38b91647b4",
+    "tag_target_commit": "7241a12cc2707abd7022f399c5d9033153e492e1",
+    "official_client_jar_authenticated": false
+  },
+  "counts": {
+    "fixed_textures": 17,
+    "v4_measurements_reused": 17,
+    "mirror_png_directly_rehashed": 17,
+    "png_chunk_crc_verified": 17,
+    "png_rgba_images_measured": 17,
+    "pixels_decoded": 4352,
+    "opaque_pixels": 4352,
+    "transparent_pixels": 0,
+    "block_model_json_read": 17,
+    "blockstate_json_read": 17,
+    "cube_all_models": 15,
+    "cube_column_models": 2,
+    "variant_model_blocks": [
+      "stone",
+      "deepslate"
+    ],
+    "official_jar_authenticated": 0,
+    "ingame_static_verified": 0,
+    "fully_completed_A_to_G_items": 0
+  },
+  "phases": {
+    "A": "verified_17_crosswalk",
+    "B": "mirror_png_sha_crc_verified_17",
+    "C": "mirror_png_rgba_pixel_measured_17",
+    "D": "mirror_pixel_D1_D2_and_model_based_D3_audited_17",
+    "E": "model_json_blockstate_uv_source_audited_17_with_2_out_of_scope_end_textures",
+    "F": "pending_official_jar_and_ingame_static",
+    "G": "committed_stage_artifacts"
+  },
+  "caveats": [
+    "Mirror PNG SHA equality to legacy v4 is not official Mojang client.jar authentication",
+    "Model JSON inherited UV does not verify Minecraft static renderer",
+    "Two end textures named in cube_column are out of fixed 17 PNG sample",
+    "D3 hypothetical 2D transform seams are not actual world-rendered seams",
+    "Animation/keyframes/movement deferred"
+  ],
+  "previous_global_version": "v38",
+  "next_revision": "TEX02-R002",
+  "evidence_tier": "mirror_sha_pixel_checked",
+  "outputs": [
+    "REPORT.md",
+    "SOURCE_LEDGER.csv",
+    "MODEL_UV_LEDGER.csv",
+    "D2_ROW_PEAKS.csv",
+    "SUMMARY.json"
+  ]
+}
