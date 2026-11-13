@@ -7,10 +7,10 @@
   "stage_id": "1-1-10",
   "material_family": "잎·식생",
   "stage_prefix": "TEX10",
-  "current_revision": "TEX10-R002",
-  "next_revision": "TEX10-R003",
-  "revision_sequence": 2,
-  "revision_status": "R002_new_mask_edge_seam_azalea_comparison_vine_32_static_states_official_pending",
+  "current_revision": "TEX10-R003",
+  "next_revision": "TEX10-R004",
+  "revision_sequence": 3,
+  "revision_status": "R003_user_attested_jar_extraction_first_party_user_repo_source_provenance_28_file_chain_verified_official_and_ingame_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 8,
@@ -42,12 +42,12 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "source_crosschecked_8_of_8",
+      "status": "R003_primary_user_provided_1_21_11_source_attributed_existing_mirror_crosscheck_R001_only",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "extracted_repo_png_sha_crc_verified_8_of_8",
+      "status": "R003_user_repository_current_png_binary_fetched_8_of_8_git_sha_matches_prior_8_of_8_prior_sha256_crc_evidence_preserved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "C": {
@@ -62,17 +62,17 @@
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "static_model_blockstate_uv_source_checked_8_of_8_vine_32_boolean_states_uv_sampled",
+      "status": "R003_user_jar_extracted_repo_8_model_and_8_blockstate_and_4_parent_json_reference_closure_verified_8_of_8",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_official_client_jar_auth_0_of_8_ingame_0_of_8",
+      "status": "pending_mojang_official_client_jar_SHA1_manifest_0_of_8_and_actual_ingame_static_0_of_8",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R002_evidence_saved_stage_specific",
+      "status": "TEX10-R003_stage_only_report_four_axis_matrix_source_provenance_and_handoff_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -103,8 +103,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX10-R002",
-      "evidence_status": "mirror_sha_pixel_checked_R002_static_masks_uv_vine_logic_checked_official_ingame_pending",
+      "last_verified_revision": "TEX10-R003",
+      "evidence_status": "user_repo_png_model_blockstate_direct_link_sha_checked_R003;mirror_8_of_8_inherited_R001;official_and_ingame_pending",
       "repository_png_git_blob_sha": "0f1793d68df14a8551ca59d4c428bba24acb9c50",
       "independent_sha256": "69c9c7048695e014aee6b8a2c4cb080607bd7a2a5291c06218b8134cbfcdc04f",
       "model_json_git_blob_sha": "192ebd67006a71ddb4e930a72dc4a3970bc634d1",
@@ -112,7 +112,28 @@
       "visible_pixels": 172,
       "transparent_pixels": 84,
       "edge_transparent_pixels": 19,
-      "mask_transition_count": 201
+      "mask_transition_count": 201,
+      "source_verification_four_axes": {
+        "user_supplied_extraction": {
+          "verified_files_and_reference_resolution": true,
+          "origin_attestation": "user-stated JAR extraction",
+          "png_read": true,
+          "model_parsed": true,
+          "blockstate_parsed": true,
+          "inherited_model_reference_resolved": true
+        },
+        "prior_nonofficial_mirror": {
+          "matched_previous_R001": true,
+          "redownloaded_in_R003": false
+        },
+        "mojang_official_original_jar": {
+          "authenticated": false,
+          "jar_sha1_verified_against_mojang_manifest": false
+        },
+        "ingame_static_render": {
+          "verified": false
+        }
+      }
     },
     {
       "item_id": "1-1-10-002",
@@ -123,8 +144,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX10-R002",
-      "evidence_status": "mirror_sha_pixel_checked_R002_static_masks_uv_vine_logic_checked_official_ingame_pending",
+      "last_verified_revision": "TEX10-R003",
+      "evidence_status": "user_repo_png_model_blockstate_direct_link_sha_checked_R003;mirror_8_of_8_inherited_R001;official_and_ingame_pending",
       "repository_png_git_blob_sha": "85e413b57168a3dc0334326c9a19c5bd0d954740",
       "independent_sha256": "538a4d679a8677d710cde7a99c44f9dd95d1e117aa42844d1dad1e24ed47fb16",
       "model_json_git_blob_sha": "fe8ae0dd7ddfbdba571cf91ec8c27ccc83d14d04",
@@ -132,7 +153,28 @@
       "visible_pixels": 160,
       "transparent_pixels": 96,
       "edge_transparent_pixels": 22,
-      "mask_transition_count": 250
+      "mask_transition_count": 250,
+      "source_verification_four_axes": {
+        "user_supplied_extraction": {
+          "verified_files_and_reference_resolution": true,
+          "origin_attestation": "user-stated JAR extraction",
+          "png_read": true,
+          "model_parsed": true,
+          "blockstate_parsed": true,
+          "inherited_model_reference_resolved": true
+        },
+        "prior_nonofficial_mirror": {
+          "matched_previous_R001": true,
+          "redownloaded_in_R003": false
+        },
+        "mojang_official_original_jar": {
+          "authenticated": false,
+          "jar_sha1_verified_against_mojang_manifest": false
+        },
+        "ingame_static_render": {
+          "verified": false
+        }
+      }
     },
     {
       "item_id": "1-1-10-003",
@@ -143,8 +185,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX10-R002",
-      "evidence_status": "mirror_sha_pixel_checked_R002_static_masks_uv_vine_logic_checked_official_ingame_pending",
+      "last_verified_revision": "TEX10-R003",
+      "evidence_status": "user_repo_png_model_blockstate_direct_link_sha_checked_R003;mirror_8_of_8_inherited_R001;official_and_ingame_pending",
       "repository_png_git_blob_sha": "1ea855f93be7379eec41199cb63afd994db8f5bc",
       "independent_sha256": "03ea357f700a55a3e830e9bd0264c8b0a6c2901e3d1d328808adc1c7c97cc330",
       "model_json_git_blob_sha": "6f7f331c3008bc77acf02d880937fc4c01b55d18",
@@ -152,7 +194,28 @@
       "visible_pixels": 144,
       "transparent_pixels": 112,
       "edge_transparent_pixels": 29,
-      "mask_transition_count": 245
+      "mask_transition_count": 245,
+      "source_verification_four_axes": {
+        "user_supplied_extraction": {
+          "verified_files_and_reference_resolution": true,
+          "origin_attestation": "user-stated JAR extraction",
+          "png_read": true,
+          "model_parsed": true,
+          "blockstate_parsed": true,
+          "inherited_model_reference_resolved": true
+        },
+        "prior_nonofficial_mirror": {
+          "matched_previous_R001": true,
+          "redownloaded_in_R003": false
+        },
+        "mojang_official_original_jar": {
+          "authenticated": false,
+          "jar_sha1_verified_against_mojang_manifest": false
+        },
+        "ingame_static_render": {
+          "verified": false
+        }
+      }
     },
     {
       "item_id": "1-1-10-004",
@@ -163,8 +226,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX10-R002",
-      "evidence_status": "mirror_sha_pixel_checked_R002_static_masks_uv_vine_logic_checked_official_ingame_pending",
+      "last_verified_revision": "TEX10-R003",
+      "evidence_status": "user_repo_png_model_blockstate_direct_link_sha_checked_R003;mirror_8_of_8_inherited_R001;official_and_ingame_pending",
       "repository_png_git_blob_sha": "b85bfd39664b8f226887eb15023bb36877c9177a",
       "independent_sha256": "1044dd96b9d2225d56bcdf9549e7890283c29f434fd80740c0ad0d8c571915c5",
       "model_json_git_blob_sha": "1500d997250613c9851d495d300cf8a8c8a0b8e6",
@@ -172,7 +235,28 @@
       "visible_pixels": 212,
       "transparent_pixels": 44,
       "edge_transparent_pixels": 9,
-      "mask_transition_count": 94
+      "mask_transition_count": 94,
+      "source_verification_four_axes": {
+        "user_supplied_extraction": {
+          "verified_files_and_reference_resolution": true,
+          "origin_attestation": "user-stated JAR extraction",
+          "png_read": true,
+          "model_parsed": true,
+          "blockstate_parsed": true,
+          "inherited_model_reference_resolved": true
+        },
+        "prior_nonofficial_mirror": {
+          "matched_previous_R001": true,
+          "redownloaded_in_R003": false
+        },
+        "mojang_official_original_jar": {
+          "authenticated": false,
+          "jar_sha1_verified_against_mojang_manifest": false
+        },
+        "ingame_static_render": {
+          "verified": false
+        }
+      }
     },
     {
       "item_id": "1-1-10-005",
@@ -183,8 +267,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX10-R002",
-      "evidence_status": "mirror_sha_pixel_checked_R002_static_masks_uv_vine_logic_checked_official_ingame_pending",
+      "last_verified_revision": "TEX10-R003",
+      "evidence_status": "user_repo_png_model_blockstate_direct_link_sha_checked_R003;mirror_8_of_8_inherited_R001;official_and_ingame_pending",
       "repository_png_git_blob_sha": "83c96ec13141621ae355fd5c61c89ac253938612",
       "independent_sha256": "fdfa370f1bc7460a0f51d70fd57c691a86ee9269bbaba5b7e46693bb2de09a2a",
       "model_json_git_blob_sha": "4c6814a55eadc7a99ff83bc9508f63c5b4dee5e3",
@@ -192,7 +276,28 @@
       "visible_pixels": 197,
       "transparent_pixels": 59,
       "edge_transparent_pixels": 15,
-      "mask_transition_count": 135
+      "mask_transition_count": 135,
+      "source_verification_four_axes": {
+        "user_supplied_extraction": {
+          "verified_files_and_reference_resolution": true,
+          "origin_attestation": "user-stated JAR extraction",
+          "png_read": true,
+          "model_parsed": true,
+          "blockstate_parsed": true,
+          "inherited_model_reference_resolved": true
+        },
+        "prior_nonofficial_mirror": {
+          "matched_previous_R001": true,
+          "redownloaded_in_R003": false
+        },
+        "mojang_official_original_jar": {
+          "authenticated": false,
+          "jar_sha1_verified_against_mojang_manifest": false
+        },
+        "ingame_static_render": {
+          "verified": false
+        }
+      }
     },
     {
       "item_id": "1-1-10-006",
@@ -203,8 +308,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX10-R002",
-      "evidence_status": "mirror_sha_pixel_checked_R002_static_masks_uv_vine_logic_checked_official_ingame_pending",
+      "last_verified_revision": "TEX10-R003",
+      "evidence_status": "user_repo_png_model_blockstate_direct_link_sha_checked_R003;mirror_8_of_8_inherited_R001;official_and_ingame_pending",
       "repository_png_git_blob_sha": "a1ee8448fb69d6643ca0f73991d6d3639b425683",
       "independent_sha256": "863aae6a09178ccd3700c7ee6e3e9f2448e99f51cbbd8c157dd0126f8c749c80",
       "model_json_git_blob_sha": "3c2c9bcce0fa5ec6b891d9335274be9f295c7915",
@@ -212,7 +317,28 @@
       "visible_pixels": 256,
       "transparent_pixels": 0,
       "edge_transparent_pixels": 0,
-      "mask_transition_count": 0
+      "mask_transition_count": 0,
+      "source_verification_four_axes": {
+        "user_supplied_extraction": {
+          "verified_files_and_reference_resolution": true,
+          "origin_attestation": "user-stated JAR extraction",
+          "png_read": true,
+          "model_parsed": true,
+          "blockstate_parsed": true,
+          "inherited_model_reference_resolved": true
+        },
+        "prior_nonofficial_mirror": {
+          "matched_previous_R001": true,
+          "redownloaded_in_R003": false
+        },
+        "mojang_official_original_jar": {
+          "authenticated": false,
+          "jar_sha1_verified_against_mojang_manifest": false
+        },
+        "ingame_static_render": {
+          "verified": false
+        }
+      }
     },
     {
       "item_id": "1-1-10-007",
@@ -223,8 +349,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX10-R002",
-      "evidence_status": "mirror_sha_pixel_checked_R002_static_masks_uv_vine_logic_checked_official_ingame_pending",
+      "last_verified_revision": "TEX10-R003",
+      "evidence_status": "user_repo_png_model_blockstate_direct_link_sha_checked_R003;mirror_8_of_8_inherited_R001;official_and_ingame_pending",
       "repository_png_git_blob_sha": "fb75e7f5d570ad8bf4be0277eda3b9ea81dd12c1",
       "independent_sha256": "5ca6b688ee8cce05df9d90a8d0f7bb669361ce27dba4a761dcb209819e0d232e",
       "model_json_git_blob_sha": "6a48a470895c2ca9ae641ddcccc43ac14b2f59cb",
@@ -232,7 +358,28 @@
       "visible_pixels": 146,
       "transparent_pixels": 110,
       "edge_transparent_pixels": 30,
-      "mask_transition_count": 142
+      "mask_transition_count": 142,
+      "source_verification_four_axes": {
+        "user_supplied_extraction": {
+          "verified_files_and_reference_resolution": true,
+          "origin_attestation": "user-stated JAR extraction",
+          "png_read": true,
+          "model_parsed": true,
+          "blockstate_parsed": true,
+          "inherited_model_reference_resolved": true
+        },
+        "prior_nonofficial_mirror": {
+          "matched_previous_R001": true,
+          "redownloaded_in_R003": false
+        },
+        "mojang_official_original_jar": {
+          "authenticated": false,
+          "jar_sha1_verified_against_mojang_manifest": false
+        },
+        "ingame_static_render": {
+          "verified": false
+        }
+      }
     },
     {
       "item_id": "1-1-10-008",
@@ -243,8 +390,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX10-R002",
-      "evidence_status": "mirror_sha_pixel_checked_R002_static_masks_uv_vine_logic_checked_official_ingame_pending",
+      "last_verified_revision": "TEX10-R003",
+      "evidence_status": "user_repo_png_model_blockstate_direct_link_sha_checked_R003;mirror_8_of_8_inherited_R001;official_and_ingame_pending",
       "repository_png_git_blob_sha": "a99c5f310cff760758cc484521c15ab5d1cd3ecf",
       "independent_sha256": "b6e494ed60f5e4fa2704645777d56d585ac0aa4b2c7493879f286a954ce9a9d6",
       "model_json_git_blob_sha": "f5caf1d7da3e0871bbc6303c9d85f45942129dc1",
@@ -252,7 +399,28 @@
       "visible_pixels": 205,
       "transparent_pixels": 51,
       "edge_transparent_pixels": 13,
-      "mask_transition_count": 125
+      "mask_transition_count": 125,
+      "source_verification_four_axes": {
+        "user_supplied_extraction": {
+          "verified_files_and_reference_resolution": true,
+          "origin_attestation": "user-stated JAR extraction",
+          "png_read": true,
+          "model_parsed": true,
+          "blockstate_parsed": true,
+          "inherited_model_reference_resolved": true
+        },
+        "prior_nonofficial_mirror": {
+          "matched_previous_R001": true,
+          "redownloaded_in_R003": false
+        },
+        "mojang_official_original_jar": {
+          "authenticated": false,
+          "jar_sha1_verified_against_mojang_manifest": false
+        },
+        "ingame_static_render": {
+          "verified": false
+        }
+      }
     }
   ],
   "revisions": [
@@ -281,13 +449,33 @@
       "summary_path": "research/vanilla_textures/by_stage/1-1-10/TEX10-R002/SUMMARY.json",
       "official_client_jar_authenticated_count": 0,
       "ingame_static_verified_count": 0
+    },
+    {
+      "revision": "TEX10-R003",
+      "kind": "user_attested_local_JAR_extracted_folder_1_21_11_source_priority_and_fully_resolved_repo_resource_reference_closure_4axis_status",
+      "source_files_reviewed_as_new": 0,
+      "existing_source_paths_directly_rechecked": 28,
+      "new_unique_texture_targets": 0,
+      "new_png_pixel_measurements": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-10/TEX10-R003/REPORT.md",
+      "source_ledger_path": "research/vanilla_textures/by_stage/1-1-10/TEX10-R003/SOURCE_PROVENANCE_LEDGER.csv",
+      "four_axis_verification_path": "research/vanilla_textures/by_stage/1-1-10/TEX10-R003/FOUR_AXIS_VERIFICATION.json",
+      "reference_closure_path": "research/vanilla_textures/by_stage/1-1-10/TEX10-R003/RESOURCE_REFERENCE_CLOSURE.json",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-10/TEX10-R003/SUMMARY.json",
+      "user_source_verified": 8,
+      "mirror_crosscheck_inherited_R001": 8,
+      "official_client_jar_authenticated_count": 0,
+      "ingame_static_verified_count": 0,
+      "global_legacy_checkpoint": "v38"
     }
   ],
   "next_steps": [
-    "Official 1.21.11 client.jar byte retrieval from Mojang, validate official version manifest and compare PNGs",
-    "Actual Minecraft 1.21.11 static biome tint and vine geometry screenshot cross validation",
-    "Keep animation research deferred until explicitly unlocked",
-    "Recheck Github stage SHA, current revision and immutable next release directory prior to any edits"
+    "Use user-attested extracted 1.21.11/ repository as priority for any future TEX10 analysis; distinguish source-content checks from provenance of original jar",
+    "Keep separate statuses: user-provided extracted source; existing mirror crosscheck; Mojang official client.jar SHA-1 with Mojang official version manifest; actual in-game static render",
+    "To complete official authentication: obtain full Minecraft 1.21.11 client.jar and official Mojang manifest for whole-jar SHA-1; extracted-file Git blob SHA is not an official JAR certification",
+    "To complete static in-game verification: actual executable game instance/screenshots/biome tint checks required",
+    "Do not add more textures or count old 8 again; no new revision without new evidence; animation deferred",
+    "Before publishing R004, verify latest 1-1-10 STATE/HANDOFF SHAs and that next immutable directory is absent; never alter global v38."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -306,5 +494,49 @@
   "mask_bit_rows_verified": 128,
   "vine_static_boolean_states_evaluated": 32,
   "vine_boolean_states_model_instances_sum": 85,
-  "azalea_pair_rgba_changed_pixels": 39
+  "azalea_pair_rgba_changed_pixels": 39,
+  "primary_analysis_source": {
+    "root": "1.21.11/",
+    "repo": "sanato-nb/Minecraft_Furniture_Style_Research",
+    "kind": "user_provided_extracted_minecraft_1.21.11_client_jar_contents",
+    "origin_assertion": "user_attested_extracted_JAR",
+    "independent_jar_container_provenance_authentication": false,
+    "source_file_contents_checked": true,
+    "added_revision": "TEX10-R003"
+  },
+  "four_axis_verification": {
+    "user_provided_extraction": {
+      "status": "verified_source_file_contents_and_static_reference_closure",
+      "texture_count": 8,
+      "png_bytes_directly_read": 8,
+      "model_json_directly_read": 8,
+      "blockstates_json_directly_read": 8,
+      "shared_parent_models_directly_read": 4,
+      "total_unique_github_paths_directly_read": 28,
+      "source_jar_extraction_attribution": "user_attested_not_jar_sha1_authenticated",
+      "evidence_revision": "TEX10-R003"
+    },
+    "existing_mirror_crosscheck": {
+      "status": "verified_in_prior_revision_not_recounted",
+      "prior_matching_pngs": 8,
+      "prior_evidence_revision": "TEX10-R001",
+      "new_mirror_files_fetched_in_R003": 0,
+      "repository_source_sha_unchanged": true
+    },
+    "mojang_official_jar_sha1": {
+      "status": "pending",
+      "official_manifest_sha1_checked": false,
+      "original_client_jar_bytes_authenticated": false,
+      "files_authenticated_count": 0
+    },
+    "in_game_static_render": {
+      "status": "pending",
+      "game_client_executed": false,
+      "files_static_render_verified_count": 0
+    }
+  },
+  "user_repo_source_reference_closure_checked_count": 8,
+  "directly_read_unique_user_repo_source_paths_R003": 28,
+  "mirror_crosscheck_prior_R001_kept_count": 8,
+  "mirror_crosscheck_new_R003_count": 0
 }

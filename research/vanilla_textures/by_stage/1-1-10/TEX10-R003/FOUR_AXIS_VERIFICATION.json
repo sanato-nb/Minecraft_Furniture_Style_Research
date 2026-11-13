@@ -1,0 +1,105 @@
+{
+  "schema": "TEX10-R003/four-independent-verification-axes/v1",
+  "date": "2026-11-13",
+  "texture_total": 8,
+  "axes": [
+    {
+      "id": 1,
+      "key": "user_extraction",
+      "label": "사용자 제공 1.21.11 추출본 직접 검증",
+      "completed": 8,
+      "method": "Current GitHub PNG bytes retrieved; 8 model and 8 blockstate JSON parsed; 4 shared parent model JSON parsed; 28 source paths, referenced Git blob SHA equality to R001/R002",
+      "user_jar_extraction_origin": "user-attested, not independently authenticated by source jar"
+    },
+    {
+      "id": 2,
+      "key": "mirror_crosscheck",
+      "label": "기존 비공식 미러 교차 검증",
+      "completed": 8,
+      "method": "R001 recorded 8/8 matching Git blob SHA to InventivetalentDev/minecraft-assets; only unchanged user repo Git blob verified in R003; no new mirror fetch in this revision",
+      "evidence_revision": "TEX10-R001"
+    },
+    {
+      "id": 3,
+      "key": "mojang_official_jar",
+      "label": "Mojang 공식 client.jar SHA-1 + 공식 manifest 인증",
+      "completed": 0,
+      "method": "Needs official client.jar full bytes + Mojang version manifest SHA-1; Git blobs and extracted images do not prove this",
+      "pending": true
+    },
+    {
+      "id": 4,
+      "key": "ingame_static",
+      "label": "Minecraft 실제 렌더 화면 정적 검증",
+      "completed": 0,
+      "method": "Actual game client and documented static screenshots/biome comparison not available",
+      "pending": true
+    }
+  ],
+  "per_item": [
+    {
+      "item_id": "1-1-10-001",
+      "texture_id": "oak_leaves",
+      "user_extraction_verified": true,
+      "mirror_crosscheck_prior_R001": true,
+      "official_jar_sha1_manifest_authenticated": false,
+      "ingame_static_verified": false
+    },
+    {
+      "item_id": "1-1-10-002",
+      "texture_id": "spruce_leaves",
+      "user_extraction_verified": true,
+      "mirror_crosscheck_prior_R001": true,
+      "official_jar_sha1_manifest_authenticated": false,
+      "ingame_static_verified": false
+    },
+    {
+      "item_id": "1-1-10-003",
+      "texture_id": "birch_leaves",
+      "user_extraction_verified": true,
+      "mirror_crosscheck_prior_R001": true,
+      "official_jar_sha1_manifest_authenticated": false,
+      "ingame_static_verified": false
+    },
+    {
+      "item_id": "1-1-10-004",
+      "texture_id": "mangrove_leaves",
+      "user_extraction_verified": true,
+      "mirror_crosscheck_prior_R001": true,
+      "official_jar_sha1_manifest_authenticated": false,
+      "ingame_static_verified": false
+    },
+    {
+      "item_id": "1-1-10-005",
+      "texture_id": "azalea_leaves",
+      "user_extraction_verified": true,
+      "mirror_crosscheck_prior_R001": true,
+      "official_jar_sha1_manifest_authenticated": false,
+      "ingame_static_verified": false
+    },
+    {
+      "item_id": "1-1-10-006",
+      "texture_id": "moss_block",
+      "user_extraction_verified": true,
+      "mirror_crosscheck_prior_R001": true,
+      "official_jar_sha1_manifest_authenticated": false,
+      "ingame_static_verified": false
+    },
+    {
+      "item_id": "1-1-10-007",
+      "texture_id": "vine",
+      "user_extraction_verified": true,
+      "mirror_crosscheck_prior_R001": true,
+      "official_jar_sha1_manifest_authenticated": false,
+      "ingame_static_verified": false
+    },
+    {
+      "item_id": "1-1-10-008",
+      "texture_id": "flowering_azalea_leaves",
+      "user_extraction_verified": true,
+      "mirror_crosscheck_prior_R001": true,
+      "official_jar_sha1_manifest_authenticated": false,
+      "ingame_static_verified": false
+    }
+  ]
+}
