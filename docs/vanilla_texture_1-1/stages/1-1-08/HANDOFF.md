@@ -1,3 +1,25 @@
+# 1-1-08 — 정적 및 소스 PNG 애니메이션 연구 완료 (현재 TEX08-R008)
+
+> **2026-11-13 · 사용자 명시 요청으로 이전 애니메이션 보류 해제 및 원본 프레임 직접 검수 · 다음 TEX08-R009는 새 근거에만 사용**
+
+## R008 신규 애니메이션 실제 근거
+- 사용자 제공 `1.21.11/assets/minecraft/` 원본에 근거. 이전 R004 143 model-face 원장의 **서로 다른 모델 연결 텍스처 52종**을 실제 `.png.mcmeta` 경로로 조회: **2 존재 / 50 없음**.
+- `smoker_front_on.png` 16×48 / 380 bytes → 16×16 **3프레임**(0→1→2→0). 원본 mcmeta `frametime=4`, `interpolate=false`, 12틱 명목 주기. 순환 픽셀 차이 21/34/36, 전체 변화 좌표 합집합 **43/256**, alpha 변경 0.
+- `blast_furnace_front_on.png` 16×32 / 283 bytes → 16×16 **2프레임**(0→1→0). 원본 mcmeta `frametime=10`, `interpolate=true`, 20틱 명목 주기. 순환 프레임 차이 6/6, 전체 변화 좌표 합집합 **6/256**, alpha 변경 0. 보간 true는 JSON 선언만 확인; 런타임 프레임을 관찰하지 않았다.
+- 6개 관련 원본 PNG 직접 Git SHA-1/SHA-256/PNG 청크 CRC32/실제 RGBA 디코딩, 5개 원본 프레임 고유 raw RGBA SHA·차이좌표 분석. `smoker` 꺼짐→켜진 프레임은 105/106/105픽셀, `blast_furnace`는 12/12, `furnace_front_on`은 애니메이션 없는 단일 정적 이미지로 기존 36/256 상태 차이를 재확인.
+- 3 on-모델 및 3 blockstate JSON에서 `lit=true` × 4방향 = **12 source states** 중 실제 프레임 애니메이션 PNG 연결 8, 정적 화로 4를 구분. 모델 texture 및 particle 소스 링크만 해석, 인게임 검증은 사용자 요청대로 제외.
+- 결과: [TEX08-R008 REPORT](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-08/TEX08-R008/REPORT.md), `METADATA_52_SOURCE_AUDIT.csv`(52행), `SOURCE_PNG_BINARY_AUDIT.csv`(6행), `ANIMATION_FRAME_AUDIT.csv`(5행), `ANIMATION_FRAME_TRANSITIONS.csv`(5행), `ANIMATION_DYNAMIC_ROWS.csv`(32행), `LIT_STATE_VS_FRAME.csv`(6행), `LIT_MODEL_SOURCE_LINKS.csv`(12행), `SUMMARY.json`, `VERIFY_ANIMATION_FRAMES.py`.
+
+## 범위와 중지 규칙
+- **1-1-08의 정적 PNG·모델·UV·상태 원본 연구 R007 완료 + 해당 모델 연결 52개 텍스처의 PNG 애니메이션 연구 R008 완료**. 기존 21 PNG/5,376 원본 픽셀 및 R001–R007 결과, 전역 v38은 변경하지 않음.
+- 2개 다중 프레임 PNG는 고정 21종 밖에 있는 보조 모델 링크 텍스처. 5개 프레임/1,280 RGBA 좌표 샘플을 고유 프로젝트 새 픽셀로 가산하지 말 것.
+- 이전과 동일하게 **게임 실제 실행, 인게임 스크린샷, 중간 보간 프레임, 렌더링 particle/uvlock, 전체 공식 Mojang JAR 인증 제외**. 다른 엔티티/게임플레이 애니메이션이나 3D 제작/PZ 변환은 새 명시 요청 없이는 진행하지 않음.
+- 다음 '계속해줘'만 들어오면 **이 1-1-08 합의된 정적+PNG프레임 연구는 완료됐으므로 중지하고 알리기**. 새로운 원본·새로운 다른 애니메이션 범위 또는 유효한 신규 검증 질문이 있을 때만 TEX08-R009 논의.
+
+---
+
+## 이전 R007 이하 인수인계 (과거 애니메이션 보류·단순 계속 시 R007 완료 안내는 R008 사용자 지시로 대체됨)
+
 # 1-1-08 — 정적 PNG/모델/UV/블록 상태 소스 연구 완료 (TEX08-R007)
 
 > 2026-11-13 · 고정 21개 PNG · 1-1-08 정적 소스 범위 완료 · 다음 TEX08-R008은 새로운 근거가 있을 때만

@@ -1,0 +1,72 @@
+{
+  "stage": "1-1-08",
+  "revision": "TEX08-R008",
+  "date": "2026-11-13",
+  "reason": "User explicitly resumed deferred PNG animation after R007 static source research completed",
+  "source": "1.21.11/assets/minecraft/ user-provided extracted files",
+  "model_face_ledger_source": "TEX08-R004/MODEL_FACE_RESOLUTION.csv",
+  "unique_source_texture_names_checked_for_animation_meta": 52,
+  "source_mcmeta_present": 2,
+  "source_mcmeta_absent": 50,
+  "source_animated_texture_names": [
+    "smoker_front_on",
+    "blast_furnace_front_on"
+  ],
+  "static_21_target_png_unchanged": true,
+  "legacy_21_target_pixel_count": 5376,
+  "original_png_binaries_directly_crc_sha_rgba_rechecked": 6,
+  "animated_png_original_frame_count": 5,
+  "frame_RGBA_position_uses": 1280,
+  "smoker": {
+    "source_png_width": 16,
+    "source_png_height": 48,
+    "frame_count": 3,
+    "frametime_ticks": 4,
+    "interpolate": false,
+    "cycle_ticks": 12,
+    "nominal_cycle_ms_at_20tps": 600,
+    "changed_position_union": 43,
+    "transition_changed_counts": [
+      21,
+      34,
+      36
+    ],
+    "off_to_frame_differences": [
+      105,
+      106,
+      105
+    ]
+  },
+  "blast_furnace": {
+    "source_png_width": 16,
+    "source_png_height": 32,
+    "frame_count": 2,
+    "frametime_ticks": 10,
+    "interpolate": true,
+    "cycle_ticks": 20,
+    "nominal_cycle_ms_at_20tps": 1000,
+    "changed_position_union": 6,
+    "transition_changed_counts": [
+      6,
+      6
+    ],
+    "off_to_frame_differences": [
+      12,
+      12
+    ]
+  },
+  "furnace_front_on": {
+    "source_png_size": "16x16",
+    "animation_mcmeta": false,
+    "only_static_lit_change": true,
+    "off_to_on_difference": 36
+  },
+  "source_lit_states_total": 12,
+  "source_lit_states_using_animated_png": 8,
+  "source_lit_states_using_static_png": 4,
+  "no_new_global_unique_pixels_claimed": true,
+  "ingame_runtime_excluded": true,
+  "official_JAR_auth_excluded": true,
+  "status": "complete_within_52_model_face_texture_source_PNG_animation_metadata_scope",
+  "next_revision_only_if_new_static_or_animation_source_evidence": "TEX08-R009"
+}

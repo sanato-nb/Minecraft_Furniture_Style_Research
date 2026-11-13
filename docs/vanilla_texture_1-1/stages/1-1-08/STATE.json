@@ -7,10 +7,10 @@
   "stage_id": "1-1-08",
   "material_family": "복합·기능면",
   "stage_prefix": "TEX08",
-  "current_revision": "TEX08-R007",
-  "next_revision": "TEX08-R008",
-  "revision_sequence": 7,
-  "revision_status": "complete_user_scope_static_source_21_pngs_73_variants_256_multipart_states_329_join_rows",
+  "current_revision": "TEX08-R008",
+  "next_revision": "TEX08-R009",
+  "revision_sequence": 8,
+  "revision_status": "static_source_scope_complete_R007_and_user_resumed_original_PNG_frame_animation_complete_R008",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 21,
@@ -48,39 +48,39 @@
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "source_scope_complete_R001_to_R007",
+      "status": "R007_static_source_completed;R008_primary_6_PNG_sha256_GitSHA_CRC_validated_for_frame_research",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R007"
+      "latest_revision": "TEX08-R008"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "source_scope_complete_R001_to_R007",
+      "status": "R007_static_RGBA_done;R008_5_original_animated_frames_Pillow_RGBA_direct_43_and_6_moving_coords",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R007"
+      "latest_revision": "TEX08-R008"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "source_scope_complete_R001_to_R007",
+      "status": "R007_static_functional_face_done;R008_52_model_ref_texture_mcmeta_checked_2_animated_50_unlisted",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R007"
+      "latest_revision": "TEX08-R008"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "source_scope_complete_R001_to_R007",
+      "status": "R007_full_state_UV_mapping_done;R008_lit12_state_model_front_png_animation_link_verified",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R007"
+      "latest_revision": "TEX08-R008"
     },
     "F": {
       "title": "F 사용자 추출본 기반 정적 모델·UV 적용 근거 (인게임·공식 인증 제외)",
-      "status": "excluded_in_game_and_official_auth_under_explicit_user_policy;static_source_documented",
+      "status": "user_excluded_in_game_and_official_certification;source_animation_only_no_engine_interpolation_observation",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "latest_revision": "TEX08-R007"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "source_scope_complete_R001_to_R007",
+      "status": "R008_immutable_original_frame_animation_report_csv_evidence_and_handoff_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R007"
+      "latest_revision": "TEX08-R008"
     }
   },
   "material_specific_checks": [
@@ -93,8 +93,8 @@
     {
       "id": "D2",
       "check": "꺼짐·켜짐 등 두 고정 텍스처 차이만 비교, 다중 프레임 해독 금지",
-      "status": "R006_static_chiseled_slot_RGBA_156_of_256_64_atlases_no_animation",
-      "latest_revision": "TEX08-R006"
+      "status": "R008_explicitly_resumed_real_source_animated_PNG_frame_study_2_images_5_frames_meta52_checked",
+      "latest_revision": "TEX08-R008"
     },
     {
       "id": "D3",
@@ -586,22 +586,39 @@
       "no_new_unique_source_files_or_pixels": true,
       "source_scope_complete": true,
       "report_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R007/REPORT.md"
+    },
+    {
+      "revision": "TEX08-R008",
+      "kind": "user_resumed_original_PNG_mcmeta_multi_frame_source_animation_completed",
+      "model_face_source_texture_metadata_checked": 52,
+      "metadata_present": 2,
+      "metadata_absent": 50,
+      "original_PNG_binaries_rechecked": 6,
+      "original_animation_PNGs_inspected": 2,
+      "original_animation_frames_directly_decoded": 5,
+      "smoker_frame_dynamic_position_union": 43,
+      "blast_frame_dynamic_position_union": 6,
+      "lit_true_source_blockstate_model_links": 12,
+      "new_fixed21_original_png_count_claimed": 0,
+      "source_scope_complete": true,
+      "report_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R008/REPORT.md",
+      "in_game_runtime_excluded": true
     }
   ],
   "next_steps": [
-    "1-1-08 static source PNG/model/blockstate/UV research is completed under user's explicit exclusions; when user says just 'continue', STOP and report completion rather than inventing R008.",
-    "Maintain historical in-game 0/21, but game screenshots/renders/runtime UV/particle are excluded and never required.",
-    "Official full client JAR authentication excluded, animation deferred, no PZ conversion or 3D asset fabrication.",
-    "R007 329 state joins, 21 texture coverage and 102912 UV area uses are source references, not new pixels or model definitions.",
-    "R008 requires genuinely new static source data/question/correction and renewed live GitHub HEAD/state/blob/next path checks."
+    "R007 completed 21 static source PNG/model/UV/blockstates; R008 completed source PNG animations for all 52 source-model-face linked texture paths, including two multi-frame image assets.",
+    "If user again says only 'continue', STOP and report 1-1-08 static+source frame animation work finished. Do not manufacture TEX08-R009 or repeat already studied source frames.",
+    "The user explicitly excluded game runtime and in-game screenshots; interpolation=true is metadata, not captured intermediate runtime colors. Official full Mojang JAR authentication also excluded.",
+    "Broader entity/gameplay animations and actual Minecraft model-building/PZ conversion are not part of this stage unless user gives explicit scope.",
+    "Preserve historical original 21 PNG/5376 pixels and v38; do not add 5*256 frame pixel samples to unique source pixels.",
+    "If new primary source or new animation research question appears, recheck HEAD/state blob SHA/HANDOFF/next release path and write only 1-1-08 stage content."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
-  "animation_study_deferred": true,
+  "animation_study_deferred": false,
   "scope_excluded": [
     "Project Zomboid conversion",
     "actual furniture 3D asset building",
-    "animation study until explicitly resumed",
     "Minecraft in-game static screenshot/render/UV-lock/particle/runtime verification"
   ],
   "project_overall_completion_pct": null,
@@ -609,8 +626,8 @@
   "stage_source_png_rgba_verified_count": 21,
   "stage_model_uv_source_checked_count": 21,
   "stage_fully_official_and_ingame_verified_count": 0,
-  "last_release_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R007/",
-  "last_release_source_note": "R007 329 rows source-state model-face UV reference joining 73 variant and 256 chiseled states; 21/21 PNG mapping; 33 source-selected models; no new unique PNG pixels. Ingame and full official JAR excluded.",
+  "last_release_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R008/",
+  "last_release_source_note": "R008: user resumed original PNG animation. R004 linked source face 52 distinct textures mcmeta checked, 2 present 50 absent, 6 original PNG SHA/CRC/RGBA, smoker 3 frames and blast_furnace 2 frames direct, temporal changed union 43 and 6, 12 lit source model state links, no in-game or Mojang JAR authentication.",
   "stage_1_1_08_official_jar_blocker": "SUPERSEDED_POLICY: official Mojang client.jar authentication removed from requirements by user on 2026-11-13; historical SHA-1 status remains unverified, not a blocker.",
   "stage_auxiliary_static_png_newly_examined_R002": [
     "barrel_top_open"
@@ -690,9 +707,10 @@
     "not_a_blocker_for_static_source_research": true
   },
   "research_success_criteria_1_1_08": {
-    "required": "User-supplied extracted Minecraft Java 1.21.11 static PNG analysis, color/alpha/CRC verification, model and parent-chain texture slots, face UV and blockstates source evidence, documented report for fixed 21 PNG",
-    "excluded": "actual in-game screenshots and runtime Minecraft rendering verification; Mojang official full JAR SHA1/manifest certification; animated frames",
-    "note": "User excluded all in-game verification from required work. 0/21 in-game is a historical observation count, not a pending requirement, and is not to be represented as verified."
+    "required": "21 static original PNG, source model inheritance/UV/blockstate analysis (R001–R007) plus user-resumed PNG frame animation metadata and actual frame RGBA study (R008)",
+    "completed_evidence": "52 model-face texture .png.mcmeta paths checked (2 present), 2 source animated PNGs/5 raw 16x16 frames CRC+SHA+RGBA inspected, frame-by-frame differences, 3 lit block models/12 lit state links",
+    "excluded": "Minecraft in-game screenshots/engine interpolation/particle/uvlock rendering; official full Mojang client JAR metadata and SHA1 authentication; broader game entity or gameplay motion; PZ conversion and actual 3D furniture model building",
+    "note": "Original fixed 21 PNG and R001 5376 source pixels unchanged; animation frames are from two auxiliary model-linked source PNGs, no project-wide new unique pixel count claimed."
   },
   "stage_static_state_face_pairwise_R005": {
     "state_pairwise_rows": 62,
@@ -788,5 +806,52 @@
     "report_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R007/REPORT.md",
     "in_game_verification_excluded": true,
     "default_continue_behavior": "STOP_and_report_completed_unless_user_supplies_new_static_source_or_changes_scope"
+  },
+  "animation_study_resumed_by_user": true,
+  "animation_source_policy_1_1_08": {
+    "effective_date": "2026-11-13",
+    "user_explicitly_resumed": true,
+    "examined_scope": "Original PNG sprite animations for all 52 textures actually referenced by 1-1-08 source model faces, including attached .png.mcmeta",
+    "completed_in_revision": "TEX08-R008",
+    "not_asserting": "actual game engine interpolation frames, gameplay/entity motion, in-game render, official Mojang full jar certification",
+    "original_21_target_png_unchanged": true
+  },
+  "source_animation_analysis_status_1_1_08": {
+    "status": "completed_original_source_PNG_frame_animation_under_user_reopened_scope",
+    "model_referenced_distinct_png_textures": 52,
+    "mcmeta_paths_rechecked": 52,
+    "animation_metadata_present": 2,
+    "animation_metadata_absent": 50,
+    "original_animated_png_frame_sizes": [
+      "16x48",
+      "16x32"
+    ],
+    "total_original_animation_frames_decoded": 5,
+    "original_frame_RGBA_sample_uses": 1280,
+    "smoker_source_frames": 3,
+    "smoker_frametime_ticks": 4,
+    "smoker_source_interpolate": false,
+    "smoker_changed_position_union": 43,
+    "smoker_transition_differences": [
+      21,
+      34,
+      36
+    ],
+    "blast_furnace_source_frames": 2,
+    "blast_frametime_ticks": 10,
+    "blast_source_interpolate": true,
+    "blast_changed_position_union": 6,
+    "blast_transition_differences": [
+      6,
+      6
+    ],
+    "furnace_lit_on_static_not_frame_animation": true,
+    "lit_true_source_state_links_total": 12,
+    "animated_texture_lit_states": 8,
+    "static_texture_lit_states": 4,
+    "in_game_still_unobserved": 0,
+    "original21_static_scope_kept_complete": true,
+    "report_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R008/REPORT.md",
+    "unqualified_continue_behavior": "STOP_AND_REPORT_THIS_STAGE_DONE_UNLESS_NEW_ANIMATION_SCOPE_OR_PRIMARY_SOURCE"
   }
 }
