@@ -1,5 +1,20 @@
 # 새로운 ChatGPT 채팅에서 Minecraft 가구 모델링 학습 이어하기
 
+# 새 채팅 시작 — 최신 전역 통합 v40
+
+## 최상단 최신 체크포인트 v40 — 1-1 11단계·150개 ID 전역 통합 (2026-11-13)
+
+> **이 섹션이 아래 v39/v38 및 과거 일괄 정책 문서보다 최신입니다.** 통합 ID: `INT-1-1-20261113-02`. **v39는 역사적 10단계·133개 부분 통합으로 보존**하며 파일을 덮어쓰지 않습니다.
+
+- **[v40 상세 보고서](../research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/REPORT.md)** · [단계 11행](../research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/STAGE_INTEGRATION_LEDGER.csv) · [150개 텍스처 ID 원장](../research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/TEXTURE_150_SCOPE_LEDGER.csv) · [SHA 고정 매니페스트](../research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/MANIFEST.json) · [검증 기록](../research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/VALIDATION.json).
+- **통합 범위 11/11단계, 고유 texture_id 150/150, 제외 0단계/0종, 새 PNG 실측 0개**. 기존 v4 150개 원장과 기초 픽셀 측정은 수정·재계산하지 않았습니다.
+- **1-1-02 석재·벽돌 17종이 최초 포함**되었으며, 사용자가 선택한 **통합 참조는 `TEX02-R015`**입니다. 독립 최신 상태는 `TEX02-R017`이지만 R016·R017의 최신 연구 완료를 **R015의 고정 참조에 소급하지 않습니다**. 두 상태 SHA는 매니페스트에 각각 고정.
+- **150/150은 통합 ID 커버리지 100%**, 연구 전체 완료율이 아닙니다. 고정 참조의 source-only 완료 **115/150**, LIVE 최신 독립 기준 완료 **132/150**, 목재·원목 18종의 독립 연구 완료 판정은 미종결. 상위 5개 연구 과제 완료 **0/5 유지**.
+- 최신 단계 STATE 기준 애니메이션 **소스 연구 재개 9단계 / 보류 2단계 (`1-1-02`, `1-1-10`)**. 공식 Mojang 압축 client.jar SHA-1 인증과 인게임 렌더 검증은 **필수 연구 조건에서 제외**하되, 인증/관찰 성공 주장은 금지(실제 인게임 0). 실제 좀보이드 가구 3D 제작·맵 변환 결과는 여기의 완료율에 포함하지 않습니다.
+
+새 채팅은 기존 `v39` 문서만 최신으로 해석하지 말고 반드시 v40 [MANIFEST](../research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/MANIFEST.json)와 각 독립 단계의 LIVE `STATE.json`을 대조하세요. `1-1-02`는 통합 기준 R015, 실제 LIVE R017로 구분합니다. v40 관련 전역 루트 갱신은 전역 통합 작업에서만 수행하고 독립 채팅은 단계 전용 파일만 수정합니다.
+
+
 > **최신 전역 v39 · 2026-11-13:** [1-1 10개 재질·133개 PNG 통합 보고서](../research/vanilla_textures/integrations/v39_INT-1-1-10steps_133/REPORT.md). 석재·벽돌(1-1-02, 17개)은 명시적으로 제외했다. 과거 v38/R000 안내는 역사적 기록이며, 이 문서를 새 채팅에 그대로 붙일 때는 먼저 **전역 v39 최신 정책 및 본인 단계 라이브 STATE를 우선**할 것. 공식 압축 JAR 인증·인게임 시각 인증은 사용자 요청으로 필수 제외. 애니메이션 9개 분류 재개/잎·식생은 별도 보류. 전체 0/5 유지.
 
 

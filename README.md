@@ -1,5 +1,12 @@
 # Minecraft Furniture Style Research
 
+## 최신 기록: v40 바닐라 1-1 정적 근거 통합
+
+- [v40 보고서](research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/REPORT.md) · [11개 단계 원장](research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/STAGE_INTEGRATION_LEDGER.csv) · [150개 ID 원장](research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/TEXTURE_150_SCOPE_LEDGER.csv) · [매니페스트](research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/MANIFEST.json).
+- 통합 ID `INT-1-1-20261113-02`, **11단계·150/150 IDs, 제외 없음**. **1-1-02는 요청에 따라 `TEX02-R015` 고정**, 실제 LIVE `TEX02-R017`은 별도. v39 역사적 10단계·133종은 원본 그대로 보존.
+- 이번 통합 새 PNG 실측 **0건**, 고정 참조 source-only 완료 115/150, LIVE 완료 132/150, 상위 연구 대과제 **0/5 유지**. 필수 조건에서 제외된 공식 JAR/인게임 실측을 완료했다고 주장하지 않음. 소스 애니메이션은 최신 상태 기준 9단계 재개·2단계 보류.
+
+
 > **최신 전역 체크포인트 v39 (2026-11-13):** [1-1 연구 10개 분류·133개 PNG 부분 통합](research/vanilla_textures/integrations/v39_INT-1-1-10steps_133/REPORT.md). **1-1-02 석재·벽돌 17개 제외**, 원본 150개 표본 및 독립 TEX 버전 보존, 연구 전체 완료 0/5 유지. 사용자 최신 범위에서는 공식 JAR 인증·인게임 렌더 검증이 필수 완료 조건에서 제외되고, 애니메이션 재개 여부는 단계별 최신 기록에 따름.
 
 

@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-13",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v39",
+  "current_checkpoint": "v40",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -19,7 +19,7 @@
     {
       "id": "01",
       "topic": "vanilla material and texture analysis",
-      "status": "v39_integrated_vanilla_material_source_evidence_10_of_11_stages_133_of_150_unique_targets_excluding_1_1_02_17_no_final_completion",
+      "status": "v40_integrated_all_11_of_11_1_1_stages_150_of_150_unique_fixed_texture_IDs_source_links_only_0_new_RGBA_measurements_no_global_substep_final_completion",
       "sample_count": 150,
       "target": 150,
       "v26_pngs_full_rgba_decoded": 8,
@@ -2345,14 +2345,57 @@
       "1-1-11"
     ],
     "animation_source_deferred_stage_ids": [
+      "1-1-02",
       "1-1-10"
     ],
-    "excluded_from_current_global_integration": [
-      "1-1-02"
-    ],
+    "excluded_from_current_global_integration": [],
     "excluded_product_goals": [
       "Project Zomboid conversion",
       "actual furniture 3D model construction"
+    ],
+    "current_global_integration_id": "INT-1-1-20261113-02"
+  },
+  "v40": {
+    "date": "2026-11-13",
+    "integration_id": "INT-1-1-20261113-02",
+    "global_checkpoint": "v40",
+    "predecessor_global_checkpoint": "v39",
+    "historical_v39_immutable": true,
+    "historical_v39_stages": 10,
+    "historical_v39_texture_ids": 133,
+    "integration_path": "research/vanilla_textures/integrations/v40_INT-1-1-11steps_150",
+    "report": "research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/REPORT.md",
+    "stage_ledger": "research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/STAGE_INTEGRATION_LEDGER.csv",
+    "texture_ledger": "research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/TEXTURE_150_SCOPE_LEDGER.csv",
+    "manifest": "research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/MANIFEST.json",
+    "validation": "research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/VALIDATION.json",
+    "continuation": "research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/CONTINUATION.md",
+    "report_git_blob_sha": "f91a3c1eeea7b2c74fad590eabe94bd992680381",
+    "stage_ledger_git_blob_sha": "12ac885f27c3130cfadeb71d46634414bf2e1fd8",
+    "texture_ledger_git_blob_sha": "88b8620ff2830d4ab007099e10b29b53f8f99aff",
+    "manifest_git_blob_sha": "9fb400cf5ea4cac74fbc5e3eaea74019b1de4797",
+    "integrated_stage_count": 11,
+    "integrated_unique_png_ids": 150,
+    "excluded_stage_count": 0,
+    "excluded_unique_png_ids": 0,
+    "pinned_1_1_02_reference_revision": "TEX02-R015",
+    "pinned_1_1_02_state_sha": "a1f03bac7524a97176e6b0f23dbcf4f3847bdf68",
+    "live_1_1_02_latest_revision": "TEX02-R017",
+    "live_1_1_02_state_sha": "1626a2041bc599fa9b79a0c5c63c4686e6c4a372",
+    "original_v4_measurement_csv_blob_sha": "a4a38532310867d08cb36a2a123f9ddbde07e129",
+    "original_v4_task_ledger_blob_sha": "f35f29a76993e6e58f06e9e1bbecbede40571b2b",
+    "source_completed_at_integration_pin": 115,
+    "source_completed_latest_independent_live": 132,
+    "original_png_newly_measured_in_integration": 0,
+    "global_completed_substeps": 0,
+    "global_total_substeps": 5,
+    "official_compressed_jar_certification_not_required": true,
+    "ingame_visual_verification_not_required": true,
+    "actual_ingame_verified_count": 0,
+    "animation_source_resumed_stages": 9,
+    "animation_source_deferred_stages": [
+      "1-1-02",
+      "1-1-10"
     ]
   }
 }
