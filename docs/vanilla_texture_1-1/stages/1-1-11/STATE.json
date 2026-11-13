@@ -7,10 +7,10 @@
   "stage_id": "1-1-11",
   "material_family": "목재·구조부품",
   "stage_prefix": "TEX11",
-  "current_revision": "TEX11-R008",
-  "next_revision": "TEX11-R009",
-  "revision_sequence": 8,
-  "revision_status": "R008_112_door_state_pair_224_face_UV_cullface_896_uv_pixel_bindings_12_trapdoor_RGBA_symmetry_fixed_ingame0_official_jar_out_of_scope",
+  "current_revision": "TEX11-R009",
+  "next_revision": "TEX11-R010",
+  "revision_sequence": 9,
+  "revision_status": "R009_12_trapdoor_192_states_1152_faces_216_face_RGBA_patches_180_new_face_patches_180deg_alpha_warped38_jungle20_ingame0",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 31,
@@ -42,37 +42,37 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "R008_R007_prior_v38_scope_preserved_31_PNG_fixed",
+      "status": "R009_original_1_21_11_12_trapdoor_binaries_12_state_JSON_36_leaf_JSON_6_templates_prior_31_scope_PNG_preserved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R008_trapdoor_12_PNG_direct_CRC_ok_R007_31_PNG_hash_prior_not_recounted",
+      "status": "R009_trapdoor_PNG_12_12_direct_chunk_CRC_RGBA_decode_existing_PNG_not_new_sources",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R008_trapdoor_12_PNG_RGBA_HV_symmetry_3072_source_texels_6144_directional_comparisons",
+      "status": "R009_12_trapdoor_216_UV_face_RGBA_masks_180deg_3072_pixel_comparisons_warped38_jungle20",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R008_door_224_broad_face_UV_cullface_0_conflicts_cherry_four_alpha_columns_12_trapdoor_HV_RGBA_measurements",
+      "status": "R009_12_trapdoors_thin_edge_144_faces_zero_alpha_transparency_0_partial_0_front_rotation_probe",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R008_7_door_blockstates_8_templates_112_half_state_pairs_224_face_UV_maps_896_model_pixel_bindings_source_only",
+      "status": "R009_192_trapdoor_states_1152_state_faces_216_UV_patches_180_new_faces_16_128_UV_pixel_refs_48_front_normal_pairs",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
       "title": "F 인게임 정적 렌더·문양 접합·컬링 검증 (공식 원본 JAR 인증 제외)",
-      "status": "R008_ingame_static_visual_0_of_31_official_JAR_SHA1_EXCLUDED_by_user",
+      "status": "R009_ingame_static_visual_0_of_31_no_screenshots_official_JAR_SHA1_excluded_by_user",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R008_immutable_REPORT_SUMMARY_3_CSV_SVG_METHODS_STAGE_STATE_HANDOFF_only",
+      "status": "R009_immutable_REPORT_SUMMARY_UV_FACE_STATE_CSV_ROT180_CSV_SVG_METHODS_stage_only",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -80,7 +80,7 @@
     {
       "id": "D1",
       "check": "문·다락문 윗/아랫면 알파와 무늬 연결",
-      "status": "R008_112_door_state_pairs_224_broad_face_UV_cullface_align_4_cherry_original_alpha_x_columns_12_trapdoor_RGBA_HV_symmetry"
+      "status": "R009_trapdoor_216_all_model_face_UV_alpha_144_edge_patches_0_transparency_rot180_warped38_jungle20_source_only"
     },
     {
       "id": "D2",
@@ -103,7 +103,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R008",
+      "last_verified_revision": "TEX11-R009",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -115,7 +115,8 @@
       "r007_direct_pixel_decode_verified": true,
       "r007_direct_png_crc_sha256_match": true,
       "r007_pixel_research_kind": "trapdoor_UV_symmetry",
-      "r008_png_crc_RGBA_symmetry_remeasured": true
+      "r008_png_crc_RGBA_symmetry_remeasured": true,
+      "r009_all_model_face_UV_RGBA_measured": true
     },
     {
       "item_id": "1-1-11-002",
@@ -126,7 +127,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R008",
+      "last_verified_revision": "TEX11-R009",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -138,7 +139,8 @@
       "r007_direct_pixel_decode_verified": true,
       "r007_direct_png_crc_sha256_match": true,
       "r007_pixel_research_kind": "trapdoor_UV_symmetry",
-      "r008_png_crc_RGBA_symmetry_remeasured": true
+      "r008_png_crc_RGBA_symmetry_remeasured": true,
+      "r009_all_model_face_UV_RGBA_measured": true
     },
     {
       "item_id": "1-1-11-003",
@@ -149,7 +151,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R008",
+      "last_verified_revision": "TEX11-R009",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -161,7 +163,8 @@
       "r007_direct_pixel_decode_verified": true,
       "r007_direct_png_crc_sha256_match": true,
       "r007_pixel_research_kind": "trapdoor_UV_symmetry",
-      "r008_png_crc_RGBA_symmetry_remeasured": true
+      "r008_png_crc_RGBA_symmetry_remeasured": true,
+      "r009_all_model_face_UV_RGBA_measured": true
     },
     {
       "item_id": "1-1-11-004",
@@ -172,7 +175,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R008",
+      "last_verified_revision": "TEX11-R009",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -184,7 +187,8 @@
       "r007_direct_pixel_decode_verified": true,
       "r007_direct_png_crc_sha256_match": true,
       "r007_pixel_research_kind": "trapdoor_UV_symmetry",
-      "r008_png_crc_RGBA_symmetry_remeasured": true
+      "r008_png_crc_RGBA_symmetry_remeasured": true,
+      "r009_all_model_face_UV_RGBA_measured": true
     },
     {
       "item_id": "1-1-11-005",
@@ -195,7 +199,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R008",
+      "last_verified_revision": "TEX11-R009",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -207,7 +211,8 @@
       "r007_direct_pixel_decode_verified": true,
       "r007_direct_png_crc_sha256_match": true,
       "r007_pixel_research_kind": "trapdoor_UV_symmetry",
-      "r008_png_crc_RGBA_symmetry_remeasured": true
+      "r008_png_crc_RGBA_symmetry_remeasured": true,
+      "r009_all_model_face_UV_RGBA_measured": true
     },
     {
       "item_id": "1-1-11-006",
@@ -264,7 +269,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R008",
+      "last_verified_revision": "TEX11-R009",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -276,7 +281,8 @@
       "r007_direct_pixel_decode_verified": true,
       "r007_direct_png_crc_sha256_match": true,
       "r007_pixel_research_kind": "trapdoor_UV_symmetry",
-      "r008_png_crc_RGBA_symmetry_remeasured": true
+      "r008_png_crc_RGBA_symmetry_remeasured": true,
+      "r009_all_model_face_UV_RGBA_measured": true
     },
     {
       "item_id": "1-1-11-009",
@@ -287,7 +293,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R008",
+      "last_verified_revision": "TEX11-R009",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -299,7 +305,8 @@
       "r007_direct_pixel_decode_verified": true,
       "r007_direct_png_crc_sha256_match": true,
       "r007_pixel_research_kind": "trapdoor_UV_symmetry",
-      "r008_png_crc_RGBA_symmetry_remeasured": true
+      "r008_png_crc_RGBA_symmetry_remeasured": true,
+      "r009_all_model_face_UV_RGBA_measured": true
     },
     {
       "item_id": "1-1-11-010",
@@ -310,7 +317,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R008",
+      "last_verified_revision": "TEX11-R009",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -322,7 +329,8 @@
       "r007_direct_pixel_decode_verified": true,
       "r007_direct_png_crc_sha256_match": true,
       "r007_pixel_research_kind": "trapdoor_UV_symmetry",
-      "r008_png_crc_RGBA_symmetry_remeasured": true
+      "r008_png_crc_RGBA_symmetry_remeasured": true,
+      "r009_all_model_face_UV_RGBA_measured": true
     },
     {
       "item_id": "1-1-11-011",
@@ -333,7 +341,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R008",
+      "last_verified_revision": "TEX11-R009",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -345,7 +353,8 @@
       "r007_direct_pixel_decode_verified": true,
       "r007_direct_png_crc_sha256_match": true,
       "r007_pixel_research_kind": "trapdoor_UV_symmetry",
-      "r008_png_crc_RGBA_symmetry_remeasured": true
+      "r008_png_crc_RGBA_symmetry_remeasured": true,
+      "r009_all_model_face_UV_RGBA_measured": true
     },
     {
       "item_id": "1-1-11-012",
@@ -632,7 +641,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R008",
+      "last_verified_revision": "TEX11-R009",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -644,7 +653,8 @@
       "r007_direct_pixel_decode_verified": true,
       "r007_direct_png_crc_sha256_match": true,
       "r007_pixel_research_kind": "trapdoor_UV_symmetry",
-      "r008_png_crc_RGBA_symmetry_remeasured": true
+      "r008_png_crc_RGBA_symmetry_remeasured": true,
+      "r009_all_model_face_UV_RGBA_measured": true
     },
     {
       "item_id": "1-1-11-025",
@@ -655,7 +665,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R008",
+      "last_verified_revision": "TEX11-R009",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -667,7 +677,8 @@
       "r007_direct_pixel_decode_verified": true,
       "r007_direct_png_crc_sha256_match": true,
       "r007_pixel_research_kind": "trapdoor_UV_symmetry",
-      "r008_png_crc_RGBA_symmetry_remeasured": true
+      "r008_png_crc_RGBA_symmetry_remeasured": true,
+      "r009_all_model_face_UV_RGBA_measured": true
     },
     {
       "item_id": "1-1-11-026",
@@ -678,7 +689,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R008",
+      "last_verified_revision": "TEX11-R009",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -690,7 +701,8 @@
       "r007_direct_pixel_decode_verified": true,
       "r007_direct_png_crc_sha256_match": true,
       "r007_pixel_research_kind": "trapdoor_UV_symmetry",
-      "r008_png_crc_RGBA_symmetry_remeasured": true
+      "r008_png_crc_RGBA_symmetry_remeasured": true,
+      "r009_all_model_face_UV_RGBA_measured": true
     },
     {
       "item_id": "1-1-11-027",
@@ -921,15 +933,46 @@
         "research/vanilla_textures/by_stage/1-1-11/TEX11-R006/DOOR_HALF_ALIGNMENT.csv",
         "research/vanilla_textures/by_stage/1-1-11/TEX11-R006/INGAME_STATIC_TEST_MATRIX.csv"
       ]
+    },
+    {
+      "revision": "TEX11-R007",
+      "kind": "real_PNG_RGBA_door_edge_and_trapdoor_shelf_selected_UV_face_source_samples",
+      "date": "2026-11-13",
+      "door_pixel_edge_pairs": 112,
+      "selected_UV_face_patches": 71,
+      "UV_texel_references": 13936,
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-11/TEX11-R007/REPORT.md"
+    },
+    {
+      "revision": "TEX11-R008",
+      "kind": "door_half_112_pairs_224_broad_face_UV_projection_and_12_trapdoor_RGBA_HV_remeasurement",
+      "date": "2026-11-13",
+      "face_UV_state_checks": 224,
+      "unique_UV_pixel_bindings": 896,
+      "trapdoor_PNG_direct_crc_ok": 12,
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-11/TEX11-R008/REPORT.md"
+    },
+    {
+      "revision": "TEX11-R009",
+      "kind": "complete_trapdoor_192_state_1152_face_216_UV_face_RGBA_source_analysis",
+      "date": "2026-11-13",
+      "new_face_UV_patches_over_R007": 180,
+      "UV_references_new_patches": 16128,
+      "source_180_alpha_warped": 38,
+      "source_180_alpha_jungle": 20,
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-11/TEX11-R009/REPORT.md"
     }
   ],
   "next_steps": [
-    "Check GitHub latest stage STATE.json before modification; TEX11-R006 current TEX11-R007 next, preserve historic R001-R006 immutable",
-    "Continue R007 with source pixel-level static texture/UV surface sampling and real seam-image candidates only as SOURCE_RECONSTRUCTION; no false runtime verification",
-    "Use R006 31-PNG INGAME_STATIC_TEST_MATRIX.csv for screenshots/controlled Minecraft actual game evidence if available; current in-game 0/31",
-    "Preserve historic oak_shelf 7 leaf and 32 v38 states without double-counting as new stage measurements",
-    "Do not ask user for original jar SHA-1 or official Mojang certificate; user excluded this requirement",
-    "No animation, Project Zomboid conversion, furniture 3D asset construction, global v38 changes or other 1-1-XX stage file edits"
+    "Read live stages/1-1-11/STATE.json and HANDOFF.md first; only publish unique immutable TEX11-R010 if new evidence exists.",
+    "Continue source-only 5-wood 32x32 shelf atlas model-face UV/connected geometry research, not already sampled R007 front 7 patches.",
+    "For warped/jungle trapdoors, game screenshots with exact facing/half/open and camera angle would enable actual rendered-pattern verification; in-game currently 0/31.",
+    "Maintain original 31 source PNG count; 127 leaf, 512 rules, 544 source-derived static states, 672 model instances, 4320 faces, and historical v38 oak shelf remain inherited not new.",
+    "If independent research has run out or essential user evidence is needed, STOP when user says continue and explain exactly which input is required.",
+    "Official Mojang client.jar SHA1 not required; do not ask. No animations, PZ conversion, furniture 3D asset construction, global v38 edits, or other stage mutations."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
