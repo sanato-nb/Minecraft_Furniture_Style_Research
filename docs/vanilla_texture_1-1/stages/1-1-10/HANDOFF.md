@@ -64,3 +64,12 @@
 2. 과거 v4 측정과 타 버전(해당되면 v35~v38)의 동일 경로 SHA/화소를 대조해 **새로 분석할 실제 빈틈**을 고른다.
 3. 자료를 직접 검사하고 `REPORT.md`·`SOURCE_LEDGER.csv`·`SUMMARY.json`을 고유 릴리스 폴더에 보존한다. 미완료 작업은 근거/차단 원인을 기록한다.
 4. 마지막으로 이 `HANDOFF.md`·본 단계 `STATE.json`만 갱신하고 다음 채팅에서 그 다음 미완료 부분으로 이어가게 한다.
+
+---
+
+## TEX10-R001 — 2026-11-13 실제 신규 근거 저장
+
+- 사용자 저장소의 Minecraft 1.21.11 추출 PNG 8종 직접 바이트 수신/PNG CRC·SHA/전 **2,048 RGBA** 픽셀 검사; v4 기록·외부 추출 미러 Git blob 모두 **8/8 일치**. 이미지 8/8, RGB/알파 8/8.
+- 정적 모델/상태 JSON 8쌍, 상속 부모 4종, 정적 UV 면 **44행**, vine 10 multipart 조건 확인. **D1** 7종 이진 컷아웃 + moss 1종 완전 불투명, **D2** 모델 tintindex 0인 5종 vs 미기재 3종, **D3** 큐브/덩굴 양면 평면+알파 외곽 역할 구분.
+- [독립 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R001/REPORT.md), [SHA·출처 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R001/SOURCE_LEDGER.csv), [PNG 픽셀 증거](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R001/PIXEL_AUDIT.json), [면별 UV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R001/MODEL_UV_AUDIT.csv), [상태 요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R001/SUMMARY.json).
+- **F 미완료:** Mojang 공식 JAR 진본 인증 0/8, 인게임 정적 렌더 0/8. 추출 미러 동일성=공식 인증 아님. 애니메이션 보류 계속, 전역 v38 유지. **현재 `TEX10-R001`, 다음 `TEX10-R002`**. 저장 직전 상태/SHA 충돌 재확인 필수.
