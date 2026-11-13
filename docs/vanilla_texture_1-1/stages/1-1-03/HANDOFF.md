@@ -1,8 +1,18 @@
 # 1-1-03 금속·금속부품 — 독립 채팅 인수인계
 
-**현재 단계: TEX03-R005 / 다음 신규 후보: TEX03-R006 / 전역 공통: v38 그대로.** 2026-11-13. 공식 인증 제외 정책 반영(연구 릴리스 번호 유지).
+**현재 단계: TEX03-R006 / 다음 신규 후보: TEX03-R007 / 전역 공통: v38 그대로.** 2026-11-13. 공식 인증 제외 정책 반영(연구 릴리스 번호 유지).
 
-## TEX03-R005 — 최신 신규 정적 연구 (R001–R004 계승)
+## TEX03-R006 — 최신 소스 기반 RGB·투명 마스크/정적 UV 미러 분석
+
+[최신 R006 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-03/TEX03-R006/REPORT.md) · [R006 SUMMARY.json](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-03/TEX03-R006/SUMMARY.json)
+
+- 사용자 `1.21.11/` 원본 PNG **3개** 직접 SHA-256/CRC 재검사 및 768 RGBA 재디코딩(이미 R001 누적 표본에 포함됨), 원본 blockstate **3개**·leaf model **8개**·중간/geometry model **9개** 재조회. **신규 원본 파일 수 0**; 기존 R005 70개 투명 포함 상태×면을 다른 속성으로 확장 연구.
+- PNG 수평 반사 후 **alpha 불일치**: `iron_door_top` 0, `iron_trapdoor` 0, `copper_grate` 98픽셀. **불투명 RGB 차이**: 각각 114/56/116픽셀(원본 불투명↔불투명 대응만 비교).
+- 정적 상태 **49개**(철문32/철다락문16/구리 격자1), 그중 투명 포함 상태 **33개**. 기존 alpha 포함 상태×면 **70개** 중 실제 수평 UV 반전은 **철문 상부의 16개 면만**, 이 16개의 구멍 위치는 모두 원본과 일치(대칭 alpha)하지만 금속 색상 무늬는 반전됨. **114×16=1,824**는 동일 텍셀의 중복 면 참조 횟수로 고유 픽셀 증가 아님.
+- 원본 UV가 선언되지 않은 `cube_all → cube` 경로는 이전 R005 규칙에 따라 기본 면 좌표 해석. 70면의 38개에 cullface 선언. `STATE_MIRROR_RESEARCH.csv` 49행, `ALPHA_FACE_UV_MIRROR_CENSUS.csv` 70행, 원본 색/alpha 비교 3행, 마스크 좌표 행 48개를 새로 작성.
+- **F 인게임 정적 렌더 확인 0/16** 유지. Mojang 공식 JAR SHA-1/메타데이터 확인은 사용자 요청으로 제외(성공 인증이 아님). 애니메이션·PZ·실제 3D 가구 제작 보류.
+
+## TEX03-R005 — 선행 분석 (R001–R004 계승)
 
 [최신 REPORT.md](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-03/TEX03-R005/REPORT.md) · [SUMMARY.json](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-03/TEX03-R005/SUMMARY.json)
 
@@ -44,6 +54,6 @@
 
 ## 다음의 A–G 과제 / 범위 제약
 
-GitHub `STATE.json`/`HANDOFF.md`/R004/HEAD 우선 확인 후 **새 증거가 있을 때만** R006 신규 저장. 새 정적 소스 검증 근거나 실제 게임 정적 화면 증거를 우선한다. **공식 Mojang 원본 JAR 인증을 요구하거나 후속 과제로 지정하지 않는다.** 정적 JSON의 회전/UV는 실제 빛·면 가려짐·광택을 입증하지 못한다.
+GitHub `STATE.json`/`HANDOFF.md`/R004/HEAD 우선 확인 후 **새 증거가 있을 때만** R007 신규 저장. 새 정적 소스 검증 근거나 실제 게임 정적 화면 증거를 우선한다. **공식 Mojang 원본 JAR 인증을 요구하거나 후속 과제로 지정하지 않는다.** 정적 JSON의 회전/UV는 실제 빛·면 가려짐·광택을 입증하지 못한다.
 
-**애니메이션·키프레임·움직임 연구 보류**; Project Zomboid 변환 및 가구 3D 제작 금지. 다른 단계나 루트 `HANDOFF.md`, `PROGRESS.md`, `handoff/STATE.json`, 전역 `v38` 수정 금지. **기존 R001/R002/R003/R004/R005 릴리스 파일 영구 불변**, 이 단계 전용 새 `TEX03-R006/` 결과와 이 단계 `STATE.json`/`HANDOFF.md`만 이후 쓰기 허용.
+**애니메이션·키프레임·움직임 연구 보류**; Project Zomboid 변환 및 가구 3D 제작 금지. 다른 단계나 루트 `HANDOFF.md`, `PROGRESS.md`, `handoff/STATE.json`, 전역 `v38` 수정 금지. **기존 R001/R002/R003/R004/R005/R006 릴리스 파일 영구 불변**, 이 단계 전용 새 `TEX03-R007/` 결과와 이 단계 `STATE.json`/`HANDOFF.md`만 이후 쓰기 허용.

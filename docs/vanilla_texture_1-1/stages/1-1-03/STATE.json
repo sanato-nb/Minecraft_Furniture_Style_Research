@@ -7,10 +7,10 @@
   "stage_id": "1-1-03",
   "material_family": "금속·금속부품",
   "stage_prefix": "TEX03",
-  "current_revision": "TEX03-R005",
-  "next_revision": "TEX03-R006",
-  "revision_sequence": 5,
-  "revision_status": "R005_321_source_alpha0_XY_coordinates_272_UV_rechecks_and_406_rotated_geometry_face_projections",
+  "current_revision": "TEX03-R006",
+  "next_revision": "TEX03-R007",
+  "revision_sequence": 6,
+  "revision_status": "R006_user_PNG_3_direct_horizontal_RGB_alpha_mirror_49_states_70_alpha_faces_UV_orientation_verified",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 16,
@@ -27,7 +27,7 @@
     "version_policy": "docs/vanilla_texture_1-1/ISOLATED_CHAT_VERSIONING.md",
     "output_root": "research/vanilla_textures/by_stage/1-1-03/"
   },
-  "source_note": "v4 표본에 iron_door, iron_trapdoor, anvil_top 등 포함. 금속 반사/광택 표현은 원본 PNG 통계와 런타임 셰이더를 구분할 것. TEX03-R003: 사용자가 풀어 올린 1.21.11/ 69개 소스를 실제 직접 검사, 미러 Git Blob SHA-1 69/69 및 PNG SHA-256 16/16 일치; 공식 Mojang JAR 전체 SHA-1 인증 아님. TEX03-R005: 6 source PNG raw alpha XY positions, 14 blockstates and 14 geometry JSON templates, 272 mask UV crosschecks and source-projected world face directions; not an in-game rendering claim.",
+  "source_note": "v4 표본에 iron_door, iron_trapdoor, anvil_top 등 포함. 금속 반사/광택 표현은 원본 PNG 통계와 런타임 셰이더를 구분할 것. TEX03-R003: 사용자가 풀어 올린 1.21.11/ 69개 소스를 실제 직접 검사, 미러 Git Blob SHA-1 69/69 및 PNG SHA-256 16/16 일치; 공식 Mojang JAR 전체 SHA-1 인증 아님. TEX03-R005: 6 source PNG raw alpha XY positions, 14 blockstates and 14 geometry JSON templates, 272 mask UV crosschecks and source-projected world face directions; not an in-game rendering claim. TEX03-R006: directly redecoded 3 user-extracted PNGs and verified source blockstate/leaf/parent paths; differentiated mirrored alpha0 masks from opaque RGB on 70 existing static alpha face occurrences.",
   "allowed_write_paths": [
     "docs/vanilla_texture_1-1/stages/1-1-03/HANDOFF.md",
     "docs/vanilla_texture_1-1/stages/1-1-03/STATE.json",
@@ -41,27 +41,27 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "TEX03_R005_R001_R004_evidence_reconciled_no_duplicate_counts",
+      "status": "TEX03_R006_R001_R005_inherited_counts_separated_3_PNG_20_JSON_refetched",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R005_6_user_PNG_SHA256_CRC_verified_other10_R003_preserved",
+      "status": "R006_three_user_PNG_source_SHA256_PNG_CRC_pass_other_13_inherited",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R005_6_PNG_1536_RGBA_redecoded_321_alpha0_coordinate_rows_R001_pixel_set_retained",
+      "status": "R006_three_PNG_768_RGBA_redecoded_3_new_RGB_mirror_comparisons_no_new_unique_texels",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R005_321_alpha0_source_coordinates_161_in_UV_160_outside_and_world_face_usage",
+      "status": "R006_source_alpha_mirror_XY_and_opaque_RGB_reflection_difference_plus_state_face_mask_invariance",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R005_user_14_blockstates_14_geometry_templates_406_source_faces_272_PNG_UV_mask_rechecks",
+      "status": "R006_three_blockstates_eight_leaf_nine_parent_JSON_49_states_70_transparent_faces_16_UV_reverse_0_alpha_changes",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
@@ -71,7 +71,7 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "TEX03_R005_alpha_spatial_and_static_world_face_release_written",
+      "status": "TEX03_R006_source_RGB_mask_mirror_release_written",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -84,12 +84,12 @@
     {
       "id": "D2",
       "check": "철문·철다락문·모루/격자의 알파 마스크와 부품면 구분",
-      "status": "R005_6_PNG_321_exact_alpha0_coordinates_161_used_160_unused_272_UV_occurrence_mask_matches"
+      "status": "R006_3_PNG_mirror_checks_iron_door_114_opaque_RGB_diffs_and_0_alpha_diffs_iron_trapdoor_56_grate_116"
     },
     {
       "id": "D3",
       "check": "고정 블록 상태마다 정적 텍스처 경로 변화 조사",
-      "status": "R005_14_blockstates_14_templates_63_states_406_world_face_projections_from_source"
+      "status": "R006_49_source_static_states_70_alpha_faces_16_UV_mirrors_all_alpha_mask_locations_preserved"
     }
   ],
   "items": [
@@ -325,14 +325,14 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R005",
-      "evidence_status": "R005_user_geometry_world_face_projection_checked_source_png_binary_R003_or_R005_ingame_pending",
+      "last_verified_revision": "TEX03-R006",
+      "evidence_status": "R006_user_PNG_horizontal_RGB_alpha_mirror_and_state_face_UV_orientation_checked_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
       "current_stream_mirror_git_blob_sha": "92c5ac8f4c662956fae6dc676ef03ad2e50642db",
       "current_stream_alpha0_pixels": 77,
-      "last_binary_verified_revision": "TEX03-R005",
+      "last_binary_verified_revision": "TEX03-R006",
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 6,
       "uv_alpha_hole_face_records": 6,
@@ -349,7 +349,10 @@
       "static_state_alpha0_UV_texel_occurrences": 462,
       "latest_geometry_projection_revision": "TEX03-R005",
       "alpha_coordinate_mask_revision": "TEX03-R005",
-      "alpha_coordinate_mask_spatially_redecoded": true
+      "alpha_coordinate_mask_spatially_redecoded": true,
+      "source_UV_mirror_checked_revision": "TEX03-R006",
+      "source_alpha_mask_mirror_X_mismatch": 98,
+      "source_opaque_RGB_horizontal_mirror_different_count": 116
     },
     {
       "item_id": "1-1-03-009",
@@ -359,14 +362,14 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R005",
-      "evidence_status": "R005_user_geometry_world_face_projection_checked_source_png_binary_R003_or_R005_ingame_pending",
+      "last_verified_revision": "TEX03-R006",
+      "evidence_status": "R006_user_PNG_horizontal_RGB_alpha_mirror_and_state_face_UV_orientation_checked_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
       "current_stream_mirror_git_blob_sha": "2eaab820b34da1fc5dd293d0fc9c29edaac0121b",
       "current_stream_alpha0_pixels": 36,
-      "last_binary_verified_revision": "TEX03-R005",
+      "last_binary_verified_revision": "TEX03-R006",
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 18,
       "uv_alpha_hole_face_records": 6,
@@ -383,7 +386,10 @@
       "static_state_alpha0_UV_texel_occurrences": 1152,
       "latest_geometry_projection_revision": "TEX03-R005",
       "alpha_coordinate_mask_revision": "TEX03-R005",
-      "alpha_coordinate_mask_spatially_redecoded": true
+      "alpha_coordinate_mask_spatially_redecoded": true,
+      "source_UV_mirror_checked_revision": "TEX03-R006",
+      "source_alpha_mask_mirror_X_mismatch": 0,
+      "source_opaque_RGB_horizontal_mirror_different_count": 56
     },
     {
       "item_id": "1-1-03-010",
@@ -525,14 +531,14 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R005",
-      "evidence_status": "R005_user_geometry_world_face_projection_checked_source_png_binary_R003_or_R005_ingame_pending",
+      "last_verified_revision": "TEX03-R006",
+      "evidence_status": "R006_user_PNG_horizontal_RGB_alpha_mirror_and_state_face_UV_orientation_checked_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
       "current_stream_mirror_git_blob_sha": "62b9a1d7ba6a08f9e1da08e605e0f6e4bb6fb311",
       "current_stream_alpha0_pixels": 48,
-      "last_binary_verified_revision": "TEX03-R005",
+      "last_binary_verified_revision": "TEX03-R006",
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 20,
       "uv_alpha_hole_face_records": 8,
@@ -549,7 +555,10 @@
       "static_state_alpha0_UV_texel_occurrences": 1536,
       "latest_geometry_projection_revision": "TEX03-R005",
       "alpha_coordinate_mask_revision": "TEX03-R005",
-      "alpha_coordinate_mask_spatially_redecoded": true
+      "alpha_coordinate_mask_spatially_redecoded": true,
+      "source_UV_mirror_checked_revision": "TEX03-R006",
+      "source_alpha_mask_mirror_X_mismatch": 0,
+      "source_opaque_RGB_horizontal_mirror_different_count": 114
     },
     {
       "item_id": "1-1-03-015",
@@ -704,14 +713,57 @@
       "ingame_static_verified": 0,
       "report_path": "research/vanilla_textures/by_stage/1-1-03/TEX03-R005/REPORT.md",
       "summary_path": "research/vanilla_textures/by_stage/1-1-03/TEX03-R005/SUMMARY.json"
+    },
+    {
+      "revision": "TEX03-R006",
+      "kind": "user_provided_3_PNG_color_alpha_mirror_and_70_transparent_face_UV_research",
+      "direct_rechecked_user_pngs": 3,
+      "direct_rechecked_user_blockstates": 3,
+      "direct_rechecked_user_leaf_model_json": 8,
+      "direct_rechecked_user_parent_geometry_model_json": 9,
+      "source_png_sha256_crc_passed": 3,
+      "source_RGBA_pixels_redecoded_legacy_overlap": 768,
+      "new_source_pixel_horizontal_reflection_measurements": 3,
+      "model_face_occurrences_inherited_and_newly_annotated": 70,
+      "source_alpha_faces_with_UV_horizontal_reverse": 16,
+      "source_alpha_mask_changes_after_actual_UV": 0,
+      "source_alpha_faces_with_cullface": 38,
+      "source_png_vertical_alpha_mask_mismatches": {
+        "iron_door_top": 64,
+        "iron_trapdoor": 0,
+        "copper_grate": 98
+      },
+      "source_png_horizontal_alpha_mask_mismatches": {
+        "iron_door_top": 0,
+        "iron_trapdoor": 0,
+        "copper_grate": 98
+      },
+      "source_png_opaque_RGB_mirror_mismatches": {
+        "iron_door_top": 114,
+        "iron_trapdoor": 56,
+        "copper_grate": 116
+      },
+      "world_projected_face_updown": 18,
+      "world_projected_face_horizontal": 52,
+      "per_state_new_orientation_records": 49,
+      "mirror_opaque_RGB_differing_face_texel_references": 1824,
+      "prior_R004_state_model_faces_retained": 406,
+      "prior_R001_unique_RGBA_pixels_retained": 4096,
+      "unique_PNG_assets_added": 0,
+      "new_unique_source_RGBA_pixels": 0,
+      "new_unique_original_template_UV_faces": 0,
+      "ingame_static_verified": 0,
+      "official_mojang_JAR_authentication": "excluded_by_user",
+      "report_path": "research/vanilla_textures/by_stage/1-1-03/TEX03-R006/REPORT.md",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-03/TEX03-R006/SUMMARY.json"
     }
   ],
   "next_steps": [
-    "Only create TEX03-R006 after additional verified nonduplicate static source evidence or actual game static render screenshots; retain R001–R005",
-    "for real in-game screenshots: fixed door/trapdoor state variants, local/world face direction, occlusion, mirrored appearance; source projections do not certify render",
-    "user-provided 1.21.11 extraction primary; unofficial mirror only crosscheck",
-    "official Mojang JAR full SHA-1/metadata authentication excluded by user, not verified",
-    "animation deferred, no PZ conversion or furniture 3D model building, global v38 and other-stage files unchanged"
+    "TEX03-R007 only if new distinct static evidence or actual fixed in-game renders exist; never release merely to restate mirrored 70 faces",
+    "next ingame static verification: iron door upper hinge/open and trapdoor orientation with screenshot/game evidence; source UV orientation not a visible screenshot",
+    "user-extracted 1.21.11 is primary; mirror optional crosscheck only",
+    "official Mojang JAR SHA-1 and metadata authentication excluded by user, not completed",
+    "animation deferred, no PZ conversion or furniture 3D asset building; root/global v38 and other stage files unmodified"
   ],
   "ingame_static_render_verified": false,
   "animation_study_deferred": true,
@@ -723,7 +775,7 @@
   ],
   "project_overall_completion_pct": null,
   "do_not_count_planning_as_research": true,
-  "scope_completion_note": "R005 adds precise alpha0 positions 321 (from already-known pixels), validates 272 face UV mask usages against user PNG, projects 406 inherited face occurrences using 14 user JSON source templates. Ingame static render 0/16. Official Mojang JAR authentication excluded.",
+  "scope_completion_note": "R006 new source-derived property measurements for 3 PNGs/49 relevant static variants/70 pre-existing alpha faces: actual UV mirror 16 faces, alpha mask changes zero, opaque RGB mirror changes measured; ingame 0/16, official full JAR auth excluded.",
   "source_preference": "user_provided_1.21.11_extraction_first",
   "user_extraction_base_path": "1.21.11/",
   "verification_tracks": {
@@ -815,5 +867,25 @@
     "in_game_render_evidence": 0,
     "prior_R004_406_faces_not_added_as_new_measured_faces": true
   },
-  "current_release_path": "research/vanilla_textures/by_stage/1-1-03/TEX03-R005/"
+  "current_release_path": "research/vanilla_textures/by_stage/1-1-03/TEX03-R006/",
+  "alpha_mirror_source_resolution": {
+    "revision": "TEX03-R006",
+    "source_PNG_direct": 3,
+    "source_JSON_refetched": 20,
+    "alpha_faces_inherited_reanalyzed": 70,
+    "UV_horizontal_reverse_face_occurrences": 16,
+    "alpha_mask_changed_faces": 0,
+    "source_png_horizontal_mirror_alpha_mismatch_counts": {
+      "iron_door_top": 0,
+      "iron_trapdoor": 0,
+      "copper_grate": 98
+    },
+    "source_png_horizontal_mirror_opaque_RGB_diff_counts": {
+      "iron_door_top": 114,
+      "iron_trapdoor": 56,
+      "copper_grate": 116
+    },
+    "in_game_verified": false,
+    "output_csv": "research/vanilla_textures/by_stage/1-1-03/TEX03-R006/ALPHA_FACE_UV_MIRROR_CENSUS.csv"
+  }
 }

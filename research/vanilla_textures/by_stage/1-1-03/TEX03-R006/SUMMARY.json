@@ -1,0 +1,105 @@
+{
+  "schema": "TEX03-R006_static_alpha_uv_mirror_source_research/v1",
+  "stage": "1-1-03",
+  "revision": "TEX03-R006",
+  "date": "2026-11-13",
+  "game": "Minecraft Java Edition 1.21.11",
+  "primary_source": "user_provided_extracted_1.21.11",
+  "legacy_checkpoint_preserved": "v38",
+  "prior": "TEX03-R005",
+  "source_assets_revisited": {
+    "png_binary_sha256_crc_rgba": 3,
+    "blockstate_json": 3,
+    "leaf_model_json": 8,
+    "template_intermediate_and_geometry_model_json": 9,
+    "unique_source_files_revisited": 23,
+    "new_asset_paths_discovered": 0
+  },
+  "new_measurement_scope": {
+    "rgba_pixels_redecoded_existing": 768,
+    "source_PNG_RGB_horizontal_reflection_measurements": 3,
+    "source_PNG_alpha_reflection_measurements": 3,
+    "source_alpha_mask_row_pairs": 48,
+    "existing_state_model_faces_newly_annotated": 70,
+    "static_states_new_orientation_properties": 49
+  },
+  "source_pixel_mirror": {
+    "iron_door_top": {
+      "sha256": "54930bb1139268de1855ea03ce5b95097717e25307cbfa1ecce6e665e6da8d88",
+      "alpha0": 48,
+      "mirrorX_alpha_mismatches": 0,
+      "mirrorY_alpha_mismatches": 64,
+      "opaque_pair_pixels": 208,
+      "mirrorX_opaque_RGB_differences": 114
+    },
+    "iron_trapdoor": {
+      "sha256": "ca84a5c288bcfe8c9a53f066536175f50effa21e85cfb933094805527c5894ba",
+      "alpha0": 36,
+      "mirrorX_alpha_mismatches": 0,
+      "mirrorY_alpha_mismatches": 0,
+      "opaque_pair_pixels": 220,
+      "mirrorX_opaque_RGB_differences": 56
+    },
+    "copper_grate": {
+      "sha256": "c704177ce251df01260937e301723ceadc29fb6f586ea669782cc7174aa32b72",
+      "alpha0": 77,
+      "mirrorX_alpha_mismatches": 98,
+      "mirrorY_alpha_mismatches": 98,
+      "opaque_pair_pixels": 130,
+      "mirrorX_opaque_RGB_differences": 116
+    }
+  },
+  "source_face_results": {
+    "alpha0_face_occurrences_inherited": 70,
+    "iron_door_alpha_faces": 32,
+    "iron_trapdoor_alpha_faces": 32,
+    "copper_grate_alpha_faces": 6,
+    "faces_with_horizontal_UV_reverse": 16,
+    "all_horizontal_UV_reverse_faces_texture": "iron_door_top",
+    "alpha_masks_changed_on_70_source_faces": 0,
+    "faces_with_cullface": 38,
+    "faces_without_cullface": 32,
+    "world_horizontal_projected_face_occurrences": 52,
+    "world_updown_projected_face_occurrences": 18,
+    "RGB_color_changed_face_texel_occurrences_mirror": 1824
+  },
+  "static_states_subset": {
+    "iron_door": 32,
+    "iron_trapdoor": 16,
+    "copper_grate": 1,
+    "total": 49,
+    "with_alpha0_faces": 33,
+    "without_alpha0_faces": 16
+  },
+  "inherited_not_new": {
+    "unique_PNG_textures": 16,
+    "unique_RGBA_pixels": 4096,
+    "UV_template_faces": 145,
+    "static_states": 63,
+    "state_model_face_occurrences": 406,
+    "alpha0_faces": 70,
+    "source_alpha0_pixels_in_R005": 321,
+    "source_UV_alpha_checks_in_R005": 272
+  },
+  "in_game_static_render_verified": 0,
+  "official_mojang_jar_authentication": "excluded_by_user_not_verified",
+  "animation_study": "deferred",
+  "scope_excluded": [
+    "Project Zomboid conversion",
+    "actual 3D furniture assets"
+  ],
+  "files": [
+    "REPORT.md",
+    "SUMMARY.json",
+    "SOURCE_MIRROR_RGB_ALPHA.csv",
+    "SOURCE_MASK_GRIDS.csv",
+    "ALPHA_FACE_UV_MIRROR_CENSUS.csv",
+    "STATE_MIRROR_RESEARCH.csv"
+  ],
+  "limitations": [
+    "Source texture UV axis reflection analysis is not an in-game screenshot",
+    "Other PNG textures outside selected 3 not newly inspected for color reflection",
+    "1824 counts repeated references, not unique PNG texels",
+    "Existing face counts and pixel counts reused and not double-counted"
+  ]
+}
