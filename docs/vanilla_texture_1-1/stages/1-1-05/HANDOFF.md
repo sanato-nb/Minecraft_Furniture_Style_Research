@@ -146,3 +146,13 @@
 - R004 일반 `block.fsh/vsh`와 다른 코드 경로를 확인했으나, **유리 6개가 이 terrain 셰이더를 실제 사용하는지·밉맵 생성/블렌딩/정렬·컷아웃 활성화/인게임 출력은 미검증**. R004 `glass.png.mcmeta=mean`을 RGSS 생성 방법과 동일시하지 않음.
 - [R007 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R007/REPORT.md) · [새 소스 6개](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R007/SOURCE_LEDGER.csv) · [정적 shader 비교](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R007/BLOCK_VS_TERRAIN_SHADER.csv) · [원본 코드 검증 스크립트](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R007/REPRODUCE_SHADER_AUDIT.py) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R007/SUMMARY.json).
 - 인게임 정적 유리 검증 여전히 **0/6**. 공식 전체 client.jar 인증은 사용자 정책상 **out of scope**, 실증 성공 아님. 후속 `TEX05-R008`은 새로운 증거가 있을 때만 생성. **현재 다음 핵심 단계는 실제 게임 정적 스크린샷/설정 확보 — 사용자 도움 필요**. 다른 단계, v38, 애니메이션/PZ/가구 제작 변경 없음.
+
+
+## 연구 범위 변경 — 인게임 검증 제외 (2026-11-13, TEX05 버전 증가 없음)
+
+- **사용자의 명시적 결정:** "인게임 검증은 제외해줘 어차피 모델링이랑 텍스텨있는데 필요없을거같아". 현재 `1-1-05` 유리 분류는 **사용자 제공 Java 1.21.11 원본 PNG/모델 JSON/블록상태/아이템 참조/UV/아틀라스/정적 셰이더 소스**에 근거해 연구한다. 사용자 요청 게임 스크린샷·실행 테스트·GPU 결과 수집은 필수 조건에서 **제외(out_of_scope)**.
+- 적용 검증 체계는 ① 사용자 제공 `1.21.11/` 직접 정적 자원 검증, ② 기존 비공식 미러와 교차 확인이다. Mojang 공식 JAR SHA-1 인증도 **기존 정책상 범위 제외** 그대로.
+- 정적 모델·원본 텍스처 6/6, 기존 1,536 픽셀·36 UV 면·누적 37개 서로 다른 원본 정적 경로 및 R001~R007 결과 모두 **유지**. 과거 릴리스/보고서 불변. 인게임 실측은 한 적 없으므로 **0/6(범위 제외, 검증 성공이 아님)**으로 보존한다.
+- 단계 F와 D3 인게임 체크는 `pending`이 아닌 `out_of_scope_by_user`로 관리한다. `R007`의 `terrain.fsh` 샘플링 코드, `block.fsh` 비교, `glass.png.mcmeta=mean` 등은 정적 코드/메타데이터 관찰만 입증한다. 게임 투명 정렬, 렌더 레이어, 셰이더 바인딩, 실제 GPU 밉맵 출력의 사실 판정은 **하지 않는다**.
+- **소스 기준 목표의 현재 성과:** 고정 대상 6종에 대한 소스 기반 측정과 모델 연결 조사 기록이 존재한다. 추가 새 근거가 없으면 `TEX05-R008`을 만들 필요가 없다. 사용자가 "계속해줘"라고 요청해도 새로운 유효 정적 자료/분석이 없으면 **연구가 현재 정해진 범위에서 충분히 진행되었음을 알리고 중단**한다. 이제 인게임 스크린샷은 사용자에게 요구하지 않는다.
+- 본 변경은 **정책만 변경**했으므로 현재 `TEX05-R007`, 다음 고유 연구 버전 `TEX05-R008`을 그대로 유지하며, 새 연구 릴리스 폴더 생성이나 PNG 연구량 증가는 없다. 전역 `v38`, 다른 단계, 애니메이션 보류, PZ 변환/가구 제작 제외도 유지.

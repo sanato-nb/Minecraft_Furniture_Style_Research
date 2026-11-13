@@ -10,7 +10,7 @@
   "current_revision": "TEX05-R007",
   "next_revision": "TEX05-R008",
   "revision_sequence": 7,
-  "revision_status": "R007_user_extracted_terrain_shader_six_new_static_source_paths_imports_verified_runtime_pending",
+  "revision_status": "R007_source_static_evidence_recorded_ingame_and_official_auth_excluded_by_user",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 6,
@@ -60,23 +60,24 @@
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R006_glass_alpha0_rgb128_vs_stained_constant_rgb_palette_and_mixing_proxy_measured_D3_pending",
+      "status": "R006_original_glass_alpha_rgb_pattern_recorded_D1_D2_source_verified_D3_out_of_scope_by_user",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "last_evidence_revision": "TEX05-R006"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R007_terrain_fsh_vsh_plus_4_shader_includes_6_verified_new_sources_7_imports_user_extract_mirror_equal_actual_glass_shader_binding_pending",
+      "status": "R007_terrain_fsh_vsh_6_new_source_files_7_import_edges_verified_glass_runtime_shader_binding_out_of_scope_not_asserted",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "last_evidence_revision": "TEX05-R007"
     },
     "F": {
-      "title": "F 인게임 정적 렌더 검증 (Mojang JAR 공식 인증 제외)",
-      "status": "pending_ingame_static_render_only_official_jar_auth_out_of_scope",
+      "title": "F 인게임 정적 렌더·공식 JAR 인증 — 사용자 요청으로 연구 범위 제외",
+      "status": "out_of_scope_by_user_not_verified_not_a_completion_gate",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "last_evidence_revision": "TEX05-R004",
       "official_jar_auth_requirement": false,
-      "ingame_static_render_requirement": "verify_only_with_actual_game_evidence"
+      "ingame_static_render_requirement": false,
+      "conclusion": "Excluded from current source-only study; no game/GPU runtime verification performed"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
@@ -98,8 +99,8 @@
     },
     {
       "id": "D3",
-      "check": "인게임 정적 render layer/정렬은 공식 런타임에서만 검증",
-      "status": "pending_official_runtime"
+      "check": "인게임 render layer·투명 정렬·조명은 정적 모델·텍스처 연구 완료 조건에서 제외",
+      "status": "out_of_scope_by_user_no_ingame_or_runtime_required"
     }
   ],
   "items": [
@@ -113,7 +114,7 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX05-R006",
-      "evidence_status": "user_extracted_png_models_block_atlas_sidecar_inventory_static_shader_source_only_official_ingame_pending",
+      "evidence_status": "user_extracted_png_model_uv_atlas_and_static_shader_sources_verified_runtime_excluded",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "cb89c706dce86eac3123cef087d359b5f23098b658a468fb91662b4a9922bcd0",
       "png_crc_verified": true,
@@ -149,7 +150,9 @@
       "r006_proxy_straight_weighted_rgb_diff_blocks": 32,
       "r006_static_proxy_is_not_game_mipmap": true,
       "r007_terrain_shader_sources_reviewed_not_proof_of_binding": true,
-      "r007_actual_shader_binding_unverified": true
+      "r007_actual_shader_binding_unverified": true,
+      "ingame_static_render_required": false,
+      "ingame_static_render_status": "out_of_scope_not_verified"
     },
     {
       "item_id": "1-1-05-002",
@@ -161,7 +164,7 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX05-R006",
-      "evidence_status": "user_extracted_png_models_block_atlas_sidecar_inventory_static_shader_source_only_official_ingame_pending",
+      "evidence_status": "user_extracted_png_model_uv_atlas_and_static_shader_sources_verified_runtime_excluded",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "4520f85fee79972191217d623c8b38522cacf74cb7c71113c0a6240d3b1f2ad2",
       "png_crc_verified": true,
@@ -197,7 +200,9 @@
       "r006_proxy_straight_weighted_rgb_diff_blocks": 0,
       "r006_static_proxy_is_not_game_mipmap": true,
       "r007_terrain_shader_sources_reviewed_not_proof_of_binding": true,
-      "r007_actual_shader_binding_unverified": true
+      "r007_actual_shader_binding_unverified": true,
+      "ingame_static_render_required": false,
+      "ingame_static_render_status": "out_of_scope_not_verified"
     },
     {
       "item_id": "1-1-05-003",
@@ -209,7 +214,7 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX05-R006",
-      "evidence_status": "user_extracted_png_models_block_atlas_sidecar_inventory_static_shader_source_only_official_ingame_pending",
+      "evidence_status": "user_extracted_png_model_uv_atlas_and_static_shader_sources_verified_runtime_excluded",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "62c705812949f0372dcc2fa82a5d89f7028ba1d9b3bd38765613e344f34f5b1c",
       "png_crc_verified": true,
@@ -245,7 +250,9 @@
       "r006_proxy_straight_weighted_rgb_diff_blocks": 0,
       "r006_static_proxy_is_not_game_mipmap": true,
       "r007_terrain_shader_sources_reviewed_not_proof_of_binding": true,
-      "r007_actual_shader_binding_unverified": true
+      "r007_actual_shader_binding_unverified": true,
+      "ingame_static_render_required": false,
+      "ingame_static_render_status": "out_of_scope_not_verified"
     },
     {
       "item_id": "1-1-05-004",
@@ -257,7 +264,7 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX05-R006",
-      "evidence_status": "user_extracted_png_models_block_atlas_sidecar_inventory_static_shader_source_only_official_ingame_pending",
+      "evidence_status": "user_extracted_png_model_uv_atlas_and_static_shader_sources_verified_runtime_excluded",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "7d6cfe98ddc5d975b3bcf5f9cffc008f90db94d5d981ef440f7b68e8267ae247",
       "png_crc_verified": true,
@@ -293,7 +300,9 @@
       "r006_proxy_straight_weighted_rgb_diff_blocks": 0,
       "r006_static_proxy_is_not_game_mipmap": true,
       "r007_terrain_shader_sources_reviewed_not_proof_of_binding": true,
-      "r007_actual_shader_binding_unverified": true
+      "r007_actual_shader_binding_unverified": true,
+      "ingame_static_render_required": false,
+      "ingame_static_render_status": "out_of_scope_not_verified"
     },
     {
       "item_id": "1-1-05-005",
@@ -305,7 +314,7 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX05-R006",
-      "evidence_status": "user_extracted_png_models_block_atlas_sidecar_inventory_static_shader_source_only_official_ingame_pending",
+      "evidence_status": "user_extracted_png_model_uv_atlas_and_static_shader_sources_verified_runtime_excluded",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "dc82be445bd9c7cf158bd57651d51bfef400310f2ad4937fe1e5b1c60b4f5916",
       "png_crc_verified": true,
@@ -341,7 +350,9 @@
       "r006_proxy_straight_weighted_rgb_diff_blocks": 0,
       "r006_static_proxy_is_not_game_mipmap": true,
       "r007_terrain_shader_sources_reviewed_not_proof_of_binding": true,
-      "r007_actual_shader_binding_unverified": true
+      "r007_actual_shader_binding_unverified": true,
+      "ingame_static_render_required": false,
+      "ingame_static_render_status": "out_of_scope_not_verified"
     },
     {
       "item_id": "1-1-05-006",
@@ -353,7 +364,7 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX05-R006",
-      "evidence_status": "user_extracted_png_models_block_atlas_sidecar_inventory_static_shader_source_only_official_ingame_pending",
+      "evidence_status": "user_extracted_png_model_uv_atlas_and_static_shader_sources_verified_runtime_excluded",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "2d4504957fa123a6e9f35d93e05f94fb053ec213541f01fcecbc0097eaa5df75",
       "png_crc_verified": true,
@@ -389,7 +400,9 @@
       "r006_proxy_straight_weighted_rgb_diff_blocks": 0,
       "r006_static_proxy_is_not_game_mipmap": true,
       "r007_terrain_shader_sources_reviewed_not_proof_of_binding": true,
-      "r007_actual_shader_binding_unverified": true
+      "r007_actual_shader_binding_unverified": true,
+      "ingame_static_render_required": false,
+      "ingame_static_render_status": "out_of_scope_not_verified"
     }
   ],
   "revisions": [
@@ -502,12 +515,13 @@
     }
   ],
   "next_steps": [
-    "After R007, never increment to R008 without novel evidence; reread live STATE, HEAD, and folder before any write.",
-    "Requester assistance required for any actual 1.21.11 in-game glass appearance verification: static screenshot for all six glass blocks under documented lighting/graphics conditions, with comparative views of isolated, adjacent, overlapping glass.",
-    "R007 verifies terrain.fsh/vsh and four includes but does not prove that any of the six glass blocks actually binds terrain shader or chooses UseRgss, ALPHA_CUTOUT, blend/sort or mipmap strategy.",
-    "To make authoritative runtime claims use actual game capture or verified code binding plus tests; inherited R006 2x2 proxy and R004 glass mipmap_strategy mean are not actual game results.",
-    "Official Mojang client.jar full SHA-1 authenticity excluded from completion requirements by user policy, never claim it passed.",
-    "Animation research remains paused; PZ conversion and furniture creation excluded; do not modify other stages or global v38."
+    "Source-only goal for 1-1-05: six glass PNGs and models/UV references are verified from the user-extracted 1.21.11 source (6/6). Evaluate only additional source-backed questions that materially change the study.",
+    "Do not require or request Minecraft game screenshots, real-time render/GPU traces, or in-game transparency/layer/adjacency verification for this stage. Such effects remain unverified, not passed.",
+    "Do not require or count Mojang official client.jar SHA-1 verification, previously excluded by user instruction.",
+    "Do not claim glass shader is bound in runtime, final mipmap/color/lighting/sorting/face culling; these cannot be inferred from static shaders and models alone.",
+    "User's prior stop rule still applies: if requested to 'continue' after static source research is complete or when no useful source evidence remains, stop and report no extra user data is needed in the excluded categories, instead of incrementing TEX05-R008.",
+    "Create TEX05-R008 only if genuinely new source analysis/evidence is found; before that reread live STATE and HEAD and check immutable release absence.",
+    "Preserve animation research hold, no PZ conversion/furniture building, no changes to global v38 or other stages."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -516,7 +530,8 @@
     "Project Zomboid conversion",
     "actual furniture 3D asset building",
     "animation study until explicitly resumed",
-    "Mojang official client.jar full SHA-1 authentication (removed from required research by user)"
+    "Mojang official client.jar full SHA-1 authentication (removed from required research by user)",
+    "Minecraft actual in-game glass static rendering, screenshots, GPU passes, shader-binding/transparent sorting tests (removed from required research by user)"
   ],
   "project_overall_completion_pct": null,
   "do_not_count_planning_as_research": true,
@@ -572,9 +587,12 @@
       "historical_count_only": true
     },
     "minecraft_ingame_static_render": {
-      "status": "pending",
+      "status": "out_of_scope_by_user_not_verified",
       "verified_count": 0,
-      "denominator_png": 6
+      "denominator_png": 6,
+      "required": false,
+      "completion_gate": false,
+      "historical_count_only": true
     }
   },
   "legacy_record_errata": [
@@ -608,17 +626,20 @@
   },
   "research_policy": {
     "amended_on": "2026-11-13",
-    "latest_instruction": "User explicitly removed Mojang official JAR authentication from the 1-1-05 research requirements.",
+    "latest_instruction": "User explicitly excluded in-game Minecraft verification from 1-1-05; source texture/model/UV/JSON analysis is the required basis; Mojang full client.jar SHA-1 auth remains out of scope.",
     "mojang_official_jar_sha1_authentication_required": false,
     "mojang_official_jar_sha1_authentication_status": "out_of_scope_not_evaluated_not_verified",
     "active_verification_lanes": [
       "user_provided_1.21.11_extracted_source",
-      "legacy_mirror_crosscheck",
-      "ingame_static_render_when_actual_evidence_available"
+      "legacy_mirror_crosscheck"
     ],
     "remove_official_authentication_from_completion_gate": true,
     "historical_previous_report_statements_preserved": true,
-    "policy_change_only_no_new_source_evidence": true
+    "policy_change_only_no_new_source_evidence": true,
+    "ingame_static_render_required": false,
+    "ingame_static_render_status": "out_of_scope_not_verified",
+    "remove_ingame_static_render_from_completion_gate": true,
+    "scope_of_source_based_conclusion": "Only PNG/JSON/model/UV/atlas/shader code as inspected, no runtime visual/render claims"
   },
   "policy_amendments": [
     {
@@ -629,6 +650,18 @@
       "field": "mojang_official_client_jar_authentication",
       "new_value": "out_of_scope",
       "reason": "explicit user instruction: 공식 인증 빼"
+    },
+    {
+      "date": "2026-11-13",
+      "kind": "scope_change_only_not_new_verified_revision",
+      "revision_unchanged": "TEX05-R007",
+      "next_revision_unchanged": "TEX05-R008",
+      "field": "minecraft_ingame_static_render",
+      "new_value": "out_of_scope",
+      "reason": "explicit user instruction: 인게임 검증은 제외해줘; texture and models are adequate for this research goal",
+      "runtime_evidence_count_unchanged": 0,
+      "source_static_verified_count_unchanged": 6,
+      "scope_applies_to": "1-1-05 only; parent/global and other independent stages remain unchanged"
     }
   ],
   "r005_reverified_existing_png_count": 6,
@@ -653,5 +686,8 @@
   "r007_resolved_shader_include_edges": 7,
   "r007_user_mirror_blob_matches": 6,
   "r007_block_terrain_comparison_rows": 11,
-  "r007_terrain_shader_present_not_glass_binding_proven": true
+  "r007_terrain_shader_present_not_glass_binding_proven": true,
+  "ingame_static_render_required": false,
+  "ingame_static_render_completion_gate": false,
+  "stage_source_only_research_status": "six_of_six_source_and_model_static_verification_covered; runtime_behavior_not_claimed"
 }
