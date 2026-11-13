@@ -1,0 +1,8 @@
+class_file,class_git_blob,method,declared,code_bytes,bytecode_hex,proof,logical_effect
+dzs.class,b58e7153fb0cfbb47313c3a59dd7c8516ee3642c,a(Ljava/lang/String;Leog$d;)Ldzq;,true,11,2a ba 05 c4 00 00 2b b8 05 19 b0,invokedynamic bsm12 dzq.<init> creates base block,16 block registry entries instantiate dzq
+dzs.class,b58e7153fb0cfbb47313c3a59dd7c8516ee3642c,<clinit>()V -- deepslate registration,true,40257,13 27 18 ba 09 ff 00 00 b8 04 f6 b2 0a b3 b6 05 61 b2 09 8f b6 05 2b b6 08 6b 13 06 93 13 08 6c b6 08 6f b2 0a b6 b6 05,deepslate ldc_w at PC38800 followed by indy bsm20 egl.<init>,1 target deepslate instantiates egl
+egl.class,61424d1fe2efc6162c61c64e74a57f01c519d8f4,class egl extends dzq; a(Leoh;Lis;)J,false,0,,"all 7 declared egl methods scanned, exact seed descriptor absent",inherits from dzq
+dzq.class,fab6c386693f88d28cc680ba8112bf0a2243ee16,class dzq extends eog; a(Leoh;Lis;)J,false,0,,"all 84 declared dzq methods scanned, exact seed descriptor absent",inherits from eog
+eog.class,bee52d0356520a1872a94b0a15b0c98ea5407154,a(Leoh;Lis;)J,true,5,2c b8 02 07 ad,aload_2 invokestatic #519 bgj.a(Vec3i) lreturn,default position-only hash
+eog$a.class,35c882743a59ae8d99fee1da9dfe0f21e8c6aa7c,b(Lis;)J,true,13,2a b6 00 ff 2a b6 00 73 2b b6 02 74 ad,virtual owning block seed dispatch from BlockState,resolves owning dzq/egl vtable to eog inherited seed
+bgj.class,89604a1a7dfc4e63be8bc0eb170352b59c7f5374,a(Ljy;)J -> b(III)J,true,16,2a b6 00 e2 2a b6 00 e4 2a b6 00 e6 b8 00 e9 ad,position x y z to coordinate-only seed hash,no world-seed input in base method

@@ -7,10 +7,10 @@
   "stage_id": "1-1-02",
   "material_family": "석재·벽돌",
   "stage_prefix": "TEX02",
-  "current_revision": "TEX02-R015",
-  "next_revision": "TEX02-R016",
-  "revision_sequence": 15,
-  "revision_status": "R015_default_BlockBehaviour_position_hash_bgj_to_eur_48bit_LCG_euf_bound4_chunk_and_breaking_render_model_collection_source_49_virtual_positions_196_predictions_10_collisions_42_preview_not_game",
+  "current_revision": "TEX02-R016",
+  "next_revision": "TEX02-R017",
+  "revision_sequence": 16,
+  "revision_status": "R016_17_actual_vanilla_block_registry_types_and_render_seed_overrides_verified_from_dzs_static_initializer_16_dzq_1_egl_both_inherit_eog_default_hash_source_only_not_ingame",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 17,
@@ -61,15 +61,15 @@
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R015_D3_source_default_blockstate_pos_seed_hash_and_euf_weight4_first_random_choice_source_verified_conditional_not_ingame",
+      "status": "R016_D3_actual_registered_17_block_classes_all_inherit_default_eog_position_seed_no_subclass_override_source_verified",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R015"
+      "last_evidence_revision": "TEX02-R016"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R015_hpw_htp_per_block_position_rng_reset_cbndispatch_hpy_single_block_fixed42_49_virtual_coords_196_model_choice_rows_10_collisions",
+      "status": "R016_17_actual_BlockRegistry_dzs_clinit_ctor_lambda_and_31_blockstate_choice_slots_bound_to_verified_inherited_position_seed_source_not_runtime",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R015"
+      "last_evidence_revision": "TEX02-R016"
     },
     "F": {
       "title": "F 인게임 정적 렌더·UV·이음새 검증 (Mojang 공식 JAR 인증 제외)",
@@ -79,9 +79,9 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R015_9_immutable_files_16_SHA_ledger_24_dispatch_evidence_49_seed_grid_196_derived_choices_10_hash_collisions_4_preview_verifier",
+      "status": "R016_8_new_immutable_files_17_block_registry_7_class_proof_31_model_state_seed_records_7_source_sha_ledger_verifier_progress",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R015"
+      "last_evidence_revision": "TEX02-R016"
     }
   },
   "material_specific_checks": [
@@ -98,7 +98,7 @@
     {
       "id": "D3",
       "check": "모델 면 회전과 UV 반복이 벽면 패턴에 미치는 영향",
-      "status": "R015_source_default_block_render_per_Position_seed_hash_and_LCG_weight4_model_choice_verified_49_virtual_points_196_conditional_results_10_hash_collisions_not_ingame"
+      "status": "R016_concrete_17_registered_block_subclass_render_seed_override_absent_16_dzq_1_egl_inherit_eog_position_hash_verified"
     }
   ],
   "items": [
@@ -111,7 +111,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R015",
+      "last_verified_revision": "TEX02-R016",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "c298969ccab004c2e37583b058c765598b05f69d",
       "mirror_model_git_blob_sha": "1a2f6a79a69ee5550a76697096cfb4cdb94499da",
@@ -219,6 +219,15 @@
         "default_world_seed_input": false,
         "actual_in_game_variant_observed": false,
         "caveat": "source derived conditional default branch, not actual game verified"
+      },
+      "R016_concrete_block_render_seed_audit": {
+        "registry_source": "1.21.11/dzs.class",
+        "registered_block_class": "dzq",
+        "superclass_chain": "dzq->eog",
+        "default_eog_position_seed_inherited_verified": true,
+        "concrete_override_a_BlockState_BlockPos_long": false,
+        "actual_game_rendering_verified": false,
+        "source_evidence_revision": "TEX02-R016"
       }
     },
     {
@@ -230,7 +239,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R015",
+      "last_verified_revision": "TEX02-R016",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "435a7afce8e98f7113ac1b491363b552ed342a48",
       "mirror_model_git_blob_sha": "ab65fe90879cc452d2a0ea1d5b78dc5a38fd01e6",
@@ -331,6 +340,15 @@
         "default_world_seed_input": false,
         "actual_in_game_variant_observed": false,
         "caveat": "source derived conditional default branch, not actual game verified"
+      },
+      "R016_concrete_block_render_seed_audit": {
+        "registry_source": "1.21.11/dzs.class",
+        "registered_block_class": "dzq",
+        "superclass_chain": "dzq->eog",
+        "default_eog_position_seed_inherited_verified": true,
+        "concrete_override_a_BlockState_BlockPos_long": false,
+        "actual_game_rendering_verified": false,
+        "source_evidence_revision": "TEX02-R016"
       }
     },
     {
@@ -342,7 +360,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R015",
+      "last_verified_revision": "TEX02-R016",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "bfbfd3884e37f2b93003310622aad632f3cfb408",
       "mirror_model_git_blob_sha": "87f6bbe0e26ca4347c00206d65f401b8946a82c6",
@@ -450,6 +468,15 @@
         "default_world_seed_input": false,
         "actual_in_game_variant_observed": false,
         "caveat": "source derived conditional default branch, not actual game verified"
+      },
+      "R016_concrete_block_render_seed_audit": {
+        "registry_source": "1.21.11/dzs.class",
+        "registered_block_class": "dzq",
+        "superclass_chain": "dzq->eog",
+        "default_eog_position_seed_inherited_verified": true,
+        "concrete_override_a_BlockState_BlockPos_long": false,
+        "actual_game_rendering_verified": false,
+        "source_evidence_revision": "TEX02-R016"
       }
     },
     {
@@ -461,7 +488,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R015",
+      "last_verified_revision": "TEX02-R016",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "51c7352fe11f5271198ae06ba4e674ccd9a203af",
       "mirror_model_git_blob_sha": "cebe5470a178a4881550933f49edbcee2e830f11",
@@ -569,6 +596,15 @@
         "default_world_seed_input": false,
         "actual_in_game_variant_observed": false,
         "caveat": "source derived conditional default branch, not actual game verified"
+      },
+      "R016_concrete_block_render_seed_audit": {
+        "registry_source": "1.21.11/dzs.class",
+        "registered_block_class": "dzq",
+        "superclass_chain": "dzq->eog",
+        "default_eog_position_seed_inherited_verified": true,
+        "concrete_override_a_BlockState_BlockPos_long": false,
+        "actual_game_rendering_verified": false,
+        "source_evidence_revision": "TEX02-R016"
       }
     },
     {
@@ -580,7 +616,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R015",
+      "last_verified_revision": "TEX02-R016",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "dc3c160d5bb78a493aeabcfb6330e5be1770e5f7",
       "mirror_model_git_blob_sha": "cd1067abfafc9f42650d5a1799ea56b0fb74fcd7",
@@ -681,6 +717,15 @@
         "default_world_seed_input": false,
         "actual_in_game_variant_observed": false,
         "caveat": "source derived conditional default branch, not actual game verified"
+      },
+      "R016_concrete_block_render_seed_audit": {
+        "registry_source": "1.21.11/dzs.class",
+        "registered_block_class": "dzq",
+        "superclass_chain": "dzq->eog",
+        "default_eog_position_seed_inherited_verified": true,
+        "concrete_override_a_BlockState_BlockPos_long": false,
+        "actual_game_rendering_verified": false,
+        "source_evidence_revision": "TEX02-R016"
       }
     },
     {
@@ -692,7 +737,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R015",
+      "last_verified_revision": "TEX02-R016",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "e1b2323c44aea2f7228f5f6f8f40674fc8087fe0",
       "mirror_model_git_blob_sha": "b3d7b55b5ca4ffef4f53ee364c40924a73e988db",
@@ -800,6 +845,15 @@
         "default_world_seed_input": false,
         "actual_in_game_variant_observed": false,
         "caveat": "source derived conditional default branch, not actual game verified"
+      },
+      "R016_concrete_block_render_seed_audit": {
+        "registry_source": "1.21.11/dzs.class",
+        "registered_block_class": "dzq",
+        "superclass_chain": "dzq->eog",
+        "default_eog_position_seed_inherited_verified": true,
+        "concrete_override_a_BlockState_BlockPos_long": false,
+        "actual_game_rendering_verified": false,
+        "source_evidence_revision": "TEX02-R016"
       }
     },
     {
@@ -811,7 +865,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R015",
+      "last_verified_revision": "TEX02-R016",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "62184f73f9c30187a1d041f8fc5ce4220c404b59",
       "mirror_model_git_blob_sha": "3ba4278bf92ebfe96a1a35ad3caa5478faf600e4",
@@ -912,6 +966,15 @@
         "default_world_seed_input": false,
         "actual_in_game_variant_observed": false,
         "caveat": "source derived conditional default branch, not actual game verified"
+      },
+      "R016_concrete_block_render_seed_audit": {
+        "registry_source": "1.21.11/dzs.class",
+        "registered_block_class": "dzq",
+        "superclass_chain": "dzq->eog",
+        "default_eog_position_seed_inherited_verified": true,
+        "concrete_override_a_BlockState_BlockPos_long": false,
+        "actual_game_rendering_verified": false,
+        "source_evidence_revision": "TEX02-R016"
       }
     },
     {
@@ -923,7 +986,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R015",
+      "last_verified_revision": "TEX02-R016",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "1e67b667b3df9bbbb037cdb5048b6327c238767d",
       "mirror_model_git_blob_sha": "def59d00c790df6c5e43fc64004f0492ae8fd5e4",
@@ -1024,6 +1087,15 @@
         "default_world_seed_input": false,
         "actual_in_game_variant_observed": false,
         "caveat": "source derived conditional default branch, not actual game verified"
+      },
+      "R016_concrete_block_render_seed_audit": {
+        "registry_source": "1.21.11/dzs.class",
+        "registered_block_class": "dzq",
+        "superclass_chain": "dzq->eog",
+        "default_eog_position_seed_inherited_verified": true,
+        "concrete_override_a_BlockState_BlockPos_long": false,
+        "actual_game_rendering_verified": false,
+        "source_evidence_revision": "TEX02-R016"
       }
     },
     {
@@ -1035,7 +1107,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R015",
+      "last_verified_revision": "TEX02-R016",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "00b9a81af1224a4ae9e1d6495e22b5fe0c0dc5a8",
       "mirror_model_git_blob_sha": "46f93fd8dc7ba4796ff215e90b67bd2a84064539",
@@ -1136,6 +1208,15 @@
         "default_world_seed_input": false,
         "actual_in_game_variant_observed": false,
         "caveat": "source derived conditional default branch, not actual game verified"
+      },
+      "R016_concrete_block_render_seed_audit": {
+        "registry_source": "1.21.11/dzs.class",
+        "registered_block_class": "dzq",
+        "superclass_chain": "dzq->eog",
+        "default_eog_position_seed_inherited_verified": true,
+        "concrete_override_a_BlockState_BlockPos_long": false,
+        "actual_game_rendering_verified": false,
+        "source_evidence_revision": "TEX02-R016"
       }
     },
     {
@@ -1147,7 +1228,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R015",
+      "last_verified_revision": "TEX02-R016",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "3a02f5ff6f069439a94508ae94ea2431d00fee5e",
       "mirror_model_git_blob_sha": "9f1f6eba3e0db4c4aff91eb85ed72a308a234852",
@@ -1248,6 +1329,15 @@
         "default_world_seed_input": false,
         "actual_in_game_variant_observed": false,
         "caveat": "source derived conditional default branch, not actual game verified"
+      },
+      "R016_concrete_block_render_seed_audit": {
+        "registry_source": "1.21.11/dzs.class",
+        "registered_block_class": "dzq",
+        "superclass_chain": "dzq->eog",
+        "default_eog_position_seed_inherited_verified": true,
+        "concrete_override_a_BlockState_BlockPos_long": false,
+        "actual_game_rendering_verified": false,
+        "source_evidence_revision": "TEX02-R016"
       }
     },
     {
@@ -1259,7 +1349,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R015",
+      "last_verified_revision": "TEX02-R016",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "4c1b7b215b10a3c234800804dd5cd9e3485bad38",
       "mirror_model_git_blob_sha": "99afb394efe2e0155ae21dc63738163c09deb515",
@@ -1360,6 +1450,15 @@
         "default_world_seed_input": false,
         "actual_in_game_variant_observed": false,
         "caveat": "source derived conditional default branch, not actual game verified"
+      },
+      "R016_concrete_block_render_seed_audit": {
+        "registry_source": "1.21.11/dzs.class",
+        "registered_block_class": "dzq",
+        "superclass_chain": "dzq->eog",
+        "default_eog_position_seed_inherited_verified": true,
+        "concrete_override_a_BlockState_BlockPos_long": false,
+        "actual_game_rendering_verified": false,
+        "source_evidence_revision": "TEX02-R016"
       }
     },
     {
@@ -1371,7 +1470,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R015",
+      "last_verified_revision": "TEX02-R016",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "53c96684ffd703a9e9ba1f4a1f67c1eb075e79c3",
       "mirror_model_git_blob_sha": "3f9f0234e6a0019dfb460616812fb0685e2ec6e2",
@@ -1472,6 +1571,15 @@
         "default_world_seed_input": false,
         "actual_in_game_variant_observed": false,
         "caveat": "source derived conditional default branch, not actual game verified"
+      },
+      "R016_concrete_block_render_seed_audit": {
+        "registry_source": "1.21.11/dzs.class",
+        "registered_block_class": "dzq",
+        "superclass_chain": "dzq->eog",
+        "default_eog_position_seed_inherited_verified": true,
+        "concrete_override_a_BlockState_BlockPos_long": false,
+        "actual_game_rendering_verified": false,
+        "source_evidence_revision": "TEX02-R016"
       }
     },
     {
@@ -1483,7 +1591,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R015",
+      "last_verified_revision": "TEX02-R016",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "bb7dc9ced1943d1dc86ab0cded598e8541fd280a",
       "mirror_model_git_blob_sha": "dff2a5c69138d558950260815f784ba554c34821",
@@ -1610,6 +1718,15 @@
         "default_world_seed_input": false,
         "actual_in_game_variant_observed": false,
         "caveat": "source derived conditional default branch, not actual game verified"
+      },
+      "R016_concrete_block_render_seed_audit": {
+        "registry_source": "1.21.11/dzs.class",
+        "registered_block_class": "egl",
+        "superclass_chain": "egl->dzq->eog",
+        "default_eog_position_seed_inherited_verified": true,
+        "concrete_override_a_BlockState_BlockPos_long": false,
+        "actual_game_rendering_verified": false,
+        "source_evidence_revision": "TEX02-R016"
       }
     },
     {
@@ -1621,7 +1738,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R015",
+      "last_verified_revision": "TEX02-R016",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "e7f36f6d883cb5e4372e29bb385e5fa8a65f6542",
       "mirror_model_git_blob_sha": "91ff5fcef34a040c8d0a3a422e4b0fbd89e6715b",
@@ -1722,6 +1839,15 @@
         "default_world_seed_input": false,
         "actual_in_game_variant_observed": false,
         "caveat": "source derived conditional default branch, not actual game verified"
+      },
+      "R016_concrete_block_render_seed_audit": {
+        "registry_source": "1.21.11/dzs.class",
+        "registered_block_class": "dzq",
+        "superclass_chain": "dzq->eog",
+        "default_eog_position_seed_inherited_verified": true,
+        "concrete_override_a_BlockState_BlockPos_long": false,
+        "actual_game_rendering_verified": false,
+        "source_evidence_revision": "TEX02-R016"
       }
     },
     {
@@ -1733,7 +1859,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R015",
+      "last_verified_revision": "TEX02-R016",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "314a2df0e85319d0493a3b10d8b692e23ae6cdd2",
       "mirror_model_git_blob_sha": "d6e7b5852a756aa4212e98f6f71bd44d677403f6",
@@ -1848,6 +1974,15 @@
         "default_world_seed_input": false,
         "actual_in_game_variant_observed": false,
         "caveat": "source derived conditional default branch, not actual game verified"
+      },
+      "R016_concrete_block_render_seed_audit": {
+        "registry_source": "1.21.11/dzs.class",
+        "registered_block_class": "dzq",
+        "superclass_chain": "dzq->eog",
+        "default_eog_position_seed_inherited_verified": true,
+        "concrete_override_a_BlockState_BlockPos_long": false,
+        "actual_game_rendering_verified": false,
+        "source_evidence_revision": "TEX02-R016"
       }
     },
     {
@@ -1859,7 +1994,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R015",
+      "last_verified_revision": "TEX02-R016",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "caa25fa5199428cef03c3e257440b8f03f20a095",
       "mirror_model_git_blob_sha": "41baabebd17d0fbf46efc91bda5022ff91459c21",
@@ -1960,6 +2095,15 @@
         "default_world_seed_input": false,
         "actual_in_game_variant_observed": false,
         "caveat": "source derived conditional default branch, not actual game verified"
+      },
+      "R016_concrete_block_render_seed_audit": {
+        "registry_source": "1.21.11/dzs.class",
+        "registered_block_class": "dzq",
+        "superclass_chain": "dzq->eog",
+        "default_eog_position_seed_inherited_verified": true,
+        "concrete_override_a_BlockState_BlockPos_long": false,
+        "actual_game_rendering_verified": false,
+        "source_evidence_revision": "TEX02-R016"
       }
     },
     {
@@ -1971,7 +2115,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R015",
+      "last_verified_revision": "TEX02-R016",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "5dec3c0f313431c5352327a95311048bc7571352",
       "mirror_model_git_blob_sha": "6bbb7c88a25a62b8e9cac02575c9317af52735d7",
@@ -2072,6 +2216,15 @@
         "default_world_seed_input": false,
         "actual_in_game_variant_observed": false,
         "caveat": "source derived conditional default branch, not actual game verified"
+      },
+      "R016_concrete_block_render_seed_audit": {
+        "registry_source": "1.21.11/dzs.class",
+        "registered_block_class": "dzq",
+        "superclass_chain": "dzq->eog",
+        "default_eog_position_seed_inherited_verified": true,
+        "concrete_override_a_BlockState_BlockPos_long": false,
+        "actual_game_rendering_verified": false,
+        "source_evidence_revision": "TEX02-R016"
       }
     }
   ],
@@ -2336,15 +2489,35 @@
       "ingame_static_verified": 0,
       "fully_completed_A_to_G_items": 0,
       "original_jar_sha1_auth_required": false
+    },
+    {
+      "revision": "TEX02-R016",
+      "path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R016/",
+      "evidence_tier": "direct_user_extracted_dzs_registry_classfiles_and_concrete_parent_class_methods_source_only_not_runtime",
+      "new_classfiles_directly_opened": 3,
+      "reused_source_classfiles": 3,
+      "source_sha_ledger_rows": 7,
+      "block_registry_rows_verified": 17,
+      "concrete_base_dzq": 16,
+      "concrete_egl": 1,
+      "subclass_render_seed_override_count": 0,
+      "verified_default_position_hash_inherited_block_count": 17,
+      "verified_original_model_choice_slots": 31,
+      "source_only_registry_method_proof_rows": 7,
+      "new_unique_pngs": 0,
+      "actual_in_game_render_observations": 0,
+      "ingame_static_verified": 0,
+      "fully_completed_A_to_G_items": 0,
+      "original_jar_SHA1_auth_required": false
     }
   ],
-  "current_release_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R015/",
+  "current_release_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R016/",
   "remaining_blockers": [
-    "R015 proved source world-model selection dispatch reseeds each placed BlockState with eoh.b(BlockPos) in hpw breaking and htp chunk rebuild; eog default seed uses coordinate bgj signed 64-bit hash, eur and euf nextInt(4) modeled on 49 hypothetical positions (196 choices); real in-game output not observed",
-    "R015 source shows BlockState.getSeed(BlockPos) virtual dispatch to concrete owning block; not yet verified all 17 source block subclasses inherit default eog implementation instead of overriding render seed",
-    "R015 hpy fixed-42 non-world single-block draw is not equivalent to world position seed and is not proof each deepslate axis variant is used in actual inventory render",
-    "Model atlas acceptance, real-world seeded choices and 17 in-game static GPU textures/UV filtering/lighting/adjacent-block seams remain unverified (0/17)",
-    "All prior R012 40 UV corrections and R014 744 baked vertex source calculations remain static source-derived, not runtime engine measurements"
+    "R016 closes R015 per-block seed override question for all fixed 17 vanilla blocks: dzs.<clinit> registers 16 as dzq and deepslate as egl; neither dzq nor egl declares seed override, eog default coordinate hash inherited; no actual game render was measured",
+    "R015 source-derived default position 49-grid and 196 possible first-choice rows now apply to the actual 17 registered vanilla block classes, but model atlas acceptance and runtime visual output remain unobserved",
+    "Vanilla model atlas sprite registration, model baking resource load acceptance, and GPU-filtered final texture rendering/seam behavior have not been executed or confirmed from the game",
+    "Real in-game static render screenshots and lighting/UV/adjacent-block seam verification remain 0/17; A-G all-conditions-complete remain 0/17",
+    "Other modded block render contexts or asset overrides are outside this fixed original source study and do not establish vanilla failures"
   ],
   "current_stream_supplemental_end_face_binary_verified_count": 2,
   "static_face_model_local_source_entries": 102,
@@ -2571,5 +2744,27 @@
   "R015_independent_Python_coordinate_hash_checkpoints_verified": 6,
   "R015_new_unique_PNGs": 0,
   "R015_new_RGBA_pixel_measurements": 0,
-  "R015_runtime_world_random_draws_observed": 0
+  "R015_runtime_world_random_draws_observed": 0,
+  "R016_new_relevant_java_classfiles_directly_opened": 3,
+  "R016_prior_source_classes_reused_and_reopened": 3,
+  "R016_classfile_SHA_and_frozen_CSV_ledger_rows": 7,
+  "R016_registered_vanilla_block_class_ids_verified": 17,
+  "R016_registered_actual_dzq_base_block_count": 16,
+  "R016_registered_actual_egl_block_count": 1,
+  "R016_dzs_static_initializer_size_bytes": 40257,
+  "R016_dzs_constructor_factory_dzq_bsm": 12,
+  "R016_dzs_constructor_factory_egl_bsm": 20,
+  "R016_dzq_declared_method_count": 84,
+  "R016_egl_declared_method_count": 7,
+  "R016_actual_17_block_render_seed_overrides_found": 0,
+  "R016_actual_17_block_default_eog_seed_inherited_verified_count": 17,
+  "R016_model_variant_slots_concrete_seed_class_verified": 31,
+  "R016_R015_previous_17_block_subclass_seed_override_blocker_resolved": true,
+  "R016_R015_49_position_sample_class_override_condition_resolved": true,
+  "R016_R015_196_weighted_model_choice_sample_class_override_condition_resolved": true,
+  "R016_generated_python_class_source_verifier_created": true,
+  "R016_generated_python_class_source_verifier_end_to_end_executed": false,
+  "R016_real_game_render_observations": 0,
+  "R016_new_unique_pngs": 0,
+  "R016_new_rgba_pixel_measurements": 0
 }

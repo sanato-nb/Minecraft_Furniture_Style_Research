@@ -1,6 +1,6 @@
 # 1-1-02 — 석재·벽돌 별도 채팅 인수인계
 
-> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R015` (블록 위치 난수 시드·가중치 모델 선택 추적)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
+> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R016` (17개 실제 블록 클래스의 시드 상속 전수 검증)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 ## 연구 목표와 정확한 표본
 
@@ -192,3 +192,12 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 - 원본 SHA 확인 및 JS BigInt 기반 소스 수식과 별도 Python 체크포인트 계산까지 했으나, 저장한 Python 오프라인 검증 파일의 **15개 추출 classfile 전체 종단 간 검증 실행은 아직 하지 않음**. 기존 17 PNG·31 모델 변형·186 face·134 가상 seams/R011 32 방향/R012 40 UV/R014 744 vertices는 중복 가산 금지.
 - **F 실제 게임 정적 렌더 0/17, 전체 A–G 완료 0/17**, 공식 전체 JAR 인증 필수 제외, 기존 R001–R014 및 전역 `v38`과 다른 단계/애니메이션·가구 모델링은 수정하지 않음.
 - 다음 `TEX02-R016`: 17개 실제 vanilla 블록 하위 클래스의 **`getSeed` override 여부** 및 필요 시 client atlas 등록 경로 확인. 추가 독립 증거가 없고 게임 실행 자료만 필요하면 리비전 번호를 억지로 만들지 말고 사용자에게 필요한 화면/파일을 요청.
+
+## TEX02-R016 — 17개 실제 등록 블록 클래스 및 기본 위치 시드 상속 여부 검증 (2026-11-13)
+
+- [상세 연구 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R016/REPORT.md) · [사용자 선호 작업 항목별 진행도 표](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R016/PROGRESS.md) · [17개 Registry ID·정확한 클래스·static PC 기록](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R016/REGISTERED_BLOCK_TYPES_17.csv) · [7개 클래스 메서드·상속 증명](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R016/SEED_OVERRIDE_CLASS_PROOF_7.csv) · [31개 모델 슬롯에 상속 결과 연결](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R016/VERIFIED_POS_SEED_MODEL_SLOTS_31.csv) · [SHA 원장 7개](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R016/SOURCE_SHA_LEDGER_7.csv) · [Python 오프라인 재현기](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R016/VERIFY_R016_BLOCK_SEED_INHERITANCE.py) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R016/SUMMARY.json).
+- 이번 신규로 연 원본 클래스 3개: **`dzs`** 레지스트리(168264B, `<clinit>` 40257B), **`dzq`**(직접 선언 메서드 84개), **`egl`**(7개); 이전 R015 조사 `eog`, `eog$a`, `bgj` 재연결. 17개 대상 등록 문자열을 bytecode PC/CP literal/registration `putstatic` 필드로 17/17 대조. `dzs.a(String,Props)`의 `invokedynamic #0x05c4` BootstrapMethods #12는 `dzq.<init>(Props)`: **16개 블록**. 단 하나 `deepslate`는 `<clinit>` PC38800에서 `invokedynamic #0x09ff` BootstrapMethods #20 = **`egl.<init>(Props)`**, 이어 `dzs.a(String,Function,Props)` 등록. `deepslate_bricks`, `deepslate_tiles`는 일반 `dzq` 등록이다.
+- 상속 관계 `dzq extends eog`, `egl extends dzq`; `dzq` 84개 및 `egl` 7개 직접 선언 메서드에 `a(Leoh;Lis;)J` override **없음**. `eog`의 5-byte protected `a(BlockState,BlockPos)`는 `bgj.a(Vec3i)` 좌표 해시를 반환. 따라서 **17/17 실제 vanilla 등록 블록 모두 R015 기본 위치 시드 상속**. `31/31` source 모델 선택 선언에도 이 검증을 연결했다. **실제 게임 seed 및 렌더 관측은 아님**.
+- R015의 49개 가상 좌표 / 196개 원본 연계 모델 선택에서 '17개 구체 블록 subclass seed override 여부 미확인' 조건은 소스 차원에서 제거했다. 단 model atlas/스프라이트 바인딩·게임 실제 조명/UV/접합부 검증은 **0/17**, 전체 A–G 완료 0/17. 기존 17 PNG 및 186면/744정점/R012 UV40 등은 누적 재실측으로 중복 기재하지 않는다.
+- 사용자 요청에 따라 진행도는 **원본 PNG 소스 분석 100%(17/17) / 최신 TEX02-R016** 형식으로 표기; 전반적인 전체 프로젝트 완료율과 혼동 금지. 전역 `v38`, 다른 단계, 기존 불변 R001–R015 수정 안 함. 공식 Mojang 전체 JAR SHA-1 인증은 완료 필수 조건에서 제외/인증 주장 없음.
+- 다음 `TEX02-R017` 후보: 실제 원본 vanilla model atlas sprite 연결·수용 여부 확인. 새 독립 소스 증거 없이 게임 내 캡처/런타임이 필요한 지점에 도달하면 버전만 늘리지 말고 필요한 화면/파일을 요청.
