@@ -7,10 +7,10 @@
   "stage_id": "1-1-03",
   "material_family": "금속·금속부품",
   "stage_prefix": "TEX03",
-  "current_revision": "TEX03-R004",
-  "next_revision": "TEX03-R005",
-  "revision_sequence": 4,
-  "revision_status": "R004_63_user_source_static_variant_to_406_model_face_occurrences_resolved_with_R002_UV",
+  "current_revision": "TEX03-R005",
+  "next_revision": "TEX03-R006",
+  "revision_sequence": 5,
+  "revision_status": "R005_321_source_alpha0_XY_coordinates_272_UV_rechecks_and_406_rotated_geometry_face_projections",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 16,
@@ -27,7 +27,7 @@
     "version_policy": "docs/vanilla_texture_1-1/ISOLATED_CHAT_VERSIONING.md",
     "output_root": "research/vanilla_textures/by_stage/1-1-03/"
   },
-  "source_note": "v4 표본에 iron_door, iron_trapdoor, anvil_top 등 포함. 금속 반사/광택 표현은 원본 PNG 통계와 런타임 셰이더를 구분할 것. TEX03-R003: 사용자가 풀어 올린 1.21.11/ 69개 소스를 실제 직접 검사, 미러 Git Blob SHA-1 69/69 및 PNG SHA-256 16/16 일치; 공식 Mojang JAR 전체 SHA-1 인증 아님.",
+  "source_note": "v4 표본에 iron_door, iron_trapdoor, anvil_top 등 포함. 금속 반사/광택 표현은 원본 PNG 통계와 런타임 셰이더를 구분할 것. TEX03-R003: 사용자가 풀어 올린 1.21.11/ 69개 소스를 실제 직접 검사, 미러 Git Blob SHA-1 69/69 및 PNG SHA-256 16/16 일치; 공식 Mojang JAR 전체 SHA-1 인증 아님. TEX03-R005: 6 source PNG raw alpha XY positions, 14 blockstates and 14 geometry JSON templates, 272 mask UV crosschecks and source-projected world face directions; not an in-game rendering claim.",
   "allowed_write_paths": [
     "docs/vanilla_texture_1-1/stages/1-1-03/HANDOFF.md",
     "docs/vanilla_texture_1-1/stages/1-1-03/STATE.json",
@@ -41,27 +41,27 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "TEX03_R004_state_source_and_prior_hash_evidence_reconciled",
+      "status": "TEX03_R005_R001_R004_evidence_reconciled_no_duplicate_counts",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "user_PNG_direct_SHA256_CRC_16_of_16_R003_preserved_R004",
+      "status": "R005_6_user_PNG_SHA256_CRC_verified_other10_R003_preserved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R001_4096_RGBA_pixels_prior_retained_no_new_pixel_measures_R004",
+      "status": "R005_6_PNG_1536_RGBA_redecoded_321_alpha0_coordinate_rows_R001_pixel_set_retained",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R004_all_63_static_states_alpha_region_usage_and_D1_prior_color_preserved",
+      "status": "R005_321_alpha0_source_coordinates_161_in_UV_160_outside_and_world_face_usage",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R004_63_static_variants_23_leaf_models_406_state_model_faces_connected",
+      "status": "R005_user_14_blockstates_14_geometry_templates_406_source_faces_272_PNG_UV_mask_rechecks",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
@@ -71,7 +71,7 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "TEX03_R004_state_face_release_written",
+      "status": "TEX03_R005_alpha_spatial_and_static_world_face_release_written",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -84,12 +84,12 @@
     {
       "id": "D2",
       "check": "철문·철다락문·모루/격자의 알파 마스크와 부품면 구분",
-      "status": "70_state_face_occurences_with_alpha0_from_prior_R002_per_face_measurements_R004"
+      "status": "R005_6_PNG_321_exact_alpha0_coordinates_161_used_160_unused_272_UV_occurrence_mask_matches"
     },
     {
       "id": "D3",
       "check": "고정 블록 상태마다 정적 텍스처 경로 변화 조사",
-      "status": "all_63_user_extracted_static_states_fully_face_resolved_R004"
+      "status": "R005_14_blockstates_14_templates_63_states_406_world_face_projections_from_source"
     }
   ],
   "items": [
@@ -101,8 +101,8 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R004",
-      "evidence_status": "R004_user_extracted_static_state_to_model_UV_face_resolved_and_R003_same_bytes_official_ingame_pending",
+      "last_verified_revision": "TEX03-R005",
+      "evidence_status": "R005_user_geometry_world_face_projection_checked_source_png_binary_R003_or_R005_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -122,7 +122,8 @@
       "static_state_expansion_revision": "TEX03-R004",
       "static_state_model_face_occurrences": 6,
       "static_state_alpha0_face_occurrences": 0,
-      "static_state_alpha0_UV_texel_occurrences": 0
+      "static_state_alpha0_UV_texel_occurrences": 0,
+      "latest_geometry_projection_revision": "TEX03-R005"
     },
     {
       "item_id": "1-1-03-002",
@@ -132,8 +133,8 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R004",
-      "evidence_status": "R004_user_extracted_static_state_to_model_UV_face_resolved_and_R003_same_bytes_official_ingame_pending",
+      "last_verified_revision": "TEX03-R005",
+      "evidence_status": "R005_user_geometry_world_face_projection_checked_source_png_binary_R003_or_R005_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -153,7 +154,8 @@
       "static_state_expansion_revision": "TEX03-R004",
       "static_state_model_face_occurrences": 6,
       "static_state_alpha0_face_occurrences": 0,
-      "static_state_alpha0_UV_texel_occurrences": 0
+      "static_state_alpha0_UV_texel_occurrences": 0,
+      "latest_geometry_projection_revision": "TEX03-R005"
     },
     {
       "item_id": "1-1-03-003",
@@ -163,8 +165,8 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R004",
-      "evidence_status": "R004_user_extracted_static_state_to_model_UV_face_resolved_and_R003_same_bytes_official_ingame_pending",
+      "last_verified_revision": "TEX03-R005",
+      "evidence_status": "R005_user_geometry_world_face_projection_checked_source_png_binary_R003_or_R005_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -184,7 +186,8 @@
       "static_state_expansion_revision": "TEX03-R004",
       "static_state_model_face_occurrences": 6,
       "static_state_alpha0_face_occurrences": 0,
-      "static_state_alpha0_UV_texel_occurrences": 0
+      "static_state_alpha0_UV_texel_occurrences": 0,
+      "latest_geometry_projection_revision": "TEX03-R005"
     },
     {
       "item_id": "1-1-03-004",
@@ -194,8 +197,8 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R004",
-      "evidence_status": "R004_user_extracted_static_state_to_model_UV_face_resolved_and_R003_same_bytes_official_ingame_pending",
+      "last_verified_revision": "TEX03-R005",
+      "evidence_status": "R005_user_geometry_world_face_projection_checked_source_png_binary_R003_or_R005_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -215,7 +218,8 @@
       "static_state_expansion_revision": "TEX03-R004",
       "static_state_model_face_occurrences": 6,
       "static_state_alpha0_face_occurrences": 0,
-      "static_state_alpha0_UV_texel_occurrences": 0
+      "static_state_alpha0_UV_texel_occurrences": 0,
+      "latest_geometry_projection_revision": "TEX03-R005"
     },
     {
       "item_id": "1-1-03-005",
@@ -225,8 +229,8 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R004",
-      "evidence_status": "R004_user_extracted_static_state_to_model_UV_face_resolved_and_R003_same_bytes_official_ingame_pending",
+      "last_verified_revision": "TEX03-R005",
+      "evidence_status": "R005_user_geometry_world_face_projection_checked_source_png_binary_R003_or_R005_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -246,7 +250,8 @@
       "static_state_expansion_revision": "TEX03-R004",
       "static_state_model_face_occurrences": 6,
       "static_state_alpha0_face_occurrences": 0,
-      "static_state_alpha0_UV_texel_occurrences": 0
+      "static_state_alpha0_UV_texel_occurrences": 0,
+      "latest_geometry_projection_revision": "TEX03-R005"
     },
     {
       "item_id": "1-1-03-006",
@@ -256,8 +261,8 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R004",
-      "evidence_status": "R004_user_extracted_static_state_to_model_UV_face_resolved_and_R003_same_bytes_official_ingame_pending",
+      "last_verified_revision": "TEX03-R005",
+      "evidence_status": "R005_user_geometry_world_face_projection_checked_source_png_binary_R003_or_R005_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -277,7 +282,8 @@
       "static_state_expansion_revision": "TEX03-R004",
       "static_state_model_face_occurrences": 6,
       "static_state_alpha0_face_occurrences": 0,
-      "static_state_alpha0_UV_texel_occurrences": 0
+      "static_state_alpha0_UV_texel_occurrences": 0,
+      "latest_geometry_projection_revision": "TEX03-R005"
     },
     {
       "item_id": "1-1-03-007",
@@ -287,8 +293,8 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R004",
-      "evidence_status": "R004_user_extracted_static_state_to_model_UV_face_resolved_and_R003_same_bytes_official_ingame_pending",
+      "last_verified_revision": "TEX03-R005",
+      "evidence_status": "R005_user_geometry_world_face_projection_checked_source_png_binary_R003_or_R005_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -308,7 +314,8 @@
       "static_state_expansion_revision": "TEX03-R004",
       "static_state_model_face_occurrences": 6,
       "static_state_alpha0_face_occurrences": 0,
-      "static_state_alpha0_UV_texel_occurrences": 0
+      "static_state_alpha0_UV_texel_occurrences": 0,
+      "latest_geometry_projection_revision": "TEX03-R005"
     },
     {
       "item_id": "1-1-03-008",
@@ -318,14 +325,14 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R004",
-      "evidence_status": "R004_user_extracted_static_state_to_model_UV_face_resolved_and_R003_same_bytes_official_ingame_pending",
+      "last_verified_revision": "TEX03-R005",
+      "evidence_status": "R005_user_geometry_world_face_projection_checked_source_png_binary_R003_or_R005_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
       "current_stream_mirror_git_blob_sha": "92c5ac8f4c662956fae6dc676ef03ad2e50642db",
       "current_stream_alpha0_pixels": 77,
-      "last_binary_verified_revision": "TEX03-R001",
+      "last_binary_verified_revision": "TEX03-R005",
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 6,
       "uv_alpha_hole_face_records": 6,
@@ -339,7 +346,10 @@
       "static_state_expansion_revision": "TEX03-R004",
       "static_state_model_face_occurrences": 6,
       "static_state_alpha0_face_occurrences": 6,
-      "static_state_alpha0_UV_texel_occurrences": 462
+      "static_state_alpha0_UV_texel_occurrences": 462,
+      "latest_geometry_projection_revision": "TEX03-R005",
+      "alpha_coordinate_mask_revision": "TEX03-R005",
+      "alpha_coordinate_mask_spatially_redecoded": true
     },
     {
       "item_id": "1-1-03-009",
@@ -349,14 +359,14 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R004",
-      "evidence_status": "R004_user_extracted_static_state_to_model_UV_face_resolved_and_R003_same_bytes_official_ingame_pending",
+      "last_verified_revision": "TEX03-R005",
+      "evidence_status": "R005_user_geometry_world_face_projection_checked_source_png_binary_R003_or_R005_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
       "current_stream_mirror_git_blob_sha": "2eaab820b34da1fc5dd293d0fc9c29edaac0121b",
       "current_stream_alpha0_pixels": 36,
-      "last_binary_verified_revision": "TEX03-R001",
+      "last_binary_verified_revision": "TEX03-R005",
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 18,
       "uv_alpha_hole_face_records": 6,
@@ -370,7 +380,10 @@
       "static_state_expansion_revision": "TEX03-R004",
       "static_state_model_face_occurrences": 96,
       "static_state_alpha0_face_occurrences": 32,
-      "static_state_alpha0_UV_texel_occurrences": 1152
+      "static_state_alpha0_UV_texel_occurrences": 1152,
+      "latest_geometry_projection_revision": "TEX03-R005",
+      "alpha_coordinate_mask_revision": "TEX03-R005",
+      "alpha_coordinate_mask_spatially_redecoded": true
     },
     {
       "item_id": "1-1-03-010",
@@ -380,14 +393,14 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R004",
-      "evidence_status": "R004_user_extracted_static_state_to_model_UV_face_resolved_and_R003_same_bytes_official_ingame_pending",
+      "last_verified_revision": "TEX03-R005",
+      "evidence_status": "R005_user_geometry_world_face_projection_checked_source_png_binary_R003_or_R005_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
       "current_stream_mirror_git_blob_sha": "9c163edcefffd9481c27e99a728140124eb63094",
       "current_stream_alpha0_pixels": 0,
-      "last_binary_verified_revision": "TEX03-R001",
+      "last_binary_verified_revision": "TEX03-R005",
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 20,
       "uv_alpha_hole_face_records": 0,
@@ -401,7 +414,10 @@
       "static_state_expansion_revision": "TEX03-R004",
       "static_state_model_face_occurrences": 80,
       "static_state_alpha0_face_occurrences": 0,
-      "static_state_alpha0_UV_texel_occurrences": 0
+      "static_state_alpha0_UV_texel_occurrences": 0,
+      "latest_geometry_projection_revision": "TEX03-R005",
+      "alpha_coordinate_mask_revision": "TEX03-R005",
+      "alpha_coordinate_mask_spatially_redecoded": true
     },
     {
       "item_id": "1-1-03-011",
@@ -411,8 +427,8 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R004",
-      "evidence_status": "R004_user_extracted_static_state_to_model_UV_face_resolved_and_R003_same_bytes_official_ingame_pending",
+      "last_verified_revision": "TEX03-R005",
+      "evidence_status": "R005_user_geometry_world_face_projection_checked_source_png_binary_R003_or_R005_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -432,7 +448,8 @@
       "static_state_expansion_revision": "TEX03-R004",
       "static_state_model_face_occurrences": 6,
       "static_state_alpha0_face_occurrences": 0,
-      "static_state_alpha0_UV_texel_occurrences": 0
+      "static_state_alpha0_UV_texel_occurrences": 0,
+      "latest_geometry_projection_revision": "TEX03-R005"
     },
     {
       "item_id": "1-1-03-012",
@@ -442,8 +459,8 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R004",
-      "evidence_status": "R004_user_extracted_static_state_to_model_UV_face_resolved_and_R003_same_bytes_official_ingame_pending",
+      "last_verified_revision": "TEX03-R005",
+      "evidence_status": "R005_user_geometry_world_face_projection_checked_source_png_binary_R003_or_R005_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -463,7 +480,8 @@
       "static_state_expansion_revision": "TEX03-R004",
       "static_state_model_face_occurrences": 6,
       "static_state_alpha0_face_occurrences": 0,
-      "static_state_alpha0_UV_texel_occurrences": 0
+      "static_state_alpha0_UV_texel_occurrences": 0,
+      "latest_geometry_projection_revision": "TEX03-R005"
     },
     {
       "item_id": "1-1-03-013",
@@ -473,14 +491,14 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R004",
-      "evidence_status": "R004_user_extracted_static_state_to_model_UV_face_resolved_and_R003_same_bytes_official_ingame_pending",
+      "last_verified_revision": "TEX03-R005",
+      "evidence_status": "R005_user_geometry_world_face_projection_checked_source_png_binary_R003_or_R005_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
       "current_stream_mirror_git_blob_sha": "96e70ae30b4e4b07396999fbb06179b5fc560f59",
       "current_stream_alpha0_pixels": 64,
-      "last_binary_verified_revision": "TEX03-R001",
+      "last_binary_verified_revision": "TEX03-R005",
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 6,
       "uv_alpha_hole_face_records": 0,
@@ -494,7 +512,10 @@
       "static_state_expansion_revision": "TEX03-R004",
       "static_state_model_face_occurrences": 6,
       "static_state_alpha0_face_occurrences": 0,
-      "static_state_alpha0_UV_texel_occurrences": 0
+      "static_state_alpha0_UV_texel_occurrences": 0,
+      "latest_geometry_projection_revision": "TEX03-R005",
+      "alpha_coordinate_mask_revision": "TEX03-R005",
+      "alpha_coordinate_mask_spatially_redecoded": true
     },
     {
       "item_id": "1-1-03-014",
@@ -504,14 +525,14 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R004",
-      "evidence_status": "R004_user_extracted_static_state_to_model_UV_face_resolved_and_R003_same_bytes_official_ingame_pending",
+      "last_verified_revision": "TEX03-R005",
+      "evidence_status": "R005_user_geometry_world_face_projection_checked_source_png_binary_R003_or_R005_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
       "current_stream_mirror_git_blob_sha": "62b9a1d7ba6a08f9e1da08e605e0f6e4bb6fb311",
       "current_stream_alpha0_pixels": 48,
-      "last_binary_verified_revision": "TEX03-R001",
+      "last_binary_verified_revision": "TEX03-R005",
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 20,
       "uv_alpha_hole_face_records": 8,
@@ -525,7 +546,10 @@
       "static_state_expansion_revision": "TEX03-R004",
       "static_state_model_face_occurrences": 80,
       "static_state_alpha0_face_occurrences": 32,
-      "static_state_alpha0_UV_texel_occurrences": 1536
+      "static_state_alpha0_UV_texel_occurrences": 1536,
+      "latest_geometry_projection_revision": "TEX03-R005",
+      "alpha_coordinate_mask_revision": "TEX03-R005",
+      "alpha_coordinate_mask_spatially_redecoded": true
     },
     {
       "item_id": "1-1-03-015",
@@ -535,8 +559,8 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R004",
-      "evidence_status": "R004_user_extracted_static_state_to_model_UV_face_resolved_and_R003_same_bytes_official_ingame_pending",
+      "last_verified_revision": "TEX03-R005",
+      "evidence_status": "R005_user_geometry_world_face_projection_checked_source_png_binary_R003_or_R005_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -556,7 +580,8 @@
       "static_state_expansion_revision": "TEX03-R004",
       "static_state_model_face_occurrences": 80,
       "static_state_alpha0_face_occurrences": 0,
-      "static_state_alpha0_UV_texel_occurrences": 0
+      "static_state_alpha0_UV_texel_occurrences": 0,
+      "latest_geometry_projection_revision": "TEX03-R005"
     },
     {
       "item_id": "1-1-03-016",
@@ -566,14 +591,14 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R004",
-      "evidence_status": "R004_user_extracted_static_state_to_model_UV_face_resolved_and_R003_same_bytes_official_ingame_pending",
+      "last_verified_revision": "TEX03-R005",
+      "evidence_status": "R005_user_geometry_world_face_projection_checked_source_png_binary_R003_or_R005_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
       "current_stream_mirror_git_blob_sha": "caff2b757288904d74180e8e4770a94756741bfd",
       "current_stream_alpha0_pixels": 96,
-      "last_binary_verified_revision": "TEX03-R001",
+      "last_binary_verified_revision": "TEX03-R005",
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 1,
       "uv_alpha_hole_face_records": 0,
@@ -587,7 +612,10 @@
       "static_state_expansion_revision": "TEX03-R004",
       "static_state_model_face_occurrences": 4,
       "static_state_alpha0_face_occurrences": 0,
-      "static_state_alpha0_UV_texel_occurrences": 0
+      "static_state_alpha0_UV_texel_occurrences": 0,
+      "latest_geometry_projection_revision": "TEX03-R005",
+      "alpha_coordinate_mask_revision": "TEX03-R005",
+      "alpha_coordinate_mask_spatially_redecoded": true
     }
   ],
   "revisions": [
@@ -649,14 +677,41 @@
       "official_jar_authenticated": 0,
       "ingame_static_verified": 0,
       "report_path": "research/vanilla_textures/by_stage/1-1-03/TEX03-R004/REPORT.md"
+    },
+    {
+      "revision": "TEX03-R005",
+      "kind": "user_source_alpha0_xy_mask_and_rotated_static_face_geometry_projection",
+      "source_png_reread_and_crc_sha_verified": 6,
+      "source_blockstate_json_refetched": 14,
+      "source_geometry_template_json_refetched": 14,
+      "source_template_face_checks": 406,
+      "source_UV_explicit_occurrences": 346,
+      "source_UV_implicit_cube_face_occurrences": 60,
+      "source_face_uv_rotation_occurrences": 84,
+      "source_reversed_UV_declaration_occurrences": 148,
+      "source_cullface_declaration_occurrences": 272,
+      "source_alpha_mask_coordinate_records": 321,
+      "source_alpha0_positions_referenced_in_any_model_UV": 161,
+      "source_alpha0_positions_outside_all_model_UV": 160,
+      "source_alpha_mask_state_face_uv_rechecks": 272,
+      "source_alpha_mask_state_face_uv_mismatches": 0,
+      "projected_world_face_occurrences": 406,
+      "prior_R004_face_occurrences_reused": 406,
+      "redecoded_RGBA_samples_overlapping_prior_R001": 1536,
+      "new_unique_source_png_pixels_added_to_R001_denominator": 0,
+      "new_unique_original_face_UV_samples_added_to_R002_denominator": 0,
+      "official_mojang_JAR_authentication": "excluded_by_user",
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-03/TEX03-R005/REPORT.md",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-03/TEX03-R005/SUMMARY.json"
     }
   ],
   "next_steps": [
-    "TEX03-R005 only when new non-duplicated static source or ingame evidence exists; retain all R001–R004 artifacts",
-    "prioritize user-provided 1.21.11/ extracted files; compare prior unofficial mirror as secondary source",
-    "ingame static appearance/UV/lighting/occlusion validation when actual game evidence available; not required for source-level research",
-    "official Mojang client.jar SHA-1 and metadata authentication removed from active scope by user request; do not schedule or gate progress on it",
-    "no animation, Project Zomboid conversion, real 3D furniture, global v38 or other-stage edits"
+    "Only create TEX03-R006 after additional verified nonduplicate static source evidence or actual game static render screenshots; retain R001–R005",
+    "for real in-game screenshots: fixed door/trapdoor state variants, local/world face direction, occlusion, mirrored appearance; source projections do not certify render",
+    "user-provided 1.21.11 extraction primary; unofficial mirror only crosscheck",
+    "official Mojang JAR full SHA-1/metadata authentication excluded by user, not verified",
+    "animation deferred, no PZ conversion or furniture 3D model building, global v38 and other-stage files unchanged"
   ],
   "ingame_static_render_verified": false,
   "animation_study_deferred": true,
@@ -668,7 +723,7 @@
   ],
   "project_overall_completion_pct": null,
   "do_not_count_planning_as_research": true,
-  "scope_completion_note": "R003 user-extracted 69 assets and R004 all 63 states/406 model-face references preserved. Active checks: user-provided source, mirror crosscheck, ingame static render. Official Mojang JAR authentication excluded by user request; ingame pending.",
+  "scope_completion_note": "R005 adds precise alpha0 positions 321 (from already-known pixels), validates 272 face UV mask usages against user PNG, projects 406 inherited face occurrences using 14 user JSON source templates. Ingame static render 0/16. Official Mojang JAR authentication excluded.",
   "source_preference": "user_provided_1.21.11_extraction_first",
   "user_extraction_base_path": "1.21.11/",
   "verification_tracks": {
@@ -732,5 +787,33 @@
       "next_research_revision_unchanged": "TEX03-R005",
       "historical_result_files_preserved": true
     }
-  ]
+  ],
+  "alpha_spatial_resolution": {
+    "revision": "TEX03-R005",
+    "source_PNG_redecoded": 6,
+    "RGBA_redecoded_this_revision_legacy_overlap": 1536,
+    "alpha0_coordinate_rows": 321,
+    "UV_referenced_alpha0_coordinates": 161,
+    "UV_unreferenced_alpha0_coordinates": 160,
+    "source_PNG_sha256_and_crc_passed": 6,
+    "source_csv": "research/vanilla_textures/by_stage/1-1-03/TEX03-R005/SOURCE_ALPHA0_COORDS.csv",
+    "unique_new_png_pixels_added_to_cumulative": 0
+  },
+  "static_world_face_projection": {
+    "revision": "TEX03-R005",
+    "source_blockstate_JSON": 14,
+    "source_geometry_templates": 14,
+    "projected_R004_state_face_rows": 406,
+    "UV_explicit_source_faces": 346,
+    "UV_implicit_full_cube_faces": 60,
+    "source_face_cullface_rows": 272,
+    "source_uv_rotation_nonzero_rows": 84,
+    "source_uv_reversed_boundary_rows": 148,
+    "source_PNG_UV_alpha_rechecks": 272,
+    "alpha_recheck_mismatches": 0,
+    "source_csv": "research/vanilla_textures/by_stage/1-1-03/TEX03-R005/STATE_WORLD_FACE_PROJECTION.csv",
+    "in_game_render_evidence": 0,
+    "prior_R004_406_faces_not_added_as_new_measured_faces": true
+  },
+  "current_release_path": "research/vanilla_textures/by_stage/1-1-03/TEX03-R005/"
 }
