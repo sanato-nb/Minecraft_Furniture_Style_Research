@@ -1,0 +1,206 @@
+{
+  "schema": "mc-furniture-texture-stage-handoff/v1",
+  "created_at": "2026-11-13",
+  "updated_at": "2026-11-13",
+  "game": "Minecraft Java Edition 1.21.11",
+  "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
+  "stage_id": "1-1-07",
+  "material_family": "콘크리트·색면",
+  "stage_prefix": "TEX07",
+  "current_revision": "TEX07-R000",
+  "next_revision": "TEX07-R001",
+  "revision_sequence": 0,
+  "revision_status": "R000_initial_handoff_created_no_new_analysis",
+  "global_legacy_checkpoint": "v38",
+  "global_legacy_status_completed_substeps": 0,
+  "target_texture_paths": 7,
+  "v4_legacy_measurements_recorded": 7,
+  "stage_current_analysis_completed_count": 0,
+  "official_client_jar_authenticated_count": 0,
+  "ingame_static_render_verified_count": 0,
+  "paths": {
+    "start_prompt": "docs/vanilla_texture_1-1/stages/1-1-07/START_PROMPT.md",
+    "handoff": "docs/vanilla_texture_1-1/stages/1-1-07/HANDOFF.md",
+    "state": "docs/vanilla_texture_1-1/stages/1-1-07/STATE.json",
+    "source_task_plan": "docs/vanilla_texture_1-1/1-1-07_콘크리트색면.md",
+    "source_150_ledger": "research/vanilla_textures/1-1_150_texture_numbered_task_ledger.csv",
+    "source_v4": "research/vanilla_textures/v4_150/01_누적150종_픽셀측정.csv",
+    "version_policy": "docs/vanilla_texture_1-1/ISOLATED_CHAT_VERSIONING.md",
+    "output_root": "research/vanilla_textures/by_stage/1-1-07/"
+  },
+  "source_note": "기존 7색 원본 표본 범위만 비교; 나머지 전체 콘크리트 색 포함으로 부풀리지 말 것.",
+  "allowed_write_paths": [
+    "docs/vanilla_texture_1-1/stages/1-1-07/HANDOFF.md",
+    "docs/vanilla_texture_1-1/stages/1-1-07/STATE.json",
+    "research/vanilla_textures/by_stage/1-1-07/"
+  ],
+  "global_root_file_writes_forbidden": [
+    "HANDOFF.md",
+    "PROGRESS.md",
+    "handoff/STATE.json"
+  ],
+  "phases": {
+    "A": {
+      "title": "A 기존 출처·파일·중복 대조",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "B": {
+      "title": "B PNG 실제 바이너리·SHA·CRC 검증",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "C": {
+      "title": "C RGBA·밝기·알파·반복 정량 검사",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "D": {
+      "title": "D 재질 특화 세부 검사",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "E": {
+      "title": "E 정적 모델 JSON·UV·상태 연결",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "F": {
+      "title": "F 공식 Mojang client.jar·인게임 정적 검증",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "G": {
+      "title": "G 근거 보고서·단계 인수인계 저장",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    }
+  },
+  "material_specific_checks": [
+    {
+      "id": "D1",
+      "check": "7색 콘크리트의 평균 RGB·명도·채도",
+      "status": "pending"
+    },
+    {
+      "id": "D2",
+      "check": "미세 픽셀 분산과 단색 평면 경계 검사",
+      "status": "pending"
+    },
+    {
+      "id": "D3",
+      "check": "가구 평면의 색상 사용 가설을 원본 관찰과 분리",
+      "status": "pending"
+    }
+  ],
+  "items": [
+    {
+      "item_id": "1-1-07-001",
+      "texture_id": "white_concrete",
+      "source_path": "assets/minecraft/textures/block/white_concrete.png",
+      "v4_sha256": "cf3300b0ebbdf5859a7ce14ca004d4529a3cd2e0de1c830acf00fb3dec8baea4",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-07-002",
+      "texture_id": "black_concrete",
+      "source_path": "assets/minecraft/textures/block/black_concrete.png",
+      "v4_sha256": "0d2f1cf4f6b7f1abada383bb2dbeb4bf274628a65793b2d388805dd8a5c1b0cb",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-07-003",
+      "texture_id": "red_concrete",
+      "source_path": "assets/minecraft/textures/block/red_concrete.png",
+      "v4_sha256": "4069c61ef07e5c113c2e0850b009d8c814c21881525535a01dffea7d52fd1896",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-07-004",
+      "texture_id": "blue_concrete",
+      "source_path": "assets/minecraft/textures/block/blue_concrete.png",
+      "v4_sha256": "54eea9be4c801ed6206fdb79fab7711185e5dcda5ccf5251871013ce14d1da33",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-07-005",
+      "texture_id": "green_concrete",
+      "source_path": "assets/minecraft/textures/block/green_concrete.png",
+      "v4_sha256": "42bf8de7fd911c4f649f03eb428e35bd303a571f012046b929bea9070ab37f34",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-07-006",
+      "texture_id": "yellow_concrete",
+      "source_path": "assets/minecraft/textures/block/yellow_concrete.png",
+      "v4_sha256": "c66ed9653baf4abb311cd41a2acc444fe7139355259e12aed79a511723c69367",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-07-007",
+      "texture_id": "gray_concrete",
+      "source_path": "assets/minecraft/textures/block/gray_concrete.png",
+      "v4_sha256": "a760d9bc6255fc2c1bcbe481b57a8a242687eda6c64459812398d7c40c9769bc",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    }
+  ],
+  "revisions": [
+    {
+      "revision": "TEX07-R000",
+      "kind": "planning_handoff_only",
+      "source_files_reviewed_as_new": 0,
+      "report_path": null
+    }
+  ],
+  "next_steps": [
+    "read handoff and source category plan",
+    "reconcile existing v4 and relevant later sources",
+    "perform direct source verification and save stage-specific immutable evidence",
+    "advance own revision only after new work was actually verified"
+  ],
+  "official_client_jar_available": false,
+  "ingame_static_render_verified": false,
+  "animation_study_deferred": true,
+  "scope_excluded": [
+    "Project Zomboid conversion",
+    "actual furniture 3D asset building",
+    "animation study until explicitly resumed"
+  ],
+  "project_overall_completion_pct": null,
+  "do_not_count_planning_as_research": true
+}

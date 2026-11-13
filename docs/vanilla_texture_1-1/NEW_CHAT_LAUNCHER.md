@@ -1,0 +1,33 @@
+# 1-1 단계별 새 채팅 시작 — 11개 독립 인수인계
+
+> **각 번호의 새 채팅을 서로 다른 버전/폴더로 분리**. 원본 연구 통합 체크포인트는 `v38`이며, 여기에서 사용하는 `TEX01-R000` 등은 새로운 분석 결과가 아니라 분리/계획 초기 상태이다.
+
+**공통 충돌방지 규칙:** [ISOLATED_CHAT_VERSIONING.md](ISOLATED_CHAT_VERSIONING.md). 각 채팅은 **자신의 단계 STATE·HANDOFF만 수정**, 원본 v1~v38 및 다른 재질 단계는 건드리지 않는다. `R000`은 분리 계획, **처음 신규 검증을 커밋한 시점부터 `R001`**. 모든 결과는 단계별 분리 경로에 불변 저장.
+
+## 새 채팅 시작 방법
+
+1. 아래 원하는 행의 **시작 프롬프트**를 열고 전체 내용을 복사하여 새 채팅 첫 메시지에 붙인다.
+2. 새 채팅은 해당 단계의 **인수인계**와 **상태 JSON**을 읽고 마지막 고유 버전 다음부터 실제 분석을 수행한다.
+3. 작업을 끝낼 때 그 단계 폴더의 `STATE.json`과 `HANDOFF.md`를 갱신하고, 소스 근거를 새 `TEXnn-Rxxx` 결과 폴더에 기록한다. 총괄 문서 통합은 별도 수행.
+
+| 단계 | 재질 | 표본 수 | 고유 초기 버전 | 새 채팅 프롬프트 | 인수인계 | 상태 JSON |
+|---|---|---:|---|---|---|---|
+| `1-1-01` | 목재·원목 | 18 | `TEX01-R000` | [시작 프롬프트](stages/1-1-01/START_PROMPT.md) | [인수인계](stages/1-1-01/HANDOFF.md) | [상태](stages/1-1-01/STATE.json) |
+| `1-1-02` | 석재·벽돌 | 17 | `TEX02-R000` | [시작 프롬프트](stages/1-1-02/START_PROMPT.md) | [인수인계](stages/1-1-02/HANDOFF.md) | [상태](stages/1-1-02/STATE.json) |
+| `1-1-03` | 금속·금속부품 | 16 | `TEX03-R000` | [시작 프롬프트](stages/1-1-03/START_PROMPT.md) | [인수인계](stages/1-1-03/HANDOFF.md) | [상태](stages/1-1-03/STATE.json) |
+| `1-1-04` | 직물·양털 | 9 | `TEX04-R000` | [시작 프롬프트](stages/1-1-04/START_PROMPT.md) | [인수인계](stages/1-1-04/HANDOFF.md) | [상태](stages/1-1-04/STATE.json) |
+| `1-1-05` | 유리 | 6 | `TEX05-R000` | [시작 프롬프트](stages/1-1-05/START_PROMPT.md) | [인수인계](stages/1-1-05/HANDOFF.md) | [상태](stages/1-1-05/STATE.json) |
+| `1-1-06` | 도기·유광도기 | 8 | `TEX06-R000` | [시작 프롬프트](stages/1-1-06/START_PROMPT.md) | [인수인계](stages/1-1-06/HANDOFF.md) | [상태](stages/1-1-06/STATE.json) |
+| `1-1-07` | 콘크리트·색면 | 7 | `TEX07-R000` | [시작 프롬프트](stages/1-1-07/START_PROMPT.md) | [인수인계](stages/1-1-07/HANDOFF.md) | [상태](stages/1-1-07/STATE.json) |
+| `1-1-08` | 복합·기능면 | 21 | `TEX08-R000` | [시작 프롬프트](stages/1-1-08/START_PROMPT.md) | [인수인계](stages/1-1-08/HANDOFF.md) | [상태](stages/1-1-08/STATE.json) |
+| `1-1-09` | 토양·지면 | 9 | `TEX09-R000` | [시작 프롬프트](stages/1-1-09/START_PROMPT.md) | [인수인계](stages/1-1-09/HANDOFF.md) | [상태](stages/1-1-09/STATE.json) |
+| `1-1-10` | 잎·식생 | 8 | `TEX10-R000` | [시작 프롬프트](stages/1-1-10/START_PROMPT.md) | [인수인계](stages/1-1-10/HANDOFF.md) | [상태](stages/1-1-10/STATE.json) |
+| `1-1-11` | 목재·구조부품 | 31 | `TEX11-R000` | [시작 프롬프트](stages/1-1-11/START_PROMPT.md) | [인수인계](stages/1-1-11/HANDOFF.md) | [상태](stages/1-1-11/STATE.json) |
+
+## 연구 범위와 원본 근거 구분
+
+- 원본 v4 150개 표본의 기존 계측 기록은 유지하고, 새 개별 채팅 실행 A–G는 **각 단계 상태에서 따로 검수**한다.
+- 다른 채팅에서 이미 조사된 동일 PNG/모델 정보를 재활용해도 `새롭게 검증한 PNG 경로 수`를 부풀리지 않는다.
+- 공식 `client.jar`·실제 인게임 검증이 미비하면 단계별 상태는 그 사실을 정직하게 보존한다.
+- 사용자가 애니메이션 재개를 명시하기 전까지 새 동적 프레임/클립 연구는 금지한다.
+- 전체 1단계 최종 완료 판정은 기존 `0/5`, 표본 목표 150/150과 구별한다.

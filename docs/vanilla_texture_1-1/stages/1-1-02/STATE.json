@@ -1,0 +1,326 @@
+{
+  "schema": "mc-furniture-texture-stage-handoff/v1",
+  "created_at": "2026-11-13",
+  "updated_at": "2026-11-13",
+  "game": "Minecraft Java Edition 1.21.11",
+  "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
+  "stage_id": "1-1-02",
+  "material_family": "석재·벽돌",
+  "stage_prefix": "TEX02",
+  "current_revision": "TEX02-R000",
+  "next_revision": "TEX02-R001",
+  "revision_sequence": 0,
+  "revision_status": "R000_initial_handoff_created_no_new_analysis",
+  "global_legacy_checkpoint": "v38",
+  "global_legacy_status_completed_substeps": 0,
+  "target_texture_paths": 17,
+  "v4_legacy_measurements_recorded": 17,
+  "stage_current_analysis_completed_count": 0,
+  "official_client_jar_authenticated_count": 0,
+  "ingame_static_render_verified_count": 0,
+  "paths": {
+    "start_prompt": "docs/vanilla_texture_1-1/stages/1-1-02/START_PROMPT.md",
+    "handoff": "docs/vanilla_texture_1-1/stages/1-1-02/HANDOFF.md",
+    "state": "docs/vanilla_texture_1-1/stages/1-1-02/STATE.json",
+    "source_task_plan": "docs/vanilla_texture_1-1/1-1-02_석재벽돌.md",
+    "source_150_ledger": "research/vanilla_textures/1-1_150_texture_numbered_task_ledger.csv",
+    "source_v4": "research/vanilla_textures/v4_150/01_누적150종_픽셀측정.csv",
+    "version_policy": "docs/vanilla_texture_1-1/ISOLATED_CHAT_VERSIONING.md",
+    "output_root": "research/vanilla_textures/by_stage/1-1-02/"
+  },
+  "source_note": "v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 검색하고 기존 결론을 신규 실측으로 오인하지 말 것.",
+  "allowed_write_paths": [
+    "docs/vanilla_texture_1-1/stages/1-1-02/HANDOFF.md",
+    "docs/vanilla_texture_1-1/stages/1-1-02/STATE.json",
+    "research/vanilla_textures/by_stage/1-1-02/"
+  ],
+  "global_root_file_writes_forbidden": [
+    "HANDOFF.md",
+    "PROGRESS.md",
+    "handoff/STATE.json"
+  ],
+  "phases": {
+    "A": {
+      "title": "A 기존 출처·파일·중복 대조",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "B": {
+      "title": "B PNG 실제 바이너리·SHA·CRC 검증",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "C": {
+      "title": "C RGBA·밝기·알파·반복 정량 검사",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "D": {
+      "title": "D 재질 특화 세부 검사",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "E": {
+      "title": "E 정적 모델 JSON·UV·상태 연결",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "F": {
+      "title": "F 공식 Mojang client.jar·인게임 정적 검증",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "G": {
+      "title": "G 근거 보고서·단계 인수인계 저장",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    }
+  },
+  "material_specific_checks": [
+    {
+      "id": "D1",
+      "check": "자연석·자갈·연마석·벽돌 간 대비·에지 분포",
+      "status": "pending"
+    },
+    {
+      "id": "D2",
+      "check": "줄눈 간격 및 타일 패턴 반복성을 좌/우·상/하 접합으로 확인",
+      "status": "pending"
+    },
+    {
+      "id": "D3",
+      "check": "모델 면 회전과 UV 반복이 벽면 패턴에 미치는 영향",
+      "status": "pending"
+    }
+  ],
+  "items": [
+    {
+      "item_id": "1-1-02-001",
+      "texture_id": "stone",
+      "source_path": "assets/minecraft/textures/block/stone.png",
+      "v4_sha256": "b5e10adc72442bfb257ce7ba0b9bbe36475a0c8cdfec89b80dc9517203ff3e9f",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-02-002",
+      "texture_id": "cobblestone",
+      "source_path": "assets/minecraft/textures/block/cobblestone.png",
+      "v4_sha256": "bcda95fdf5afa91747657aa198fc0b69ebf44141de30a718075f74045e9a5def",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-02-003",
+      "texture_id": "stone_bricks",
+      "source_path": "assets/minecraft/textures/block/stone_bricks.png",
+      "v4_sha256": "24415444c9e4815aad4a3a349ecbfc0e027b96be25ac5b7c273c06f16c4fdd2f",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-02-004",
+      "texture_id": "deepslate_bricks",
+      "source_path": "assets/minecraft/textures/block/deepslate_bricks.png",
+      "v4_sha256": "d9533c750ce1910c821626f4fe9187f5d36e9e9cf5efa4fb8fd1b2574ff8f6b1",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-02-005",
+      "texture_id": "polished_andesite",
+      "source_path": "assets/minecraft/textures/block/polished_andesite.png",
+      "v4_sha256": "1faaa8bacab00d23de46321801e7147a02e388febc43b6c7b31f0ae364e8137e",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-02-006",
+      "texture_id": "bricks",
+      "source_path": "assets/minecraft/textures/block/bricks.png",
+      "v4_sha256": "3242cb8e441c940156633b0d867e08c887ddaeaa32343b212d4b1e5ca3dae123",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-02-007",
+      "texture_id": "tuff_bricks",
+      "source_path": "assets/minecraft/textures/block/tuff_bricks.png",
+      "v4_sha256": "4889db8fab0b3ef4b0cc3ef0d7df469ac3b89233dbeb09fdfecb4f2900b2eaf8",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-02-008",
+      "texture_id": "granite",
+      "source_path": "assets/minecraft/textures/block/granite.png",
+      "v4_sha256": "9bde1239e00c17b0d2842a941cda606c395039f59ec351ec8866a27e77ee7f8b",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-02-009",
+      "texture_id": "polished_granite",
+      "source_path": "assets/minecraft/textures/block/polished_granite.png",
+      "v4_sha256": "455445b2134e66ca93246b6b005f2adc3b75d90baa400f720e1643b66bd8336f",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-02-010",
+      "texture_id": "diorite",
+      "source_path": "assets/minecraft/textures/block/diorite.png",
+      "v4_sha256": "5f44c6743cd72c00a074e6c43cc9c46b9cf54a82c0cf87c5eb675a7207cff648",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-02-011",
+      "texture_id": "polished_diorite",
+      "source_path": "assets/minecraft/textures/block/polished_diorite.png",
+      "v4_sha256": "dfe6b1ae9ecfc263f031d15f53b5775eb519217a2b0c6f2f887fbebf522558d5",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-02-012",
+      "texture_id": "andesite",
+      "source_path": "assets/minecraft/textures/block/andesite.png",
+      "v4_sha256": "7c7960dd3dd2084233907c1529dcbea0b8a2195fadaa608027f395b6f430fbd7",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-02-013",
+      "texture_id": "deepslate",
+      "source_path": "assets/minecraft/textures/block/deepslate.png",
+      "v4_sha256": "dc72c722bec23c929817fab7cc56e08e5e828ae3607fbfb7e7730e68b67d4cfc",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-02-014",
+      "texture_id": "deepslate_tiles",
+      "source_path": "assets/minecraft/textures/block/deepslate_tiles.png",
+      "v4_sha256": "4e0ff4aa76d467697383c776f94d855d3fc2a49a40363d3fa846e441003ebc57",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-02-015",
+      "texture_id": "blackstone",
+      "source_path": "assets/minecraft/textures/block/blackstone.png",
+      "v4_sha256": "8104d381f680eeb7d71a023aa056b593ef0855821538e435949c94b58033e7cb",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-02-016",
+      "texture_id": "polished_blackstone",
+      "source_path": "assets/minecraft/textures/block/polished_blackstone.png",
+      "v4_sha256": "4a36ac06b65d5330bc83e4711b4f62c3afe788b95526f2983730461a35b401ff",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-02-017",
+      "texture_id": "chiseled_stone_bricks",
+      "source_path": "assets/minecraft/textures/block/chiseled_stone_bricks.png",
+      "v4_sha256": "fbd59c309a861f63cfbb1f0f2348316d16bafa3bdd1ef81550357e1b5778df8f",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    }
+  ],
+  "revisions": [
+    {
+      "revision": "TEX02-R000",
+      "kind": "planning_handoff_only",
+      "source_files_reviewed_as_new": 0,
+      "report_path": null
+    }
+  ],
+  "next_steps": [
+    "read handoff and source category plan",
+    "reconcile existing v4 and relevant later sources",
+    "perform direct source verification and save stage-specific immutable evidence",
+    "advance own revision only after new work was actually verified"
+  ],
+  "official_client_jar_available": false,
+  "ingame_static_render_verified": false,
+  "animation_study_deferred": true,
+  "scope_excluded": [
+    "Project Zomboid conversion",
+    "actual furniture 3D asset building",
+    "animation study until explicitly resumed"
+  ],
+  "project_overall_completion_pct": null,
+  "do_not_count_planning_as_research": true
+}

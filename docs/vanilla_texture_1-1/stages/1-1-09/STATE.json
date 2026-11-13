@@ -1,0 +1,230 @@
+{
+  "schema": "mc-furniture-texture-stage-handoff/v1",
+  "created_at": "2026-11-13",
+  "updated_at": "2026-11-13",
+  "game": "Minecraft Java Edition 1.21.11",
+  "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
+  "stage_id": "1-1-09",
+  "material_family": "토양·지면",
+  "stage_prefix": "TEX09",
+  "current_revision": "TEX09-R000",
+  "next_revision": "TEX09-R001",
+  "revision_sequence": 0,
+  "revision_status": "R000_initial_handoff_created_no_new_analysis",
+  "global_legacy_checkpoint": "v38",
+  "global_legacy_status_completed_substeps": 0,
+  "target_texture_paths": 9,
+  "v4_legacy_measurements_recorded": 9,
+  "stage_current_analysis_completed_count": 0,
+  "official_client_jar_authenticated_count": 0,
+  "ingame_static_render_verified_count": 0,
+  "paths": {
+    "start_prompt": "docs/vanilla_texture_1-1/stages/1-1-09/START_PROMPT.md",
+    "handoff": "docs/vanilla_texture_1-1/stages/1-1-09/HANDOFF.md",
+    "state": "docs/vanilla_texture_1-1/stages/1-1-09/STATE.json",
+    "source_task_plan": "docs/vanilla_texture_1-1/1-1-09_토양지면.md",
+    "source_150_ledger": "research/vanilla_textures/1-1_150_texture_numbered_task_ledger.csv",
+    "source_v4": "research/vanilla_textures/v4_150/01_누적150종_픽셀측정.csv",
+    "version_policy": "docs/vanilla_texture_1-1/ISOLATED_CHAT_VERSIONING.md",
+    "output_root": "research/vanilla_textures/by_stage/1-1-09/"
+  },
+  "source_note": "모델링 응용 전 실제 사용 재질과 표본 성격을 분리; 생물군계의 색상 차이는 원본 PNG의 직접 관측이 아님.",
+  "allowed_write_paths": [
+    "docs/vanilla_texture_1-1/stages/1-1-09/HANDOFF.md",
+    "docs/vanilla_texture_1-1/stages/1-1-09/STATE.json",
+    "research/vanilla_textures/by_stage/1-1-09/"
+  ],
+  "global_root_file_writes_forbidden": [
+    "HANDOFF.md",
+    "PROGRESS.md",
+    "handoff/STATE.json"
+  ],
+  "phases": {
+    "A": {
+      "title": "A 기존 출처·파일·중복 대조",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "B": {
+      "title": "B PNG 실제 바이너리·SHA·CRC 검증",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "C": {
+      "title": "C RGBA·밝기·알파·반복 정량 검사",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "D": {
+      "title": "D 재질 특화 세부 검사",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "E": {
+      "title": "E 정적 모델 JSON·UV·상태 연결",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "F": {
+      "title": "F 공식 Mojang client.jar·인게임 정적 검증",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "G": {
+      "title": "G 근거 보고서·단계 인수인계 저장",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    }
+  },
+  "material_specific_checks": [
+    {
+      "id": "D1",
+      "check": "흙·자갈·진흙 등의 명도 및 반복 무늬",
+      "status": "pending"
+    },
+    {
+      "id": "D2",
+      "check": "좌우/상하 이음새·고주파 패턴",
+      "status": "pending"
+    },
+    {
+      "id": "D3",
+      "check": "grass/podzol PNG와 인게임 tint·주변 블록 효과 구분",
+      "status": "pending"
+    }
+  ],
+  "items": [
+    {
+      "item_id": "1-1-09-001",
+      "texture_id": "dirt",
+      "source_path": "assets/minecraft/textures/block/dirt.png",
+      "v4_sha256": "67197d5371efc3ca1638217c38349665dbd5a977b47bfb20075c858dff87d510",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-09-002",
+      "texture_id": "coarse_dirt",
+      "source_path": "assets/minecraft/textures/block/coarse_dirt.png",
+      "v4_sha256": "6889a193decb2c38cd8559456693c15192917c7b917d6ef9c3c2e142f7819ad4",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-09-003",
+      "texture_id": "rooted_dirt",
+      "source_path": "assets/minecraft/textures/block/rooted_dirt.png",
+      "v4_sha256": "3c59420f80c58794b49f822fb9b251779250b759f5c12111fa29f772a635f42b",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-09-004",
+      "texture_id": "mud",
+      "source_path": "assets/minecraft/textures/block/mud.png",
+      "v4_sha256": "3ddc6e47abc12db1e2e85938da5d0b0d49e0357d8c3424b069f521741ec42d23",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-09-005",
+      "texture_id": "packed_mud",
+      "source_path": "assets/minecraft/textures/block/packed_mud.png",
+      "v4_sha256": "143f1729042262d675f0eefe5a8b2704c5d5837f8526aa36b8930328dfb141bf",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-09-006",
+      "texture_id": "mud_bricks",
+      "source_path": "assets/minecraft/textures/block/mud_bricks.png",
+      "v4_sha256": "b9d94455caf0651b7ff777f2f85a92f4d67d04ae669cd4f65c308595ec9d38fa",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-09-007",
+      "texture_id": "gravel",
+      "source_path": "assets/minecraft/textures/block/gravel.png",
+      "v4_sha256": "bc1558fa64b238fabca4cc957e61c232337d410495784b106676bf73e52e16e0",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-09-008",
+      "texture_id": "grass_block_top",
+      "source_path": "assets/minecraft/textures/block/grass_block_top.png",
+      "v4_sha256": "52f44b64ce884a13dfe35e4b4da2e35898b790dd4d7a5ea536f1b0c0d56d29b4",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-09-009",
+      "texture_id": "podzol_top",
+      "source_path": "assets/minecraft/textures/block/podzol_top.png",
+      "v4_sha256": "598072d5a4db38ec4ea081a584a2de6b5960785bc2287e18e93427c7433c5d56",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    }
+  ],
+  "revisions": [
+    {
+      "revision": "TEX09-R000",
+      "kind": "planning_handoff_only",
+      "source_files_reviewed_as_new": 0,
+      "report_path": null
+    }
+  ],
+  "next_steps": [
+    "read handoff and source category plan",
+    "reconcile existing v4 and relevant later sources",
+    "perform direct source verification and save stage-specific immutable evidence",
+    "advance own revision only after new work was actually verified"
+  ],
+  "official_client_jar_available": false,
+  "ingame_static_render_verified": false,
+  "animation_study_deferred": true,
+  "scope_excluded": [
+    "Project Zomboid conversion",
+    "actual furniture 3D asset building",
+    "animation study until explicitly resumed"
+  ],
+  "project_overall_completion_pct": null,
+  "do_not_count_planning_as_research": true
+}

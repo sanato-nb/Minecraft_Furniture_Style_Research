@@ -1,0 +1,218 @@
+{
+  "schema": "mc-furniture-texture-stage-handoff/v1",
+  "created_at": "2026-11-13",
+  "updated_at": "2026-11-13",
+  "game": "Minecraft Java Edition 1.21.11",
+  "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
+  "stage_id": "1-1-10",
+  "material_family": "잎·식생",
+  "stage_prefix": "TEX10",
+  "current_revision": "TEX10-R000",
+  "next_revision": "TEX10-R001",
+  "revision_sequence": 0,
+  "revision_status": "R000_initial_handoff_created_no_new_analysis",
+  "global_legacy_checkpoint": "v38",
+  "global_legacy_status_completed_substeps": 0,
+  "target_texture_paths": 8,
+  "v4_legacy_measurements_recorded": 8,
+  "stage_current_analysis_completed_count": 0,
+  "official_client_jar_authenticated_count": 0,
+  "ingame_static_render_verified_count": 0,
+  "paths": {
+    "start_prompt": "docs/vanilla_texture_1-1/stages/1-1-10/START_PROMPT.md",
+    "handoff": "docs/vanilla_texture_1-1/stages/1-1-10/HANDOFF.md",
+    "state": "docs/vanilla_texture_1-1/stages/1-1-10/STATE.json",
+    "source_task_plan": "docs/vanilla_texture_1-1/1-1-10_잎식생.md",
+    "source_150_ledger": "research/vanilla_textures/1-1_150_texture_numbered_task_ledger.csv",
+    "source_v4": "research/vanilla_textures/v4_150/01_누적150종_픽셀측정.csv",
+    "version_policy": "docs/vanilla_texture_1-1/ISOLATED_CHAT_VERSIONING.md",
+    "output_root": "research/vanilla_textures/by_stage/1-1-10/"
+  },
+  "source_note": "애니메이션/흔들림 연구는 보류; 정적 이미지와 인게임 정적 검증만 허용.",
+  "allowed_write_paths": [
+    "docs/vanilla_texture_1-1/stages/1-1-10/HANDOFF.md",
+    "docs/vanilla_texture_1-1/stages/1-1-10/STATE.json",
+    "research/vanilla_textures/by_stage/1-1-10/"
+  ],
+  "global_root_file_writes_forbidden": [
+    "HANDOFF.md",
+    "PROGRESS.md",
+    "handoff/STATE.json"
+  ],
+  "phases": {
+    "A": {
+      "title": "A 기존 출처·파일·중복 대조",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "B": {
+      "title": "B PNG 실제 바이너리·SHA·CRC 검증",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "C": {
+      "title": "C RGBA·밝기·알파·반복 정량 검사",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "D": {
+      "title": "D 재질 특화 세부 검사",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "E": {
+      "title": "E 정적 모델 JSON·UV·상태 연결",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "F": {
+      "title": "F 공식 Mojang client.jar·인게임 정적 검증",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "G": {
+      "title": "G 근거 보고서·단계 인수인계 저장",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    }
+  },
+  "material_specific_checks": [
+    {
+      "id": "D1",
+      "check": "잎·덩굴 알파 마스크·가시 영역·투명 외곽",
+      "status": "pending"
+    },
+    {
+      "id": "D2",
+      "check": "PNG의 녹색과 생물군계 tintindex의 차이",
+      "status": "pending"
+    },
+    {
+      "id": "D3",
+      "check": "컷아웃 영역과 3D 요소의 담당 역할 구분",
+      "status": "pending"
+    }
+  ],
+  "items": [
+    {
+      "item_id": "1-1-10-001",
+      "texture_id": "oak_leaves",
+      "source_path": "assets/minecraft/textures/block/oak_leaves.png",
+      "v4_sha256": "69c9c7048695e014aee6b8a2c4cb080607bd7a2a5291c06218b8134cbfcdc04f",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-10-002",
+      "texture_id": "spruce_leaves",
+      "source_path": "assets/minecraft/textures/block/spruce_leaves.png",
+      "v4_sha256": "538a4d679a8677d710cde7a99c44f9dd95d1e117aa42844d1dad1e24ed47fb16",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-10-003",
+      "texture_id": "birch_leaves",
+      "source_path": "assets/minecraft/textures/block/birch_leaves.png",
+      "v4_sha256": "03ea357f700a55a3e830e9bd0264c8b0a6c2901e3d1d328808adc1c7c97cc330",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-10-004",
+      "texture_id": "mangrove_leaves",
+      "source_path": "assets/minecraft/textures/block/mangrove_leaves.png",
+      "v4_sha256": "1044dd96b9d2225d56bcdf9549e7890283c29f434fd80740c0ad0d8c571915c5",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-10-005",
+      "texture_id": "azalea_leaves",
+      "source_path": "assets/minecraft/textures/block/azalea_leaves.png",
+      "v4_sha256": "fdfa370f1bc7460a0f51d70fd57c691a86ee9269bbaba5b7e46693bb2de09a2a",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-10-006",
+      "texture_id": "moss_block",
+      "source_path": "assets/minecraft/textures/block/moss_block.png",
+      "v4_sha256": "863aae6a09178ccd3700c7ee6e3e9f2448e99f51cbbd8c157dd0126f8c749c80",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-10-007",
+      "texture_id": "vine",
+      "source_path": "assets/minecraft/textures/block/vine.png",
+      "v4_sha256": "5ca6b688ee8cce05df9d90a8d0f7bb669361ce27dba4a761dcb209819e0d232e",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-10-008",
+      "texture_id": "flowering_azalea_leaves",
+      "source_path": "assets/minecraft/textures/block/flowering_azalea_leaves.png",
+      "v4_sha256": "b6e494ed60f5e4fa2704645777d56d585ac0aa4b2c7493879f286a954ce9a9d6",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    }
+  ],
+  "revisions": [
+    {
+      "revision": "TEX10-R000",
+      "kind": "planning_handoff_only",
+      "source_files_reviewed_as_new": 0,
+      "report_path": null
+    }
+  ],
+  "next_steps": [
+    "read handoff and source category plan",
+    "reconcile existing v4 and relevant later sources",
+    "perform direct source verification and save stage-specific immutable evidence",
+    "advance own revision only after new work was actually verified"
+  ],
+  "official_client_jar_available": false,
+  "ingame_static_render_verified": false,
+  "animation_study_deferred": true,
+  "scope_excluded": [
+    "Project Zomboid conversion",
+    "actual furniture 3D asset building",
+    "animation study until explicitly resumed"
+  ],
+  "project_overall_completion_pct": null,
+  "do_not_count_planning_as_research": true
+}

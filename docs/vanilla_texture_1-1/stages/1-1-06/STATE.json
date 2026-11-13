@@ -1,0 +1,218 @@
+{
+  "schema": "mc-furniture-texture-stage-handoff/v1",
+  "created_at": "2026-11-13",
+  "updated_at": "2026-11-13",
+  "game": "Minecraft Java Edition 1.21.11",
+  "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
+  "stage_id": "1-1-06",
+  "material_family": "도기·유광도기",
+  "stage_prefix": "TEX06",
+  "current_revision": "TEX06-R000",
+  "next_revision": "TEX06-R001",
+  "revision_sequence": 0,
+  "revision_status": "R000_initial_handoff_created_no_new_analysis",
+  "global_legacy_checkpoint": "v38",
+  "global_legacy_status_completed_substeps": 0,
+  "target_texture_paths": 8,
+  "v4_legacy_measurements_recorded": 8,
+  "stage_current_analysis_completed_count": 0,
+  "official_client_jar_authenticated_count": 0,
+  "ingame_static_render_verified_count": 0,
+  "paths": {
+    "start_prompt": "docs/vanilla_texture_1-1/stages/1-1-06/START_PROMPT.md",
+    "handoff": "docs/vanilla_texture_1-1/stages/1-1-06/HANDOFF.md",
+    "state": "docs/vanilla_texture_1-1/stages/1-1-06/STATE.json",
+    "source_task_plan": "docs/vanilla_texture_1-1/1-1-06_도기유광도기.md",
+    "source_150_ledger": "research/vanilla_textures/1-1_150_texture_numbered_task_ledger.csv",
+    "source_v4": "research/vanilla_textures/v4_150/01_누적150종_픽셀측정.csv",
+    "version_policy": "docs/vanilla_texture_1-1/ISOLATED_CHAT_VERSIONING.md",
+    "output_root": "research/vanilla_textures/by_stage/1-1-06/"
+  },
+  "source_note": "유광 효과에 대해 실제 PBR 반사와 혼동하지 말 것. 원본 그림의 색·패턴만 확정.",
+  "allowed_write_paths": [
+    "docs/vanilla_texture_1-1/stages/1-1-06/HANDOFF.md",
+    "docs/vanilla_texture_1-1/stages/1-1-06/STATE.json",
+    "research/vanilla_textures/by_stage/1-1-06/"
+  ],
+  "global_root_file_writes_forbidden": [
+    "HANDOFF.md",
+    "PROGRESS.md",
+    "handoff/STATE.json"
+  ],
+  "phases": {
+    "A": {
+      "title": "A 기존 출처·파일·중복 대조",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "B": {
+      "title": "B PNG 실제 바이너리·SHA·CRC 검증",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "C": {
+      "title": "C RGBA·밝기·알파·반복 정량 검사",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "D": {
+      "title": "D 재질 특화 세부 검사",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "E": {
+      "title": "E 정적 모델 JSON·UV·상태 연결",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "F": {
+      "title": "F 공식 Mojang client.jar·인게임 정적 검증",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "G": {
+      "title": "G 근거 보고서·단계 인수인계 저장",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    }
+  },
+  "material_specific_checks": [
+    {
+      "id": "D1",
+      "check": "일반 테라코타와 유광 도기의 팔레트·명도",
+      "status": "pending"
+    },
+    {
+      "id": "D2",
+      "check": "무늬 이어붙이기와 UV/회전 상태에 따른 패턴 방향",
+      "status": "pending"
+    },
+    {
+      "id": "D3",
+      "check": "특정 패턴을 만드는 블록 상태의 정적 회전·UV 연결",
+      "status": "pending"
+    }
+  ],
+  "items": [
+    {
+      "item_id": "1-1-06-001",
+      "texture_id": "terracotta",
+      "source_path": "assets/minecraft/textures/block/terracotta.png",
+      "v4_sha256": "b2458267eac6b6f35d02990ee3244edf1f43fbe258bd6dfe15189cf2eaf42ae8",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-06-002",
+      "texture_id": "white_terracotta",
+      "source_path": "assets/minecraft/textures/block/white_terracotta.png",
+      "v4_sha256": "9feeb13f19514ea58a5b6e942df7a8595330e61173f8d0a13c83b78acd1bd62e",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-06-003",
+      "texture_id": "orange_terracotta",
+      "source_path": "assets/minecraft/textures/block/orange_terracotta.png",
+      "v4_sha256": "3074d90b0a27d1c149df2f3eacc9c6895c4cc0548999f864146dc18f64bcab5a",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-06-004",
+      "texture_id": "blue_terracotta",
+      "source_path": "assets/minecraft/textures/block/blue_terracotta.png",
+      "v4_sha256": "99b4ec0a8a02a9d609d4987cbb7ba594a59f93c76b5fd98e3a1f12c2df1f9a70",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-06-005",
+      "texture_id": "green_terracotta",
+      "source_path": "assets/minecraft/textures/block/green_terracotta.png",
+      "v4_sha256": "ffe10089bcef9873c74f18be35e605c5d035f472c06bf677746d39ff8a656c07",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-06-006",
+      "texture_id": "yellow_terracotta",
+      "source_path": "assets/minecraft/textures/block/yellow_terracotta.png",
+      "v4_sha256": "7c00bf901f78ad628a06335d47310a6b18c1419243d4150e32cdf01d51bafca6",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-06-007",
+      "texture_id": "black_glazed_terracotta",
+      "source_path": "assets/minecraft/textures/block/black_glazed_terracotta.png",
+      "v4_sha256": "214ce8ca46c60a42b8863655b3895aca839c7ef7cfa511a192dc1974a0ca2758",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-06-008",
+      "texture_id": "white_glazed_terracotta",
+      "source_path": "assets/minecraft/textures/block/white_glazed_terracotta.png",
+      "v4_sha256": "cb1ebf9f3f3e93009ff4cab1b2b2b70d41fd87caa40c71942ae51996d12498b4",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    }
+  ],
+  "revisions": [
+    {
+      "revision": "TEX06-R000",
+      "kind": "planning_handoff_only",
+      "source_files_reviewed_as_new": 0,
+      "report_path": null
+    }
+  ],
+  "next_steps": [
+    "read handoff and source category plan",
+    "reconcile existing v4 and relevant later sources",
+    "perform direct source verification and save stage-specific immutable evidence",
+    "advance own revision only after new work was actually verified"
+  ],
+  "official_client_jar_available": false,
+  "ingame_static_render_verified": false,
+  "animation_study_deferred": true,
+  "scope_excluded": [
+    "Project Zomboid conversion",
+    "actual furniture 3D asset building",
+    "animation study until explicitly resumed"
+  ],
+  "project_overall_completion_pct": null,
+  "do_not_count_planning_as_research": true
+}

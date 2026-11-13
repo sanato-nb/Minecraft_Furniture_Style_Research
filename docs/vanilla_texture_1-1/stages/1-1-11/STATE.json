@@ -1,0 +1,494 @@
+{
+  "schema": "mc-furniture-texture-stage-handoff/v1",
+  "created_at": "2026-11-13",
+  "updated_at": "2026-11-13",
+  "game": "Minecraft Java Edition 1.21.11",
+  "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
+  "stage_id": "1-1-11",
+  "material_family": "목재·구조부품",
+  "stage_prefix": "TEX11",
+  "current_revision": "TEX11-R000",
+  "next_revision": "TEX11-R001",
+  "revision_sequence": 0,
+  "revision_status": "R000_initial_handoff_created_no_new_analysis",
+  "global_legacy_checkpoint": "v38",
+  "global_legacy_status_completed_substeps": 0,
+  "target_texture_paths": 31,
+  "v4_legacy_measurements_recorded": 31,
+  "stage_current_analysis_completed_count": 0,
+  "official_client_jar_authenticated_count": 0,
+  "ingame_static_render_verified_count": 0,
+  "paths": {
+    "start_prompt": "docs/vanilla_texture_1-1/stages/1-1-11/START_PROMPT.md",
+    "handoff": "docs/vanilla_texture_1-1/stages/1-1-11/HANDOFF.md",
+    "state": "docs/vanilla_texture_1-1/stages/1-1-11/STATE.json",
+    "source_task_plan": "docs/vanilla_texture_1-1/1-1-11_목재구조부품.md",
+    "source_150_ledger": "research/vanilla_textures/1-1_150_texture_numbered_task_ledger.csv",
+    "source_v4": "research/vanilla_textures/v4_150/01_누적150종_픽셀측정.csv",
+    "version_policy": "docs/vanilla_texture_1-1/ISOLATED_CHAT_VERSIONING.md",
+    "output_root": "research/vanilla_textures/by_stage/1-1-11/"
+  },
+  "source_note": "v38 oak_shelf 7개 leaf/7부모·32 정적 상태·38면 2,304 texel uses 소스 검증이 이미 존재. v4 oak_shelf 표본과 중복 카운트하지 말고 4종 다른 목재 선반 모델 연결을 추가 연구할 것.",
+  "allowed_write_paths": [
+    "docs/vanilla_texture_1-1/stages/1-1-11/HANDOFF.md",
+    "docs/vanilla_texture_1-1/stages/1-1-11/STATE.json",
+    "research/vanilla_textures/by_stage/1-1-11/"
+  ],
+  "global_root_file_writes_forbidden": [
+    "HANDOFF.md",
+    "PROGRESS.md",
+    "handoff/STATE.json"
+  ],
+  "phases": {
+    "A": {
+      "title": "A 기존 출처·파일·중복 대조",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "B": {
+      "title": "B PNG 실제 바이너리·SHA·CRC 검증",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "C": {
+      "title": "C RGBA·밝기·알파·반복 정량 검사",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "D": {
+      "title": "D 재질 특화 세부 검사",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "E": {
+      "title": "E 정적 모델 JSON·UV·상태 연결",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "F": {
+      "title": "F 공식 Mojang client.jar·인게임 정적 검증",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    },
+    "G": {
+      "title": "G 근거 보고서·단계 인수인계 저장",
+      "status": "not_audited_in_isolated_workstream",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+    }
+  },
+  "material_specific_checks": [
+    {
+      "id": "D1",
+      "check": "문·다락문 윗/아랫면 알파와 무늬 연결",
+      "status": "pending"
+    },
+    {
+      "id": "D2",
+      "check": "32×32 5종 shelf texture atlas와 일반 16×16 비교",
+      "status": "pending"
+    },
+    {
+      "id": "D3",
+      "check": "v38 oak_shelf 7 leaf·38원본 explicit UV면·32 정적 상태 평가 근거 재사용 후 미검증 파생목재 확대",
+      "status": "pending"
+    }
+  ],
+  "items": [
+    {
+      "item_id": "1-1-11-001",
+      "texture_id": "oak_trapdoor",
+      "source_path": "assets/minecraft/textures/block/oak_trapdoor.png",
+      "v4_sha256": "7f2d78c69dcfb71d4900b974d40f6e334065f4e4c72aa36fe37ce034df9a2abd",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-002",
+      "texture_id": "spruce_trapdoor",
+      "source_path": "assets/minecraft/textures/block/spruce_trapdoor.png",
+      "v4_sha256": "b22c847ef0810ba5ed6546de8484ad17bc72ea894a42078ca9221aa3c23d8fdf",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-003",
+      "texture_id": "birch_trapdoor",
+      "source_path": "assets/minecraft/textures/block/birch_trapdoor.png",
+      "v4_sha256": "48e96dc1f95daee99412dc0724411c3671ab529658f00ca0aa66227ae30a3092",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-004",
+      "texture_id": "dark_oak_trapdoor",
+      "source_path": "assets/minecraft/textures/block/dark_oak_trapdoor.png",
+      "v4_sha256": "b56fddb418e82004eb6371e85acf9dc7cac608f5230049543159b2ddcc3196ed",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-005",
+      "texture_id": "bamboo_trapdoor",
+      "source_path": "assets/minecraft/textures/block/bamboo_trapdoor.png",
+      "v4_sha256": "4b3fc966d9f9c5021a387519a1cee3fd53814d5605e5623b9aacb5930453f3dd",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-006",
+      "texture_id": "oak_door_bottom",
+      "source_path": "assets/minecraft/textures/block/oak_door_bottom.png",
+      "v4_sha256": "a209e7e8611d56d211445d5df23a50c31185a293c51f4e03f3cb691209a49df4",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-007",
+      "texture_id": "oak_door_top",
+      "source_path": "assets/minecraft/textures/block/oak_door_top.png",
+      "v4_sha256": "0cdc592715a8145d1837f551adf774227dedf7650569e7a50f6cb831c7c0a6c6",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-008",
+      "texture_id": "acacia_trapdoor",
+      "source_path": "assets/minecraft/textures/block/acacia_trapdoor.png",
+      "v4_sha256": "9d8aebedce220ba31aea5b2c67e6180d4eec1e7dbabefc334d341e0a49ee668b",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-009",
+      "texture_id": "cherry_trapdoor",
+      "source_path": "assets/minecraft/textures/block/cherry_trapdoor.png",
+      "v4_sha256": "21180e8d199bc79d8bf95ae72af08dc4df3ae02519818b13b78ba91af580dc27",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-010",
+      "texture_id": "mangrove_trapdoor",
+      "source_path": "assets/minecraft/textures/block/mangrove_trapdoor.png",
+      "v4_sha256": "65087166442d0a5d9edf1c467d44ab3b4f9969f1bd851c5d9ffa82259b90f1fc",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-011",
+      "texture_id": "pale_oak_trapdoor",
+      "source_path": "assets/minecraft/textures/block/pale_oak_trapdoor.png",
+      "v4_sha256": "5eafb6cfd036b128aea6daca3dba44f9fb3521aacb7f682d774be8c1c9c72c8a",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-012",
+      "texture_id": "acacia_door_bottom",
+      "source_path": "assets/minecraft/textures/block/acacia_door_bottom.png",
+      "v4_sha256": "b38b2d097cac0b7b08efa43045bba368abc4a3b190ccb2e594862766c5e1e8c2",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-013",
+      "texture_id": "acacia_door_top",
+      "source_path": "assets/minecraft/textures/block/acacia_door_top.png",
+      "v4_sha256": "2552920fee394ac3b6d165d5638bc84d2223374d8974bdd668bced3be16e5f3c",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-014",
+      "texture_id": "spruce_door_bottom",
+      "source_path": "assets/minecraft/textures/block/spruce_door_bottom.png",
+      "v4_sha256": "5684f6fa01b213babc2ee0a07d8a5b1803fc652fe1bfbf461ff973cb07dffd89",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-015",
+      "texture_id": "spruce_door_top",
+      "source_path": "assets/minecraft/textures/block/spruce_door_top.png",
+      "v4_sha256": "53be462544fd88a451bba74eb699c113c506773fee0243f2c79983cee66acb7d",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-016",
+      "texture_id": "birch_door_bottom",
+      "source_path": "assets/minecraft/textures/block/birch_door_bottom.png",
+      "v4_sha256": "7bd6636532ffc21e9ecc7aa5fc8d975e9d5b4f2e2d32db2cb3c4d00115c29c70",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-017",
+      "texture_id": "birch_door_top",
+      "source_path": "assets/minecraft/textures/block/birch_door_top.png",
+      "v4_sha256": "48b63883ce9a4b4c72b437d5eb5c712f6b2b465ef1bbcb37a52dee9e30d0a4ea",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-018",
+      "texture_id": "cherry_door_bottom",
+      "source_path": "assets/minecraft/textures/block/cherry_door_bottom.png",
+      "v4_sha256": "08bb521c3bbbe6e5a1891554b4a8dbd6025b563dfc7ffb3dc6e14be75f5042aa",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-019",
+      "texture_id": "cherry_door_top",
+      "source_path": "assets/minecraft/textures/block/cherry_door_top.png",
+      "v4_sha256": "9f81189ffe46f5a3fb31b89f5ae22b15c895920ee297fcce0bbc0e3f0654b47b",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-020",
+      "texture_id": "bamboo_door_bottom",
+      "source_path": "assets/minecraft/textures/block/bamboo_door_bottom.png",
+      "v4_sha256": "07a38a693f5efaf6a28d1d924ccffe60d453ac55056088c5796777b82e73644c",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-021",
+      "texture_id": "bamboo_door_top",
+      "source_path": "assets/minecraft/textures/block/bamboo_door_top.png",
+      "v4_sha256": "90f8ca7ab7ade430a96fc176de2cfc4294a86136646fb82f24d2159997cfb2b6",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-022",
+      "texture_id": "mangrove_door_bottom",
+      "source_path": "assets/minecraft/textures/block/mangrove_door_bottom.png",
+      "v4_sha256": "aa84032ae9968b58dfb347ab4062695caaea4e793ed2b6c20f9f5f909bc145af",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-023",
+      "texture_id": "mangrove_door_top",
+      "source_path": "assets/minecraft/textures/block/mangrove_door_top.png",
+      "v4_sha256": "50a7be61312a2f7ab4ee61e037e5ef7c1b1878a215d50616445c16378927bf1c",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-024",
+      "texture_id": "crimson_trapdoor",
+      "source_path": "assets/minecraft/textures/block/crimson_trapdoor.png",
+      "v4_sha256": "654f72862b0f2c7b84ad11ff53d4b0a7e85d538af1a4d4a568e1cbb34b2fd5cf",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-025",
+      "texture_id": "warped_trapdoor",
+      "source_path": "assets/minecraft/textures/block/warped_trapdoor.png",
+      "v4_sha256": "23b02d0bfb47a73c6b8de98520d95f6e598bac2a47ef244c44e2aa122a79c7b1",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-026",
+      "texture_id": "jungle_trapdoor",
+      "source_path": "assets/minecraft/textures/block/jungle_trapdoor.png",
+      "v4_sha256": "cf12b835daed7c1d7e666144c85ff78e94bc41ddc45bbb49c130f89493e51244",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-027",
+      "texture_id": "oak_shelf",
+      "source_path": "assets/minecraft/textures/block/oak_shelf.png",
+      "v4_sha256": "cb7cf9720f3e50d6cd2e67dd8fde89a4865aa507f84e38d1c0ae0e639dd52c87",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-028",
+      "texture_id": "spruce_shelf",
+      "source_path": "assets/minecraft/textures/block/spruce_shelf.png",
+      "v4_sha256": "74af0ec4272efcadf0bb67e2f19e924c68b50c2a79c3692ec647541083b40dd9",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-029",
+      "texture_id": "birch_shelf",
+      "source_path": "assets/minecraft/textures/block/birch_shelf.png",
+      "v4_sha256": "73501db8e785121f52acf25521769da029f1336b0083e46eeb7b6704d904f20e",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-030",
+      "texture_id": "cherry_shelf",
+      "source_path": "assets/minecraft/textures/block/cherry_shelf.png",
+      "v4_sha256": "9aa40570d84cb0dc96fcb14a96ccf524807d8785c17c0b972abfdc9e48e46e53",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    },
+    {
+      "item_id": "1-1-11-031",
+      "texture_id": "bamboo_shelf",
+      "source_path": "assets/minecraft/textures/block/bamboo_shelf.png",
+      "v4_sha256": "6c8774fa4aa50f99d518fc56e94bea0ee6dd44293357e1876ff846f3e4c8c09d",
+      "v4_measurement_recorded": true,
+      "current_stream_independent_binary_reverified": false,
+      "official_client_jar_authenticated": false,
+      "ingame_static_render_verified": false,
+      "last_verified_revision": null,
+      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+    }
+  ],
+  "revisions": [
+    {
+      "revision": "TEX11-R000",
+      "kind": "planning_handoff_only",
+      "source_files_reviewed_as_new": 0,
+      "report_path": null
+    }
+  ],
+  "next_steps": [
+    "read handoff and source category plan",
+    "reconcile existing v4 and relevant later sources",
+    "perform direct source verification and save stage-specific immutable evidence",
+    "advance own revision only after new work was actually verified"
+  ],
+  "official_client_jar_available": false,
+  "ingame_static_render_verified": false,
+  "animation_study_deferred": true,
+  "scope_excluded": [
+    "Project Zomboid conversion",
+    "actual furniture 3D asset building",
+    "animation study until explicitly resumed"
+  ],
+  "project_overall_completion_pct": null,
+  "do_not_count_planning_as_research": true
+}
