@@ -7,15 +7,15 @@
   "stage_id": "1-1-03",
   "material_family": "금속·금속부품",
   "stage_prefix": "TEX03",
-  "current_revision": "TEX03-R000",
-  "next_revision": "TEX03-R001",
-  "revision_sequence": 0,
-  "revision_status": "R000_initial_handoff_created_no_new_analysis",
+  "current_revision": "TEX03-R001",
+  "next_revision": "TEX03-R002",
+  "revision_sequence": 1,
+  "revision_status": "R001_16_mirror_png_sha_crc_rgba_and_static_model_uv_checked_F_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 16,
   "v4_legacy_measurements_recorded": 16,
-  "stage_current_analysis_completed_count": 0,
+  "stage_current_analysis_completed_count": 16,
   "official_client_jar_authenticated_count": 0,
   "ingame_static_render_verified_count": 0,
   "paths": {
@@ -42,37 +42,37 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "not_audited_in_isolated_workstream",
+      "status": "mirror_evidence_completed_TEX03_R001",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "not_audited_in_isolated_workstream",
+      "status": "mirror_evidence_completed_TEX03_R001",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "not_audited_in_isolated_workstream",
+      "status": "mirror_evidence_completed_TEX03_R001",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "not_audited_in_isolated_workstream",
+      "status": "mirror_evidence_completed_TEX03_R001",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "not_audited_in_isolated_workstream",
+      "status": "mirror_evidence_completed_TEX03_R001",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "not_audited_in_isolated_workstream",
+      "status": "pending_official_client_jar_and_ingame_static",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "not_audited_in_isolated_workstream",
+      "status": "mirror_evidence_completed_TEX03_R001",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -80,17 +80,17 @@
     {
       "id": "D1",
       "check": "철·구리·녹청·단조 부품의 팔레트 단계",
-      "status": "pending"
+      "status": "mirror_source_checked_official_pending"
     },
     {
       "id": "D2",
       "check": "철문·철다락문·모루/격자의 알파 마스크와 부품면 구분",
-      "status": "pending"
+      "status": "mirror_source_checked_official_pending"
     },
     {
       "id": "D3",
       "check": "고정 블록 상태마다 정적 텍스처 경로 변화 조사",
-      "status": "pending"
+      "status": "mirror_source_checked_official_pending"
     }
   ],
   "items": [
@@ -100,11 +100,16 @@
       "source_path": "assets/minecraft/textures/block/iron_block.png",
       "v4_sha256": "dafa9944ba49fe71958553eded50e87d7bea9c7410cfe568745989bede101c49",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX03-R001",
+      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "current_stream_png_crc_verified": true,
+      "current_stream_rgba_decoded": true,
+      "current_stream_static_model_uv_checked": true,
+      "current_stream_mirror_git_blob_sha": "b7bb5794b7f74da3156fbf51d88e43eb11dd1f89",
+      "current_stream_alpha0_pixels": 0
     },
     {
       "item_id": "1-1-03-002",
@@ -112,11 +117,16 @@
       "source_path": "assets/minecraft/textures/block/copper_block.png",
       "v4_sha256": "1b0aaab59d19b4f909a9ac1208b02363bd2796637b10641a8b7cb0ed587c2aa7",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX03-R001",
+      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "current_stream_png_crc_verified": true,
+      "current_stream_rgba_decoded": true,
+      "current_stream_static_model_uv_checked": true,
+      "current_stream_mirror_git_blob_sha": "c994d8abb7eaea0315bda72715e3d76880721ae8",
+      "current_stream_alpha0_pixels": 0
     },
     {
       "item_id": "1-1-03-003",
@@ -124,11 +134,16 @@
       "source_path": "assets/minecraft/textures/block/exposed_copper.png",
       "v4_sha256": "cfb6c192d230fa65f83c7691a4e8d5b686d904b1df329949e792ad85ae372fb7",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX03-R001",
+      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "current_stream_png_crc_verified": true,
+      "current_stream_rgba_decoded": true,
+      "current_stream_static_model_uv_checked": true,
+      "current_stream_mirror_git_blob_sha": "c823e36424abbce6d31906edd92d94fd1f6459cd",
+      "current_stream_alpha0_pixels": 0
     },
     {
       "item_id": "1-1-03-004",
@@ -136,11 +151,16 @@
       "source_path": "assets/minecraft/textures/block/oxidized_copper.png",
       "v4_sha256": "c784fc83327169877d6a125f2eae00a5fbf784b9caaaa64e2fbc015d664d0bfb",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX03-R001",
+      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "current_stream_png_crc_verified": true,
+      "current_stream_rgba_decoded": true,
+      "current_stream_static_model_uv_checked": true,
+      "current_stream_mirror_git_blob_sha": "c36a46dcb9fc9ed5882a045cfc1c0206fd3b64a8",
+      "current_stream_alpha0_pixels": 0
     },
     {
       "item_id": "1-1-03-005",
@@ -148,11 +168,16 @@
       "source_path": "assets/minecraft/textures/block/cut_copper.png",
       "v4_sha256": "4bfc7253ccb07028fcefd90b4f7960873cd843521a1fdaaa6d4c450e7d032bba",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX03-R001",
+      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "current_stream_png_crc_verified": true,
+      "current_stream_rgba_decoded": true,
+      "current_stream_static_model_uv_checked": true,
+      "current_stream_mirror_git_blob_sha": "38decb0d9e47a41a3191c9cfebab598084313a09",
+      "current_stream_alpha0_pixels": 0
     },
     {
       "item_id": "1-1-03-006",
@@ -160,11 +185,16 @@
       "source_path": "assets/minecraft/textures/block/exposed_cut_copper.png",
       "v4_sha256": "7d2bd18a2b2d92204face126960c1afdf9564d48be015dc9cce9c63435bdf43f",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX03-R001",
+      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "current_stream_png_crc_verified": true,
+      "current_stream_rgba_decoded": true,
+      "current_stream_static_model_uv_checked": true,
+      "current_stream_mirror_git_blob_sha": "a8a085bd1f47ef44616e949da1d249c88fba7622",
+      "current_stream_alpha0_pixels": 0
     },
     {
       "item_id": "1-1-03-007",
@@ -172,11 +202,16 @@
       "source_path": "assets/minecraft/textures/block/weathered_copper.png",
       "v4_sha256": "c41c28938fb64540576d5f607c87a2446a18bf8b78a388dbc5e147779925062a",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX03-R001",
+      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "current_stream_png_crc_verified": true,
+      "current_stream_rgba_decoded": true,
+      "current_stream_static_model_uv_checked": true,
+      "current_stream_mirror_git_blob_sha": "7061d0aab247b2df9163ac48f8744e6f3d36cba6",
+      "current_stream_alpha0_pixels": 0
     },
     {
       "item_id": "1-1-03-008",
@@ -184,11 +219,16 @@
       "source_path": "assets/minecraft/textures/block/copper_grate.png",
       "v4_sha256": "c704177ce251df01260937e301723ceadc29fb6f586ea669782cc7174aa32b72",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX03-R001",
+      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "current_stream_png_crc_verified": true,
+      "current_stream_rgba_decoded": true,
+      "current_stream_static_model_uv_checked": true,
+      "current_stream_mirror_git_blob_sha": "92c5ac8f4c662956fae6dc676ef03ad2e50642db",
+      "current_stream_alpha0_pixels": 77
     },
     {
       "item_id": "1-1-03-009",
@@ -196,11 +236,16 @@
       "source_path": "assets/minecraft/textures/block/iron_trapdoor.png",
       "v4_sha256": "ca84a5c288bcfe8c9a53f066536175f50effa21e85cfb933094805527c5894ba",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX03-R001",
+      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "current_stream_png_crc_verified": true,
+      "current_stream_rgba_decoded": true,
+      "current_stream_static_model_uv_checked": true,
+      "current_stream_mirror_git_blob_sha": "2eaab820b34da1fc5dd293d0fc9c29edaac0121b",
+      "current_stream_alpha0_pixels": 36
     },
     {
       "item_id": "1-1-03-010",
@@ -208,11 +253,16 @@
       "source_path": "assets/minecraft/textures/block/iron_door_bottom.png",
       "v4_sha256": "e9d6c7dc182ca275a3d455ba28a8df325d1ad0c1539aace4ee11d0359f6fc83a",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX03-R001",
+      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "current_stream_png_crc_verified": true,
+      "current_stream_rgba_decoded": true,
+      "current_stream_static_model_uv_checked": true,
+      "current_stream_mirror_git_blob_sha": "9c163edcefffd9481c27e99a728140124eb63094",
+      "current_stream_alpha0_pixels": 0
     },
     {
       "item_id": "1-1-03-011",
@@ -220,11 +270,16 @@
       "source_path": "assets/minecraft/textures/block/gold_ore.png",
       "v4_sha256": "5253e5a8ea32739a5c8cb1d844f0e46c8c85641f77c3d07dcc03645e2914dd1f",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX03-R001",
+      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "current_stream_png_crc_verified": true,
+      "current_stream_rgba_decoded": true,
+      "current_stream_static_model_uv_checked": true,
+      "current_stream_mirror_git_blob_sha": "50658812eabb224e1cae671c3dec82b7f48e11c0",
+      "current_stream_alpha0_pixels": 0
     },
     {
       "item_id": "1-1-03-012",
@@ -232,11 +287,16 @@
       "source_path": "assets/minecraft/textures/block/raw_iron_block.png",
       "v4_sha256": "e2133b553079d3eb43c6b6dcecbe7f0b3feebc05766a9e28b789ca779a1159f3",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX03-R001",
+      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "current_stream_png_crc_verified": true,
+      "current_stream_rgba_decoded": true,
+      "current_stream_static_model_uv_checked": true,
+      "current_stream_mirror_git_blob_sha": "7736fc2619fe0a1f75e219f203261f059b3b962a",
+      "current_stream_alpha0_pixels": 0
     },
     {
       "item_id": "1-1-03-013",
@@ -244,11 +304,16 @@
       "source_path": "assets/minecraft/textures/block/heavy_core.png",
       "v4_sha256": "c74cc835fa46f5c24688cb163ee76122538a6920f806d36151260cc13e8242cc",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX03-R001",
+      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "current_stream_png_crc_verified": true,
+      "current_stream_rgba_decoded": true,
+      "current_stream_static_model_uv_checked": true,
+      "current_stream_mirror_git_blob_sha": "96e70ae30b4e4b07396999fbb06179b5fc560f59",
+      "current_stream_alpha0_pixels": 64
     },
     {
       "item_id": "1-1-03-014",
@@ -256,11 +321,16 @@
       "source_path": "assets/minecraft/textures/block/iron_door_top.png",
       "v4_sha256": "54930bb1139268de1855ea03ce5b95097717e25307cbfa1ecce6e665e6da8d88",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX03-R001",
+      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "current_stream_png_crc_verified": true,
+      "current_stream_rgba_decoded": true,
+      "current_stream_static_model_uv_checked": true,
+      "current_stream_mirror_git_blob_sha": "62b9a1d7ba6a08f9e1da08e605e0f6e4bb6fb311",
+      "current_stream_alpha0_pixels": 48
     },
     {
       "item_id": "1-1-03-015",
@@ -268,11 +338,16 @@
       "source_path": "assets/minecraft/textures/block/anvil.png",
       "v4_sha256": "2266db251b99f5df98d8f049e3f7dd6cd85e8146b46011f6918995f392721e48",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX03-R001",
+      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "current_stream_png_crc_verified": true,
+      "current_stream_rgba_decoded": true,
+      "current_stream_static_model_uv_checked": true,
+      "current_stream_mirror_git_blob_sha": "1c3cee9b89691acb529572b6cfb1f0fc7168f714",
+      "current_stream_alpha0_pixels": 0
     },
     {
       "item_id": "1-1-03-016",
@@ -280,11 +355,16 @@
       "source_path": "assets/minecraft/textures/block/anvil_top.png",
       "v4_sha256": "757d6f79099583c159e3f95e9981efe0b16b524bed90739ae213142ad40fad26",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX03-R001",
+      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "current_stream_png_crc_verified": true,
+      "current_stream_rgba_decoded": true,
+      "current_stream_static_model_uv_checked": true,
+      "current_stream_mirror_git_blob_sha": "caff2b757288904d74180e8e4770a94756741bfd",
+      "current_stream_alpha0_pixels": 96
     }
   ],
   "revisions": [
@@ -293,13 +373,21 @@
       "kind": "planning_handoff_only",
       "source_files_reviewed_as_new": 0,
       "report_path": null
+    },
+    {
+      "revision": "TEX03-R001",
+      "kind": "unofficial_mirror_png_and_model_direct_verification",
+      "source_files_reviewed_as_new": 16,
+      "official_jar_authenticated": 0,
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-03/TEX03-R001/REPORT.md"
     }
   ],
   "next_steps": [
-    "read handoff and source category plan",
-    "reconcile existing v4 and relevant later sources",
-    "perform direct source verification and save stage-specific immutable evidence",
-    "advance own revision only after new work was actually verified"
+    "TEX03-R002 only after new evidence",
+    "get user-held official Minecraft Java 1.21.11 client.jar and authenticate 16 PNG sha",
+    "ingame static rendering comparison only; animation research deferred",
+    "no edits to global v38 or other stages"
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -310,5 +398,6 @@
     "animation study until explicitly resumed"
   ],
   "project_overall_completion_pct": null,
-  "do_not_count_planning_as_research": true
+  "do_not_count_planning_as_research": true,
+  "scope_completion_note": "A-E static mirror evidence for 16 textures checked; F official and ingame still pending"
 }
