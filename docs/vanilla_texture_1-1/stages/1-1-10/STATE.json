@@ -10,7 +10,7 @@
   "current_revision": "TEX10-R014",
   "next_revision": "TEX10-R015",
   "revision_sequence": 14,
-  "revision_status": "R014_9_new_original_paths_block_atlas_directory_to_resource_metadata_loader_8_target_candidates_verified_runtime_stitch_not_verified",
+  "revision_status": "R014_9_new_original_paths_block_atlas_directory_to_resource_metadata_loader_8_target_candidates_verified_runtime_stitch_not_verified__STAGE_CLOSED_STATIC_SCOPE_NO_R015_CREATED",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 8,
@@ -43,37 +43,51 @@
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
       "status": "R014_9_new_unique_sources_8_original_JVM_classes_plus_items_atlas_JSON_blocks_atlas_R004_reused",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "completion_state": "completed_within_user_approved_static_scope",
+      "closeout_date": "2026-11-13"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
       "status": "R014_archive_tree_block_PNG1111_item_PNG792_block_pngmcmeta99_all_8_targets_verified_source_only_no_new_pixel",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "completion_state": "completed_within_user_approved_static_scope",
+      "closeout_date": "2026-11-13"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
       "status": "R014_R012_680_mip_RGBA_old_simulation_inherited_new_pixel_0",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "completion_state": "completed_within_user_approved_static_scope",
+      "closeout_date": "2026-11-13"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
       "status": "R014_6_leaf_dark_cutout_mcmeta_sidecars_rechecked_vine_moss_absent_2",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "completion_state": "completed_within_user_approved_static_scope",
+      "closeout_date": "2026-11-13"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
       "status": "R014_directory_atlas_codecs_to_sprite_source_supplier_to_optional_texture_metadata_and_PNG_load_linked_static",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "completion_state": "completed_within_user_approved_static_scope",
+      "closeout_date": "2026-11-13"
     },
     "F": {
       "title": "F 인게임 정적 렌더 검증 (사용자 정책상 제외; 의무 아님)",
       "status": "excluded_by_user_policy_not_required_not_in_completion_denominator_historical_0_of_8; original Mojang clientjar SHA1 also excluded",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "completion_state": "excluded_by_user_not_required",
+      "closeout_date": "2026-11-13"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
       "status": "TEX10_R014_9_new_unique_paths_8_atlas_matches_metadata_loader_closure_source_audit_saved",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "completion_state": "completed_within_user_approved_static_scope",
+      "closeout_date": "2026-11-13"
     }
   },
   "material_specific_checks": [
@@ -1013,13 +1027,11 @@
     }
   ],
   "next_steps": [
-    "Skip all Mojang official client.jar certification, full JAR SHA-1, official version manifest matching, and authentication-based completion requirements per user request; historical results remain retained.",
-    "In-game foliage/grass screenshot verification explicitly excluded by user; do not request or count it as a stage blocker.",
-    "Use user-attested 1.21.11/ extraction as primary source; source colormap pixel data does not establish biome coordinate mapping or species overrides.",
-    "Keep 8 target textures fixed; do not count 2 auxiliary colormaps as 2 new target textures.",
-    "Animation/movement/frame research deferred; no 3D furniture creation or Project Zomboid conversion.",
-    "Next if new evidence: TEX10-R015 stage only; check live STATE/HANDOFF SHA and absence of next folder, keep other stages and v38 untouched.",
-    "Use 3 active evidence axes: user-provided extraction source, prior mirror crosscheck, actual in-game static verification; do not count excluded official authentication as pending or as denominator."
+    "Stage 1-1-10 is closed by explicit user request; no further automatic original-JVM / atlas research.",
+    "Keep current_revision TEX10-R014; TEX10-R015 remains a reserved future revision identifier only if the user explicitly reopens.",
+    "In-game verification and official full client.jar SHA1 authentication were excluded by user, not completed or certified.",
+    "Preserve R001-R014 immutable reports and all existing 8 target texture findings; note RGB mip recreation is a Python experiment, not original JVM byte-identical certification.",
+    "Leave other independent stages and global v38 files unchanged; any global compilation is a separate authorized task."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -1112,18 +1124,20 @@
   "source_paths_directly_read_distinct_cumulative_R004": 32,
   "active_verification_policy": {
     "effective_date": "2026-11-13",
-    "user_instruction": "Exclude official Mojang original client.jar certification from current research",
+    "stage_status": "completed_user_approved_static_scope",
     "required_axes": [
-      "user_provided_extraction",
-      "existing_mirror_crosscheck",
-      "in_game_static_render"
+      "user_provided_extracted_PNG_hash_pixels_and_alpha",
+      "model_blockstate_UV_reference_resolution",
+      "source_based_color_tint_render_mipmap_research_and_evidence_ledger"
     ],
     "excluded_axes": [
-      "mojang_official_jar_sha1"
+      "ingame_static_render_and_screenshots",
+      "official_Mojang_whole_clientjar_SHA1_authentication"
     ],
-    "official_jar_sha1_excluded_from_tasks_and_completion_denominator": true,
-    "retain_previous_report_values_as_history": true,
-    "version_bump_for_policy_change": false
+    "in_game_static_render_required": false,
+    "clientjar_authentication_required": false,
+    "keep_historical_0_of_8_and_authentication_false": true,
+    "do_not_extend_R015_without_explicit_reopen": true
   },
   "official_client_jar_authentication_policy": "excluded_by_user_historical_count_0_do_not_track_as_pending",
   "stage_fully_authenticated_and_ingame_verified_count_is_historical_metric": true,
@@ -1370,5 +1384,63 @@
     "runtime_atlas_stitch_verified": false,
     "new_pixels": 0,
     "ingame_required": false
-  }
+  },
+  "stage_status": "completed",
+  "stage_completion": {
+    "status": "completed_user_approved_static_scope",
+    "completed_on": "2026-11-13",
+    "explicit_user_instruction": "그럼 일단 이 단계는 마치자",
+    "completion_meaning": "Eight fixed target leaf/vegetation textures studied within original Minecraft 1.21.11 source-based static research. No further research required within user-selected scope.",
+    "fixed_target_count": 8,
+    "static_source_targets_studied": 8,
+    "last_research_revision": "TEX10-R014",
+    "next_research_revision_if_user_explicitly_reopens": "TEX10-R015",
+    "automatic_new_revision_enabled": false,
+    "already_recorded_cumulative_unique_original_source_paths_R003_R014": 162,
+    "phase_decisions": {
+      "A": "completed_static_scope",
+      "B": "completed_static_scope",
+      "C": "completed_static_scope",
+      "D": "completed_static_scope",
+      "E": "completed_static_scope",
+      "F": "excluded_by_user_not_a_completion_requirement",
+      "G": "completed_static_scope"
+    },
+    "out_of_scope_and_not_certified": [
+      "actual_in_game_render_or_screenshots (historical 0/8; user excluded)",
+      "official_whole_clientjar_Mojang_SHA1_authentication (user excluded; not authenticated)",
+      "running_original_JVM_to_prove_byte_exact_680_derived_RGBA_mip_pixels (not certified)",
+      "runtime_resource_pack_priority_atlas_stitch_x_y_padding_or_selected_actual_mip_level (not certified)",
+      "vegetation_animation_sway_furniture_3D_and_PZ_to_Minecraft_conversion (deferred)"
+    ],
+    "project_global_progress_not_updated": true,
+    "stage_scope_not_equal_all_Minecraft_vegetation": true,
+    "previous_research_reports_immutable": true
+  },
+  "closure_reason": "User explicitly chose to end stage 1-1-10 after completion of agreed static leaf/vegetation 8-texture study.",
+  "revision_creation_enabled": false,
+  "active_verification_policy_before_closeout_superseded": {
+    "effective_date": "2026-11-13",
+    "user_instruction": "Exclude official Mojang original client.jar certification from current research",
+    "required_axes": [
+      "user_provided_extraction",
+      "existing_mirror_crosscheck",
+      "in_game_static_render"
+    ],
+    "excluded_axes": [
+      "mojang_official_jar_sha1"
+    ],
+    "official_jar_sha1_excluded_from_tasks_and_completion_denominator": true,
+    "retain_previous_report_values_as_history": true,
+    "version_bump_for_policy_change": false
+  },
+  "next_steps_before_closeout_superseded": [
+    "Skip all Mojang official client.jar certification, full JAR SHA-1, official version manifest matching, and authentication-based completion requirements per user request; historical results remain retained.",
+    "In-game foliage/grass screenshot verification explicitly excluded by user; do not request or count it as a stage blocker.",
+    "Use user-attested 1.21.11/ extraction as primary source; source colormap pixel data does not establish biome coordinate mapping or species overrides.",
+    "Keep 8 target textures fixed; do not count 2 auxiliary colormaps as 2 new target textures.",
+    "Animation/movement/frame research deferred; no 3D furniture creation or Project Zomboid conversion.",
+    "Next if new evidence: TEX10-R015 stage only; check live STATE/HANDOFF SHA and absence of next folder, keep other stages and v38 untouched.",
+    "Use 3 active evidence axes: user-provided extraction source, prior mirror crosscheck, actual in-game static verification; do not count excluded official authentication as pending or as denominator."
+  ]
 }

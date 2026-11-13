@@ -1,5 +1,7 @@
 # 1-1-10 — 잎·식생 별도 채팅 인수인계
 
+> **현재 상태(2026-11-13): 사용자 요청으로 `1-1-10` 잎·식생 8종의 정적 원본 학습 종료. 연구 최종본 `TEX10-R014`; 인게임 검증은 필수에서 제외. 이 파일 아래의 초기 R000 및 개별 리비전 안내는 과거 기록이며 마지막 종료 선언을 우선 적용한다.**
+
 > Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 초기 고유 버전 **`TEX10-R000` (계획만 저장)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 ## 연구 목표와 정확한 표본
@@ -238,3 +240,31 @@
 - R012 full RGBA 680픽셀은 기존 Python 재현 결과로만 유지, 이번 새 화소 0. 인게임 검증 의무 제외, 공식 JAR SHA1 제외(인증 성공 아님), 애니메이션/가구/PZ 변환 제외.
 - [R014 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R014/REPORT.md) · [8개 원본-아틀라스 경로](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R014/ATLAS_DIRECTORY_MATCH_8.csv) · [클래스/메타데이터 호출 증거](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R014/ATLAS_RESOURCE_LOADER_TRACE.json).
 - **현재 `TEX10-R014`, 다음 `TEX10-R015`**. 계속할 경우 실제 resource pack selection / JSON→model bake 연결 등 새로운 원본 정적 증거가 있어야 함. 다른 단계 및 전역 v38 불변.
+
+---
+
+## 최종 단계 종료 선언 — 2026-11-13 · 사용자 요청에 따른 1-1-10 정적 연구 완료
+
+**최신 유효 상태: `stage_status=completed`; `current_revision=TEX10-R014`; `next_revision=TEX10-R015`는 재개할 경우 사용할 예약 번호일 뿐 생성하지 않음.**
+
+사용자가 “그럼 일단 이 단계는 마치자”라고 명시적으로 요청함. 따라서 **1-1-10 잎·식생 8개 고정 대상**에 대한 Minecraft Java 1.21.11 사용자 제공 원본 자료 기반 **정적 분석 단계는 종료**한다. 같은 연구를 `계속해줘`만으로 무한 확장하지 말 것. **R015는 생성하지 않았으며, 정적 연구 범위 이외의 추가 목표는 명시적으로 재개·변경 요청받은 경우에만 시작**한다.
+
+### 종료 기준과 결과
+
+- 고정 대상 8/8: oak_leaves, spruce_leaves, birch_leaves, mangrove_leaves, azalea_leaves, flowering_azalea_leaves, vine, moss_block.
+- A 기존 출처 대조, B 원본 PNG/SHA/CRC, C RGBA/알파 정량·마스크, D 잎·덩굴 재질/틴트 특화, E 모델 JSON/블록 상태/UV, G 근거 보존·인수인계는 **사용자 합의 정적 연구 범위에서 완료**. 이전 R001~R014 근거 및 원본 출처·추론/실험 표시 그대로 유지.
+- 최신 연구본 **TEX10-R014**. 누적 **162개 고유 원본 경로(R003~R014)**는 기존 R014 SUMMARY 기준이며, 신규 증거 추가/재계산 없이 단계 종료 기록만 저장.
+- R008 색상 공급자, R009 렌더 레이어, R010 밉맵 전략, R011 680개 파생 알파, R012 소스 기반 680 RGBA 실험, R013~R014 로더/아틀라스 코드 추적 기록 계승. **Python/JS 재구현 간 일치**가 실제 Java 게임/JVM 산출물의 바이트 일치 검증을 의미하지는 않는다.
+
+### 사용자 정책상 제외 및 미인증 항목 — '완료'로 바꾸지 말 것
+
+- **F 인게임 정적 렌더 검증:** 사용자 지시로 필수 완료 조건에서 제외. 과거 검증 0/8은 역사적 사실로 보존. 사용자에게 게임 스크린샷 요구하지 않음.
+- **공식 Mojang 전체 client.jar SHA1 진본 인증:** 사용자 지시로 제외. 공식 인증 통과로 표시하지 않음.
+- **원본 JVM 직접 실행과 mip 레벨 RGB 완전 바이트 동일성**, 실제 런타임 리소스팩 우선순위/아틀라스 크기·좌표·최종 밉맵 단계, 동적 바람·애니메이션은 이번 정적 연구 완료의 요구사항이 아니며 각각 미검증·보류 상태를 유지.
+- 이는 **지정 8종 학습 완료**이지 Minecraft 모든 식생이나 전체 프로젝트/다른 분리 단계 완료를 뜻하지 않는다. 전역 `v38` 및 타 단계 파일 변경 금지 준수.
+
+### 후속 채팅 지침
+
+우선 `STATE.json`의 **`stage_completion.status`**와 이 종료 기록을 따를 것. 초기 문서의 `TEX10-R000` 계획/중간 리비전의 '다음은 Rxxx' 문구는 역사적 진행 기록이므로 현행 상태보다 우선하지 않는다. 사용자가 별도의 새 목표를 명시하지 않으면 **본 단계에서 추가 연구 릴리스를 생성하지 말고 종료 상태를 안내**한다.
+
+연구 근거: [최종 R014 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R014/REPORT.md) · [R014 요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R014/SUMMARY.json).
