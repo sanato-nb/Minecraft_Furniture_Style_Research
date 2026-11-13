@@ -1,7 +1,7 @@
 # 인수인계 · Minecraft Furniture Style Research
 
 > **새 채팅 진입점 / 단일 인수인계 기준 문서**  
-> 최종 확인일: **2026-11-13 (KST)** · 현재 체크포인트: **v30**  
+> 최종 확인일: **2026-11-13 (KST)** · 현재 체크포인트: **v31**  
 > 저장소: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research  
 > **새 채팅에서 먼저 이 문서, [PROGRESS.md](PROGRESS.md), [SOURCES_AND_LIMITS.md](SOURCES_AND_LIMITS.md)를 읽고 기존 작업을 이어간다.**
 
@@ -17,15 +17,15 @@
 
 | 번호 | 범위 | 2026-11-13 상태 |
 |---|---|---|
-| 01 | 바닐라 재질·텍스처 | 기존 **150/150 선정 표본** 유지, v30 18원본 PNG 전체 해독(그중 v4 표본 5중복/13표본 밖), v26 회색조 tRNS 알파 오류 소급 정정. 공식 JAR·인게임 미검증 |
-| 02 | 바닐라 3D 형태·모델 JSON·UV·상태·특수 렌더링 | v29 울타리문160면 계승; v30 **바닐라 가구형5모델/91선언면·93재질면 원본 PNG 6,012 uses**, 블록상태7파일/30 variants, 책 엔티티 비공식 근거 분리. 공식 JAR·인게임 미검증 |
+| 01 | 바닐라 재질·텍스처 | 기존 v4 **150/150 선정 표본** 유지, v31 **원본 PNG 6종·1,536픽셀 직접 RGBA**(2경로 v4 표본 중복, 4경로 v4 표본 밖). 전체 게임·공식 JAR·인게임은 미완료 |
+| 02 | 바닐라 3D 형태·모델 JSON·UV·상태·특수 렌더링 | v30 91면/93면×재질 계승, v31 책장+양조기 **59 multipart source 규칙·264합성 조건 전수 JS 평가**, **47 source face/53재질면·3,808 원본 PNG 텍셀 사용**, 모닥불 상태 원본 요소/애니메이션 메타 사전 분석. 실제 런타임/공식 JAR 미검증 |
 | 03 | 가구 모드 3D 모델 | **v24: 의자 leaf 39개 제작자 원본 JSON·Git SHA 직접 검사**, 누적 Another **204 leaf**; 신규 10 상태 Another 모델 경로 **91/91** 읽기 완료. 원형 69/블록 상태 22/177 유지, Handcrafted 원형 120/leaf16, Macaw 모델 0 |
 | 04 | 가구 모드 텍스처·UV·팔레트 | **Another 모드 원본 PNG 151종/실제 UV RGBA 3,329면(기존 2,210+v23 1,119), Handcrafted 24 PNG/784면 → 두 모드 PNG 175종/면 4,113인스턴스.** 새 PNG 42종·모드 면 1,119 직접 원본 화소, 공식 바닐라 dirt 16면/oak_planks 2면·전체/인게임 미검증. |
 | 05 | 바닐라 ↔ 가구 모드 비교·공통 특성 검증 | **사전 비교: 의자·벤치·소파 5쌍 비교표만 작성, 바닐라·인게임 최종 검증 미시작** |
 
 **확정 완료 0/5개.** 01의 100%는 **표본 수 목표**만 의미한다. 02는 미리 합의한 전체 분석 대상이 없어 퍼센트를 임의로 계산하면 안 된다.
 
-## 2. 누적 연구 결과: v1–v30
+## 2. 누적 연구 결과: v1–v31
 
 | 체크포인트 | 내용 | 확인할 자료 |
 |---|---|---|
@@ -57,6 +57,7 @@
 | v28 | 바닐라 문·다락문·울타리문·계단 **4 blockstate의 variant 104개**에 모델 경로/회전/`uvlock` 원본 전수 감사. 참나무 문 **8 leaf→8부모** + 명시 UV **40면/실화소 5,248사용**, 울타리 문 **4부모 32요소/160선언 면** | [v28 문 상태·UV 원본 보고서](research/vanilla_models/v28/00_v28_바닐라문다락문게이트계단104상태_40면UV_RGBA.md) |
 | v29 | 바닐라 참나무 울타리문 **4원형 전체 160 source UV면**에 기존 `oak_planks` 실제 RGBA **1,952회**, 열림 6요소 변화/담장 연결 시 전 요소 y -3. PNG 독립 Pillow·Git SHA/기존 v4 SHA-256 교차검증 | [v29 원본 픽셀/기하 보고서](research/vanilla_models/v29/00_v29_울타리문160면_실제PNG_UV_열림담장좌표비교보고서.md) |
 | v30 | 바닐라 독서대·숫돌·화분·마법부여대·모루 원형 **5모델/91소스 면·93재질면/18 PNG 4,608픽셀** 직접 실화소 검증(6,012 texel-uses). v26 석재절단기 `tRNS` 누락 수치 독립 Pillow 정정 | [v30 검증·정정 보고서](research/vanilla_models/v30/00_v30_바닐라5모델_91면UV_18PNG_RGBA_투명도정정보고서.md) |
+| v31 | 끌로 조각한 책장52·양조기7 `multipart` 규칙 원본 **59**, 합성 입력 256+8=**264개 전수 평가**. 원본 면 **47개/53면×재질** 실제 PNG 3,808 texel-uses(불투명3,052·투명756), PNG6종 전 화소. 모닥불 원형 7요소/꺼짐5요소·`mcmeta` 사전 조사 | [v31 직접 실측 보고서](research/vanilla_models/v31/00_v31_책장양조기_264상태_47면_PNG실화소_모닥불원본보고서.md) |
 
 ### 실제 SQLite에서 확인된 행 수 (v10까지의 바닐라 DB)
 
@@ -269,6 +270,15 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 - 독서대 `element.rotation=-22.5°`(x축), 숫돌 `floor/wall/ceiling ×4=12` 모델 회전, 손상 단계별 모루 **같은 원형·다른 top PNG 3종**, 마법부여대 본체 JSON 1요소와 이전 v8 책 엔티티 렌더러 연구 분리 등 새 원본 근거 확보.
 - **공식 Mojang client.jar와 원본 전체 바이트 인증, 인게임 UVlock/책 렌더·회전·조명 검증은 여전히 미완료**. v24 모드 데이터 변경 없음, 상위 1단계 확정 완료 **0/5**. 바닐라 01/02 우선 지속.
 
+### v31 책장 슬롯·양조기 병의 조합 상태 / 모닥불 원본 구조 (2026-11-13)
+
+- [v31 전체 직접 분석 보고서](research/vanilla_models/v31/00_v31_책장양조기_264상태_47면_PNG실화소_모닥불원본보고서.md) · [59 source multipart 원본 규칙](research/vanilla_models/v31/01_bookshelf_brewing_59_original_multipart_rules.csv) · [264개 조건 평가](research/vanilla_models/v31/02_bookshelf_256_and_brewing_8_combinations.csv) · [6 PNG 1,536픽셀](research/vanilla_models/v31/03_six_png_full_rgba_audit.csv) · [책장 17면×재질 PNG](research/vanilla_models/v31/04_bookshelf_17_source_face_material_rgba.csv) · [양조기 36면 PNG](research/vanilla_models/v31/06_brewing_36_face_original_png_rgba.csv) · [모닥불 원시 기하](research/vanilla_models/v31/08_campfire_12_source_geometry_elements.csv) · [v31 summary](research/vanilla_models/v31/v31_bookshelf_brewing_campfire_summary.json).
+- 끌로 조각한 책장은 source `multipart` 52규칙을 원본 식으로 평가해 **4방향×2^6슬롯=256합성 조건** 중 모든 입력에서 **1기본+6장식=7선택** 확인. 블록 기본 1요소/5면, 슬롯 6템플릿은 **0두께 1요소/1면씩**. occupied/empty leaf 12종은 부모 형상·UV를 공유하고 PNG만 교체. 책장 source 11면/면×재질17행에서 **1,792 텍셀 사용 모두 불투명**. 원본 4기본 규칙만 `uvlock:true`, 48장식 규칙은 키 부재. 52규칙 자체는 과거 v8에도 일부 조사했으므로 최초 발견이라고 쓰지 않는다.
+- 양조기 `multipart` **7규칙, 2^3=8합성 조건**의 모든 경우에 기본+병자리3=4모델 조합 확인. 원본 **7모델/10요소·36면** 중 6개 슬롯 표시는 **0두께/양면 2면**, 4원형 요소 좌표가 **x=-0.41**까지 확장. 선택 PNG 면 **2,016 텍셀 사용 중 불투명1,260/투명756**. PNG 전체 `brewing_stand` **불투명130/투명126**.
+- **v31 PNG 6원본/1,536픽셀 = 불투명1,410·투명126·부분0**, v4 150선정 표본과 2경로 중복/4경로 표본 밖. 총 **47원본 면·53개 face×material/3,808 uses(불투명3,052·투명756)**는 소스 표본 수치이며 합성상태 264개의 게임 렌더 픽셀 수가 아님.
+- 모닥불 `template_campfire` 7요소/32면(그중 0두께2·회전2), `campfire_off` 5요소/28면(0두께0), 일반·영혼 모닥불의 blockstate 8+8변형, 불꽃 `.png.mcmeta` **frametime=2** 직접 확인. **모닥불 원본 PNG 자체/프레임 알파 면별 실화소는 v31에서 미측정**.
+- 공식 Mojang 1.21.11 `client.jar` 독립 검증·게임의 UVlock/실제 렌더·책장/병/불꽃 시각 검증은 **미완료**, v24 모드 수치 그대로, 단계 종료 **0/5**.
+
 ## 5. 새 채팅이 곧바로 이어갈 실제 작업
 
 **작업 계획서를 반복 작성하지 말고 실제 데이터 분석을 진행한다.**
@@ -293,13 +303,13 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 
 [새 채팅용 프롬프트 파일](docs/NEW_CHAT_START.md)을 열어 내용을 붙여넣거나 아래 한 문장을 사용한다.
 
-> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **v30 체크포인트부터 바닐라 01/02 연구를 우선 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
+> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **v31 체크포인트부터 바닐라 01/02 연구를 우선 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
 
-**바로 다음 작업:** v30에서 바닐라 독서대·숫돌·화분·마법부여대·모루 5모델/91면과 18 PNG 전체 RGBA를 직접 조사했고, v26 stonecutter_saw grayscale `tRNS` 오류를 정정했다. 다음은 **독립 Mojang 공식 1.21.11 client.jar 인증, 실제 책 엔티티/블록 렌더·UVlock/회전 검증, 기타 가구형 바닐라 모델 조사, 기존 그레이스케일 PNG 연구 수치 추가 오류 감사**를 우선한다. v24 모드 데이터 유지, 최종 0/5.
+**바로 다음 작업:** v31에서 끌로 조각한 책장·양조기의 59 multipart JSON 규칙/264합성 조건 전수 평가, 47 source face/53면×재질의 실제 PNG RGBA 3,808 uses, 모닥불 소스 기하·상태/MCMeta 프레임타임까지 확인했다. **다음은 모닥불 원본 PNG 프레임별 실제 UV·알파 조사, Mojang 공식 client.jar 독립 인증과 1.21.11 게임 로더의 UVlock·상태별 회전·실제 렌더/조명 검증**을 우선한다. v24 모드 연구 보존. 완료 0/5.
 
 ## 7. 인수인계 유지 방법
 
-- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v30).
+- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v31).
 - **진행도:** `PROGRESS.md`.
 - **새 채팅 복사용:** `docs/NEW_CHAT_START.md`.
 - **기계 판독 상태:** `handoff/STATE.json`.

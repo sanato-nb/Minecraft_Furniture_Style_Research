@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-13",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v30",
+  "current_checkpoint": "v31",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -19,7 +19,7 @@
     {
       "id": "01",
       "topic": "vanilla material and texture analysis",
-      "status": "v30_18_original_png_full_rgba_and_gray_trns_fix_v26_official_mojang_jar_pending",
+      "status": "v31_six_png_full_original_rgba_1536_pixels_v4_two_duplicates_official_game_jar_not_verified",
       "sample_count": 150,
       "target": 150,
       "v26_pngs_full_rgba_decoded": 8,
@@ -36,12 +36,15 @@
       "v30_pngs": 18,
       "v30_source_pixels": 4608,
       "v30_v4_overlap": 5,
-      "v30_erratum_v26": true
+      "v30_erratum_v26": true,
+      "v31_png_full_decoded": 6,
+      "v31_png_pixels": 1536,
+      "v31_v4_overlap": 2
     },
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v30_5_models_91_source_faces_93_material_uv_rgba_original_pixels_done_runtime_pending",
+      "status": "v31_bookshelf_brewing_multipart_264_combinations_47_faces_53_material_uv_rgba_samples_campfire_source_preliminary",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -67,7 +70,13 @@
       "v30_source_face_count": 91,
       "v30_material_records": 93,
       "v30_actual_source_texel_uses": 6012,
-      "v30_original_blockstate_variants": 30
+      "v30_original_blockstate_variants": 30,
+      "v31_multipart_rules": 59,
+      "v31_conditions_evaluated": 264,
+      "v31_source_faces": 47,
+      "v31_face_material_records": 53,
+      "v31_texel_uses": 3808,
+      "v31_campfire_source_only": true
     },
     {
       "id": "03",
@@ -404,11 +413,11 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "Continue vanilla 01/02. Independently verify a genuinely obtained Mojang Java 1.21.11 official client.jar and compare hashes; GitHub public uploaded assets are not official provenance.",
-    "Validate actual in-game blockstate x/y rotation, uvlock, lectern/enchanting book block-entity rendering and shading. v30 has source JSON and prior v8/v9 indirect renderer documentation only.",
-    "Continue original PNG/face UV for other furniture-like vanilla block classes without repeating 5 models/91 source faces or v29 fence gate 160 faces.",
-    "Audit older grayscale PNG and tRNS transparency metrics for similar errors; v26 stonecutter_saw PNG and face records amended in v30.",
-    "Preserve v24 mod evidence, avoid distributing raw Mojang game assets, complete 0/5 until explicit verified closure."
+    "Continue vanilla 01/02 by directly decoding animated campfire/soul fire PNG frame RGBA and matching the 7-element lit vs 5-element off model source UVs, including actual mcmeta.frame timings as source properties not renderer proof.",
+    "Independently authenticate Mojang Minecraft Java 1.21.11 client.jar; public user-uploaded 1.21.11 assets and GitHub mirror do not establish independently authoritative origin.",
+    "Verify actual game model loader multi-part compositing, uvlock, transformed coordinates, culling, animated fire and true in-game appearance; v31 condition evaluation is a JS reproduction of source JSON only.",
+    "Avoid double-counting v31 47 source faces/53 material records and earlier v7/v8 bookshelf 52-rule discovery. Keep v30 grayscale PNG tRNS fix.",
+    "Preserve mod v24 evidence and rights caution for publicly uploaded raw Mojang assets; stage1 final completed remains 0/5."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -1474,6 +1483,78 @@
       "research/vanilla_models/v30/08_anvil_three_leaf_top_texture_overrides.csv",
       "research/vanilla_models/v30/09_five_legacy_v4_png_metrics_crosschecks.csv",
       "research/vanilla_models/v30/v30_five_models_face_png_summary.json"
+    ]
+  },
+  "v31": {
+    "date_kst": "2026-11-13",
+    "priority": "vanilla_01_02",
+    "report": "research/vanilla_models/v31/00_v31_책장양조기_264상태_47면_PNG실화소_모닥불원본보고서.md",
+    "source_blockstates_multipart": 2,
+    "source_multipart_rules_total": 59,
+    "bookshelf_source_rules": 52,
+    "brewing_source_rules": 7,
+    "bookshelf_evaluated_combinations": 256,
+    "brewing_evaluated_combinations": 8,
+    "total_combinations_evaluated": 264,
+    "source_rule_model_applications_aggregate": 1824,
+    "bookshelf_root_plus_templates": 7,
+    "bookshelf_overriding_leaf_models": 12,
+    "bookshelf_unique_source_faces": 11,
+    "bookshelf_face_material_records": 17,
+    "bookshelf_uv_texel_uses": 1792,
+    "bookshelf_uv_opaque_uses": 1792,
+    "bookshelf_flat_slot_templates": 6,
+    "bookshelf_explicit_uvlock_true_rules": 4,
+    "bookshelf_overlay_uvlock_key_missing": 48,
+    "brewing_source_models": 7,
+    "brewing_source_faces": 36,
+    "brewing_flat_overlay_elements": 6,
+    "brewing_out_of_block_x_elements": 4,
+    "brewing_texel_uses": 2016,
+    "brewing_opaque_texel_uses": 1260,
+    "brewing_transparent_texel_uses": 756,
+    "total_unique_source_faces": 47,
+    "total_face_material_records": 53,
+    "total_texel_uses": 3808,
+    "total_opaque_texel_uses": 3052,
+    "total_transparent_texel_uses": 756,
+    "source_pngs_full_rgba_decoded": 6,
+    "source_png_pixels": 1536,
+    "source_png_opaque": 1410,
+    "source_png_transparent": 126,
+    "source_png_partial": 0,
+    "v4_png_path_overlap": 2,
+    "v4_png_path_outside_sample": 4,
+    "v4_two_metrics_match": true,
+    "campfire_source_only": {
+      "lit_template_elements": 7,
+      "lit_template_faces": 32,
+      "lit_flat_elements": 2,
+      "lit_element_rotations": 2,
+      "unlit_source_elements": 5,
+      "unlit_source_faces": 28,
+      "source_blockstate_variant_count": 16,
+      "animated_fire_mcmeta_frametime": 2,
+      "actual_fire_png_frame_pixels_verified": false
+    },
+    "official_mojang_client_jar_verified": false,
+    "ingame_verified": false,
+    "source_rotation_uvlock_runtime_verified": false,
+    "prior_mod_v24_unchanged": true,
+    "stage1_final_completed_substeps": 0,
+    "stage1_total_substeps": 5,
+    "files": [
+      "research/vanilla_models/v31/01_bookshelf_brewing_59_original_multipart_rules.csv",
+      "research/vanilla_models/v31/02_bookshelf_256_and_brewing_8_combinations.csv",
+      "research/vanilla_models/v31/03_six_png_full_rgba_audit.csv",
+      "research/vanilla_models/v31/04_bookshelf_17_source_face_material_rgba.csv",
+      "research/vanilla_models/v31/05_bookshelf_7_elements_geometry.csv",
+      "research/vanilla_models/v31/06_brewing_36_face_original_png_rgba.csv",
+      "research/vanilla_models/v31/07_brewing_10_elements_model_geometry.csv",
+      "research/vanilla_models/v31/08_campfire_12_source_geometry_elements.csv",
+      "research/vanilla_models/v31/09_two_campfire_16_variants_source.csv",
+      "research/vanilla_models/v31/10_two_v4_shelf_png_metrics_crosscheck.csv",
+      "research/vanilla_models/v31/v31_bookshelf_brewing_campfire_summary.json"
     ]
   }
 }
