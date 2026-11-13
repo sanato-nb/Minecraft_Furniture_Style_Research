@@ -117,3 +117,11 @@
 - 현재 버전 **`TEX06-R004` 유지**, 다음 고유 검증 버전 **`TEX06-R005` 유지**. 본 변경은 **방법·완료 기준만 수정**한 것으로 신규 분석 근거가 없으므로 새 릴리스 버전을 발행하거나 기존 데이터 수치를 중복 집계하지 않는다.
 - R005의 우선순위는 `STATIC_FACING_COMPARISON.mcfunction`의 정적 게임 테스트(4개 2×2 패널/16블록, 방향별 상단·측면 및 아이템 렌더 캡처), 결과와 원본 UV/블록 상태 연결 확인. 공식 인증은 검사 목록에서 뺀다.
 - 애니메이션 보류, PZ 변환·가구 3D 제작 금지, 다른 단계·공통 `v38`·기존 R001~R004 결과 보존.
+
+## TEX06-R005 — 2026-11-13 사용자 PNG 원본 좌표 단위의 정적 UV·이음 검증
+
+- 현재 **TEX06-R005**, 다음 **TEX06-R006**; 공통 역사적 **v38 불변**. R001–R004 원본 보존.
+- 사용자 제공 `1.21.11/`의 **기존 유광 PNG 2개** 직접 재디코딩·SHA-256·PNG CRC 검사 통과. 신규 고유 PNG 0개, 이전 8/8 기록 계승.
+- **256개** 위치별 PNG (x,y)–RGBA 경계 쌍, **40개** 아이템 모델공간/블록 조건부 상단 UV 코너 매핑 신규. 각 텍스처의 A+B에서 실제로 참조한 고유 원본 픽셀 좌표는 60개. 기존 R002 집계값(검정 A 916/28, B 4474/8, 흰색 A 412/44, B 17174/14)을 직접 재현했으나 기존 집계를 새 고유 측정으로 더하지 않음.
+- [REPORT](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R005/REPORT.md) · [256행 픽셀 좌표 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R005/TOP_SEAM_PIXEL_COORDS.csv) · [40행 UV 좌표 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R005/SOURCE_UV_TOP_CORNERS.csv) · [집계 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R005/PANEL_PIXEL_METRICS.csv) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R005/SUMMARY.json) · [재현 Python](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R005/REPRODUCE_TOP_PIXEL_AUDIT.py).
+- **인게임 정적 검증 0/8** 유지. 조건부 north-up 소스 회전 투영으로 실제 게임 화면 방향을 인증하지 않음. 공식 JAR SHA-1 인증은 사용자 지시로 필수 범위 제외(성공 인증 아님). 다음 R006은 추가 신규 근거가 있을 때만. 애니메이션 및 PZ 변환·가구 3D 제작 보류.

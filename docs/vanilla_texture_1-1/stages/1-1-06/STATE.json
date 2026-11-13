@@ -7,10 +7,10 @@
   "stage_id": "1-1-06",
   "material_family": "도기·유광도기",
   "stage_prefix": "TEX06",
-  "current_revision": "TEX06-R004",
-  "next_revision": "TEX06-R005",
-  "revision_sequence": 4,
-  "revision_status": "R004_8_item_JSON_direct_and_mirror_48_world_face_geometry_R002_facing_LUT_64",
+  "current_revision": "TEX06-R005",
+  "next_revision": "TEX06-R006",
+  "revision_sequence": 5,
+  "revision_status": "R005_2_user_glazed_PNG_SHA_CRC_redecoded_256_RGB_source_coords_40_top_uv_corners",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 8,
@@ -48,27 +48,27 @@
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R004_8_item_JSON_Git_blob_equal_mirror",
+      "status": "R005_2_existing_glazed_PNG_source_SHA_CRC",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX06-R004"
+      "last_revision": "TEX06-R005"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R004_reuse_R001_RGBA_no_new_pixel",
+      "status": "R005_256_RGB_position_rows_R002_aggregates_reproduced_not_recounted",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX06-R004"
+      "last_revision": "TEX06-R005"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R004_R002_RGB_64_edge_pairs_facing_relabel_not_recount",
+      "status": "R005_256_glazed_edge_coordinates_40_item_block_top_corners",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX06-R004"
+      "last_revision": "TEX06-R005"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R004_item_model_ref_8_and_geometric_glazed_world_face_mapping_48",
+      "status": "R005_source_top_UV_pixel_coordinate_conditionals_game_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX06-R004"
+      "last_revision": "TEX06-R005"
     },
     "F": {
       "title": "F 인게임 정적 렌더·UV·facing 검증 (공식 원본 JAR 인증 제외)",
@@ -78,9 +78,9 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R004_saved_new_results_and_handoff",
+      "status": "R005_report_CSV_summary_reproduction_and_handoff",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX06-R004"
+      "last_revision": "TEX06-R005"
     }
   },
   "material_specific_checks": [
@@ -94,15 +94,15 @@
     {
       "id": "D2",
       "check": "무늬 이어붙이기와 UV/회전 상태에 따른 패턴 방향",
-      "status": "R002_512_2x2_hypotheses_64_boundary_pairwise_glazed_complete_image_space_ingame_pending",
-      "last_revision": "TEX06-R004",
+      "status": "R005_256_source_RGB_seam_coordinates_R002_values_reproduced",
+      "last_revision": "TEX06-R005",
       "source_user_extracted_verification_revision": "TEX06-R003"
     },
     {
       "id": "D3",
       "check": "특정 패턴을 만드는 블록 상태의 정적 회전·UV 연결",
-      "status": "R004_source_static_world_face_normals_48_derived_not_ingame_verified",
-      "last_revision": "TEX06-R004",
+      "status": "R005_40_item_block_top_UV_source_corners_game_pending",
+      "last_revision": "TEX06-R005",
       "source_user_extracted_verification_revision": "TEX06-R003"
     }
   ],
@@ -260,8 +260,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX06-R004",
-      "evidence_status": "R003_png_static_json_verified_plus_R004_item_definition_verified_official_ingame_pending",
+      "last_verified_revision": "TEX06-R005",
+      "evidence_status": "R005_user_original_PNG_16x16_pixel_coordinates_conditional_UV_game_pending",
       "mirror_png_blob_sha": "58832984e6700a295c890ab86b568929d36567d5",
       "mirror_model_blob_sha": "f973bbba2a75c5bfa1e93ad6004b2ae1ff97d41b",
       "mirror_blockstate_blob_sha": "e20988dcdafdba18006a35e6a4437bb7d2e78f3f",
@@ -274,7 +274,9 @@
       "user_unpacked_blockstates_json_matches_prior_mirror": true,
       "user_unpacked_item_json_checked": true,
       "user_unpacked_item_json_blob_sha": "02d6d5e5020ff9f166d7a9049c78cc72ca67629a",
-      "item_json_mirror_byte_identical": true
+      "item_json_mirror_byte_identical": true,
+      "R005_source_pair_coordinate_records": 128,
+      "R005_top_corner_records": 20
     },
     {
       "item_id": "1-1-06-008",
@@ -285,8 +287,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX06-R004",
-      "evidence_status": "R003_png_static_json_verified_plus_R004_item_definition_verified_official_ingame_pending",
+      "last_verified_revision": "TEX06-R005",
+      "evidence_status": "R005_user_original_PNG_16x16_pixel_coordinates_conditional_UV_game_pending",
       "mirror_png_blob_sha": "a500a876f14d6fab28d140023d32436f28f2512e",
       "mirror_model_blob_sha": "e33fbedc0fd18cda66fd3ec878211f2b00c5adc2",
       "mirror_blockstate_blob_sha": "8c64ce09f7c0bf11dad8908ef220917b567673a9",
@@ -299,7 +301,9 @@
       "user_unpacked_blockstates_json_matches_prior_mirror": true,
       "user_unpacked_item_json_checked": true,
       "user_unpacked_item_json_blob_sha": "5cb0220c53e32b994d164f54c95afe2c91fcaa69",
-      "item_json_mirror_byte_identical": true
+      "item_json_mirror_byte_identical": true,
+      "R005_source_pair_coordinate_records": 128,
+      "R005_top_corner_records": 20
     }
   ],
   "revisions": [
@@ -456,5 +460,14 @@
     "immutable_releases_R001_through_R004": "preserved",
     "global_project_checkpoint": "v38_unchanged"
   },
-  "version_advance_for_this_policy_update": false
+  "version_advance_for_this_policy_update": false,
+  "official_client_jar_authentication_policy": "excluded_by_user_not_claimed",
+  "new_in_current_revision": {
+    "rechecked_existing_png_count": 2,
+    "new_unique_textures": 0,
+    "new_position_level_rgb_pair_records": 256,
+    "new_top_uv_source_corner_rows": 40,
+    "ingame_static_verified_count": 0,
+    "output_root": "research/vanilla_textures/by_stage/1-1-06/TEX06-R005/"
+  }
 }

@@ -1,0 +1,88 @@
+{
+  "schema": "mc-furniture-texture-stage-result/v1",
+  "date": "2026-11-13",
+  "stage_id": "1-1-06",
+  "revision": "TEX06-R005",
+  "base_revision": "TEX06-R004",
+  "global_checkpoint_unchanged": "v38",
+  "source_primary": "user_provided_GitHub_1.21.11_unpacked",
+  "rechecked_prior_PNG_binary_sha_crc_count": 2,
+  "rechecked_unique_textures_added": 0,
+  "stage_unique_texture_denominator": 8,
+  "sha256": {
+    "black_glazed_terracotta": "214ce8ca46c60a42b8863655b3895aca839c7ef7cfa511a192dc1974a0ca2758",
+    "white_glazed_terracotta": "cb1ebf9f3f3e93009ff4cab1b2b2b70d41fd87caa40c71942ae51996d12498b4"
+  },
+  "new_evidence_pixel_pair_source_coordinate_rows": 256,
+  "new_evidence_item_block_top_UV_source_corner_rows": 40,
+  "unique_original_PNG_coordinates_per_texture_across_A_B": 60,
+  "independent_new_unique_pixels_claimed": 0,
+  "inherited_R001_RGBA_records": 2048,
+  "inherited_R002_rotated_2x2_combinations": 512,
+  "inherited_R002_edge_pair_summary_rows": 64,
+  "inherited_R004_world_face_normals_rows": 48,
+  "inherited_R004_item_JSON_count": 8,
+  "metrics_from_direct_source_pixels": [
+    {
+      "panel": "black_A_right_hand",
+      "texture_id": "black_glazed_terracotta",
+      "TL_TR_BL_BR": "north|west|east|south",
+      "comparison_count": 64,
+      "RGB_L1": 916,
+      "RGB_MAE": "4.770833",
+      "exact_equal_pairs": 28,
+      "nonmatching_pairs": 36,
+      "unique_source_texels_in_panel": 31,
+      "prior_R002_metrics_reproduced": true
+    },
+    {
+      "panel": "black_B_opposite_projection",
+      "texture_id": "black_glazed_terracotta",
+      "TL_TR_BL_BR": "north|east|west|south",
+      "comparison_count": 64,
+      "RGB_L1": 4474,
+      "RGB_MAE": "23.302083",
+      "exact_equal_pairs": 8,
+      "nonmatching_pairs": 56,
+      "unique_source_texels_in_panel": 60,
+      "prior_R002_metrics_reproduced": true
+    },
+    {
+      "panel": "white_A_right_hand",
+      "texture_id": "white_glazed_terracotta",
+      "TL_TR_BL_BR": "south|east|west|north",
+      "comparison_count": 64,
+      "RGB_L1": 412,
+      "RGB_MAE": "2.145833",
+      "exact_equal_pairs": 44,
+      "nonmatching_pairs": 20,
+      "unique_source_texels_in_panel": 31,
+      "prior_R002_metrics_reproduced": true
+    },
+    {
+      "panel": "white_B_opposite_projection",
+      "texture_id": "white_glazed_terracotta",
+      "TL_TR_BL_BR": "south|west|east|north",
+      "comparison_count": 64,
+      "RGB_L1": 17174,
+      "RGB_MAE": "89.447917",
+      "exact_equal_pairs": 14,
+      "nonmatching_pairs": 50,
+      "unique_source_texels_in_panel": 60,
+      "prior_R002_metrics_reproduced": true
+    }
+  ],
+  "conditional_top_projection": "CW=(360-model_y)%360 based on north-up top-face source UV; not game-certified",
+  "ingame_static_verified_count": 0,
+  "official_client_jar_SHA1_authentication": "excluded_by_user_and_not_claimed",
+  "animation_deferred": true,
+  "PZ_or_model_build_excluded": true,
+  "outputs": [
+    "REPORT.md",
+    "SUMMARY.json",
+    "PANEL_PIXEL_METRICS.csv",
+    "TOP_SEAM_PIXEL_COORDS.csv",
+    "SOURCE_UV_TOP_CORNERS.csv",
+    "REPRODUCE_TOP_PIXEL_AUDIT.py"
+  ]
+}
