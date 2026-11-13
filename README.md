@@ -40,6 +40,7 @@
 | v31 | 끌로 조각한 책장/양조기 `multipart` 원본59규칙을 256+8=**264조건**으로 실제 평가, 원본 **47면/53재질면** PNG UV **3,808 uses**(불투명3,052/투명756); 원본 PNG6경로/1,536픽셀; 모닥불 켜짐/꺼짐 소스 기하 조사 | 원본 source·RGBA 실화소/합성조건 계산, 공식 JAR·실제 게임 미검증 |
 | v32 | **애니메이션 보류 유지**. 통 닫힘/열림·베틀·4작업대 총7 leaf가 공통 `cube` 선언6면을 상속하여 **42 face×material**, 25 PNG/6,400 화소 실측(전부 불투명), **10,752 암시 full-face UV uses**, 6 blockstate 20 variants, 통 윗면 132픽셀 차이 | 정적 상속/원본 PNG 검증, 공식 client.jar/게임 정적 UV 미확인 |
 | v33 | 애니메이션 보류 유지. 가마솥·호퍼(아래·측면)·퇴비통(본체+내용물) **12소스모델/40요소/148원본면**, **12 PNG경로/3,072RGBA 픽셀**(불투명2,332/투명740), UV 명시없음→기하유도 추론 **9,280 uses** 전부 불투명, 15원본 정적 상태·퇴비통 9수준 선택 계산, 4PNG 독립 Pillow | 공식 Mojang JAR/실제 게임 UV방향 미검증 |
+| v34 | Git tree 원본 모델 **2,390 JSON**, 상태 **1,168 JSON**, 블록 PNG **1,111 경로** 전체 SHA 인벤토리 확보(검토 완료 아님). 랜턴·촛불·막대 8 정적 원형/42요소·153 명시 UV면 중 **122면 실제 원본3PNG/888 texel-uses**, 랜턴 31면 PNG 보류, 정적 상태30. **애니메이션 연구 계속 보류** | 파일 경로 모집단 확보, 공식 Mojang JAR/인게임 UV 검증 미완료, 최종 0/5 |
 
 **학습 전체 5개 작업:** 01 바닐라 텍스처(표본 완료/검증 보류), 02 바닐라 3D(진행 중), 03 가구 모드 모델(v11~v12 실측 진행 중), 04 모드 텍스처·UV(PNG 24개 전체 실화소 및 13모델 571면 UV 표본 정렬 측정), 05 바닐라/모드 비교(5쌍 사전 비교, 최종 검증 미착수). 최종 확정 완료는 **0/5**입니다.
 
@@ -48,6 +49,8 @@
 **사용자 최신 작업 지시(2026-11-13): 애니메이션 분석은 일단 보류.** 새로운 애니메이션 프레임 해독, 키프레임·클립 분석, 움직임 재현 및 애니메이션 인게임 검증을 진행하지 않는다. 기존 v9/v26/v31 애니메이션 관련 기록은 삭제하지 않고 보존하되, 새로운 진행도에 포함하지 않는다. 우선순위는 **정적 바닐라 3D 모델·기하·텍스처·UV·블록 상태·정적 렌더링 검증·공식 원본 무결성**이다. 애니메이션 연구는 사용자가 명시적으로 재개를 요청할 때까지 유지 보류.
 
 ## 빠른 탐색
+
+- [**v34 최신: 정적 랜턴·촛불·막대 153명시 UV면, 2,390 모델 전체 목록**](research/vanilla_models/v34/00_v34_바닐라2390모델_정적랜턴촛불_153면UV_전체목록.md) · [블록 모델 전수 SHA 목록](research/vanilla_models/v34/01_inventory_2390_block_model_paths_git_shas.csv) · [blockstates 전수 SHA 목록](research/vanilla_models/v34/02_inventory_1168_blockstate_paths_git_shas.csv) · [블록 PNG 전체 목록](research/vanilla_models/v34/03_inventory_1111_block_texture_png_paths_git_shas.csv) · [원본 153면 조사](research/vanilla_models/v34/05_eight_source_models_153_explicit_uv_faces_static_alpha.csv) · [Pillow 원본3 PNG](research/vanilla_models/v34/06_three_static_png_pillow_sha256_alpha_masks.csv). **애니메이션 보류, 최종 0/5**.
 
 - [**v33 최신 정적 가마솥·호퍼·퇴비통: 148 source face / PNG12 경로·3,072픽셀 / 15 원본 상태**](research/vanilla_models/v33/00_v33_가마솥호퍼퇴비통_148면_암시UV_PNG정적분석.md) · [40요소 원시 기하](research/vanilla_models/v33/01_twelve_model_40_elements_geometry.csv) · [148면 기하유도 UV](research/vanilla_models/v33/02_twelve_model_148_inferred_uv_faces.csv) · [12원본 PNG 7+5 파일](research/vanilla_models/v33/04_cauldron_hopper_7_png_rgba.csv) · [퇴비통 PNG5](research/vanilla_models/v33/06_composter_5_png_full_rgba.csv) · [기계 요약](research/vanilla_models/v33/v33_hollow_static_model_uv_png_summary.json). 사용자 애니메이션 보류 유지, 최종0/5.
 

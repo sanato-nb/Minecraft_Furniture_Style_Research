@@ -6,7 +6,9 @@
 
 **사용자 최신 작업 지시(2026-11-13): 애니메이션 분석은 일단 보류.** 새로운 애니메이션 프레임 해독, 키프레임·클립 분석, 움직임 재현 및 애니메이션 인게임 검증을 진행하지 않는다. 기존 v9/v26/v31 애니메이션 관련 기록은 삭제하지 않고 보존하되, 새로운 진행도에 포함하지 않는다. 우선순위는 **정적 바닐라 3D 모델·기하·텍스처·UV·블록 상태·정적 렌더링 검증·공식 원본 무결성**이다. 애니메이션 연구는 사용자가 명시적으로 재개를 요청할 때까지 유지 보류.
 
-**v33 최신 바닐라 정적 모델 연구(2026-11-13, 애니메이션 계속 보류):** [가마솥·호퍼(아래/측면)·퇴비통/내용물의 12모델·40요소·148선언면, 12PNG 전체 RGBA, 15 정적 상태 분석 보고서](../research/vanilla_models/v33/00_v33_가마솥호퍼퇴비통_148면_암시UV_PNG정적분석.md)부터 읽어라. 사용자 GitHub `1.21.11/assets/minecraft`의 실제 JSON 12개를 읽은 결과 `cauldron`13요소/58면, `hopper`7/32+`hopper_side`7/32, `composter`5/18+`contents1..7/ready`8/8. 총 **40 요소/148 source face**이며 과거 모델 JSON 조사와 선언 중복 가능; 합산 선언면이지 단일 인게임 한 상태 렌더 면 아님. **148/148면에 JSON 명시 UV 없음**. `from/to`·면 방향 유도식으로 **추론한** UV 사각형을 PNG 원본 실화소에 대조한 9,280 texel-uses 전부 불투명. **실제 게임 모델 로더 UV의 정확한 좌표 방향/회전 검증은 아직 미완료**. 원본 PNG **12경로/3,072픽셀(불투명2,332/완전투명740)**, `cauldron_inner`·`hopper_inside` 실제 Git SHA 똑같아 **고유 blob11개**, v4 선정150경로 겹침0/단 v26 `composter_top`은 조사 중복. **4 PNG 독립 Pillow verify·RGBA·SHA256과 JS 값 정확 일치.** 상태 `cauldron`1 + `hopper`5 + `composter`9 multipart = 원본규칙15. 퇴비통 9고정 상태 실제 조건 평가 level1..8에 내용물 surface y=3/5/7/9/11/13/15/15, 마지막 두 level은 같은 높이에서 재질만 변경. 호퍼는 앞 6/7요소 그대로, 마지막 출구 요소1만 변경. **애니메이션 분석은 사용자 명시적 재개 전까지 계속 금지/보류**; 새 모션·프레임·불꽃·책 움직임·시각 재생 분석 전혀 하지 말 것. 다음은 공식 Mojang 1.21.11 client.jar 독립 인증/인게임 정적 자동 UV·면 컬링·조명 검증, 복합 가구형 새 정적 모델 확대, 바닐라 전체 모델 모집단 확정이다. v24 모드 자료 보존, Stage1 완결 0/5.
+**v34 최신 정적 바닐라 연구 (2026-11-13, 사용자 애니메이션 보류 지시 그대로 유지):** [원본 전체 블록모델 2,390 경로·블록상태1,168·블록PNG1,111 SHA 목록 및 랜턴/촛불/막대 153명시 UV 면 정적 실측 보고서](../research/vanilla_models/v34/00_v34_바닐라2390모델_정적랜턴촛불_153면UV_전체목록.md)를 먼저 읽어라. Git Trees로 사용자 저장소 `1.21.11/assets/minecraft` 전체 `models/block` JSON **2,390 경로(고유 blob2,374)**, `blockstates` JSON **1,168 경로(고유 blob1,015)**, `textures/block` PNG **1,111 경로(고유 blob1,100)**를 전수 파일 경로·Git SHA CSV로 기록했다. 파일 전체 목록이지 모든 JSON을 열어 3D 모델로 검증했다는 뜻이 아니며, **가구형 정적 subset 미확정 → 완료율 % 미계산**. 정적 랜턴 설치/매달기 2템플릿(4+4요소/15+16명시 source UV면), 촛불1..4개 4템플릿(3/6/9/12요소·10/20/30/40원본면), end_rod(2/11), template_lightning_rod(2/11) = **8원본 기하/42요소/153명시 UV면**, 0두께교차평면24요소/내부회전24/UV역순18면. **lantern 31면의 원본 PNG 16×48 화소/프레임은 애니메이션 보류로 미검사**. `candle/end_rod/lightning_rod` 원본 PNG3종16×16 = **768픽셀(불투명119/완전투명649)** 독립 Python/Pillow `verify()`/GitSHA/SHA256·전체RGBA 대조, UV122면의 선택 텍셀 **888 uses 모두 불투명**(촛불520/엔드막대172/피뢰침196). 원본 blockstate 5JSON의 30 variants (2+2+8+6+12)에서 x회전비0 15/y비0 9/uvlock키 누락30. candle lit/powered는 **정적 선택 규칙**만 읽었고 움직임·애니메이션 재생·프레임 시각 분석은 하지 않았다. 다음은 인벤토리를 활용해 실제 가구형 정적 검수 대상 subset/진도 분모를 정하고, 공식 Mojang 1.21.11 client.jar의 출처·해시와 실제 게임 정적 UV/winding/광원·컬링을 독립 검증하고, 신규 정적 복합부품 가구 원본을 늘려라. v24 모드 원래 수치 유지, 확정 완료 0/5.
+
+**이전 v33 정적 바닐라 연구(2026-11-13):** [가마솥·호퍼(아래/측면)·퇴비통/내용물의 12모델·40요소·148선언면, 12PNG 전체 RGBA, 15 정적 상태 분석 보고서](../research/vanilla_models/v33/00_v33_가마솥호퍼퇴비통_148면_암시UV_PNG정적분석.md)부터 읽어라. 사용자 GitHub `1.21.11/assets/minecraft`의 실제 JSON 12개를 읽은 결과 `cauldron`13요소/58면, `hopper`7/32+`hopper_side`7/32, `composter`5/18+`contents1..7/ready`8/8. 총 **40 요소/148 source face**이며 과거 모델 JSON 조사와 선언 중복 가능; 합산 선언면이지 단일 인게임 한 상태 렌더 면 아님. **148/148면에 JSON 명시 UV 없음**. `from/to`·면 방향 유도식으로 **추론한** UV 사각형을 PNG 원본 실화소에 대조한 9,280 texel-uses 전부 불투명. **실제 게임 모델 로더 UV의 정확한 좌표 방향/회전 검증은 아직 미완료**. 원본 PNG **12경로/3,072픽셀(불투명2,332/완전투명740)**, `cauldron_inner`·`hopper_inside` 실제 Git SHA 똑같아 **고유 blob11개**, v4 선정150경로 겹침0/단 v26 `composter_top`은 조사 중복. **4 PNG 독립 Pillow verify·RGBA·SHA256과 JS 값 정확 일치.** 상태 `cauldron`1 + `hopper`5 + `composter`9 multipart = 원본규칙15. 퇴비통 9고정 상태 실제 조건 평가 level1..8에 내용물 surface y=3/5/7/9/11/13/15/15, 마지막 두 level은 같은 높이에서 재질만 변경. 호퍼는 앞 6/7요소 그대로, 마지막 출구 요소1만 변경. **애니메이션 분석은 사용자 명시적 재개 전까지 계속 금지/보류**; 새 모션·프레임·불꽃·책 움직임·시각 재생 분석 전혀 하지 말 것. 다음은 공식 Mojang 1.21.11 client.jar 독립 인증/인게임 정적 자동 UV·면 컬링·조명 검증, 복합 가구형 새 정적 모델 확대, 바닐라 전체 모델 모집단 확정이다. v24 모드 자료 보존, Stage1 완결 0/5.
 
 **이전 v32 정적 바닐라 연구(2026-11-13):** [통·베틀·4작업대 7 leaf·25PNG 전 화소·42 face×material·20 source variants 보고서](../research/vanilla_models/v32/00_v32_정적통베틀작업대_25PNG_42면암시UV_20상태보고서.md)를 최우선으로 읽어라. 사용자 저장소 `1.21.11/assets/minecraft/` 원본 leaf `barrel/barrel_open/loom/cartography_table/fletching_table/smithing_table/crafting_table` **7모델**과 parent `cube/cube_bottom_top/orientable_with_bottom` 원본 직접 확인. leaf는 자체 기하0, 최종 `cube`는 **1요소·6 고유 원본면**. **7×6=42 face×material 적용 인스턴스**이며 고유 선언면 42로 셈하지 않는다. 참조 PNG **25종×16×16=6,400 RGBA 원본 픽셀 전부 불투명**, v4 150선정표본 중복경로 12·표본 밖13, 동일 기존 지표 **12/12 일치**. `cube`는 `faces.*.uv` 명시값이 없으므로 완전 16³ 기하에서 `[0,0,16,16]` 전체면을 **암시 UV로 유도한 추론**이며 42×256=**10,752 texel-uses**. 6 blockstate 원본 **20 variants**(통12·베틀4·다른 작업대4), x비0 10/y비0 9·uvlock 키 부재20. 통 닫힘/열림 top 원본 2 PNG의 **RGBA 132/256 위치 차이**를 독립 Pillow·Git SHA-1 및 SHA-256으로 확인. 이는 **정적 상태별 윗면 텍스처 교체**이지 애니메이션 분석이 아니다. **애니메이션 관련 PNG 프레임/키프레임·모션·재생/렌더 검증은 사용자가 재개할 때까지 금지/보류**, 과거 기록은 보존. 공식 Mojang 1.21.11 client.jar 출처/해시와 실제 게임 정적 UV·조명 검증 **미완료**, 모드 v24 지표 유지, 단계 완료 0/5.
 
@@ -26,7 +28,7 @@
 
 **이전 v24 모드 연구:** [v24 보고서](research/furniture_mods/v24/00_v24_의자39_원본JSON_상속기하재질_검증보고서.md)부터 읽어야 한다. v23에서 남았던 Another Furniture 의자 **39 leaf 원본 JSON/SHA 직접 확인** 완료. Another 선정 leaf 누계 **204**, 신규 10 블록 상태의 Another 모델 경로 **91/91 JSON 직접 조사**, 블록 상태 조사 **22/177**. 39개 leaf 자체 요소 0, slot override117, 부모 2종을 통한 상속 **390 요소/1,794 선언 면 인스턴스**. 일반 `chair` 대비 tucked의 좌표 z=-9, face UV·슬롯 동일. **v24에 신규 PNG 화소 실측 0/실제 face UV 내부 RGBA 0**, 따라서 Another PNG151·RGBA3,329면/Handcrafted PNG24·784면, 합계 PNG175·실제 RGBA4,113면 유지. 다음에는 해당 모델 참조 PNG 24경로의 기존 측정 차집합/실제 화소와 1,794면 UV 내부 RGB·알파, 나머지 155 blockstate, 공식 Mojang/Macaw JAR·인게임 검증 진행. 전체 최종 완료 0/5.
 
-**Minecraft 가구 모델링 디자인 연구를 v33 체크포인트부터 이어서 바닐라 01/02를 우선 직접 분석해 줘.**
+**Minecraft 가구 모델링 디자인 연구를 v34 체크포인트부터 이어서 바닐라 01/02를 우선 직접 분석해 줘.**
 
 정본 저장소: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research
 
@@ -34,29 +36,30 @@
 1. `HANDOFF.md`
 2. `PROGRESS.md`
 3. `SOURCES_AND_LIMITS.md`
-4. `research/vanilla_models/v33/00_v33_가마솥호퍼퇴비통_148면_암시UV_PNG정적분석.md`
-5. `research/vanilla_models/v32/00_v32_정적통베틀작업대_25PNG_42면암시UV_20상태보고서.md`
-6. `research/vanilla_models/v31/00_v31_책장양조기_264상태_47면_PNG실화소_모닥불원본보고서.md`
-7. `research/vanilla_models/v30/00_v30_바닐라5모델_91면UV_18PNG_RGBA_투명도정정보고서.md`
-8. `research/vanilla_models/v29/00_v29_울타리문160면_실제PNG_UV_열림담장좌표비교보고서.md`
-9. `research/vanilla_models/v28/00_v28_바닐라문다락문게이트계단104상태_40면UV_RGBA.md`
-10. `research/vanilla_models/v27/00_v27_선반32x32_퇴비통자동UV_원본화소검증보고서.md`
-11. `research/vanilla_models/v26/00_v26_바닐라8PNG_전체RGBA_36면70프레임_실화소보고서.md`
-12. `research/vanilla_models/v25/00_v25_바닐라원본_모델상속상태PNG_직접검증보고서.md`
-13. `research/vanilla_models/v10/00_v10_누적DB_통합검증_보고서.md`
-14. `research/furniture_mods/v13/00_v13_모드PNG실화소_UV픽셀정렬_보고서.md`
-15. `research/furniture_mods/v12/00_v12_Handcrafted_교차분석_보고서.md`
-16. `research/furniture_mods/v11/00_v11_AnotherFurniture_모델분석_보고서.md`
-17. `research/furniture_mods/v14/00_v14_텍스처슬롯_근거연결_보고서.md`
-18. `research/furniture_mods/v15/00_v15_기하표현_계량비교_보고서.md`
-19. `research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md`
-20. `research/furniture_mods/v17/00_v17_면별실화소784_색상알파검증_보고서.md`
-21. `research/furniture_mods/v18/00_v18_AnotherFurniture_원본63_JSON_12PNG_807면_분석보고서.md`
-22. `research/furniture_mods/v19/00_v19_Another_원본29PNG_807면UV_804면RGBA_보고서.md`
-23. `research/furniture_mods/v20/00_v20_Another원형69_원본JSON_UV면1362_보고서.md`
-24. `research/furniture_mods/v21/00_v21_블록상태12_신규완성형38_신규PNG14_면1192_RGBA_보고서.md`
-25. `research/furniture_mods/v22/00_v22_셔터43모델_신규PNG42_UV214면_원본실측_보고서.md`
-26. `research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md`
+4. `research/vanilla_models/v34/00_v34_바닐라2390모델_정적랜턴촛불_153면UV_전체목록.md`
+5. `research/vanilla_models/v33/00_v33_가마솥호퍼퇴비통_148면_암시UV_PNG정적분석.md`
+6. `research/vanilla_models/v32/00_v32_정적통베틀작업대_25PNG_42면암시UV_20상태보고서.md`
+7. `research/vanilla_models/v31/00_v31_책장양조기_264상태_47면_PNG실화소_모닥불원본보고서.md`
+8. `research/vanilla_models/v30/00_v30_바닐라5모델_91면UV_18PNG_RGBA_투명도정정보고서.md`
+9. `research/vanilla_models/v29/00_v29_울타리문160면_실제PNG_UV_열림담장좌표비교보고서.md`
+10. `research/vanilla_models/v28/00_v28_바닐라문다락문게이트계단104상태_40면UV_RGBA.md`
+11. `research/vanilla_models/v27/00_v27_선반32x32_퇴비통자동UV_원본화소검증보고서.md`
+12. `research/vanilla_models/v26/00_v26_바닐라8PNG_전체RGBA_36면70프레임_실화소보고서.md`
+13. `research/vanilla_models/v25/00_v25_바닐라원본_모델상속상태PNG_직접검증보고서.md`
+14. `research/vanilla_models/v10/00_v10_누적DB_통합검증_보고서.md`
+15. `research/furniture_mods/v13/00_v13_모드PNG실화소_UV픽셀정렬_보고서.md`
+16. `research/furniture_mods/v12/00_v12_Handcrafted_교차분석_보고서.md`
+17. `research/furniture_mods/v11/00_v11_AnotherFurniture_모델분석_보고서.md`
+18. `research/furniture_mods/v14/00_v14_텍스처슬롯_근거연결_보고서.md`
+19. `research/furniture_mods/v15/00_v15_기하표현_계량비교_보고서.md`
+20. `research/furniture_mods/v16/00_v16_원본PNG12_모델30_면재질연결_보고서.md`
+21. `research/furniture_mods/v17/00_v17_면별실화소784_색상알파검증_보고서.md`
+22. `research/furniture_mods/v18/00_v18_AnotherFurniture_원본63_JSON_12PNG_807면_분석보고서.md`
+23. `research/furniture_mods/v19/00_v19_Another_원본29PNG_807면UV_804면RGBA_보고서.md`
+24. `research/furniture_mods/v20/00_v20_Another원형69_원본JSON_UV면1362_보고서.md`
+25. `research/furniture_mods/v21/00_v21_블록상태12_신규완성형38_신규PNG14_면1192_RGBA_보고서.md`
+26. `research/furniture_mods/v22/00_v22_셔터43모델_신규PNG42_UV214면_원본실측_보고서.md`
+27. `research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md`
 
 **v23 PNG/UV RGBA 누계 (v24에도 동일):** 바닐라 재질/텍스처 선정 **150/150 표본** 및 3D 연구 v10까지 진행됐지만 **Minecraft 공식 1.21.11 `client.jar`·인게임 최종 렌더 미검증**. 제작자 Another Furniture Minecraft 1.21.1 고정 원본의 **블록 상태 22/177개**, 원형 템플릿 **69개**, leaf **165개** 직접 원본 JSON 조사. Another 원본 고유 PNG **151종 실제 화소**, 선정된 모드 소유 면 **3,329개 실제 UV PNG 내부 RGBA** 검사 완료. Handcrafted 원형 **120종**, 생성형 leaf **16개**, PNG **24종**·실제 UV **784면**(v17). 두 모드 합쳐 **PNG 175종, 모드 PNG 4,113면 실제 UV RGB·알파**. 바닐라 경로 `minecraft:block/dirt` Another **16면**, `oak_planks` Handcrafted **2면** 공식 PNG 아직 미검증. Macaw's Furniture 공식 Minecraft 1.21.11 Fabric 배포 존재는 확인했으나 컨테이너 DNS 차단으로 **공식 JAR 내부 모델 실측 0개**. **이는 선정한 소스 원본 표본 진도이며 모드 전체/게임 렌더 완료가 아니다. 상위 1단계 세부 작업 5개 최종 완료 0/5, 임의 전체 프로젝트 퍼센트 금지.**
 
@@ -78,7 +81,7 @@
 
 **v23 신규 원본 실측:** 이전 12 상태 밖 **10개 제작자 블록 상태 JSON 원본 직접 읽기/SHA**(386 model apply, 92 고유 경로: Another 91 + air 1), 신규 완성형 **51개 leaf JSON 직접 SHA 검사**(벤치16/소파12/커튼7/서랍2/테이블2/꽃상자8/의자4). leaf 자체 elements 0, 부모 원형 34개, `drawer/birch_open` 2단계 상속. 총 1,127 face의 상속·재질/UV 경로 해결(Another 자체 PNG **1,119면**, 바닐라 dirt **8면** 제외), PNG 참조 원본 51종 직접 조회(**42종 최초 실화소/기존9 재검증**, PNG 16×16 49종/64×64 2종), **1,119/1,119 모드 면 실제 UV PNG 내부 RGBA 확인**(전체불투명 **1,063면**/혼합 **56면**, UV 면적0/완전투명 0). UV 픽셀 사용 **41,666회** 중 불투명 **39,304/투명 2,362**(반복 텍스처 사용 포함). 빨강·파랑 소파 229쌍, 자작/가문비 벤치 116쌍, 의자 등받이2번 92쌍 원시 기하/UV와 면 알파가 같고 텍스처를 공유·교체하는 방식을 직접 비교. **누적 Another leaf 165/PNG151/모드 면3,329**, Handcrafted 합쳐 PNG175종/모드 면4,113. 신규 상태 모델 중 아직 JSON 직접 검증하지 않은 의자 leaf **39개**, 상태 파일 **155개** 남음. **공식 Macaw JAR/Mojang client.jar/인게임 미검증**. [v23 보고서](research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md) · `research/furniture_mods/v23/v23_new_blockstate_leaf_png_face_original_audit.json`.
 
-**바로 이어갈 일(애니메이션 보류):** v33에서 속 빈 정적 가마솥·호퍼·퇴비통 모델12종/148면, 12 PNG 실제 픽셀3,072, 파생 암시 UV 텍셀9,280, 15 원본 상태를 확인했다. **공식 1.21.11 JAR 무결성, 게임 엔진의 실제 정적 implicit UV 방향·면 컬링·조명·회전 검증**, 새 복합형 가구 정적 구조, 전체 바닐라 모델 목록/검토율 산정 우선. **사용자가 재개 지시할 때까지 모든 애니메이션 프레임·동작·책/불꽃 애니메이션 분석 보류**. v33 유도 UV를 explicit UV/공식 인게임 검증으로 오인 금지. v24 모드 연구와 기존 v33 결과 보존. 완료 0/5.
+**바로 이어갈 일(애니메이션 보류):** v34에서 사용자 저장소의 전체 block model 2,390 JSON·blockstate 1,168 JSON·block PNG 1,111 파일 경로/SHA를 완전 수집했고, 8개 정적 원본 기하의 153 명시 UV 면 중 122면을 정적 원본 PNG3개/888 texel-uses로 검증했다. 다음은 **객관적으로 가구형 모델 subset을 정의하고 분모를 확정하는 검수**, 공식 Mojang 1.21.11 client.jar 독립 획득/해시 검증, 실제 게임 정적 UV·회전·컬링/조명 비교, 새로운 복합 정적 모델 직접 검증이다. **랜턴 31 UV면의 16×48 원본 PNG 프레임/픽셀과 촛불·불꽃 움직임, 모든 애니메이션 연구는 사용자 재개 요청 전까지 보류**. 2,390개는 블록 JSON 파일 경로 수이며 가구형 모델 완료 수 또는 완료율 분모 아님. 모드 v24, 모든 이전 자료 보존, Stage1 최종0/5.
 
 이번 프로젝트 범위는 **상위 1단계(바닐라·모드 디자인 연구) 및 상위 2단계(근거 기반 디자인 규칙서)**까지만. Project Zomboid 가구 변환이나 실제 3D 가구 제작은 하지 말 것. 분석 근거와 추론/미검증을 항상 분리할 것.
 

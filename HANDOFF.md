@@ -1,7 +1,7 @@
 # 인수인계 · Minecraft Furniture Style Research
 
 > **새 채팅 진입점 / 단일 인수인계 기준 문서**  
-> 최종 확인일: **2026-11-13 (KST)** · 현재 체크포인트: **v33**
+> 최종 확인일: **2026-11-13 (KST)** · 현재 체크포인트: **v34**
 
 **사용자 최신 작업 지시(2026-11-13): 애니메이션 분석은 일단 보류.** 새로운 애니메이션 프레임 해독, 키프레임·클립 분석, 움직임 재현 및 애니메이션 인게임 검증을 진행하지 않는다. 기존 v9/v26/v31 애니메이션 관련 기록은 삭제하지 않고 보존하되, 새로운 진행도에 포함하지 않는다. 우선순위는 **정적 바닐라 3D 모델·기하·텍스처·UV·블록 상태·정적 렌더링 검증·공식 원본 무결성**이다. 애니메이션 연구는 사용자가 명시적으로 재개를 요청할 때까지 유지 보류.  
 > 저장소: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research  
@@ -19,15 +19,15 @@
 
 | 번호 | 범위 | 2026-11-13 상태 |
 |---|---|---|
-| 01 | 바닐라 재질·텍스처 | 기존 150/150 **선정표본 목표** 유지. v33 가마솥·호퍼·퇴비통 원본 **12 PNG 경로/3,072픽셀** RGBA 전 해독(불투명2,332/투명740), 원본 SHA 중복 1쌍(고유 파일 11), 이전 v4 선정 표본과 0경로 중복, v26 `composter_top`은 과거 연구 중복. 공식 Mojang jar/게임 미검증 |
-| 02 | 바닐라 3D 형태·모델 JSON·UV·상태·특수 렌더링 | v33 **3개 속 빈 블록/12 모델 JSON·40요소·148소스면**, 모두 명시 UV 없음. 요소 좌표/면 방향에서 UV를 **추론**해 원본 PNG 9,280 texel-uses 조회(전부 불투명), cauldron13요소/58면·hopper7+7/32+32·composter5+8/18+8, 원본 state 규칙15·퇴비통 9상태 계산. **애니메이션 보류**, 실제 UV 로더·게임 미확인 |
+| 01 | 바닐라 재질·텍스처 | v4 선정표본 **150/150** 유지. v34 사용자 업로드 원본 `textures/block` **1,111 PNG 파일 경로/1,100고유 blob SHA** 전체 Git tree 목록 확정(화소 전수 디코딩 아님). `candle/end_rod/lightning_rod` **3PNG/768픽셀** 직접 Pillow·SHA256·Git blob 교차검증(불투명119/투명649); lantern 16×48 PNG 픽셀은 애니메이션 보류에 따라 미검사 |
+| 02 | 바닐라 3D 형태·모델 JSON·UV·상태·특수 렌더링 | v34 `models/block` **2,390경로(고유 SHA2,374)**·`blockstates` **1,168경로(고유 SHA1,015)** Git 원본 전수 경로/해시 표 확보. 정적 원형 **8모델/42요소/153명시 UV면**, `candle`100·엔드막대11·피뢰침11 = **122면 888 uses** 실제 Pillow 픽셀 전부 불투명; 랜턴31면은 기하/UV만 조사. 원본 source variants 30, 공식 client.jar/인게임 미검증, 애니메이션 보류 |
 | 03 | 가구 모드 3D 모델 | **v24: 의자 leaf 39개 제작자 원본 JSON·Git SHA 직접 검사**, 누적 Another **204 leaf**; 신규 10 상태 Another 모델 경로 **91/91** 읽기 완료. 원형 69/블록 상태 22/177 유지, Handcrafted 원형 120/leaf16, Macaw 모델 0 |
 | 04 | 가구 모드 텍스처·UV·팔레트 | **Another 모드 원본 PNG 151종/실제 UV RGBA 3,329면(기존 2,210+v23 1,119), Handcrafted 24 PNG/784면 → 두 모드 PNG 175종/면 4,113인스턴스.** 새 PNG 42종·모드 면 1,119 직접 원본 화소, 공식 바닐라 dirt 16면/oak_planks 2면·전체/인게임 미검증. |
 | 05 | 바닐라 ↔ 가구 모드 비교·공통 특성 검증 | **사전 비교: 의자·벤치·소파 5쌍 비교표만 작성, 바닐라·인게임 최종 검증 미시작** |
 
 **확정 완료 0/5개.** 01의 100%는 **표본 수 목표**만 의미한다. 02는 미리 합의한 전체 분석 대상이 없어 퍼센트를 임의로 계산하면 안 된다.
 
-## 2. 누적 연구 결과: v1–v33
+## 2. 누적 연구 결과: v1–v34
 
 | 체크포인트 | 내용 | 확인할 자료 |
 |---|---|---|
@@ -62,6 +62,7 @@
 | v31 | 끌로 조각한 책장52·양조기7 `multipart` 규칙 원본 **59**, 합성 입력 256+8=**264개 전수 평가**. 원본 면 **47개/53면×재질** 실제 PNG 3,808 texel-uses(불투명3,052·투명756), PNG6종 전 화소. 모닥불 원형 7요소/꺼짐5요소·`mcmeta` 사전 조사 | [v31 직접 실측 보고서](research/vanilla_models/v31/00_v31_책장양조기_264상태_47면_PNG실화소_모닥불원본보고서.md) |
 | v32 | 사용자 요청대로 **애니메이션 분석 보류**. 통(닫힘/열림)·베틀·4작업대 7 leaf가 공통 `cube` 형상 상속; **42면×재질 인스턴스(공통 원본 선언면은 6)**, PNG **25경로/6,400픽셀 전 RGBA**(전부 불투명), 암시적 전체면 UV 기반 **10,752 uses**, blockstates **20 variants**, 통 윗면 두 PNG 실제 **132픽셀 차이** | [v32 정적 모델·PNG 연구보고서](research/vanilla_models/v32/00_v32_정적통베틀작업대_25PNG_42면암시UV_20상태보고서.md) |
 | v33 | **애니메이션 보류**. 가마솥·호퍼(아래/옆)·퇴비통(본체+내용물8종) **12 JSON/40요소/148선언면**; 원본 **12 PNG/3,072픽셀**(불투명2,332/투명740), 암시적 UV 추론 후 **9,280 텍셀 참조**(전부 불투명). 호퍼 출구1요소만 변경, 퇴비통 `level 0–8` 고정상태9개·height 3→15/최종 재질 교체. Pillow 4PNG 독립 검사 | [v33 원본 정적 연구보고서](research/vanilla_models/v33/00_v33_가마솥호퍼퇴비통_148면_암시UV_PNG정적분석.md) |
+| v34 | 사용자 원본 Git 트리 `models/block` **2,390 JSON**, `blockstates` **1,168 JSON**, `textures/block` **1,111 PNG** 전체 경로·SHA 인벤토리 확정(완료율 아님). 랜턴 설치형/매달기형·촛불 1–4·엔드 막대·피뢰침 **8 정적 원형/42요소/153 명시 UV 면**, 그중 **122면 실제 3PNG Pillow RGBA·888 texel-uses 모두 불투명**, 랜턴31면 PNG는 애니메이션 보류로 미대조. source 상태30, `uvlock` 부재30 | [v34 정적 모델·전체파일 목록 보고서](research/vanilla_models/v34/00_v34_바닐라2390모델_정적랜턴촛불_153면UV_전체목록.md) |
 
 ### 실제 SQLite에서 확인된 행 수 (v10까지의 바닐라 DB)
 
@@ -300,6 +301,15 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 - `cauldron` 1variant, `hopper` 5variants, `composter` 9 multipart 원본규칙 = **15**. 퇴비통 `level=0..8` 총9고정 입력 조건 평가, 1–8은 본체+내용물1개; 내용물 y=3/5/7/9/11/13/15/15, **7→8 같은 높이에서 PNG만 교체**. 애니메이션 아님.
 - **독립 Mojang 공식 1.21.11 client.jar/인게임 정적 모델·UV/조명/컬링/회전은 미확인**. 애니메이션 분석 계속 보류, v24 모드 연구 보존, 확정 완료 **0/5**.
 
+### v34 원본 파일 모집단 확정 + 랜턴·촛불·막대 정적 형상 UV 분석 (2026-11-13)
+
+- [v34 전체 보고서](research/vanilla_models/v34/00_v34_바닐라2390모델_정적랜턴촛불_153면UV_전체목록.md) · [원본 block model 2,390경로+SHA](research/vanilla_models/v34/01_inventory_2390_block_model_paths_git_shas.csv) · [blockstates 1,168경로+SHA](research/vanilla_models/v34/02_inventory_1168_blockstate_paths_git_shas.csv) · [block PNG 1,111경로+SHA](research/vanilla_models/v34/03_inventory_1111_block_texture_png_paths_git_shas.csv) · [8정적 원형 42요소](research/vanilla_models/v34/04_eight_source_models_42_geometry_elements.csv) · [153 원본 명시 UV(122 PNG 검사/31 랜턴 보류)](research/vanilla_models/v34/05_eight_source_models_153_explicit_uv_faces_static_alpha.csv) · [3 PNG 독립 Pillow SHA/알파 마스크](research/vanilla_models/v34/06_three_static_png_pillow_sha256_alpha_masks.csv) · [정적상태30](research/vanilla_models/v34/07_five_blocks_30_static_source_variants.csv) · [10 leaf](research/vanilla_models/v34/08_ten_leaf_parent_and_texture_bindings.csv) · [요약](research/vanilla_models/v34/v34_static_census_and_explicit_uv_summary.json).
+- Git Trees API로 사용자 저장소 `1.21.11/assets/minecraft`의 3 source 폴더 전체 엔트리/해시를 직접 열람, `truncated=false` 확인. 원본 파일 경로 분모 **block model JSON 2,390 / blockstate JSON 1,168 / block texture PNG 1,111**. 고유 SHA 각각 **2,374/1,015/1,100**. 별도 item 모델 JSON **1,283**, PNG 연계 `.png.mcmeta` 파일명 **99**은 본 연구의 범위 밖이며 내용 미조사. **이 센서스는 메타데이터 목록일 뿐 2,390개 JSON 분석·렌더링을 끝낸 게 아님**. 파일 전체 모집단과 검수대상 가구 subset은 다르므로 정적 가구 분석의 완료율 산출 금지.
+- `template_lantern/template_hanging_lantern` **4+4요소/15+16명시 face**, 정적 source 형상의 0두께 교차 평면2+2와 내부 45도 회전 2+2 관찰. 매달기형 본체 y가 1 높고 상부 요소 높이가 확장, 추가 `down` face1. 일반/영혼 랜턴 leaf 네 종은 부모 기하 공유·다른 PNG 경로 바인딩. **lantern/soul_lantern 16×48 PNG 원본 프레임/화소는 보류 상태로 미분석; 랜턴 31면은 source UV 선언까지**.
+- 촛불 `template_candle/2/3/4` **3/6/9/12요소, 10/20/30/40 원본 UV면**(총 30요소/100면), 각 촛불은 1입체 요소+2교차 0두께 평면. 원본 회전 ±45도. 촛불 PNG 정적 기본 16² **불투명21/투명235**, 모델 원본 UV100면의 면별 520 텍셀 참조는 모두 불투명. `end_rod`11면/172 uses, `template_lightning_rod`11면/196 uses. **3원본 PNG 총768 화소(불투명119/투명649), face UV 실화소 122면·888 uses(전부 불투명)**. PNG 3종을 **독립 Pillow verify/sha256/Git blob SHA/16행 불투명 픽셀 마스크** 대조. 전체 8원형 **42요소/153명시 UV면, UV 역방향 18/면적0 0**, 그중 랜턴31면은 미샘플.
+- 원본 blockstate **5파일·30 variants**(lantern2/soul2/candle8/end_rod6/lightning_rod12), source x비0 15/y비0 9,`uvlock` 키 미기재30. candle lit/powered 등은 정적 source state **선택 규칙만 기록**했고 lit/불꽃 PNG 동적 재생·프레임/시간 변화를 분석하지 않았다.
+- **바닐라 애니메이션 보류 유지.** 원본 Mojang client.jar 자체 인증 및 게임 UV/조명/컬링 미검증. v24 모드 지표·이전 연구 보존, 단계 완료 판정 **0/5**.
+
 ## 5. 새 채팅이 곧바로 이어갈 실제 작업
 
 **작업 계획서를 반복 작성하지 말고 실제 데이터 분석을 진행한다.**
@@ -324,13 +334,13 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 
 [새 채팅용 프롬프트 파일](docs/NEW_CHAT_START.md)을 열어 내용을 붙여넣거나 아래 한 문장을 사용한다.
 
-> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **v33 체크포인트부터 바닐라 01/02 연구를 우선 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
+> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **v34 체크포인트부터 바닐라 01/02 연구를 우선 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
 
-**바로 다음 작업(애니메이션 보류):** v33에서 속 빈 바닐라 3블록 계열 12 모델의 요소40/면148·12PNG 전체화소, 15원본 상태, 9,280암시UV 추론 텍셀 사용을 확인했다. **우선 Mojang 1.21.11 공식 게임 모델 로더의 자동 UV 방향/컬링/회전과 실제 정적 렌더를 독립 검증하고, 별도의 복합 입체 가구형 모델 신규 표본 및 바닐라 전체 모델 모집단 조사를 계속할 것.** 사용자 지시 애니메이션 보류 유지, v24 모드 자료 보존, 완료0/5.
+**바로 다음 작업(애니메이션 보류):** v34에서 Minecraft Java 1.21.11 사용자 업로드 자료의 **전체 block model 2,390 JSON / blockstates 1,168 / block PNG 1,111 경로 인벤토리**를 확보했고, 랜턴/촛불/막대 정적 8원형 153명시 UV면 중 122면·3PNG의 실제 픽셀을 검증했다. **다음은 이 인벤토리에서 객관적 가구형 정적 분석 대상 부분집합을 선정하고, 공식 Mojang 1.21.11 client.jar 인증, 게임의 정적 모델 UV/컬링/조명 대조, 미조사 정적 가구 형상 원본 UV 검증**을 진행한다. 파일 개수 분모만으로 전체 연구 %를 계산하지 말고, lantern 31면은 PNG 미샘플로 유지. 사용자 명시 재개 전 모든 애니메이션 보류; v24 모드 자료·과거 동적 기록 보존, 0/5.
 
 ## 7. 인수인계 유지 방법
 
-- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v33).
+- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v34).
 - **진행도:** `PROGRESS.md`.
 - **새 채팅 복사용:** `docs/NEW_CHAT_START.md`.
 - **기계 판독 상태:** `handoff/STATE.json`.
