@@ -1,6 +1,18 @@
 # 1-1-04 — 직물·양털 전용 채팅 인수인계
 
-> **현재 단계 고유 버전: `TEX04-R003` (2026-11-13)** · 다음 예약 번호: `TEX04-R004` (커밋 전 반드시 다시 확인) · 상위 역사적 체크포인트 `v38` 유지.
+> **현재 단계 고유 버전: `TEX04-R004` (2026-11-13)** · 다음 예약 번호: `TEX04-R005` (커밋 전 반드시 다시 확인) · 상위 역사적 체크포인트 `v38` 유지.
+
+## TEX04-R004 — 원본 추출본의 JAR 서명 메타데이터 SHA-384 연결 신규 검증 (2026-11-13)
+
+**이번 신규 연구는 R003 이후 실제 미검증 범위만 추가했다.** 사용자 제공 `1.21.11/META-INF/MANIFEST.MF` (Git blob `a6f3479fade23b634eba8e18a25a96377b2fb844`), `MOJANGCS.SF` (blob `206d3c15590b05c53a565463d3776d0c73231f90`)를 읽어 9개 양털 PNG + 9개 모델 leaf JSON + 9개 blockstates JSON + 3개 상속 부모 JSON = **30개 실제 파일**의 SHA-384을 대조했다.
+
+- **[R004 신규 결과 폴더](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R004)**: [REPORT.md](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R004/REPORT.md), [30파일 digest 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R004/SIGNATURE_MANIFEST_30_FILE_CHAIN.csv), [검증 재현 코드](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R004/VERIFY_SIGNED_MANIFEST_CHAIN.py), [인증 한계](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R004/SIGNATURE_LIMITATIONS_AND_NEXT_GATE.md), [SUMMARY.json](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R004/SUMMARY.json).
+- **PNG 9/9 + 정적 JSON 21/21 = 30/30**: 원본 파일 내용의 SHA-384가 `MANIFEST.MF`의 각 SHA-384-Digest와 일치. 9개 PNG는 R003 SHA256과 동일; 모델 JSON 21개는 R003 저장소 Git blob(3개 공통 부모 포함)과 동일한 소스 바이트로 검사. **새 텍스처 0종**, 기존 9종 유지.
+- 이 30개의 MANIFEST 항목을 원래 JAR 형식인 **CRLF**로 복원하면 `MOJANGCS.SF`에 적힌 항목 SHA-384와 **30/30 일치**. GitHub LF 텍스트를 그대로 해시하면 **0/30 일치**. MAIN 속성 섹션도 CRLF 복원 시 **1/1 일치**. 줄바꿈 형식 변환으로 인한 차이를 정확히 보존.
+- `MOJANGCS.RSA` 파일(5,453바이트, Git blob `aa52f21923c946644d864d0adb770c642c43f697`) 존재만 확인. **RSA PKCS#7 전자서명 유효성은 확인하지 않았다.** 공식 Mojang 배포 `client.jar`의 전체 SHA-1+크기 및 공식 버전 메타데이터 검증도 **미완료 0/9**. 인게임 정적 관찰 **0/9**.
+- R001의 2,304 RGBA 픽셀, R002의 색상쌍 36개/이음매 9개, R003의 모델/UV 54면은 **계승만** 하며 신규 연구량에 중복 가산하지 않는다.
+- 다음 **`TEX04-R005` 예정**: 작업 전 반드시 `STATE.json` SHA/current/next/새 폴더 존재 여부 재확인. 가능하다면 PKCS#7 서명 실물 유효성→Mojang 공식 version JSON→원본 전체 JAR SHA1/size→9개 PNG 추출→인게임 정적 증거 순으로 진행. 새 근거 없으면 버전 증가 금지.
+- 애니메이션·프레임 연구 보류, 실제 가구 3D 제작·PZ 변환 제외. 기존 R001~R003, 타 1-1 단계, 루트 `HANDOFF.md`/`PROGRESS.md`/`handoff/STATE.json`, 전역 `v38` **수정하지 않음**.
 
 ## TEX04-R003 사용자 제공 1.21.11 추출본 우선 검증 (2026-11-13)
 
