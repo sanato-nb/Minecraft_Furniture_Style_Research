@@ -1,14 +1,23 @@
 # 인수인계 · Minecraft Furniture Style Research
 
 > **새 채팅 진입점 / 단일 인수인계 기준 문서**  
-> 최종 확인일: **2026-11-13 (KST)** · 현재 체크포인트: **v37**
+> 최종 확인일: **2026-11-13 (KST)** · 현재 체크포인트: **v38**
 
 **사용자 최신 작업 지시(2026-11-13): 애니메이션 분석은 일단 보류.** 새로운 애니메이션 프레임 해독, 키프레임·클립 분석, 움직임 재현 및 애니메이션 인게임 검증을 진행하지 않는다. 기존 v9/v26/v31 애니메이션 관련 기록은 삭제하지 않고 보존하되, 새로운 진행도에 포함하지 않는다. 우선순위는 **정적 바닐라 3D 모델·기하·텍스처·UV·블록 상태·정적 렌더링 검증·공식 원본 무결성**이다. 애니메이션 연구는 사용자가 명시적으로 재개를 요청할 때까지 유지 보류.  
 > 저장소: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research  
 > **새 채팅에서 먼저 이 문서, [PROGRESS.md](PROGRESS.md), [SOURCES_AND_LIMITS.md](SOURCES_AND_LIMITS.md)를 읽고 기존 작업을 이어간다.**
 
 
-## v37 최신 — 정적 원본 PNG·기하 UV 근거 연결 (2026-11-13)
+## v38 최신 — 참나무 선반 7 leaf/7 template·32 정적 상태·38 UV 원본 실화소 (2026-11-13)
+
+- [v38 오크 선반 상세 보고서](research/vanilla_models/v38/00_v38_오크선반7리프7부모_32상태_38UV실화소분석.md) · [리프/부모 7+7 SHA·기하](research/vanilla_models/v38/01_oak_shelf_7_leaf_7_template_source_sha_geometry.csv) · [원본 38 UV면](research/vanilla_models/v38/02_oak_shelf_38_original_declared_faces_explicit_uv.csv) · [24 multipart 규칙](research/vanilla_models/v38/03_oak_shelf_24_original_blockstate_multipart_rules.csv) · [32 상태 전수 평가](research/vanilla_models/v38/04_oak_shelf_32_static_blockstate_combinations_evaluated.csv) · [2 PNG 원본 검사](research/vanilla_models/v38/05_oak_shelf_2_original_png_pillow_rgba_crc_sha.csv) · [38면 전 화소 실측](research/vanilla_models/v38/06_oak_shelf_38_face_original_png_uv_rgba_regions.csv).
+- v36 P1 544 후보 중 `oak_shelf` **7 leaf를 직접 원본 SHA 확인**(v36 일치 7/7), 템플릿 7 부모·공통 block 부모·블록 상태 1·item 에셋 1 확인. v35~v38 **선택 리프 신규 직접 검사 28개**(v35 15, v36 6, v38 7), 다만 v5~v34와 전체 중복 대조를 마친 완료율은 아님.
+- 부모 원본 선언 **11 elements/38 faces**(7개 모델 합), **38/38 explicit UV**, UV X반전 8/Y반전 8, `cullface` 23, 0두께 앞면 패널 5. 한 월드 상태에서는 본체 3요소·15면 + 전면 1요소·1면 = **4요소·16면**, inventory 모델 별도 3요소·18면. 얕은 본체 깊이 z11–16 = 5/16블록.
+- `multipart` 소스 **24 규칙** / 소스 속성 `facing` 4 × `powered` 2 × `side_chain` 4 = **32 조합 모두 정확히 본체+전면 패널 2모델** 선택됨. 실제 게임에서의 모든 상태 전이 가능성/정적 렌더 결과는 미검증.
+- 원본 PNG 2개 `oak_shelf` 32×32 + `stripped_oak_log` 16×16을 **Pillow 전체 RGBA·PNG CRC로 독립 검사, 원본 1,280픽셀 전부 불투명**, v34 PNG SHA 2/2 일치. 38면 전부 `oak_shelf.png` 한 장 사용 (`stripped_oak_log`는 `#particle` 전용); 원본 UV 크롭 실제 **2,304 texel-uses 모두 불투명**, 고유 UV 사각형 19종(중복 포함 사용횟수와 원본 픽셀 수 구별).
+- 공식 Mojang client.jar 무결성·실제 게임 UV/정적 연결 표시·컬링·조명 검증 **미완료**. 애니메이션 계속 보류, 기존 v24 가구 모드 누계·역사 자료 보존, 상위 1단계 5개 세부과제 완료 **0/5**, P1/프로젝트 완료율 미계산.
+
+## v37 이전 체크포인트 — 정적 원본 PNG·기하 UV 근거 연결 (2026-11-13)
 
 - [v37 실제 원본 화소·UV 검증 보고서](research/vanilla_models/v37/00_v37_화로용광로훈연기_정적11PNG_34면실화소_분석보고서.md) · [정적 원본 PNG11종 CRC·Adler·RGBA](research/vanilla_models/v37/01_eleven_static_png_original_rgba_crc_adler.csv) · [34면 실화소/2면 애니메이션 보류](research/vanilla_models/v37/02_six_leaf_36_face_material_static_png_rgba_vs_deferred.csv) · [요약 JSON](research/vanilla_models/v37/v37_static_furnaces_png_pixels_summary.json).
 - v36 원본 화로·용광로·훈연기 6 leaf의 텍스처 참조 13종 중 **정적 11 PNG 파일 원본 바이너리 전체 RGBA 2,816픽셀을 직접 해독**(불투명2,816/투명0/반투명0). v34 원본 PNG SHA 11/11 일치, 모든 PNG 청크 CRC32 및 zlib Adler32 검증 성공.
