@@ -1,6 +1,17 @@
 # 1-1-04 — 직물·양털 전용 채팅 인수인계
 
-> **현재 단계 고유 버전: `TEX04-R007` (2026-11-13)** · 다음 후보 `TEX04-R008` · 전체 역사적 v38 불변.
+> **현재 단계 고유 버전: `TEX04-R008` (2026-11-13)** · 정적 소스 연구 게이트: **사용자 인게임 증거 대기** · 다음 후보 `TEX04-R009` · 전체 v38 불변.
+
+## TEX04-R008 — 초록 양털 B채널 1단계 계단·73건 원인·이중 지표 검증 (2026-11-13)
+
+- [R008 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R008/REPORT.md) · [Green RGB 4레벨](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R008/GREEN_RGB_4_LEVELS.csv) · [명도 36색상쌍 이중 지표](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R008/DUAL_METRIC_36_COLOUR_PAIRS.csv) · [재현 코드](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R008/REPRODUCE_R008.py).
+- 기존 사용자 추출 원본 9개를 SHA-256/PNG CRC/Git blob SHA로 재대조. 신규 고유 PNG 0, 고유 2,304픽셀·54 faces는 계승만.
+- R007 73개 역전은 **초록 양털 R,G가 같고 B가 1만 다른 두 RGB값쌍**(G1 9 위치쌍×3색=27건 / G2 7 위치쌍×6색+blue 추가 4건=46건)에서 전부 발생. 총 14개 좌표, 16개 위치쌍.
+- encoded-RGB 명도 및 sRGB EOTF 적용 후 선형광 Y 각각 36색쌍 전체 비교: **73개 동일한 역전 인덱스**. 게임 렌더러 인증이나 제작자 의도 증거는 아님.
+- **이제 현재 보유 자료만으로 신규 정적 파일 검증을 계속 반복하지 않음. 사용자 1.21.11 실제 게임 9색 양털 정적 스크린샷 및 버전·리소스팩/셰이더 정보가 필요**. 인게임 검증 0/9, 소스 검증 완료와 구분.
+- 다음 R009는 해당 인게임 증거 또는 진짜 새로운 정적 원본/반례 확보 시에만 수행. 애니메이션/PZ/가구 모델링·다른 1-1 단계 보류.
+
+---
 
 ## TEX04-R007 — 양털 전체 명도 순위 반례·주기 이동 (2026-11-13)
 

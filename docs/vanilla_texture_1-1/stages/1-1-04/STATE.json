@@ -7,10 +7,10 @@
   "stage_id": "1-1-04",
   "material_family": "직물·양털",
   "stage_prefix": "TEX04",
-  "current_revision": "TEX04-R007",
-  "next_revision": "TEX04-R008",
-  "revision_sequence": 7,
-  "revision_status": "R007_user_extracted_9_png_36global_rank_73inversions_2295_toroidal_periodicity",
+  "current_revision": "TEX04-R008",
+  "next_revision": "TEX04-R009",
+  "revision_sequence": 8,
+  "revision_status": "R008_green_quantization_two_RGB_groups_73_inversions_dual_metric_confirmed_await_user_static_ingame_evidence",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 9,
@@ -59,23 +59,25 @@
       "title": "C RGBA·밝기·알파·반복 정량 검사",
       "status": "measured_rgba_16x16_9_of_9_2304_pixels",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX04-R007",
+      "last_revision": "TEX04-R008",
       "note_r002": "New 36 pairwise 256-pixel luma spatial comparisons and nine opposite-edge seam comparisons",
       "note_r003": "R001 RGBA 2304 pixels reused without recount, user extracted bytes identical to legacy mirror 9/9",
       "note_r004": "R001-R002 RGBA and spatial pattern measurements reused, no new pixel/color counts",
       "note_r005": "Existing 2304 unique pixels reused; new per-colour affine RGB residual and D4 transform metrics on same 9 sources",
-      "note_r007": "Nine existing PNG SHA256 and CRC verified again, 2,304 unique pixels inherited not added"
+      "note_r007": "Nine existing PNG SHA256 and CRC verified again, 2,304 unique pixels inherited not added",
+      "note_r008": "Existing 9 user PNG Git blobs + SHA256 + CRC rechecked; original unique 2304 pixels inherited, new unique source PNG=0."
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
       "status": "D1_D2_numeric_9_of_9_D3_hypothesis_separated",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX04-R007",
+      "last_revision": "TEX04-R008",
       "note_r002": "Near-identical luma rank layouts across colors; PNG palette indices not interchangeable RGB; horizontal edges show higher delta than internal horizontal neighbors",
       "note_r003": "D1/D2 from R001/R002 remain valid for identical user supplied PNG bytes, D3 source fact/hypothesis separated",
       "note_r004": "D1-D3 previously completed; no new material property claims",
       "note_r005": "36 colour-pair horizontal/vertical nonzero gradient sign comparisons 16404 of 16404 concordant; 876 candidates excluded on zero differences",
-      "note_r007": "Global rank 36 pairs x32640 positions, 73 non-local inversions; 9×255 cyclic shifts strongest at 8,8 with no exact period"
+      "note_r007": "Global rank 36 pairs x32640 positions, 73 non-local inversions; 9×255 cyclic shifts strongest at 8,8 with no exact period",
+      "note_r008": "All 73 previous rank inversions classified as two green equal R/G B±1 palette steps: G1 27 and G2 46; encoded and linear Y rank inversions exactly equal."
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
@@ -98,9 +100,9 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "saved_TEX04_R007_global_rank_periodicity_reproducible",
+      "status": "saved_TEX04_R008_and_awaiting_user_controlled_1_21_11_static_game_screenshots",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX04-R007"
+      "last_revision": "TEX04-R008"
     }
   },
   "material_specific_checks": [
@@ -597,15 +599,41 @@
       "report_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R007/REPORT.md",
       "summary_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R007/SUMMARY.json",
       "reproduce_script": "research/vanilla_textures/by_stage/1-1-04/TEX04-R007/REPRODUCE_R007.py"
+    },
+    {
+      "revision": "TEX04-R008",
+      "kind": "source_derived_green_wool_blue_channel_single_step_causes_73_inversion_events_dual_metric_recheck",
+      "new_unique_pngs": 0,
+      "new_unique_rgba_pixels": 0,
+      "previous_2304_source_pixels_reused": true,
+      "new_uv_faces": 0,
+      "source_png_sha256_crc_and_github_blob_rechecked": 9,
+      "green_rgb_groups": 2,
+      "green_levels": 4,
+      "coordinate_count": 14,
+      "position_pair_count": 16,
+      "G1_inversion_events": 27,
+      "G2_inversion_events": 46,
+      "encoded_Y_inversions": 73,
+      "linear_Y_inversions": 73,
+      "rank_inversion_indices_identical": true,
+      "new_RGB_at_14_positions_9_colors_audit_rows": 126,
+      "official_jar_SHA1_required": false,
+      "official_jar_verified": 0,
+      "ingame_static_verified": 0,
+      "needs_user_ingame_static_screenshot": true,
+      "report_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R008/REPORT.md",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R008/SUMMARY.json",
+      "reproducer_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R008/REPRODUCE_R008.py"
     }
   ],
   "next_steps": [
-    "Before any R008 re-read live 1-1-04 STATE/HANDOFF, main HEAD and check next folder absent",
-    "R007 green-containing colour comparisons have 73 nonlocal rank reversals (not contradicted by R005 adjacent-gradient concordance)",
-    "R007 9x255 toroidal shift scores peak at (8,8) without any exact nonorigin period; do not equate to real game tiling screenshot",
-    "Actual controlled static 1.21.11 game screenshot required for ingame 0/9 to increase",
-    "Existing nine PNG/2304 pixel/54 face reused, not newly added. Official whole JAR SHA1 and official metadata excluded from mandatory scope, not authenticated.",
-    "Animation and other 1-1 stages, Project Zomboid conversion, 3D furniture modeling excluded"
+    "STOP source-only iterative relabeling: new user proof is needed for 1.21.11 actual game static visual verification of all 9 coloured wool blocks",
+    "Ask for 1.21.11 in-game 9 wool colours visible screenshot(s), version visible/attested, and resource-pack/shader state before claiming in-game 1/9 or 9/9",
+    "Before TEX04-R009, re-fetch live STATE/HANDOFF and main HEAD, check next revision folder absent; make new immutable revision only for genuinely new source or in-game evidence",
+    "Retain previous R001-R007 2304 original pixels, 54 model faces and prior 73 inverted comparisons; do not duplicate original counts",
+    "Official Mojang client.jar SHA1 and metadata are out of mandatory denominator, not authenticated",
+    "Animation, other 1-1 stages, Project Zomboid conversion and furniture 3D modeling remain out of scope"
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -714,5 +742,11 @@
   "r007_global_rank_candidate": 1175040,
   "r007_comparable": 1130924,
   "r007_discordant": 73,
-  "r007_period_shift_count": 2295
+  "r007_period_shift_count": 2295,
+  "r008_new_unique_texture_count": 0,
+  "r008_inversion_palette_groups": 2,
+  "r008_rgb_levels": 4,
+  "r008_inversion_coordinates_involved": 14,
+  "r008_inversion_dual_metric_same": true,
+  "r008_ingame_user_evidence_required": true
 }
