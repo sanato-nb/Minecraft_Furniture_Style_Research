@@ -7,10 +7,10 @@
   "stage_id": "1-1-09",
   "material_family": "토양·지면",
   "stage_prefix": "TEX09",
-  "current_revision": "TEX09-R003",
-  "next_revision": "TEX09-R004",
-  "revision_sequence": 3,
-  "revision_status": "R003_user_supplied_extracted_png_9_sha_crc_equal_mirror__26_json_equal__official_ingame_pending",
+  "current_revision": "TEX09-R004",
+  "next_revision": "TEX09-R005",
+  "revision_sequence": 4,
+  "revision_status": "R004_user_extraction_grass_overlay_45_opaque_211_transparent_snow_white16__official_ingame_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 9,
@@ -48,39 +48,39 @@
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R003_user_extracted_png_9of9_sha256_crc_and_mirror_byte_equivalence",
+      "status": "R004_auxiliary_png2_binary_blob_sha_and_RGBA_decoded_prior_target9_maintained",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R003"
+      "last_updated_revision": "TEX09-R004"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R003_previous_R001_pixel_metrics_reused_by_binary_equivalence_not_new_count",
+      "status": "R004_overlay_alpha45opaque211transparent_snow_white16__target9_pixel_metrics_from_R001_preserved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R003"
+      "last_updated_revision": "TEX09-R004"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R003_D1_D2_prior_pixel_metrics_preserved_D3_user_json_tint_and_support_context_crosschecked__ingame_pending",
+      "status": "R004_D3_user_overlay_alpha_mask_and_snow_static_pixel_masks_measured_tint_ingame_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R003"
+      "last_updated_revision": "TEX09-R004"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R003_user_extracted_9_blockstates_9_selected_models_8_support_models_verified_equal_mirror",
+      "status": "R004_grass_podzol_snow_variants_four_face_connection_audited_existing_json",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R003"
+      "last_updated_revision": "TEX09-R004"
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_no_original_client_jar_sha1_no_mojang_direct_manifest_no_ingame",
+      "status": "pending_official_original_client_jar_sha1_and_ingame_tint_or_snow_render",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R003"
+      "last_updated_revision": "TEX09-R004"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R003_source_ledger_and_report_summary_handoff_saved",
+      "status": "done_R004_overlay_rows_visible_coordinates_snow_pixels_variant_connections_and_handoff",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R003"
+      "last_updated_revision": "TEX09-R004"
     }
   },
   "material_specific_checks": [
@@ -99,8 +99,8 @@
     {
       "id": "D3",
       "check": "grass/podzol PNG와 인게임 tint·주변 블록 효과 구분",
-      "status": "user_extracted_models_tint_context_checked_ingame_pending",
-      "last_verified_revision": "TEX09-R003"
+      "status": "user_extracted_overlay_alpha45_snow_opaque_and_tint_source_checked_ingame_pending",
+      "last_verified_revision": "TEX09-R004"
     }
   ],
   "items": [
@@ -300,14 +300,27 @@
       "report_path": "research/vanilla_textures/by_stage/1-1-09/TEX09-R003/REPORT.md",
       "official_jar_verified": 0,
       "ingame_static_verified": 0
+    },
+    {
+      "revision": "TEX09-R004",
+      "kind": "user_extraction_auxiliary_grass_overlay_alpha_and_snow_side_pixel_audit",
+      "source_files_reviewed_as_new": 0,
+      "source_support_png_pixels_newly_analyzed": 2,
+      "overlay_opaque_texels_saved": 45,
+      "snow_white_texels_saved": 16,
+      "mask_rows": 16,
+      "variant_model_connections": 4,
+      "report_path": "research/vanilla_textures/by_stage/1-1-09/TEX09-R004/REPORT.md",
+      "official_jar_verified": 0,
+      "ingame_static_verified": 0
     }
   ],
   "next_steps": [
-    "At next chat start, re-read STATE.json and HEAD; expected next TEX09-R004 only if R003 remains latest",
-    "Obtain the whole original JAR and verify official Mojang metadata + SHA-1 independently before marking official",
-    "Obtain actual static game captures for grass/podzol tint, snowy state, surrounding blocks and lighting",
-    "Preserve nine-stage texture scope; supporting images may remain context only, not counted toward target",
-    "Do not perform animation study or modify other stage and global v38 files"
+    "Re-read STATE.json and HEAD; expected next R005 if latest unchanged",
+    "For F, independently acquire original Mojang client.jar and compare SHA-1 against official version metadata; user extraction alone does not authenticate the JAR",
+    "Collect static game screenshots in known biome for grass/podzol overlay tint, snowy=true model, lighting and adjacent block overlays",
+    "Do not count context support textures as additional target samples; target stays 9",
+    "Animation research deferred; no Zomboid conversion or 3D furniture production; global v38 unchanged"
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -352,5 +365,34 @@
       "verified_target_count": 0
     },
     "animation_study_deferred": true
+  },
+  "supporting_source_pixel_verification": {
+    "source": "1.21.11/assets/minecraft/textures/block/",
+    "overlay_png_pixel_decoded": true,
+    "overlay_opaque_pixels": 45,
+    "overlay_transparent_pixels": 211,
+    "overlay_visible_row_counts": [
+      16,
+      15,
+      11,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "snow_side_png_pixel_decoded": true,
+    "snow_side_white_pixels": 16,
+    "snow_side_opaque_pixels": 256,
+    "podzol_top_reread_not_new": true,
+    "ingame_color_verified": false
   }
 }

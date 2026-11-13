@@ -1,6 +1,6 @@
 # 1-1-09 — 토양·지면 별도 채팅 인수인계
 
-> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 단계 버전 **`TEX09-R003` (사용자 제공 JAR 추출본 9 PNG·26 JSON·보조 PNG 5 교차 검증)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
+> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 단계 버전 **`TEX09-R004` (잔디 측면 오버레이 알파·눈 측면 픽셀 정적 검사)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 ## 연구 목표와 정확한 표본
 
@@ -52,7 +52,7 @@
 ## 버전 상태·저장 경로·갱신 규칙
 
 - 최초 **`TEX09-R000`**는 계획, **R001**은 미러 PNG 실측, **R002**는 정적 UV/회전, **R003**은 사용자 제공 JAR 추출본의 9개 PNG·26개 JSON 교차 검증. 공식/인게임 0.
-- 이번 출처 보강 결과: **`TEX09-R003`**; 경로 `research/vanilla_textures/by_stage/1-1-09/TEX09-R003/`. 다음 후보 `TEX09-R004` (시작 전 STATE 재검증).
+- 최신 추가 소스 검사: **`TEX09-R004`**; 경로 `research/vanilla_textures/by_stage/1-1-09/TEX09-R004/`. 다음 후보 `TEX09-R005` (시작 전 STATE 재검증).
 - 이 단계 진행 관리: [STATE.json](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/docs/vanilla_texture_1-1/stages/1-1-09/STATE.json)와 이 `HANDOFF.md`만 단계 자체 채팅에서 갱신.
 - 다른 번호 단계의 `STATE/HANDOFF` 및 루트 프로젝트 공통 체크포인트·진행 문서는 **수정 금지**. 통합 시 최종 집계 담당자가 별도로 확인.
 - 소스 증거의 신뢰도는 최소 `legacy_only`, `mirror_sha_pixel_checked`, `official_jar_authenticated`, `ingame_static_verified`로 구분하되, 서로 상충·불충분하면 `pending` 유지.
@@ -97,3 +97,12 @@
 - **보조 PNG 5개**: 잔디 측면/오버레이/눈, 포드졸 측면, `colormap/grass.png`의 출처 비교만 수행. 9개 공식 단계 표본에 추가하지 않음. 색맵 파일 존재가 곧 인게임 tint RGB 증명은 아님.
 - **분리할 검증 4종:** (1) 사용자 추출본 9 PNG·26 JSON (검증), (2) 미러 교차 검사 (일치), (3) Mojang 공식 JAR SHA-1 및 메타데이터 인증 (미완료), (4) 실제 인게임 정적 렌더 (미완료).
 - **현재 R003, 다음 R004 후보**. 추가 커밋 전 최신 `STATE.json`의 revision/SHA와 HEAD를 다시 확인할 것. R001/R002 불변; `v38`와 타 단계 파일 건드리지 말 것. 애니메이션 전면 보류.
+
+
+## TEX09-R004 — 사용자 추출본 보조 PNG의 알파·눈 측면 분석 (2026-11-13)
+
+- [R004 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R004/REPORT.md), [오버레이 16행 알파 마스크](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R004/GRASS_OVERLAY_MASK_ROWS.csv), [불투명 화소 45건](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R004/GRASS_OVERLAY_VISIBLE_TEXELS.csv), [눈 측면 순백 화소 16건](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R004/SNOW_WHITE_TEXELS.csv), [PNG 재질 측정](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R004/AUXILIARY_TEXTURE_METRICS.csv), [눈 상태 4조합 모델 연결](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R004/STATIC_VARIANT_FACE_CONNECTIONS.csv), [요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R004/SUMMARY.json).
+- 기존 **정확한 9개 타깃** 유지. 이번 **2개 보조 PNG만 새로 실제 디코드**: 잔디 오버레이 16×16 중 불투명 45/투명 211, y=0..3에만 분포 (행별 16/15/11/3), 불투명 회색 16종; 눈 측면 256/256 불투명, 순백 16픽셀·고유 RGB 17종. 포드졸 상단은 이전에 계상된 원본을 재확인만 함.
+- `grass_block`의 base cube 6면+overlay cube 4면, `tintindex:0`의 출처 및 grass/podzol snowy 상태의 `grass_block_snow` 연결을 사용자 JSON에서 확인. **알파/소스 연결만으로 실제 바이옴 RGB·조명·장면을 확정하지 않음**.
+- **공식 JAR 인증 0/9, 인게임 정적 검증 0/9**, 애니메이션 보류. R001/R002/R003 불변, 전체 `v38` 및 다른 단계 파일 미수정.
+- **현재 `TEX09-R004`, 다음 `TEX09-R005` 후보**. 다음 작업 전 `STATE.json`과 HEAD를 반드시 재읽어 충돌 방지.
