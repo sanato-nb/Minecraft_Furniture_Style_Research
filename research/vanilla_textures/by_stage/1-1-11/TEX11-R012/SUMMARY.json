@@ -1,0 +1,43 @@
+{
+  "revision": "TEX11-R012",
+  "date": "2026-11-13",
+  "stage": "1-1-11",
+  "kind": "administrative_user_directed_scope_change_no_new_source_measurements",
+  "user_decision": "Exclude Minecraft in-game validation because existing source models/textures are sufficient for user's source-only research goal.",
+  "source_only_criteria": [
+    "user-provided extracted original PNG CRC/RGBA integrity",
+    "model JSON parent/texture slot/UV/geometry static model faces",
+    "blockstate JSON state-to-model source mapping and orientation",
+    "material-specific source-only UV, seam, color, alpha measurements and immutable evidence"
+  ],
+  "source_only_results": {
+    "verified_source_png_count": 31,
+    "fixed_source_png_denominator": 31,
+    "full_source_model_face_patches_from_R009_R010_R011": 596,
+    "full_source_model_face_UV_texel_reference_uses_from_R009_R010_R011": 68960,
+    "source_only_completion_status": "complete_for_fixed_31_PNG_scope"
+  },
+  "explicitly_not_required": {
+    "in_game_static_render_validation": true,
+    "official_Mojang_original_JAR_SHA1_certification": true
+  },
+  "preserved_in_game_historical_data": {
+    "in_game_static_verified_pngs": 0,
+    "scope_pngs": 31,
+    "validation_was_not_performed": true,
+    "counts_toward_completion": false
+  },
+  "no_new_evidence": {
+    "new_PNGs": 0,
+    "new_JSON_model_leaf_files": 0,
+    "new_source_RGBA_pixel_measurements": 0
+  },
+  "still_out_of_scope": [
+    "animation",
+    "actual furniture 3D asset production",
+    "Project Zomboid conversion",
+    "global v38 changes",
+    "other 1-1 stages"
+  ],
+  "next_bare_continue_policy": "Stop and report fixed source-only scope completed; no game screenshot needed. Continue only on new independent explicit task/source."
+}
