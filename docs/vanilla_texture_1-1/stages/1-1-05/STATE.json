@@ -7,10 +7,10 @@
   "stage_id": "1-1-05",
   "material_family": "유리",
   "stage_prefix": "TEX05",
-  "current_revision": "TEX05-R004",
-  "next_revision": "TEX05-R005",
-  "revision_sequence": 4,
-  "revision_status": "R004_static_resources_verified_official_jar_auth_out_of_scope_by_user_policy_ingame_pending",
+  "current_revision": "TEX05-R005",
+  "next_revision": "TEX05-R006",
+  "revision_sequence": 5,
+  "revision_status": "R005_user_extracted_png_encoding_alpha_topology_checked_ingame_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 6,
@@ -48,21 +48,21 @@
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "user_supplied_static_auxiliary_4_paths_checked_mirror_4_same_existing_pngs_not_recounted",
+      "status": "user_extracted_6_png_IHDR_color_type_SHA_CRC_reverified_r005_existing_sources_not_recounted",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX05-R004"
+      "last_evidence_revision": "TEX05-R005"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R001_png_rgba_1536_pixels_measured_r003_bytes_identical_not_recounted",
+      "status": "R001_rgba_1536_pixels_kept_r005_existing_six_png_decoded_no_new_pixel_count",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX05-R002"
+      "last_evidence_revision": "TEX05-R005"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "D1_D2_original_rgba_and_glass_mcmeta_static_mipmap_mean_examined_D3_pending",
+      "status": "R005_bit_alpha_frame_high_alpha_4_connected_topology_all_6_static_mean_proxy_only_D3_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX05-R004"
+      "last_evidence_revision": "TEX05-R005"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
@@ -80,9 +80,9 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "evidence_report_written_TEX05_R004",
+      "status": "evidence_report_written_TEX05_R005",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX05-R004"
+      "last_evidence_revision": "TEX05-R005"
     }
   },
   "material_specific_checks": [
@@ -94,7 +94,7 @@
     {
       "id": "D2",
       "check": "윤곽·모서리와 투명 구멍의 실제 픽셀 위치",
-      "status": "mirror_alpha_masks_and_cross_edge_rgba_reverified_6_of_6"
+      "status": "R005_user_extracted_six_png_high_alpha_4_connected_border_topology_verified"
     },
     {
       "id": "D3",
@@ -112,7 +112,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX05-R004",
+      "last_verified_revision": "TEX05-R005",
       "evidence_status": "user_extracted_png_models_block_atlas_sidecar_inventory_static_shader_source_only_official_ingame_pending",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "cb89c706dce86eac3123cef087d359b5f23098b658a468fb91662b4a9922bcd0",
@@ -129,7 +129,21 @@
       "static_block_atlas_directory_rule_checked": true,
       "static_shader_program_seen_not_necessarily_bound": true,
       "png_mcmeta_exists": true,
-      "png_mcmeta_mipmap_strategy": "mean"
+      "png_mcmeta_mipmap_strategy": "mean",
+      "png_ihdr_color_type": 6,
+      "png_ihdr_bit_depth": 8,
+      "png_4_connected_high_alpha_components": [
+        60,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "png_high_alpha_outer_border_count": 60,
+      "png_topology_reverified_revision": "TEX05-R005",
+      "png_sha_crc_rechecked_revision": "TEX05-R005",
+      "png_proxy_mip_not_runtime_verified": true
     },
     {
       "item_id": "1-1-05-002",
@@ -140,7 +154,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX05-R004",
+      "last_verified_revision": "TEX05-R005",
       "evidence_status": "user_extracted_png_models_block_atlas_sidecar_inventory_static_shader_source_only_official_ingame_pending",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "4520f85fee79972191217d623c8b38522cacf74cb7c71113c0a6240d3b1f2ad2",
@@ -157,7 +171,21 @@
       "static_block_atlas_directory_rule_checked": true,
       "static_shader_program_seen_not_necessarily_bound": true,
       "png_mcmeta_exists": false,
-      "png_mcmeta_not_found": true
+      "png_mcmeta_not_found": true,
+      "png_ihdr_color_type": 6,
+      "png_ihdr_bit_depth": 8,
+      "png_4_connected_high_alpha_components": [
+        60,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "png_high_alpha_outer_border_count": 60,
+      "png_topology_reverified_revision": "TEX05-R005",
+      "png_sha_crc_rechecked_revision": "TEX05-R005",
+      "png_proxy_mip_not_runtime_verified": true
     },
     {
       "item_id": "1-1-05-003",
@@ -168,7 +196,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX05-R004",
+      "last_verified_revision": "TEX05-R005",
       "evidence_status": "user_extracted_png_models_block_atlas_sidecar_inventory_static_shader_source_only_official_ingame_pending",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "62c705812949f0372dcc2fa82a5d89f7028ba1d9b3bd38765613e344f34f5b1c",
@@ -185,7 +213,21 @@
       "static_block_atlas_directory_rule_checked": true,
       "static_shader_program_seen_not_necessarily_bound": true,
       "png_mcmeta_exists": false,
-      "png_mcmeta_not_found": true
+      "png_mcmeta_not_found": true,
+      "png_ihdr_color_type": 4,
+      "png_ihdr_bit_depth": 8,
+      "png_4_connected_high_alpha_components": [
+        60,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "png_high_alpha_outer_border_count": 60,
+      "png_topology_reverified_revision": "TEX05-R005",
+      "png_sha_crc_rechecked_revision": "TEX05-R005",
+      "png_proxy_mip_not_runtime_verified": true
     },
     {
       "item_id": "1-1-05-004",
@@ -196,7 +238,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX05-R004",
+      "last_verified_revision": "TEX05-R005",
       "evidence_status": "user_extracted_png_models_block_atlas_sidecar_inventory_static_shader_source_only_official_ingame_pending",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "7d6cfe98ddc5d975b3bcf5f9cffc008f90db94d5d981ef440f7b68e8267ae247",
@@ -213,7 +255,21 @@
       "static_block_atlas_directory_rule_checked": true,
       "static_shader_program_seen_not_necessarily_bound": true,
       "png_mcmeta_exists": false,
-      "png_mcmeta_not_found": true
+      "png_mcmeta_not_found": true,
+      "png_ihdr_color_type": 6,
+      "png_ihdr_bit_depth": 8,
+      "png_4_connected_high_alpha_components": [
+        60,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "png_high_alpha_outer_border_count": 60,
+      "png_topology_reverified_revision": "TEX05-R005",
+      "png_sha_crc_rechecked_revision": "TEX05-R005",
+      "png_proxy_mip_not_runtime_verified": true
     },
     {
       "item_id": "1-1-05-005",
@@ -224,7 +280,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX05-R004",
+      "last_verified_revision": "TEX05-R005",
       "evidence_status": "user_extracted_png_models_block_atlas_sidecar_inventory_static_shader_source_only_official_ingame_pending",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "dc82be445bd9c7cf158bd57651d51bfef400310f2ad4937fe1e5b1c60b4f5916",
@@ -241,7 +297,21 @@
       "static_block_atlas_directory_rule_checked": true,
       "static_shader_program_seen_not_necessarily_bound": true,
       "png_mcmeta_exists": false,
-      "png_mcmeta_not_found": true
+      "png_mcmeta_not_found": true,
+      "png_ihdr_color_type": 6,
+      "png_ihdr_bit_depth": 8,
+      "png_4_connected_high_alpha_components": [
+        60,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "png_high_alpha_outer_border_count": 60,
+      "png_topology_reverified_revision": "TEX05-R005",
+      "png_sha_crc_rechecked_revision": "TEX05-R005",
+      "png_proxy_mip_not_runtime_verified": true
     },
     {
       "item_id": "1-1-05-006",
@@ -252,7 +322,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX05-R004",
+      "last_verified_revision": "TEX05-R005",
       "evidence_status": "user_extracted_png_models_block_atlas_sidecar_inventory_static_shader_source_only_official_ingame_pending",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "2d4504957fa123a6e9f35d93e05f94fb053ec213541f01fcecbc0097eaa5df75",
@@ -269,7 +339,21 @@
       "static_block_atlas_directory_rule_checked": true,
       "static_shader_program_seen_not_necessarily_bound": true,
       "png_mcmeta_exists": false,
-      "png_mcmeta_not_found": true
+      "png_mcmeta_not_found": true,
+      "png_ihdr_color_type": 4,
+      "png_ihdr_bit_depth": 8,
+      "png_4_connected_high_alpha_components": [
+        60,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "png_high_alpha_outer_border_count": 60,
+      "png_topology_reverified_revision": "TEX05-R005",
+      "png_sha_crc_rechecked_revision": "TEX05-R005",
+      "png_proxy_mip_not_runtime_verified": true
     }
   ],
   "revisions": [
@@ -478,5 +562,17 @@
       "new_value": "out_of_scope",
       "reason": "explicit user instruction: 공식 인증 빼"
     }
-  ]
+  ],
+  "r005_reverified_existing_png_count": 6,
+  "r005_new_unique_source_paths": 0,
+  "cumulative_unique_static_asset_paths": 31,
+  "r005_high_alpha_4_connected_component_sizes": [
+    60,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "r005_mipmap_proxy_not_actual_game_mip": true
 }

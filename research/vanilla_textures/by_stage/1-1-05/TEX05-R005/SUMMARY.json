@@ -1,0 +1,93 @@
+{
+  "schema": "tex05-png-encoding-alpha-topology-r005/v1",
+  "stage_id": "1-1-05",
+  "revision": "TEX05-R005",
+  "previous": "TEX05-R004",
+  "date": "2026-11-13",
+  "source_priority": "user_provided_1.21.11_extracted_png_bytes",
+  "global_checkpoint_unchanged": "v38",
+  "fixed_texture_paths": 6,
+  "raw_pngs_re_read_and_sha_crc_reverified": 6,
+  "raw_png_unique_new_paths": 0,
+  "cumulative_unique_static_asset_paths_unchanged": 31,
+  "prior_rgba_pixels_not_new": 1536,
+  "prior_model_uv_faces_not_new": 36,
+  "new_measured_fields_per_png": [
+    "IHDR_color_type_and_bit_depth",
+    "4_connected_high_alpha_components",
+    "border_high_alpha_count",
+    "2x2_nonoverlapping_arithmetic_alpha_proxy"
+  ],
+  "storage_format": {
+    "grayscale_alpha_8bit": [
+      "black_stained_glass",
+      "white_stained_glass"
+    ],
+    "rgba_8bit": [
+      "glass",
+      "red_stained_glass",
+      "blue_stained_glass",
+      "green_stained_glass"
+    ]
+  },
+  "topology": {
+    "high_alpha_thresholds": {
+      "glass": "a==255",
+      "stained_glass": "a>=155"
+    },
+    "six_paths_mask_identical": true,
+    "components_4_connected": [
+      60,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "outer_border_high_alpha_pixels": 60,
+    "isolated_interior_pixels": 5,
+    "mask_mismatch_vs_glass_each": 0
+  },
+  "proxy_2x2_alpha_mipmap_not_game": {
+    "glass": {
+      "min": 0,
+      "max": 191.25,
+      "unique_values": 4
+    },
+    "stained_5_each": {
+      "min": 102,
+      "max": 147.75,
+      "unique_values": 5
+    },
+    "actual_mipmap_verified": false
+  },
+  "inherited_static_source": {
+    "glass_png_mcmeta_mipmap_strategy": "mean",
+    "other_stained_mcmeta_absent": 5,
+    "atlas_and_block_shaders_from_previous_revision": true
+  },
+  "verification": {
+    "user_extracted_pngs_shas_and_crcs": 6,
+    "unique_new_source_files": 0,
+    "actual_ingame_static_render_count": 0,
+    "mojang_jar_whole_auth": "out_of_scope_by_user_instruction"
+  },
+  "does_not_prove": [
+    "actual_texture_mipmap_generation",
+    "shader_selected_for_glass",
+    "alpha_cutout_activation",
+    "transparent_sorting_or_blending",
+    "in_game_visibility_and_culling"
+  ],
+  "animation_deferred": true,
+  "zomboid_conversion_excluded": true,
+  "furniture_3d_build_excluded": true,
+  "files": [
+    "REPORT.md",
+    "SOURCE_LEDGER.csv",
+    "PNG_ALPHA_TOPOLOGY.csv",
+    "SOURCE_RUNTIME_BOUNDARIES.md",
+    "REPRODUCE_STATIC_TOPOLOGY.py",
+    "SUMMARY.json"
+  ]
+}

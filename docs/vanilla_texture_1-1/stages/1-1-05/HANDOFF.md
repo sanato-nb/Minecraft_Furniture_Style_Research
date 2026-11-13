@@ -118,3 +118,13 @@
 - 과거 **TEX05-R001~R004** 결과·원장·커밋을 보존하고, `TEX05-R005`는 새로운 *분석 증거*가 발생할 때 생성. 이번은 **정책·인수인계만 갱신했으므로 R004 유지**.
 - F 단계는 **인게임 정적 검증만 남고 공식 JAR 인증 절차는 요구하지 않음**. 인게임 테스트 데이터가 없으므로 인게임 부분은 계속 pending.
 - 다른 연구 단계, 루트 공통 문서, 전체 `v38`, 애니메이션 보류/제외 조건은 수정하지 않음.
+
+## TEX05-R005 — 사용자 추출본 6 PNG 저장 형식·고알파 프레임 연결성 분석 (2026-11-13)
+
+- **최신 연구 릴리스:** [TEX05-R005 REPORT](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R005/REPORT.md) · [6종 근거 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R005/SOURCE_LEDGER.csv) · [6종 정량 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R005/PNG_ALPHA_TOPOLOGY.csv) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R005/SUMMARY.json) · [재현 코드](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R005/REPRODUCE_STATIC_TOPOLOGY.py).
+- 사용자 제공 `1.21.11/assets/minecraft/textures/block/`의 기존 6 PNG 바이트를 다시 직접 읽고 **실제 SHA-256/PNG CRC 6/6 일치**. 새로운 고유 PNG나 정적 경로는 **0**, 기존 31개 고유 정적 경로 **유지**. R001 1,536 RGBA·36면 UV는 계승, 신규 가산 금지.
+- IHDR 16×16·8bit: 검정·흰색 착색 유리는 PNG grayscale+alpha(color type 4), 무색·빨강·파랑·초록은 RGBA(color type 6). 저장 포맷 차이는 실제 렌더 방식 증거가 아님.
+- 높은 알파 판정(`glass A=255`; 착색 5종 `A>=155`)에서 6종 모두 동일한 65픽셀 마스크. **4-연결 성분 크기 [60,1,1,1,1,1]** = 바깥 프레임 60픽셀과 내부 단독 강조점 5개. 각 PNG마다 outer border 60/60. 기존 D2 픽셀 좌표와 동일하지만 연결 성분 수치는 신규 추가 실측.
+- 비중첩 2×2 산술 알파 평균 proxy(가상 8×8): `glass` 최소 0/최대 191.25, 착색 5개 각각 최소 102/최대 147.75. **실제 게임의 밉맵 계산·LOD·셰이더·투명 정렬을 검증한 것이 아님**. R004 `glass.png.mcmeta`의 `mean`은 명시적 정적 설정일 뿐 동작 수식 단정 금지.
+- 실제 인게임 정적 렌더 **0/6 pending** 유지. Mojang 공식 전체 JAR 인증은 사용자 정책상 **out of scope**이며 검증 성공이 아니다.
+- 새 분석 증거 발생 시 라이브 STATE를 다시 확인하여 다음 단계 전용 `TEX05-R006`을 사용. 기존 R000–R005 변경 금지. 전체 `v38`과 타 단계, 애니메이션 보류·PZ 변환/가구 제작 제외 유지.
