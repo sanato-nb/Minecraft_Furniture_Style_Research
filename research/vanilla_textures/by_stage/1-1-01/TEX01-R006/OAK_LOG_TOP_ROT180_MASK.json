@@ -1,0 +1,89 @@
+{
+  "schema": "mc-furniture-texture-static-Uv180-pixel-mask/v1",
+  "reference_texture_id": "oak_log_top",
+  "source_png_path": "1.21.11/assets/minecraft/textures/block/oak_log_top.png",
+  "source_png_sha256": "a520800a833ea0c6214481245ab40397aa0c08b4ffc909046dac266386f9fc01",
+  "texture_size_px": [
+    16,
+    16
+  ],
+  "operation": "source_image_rot180_2D_texel_center_permutation_u_v_to_15_minus_u_15_minus_v",
+  "comparison": "RGB_code_values_exact_nonperiodic_source",
+  "mismatch_bits_row_major_MSB_first_hex64": "77ea8ad132e6f0650000c781840f21200484f02181e30000a60f674c8b5157ee",
+  "mismatch_hex_per_row_16px": [
+    "77ea",
+    "8ad1",
+    "32e6",
+    "f065",
+    "0000",
+    "c781",
+    "840f",
+    "2120",
+    "0484",
+    "f021",
+    "81e3",
+    "0000",
+    "a60f",
+    "674c",
+    "8b51",
+    "57ee"
+  ],
+  "mismatch_pixel_count": 100,
+  "unchanged_pixel_count": 156,
+  "per_channel_mean_absolute_RGB_difference": 5.0182,
+  "R004_six_reference_positions": [
+    [
+      0,
+      0
+    ],
+    [
+      15,
+      0
+    ],
+    [
+      0,
+      15
+    ],
+    [
+      15,
+      15
+    ],
+    [
+      7,
+      7
+    ],
+    [
+      8,
+      8
+    ]
+  ],
+  "R004_six_reference_mismatched_positions": [
+    [
+      7,
+      7
+    ],
+    [
+      8,
+      8
+    ]
+  ],
+  "R004_six_reference_mismatch_count": 2,
+  "original_model_JSON_links": [
+    {
+      "path": "1.21.11/assets/minecraft/models/block/cube_column_horizontal.json",
+      "git_blob_sha1": "713dd8196bc9a92033695c155993df89103f1fcd",
+      "fact": "up face explicit rotation 180"
+    },
+    {
+      "path": "1.21.11/assets/minecraft/models/block/oak_log_horizontal.json",
+      "git_blob_sha1": "fd9a02ca0b06e2d9c51a34924c6303819121b25b",
+      "fact": "end slot references oak_log_top"
+    },
+    {
+      "path": "1.21.11/assets/minecraft/blockstates/oak_log.json",
+      "git_blob_sha1": "9d3266ce008d17fba9dd4cc1869d8879951d60a5",
+      "fact": "axis=x x90y90; axis=z x90"
+    }
+  ],
+  "interpretation_limit": "pixel permutation and source JSON linkage only; not baked world UV and not Minecraft ingame render"
+}

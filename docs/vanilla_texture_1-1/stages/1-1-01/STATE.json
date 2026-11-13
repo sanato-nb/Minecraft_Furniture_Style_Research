@@ -7,10 +7,10 @@
   "stage_id": "1-1-01",
   "material_family": "목재·원목",
   "stage_prefix": "TEX01",
-  "current_revision": "TEX01-R005",
-  "next_revision": "TEX01-R006",
-  "revision_sequence": 5,
-  "revision_status": "R005_new_multilag_pixel_measurements_and_72_log_world_normal_math_ingame_pending",
+  "current_revision": "TEX01-R006",
+  "next_revision": "TEX01-R007",
+  "revision_sequence": 6,
+  "revision_status": "R006_source_png_D4_orientation_126_tests_oak_endcap_180_full256_ingame_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 18,
@@ -46,22 +46,22 @@
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R001_18_SHA_CRC_plus_R003_18_PNG_IHDR_and_git_blob_size_rechecked_R005_18_SHA_CRC_rechecked",
+      "status": "R001_18_SHA_CRC_plus_R003_18_PNG_IHDR_and_git_blob_size_rechecked_R005_18_SHA_CRC_rechecked_R006_18_PNG_crc_recheck",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R001_4608_RGBA_source_measurement_plus_R004_canonical_color_class_topology_and_LUT_R005_18_multilag_d2_d4_d8",
+      "status": "R001_4608_RGBA_source_measurement_plus_R004_canonical_color_class_topology_and_LUT_R005_18_multilag_d2_d4_d8_R006_18_PNG_7_D4_transforms_126_tests",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "D1_R001_6_partial_D2_R001_native_R002_synthetic72_D3_R004_132_face_local_UV_6anchor_RGB_source_mapping_R005_D2_19584_pixel_pairs_D3_72_world_normal_math",
+      "status": "D1_R001_6_partial_D2_R001_native_R002_synthetic72_D3_R004_132_face_local_UV_6anchor_RGB_source_mapping_R005_D2_19584_pixel_pairs_D3_72_world_normal_math_R006_D2_texture_rotation_reflection_full256_D3_oak_log_top_local_UV180_100changed",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R001_43_model_JSON_150_face_static_refs_augmented_R004_132_in_scope_face_RGB_values_nonruntime_R005_18_source_JSON_reread_72_world_face_rows",
+      "status": "R001_43_model_JSON_150_face_static_refs_augmented_R004_132_in_scope_face_RGB_values_nonruntime_R005_18_source_JSON_reread_72_world_face_rows_R006_oak_horizontal_3_JSON_recheck_local_up_180_not_engine",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
@@ -71,7 +71,7 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R005_spatial_lag_and_log_axis_result_saved",
+      "status": "R006_D4_126_test_18source_AND_oak_full_180mask_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -84,12 +84,12 @@
     {
       "id": "D2",
       "check": "목재 무늬 방향·인접 타일 반복 이음새",
-      "status": "completed_png_native_18_plus_synthetic_rotated_neighbor_72_R005_2_4_8_spatial_distances"
+      "status": "completed_png_native_18_plus_synthetic_rotated_neighbor_72_R005_2_4_8_spatial_distances_plus_R006_D4_18x7_RGB_source_transform"
     },
     {
       "id": "D3",
       "check": "판자·원목의 UV 방향과 실제 모델 표면 연결",
-      "status": "completed_18_static_json_uv_link_runtime_pending_R005_72_log_axis_worldface_projection"
+      "status": "completed_18_static_json_uv_link_runtime_pending_R005_72_log_axis_worldface_projection_plus_R006_oak_log_top_180_full_source256_pixels"
     }
   ],
   "items": [
@@ -101,7 +101,7 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX01-R005",
+      "last_verified_revision": "TEX01-R006",
       "evidence_status": "user_JAR_extract_file_checked_static_RGB_UV_source_linked_ingame_pending",
       "current_stream_independent_rgba_reverified": true,
       "current_stream_static_uv_source_linked": true,
@@ -119,7 +119,8 @@
       "current_stream_palette_topology_classified_R004": true,
       "current_stream_source_PNG_RGB_anchor_count_R004": 6,
       "current_stream_face_local_RGB_resolved_R004": true,
-      "current_stream_multilag_RGB_checked_R005": true
+      "current_stream_multilag_RGB_checked_R005": true,
+      "current_stream_D4_source_spatial_rotation_reexamined_R006": true
     },
     {
       "item_id": "1-1-01-002",
@@ -129,7 +130,7 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX01-R005",
+      "last_verified_revision": "TEX01-R006",
       "evidence_status": "user_JAR_extract_file_checked_static_RGB_UV_source_linked_ingame_pending",
       "current_stream_independent_rgba_reverified": true,
       "current_stream_static_uv_source_linked": true,
@@ -147,7 +148,8 @@
       "current_stream_palette_topology_classified_R004": true,
       "current_stream_source_PNG_RGB_anchor_count_R004": 6,
       "current_stream_face_local_RGB_resolved_R004": true,
-      "current_stream_multilag_RGB_checked_R005": true
+      "current_stream_multilag_RGB_checked_R005": true,
+      "current_stream_D4_source_spatial_rotation_reexamined_R006": true
     },
     {
       "item_id": "1-1-01-003",
@@ -157,7 +159,7 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX01-R005",
+      "last_verified_revision": "TEX01-R006",
       "evidence_status": "user_JAR_extract_file_checked_static_RGB_UV_source_linked_ingame_pending",
       "current_stream_independent_rgba_reverified": true,
       "current_stream_static_uv_source_linked": true,
@@ -175,7 +177,8 @@
       "current_stream_palette_topology_classified_R004": true,
       "current_stream_source_PNG_RGB_anchor_count_R004": 6,
       "current_stream_face_local_RGB_resolved_R004": true,
-      "current_stream_multilag_RGB_checked_R005": true
+      "current_stream_multilag_RGB_checked_R005": true,
+      "current_stream_D4_source_spatial_rotation_reexamined_R006": true
     },
     {
       "item_id": "1-1-01-004",
@@ -185,7 +188,7 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX01-R005",
+      "last_verified_revision": "TEX01-R006",
       "evidence_status": "user_JAR_extract_file_checked_static_RGB_UV_source_linked_ingame_pending",
       "current_stream_independent_rgba_reverified": true,
       "current_stream_static_uv_source_linked": true,
@@ -203,7 +206,8 @@
       "current_stream_palette_topology_classified_R004": true,
       "current_stream_source_PNG_RGB_anchor_count_R004": 6,
       "current_stream_face_local_RGB_resolved_R004": true,
-      "current_stream_multilag_RGB_checked_R005": true
+      "current_stream_multilag_RGB_checked_R005": true,
+      "current_stream_D4_source_spatial_rotation_reexamined_R006": true
     },
     {
       "item_id": "1-1-01-005",
@@ -213,7 +217,7 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX01-R005",
+      "last_verified_revision": "TEX01-R006",
       "evidence_status": "user_JAR_extract_file_checked_static_RGB_UV_source_linked_ingame_pending",
       "current_stream_independent_rgba_reverified": true,
       "current_stream_static_uv_source_linked": true,
@@ -231,7 +235,8 @@
       "current_stream_palette_topology_classified_R004": true,
       "current_stream_source_PNG_RGB_anchor_count_R004": 6,
       "current_stream_face_local_RGB_resolved_R004": true,
-      "current_stream_multilag_RGB_checked_R005": true
+      "current_stream_multilag_RGB_checked_R005": true,
+      "current_stream_D4_source_spatial_rotation_reexamined_R006": true
     },
     {
       "item_id": "1-1-01-006",
@@ -241,7 +246,7 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX01-R005",
+      "last_verified_revision": "TEX01-R006",
       "evidence_status": "user_JAR_extract_file_checked_static_RGB_UV_source_linked_ingame_pending",
       "current_stream_independent_rgba_reverified": true,
       "current_stream_static_uv_source_linked": true,
@@ -259,7 +264,8 @@
       "current_stream_palette_topology_classified_R004": true,
       "current_stream_source_PNG_RGB_anchor_count_R004": 6,
       "current_stream_face_local_RGB_resolved_R004": true,
-      "current_stream_multilag_RGB_checked_R005": true
+      "current_stream_multilag_RGB_checked_R005": true,
+      "current_stream_D4_source_spatial_rotation_reexamined_R006": true
     },
     {
       "item_id": "1-1-01-007",
@@ -269,7 +275,7 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX01-R005",
+      "last_verified_revision": "TEX01-R006",
       "evidence_status": "user_JAR_extract_file_checked_static_RGB_UV_source_linked_ingame_pending",
       "current_stream_independent_rgba_reverified": true,
       "current_stream_static_uv_source_linked": true,
@@ -287,7 +293,8 @@
       "current_stream_palette_topology_classified_R004": true,
       "current_stream_source_PNG_RGB_anchor_count_R004": 6,
       "current_stream_face_local_RGB_resolved_R004": true,
-      "current_stream_multilag_RGB_checked_R005": true
+      "current_stream_multilag_RGB_checked_R005": true,
+      "current_stream_D4_source_spatial_rotation_reexamined_R006": true
     },
     {
       "item_id": "1-1-01-008",
@@ -297,7 +304,7 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX01-R005",
+      "last_verified_revision": "TEX01-R006",
       "evidence_status": "user_JAR_extract_file_checked_static_RGB_UV_source_linked_ingame_pending",
       "current_stream_independent_rgba_reverified": true,
       "current_stream_static_uv_source_linked": true,
@@ -315,7 +322,8 @@
       "current_stream_palette_topology_classified_R004": true,
       "current_stream_source_PNG_RGB_anchor_count_R004": 6,
       "current_stream_face_local_RGB_resolved_R004": true,
-      "current_stream_multilag_RGB_checked_R005": true
+      "current_stream_multilag_RGB_checked_R005": true,
+      "current_stream_D4_source_spatial_rotation_reexamined_R006": true
     },
     {
       "item_id": "1-1-01-009",
@@ -325,7 +333,7 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX01-R005",
+      "last_verified_revision": "TEX01-R006",
       "evidence_status": "user_JAR_extract_file_checked_static_RGB_UV_source_linked_ingame_pending",
       "current_stream_independent_rgba_reverified": true,
       "current_stream_static_uv_source_linked": true,
@@ -343,7 +351,8 @@
       "current_stream_palette_topology_classified_R004": true,
       "current_stream_source_PNG_RGB_anchor_count_R004": 6,
       "current_stream_face_local_RGB_resolved_R004": true,
-      "current_stream_multilag_RGB_checked_R005": true
+      "current_stream_multilag_RGB_checked_R005": true,
+      "current_stream_D4_source_spatial_rotation_reexamined_R006": true
     },
     {
       "item_id": "1-1-01-010",
@@ -353,7 +362,7 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX01-R005",
+      "last_verified_revision": "TEX01-R006",
       "evidence_status": "user_JAR_extract_file_checked_static_RGB_UV_source_linked_ingame_pending",
       "current_stream_independent_rgba_reverified": true,
       "current_stream_static_uv_source_linked": true,
@@ -371,7 +380,8 @@
       "current_stream_palette_topology_classified_R004": true,
       "current_stream_source_PNG_RGB_anchor_count_R004": 6,
       "current_stream_face_local_RGB_resolved_R004": true,
-      "current_stream_multilag_RGB_checked_R005": true
+      "current_stream_multilag_RGB_checked_R005": true,
+      "current_stream_D4_source_spatial_rotation_reexamined_R006": true
     },
     {
       "item_id": "1-1-01-011",
@@ -381,7 +391,7 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX01-R005",
+      "last_verified_revision": "TEX01-R006",
       "evidence_status": "user_JAR_extract_file_checked_static_RGB_UV_source_linked_ingame_pending",
       "current_stream_independent_rgba_reverified": true,
       "current_stream_static_uv_source_linked": true,
@@ -399,7 +409,8 @@
       "current_stream_palette_topology_classified_R004": true,
       "current_stream_source_PNG_RGB_anchor_count_R004": 6,
       "current_stream_face_local_RGB_resolved_R004": true,
-      "current_stream_multilag_RGB_checked_R005": true
+      "current_stream_multilag_RGB_checked_R005": true,
+      "current_stream_D4_source_spatial_rotation_reexamined_R006": true
     },
     {
       "item_id": "1-1-01-012",
@@ -409,7 +420,7 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX01-R005",
+      "last_verified_revision": "TEX01-R006",
       "evidence_status": "user_JAR_extract_file_checked_static_RGB_UV_source_linked_ingame_pending",
       "current_stream_independent_rgba_reverified": true,
       "current_stream_static_uv_source_linked": true,
@@ -427,7 +438,8 @@
       "current_stream_palette_topology_classified_R004": true,
       "current_stream_source_PNG_RGB_anchor_count_R004": 6,
       "current_stream_face_local_RGB_resolved_R004": true,
-      "current_stream_multilag_RGB_checked_R005": true
+      "current_stream_multilag_RGB_checked_R005": true,
+      "current_stream_D4_source_spatial_rotation_reexamined_R006": true
     },
     {
       "item_id": "1-1-01-013",
@@ -437,7 +449,7 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX01-R005",
+      "last_verified_revision": "TEX01-R006",
       "evidence_status": "user_JAR_extract_file_checked_static_RGB_UV_source_linked_ingame_pending",
       "current_stream_independent_rgba_reverified": true,
       "current_stream_static_uv_source_linked": true,
@@ -456,7 +468,8 @@
       "current_stream_source_PNG_RGB_anchor_count_R004": 6,
       "current_stream_face_local_RGB_resolved_R004": true,
       "current_stream_multilag_RGB_checked_R005": true,
-      "current_stream_log_axis_world_face_math_R005": true
+      "current_stream_log_axis_world_face_math_R005": true,
+      "current_stream_D4_source_spatial_rotation_reexamined_R006": true
     },
     {
       "item_id": "1-1-01-014",
@@ -466,7 +479,7 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX01-R005",
+      "last_verified_revision": "TEX01-R006",
       "evidence_status": "user_JAR_extract_file_checked_static_RGB_UV_source_linked_ingame_pending",
       "current_stream_independent_rgba_reverified": true,
       "current_stream_static_uv_source_linked": true,
@@ -485,7 +498,8 @@
       "current_stream_source_PNG_RGB_anchor_count_R004": 6,
       "current_stream_face_local_RGB_resolved_R004": true,
       "current_stream_multilag_RGB_checked_R005": true,
-      "current_stream_log_axis_world_face_math_R005": true
+      "current_stream_log_axis_world_face_math_R005": true,
+      "current_stream_D4_source_spatial_rotation_reexamined_R006": true
     },
     {
       "item_id": "1-1-01-015",
@@ -495,7 +509,7 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX01-R005",
+      "last_verified_revision": "TEX01-R006",
       "evidence_status": "user_JAR_extract_file_checked_static_RGB_UV_source_linked_ingame_pending",
       "current_stream_independent_rgba_reverified": true,
       "current_stream_static_uv_source_linked": true,
@@ -514,7 +528,8 @@
       "current_stream_source_PNG_RGB_anchor_count_R004": 6,
       "current_stream_face_local_RGB_resolved_R004": true,
       "current_stream_multilag_RGB_checked_R005": true,
-      "current_stream_log_axis_world_face_math_R005": true
+      "current_stream_log_axis_world_face_math_R005": true,
+      "current_stream_D4_source_spatial_rotation_reexamined_R006": true
     },
     {
       "item_id": "1-1-01-016",
@@ -524,7 +539,7 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX01-R005",
+      "last_verified_revision": "TEX01-R006",
       "evidence_status": "user_JAR_extract_file_checked_static_RGB_UV_source_linked_ingame_pending",
       "current_stream_independent_rgba_reverified": true,
       "current_stream_static_uv_source_linked": true,
@@ -542,7 +557,10 @@
       "current_stream_palette_topology_classified_R004": true,
       "current_stream_source_PNG_RGB_anchor_count_R004": 6,
       "current_stream_face_local_RGB_resolved_R004": true,
-      "current_stream_multilag_RGB_checked_R005": true
+      "current_stream_multilag_RGB_checked_R005": true,
+      "current_stream_D4_source_spatial_rotation_reexamined_R006": true,
+      "current_stream_full_256_local_UV180_diff_checked_R006": true,
+      "current_stream_full_UV180_changed_pixels_R006": 100
     },
     {
       "item_id": "1-1-01-017",
@@ -552,7 +570,7 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX01-R005",
+      "last_verified_revision": "TEX01-R006",
       "evidence_status": "user_JAR_extract_file_checked_static_RGB_UV_source_linked_ingame_pending",
       "current_stream_independent_rgba_reverified": true,
       "current_stream_static_uv_source_linked": true,
@@ -571,7 +589,8 @@
       "current_stream_source_PNG_RGB_anchor_count_R004": 6,
       "current_stream_face_local_RGB_resolved_R004": true,
       "current_stream_multilag_RGB_checked_R005": true,
-      "current_stream_log_axis_world_face_math_R005": true
+      "current_stream_log_axis_world_face_math_R005": true,
+      "current_stream_D4_source_spatial_rotation_reexamined_R006": true
     },
     {
       "item_id": "1-1-01-018",
@@ -581,7 +600,7 @@
       "v4_measurement_recorded": true,
       "current_stream_independent_binary_reverified": true,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX01-R005",
+      "last_verified_revision": "TEX01-R006",
       "evidence_status": "user_JAR_extract_file_checked_static_RGB_UV_source_linked_ingame_pending",
       "current_stream_independent_rgba_reverified": true,
       "current_stream_static_uv_source_linked": true,
@@ -599,7 +618,8 @@
       "current_stream_palette_topology_classified_R004": true,
       "current_stream_source_PNG_RGB_anchor_count_R004": 6,
       "current_stream_face_local_RGB_resolved_R004": true,
-      "current_stream_multilag_RGB_checked_R005": true
+      "current_stream_multilag_RGB_checked_R005": true,
+      "current_stream_D4_source_spatial_rotation_reexamined_R006": true
     }
   ],
   "revisions": [
@@ -611,11 +631,11 @@
     }
   ],
   "next_steps": [
-    "Continue TEX01-R006 only with new direct source/game evidence; prior R000-R005 immutable.",
-    "Actual ingame static 0/18; final texture-space UV / face bake and light not verified by vector projection.",
-    "18 original source PNG 4608 pixels were reused for 19584 new paired comparisons. Avoid double counts.",
-    "Official Mojang JAR authentication excluded by user, never report as verified.",
-    "Preserve animation deferral, other stage and global v38 prohibition."
+    "Next TEX01-R007 only with new source-grounded measurement or actual static ingame screenshot evidence, after live STATE and HEAD check.",
+    "R006 D4 image rotations/reflections are synthetic static PNG comparisons except source-linked oak_log_top local up UV180. Do not infer vanilla blockstate randomly applies all rotations.",
+    "Check full engine UV bake/world texture orientation from explicit runtime or code evidence before certifying game UV; actual ingame static verification 0 of 18.",
+    "Preserve R001-R005 metrics and samples without incrementing original 18 PNG/4608 unique source-pixel totals.",
+    "Official client.jar authentication excluded by user; no animation analysis, PZ conversion, or actual furniture modeling; no writes outside 1-1-01."
   ],
   "ingame_static_render_verified": false,
   "animation_study_deferred": true,
@@ -633,9 +653,9 @@
   "stage_static_model_uv_source_linked_count": 18,
   "stage_static_source_json_files_read": 43,
   "stage_model_local_face_references": 150,
-  "last_result_path": "research/vanilla_textures/by_stage/1-1-01/TEX01-R005",
-  "last_result_parent_main_commit": "6fc3d73029aff2849471b9bc4073418f043765f6",
-  "last_result_prewrite_state_blob_sha": "eae9a52baa2a9375d2d15b3598f88825fedc298b",
+  "last_result_path": "research/vanilla_textures/by_stage/1-1-01/TEX01-R006",
+  "last_result_parent_main_commit": "4a3e0a32567f6599421c23689da39a54d0cceef2",
+  "last_result_prewrite_state_blob_sha": "1cede1c53f86d728665410869879d225ff203cbf",
   "evidence_provenance": "user_attested_1.21.11_JAR_extracted_GitHub_files_direct_verified; original JAR distributor authenticity not part of current scope",
   "revision_history": [
     {
@@ -689,6 +709,18 @@
       "incremental_new_json": 0,
       "new_log_world_normal_rows": 72,
       "ingame_static_verified": 0
+    },
+    {
+      "revision": "TEX01-R006",
+      "result_path": "research/vanilla_textures/by_stage/1-1-01/TEX01-R006",
+      "source_png_binary_redecoded_and_sha_crc_rechecked": 18,
+      "new_source_unique_pixels": 0,
+      "new_D4_transform_tests": 126,
+      "new_RGB_position_pair_comparisons": 32256,
+      "oak_log_top_rot180_changed_positions": 100,
+      "original_static_JSON_reread": 3,
+      "incremental_source_JSON": 0,
+      "ingame_static_render_count": 0
     }
   ],
   "last_result_original_analysis_main_commit": "5ba46ce77b3c5304ec0cef96d6a05db2ec61d32a",

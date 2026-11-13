@@ -1,4 +1,13 @@
-# 1-1-01 목재·원목 전용 인수인계 — TEX01-R005
+# 1-1-01 목재·원목 전용 인수인계 — TEX01-R006
+
+## TEX01-R006: 18 PNG D4 변환 126조건과 원목 단면 UV 180° 전체 256픽셀 직접 검증 (2026-11-13)
+
+- 원본 사용자 JAR 추출 PNG **18개** 바이트 SHA256/CRC 재검사 통과(72 PNG chunks). 기존 R001 4,608개 고유 RGBA는 재사용, 신규 고유 소스 PNG/픽셀 **0**.
+- 18 PNG×7개 정적 회전·반사 변환 = **126 신규 비교**, 좌표쌍 RGB 검사 **32,256회**. 모든 PNG는 180° 회전과 완전 동일하지 않음(차이 100–256픽셀). 9개 표준 팔레트 재색칠 판자는 모두 220/256 변경.
+- 실제 소스 `cube_column_horizontal.json`의 로컬 `up.rotation=180` 및 `oak_log_horizontal.json`의 `#end=oak_log_top` 재확인. `oak_log_top` 전체 16×16 **100픽셀/256 차이**, R004 6점 앵커에서는 중심 2점만 차이. 정확 비트마스크 보존. 이 결과는 **소스 텍셀 변환**이지 게임 최종 UV/인게임 인증이 아님.
+- [연구 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R006/REPORT.md) · [18 PNG 전체 D4 방향표](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R006/PNG_D4_ORIENTATION_18.csv) · [참나무 단면 전체 차이 마스크](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R006/OAK_LOG_TOP_ROT180_MASK.json) · [재현 코드](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R006/REPRODUCE_D4.py) · [수량 요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R006/SUMMARY.json)
+- **현재 TEX01-R006 / 다음 TEX01-R007**. 기존 R001–R005 불변. 인게임 정적 검증 **0/18**. 공식 JAR 인증은 완료 범위에서 제외(인증 성공 아님). 애니메이션·PZ 변환·실제 3D 가구 제작 보류. 다른 1-1 단계/전체 v38 파일 수정 금지.
+
 
 ## TEX01-R005 새 분석과 다음 단계 (2026-11-13)
 
