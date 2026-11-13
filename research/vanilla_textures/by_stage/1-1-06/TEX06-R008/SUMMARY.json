@@ -1,0 +1,103 @@
+{
+  "schema": "mc-furniture-texture-stage-result/v1",
+  "date": "2026-11-13",
+  "stage_id": "1-1-06",
+  "revision": "TEX06-R008",
+  "base_revision": "TEX06-R007",
+  "global_checkpoint": "v38",
+  "research_type": "source_animation_presence_absence_audit_after_explicit_user_unpause",
+  "user_scope_change": "animation research now allowed for 1-1-06; in-game rendering and official compressed JAR authentication still excluded",
+  "target_png_fixed_count": 8,
+  "target_png_directly_read_and_chunk_crc_checked": 8,
+  "png_dimensions": "16x16",
+  "target_png_single_frame_count": 8,
+  "target_png_apng_acTL_found": 0,
+  "target_png_mcmeta_direct_path_queries": 8,
+  "target_png_mcmeta_found": 0,
+  "target_animated_png_count": 0,
+  "target_static_by_source_count": 8,
+  "target_animated_frame_sequence_rows": 0,
+  "target_animation_temporal_research_complete": true,
+  "positive_controls_out_of_scope_count": 5,
+  "positive_controls_with_meta_count": 5,
+  "controls": [
+    {
+      "texture_id": "water_still",
+      "png_size": [
+        16,
+        512
+      ],
+      "source_frame_slots": 32,
+      "sequence_length": 32,
+      "frametime_ticks": 2,
+      "interpolate": false
+    },
+    {
+      "texture_id": "lava_still",
+      "png_size": [
+        16,
+        320
+      ],
+      "source_frame_slots": 20,
+      "sequence_length": 38,
+      "frametime_ticks": 2,
+      "interpolate": false
+    },
+    {
+      "texture_id": "fire_0",
+      "png_size": [
+        16,
+        512
+      ],
+      "source_frame_slots": 32,
+      "sequence_length": 32,
+      "frametime_ticks": 1,
+      "interpolate": false
+    },
+    {
+      "texture_id": "sea_lantern",
+      "png_size": [
+        16,
+        80
+      ],
+      "source_frame_slots": 5,
+      "sequence_length": 5,
+      "frametime_ticks": 5,
+      "interpolate": false
+    },
+    {
+      "texture_id": "prismarine",
+      "png_size": [
+        16,
+        64
+      ],
+      "source_frame_slots": 4,
+      "sequence_length": 22,
+      "frametime_ticks": 300,
+      "interpolate": true
+    }
+  ],
+  "source_png_git_blobs": {
+    "1.21.11/assets/minecraft/textures/block/terracotta.png": "4bb00863b656bdf3641d7d7fb64fe935d9d6e1d8",
+    "1.21.11/assets/minecraft/textures/block/white_terracotta.png": "47ac87250e25365a12dc0e18d51ab5af36d55326",
+    "1.21.11/assets/minecraft/textures/block/orange_terracotta.png": "4dd8081875fef2dce3c5adb3d4422b995f1a0931",
+    "1.21.11/assets/minecraft/textures/block/blue_terracotta.png": "4088eaa696de7d9ec35115becc7c00bd1ea3b867",
+    "1.21.11/assets/minecraft/textures/block/green_terracotta.png": "c71e655228f5fc70bfabaab1a67d3162a5078ad9",
+    "1.21.11/assets/minecraft/textures/block/yellow_terracotta.png": "48d004d198c1f6c521ed7622b5ac567f68be02c7",
+    "1.21.11/assets/minecraft/textures/block/black_glazed_terracotta.png": "58832984e6700a295c890ab86b568929d36567d5",
+    "1.21.11/assets/minecraft/textures/block/white_glazed_terracotta.png": "a500a876f14d6fab28d140023d32436f28f2512e"
+  },
+  "new_unique_target_textures": 0,
+  "new_independent_source_RGBA_texel_count": 0,
+  "old_R007_SHA256_check_inherited_not_independently_recomputed_in_R008": true,
+  "in_game_verification": "excluded_by_user",
+  "Mojang_official_compressed_client_jar_SHA1": "excluded_by_user",
+  "PZ_conversion_and_furniture_3D": "excluded",
+  "outputs": [
+    "REPORT.md",
+    "SOURCE_ANIMATION_AUDIT_8.csv",
+    "ANIMATED_POSITIVE_CONTROLS_5.csv",
+    "SUMMARY.json",
+    "REPRODUCE_ANIMATION_SOURCE_AUDIT.py"
+  ]
+}
