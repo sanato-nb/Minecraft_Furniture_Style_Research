@@ -7,6 +7,14 @@
 기존 v9/v26/v31에 포함된 애니메이션 관련 소스·표본 데이터는 **과거 조사 증거**로 유지한다. 이 지시는 과거의 측정 사실을 취소하지 않으며, 새 분석부터 동적 프레임 검사·연출·키프레임 연구를 제외한다.
 
 
+## v36 출처와 근거 경계
+
+- [v36 상세 보고서](research/vanilla_models/v36/00_v36_P1_544과거SHA대조_화로용광로훈연기6모델_24상태_정적분석.md), [P1 SHA 대조표](research/vanilla_models/v36/01_p1_544_historical_sha_evidence_crosswalk.csv).
+- 과거 CSV 18개와 P1 544 경로의 SHA를 대조해 v35 직접 15개, 과거 SHA 일치 83개, 해당 선정 CSV 근거 미연결 446개로 기록했다. 이것은 모든 과거 CSV/보고서/DB의 전수 검증이 아니다.
+- 기존 v7에는 chiseled_bookshelf 및 oak_shelf 이름의 SHA 이견이 존재하므로 이전 증거 충돌로 남겼다. 원본 바이너리 오류라고 단정하지 않는다.
+- v36 신규 source: 화로·용광로·훈연기 6 leaf JSON SHA 6/6 일치, 부모 3 JSON, blockstates 3 JSON / 24 source variants. 공통 cube source 6 face, 36 face×material 사용기록. 자동 UV는 추론.
+- 이 모델들이 참조하는 13 PNG 경로를 확인했으나 PNG 바이트/실제 RGBA는 이번 회차 미검사. 공식 Mojang 1.21.11 client.jar·인게임 정적 UV/컬링·조명 미검증. 애니메이션 보류 지속, 0/5 최종 완료.
+
 ## 주요 근거
 
 1. Minecraft Java **1.21.11** 버전 고정 비공식 에셋 미러: https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11/assets/minecraft
