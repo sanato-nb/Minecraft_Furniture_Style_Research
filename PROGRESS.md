@@ -2,9 +2,17 @@
 
 **새 채팅 인수인계:** [HANDOFF.md](HANDOFF.md) · [복사용 시작 프롬프트](docs/NEW_CHAT_START.md) · [현재 상태 JSON](handoff/STATE.json)
 
-업데이트: 2026-11-13 / 체크포인트 v36
+업데이트: 2026-11-13 / 체크포인트 v37
 
 **사용자 최신 작업 지시(2026-11-13): 애니메이션 분석은 일단 보류.** 새로운 애니메이션 프레임 해독, 키프레임·클립 분석, 움직임 재현 및 애니메이션 인게임 검증을 진행하지 않는다. 기존 v9/v26/v31 애니메이션 관련 기록은 삭제하지 않고 보존하되, 새로운 진행도에 포함하지 않는다. 우선순위는 **정적 바닐라 3D 모델·기하·텍스처·UV·블록 상태·정적 렌더링 검증·공식 원본 무결성**이다. 애니메이션 연구는 사용자가 명시적으로 재개를 요청할 때까지 유지 보류.
+
+## v37 최신 — 정적 원본 PNG·기하 UV 근거 연결 (2026-11-13)
+
+- [v37 실제 원본 화소·UV 검증 보고서](research/vanilla_models/v37/00_v37_화로용광로훈연기_정적11PNG_34면실화소_분석보고서.md) · [정적 원본 PNG11종 CRC·Adler·RGBA](research/vanilla_models/v37/01_eleven_static_png_original_rgba_crc_adler.csv) · [34면 실화소/2면 애니메이션 보류](research/vanilla_models/v37/02_six_leaf_36_face_material_static_png_rgba_vs_deferred.csv) · [요약 JSON](research/vanilla_models/v37/v37_static_furnaces_png_pixels_summary.json).
+- v36 원본 화로·용광로·훈연기 6 leaf의 텍스처 참조 13종 중 **정적 11 PNG 파일 원본 바이너리 전체 RGBA 2,816픽셀을 직접 해독**(불투명2,816/투명0/반투명0). v34 원본 PNG SHA 11/11 일치, 모든 PNG 청크 CRC32 및 zlib Adler32 검증 성공.
+- v36의 **36 face×material 적용 행 중 34면**에 원본 정적 PNG 실제 픽셀을 연결한 유도 UV 텍셀 사용 **8,704회 전부 불투명**. 이 34행은 공통 cube의 6고유 선언면과 다른 개념이며 원본의 미명시 UV를 추론한 영역이므로 엔진 방향·컬링 검증이 아님.
+- 화로 고정 정면 PNG의 꺼짐/켜짐 비교: **RGBA 36/256 위치 차이, RGB 36/256, 알파 0/256**(정적 텍스처 비교, 애니메이션 아님). 다중 프레임 참조 `blast_furnace_front_on`, `smoker_front_on` **2 PNG/2면은 이미지 프레임 분석 보류 유지**.
+- 이번 조사에는 **독립 Python/Pillow 재검산 및 공식 Mojang 1.21.11 client.jar/실제 인게임 UV·조명·컬링 검증 없음**. v24 모드와 과거 애니메이션 조사자료 보존, 전체 5 세부 과제 완료 **0/5**, P1/프로젝트 완료 퍼센트 미계산.
 
 ## v36 신규 P1 원본·역사 근거 대조
 
