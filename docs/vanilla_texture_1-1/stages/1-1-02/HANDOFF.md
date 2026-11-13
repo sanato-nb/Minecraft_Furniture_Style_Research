@@ -107,3 +107,11 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 - **Mojang 원본 `client.jar` SHA-1/공식 버전 JSON 인증을 연구 및 완료 조건에서 제외**. 다음 버전에서 해당 인증을 요구하거나 공식 인증 0건 때문에 완료를 차단하지 않는다. 공식 인증의 기존 0건 기록은 **과거 사실**로만 보존한다.
 - 계속 유지: 사용자 업로드 `1.21.11/` 직접 PNG·JSON 분석, 필요한 미러 교차 검증, 정적 모델·UV·블록 상태·색상·줄눈 분석, 실제 인게임 정적 검증(0/17 보류), G 보고서. 애니메이션은 보류.
 - 이 버전은 **정책 개정만**, 새 측정·연구 진도 0건. R001–R004 및 다른 단계·전체 v38 불변. **다음 TEX02-R006**.
+
+## TEX02-R006 사용자 추출 PNG·정적 UV 경계 픽셀 분석 (2026-11-13)
+
+- [R006 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R006/REPORT.md) · [192행 가상 2D 경계 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R006/HYPOTHETICAL_UV_SEAMS.csv) · [6 PNG SHA/CRC](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R006/SOURCE_PNG_CHECKS.csv) · [18 JSON 파일](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R006/JSON_SOURCE_LEDGER.csv) · [재현 스크립트](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R006/REPRODUCE_SEAMS.py) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R006/SUMMARY.json).
+- **신규 계산:** 사용자 추출 `1.21.11/`의 기존 고정 PNG 5개 + 기존 보조 끝면 1개를 재열람하여 SHA-256/청크 CRC/16×16/불투명 RGBA 총 1,536픽셀 확인. 5개 blockstate + 13개 모델/부모 JSON 직접 확인. 6 × (4 화면상 변환 × 4 변환 × 2 인접 방향) = **192개 픽셀 경계 비교**, 3,072개의 경계 픽셀 쌍(9,216 RGB 채널 차이) 계산. *서로 다른 고유 PNG 신규 추가 0개.* 이전 R001~R004 실적 17 PNG/4,352 RGBA/31 상태/186면/중복 2건은 계승만.
+- **핵심 판정:** `bricks`/`stone_bricks`/`deepslate_bricks`는 blockstate에 회전 선언이 없음. `deepslate`의 축 회전과 `cube_mirrored`의 U 반전 UV `[16,0,0,16]`은 소스 사실이나, R006의 2D 화면 회전 숫자는 실제 모델/엔진 방향으로 옮겨 인증할 수 없음. 좌우 반전 상대 타일과의 경계 0은 동일 열을 붙인 계산상 항등성이고 **게임에서 접합이 완벽하다는 증거가 아님**.
+- **인게임 정적 0/17 및 A–G 전체 완료 0/17** 유지. 공식 Mojang JAR 전체 SHA-1/버전 메타데이터 인증은 연구/완료 조건에서 제외, 성공 주장 아님. 애니메이션 보류; 다른 단계·전역 v38 변경 없음.
+- 이 단계의 다음 후보는 **`TEX02-R007`**. 먼저 최신 LIVE STATE를 다시 읽고, 실제 정적 게임 화면/실측이 없는 한 화면 공간 UV·조명·줄눈을 검증 완료라고 하지 말 것.

@@ -1,0 +1,73 @@
+{
+  "stage": "1-1-02",
+  "revision": "TEX02-R006",
+  "prior_revision": "TEX02-R005",
+  "next_revision": "TEX02-R007",
+  "date": "2026-11-13",
+  "kind": "new_source_pixel_2d_seam_study_not_ingame",
+  "original_fixed_target_count": 17,
+  "scope_fixed_count_unchanged": true,
+  "source_priority": "user_github_1.21.11_extracted_assets",
+  "source_pinned_commit": "2a43897b8f605b4e0c96a272bca476ee6b70058e",
+  "new_unique_fixed_pngs_added": 0,
+  "refetched_fixed_pngs": 5,
+  "refetched_existing_supplemental_pngs": 1,
+  "refetched_total_pngs": 6,
+  "rgba_pixels_redecoded_this_revision": 1536,
+  "rgba_pixels_from_prior_R001_inherited_not_new": 4352,
+  "json_files_opened_directly_this_revision": {
+    "blockstates": 5,
+    "models_including_shared_parents": 13,
+    "total": 18
+  },
+  "seam_combinations_new": 192,
+  "edge_pixel_pairs_calculated": 3072,
+  "rgb_channel_differences_calculated": 9216,
+  "dimensions": "16x16",
+  "pixel_opacity_all_255": true,
+  "crc_all_chunks_valid": true,
+  "comparison_operator": "mean(sum(abs(A[edge,rgb]-B[opposite_edge,rgb]))/48) across 16 edge pixels and 3 RGB channels",
+  "transforms": [
+    "I",
+    "H_UV_reverse",
+    "R90_screen_CW",
+    "R180_screen"
+  ],
+  "directions": [
+    "east_to_west",
+    "south_to_north"
+  ],
+  "factual_static_json_findings": [
+    "bricks/stone_bricks/deepslate_bricks each have one unrotated default variant",
+    "deepslate has axis=x/y/z model rotations and mirrored variant with cube_mirrored uv=[16,0,0,16] on all faces",
+    "stone has four variants including mirrored and y=180"
+  ],
+  "hypotheses_disclaimed": [
+    "2D tiling scores do not certify Minecraft renderer",
+    "R004 normal direction projection is not UV screen orientation",
+    "0 seam for I-to-H mirrored right/left is tautological identical border columns",
+    "no claim that random block rotation exists for brick blocks"
+  ],
+  "inherited_without_recount": {
+    "fixed_pngs_sha_crc": 17,
+    "rgba_pixels": 4352,
+    "base_model_faces": 102,
+    "blockstate_declarations": 31,
+    "expanded_variant_faces": 186,
+    "deepslate_axis_x_duplicate_declarations": 2
+  },
+  "ingame_static_verified_count": 0,
+  "fully_completed_A_to_G_items": 0,
+  "official_jar_sha1_required": false,
+  "official_jar_authenticated_claim": false,
+  "animation_deferred": true,
+  "global_checkpoint_unchanged": "v38",
+  "outputs": [
+    "REPORT.md",
+    "SUMMARY.json",
+    "SOURCE_PNG_CHECKS.csv",
+    "JSON_SOURCE_LEDGER.csv",
+    "HYPOTHETICAL_UV_SEAMS.csv",
+    "REPRODUCE_SEAMS.py"
+  ]
+}

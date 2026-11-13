@@ -7,10 +7,10 @@
   "stage_id": "1-1-02",
   "material_family": "석재·벽돌",
   "stage_prefix": "TEX02",
-  "current_revision": "TEX02-R005",
-  "next_revision": "TEX02-R006",
-  "revision_sequence": 5,
-  "revision_status": "R005_policy_only_official_mojang_jar_authentication_removed_from_scope_and_completion_static_ingame_still_pending",
+  "current_revision": "TEX02-R006",
+  "next_revision": "TEX02-R007",
+  "revision_sequence": 6,
+  "revision_status": "R006_source_6_existing_pngs_1536_rgba_redecoded_18_json_direct_192_hypothetical_2d_edge_comparisons_not_ingame",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 17,
@@ -55,21 +55,21 @@
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R001_RGBA_4352_reused_no_new_measurements_R004",
+      "status": "R006_6_existing_PNG_rgba_1536_redecoded_192_2D_edge_comparisons_no_new_unique_fixed_texture",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R004"
+      "last_evidence_revision": "TEX02-R006"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R004_D3_source_variant_31_expanded_186_faces_math_normal_hypothesis",
+      "status": "R006_D2_D3_192_2d_source_pixel_seams_6_png_18_json_assumptions_disclaimed",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R004"
+      "last_evidence_revision": "TEX02-R006"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R004_186_variant_faces_2_deepslate_axis_x_JSON_duplicates",
+      "status": "R006_5_blockstates_13_model_JSON_reopened_uv_explicit_mirror_vs_2d_assumption_separated",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R004"
+      "last_evidence_revision": "TEX02-R006"
     },
     "F": {
       "title": "F 인게임 정적 렌더·UV·이음새 검증 (Mojang 공식 JAR 인증 제외)",
@@ -79,9 +79,9 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R005_policy_revision_saved_no_new_source_measurements",
+      "status": "R006_source_seam_measurement_report_csv_script_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R005"
+      "last_evidence_revision": "TEX02-R006"
     }
   },
   "material_specific_checks": [
@@ -93,12 +93,12 @@
     {
       "id": "D2",
       "check": "줄눈 간격 및 타일 패턴 반복성을 좌/우·상/하 접합으로 확인",
-      "status": "R003_source_blob_equal_prior_mirror_evidence_inherited_pixel_remeasure_not_needed"
+      "status": "R006_source_png_edge_192_hypothetical_2D_adjacency_scores_not_ingame"
     },
     {
       "id": "D3",
       "check": "모델 면 회전과 UV 반복이 벽면 패턴에 미치는 영향",
-      "status": "R004_186_variant_faces_29_distinct_2_axis_x_duplicates_not_game_rendered"
+      "status": "R006_source_JSON_U_reverse_explicit_vs_2D_rotations_distinguished_not_ingame"
     }
   ],
   "items": [
@@ -111,7 +111,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R004",
+      "last_verified_revision": "TEX02-R006",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "c298969ccab004c2e37583b058c765598b05f69d",
       "mirror_model_git_blob_sha": "1a2f6a79a69ee5550a76697096cfb4cdb94499da",
@@ -143,6 +143,13 @@
         "faces": 24,
         "source": "R002+R003_verified+R004_source_deepslate_stone_recheck",
         "ingame_verified": false
+      },
+      "R006_static_seam_source": {
+        "source_png_reopened": true,
+        "rgba_pixels_redecoded": 256,
+        "new_unique_png_added": false,
+        "synthetic_2D_adjacency_comparisons": 32,
+        "actual_ingame_uv_confirmed": false
       }
     },
     {
@@ -197,7 +204,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R004",
+      "last_verified_revision": "TEX02-R006",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "bfbfd3884e37f2b93003310622aad632f3cfb408",
       "mirror_model_git_blob_sha": "87f6bbe0e26ca4347c00206d65f401b8946a82c6",
@@ -229,6 +236,13 @@
         "faces": 6,
         "source": "R002+R003_verified+R004_source_deepslate_stone_recheck",
         "ingame_verified": false
+      },
+      "R006_static_seam_source": {
+        "source_png_reopened": true,
+        "rgba_pixels_redecoded": 256,
+        "new_unique_png_added": false,
+        "synthetic_2D_adjacency_comparisons": 32,
+        "actual_ingame_uv_confirmed": false
       }
     },
     {
@@ -240,7 +254,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R004",
+      "last_verified_revision": "TEX02-R006",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "51c7352fe11f5271198ae06ba4e674ccd9a203af",
       "mirror_model_git_blob_sha": "cebe5470a178a4881550933f49edbcee2e830f11",
@@ -272,6 +286,13 @@
         "faces": 6,
         "source": "R002+R003_verified+R004_source_deepslate_stone_recheck",
         "ingame_verified": false
+      },
+      "R006_static_seam_source": {
+        "source_png_reopened": true,
+        "rgba_pixels_redecoded": 256,
+        "new_unique_png_added": false,
+        "synthetic_2D_adjacency_comparisons": 32,
+        "actual_ingame_uv_confirmed": false
       }
     },
     {
@@ -326,7 +347,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R004",
+      "last_verified_revision": "TEX02-R006",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "e1b2323c44aea2f7228f5f6f8f40674fc8087fe0",
       "mirror_model_git_blob_sha": "b3d7b55b5ca4ffef4f53ee364c40924a73e988db",
@@ -358,6 +379,13 @@
         "faces": 6,
         "source": "R002+R003_verified+R004_source_deepslate_stone_recheck",
         "ingame_verified": false
+      },
+      "R006_static_seam_source": {
+        "source_png_reopened": true,
+        "rgba_pixels_redecoded": 256,
+        "new_unique_png_added": false,
+        "synthetic_2D_adjacency_comparisons": 32,
+        "actual_ingame_uv_confirmed": false
       }
     },
     {
@@ -627,7 +655,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R004",
+      "last_verified_revision": "TEX02-R006",
       "evidence_status": "user_extraction_png_sha256_crc_and_json_git_blob_crosschecked_official_pending",
       "mirror_png_git_blob_sha": "bb7dc9ced1943d1dc86ab0cded598e8541fd280a",
       "mirror_model_git_blob_sha": "dff2a5c69138d558950260815f784ba554c34821",
@@ -673,6 +701,18 @@
         "faces": 72,
         "source": "R002+R003_verified+R004_source_deepslate_stone_recheck",
         "ingame_verified": false
+      },
+      "R006_static_seam_source": {
+        "source_png_reopened": true,
+        "rgba_pixels_redecoded": 256,
+        "new_unique_png_added": false,
+        "synthetic_2D_adjacency_comparisons": 32,
+        "actual_ingame_uv_confirmed": false
+      },
+      "R006_supplemental_existing_end_png_reopened": {
+        "texture_id": "deepslate_top",
+        "rgba_pixels_redecoded": 256,
+        "new_unique_supplemental_png_added": false
       }
     },
     {
@@ -946,12 +986,29 @@
       "official_jar_authentication_required": false,
       "ingame_count": 0,
       "fully_completed_A_to_G_items": 0
+    },
+    {
+      "revision": "TEX02-R006",
+      "path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R006/",
+      "evidence_tier": "user_extracted_source_pixels_2D_seam_hypothesis_not_ingame",
+      "new_unique_fixed_pngs": 0,
+      "refetched_fixed_pngs": 5,
+      "refetched_existing_supplement_pngs": 1,
+      "rgba_pixels_redecoded": 1536,
+      "direct_blockstate_json_reopened": 5,
+      "direct_model_json_reopened": 13,
+      "new_hypothetical_seam_comparison_rows": 192,
+      "old_31_variant_186_face_rows_inherited": true,
+      "ingame_count": 0,
+      "fully_completed_A_to_G_items": 0,
+      "official_jar_authentication_required": false
     }
   ],
-  "current_release_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R005/",
+  "current_release_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R006/",
   "remaining_blockers": [
-    "Ingame static renderer screenshots unavailable; 0/17 verified",
-    "Static model source predictions require in-game UV/light/seam observation"
+    "No actual Minecraft ingame static screenshots/measured UV seam data; ingame static verified 0/17",
+    "Screen-space UV orientation, uvlock, lighting and rendering adjacency cannot be certified by source-pixel 2D transforms",
+    "R006 zero-seam artificial mirrored boundaries are tautological and not ingame proof"
   ],
   "current_stream_supplemental_end_face_binary_verified_count": 2,
   "static_face_model_local_source_entries": 102,
@@ -1013,5 +1070,15 @@
   "excluded_verification_levels": [
     "mojang_official_jar_sha1",
     "mojang_official_version_manifest_authentication"
-  ]
+  ],
+  "new_source_seam_comparison_rows_R006": 192,
+  "new_source_edge_pixel_pairs_R006": 3072,
+  "new_source_rgb_channel_differences_R006": 9216,
+  "rgba_pixels_redecoded_R006": 1536,
+  "new_fixed_unique_pngs_R006": 0,
+  "fixed_pngs_reopened_R006": 5,
+  "existing_supplemental_pngs_reopened_R006": 1,
+  "model_json_reopened_R006": 13,
+  "blockstate_json_reopened_R006": 5,
+  "source_2d_seam_results_are_ingame_verified": false
 }
