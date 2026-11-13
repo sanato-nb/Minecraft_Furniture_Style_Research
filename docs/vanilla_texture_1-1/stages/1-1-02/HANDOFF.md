@@ -1,6 +1,6 @@
 # 1-1-02 — 석재·벽돌 별도 채팅 인수인계
 
-> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R005` (공식 인증 제외·정책 변경)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
+> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R007` (정적 UV 좌표·픽셀 접합 연구)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 ## 연구 목표와 정확한 표본
 
@@ -115,3 +115,11 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 - **핵심 판정:** `bricks`/`stone_bricks`/`deepslate_bricks`는 blockstate에 회전 선언이 없음. `deepslate`의 축 회전과 `cube_mirrored`의 U 반전 UV `[16,0,0,16]`은 소스 사실이나, R006의 2D 화면 회전 숫자는 실제 모델/엔진 방향으로 옮겨 인증할 수 없음. 좌우 반전 상대 타일과의 경계 0은 동일 열을 붙인 계산상 항등성이고 **게임에서 접합이 완벽하다는 증거가 아님**.
 - **인게임 정적 0/17 및 A–G 전체 완료 0/17** 유지. 공식 Mojang JAR 전체 SHA-1/버전 메타데이터 인증은 연구/완료 조건에서 제외, 성공 주장 아님. 애니메이션 보류; 다른 단계·전역 v38 변경 없음.
 - 이 단계의 다음 후보는 **`TEX02-R007`**. 먼저 최신 LIVE STATE를 다시 읽고, 실제 정적 게임 화면/실측이 없는 한 화면 공간 UV·조명·줄눈을 검증 완료라고 하지 말 것.
+
+## TEX02-R007 — 17개 블록상태 × 186면의 정적 UV 좌표 투영과 신규 134개 픽셀 접합 (2026-11-13)
+
+- [상세 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R007/REPORT.md) · [186면 UV 4꼭짓점 계산](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R007/FACE_UV_WORLD_CORNERS.csv) · [북쪽 면 정적 소스 투영의 134개 이음새 측정](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R007/SOURCE_PROJECTED_NORTH_FACE_SEAMS.csv) · [43 JSON Git blob SHA 목록](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R007/SOURCE_JSON_SHA_LEDGER.csv) · [6 PNG 재확인](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R007/SOURCE_PNG_RECHECK.csv) · [재현 Python 코드](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R007/REPRODUCE_STATIC_UV.py) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R007/SUMMARY.json).
+- 이번에 직접 다시 확인한 JSON 경로: **17 blockstate + 17 기본 모델 + 2 대체 미러 모델 + 7 공유 부모 = 43개**. R004의 31개 원문 variant/186면은 계승; 이번에는 그 동일한 186면에 대한 **UV 방향 행렬과 네 꼭짓점 좌표 744쌍**을 신규 산출했다. 수학적 가정 하에서 서로 다른 UV 방향은 **8개**. 추가로 기존 PNG 6장을 재열람해 **134개의 투영 북쪽 면 가상 인접 픽셀 비교**, 경계 픽셀 쌍 2,144/채널 차이 6,432 계산. 새 고정 PNG **0개**, 고정 분모 **17개 불변**.
+- 중요한 구별: 모델 JSON에서 `uv=[16,0,0,16]`과 회전각 X/Y가 선언된 것은 실제 원문이지만 **미기재 UV 자동 생성 축과 world 접평면 좌표 및 X→Y 회전 부호는 R007 연구의 명시적인 수학 가정**이다. R007의 면 배치/0 픽셀 접합을 실제 게임의 렌더 인증으로 오인 금지. 특히 deepslate axis=x 동일 선언 2개는 과거 R004 근거 계승이고 이번 발견 아님.
+- 공식 client.jar SHA-1 인증은 완료 분모에서 제외(인증 성공 아님). **인게임 정적 실측 0/17, A–G 전체 완료 0/17**, 애니메이션 보류, 전역 v38과 타 단계 변경 없음.
+- 다음 후보 **`TEX02-R008`**; 시작은 라이브 STATE + 현재 릴리스 재조회, 이후 게임 캡처·렌더러 증거 확보 시 UV 축 가정과 픽셀 접합 비교.

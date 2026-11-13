@@ -1,0 +1,128 @@
+{
+  "stage_id": "1-1-02",
+  "revision": "TEX02-R007",
+  "previous_revision": "TEX02-R006",
+  "next_revision": "TEX02-R008",
+  "date": "2026-11-13",
+  "source_priority": "user_provided_1.21.11",
+  "source_pinned_commit": "2a43897b8f605b4e0c96a272bca476ee6b70058e",
+  "target_fixed_png": 17,
+  "new_unique_fixed_png": 0,
+  "source_json_read_direct_this_revision": {
+    "blockstate_17": 17,
+    "primary_model_17": 17,
+    "alternate_model_2": 2,
+    "shared_parent_model_7": 7,
+    "total": 43
+  },
+  "inherited_dont_recount": {
+    "prior_R001_RGBA_pixels": 4352,
+    "prior_R004_blockstate_declarations": 31,
+    "prior_R004_face_connections": 186,
+    "prior_R004_axis_x_duplicates": 2,
+    "prior_R006_2D_seam_measurements": 192
+  },
+  "new_source_projection": {
+    "reprojected_same_186_faces": 186,
+    "new_corner_sets": 186,
+    "new_corner_uv_pairs": 744,
+    "uv_orientation_classes": 8,
+    "uv_orientation_histogram": {
+      "1,0,0,1": 116,
+      "-1,0,0,1": 26,
+      "-1,0,0,-1": 10,
+      "1,0,0,-1": 10,
+      "0,-1,1,0": 8,
+      "0,1,-1,0": 4,
+      "0,1,1,0": 8,
+      "0,-1,-1,0": 4
+    },
+    "all_corner_values_0_or_16": true,
+    "all_tangent_matrix_determinants_absolute_one": true
+  },
+  "new_pixel_comparisons": {
+    "new_within_same_property_north_face_ordered_pairs": 134,
+    "edge_pixel_pairs": 2144,
+    "rgb_channel_comparisons": 6432,
+    "source_png_reopened_existing": 6,
+    "source_png_list": [
+      "stone.png",
+      "deepslate.png",
+      "deepslate_top.png",
+      "bricks.png",
+      "stone_bricks.png",
+      "deepslate_bricks.png"
+    ],
+    "results_by_group": {
+      "stone/": {
+        "rows": 32,
+        "min_mean": 0,
+        "max_mean": 11.5625,
+        "mean_mean": 8.078125,
+        "zero_diff_count": 8
+      },
+      "deepslate/axis=x": {
+        "rows": 32,
+        "min_mean": 0,
+        "max_mean": 22.458333,
+        "mean_mean": 12.703125,
+        "zero_diff_count": 8
+      },
+      "deepslate/axis=y": {
+        "rows": 32,
+        "min_mean": 0,
+        "max_mean": 22.458333,
+        "mean_mean": 12.703125,
+        "zero_diff_count": 8
+      },
+      "deepslate/axis=z": {
+        "rows": 32,
+        "min_mean": 0,
+        "max_mean": 17.125,
+        "mean_mean": 10.541667,
+        "zero_diff_count": 8
+      },
+      "bricks/": {
+        "rows": 2,
+        "min_mean": 22.208333,
+        "max_mean": 29.791667,
+        "mean_mean": 26,
+        "zero_diff_count": 0
+      },
+      "stone_bricks/": {
+        "rows": 2,
+        "min_mean": 25.875,
+        "max_mean": 51.25,
+        "mean_mean": 38.5625,
+        "zero_diff_count": 0
+      },
+      "deepslate_bricks/": {
+        "rows": 2,
+        "min_mean": 27.520833,
+        "max_mean": 56.8125,
+        "mean_mean": 42.166667,
+        "zero_diff_count": 0
+      }
+    }
+  },
+  "assumptions": [
+    "implicit default UV generated per vanilla cube face axis basis; not explicit in source model JSON",
+    "X90 maps up to south, Y90 maps north to east, apply X then Y",
+    "map world north face pixel centers using inverse tangent frame; 16 nearest pixel samples",
+    "no uvlock implementation, game render culling, filtering, lighting, jitter or screenshot"
+  ],
+  "official_mojang_jar_authentication_required": false,
+  "ingame_static_render_verified_count": 0,
+  "fully_completed_A_to_G_items": 0,
+  "animation_deferred": true,
+  "global_checkpoint_unmodified": "v38",
+  "outputs": [
+    "REPORT.md",
+    "SUMMARY.json",
+    "FACE_UV_WORLD_CORNERS.csv",
+    "SOURCE_PROJECTED_NORTH_FACE_SEAMS.csv",
+    "SOURCE_JSON_SHA_LEDGER.csv",
+    "REPRODUCE_STATIC_UV.py",
+    "SOURCE_PNG_RECHECK.csv"
+  ]
+}
