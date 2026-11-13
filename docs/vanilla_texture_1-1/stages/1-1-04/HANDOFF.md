@@ -1,6 +1,16 @@
 # 1-1-04 — 직물·양털 전용 채팅 인수인계
 
-> **현재 단계 고유 버전: `TEX04-R005` (2026-11-13)** · 다음 예약 번호: `TEX04-R006` (커밋 전 다시 확인) · 역사적 전체 `v38` 유지.
+> **현재 단계 고유 버전: `TEX04-R006` (2026-11-13)** · 다음 후보 `TEX04-R007` · 전역 역사적 `v38` 유지.
+
+## TEX04-R006 — 신규 아이템 JSON 9개 정적 모델 경로 + R005 재현 코드 정오표 (2026-11-13)
+
+- [R006 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R006/REPORT.md) · [9개 JSON 증거 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R006/ITEM_MODEL_9_SOURCE_LINKS.csv) · [수정 재현 코드](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R006/REPRODUCE_R005_FIXED_PLUS_ITEM_GATE.py) · [요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R006/SUMMARY.json).
+- 사용자 추출 `1.21.11/assets/minecraft/items/<color>_wool.json` **9개 새 소스 파일** 직접 확인. `minecraft:model`이 각각 기존 `minecraft:block/<color>_wool`을 참조하며, 새로운 고유 PNG/픽셀/face는 **0**.
+- R005 불변 `REPRODUCE_R005.py`에서 17바이트로 잘못 이스케이프된 PNG signature 버그 발견. **기존 R005는 덮어쓰지 않고** 수정 리터럴 8바이트 확인 및 아이템 JSON 검사를 추가한 수정판을 R006에 별도 저장. 수정판 전체의 사용자 환경 재실행 성공은 주장하지 않음.
+- 인게임 정적 **0/9**, 공식 배포 SHA1 인증 **필수 제외(인증 성공 아님)**, 애니메이션 및 다른 단계 작업 보류.
+- 다음 `TEX04-R007`은 라이브 STATE/HEAD/새 폴더 확인 후 새 실측 증거 있을 때만.
+
+---
 
 ## TEX04-R004 — 원본 추출본의 JAR 서명 메타데이터 SHA-384 연결 신규 검증 (2026-11-13)
 

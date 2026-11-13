@@ -7,10 +7,10 @@
   "stage_id": "1-1-04",
   "material_family": "직물·양털",
   "stage_prefix": "TEX04",
-  "current_revision": "TEX04-R005",
-  "next_revision": "TEX04-R006",
-  "revision_sequence": 5,
-  "revision_status": "R005_user_extracted_9_colour_substitution_edge_order_D4_static_state_comparison",
+  "current_revision": "TEX04-R006",
+  "next_revision": "TEX04-R007",
+  "revision_sequence": 6,
+  "revision_status": "R006_user_extracted_9_item_model_definition_references_and_R005_reproducer_errata",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 9,
@@ -79,9 +79,10 @@
       "title": "E 정적 모델 JSON·UV·상태 연결",
       "status": "user_source_9_leaf_9_blockstate_3_parent_json_sha384_manifest_sf_chains_21_of_21_54_existing_uv_faces",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX04-R005",
+      "last_revision": "TEX04-R006",
       "note_r004": "21 exact static JSON Git blob byte sources match per-file SHA384 of MANIFEST and 21 CRLF reconstructed paragraphs match SF; 54 existing UV face references remain reused",
-      "note_r005": "18 leaf/state JSONs + 3 inherited parents compared by colour: no extra model geometry, explicit face UV rotation or blockstate orientation variation; 54 faces previously counted"
+      "note_r005": "18 leaf/state JSONs + 3 inherited parents compared by colour: no extra model geometry, explicit face UV rotation or blockstate orientation variation; 54 faces previously counted",
+      "note_r006": "Nine new item definition JSONs directly parsed: each minecraft:model links to corresponding block/<colour>_wool; no new PNG or geometry"
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
@@ -95,9 +96,9 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "saved_TEX04_R005_source_colour_D4_gradient_model_state_reproducible",
+      "status": "saved_TEX04_R006_nine_item_static_links_and_immutable_R005_script_errata",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX04-R005"
+      "last_revision": "TEX04-R006"
     }
   },
   "material_specific_checks": [
@@ -130,7 +131,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R005",
+      "last_verified_revision": "TEX04-R006",
       "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_with_unsigned_manifest_sf_digest_chain_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
@@ -153,7 +154,9 @@
       "r005_colour_affine_measured": true,
       "r005_D4_eight_transform_comparison": true,
       "r005_pairwise_gradient_order_checked": true,
-      "r005_static_variant_comparison": true
+      "r005_static_variant_comparison": true,
+      "r006_item_source_json_checked": true,
+      "r006_item_model_ref_linked_to_colour_block": true
     },
     {
       "item_id": "1-1-04-002",
@@ -164,7 +167,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R005",
+      "last_verified_revision": "TEX04-R006",
       "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_with_unsigned_manifest_sf_digest_chain_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
@@ -187,7 +190,9 @@
       "r005_colour_affine_measured": true,
       "r005_D4_eight_transform_comparison": true,
       "r005_pairwise_gradient_order_checked": true,
-      "r005_static_variant_comparison": true
+      "r005_static_variant_comparison": true,
+      "r006_item_source_json_checked": true,
+      "r006_item_model_ref_linked_to_colour_block": true
     },
     {
       "item_id": "1-1-04-003",
@@ -198,7 +203,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R005",
+      "last_verified_revision": "TEX04-R006",
       "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_with_unsigned_manifest_sf_digest_chain_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
@@ -221,7 +226,9 @@
       "r005_colour_affine_measured": true,
       "r005_D4_eight_transform_comparison": true,
       "r005_pairwise_gradient_order_checked": true,
-      "r005_static_variant_comparison": true
+      "r005_static_variant_comparison": true,
+      "r006_item_source_json_checked": true,
+      "r006_item_model_ref_linked_to_colour_block": true
     },
     {
       "item_id": "1-1-04-004",
@@ -232,7 +239,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R005",
+      "last_verified_revision": "TEX04-R006",
       "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_with_unsigned_manifest_sf_digest_chain_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
@@ -255,7 +262,9 @@
       "r005_colour_affine_measured": true,
       "r005_D4_eight_transform_comparison": true,
       "r005_pairwise_gradient_order_checked": true,
-      "r005_static_variant_comparison": true
+      "r005_static_variant_comparison": true,
+      "r006_item_source_json_checked": true,
+      "r006_item_model_ref_linked_to_colour_block": true
     },
     {
       "item_id": "1-1-04-005",
@@ -266,7 +275,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R005",
+      "last_verified_revision": "TEX04-R006",
       "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_with_unsigned_manifest_sf_digest_chain_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
@@ -289,7 +298,9 @@
       "r005_colour_affine_measured": true,
       "r005_D4_eight_transform_comparison": true,
       "r005_pairwise_gradient_order_checked": true,
-      "r005_static_variant_comparison": true
+      "r005_static_variant_comparison": true,
+      "r006_item_source_json_checked": true,
+      "r006_item_model_ref_linked_to_colour_block": true
     },
     {
       "item_id": "1-1-04-006",
@@ -300,7 +311,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R005",
+      "last_verified_revision": "TEX04-R006",
       "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_with_unsigned_manifest_sf_digest_chain_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
@@ -323,7 +334,9 @@
       "r005_colour_affine_measured": true,
       "r005_D4_eight_transform_comparison": true,
       "r005_pairwise_gradient_order_checked": true,
-      "r005_static_variant_comparison": true
+      "r005_static_variant_comparison": true,
+      "r006_item_source_json_checked": true,
+      "r006_item_model_ref_linked_to_colour_block": true
     },
     {
       "item_id": "1-1-04-007",
@@ -334,7 +347,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R005",
+      "last_verified_revision": "TEX04-R006",
       "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_with_unsigned_manifest_sf_digest_chain_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
@@ -357,7 +370,9 @@
       "r005_colour_affine_measured": true,
       "r005_D4_eight_transform_comparison": true,
       "r005_pairwise_gradient_order_checked": true,
-      "r005_static_variant_comparison": true
+      "r005_static_variant_comparison": true,
+      "r006_item_source_json_checked": true,
+      "r006_item_model_ref_linked_to_colour_block": true
     },
     {
       "item_id": "1-1-04-008",
@@ -368,7 +383,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R005",
+      "last_verified_revision": "TEX04-R006",
       "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_with_unsigned_manifest_sf_digest_chain_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
@@ -391,7 +406,9 @@
       "r005_colour_affine_measured": true,
       "r005_D4_eight_transform_comparison": true,
       "r005_pairwise_gradient_order_checked": true,
-      "r005_static_variant_comparison": true
+      "r005_static_variant_comparison": true,
+      "r006_item_source_json_checked": true,
+      "r006_item_model_ref_linked_to_colour_block": true
     },
     {
       "item_id": "1-1-04-009",
@@ -402,7 +419,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R005",
+      "last_verified_revision": "TEX04-R006",
       "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_with_unsigned_manifest_sf_digest_chain_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
@@ -425,7 +442,9 @@
       "r005_colour_affine_measured": true,
       "r005_D4_eight_transform_comparison": true,
       "r005_pairwise_gradient_order_checked": true,
-      "r005_static_variant_comparison": true
+      "r005_static_variant_comparison": true,
+      "r006_item_source_json_checked": true,
+      "r006_item_model_ref_linked_to_colour_block": true
     }
   ],
   "revisions": [
@@ -532,15 +551,33 @@
         "research/vanilla_textures/by_stage/1-1-04/TEX04-R005/MODEL_STATE_COMPARISON.csv"
       ],
       "reproduction_script": "research/vanilla_textures/by_stage/1-1-04/TEX04-R005/REPRODUCE_R005.py"
+    },
+    {
+      "revision": "TEX04-R006",
+      "kind": "user_extracted_9_item_json_static_references_plus_R005_reproducer_publication_errata",
+      "new_source_item_definition_json": 9,
+      "new_item_to_block_model_static_links": 9,
+      "new_unique_pngs": 0,
+      "new_unique_pixels": 0,
+      "new_model_faces": 0,
+      "r005_script_signature_literal_correction_17_to_8_bytes": true,
+      "corrected_full_reproducer_run_verified": false,
+      "official_jar_authenticated": 0,
+      "official_sha1_out_of_mandatory_denominator": true,
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R006/REPORT.md",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R006/SUMMARY.json",
+      "item_source_csv": "research/vanilla_textures/by_stage/1-1-04/TEX04-R006/ITEM_MODEL_9_SOURCE_LINKS.csv",
+      "fixed_reproducer_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R006/REPRODUCE_R005_FIXED_PLUS_ITEM_GATE.py"
     }
   ],
   "next_steps": [
-    "Before any new TEX04-R006 release, re-fetch the live stage STATE/HANDOFF and verify main HEAD, STATE blob and unused next release directory",
-    "Retain prior unique 9 textures/2304 RGBA pixels/54 static faces and R004 30-file manifest/SF internal SHA384 linkage without counting as new",
-    "Seek user-provided original Minecraft 1.21.11 controlled in-game STATIC screenshots; mark verified only on real game evidence, current 0/9",
-    "If new static source counterexamples or variation are found, verify their exact 1.21.11 user extracted assets and report rather than assuming screen projection equals rendering",
-    "Whole client.jar SHA1 and official Mojang metadata are optional excluded from mandatory research denominator by explicit user instruction; do not claim authentication",
-    "Do not change other stage/global v38 or release animation study, PZ conversion, or 3D furniture modeling"
+    "Before a R007 revision, re-fetch live stage STATE/HANDOFF, main HEAD, and ensure next release folder absent",
+    "Preserve R001-R004 source pixel/UV/SHA384 evidence, R005 126 new metrics and immutable published R005 script error; use R006 fixed reproducer",
+    "R006 fixed script has validated 8-byte literal and direct JSON source predicates, but has not been end-to-end executed after publication on user local 1.21.11 extracted directory",
+    "Only controlled Minecraft 1.21.11 actual game STATIC screenshots with proven environment can upgrade in-game static verified (currently 0/9)",
+    "Whole Mojang official client.jar SHA1 and metadata are explicitly excluded from mandatory denominator, not authenticated",
+    "Animation, furniture construction, PZ conversion and other 1-1 stages remain excluded"
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -639,5 +676,10 @@
   "r005_excluded_zero_count": 876,
   "r005_d4_identity_best_count": 9,
   "r005_new_face_count": 0,
-  "r005_existing_2304_pixels_reused_not_new": true
+  "r005_existing_2304_pixels_reused_not_new": true,
+  "r006_new_source_item_json_count": 9,
+  "r006_new_item_to_block_model_links": 9,
+  "r006_new_unique_png_count": 0,
+  "r006_r005_script_signature_escaped_bug_confirmed": true,
+  "r006_corrected_reproducer_full_run_verified": false
 }
