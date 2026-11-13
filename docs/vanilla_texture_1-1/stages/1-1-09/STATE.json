@@ -7,10 +7,10 @@
   "stage_id": "1-1-09",
   "material_family": "토양·지면",
   "stage_prefix": "TEX09",
-  "current_revision": "TEX09-R006",
-  "next_revision": "TEX09-R007",
-  "revision_sequence": 6,
-  "revision_status": "R006_user_grass_podzol_side_512_new_RGB_texels_row_identity184_snow145__ingame_pending",
+  "current_revision": "TEX09-R007",
+  "next_revision": "TEX09-R008",
+  "revision_sequence": 7,
+  "revision_status": "R007_dirt_to_three_side_png_spatial_RGB_provenance_confirmed__static_source_research_mature__awaiting_user_ingame_static_evidence",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 9,
@@ -48,27 +48,27 @@
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R006_two_user_source_aux_side_png_sha256_git_blob_png_crc_pass_RGBA_total512_prior_snow_overlay_unchanged",
+      "status": "R007_user_dirt_and_three_support_PNG_sha256_crc_4of4_revalidated_prior_source_pixels_no_new",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R006"
+      "last_updated_revision": "TEX09-R007"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R006_new_grass_podzol_side_pixel512_RBG_spatial_match184_snow_comparison145_row_masks16",
+      "status": "R007_three_dirt_side_pairwise_exact_195_188_145_256coords_classified_145_all_equal",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R006"
+      "last_updated_revision": "TEX09-R007"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R006_D3_grass_podzol_snow_side_RGB_shared_lower_rows_and_overlay_mask_source_only_ingame_pending",
+      "status": "R007_D3_dirt_exact_lower_pixel_regions_grass_podzol_176_each_snow144_ingame_tint_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R006"
+      "last_updated_revision": "TEX09-R007"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R006_source_static_grass_podzol_snow_models_5_JSON_reparsed_original_face_and_state_links_retained",
+      "status": "R007_existing_7_model_blockstate_JSON_reparsed_dirt_base_and_side_texture_reference",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R006"
+      "last_updated_revision": "TEX09-R007"
     },
     "F": {
       "title": "F 인게임 정적 렌더 검증 (Mojang 공식 JAR 인증 요구 제외)",
@@ -79,9 +79,9 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "done_R006_side_pixel_metrics_exact_row_masks_pairs_3_source_handoff",
+      "status": "done_R007_dirt_side_pixel_alignment_masks_csv_handoff_and_waiting_on_user_F",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R006"
+      "last_updated_revision": "TEX09-R007"
     }
   },
   "material_specific_checks": [
@@ -100,8 +100,8 @@
     {
       "id": "D3",
       "check": "grass/podzol PNG와 인게임 tint·주변 블록 효과 구분",
-      "status": "R006_user_side_png_RGB_spatial_184_145_145_and_prior_overlay_alpha45_crosschecked_tint_runtime_ingame_pending",
-      "last_verified_revision": "TEX09-R006"
+      "status": "R007_dirt_vs_grass_side195_podzol_side188_snow_side145_shared_below_rows_proved__runtime_tint_ingame_pending",
+      "last_verified_revision": "TEX09-R007"
     }
   ],
   "items": [
@@ -314,14 +314,42 @@
       "report_path": "research/vanilla_textures/by_stage/1-1-09/TEX09-R004/REPORT.md",
       "official_jar_verified": 0,
       "ingame_static_verified": 0
+    },
+    {
+      "revision": "TEX09-R005",
+      "kind": "user_colormap_rgb_and_static_face_tint_link_audit",
+      "new_target_png": 0,
+      "new_support_png_decodes": 1,
+      "derived_face_rows": 28,
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-09/TEX09-R005/REPORT.md"
+    },
+    {
+      "revision": "TEX09-R006",
+      "kind": "user_side_png_pixel_alignment_grass_podzol_snow",
+      "new_target_png": 0,
+      "new_support_png_decodes": 2,
+      "new_side_pair_coordinate_comparisons": 768,
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-09/TEX09-R006/REPORT.md"
+    },
+    {
+      "revision": "TEX09-R007",
+      "kind": "user_dirt_target_to_three_side_png_same_coordinate_pixel_provenance",
+      "new_target_png": 0,
+      "new_support_png_decodes": 0,
+      "new_dirt_side_comparisons": 768,
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-09/TEX09-R007/REPORT.md"
     }
   ],
   "next_steps": [
-    "Before a new substantive release re-read STATE.json/HEAD; next candidate TEX09-R005 remains reserved",
-    "Continue user-provided 1.21.11 source texture/model/UV/color research and mirror crosschecks without repeating prior counted samples",
-    "If game screenshots become available, examine grass/podzol biome tint, snowy=true, lighting and neighboring block effects; otherwise mark ingame as pending",
-    "Do not perform official JAR SHA-1 authentication or Mojang manifest verification for 1-1-09 unless user explicitly changes policy",
-    "Animation remains deferred; no Project Zomboid conversion or furniture 3D modeling; preserve global v38 and other stages"
+    "On future '계속해줘' requests: if no new authentic static-game image/runtime evidence is available, STOP without an empty revision and tell the user which materials are needed",
+    "Static source 9/9 target PNG and model/UV records plus supporting grass/podzol/snow/colormap comparisons are already analyzed and preserved in TEX09-R001..R007",
+    "Await controlled Minecraft Java 1.21.11 in-game STATIC screenshots/captures for 9 soil/ground blocks; include F3 biome where possible, grass/podzol snowy=false/true and neighboring block contexts",
+    "Only start candidate TEX09-R008 if actual new independently checkable evidence becomes available; reread LIVE STATE and HEAD before any write",
+    "Do not authenticate official Mojang client.jar, per user policy; leave in-game verification 0/9 until actually observed",
+    "Animation and furniture/Zomboid conversion out of scope, preserve global v38 and other stages"
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -445,6 +473,38 @@
       "ingame_static_verified_count": 0,
       "official_jar_authentication_required": false,
       "summary_path": "research/vanilla_textures/by_stage/1-1-09/TEX09-R006/SUMMARY.json"
+    },
+    "TEX09-R007": {
+      "new_independent_target_png": 0,
+      "new_support_png": 0,
+      "rechecked_existing_png": 4,
+      "rechecked_existing_rgba_texels_not_new": 1024,
+      "source_json_reparsed_without_new_count": 7,
+      "new_coordinate_comparisons": 768,
+      "new_coordinate_classifications": 256,
+      "dirt_side_same_coordinate_rgb": {
+        "grass": 195,
+        "podzol": 188,
+        "snow": 145,
+        "all_four_equal": 145
+      },
+      "lower_full_matching_rows": {
+        "grass": "5..15",
+        "podzol": "5..15",
+        "snow": "7..15"
+      },
+      "required_user_evidence": "actual game static captures / F3 biome metadata under controlled conditions for 9 targets and grass-podzol snowy variants",
+      "ingame_static_verified_count": 0,
+      "official_authentication_out_of_scope": true,
+      "summary_path": "research/vanilla_textures/by_stage/1-1-09/TEX09-R007/SUMMARY.json"
     }
+  },
+  "study_gate": {
+    "source_only_analysis_status": "mature_9_targets_and_supporting_png_json_analyzed",
+    "next_substantive_step": "ingame_static_render_observation",
+    "user_input_required": true,
+    "needed_from_user": "User-captured vanilla 1.21.11 in-game screenshots (nine target blocks and grass/podzol snow states), ideally same lighting/angle with F3 biome metadata",
+    "on_continue_without_evidence": "stop_and_request_user_evidence_no_new_revision",
+    "last_checked_revision": "TEX09-R007"
   }
 }

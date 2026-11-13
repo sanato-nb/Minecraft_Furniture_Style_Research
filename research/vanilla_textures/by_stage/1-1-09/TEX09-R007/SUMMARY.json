@@ -1,0 +1,81 @@
+{
+  "stage_id": "1-1-09",
+  "revision": "TEX09-R007",
+  "date": "2026-11-13",
+  "scope": "9 fixed soil/ground PNG; user extracted Minecraft Java 1.21.11 assets",
+  "new_target_png_count": 0,
+  "new_independent_auxiliary_png_count": 0,
+  "source_png_unique_count_used_in_comparison": 4,
+  "png_prior_total_texels_recomputed_not_new": 1024,
+  "source_json_reparsed_not_new_count": 7,
+  "source_new_json_count": 0,
+  "all_png_crc_pass": true,
+  "each_png_crc_chunk_count": 4,
+  "all_rgba_opaque": true,
+  "comparisons": {
+    "dirt_grass": {
+      "equal": 195,
+      "different": 61,
+      "identical_full_rows": "5..15",
+      "y2_equal": 1,
+      "y3_equal": 4,
+      "y4_equal": 14
+    },
+    "dirt_podzol": {
+      "equal": 188,
+      "different": 68,
+      "identical_full_rows": "5..15",
+      "y3_equal": 4,
+      "y4_equal": 8
+    },
+    "dirt_snow": {
+      "equal": 145,
+      "different": 111,
+      "identical_full_rows": "7..15",
+      "y5_equal": 1
+    },
+    "coordinate_comparisons": 768,
+    "unique_coord_classifications": 256,
+    "class_code_counts": {
+      "A_all_four_equal": 145,
+      "B_dirt_grass_podzol_equal_snow_differs": 39,
+      "G_only_grass_equal_dirt": 11,
+      "P_only_podzol_equal_dirt": 4,
+      "dot_none_equal_dirt": 57
+    },
+    "earliest_all_identical_tail_y": {
+      "dirt_grass_podzol": 5,
+      "dirt_grass_podzol_snow": 7
+    },
+    "grass_podzol_snow_all_equal_dirt_at_y5_x11": true
+  },
+  "source_pictures_sha256": {
+    "dirt": "67197d5371efc3ca1638217c38349665dbd5a977b47bfb20075c858dff87d510",
+    "grass_block_side": "76a677640eb91d6a9aed844bc66e329b1894f89e241a0071333b6678c0854580",
+    "podzol_side": "dacef78790b567396241e3d1453cdc5cd63eb79484f77fe8bd9311281805e283",
+    "grass_block_snow": "8802c885e4d689be9c85102ca3e4469ef2f6e382603a811bdc3b65fbcf76c0df"
+  },
+  "inherited_prior_revision": "TEX09-R006",
+  "source_assets_static_analysis_9_of_9": true,
+  "static_model_relationships": {
+    "dirt_six_face_texture": "minecraft:block/dirt",
+    "grass_base_bottom": "block/dirt",
+    "podzol_normal_bottom": "minecraft:block/dirt",
+    "grass_podzol_snowy_shared_model": "minecraft:block/grass_block_snow",
+    "grass_overlay_tintindex": 0
+  },
+  "game_runtime_tint_verified": false,
+  "ingame_static_render_verified_count": 0,
+  "official_mojang_jar_authentication_required": false,
+  "official_mojang_jar_authenticated": false,
+  "study_gate": {
+    "research_static_source_track": "9 fixed target textures and relevant referenced PNG/JSON already investigated",
+    "remaining_requirement": "in-game static screenshots or equivalent controlled runtime observations for tint, snow, lighting and adjacent geometry",
+    "user_material_needed_for_next_substantive_stage": "screenshots at vanilla game settings with F3 biome/location info; same viewpoint and light for target 9 and grass/podzol snowy states",
+    "stop_instead_of_adding_empty_revision_on_next_continue_if_no_new_game_evidence": true
+  },
+  "animations_deferred": true,
+  "global_v38_unchanged": true,
+  "other_stages_untouched": true,
+  "next_revision_candidate": "TEX09-R008"
+}

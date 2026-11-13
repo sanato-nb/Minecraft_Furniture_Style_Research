@@ -137,3 +137,15 @@
 - R004 계승 overlay 45 불투명/211 투명은 이번에 중복 가산 금지. 측정된 45개 보이는 overlay RGB는 grass base 같은 좌표 RGB와 전부 달랐음(0/45 동일). 이는 정적 색상/알파에 대한 결과이며 tint가 실제 적용된 게임 렌더는 아님.
 - 고정 9개 표본 유지, 인게임 정적 검증 0/9. grass/podzol/snow 실제 바이옴 틴트, 광원, 이웃 가림, 게임 화면 미검증. 공식 JAR SHA-1 인증은 사용자 지시로 연구 필수 제외하되 인증 성공 아님. 애니메이션 전면 보류·전체 v38·타 단계·루트 비수정.
 - 이제 **현재 TEX09-R006 / 다음 후보 TEX09-R007**. 신규 작업은 반드시 live STATE/HEAD/R006 결과물부터 재조회하고, 검증 가능한 게임 런타임 tint 규칙 또는 정적 인게임 관찰 증거가 있을 때만 F를 갱신한다.
+
+## TEX09-R007 — dirt 원본과 세 측면의 동일 좌표 완전 픽셀 정합 (2026-11-13)
+
+- [보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R007/REPORT.md), [16×16 좌표 일치 분류](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R007/DIRT_SIDE_COORDINATE_CLASSES_16_ROWS.csv), [16열 공유 하부 경계](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R007/DIRT_SIDE_CONTINUOUS_LOWER_BOUNDARY.csv), [3쌍 일치 수](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R007/DIRT_SIDE_MATCH_SUMMARY.csv), [8 RGB 샘플](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R007/DIRT_SIDE_RGB_SAMPLES.csv), [11파일 출처 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R007/SOURCE_LEDGER.csv), [요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R007/SUMMARY.json).
+- 사용자 제공 1.21.11/ 직접 PNG 4개 재검사: dirt(기존 9 중 1개), grass_block_side, podzol_side, grass_block_snow. **기존 이미 디코드된 픽셀 1024개 재사용, 신규 PNG/고정 타깃 화소 0**. 4 PNG×4 CRC 성공, SHA256/Git blob 일치; 7 기존 JSON 다시 검사(신규 JSON 0).
+- 이번 신규 증거는 흙 원본과 같은 위치의 **3쌍×256=768 RGBA 비교**: grass 측면 195/256 같음, podzol 188/256, snowy 측면 145/256. grass/podzol은 둘 다 y=5..15의 176 texel 전체가 dirt와 동일, snowy는 y=7..15의 144 texel 전체가 동일.
+- 256좌표 분류: 4 PNG 모두 동일 A=145, dirt·grass·podzol만 동일 B=39, dirt·grass만 G=11, dirt·podzol만 P=4, dirt와 일치 없는 .=57. 145개의 전부 동일 중 1개는 (x11,y5), 나머지 144개 y7..15.
+- 이 결과는 PNG 바이너리 안에 포함된 하부 공유 흙 무늬의 근거다. 엔진이 side를 dirt와 동적으로 합성한다거나 실제 게임의 biome 색조가 검증됐다는 주장이 아니다. `dirt` 모델 6면·grass/podzol/snow 모델 밑면에서 dirt 직접 참조도 JSON에서 재확인.
+- 기존 9개 고정 타깃 정적 소스 및 JSON/UV 검증 기록 유지. 실제 인게임 정적 검증 **0/9**, 색조·눈/이웃·조명 미검증. 공식 Mojang JAR 인증은 필수 제외(성공 아님). 애니메이션 연구 전면 보류. 공용 v38 및 다른 단계 수정 금지.
+- **사용자의 새 지시:** 향후 `계속해줘` 시 새 자료 없고 기존 PNG/JSON의 반복 재검수만 남거나 사용자 게임 자료가 필수라면 **새 리비전을 억지로 만들지 않고 멈춰서 사용자에게 자료를 요청한다**.
+- 다음 실질적 진척은 **사용자의 실제 Java 1.21.11 게임 정적 캡처** 필요: 가능한 한 9종 블록이 식별 가능한 장면과 grass_block/podzol의 `snowy=false/true`, 동일 바이옴·시간·광원·각도 및 F3 바이옴 정보. 정적 게임 화면/테스트 결과를 받기 전에는 F를 완료 처리하지 않는다.
+- 현재 TEX09-R007, 다음 후보 TEX09-R008은 **새로운 검증 가능한 근거 도착 시에만**. 다음 대화에서 반드시 LIVE STATE/HEAD 재확인.
