@@ -1,0 +1,22 @@
+source_class,method,bytecode_pc,operation,evidence_tier,actual_final_texture_renderer_verified
+hqi,bakeQuad,"0,8,15",hqc.d() UV getter ; null-check ; hqi.defaultFaceUV fallback,source_verified,false
+hqi,bakeQuad,20-29,ioc.b(Direction)->Matrix4fc; face-dependent UV matrix,source_verified,false
+hqi,bakeQuad,42-47,hoa.a(Direction); per-face corner table,source_verified,false
+hqi,bakeQuad,74-81,ioc.a()->i model-state transform,source_verified,false
+hqi,bakeQuad,49-94,for index 0..3 call bakeVertex,source_verified,false
+hqi,bakeQuad,97-102,derive normal from baked vertices,source_verified,false
+hqi,bakeQuad,104-120,if no element rotation reorder vertex coordinates and UV data to face order,source_verified,false
+hqi,bakeQuad,123-180,"construct quad with 4 vertex positions, 4 packed UV, tint, normal, texture",source_verified,false
+hqi,bakeVertex,0-21,"hoa vertex corner selection, divide by 16",source_verified,false
+hqi,bakeVertex,23-43,optional hqd element rotation around pivot,source_verified,false
+hqi,bakeVertex,43-64,if i model transform is nonidentity apply pivoted Matrix4fc,source_verified,false
+hqi,bakeVertex,64-78,hqc.a/b normalize source corner U/V with g face index rotation,source_verified,false
+hqi,bakeVertex,80-146,"e.a(matrix) property-bit 4 check; if not, center UV -0.5, apply Matrix4fc.transformPosition, recenter +0.5",source_verified,false
+hqi,bakeVertex,146-180,"write transformed 3D vertex, ilp.a/b UV conversions, hdr.a packs two float UV",source_verified,false
+hqc,U getter,0-12,hqc$b.a(g.b(index))/16,source_verified,false
+hqc,V getter,0-12,hqc$b.b(g.b(index))/16,source_verified,false
+g,b(index),0-8,(index+rotationOrdinal) mod 4,source_verified,false
+hqc$b,a(index),0-20,return u1 for index 0/1 otherwise u2,source_verified,false
+hqc$b,b(index),0-20,return v1 for index 0/3 otherwise v2,source_verified,false
+ioc,default b(Direction),0-3,return stored identity Matrix4fc,source_verified,false
+e,a(Matrix4fc),0-5,call property bit-mask test with bit 4; not a screenshot,source_verified,false

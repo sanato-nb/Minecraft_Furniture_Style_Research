@@ -1,6 +1,6 @@
 # 1-1-02 — 석재·벽돌 별도 채팅 인수인계
 
-> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R008` (렌더러 기본 UV 클래스 바이트코드 검증)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
+> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R009` (렌더러 quad UV 경로·uvlock 소스 조사)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 ## 연구 목표와 정확한 표본
 
@@ -131,3 +131,12 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 - **중요한 신규 결론:** R007의 '자동 생성 UV 기본 축은 수학적 가정' 중 **모델 로컬 6면의 U/V 기본 축 6/6은 클라이언트 원본 바이트코드가 확인해 줌**. 16×16 완전 큐브의 기본 UV는 6면 모두 [0,0,16,16]. 이전의 명시 UV 미러 48면은 이 자동 계산의 직접 대상이 아니며, 이전 기본 UV 138면 분류를 계승한다. R007 월드 좌표로 회전된 최종 UV 및 134개 접합은 여전히 **엔진 최종 투영/인게임 검증 전**.
 - **신규 PNG/픽셀 재측정 0건, 기존 31 variant/186면/138 기본 UV/48 명시 반전 UV 등 모두 이전 실적 계승**. 게임 정적 렌더 0/17, A–G 전체 완료 0/17, 공식 Mojang client.jar SHA-1 인증은 연구 필수 기준에서 제외. 애니메이션 계속 보류.
 - 다음 후보 **`TEX02-R009`**. 진행 가능하다면 사용자 추출 클라이언트의 `ModelState` 변환/UV 잠금과 실제 baked quad 코드를 추가 분석하고, 스크린샷 검증은 자료가 있을 때만 수행.
+
+## TEX02-R009 — 사용자 제공 클라이언트의 bakeQuad UV 경로·코너 규칙·31 uvlock 선언 (2026-11-13)
+
+- [R009 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R009/REPORT.md) · [클라이언트 클래스 12개 blob SHA 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R009/CLIENT_QUAD_CLASS_SHA.csv) · [바이트코드 21개 호출 지점](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R009/QUAD_PIPELINE_BYTECODE_CALLS.csv) · [UV 코너 공식을 실행한 32개 예시](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R009/UV_CORNER_FORMULA_EVALUATION.csv) · [31개 블록상태의 uvlock 키 검사](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R009/BLOCKSTATE_UVLOCK_DECLARATIONS.csv) · [오프라인 검사 코드](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R009/VERIFY_QUAD_UV_PIPELINE.py) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R009/SUMMARY.json).
+- R008에서 사용한 `hqi.class`는 계승/재검사. 이번에 **새로 직접 읽은 원본 자바 클래스 파일 11개**: `hqc, hqc$b, g, ioc, i, e, ilp, hqd, hoa, hoa$a, hoa$b`. 사용자 제공 `1.21.11/` 우선, Git blob SHA 저장.
+- **신규 소스 확인:** `bakeQuad`의 UV 기본값 보충 → `ioc.b(direction)` UV 행렬 → `ioc.a()` 위치 변환 → 정점 네 개 반복 → UV 원점 보정(-0.5), UV행렬 `transformPosition`, 중심 복귀(+0.5) 조건부 경로 → sprite 텍스처 좌표 변환/quad 생성. `g.b(index)`는 rotation offset 합산 mod 4, `hqc$b`는 `(u1,v1),(u1,v2),(u2,v2),(u2,v1)`의 코너 선택 규칙. 그 공식을 기본/명시적 미러 UV 2종 × 회전 인덱스 4 × 꼭짓점 4로 **새 알고리즘 평가 32행** 생성.
+- 17개 원본 blockstate JSON 전부 재열람. R004의 **기존 31개 변형 선언 중 `uvlock` 명시 0건**. 그러나 이는 선택되는 실제 ModelState 행렬/인게임 최종 UV까지 검증했다는 뜻은 아님. `ioc` 기본 구현은 공용 identity matrix 사용.
+- **신규 픽셀/PNG 0건, 원본 고정 17, 이전 31 variant/186 face와 R007 134 픽셀 접합은 계승**, 다른 연구 실적 중복 가산 금지. 공식 jar SHA-1 인증 완료 기준 제외. **인게임 0/17, A-G 완료 0/17**, 애니메이션 제외.
+- 다음 후보 `TEX02-R010`: 최신 STATE 재조회 후 `ioc` 구현체 선택과 ModelState 회전 파서의 실제 조건을 추가 확인할 수 있음. 당장은 사용자 협조 없이 소스 연구 가능.

@@ -1,0 +1,62 @@
+{
+  "stage": "1-1-02",
+  "revision": "TEX02-R009",
+  "prior": "TEX02-R008",
+  "next": "TEX02-R010",
+  "date": "2026-11-13",
+  "scope_fixed_pngs": 17,
+  "new_unique_fixed_pngs_added": 0,
+  "new_rgba_or_seam_pixel_measurements": 0,
+  "new_client_java_classfiles_directly_opened": 11,
+  "refetched_prior_client_java_classfiles": 1,
+  "client_java_classfiles_in_source_ledger": 12,
+  "new_source_callsite_records": 21,
+  "source_blockstate_json_refetched": 17,
+  "blockstate_variant_declarations_reexamined": 31,
+  "explicit_uvlock_key_declarations": 0,
+  "new_derived_corner_rotation_combinations": 32,
+  "derived_corner_set_rectangles": 2,
+  "derived_quarter_turn_rotation_indices": 4,
+  "derived_vertex_index_values": 4,
+  "quad_pipeline_facts": [
+    "quad-face UV missing causes defaultFaceUV fallback",
+    "bakeQuad reads ioc.b(Direction) face-dependent UV transform and ioc.a() positional transform",
+    "per-vertex face UV normalized to 0..1 by dividing by 16 after g.b(index) modulo-four face index",
+    "2 UV corner accessors on BlockFaceUV produce (u1,v1) (u1,v2) (u2,v2) (u2,v1) at source indices 0..3",
+    "per-vertex UV transform conditionally uses matrix property bit 4; if not set, transforms (u-0.5,v-0.5,0) then adds 0.5",
+    "model positions optionally undergo element and model transform separately from UV matrix",
+    "final sprite UV floats packed into quad result",
+    "default ioc.b(Direction) method returns shared identity matrix"
+  ],
+  "inherited_without_recount": {
+    "prior_target_png": 17,
+    "prior_rgba_pixels": 4352,
+    "prior_state_declarations": 31,
+    "prior_model_faces": 186,
+    "prior_default_uv_faces": 138,
+    "prior_mirrored_uv_faces": 48,
+    "prior_R007_synthetic_edge_rows": 134,
+    "prior_R008_default_uv_faces_confirmed": 6
+  },
+  "not_resolved": [
+    "No proof loader uses default ioc.b matrix for all 31 blockstate variants despite 0 explicit uvlock JSON keys",
+    "No independent ModelState rotation matrix source mapping/uvlock parser branch for all 31 declarations",
+    "No actual final baked-quad numeric output or in-game render for any 17 target PNGs",
+    "No lighting seam/random choice probability proof"
+  ],
+  "in_game_render_verified": 0,
+  "fully_completed_A_to_G": 0,
+  "official_jar_authenticated_claim": false,
+  "official_jar_sha1_required": false,
+  "animation_deferred": true,
+  "global_checkpoint_unchanged": "v38",
+  "outputs": [
+    "REPORT.md",
+    "SUMMARY.json",
+    "CLIENT_QUAD_CLASS_SHA.csv",
+    "QUAD_PIPELINE_BYTECODE_CALLS.csv",
+    "UV_CORNER_FORMULA_EVALUATION.csv",
+    "BLOCKSTATE_UVLOCK_DECLARATIONS.csv",
+    "VERIFY_QUAD_UV_PIPELINE.py"
+  ]
+}
