@@ -1,0 +1,107 @@
+{
+  "schema": "stage1-1-11-source-static-link-audit/v1",
+  "stage": "1-1-11",
+  "revision": "TEX11-R004",
+  "predecessor": "TEX11-R003",
+  "next_revision": "TEX11-R005",
+  "date": "2026-11-13",
+  "global_legacy_checkpoint_unchanged": "v38",
+  "priority_source": "user_provided_unpacked_Minecraft_Java_1.21.11_JAR_in_repository/1.21.11",
+  "fixed_target_png_count": 31,
+  "source_png_sha256_crc_completed_in_R003": 31,
+  "source_png_rehashed_this_revision": 0,
+  "source_leaf_JSON_bodies_newly_parsed_R004": 127,
+  "scope_leaf_JSON_bodies_newly_parsed": 120,
+  "historic_oak_shelf_leaf_JSON_bodies_separate": 7,
+  "leaf_checks": {
+    "git_sha_against_R003": 127,
+    "parent_names": 127,
+    "material_texture_slots": 127,
+    "leaf_elements_absent": 127,
+    "unexpected_mismatches": 0,
+    "door_leaves": 56,
+    "trapdoor_leaves": 36,
+    "non_oak_shelf_leaves": 28,
+    "oak_shelf_historic": 7
+  },
+  "shared_template_source_uv": {
+    "templates": 21,
+    "explicit_faces": 114,
+    "bounds_valid": 114,
+    "nonzero_uv_area": 114,
+    "texel_edge_integer_aligned": 114,
+    "texture_slot_literal_valid": 114,
+    "face_rotation_multiples_90": 114,
+    "source_SHA_unchanged_R001": 114,
+    "uv_face_counts": {
+      "shelf": 38,
+      "door": 40,
+      "trapdoor": 36
+    },
+    "UV_area_references": {
+      "shelf_32px_texel_uses": 2304,
+      "door_16px_texel_uses": 5248,
+      "trapdoor_16px_texel_uses": 4224
+    },
+    "area_is_not_unique_png_pixels": true
+  },
+  "shared_template_geometry": {
+    "elements": 25,
+    "in_bounds": 25,
+    "from_le_to": 25,
+    "has_faces": 25,
+    "zero_thickness_panel_elements": 5,
+    "zero_thickness_panel_templates": [
+      "template_shelf_center",
+      "template_shelf_left",
+      "template_shelf_right",
+      "template_shelf_unconnected",
+      "template_shelf_unpowered"
+    ]
+  },
+  "source_blockstates": {
+    "blockstate_files": 23,
+    "source_rules_reparsed_R004": 512,
+    "model_links_resolved": 512,
+    "model_names_match_properties": 512,
+    "rotation_90_multiple": 512,
+    "source_sha_against_R003": 512,
+    "door_variant_rules": 224,
+    "trapdoor_variant_rules": 192,
+    "non_oak_shelf_multipart_rules": 96,
+    "shelf_static_combinations_evaluated_R004": 128,
+    "shelf_static_combinations_one_body_one_overlay": 128
+  },
+  "source_material_references": {
+    "PNG_files_referenced_by_leaf_material_slots": 31,
+    "leaf_material_texture_slot_references": 183,
+    "reference_counts": {
+      "door_bottom_top": 112,
+      "trapdoor": 36,
+      "shelf": 35
+    },
+    "particle_slot_external_textures_count": 5,
+    "external_particle_pngs_independently_hashed_in_scope": false
+  },
+  "four_tiers": {
+    "user_provided_extracted_source": "source_JSON_UTF8_direct_parse_with_R003_png_hash_31",
+    "unofficial_mirror_cross_validation": "R003_31_png_175_JSON_byte_sha_preserved_and_R004_leaf_sha_match_127",
+    "mojang_official_JAR_SHA1_authentication": "pending_not_computed",
+    "ingame_static_rendering": "pending_no_runtime_verification"
+  },
+  "official_client_jar_authenticated_png_count": 0,
+  "ingame_static_verified_png_count": 0,
+  "animation_analysis_deferred": true,
+  "project_zomboid_conversion_excluded": true,
+  "furniture_3d_creation_excluded": true,
+  "all_A_to_G_complete": false,
+  "evidence_files": [
+    "REPORT.md",
+    "SUMMARY.json",
+    "LEAF_MODEL_DIRECT_AUDIT.csv",
+    "STATIC_STATE_MODEL_LINKS.csv",
+    "TEMPLATE_UV_FACE_VALIDATION.csv",
+    "MODEL_ELEMENT_GEOMETRY.csv",
+    "TEXTURE_REFERENCE_COVERAGE.csv"
+  ]
+}

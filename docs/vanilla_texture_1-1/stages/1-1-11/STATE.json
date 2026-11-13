@@ -7,10 +7,10 @@
   "stage_id": "1-1-11",
   "material_family": "목재·구조부품",
   "stage_prefix": "TEX11",
-  "current_revision": "TEX11-R003",
-  "next_revision": "TEX11-R004",
-  "revision_sequence": 3,
-  "revision_status": "R003_user_provided_extracted_PNG_31_direct_SHA256_CRC_mirror_match_175_JSON_tree_and_48_body_audited_official_ingame_pending",
+  "current_revision": "TEX11-R004",
+  "next_revision": "TEX11-R005",
+  "revision_sequence": 4,
+  "revision_status": "R004_user_extracted_leaf_json_127_114_template_uv_25_elements_512_blockstate_links_31_material_coverage_official_ingame_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 31,
@@ -42,37 +42,37 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "R003_user_provided_1_21_11_primary_source_declared_old_R001_R002_preserved",
+      "status": "R004_R003_user_extracted_1_21_11_primary_SHA_provenance_preserved_no_double_count",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R003_provided_31_PNG_direct_bytes_SHA256_CRC32_verified_cross_mirror",
+      "status": "R003_user_PNG_31_SHA256_CRC_done_R004_reused_not_rehashed",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R003_identical_input_SHA256_links_prior_R001_RGBA_R002_periodicity_no_double_count",
+      "status": "R001_R002_RGBA_periodicity_reused_for_R003_identical_bytes_R004_new_RRGBA_zero",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R003_provided_source_identical_D1_D2_D3_source_inputs_in_game_visual_pending",
+      "status": "R004_D1_D2_D3_source_geometry_UV_slot_114_face_25_elements_31_texture_paths_confirmed_renderer_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R003_provided_175_JSON_git_tree_sha_match_48_JSON_bodies_rules_UV_direct_parsed",
+      "status": "R004_127_leaf_JSON_direct_valid_512_blockstate_model_links_128_shelf_combinations_114_UV_faces_25_geometry",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "R003_official_unpacked_folder_not_original_JAR_sha1_authentication_ingame_0",
+      "status": "R004_official_client_jar_sha1_zero_ingame_runtime_zero_official_and_static_visual_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R003_immutable_provenance_four_tiers_and_evidence_ledger_written",
+      "status": "R004_immutable_stage_evidence_created_only_step_hand_and_state",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -80,17 +80,17 @@
     {
       "id": "D1",
       "check": "문·다락문 윗/아랫면 알파와 무늬 연결",
-      "status": "R003_user_extraction_png_sha_equal_prior_D1_source_in_game_seams_pending"
+      "status": "R004_56_door_36_trapdoor_leaf_parent_texture_and_template_UV_source_checked_runtime_seams_pending"
     },
     {
       "id": "D2",
       "check": "32×32 5종 shelf texture atlas와 일반 16×16 비교",
-      "status": "R003_user_extraction_shelves_sha_equal_prior_D2_5_atlases_25_uv_crops_reused"
+      "status": "R004_shelf_38_template_UV_faces_32px_texel_edges_and_5_flat_overlay_panels_checked_no_runtime"
     },
     {
       "id": "D3",
       "check": "v38 oak_shelf 7 leaf·38원본 explicit UV면·32 정적 상태 평가 근거 재사용 후 미검증 파생목재 확대",
-      "status": "R003_user_extraction_JSON_175_sha_equal_48_parent_template_blockstate_bodies_audited_oak_7_historic_only"
+      "status": "R004_28_derivative_shelf_leaf_JSON_128_user_source_static_conditions_checked_historic_oak_7_separate"
     }
   ],
   "items": [
@@ -103,11 +103,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-002",
@@ -118,11 +119,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-003",
@@ -133,11 +135,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-004",
@@ -148,11 +151,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-005",
@@ -163,11 +167,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-006",
@@ -178,11 +183,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-007",
@@ -193,11 +199,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-008",
@@ -208,11 +215,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-009",
@@ -223,11 +231,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-010",
@@ -238,11 +247,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-011",
@@ -253,11 +263,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-012",
@@ -268,11 +279,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-013",
@@ -283,11 +295,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-014",
@@ -298,11 +311,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-015",
@@ -313,11 +327,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-016",
@@ -328,11 +343,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-017",
@@ -343,11 +359,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-018",
@@ -358,11 +375,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-019",
@@ -373,11 +391,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-020",
@@ -388,11 +407,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-021",
@@ -403,11 +423,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-022",
@@ -418,11 +439,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-023",
@@ -433,11 +455,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-024",
@@ -448,11 +471,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-025",
@@ -463,11 +487,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-026",
@@ -478,11 +503,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-027",
@@ -493,11 +519,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-028",
@@ -508,11 +535,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-029",
@@ -523,11 +551,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-030",
@@ -538,11 +567,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     },
     {
       "item_id": "1-1-11-031",
@@ -553,11 +583,12 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R003",
-      "evidence_status": "R003_primary_user_source_png_sha256_crc_true_mirror_same_official_jar_ingame_pending",
+      "last_verified_revision": "TEX11-R004",
+      "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
-      "mirror_cross_validation_same_bytes": true
+      "mirror_cross_validation_same_bytes": true,
+      "user_provided_model_texture_reference_resolved": true
     }
   ],
   "revisions": [
@@ -605,14 +636,42 @@
       "json_tree_audit": "research/vanilla_textures/by_stage/1-1-11/TEX11-R003/PROVIDED_MODEL_JSON_SHA_CENSUS.csv",
       "json_body_audit": "research/vanilla_textures/by_stage/1-1-11/TEX11-R003/PROVIDED_STATIC_JSON_AUDIT.csv",
       "provenance": "research/vanilla_textures/by_stage/1-1-11/TEX11-R003/PROVENANCE_LEVELS.json"
+    },
+    {
+      "revision": "TEX11-R004",
+      "kind": "user_provided_static_leaf_direct_JSON_parent_material_full_and_UV_state_geometry",
+      "scope_pngs_still": 31,
+      "new_source_png_sha256_recalculations_this_revision": 0,
+      "direct_leaf_json_bodies": 127,
+      "independent_scope_leaf_json": 120,
+      "historic_oak_leaf_referenced_not_counted": 7,
+      "shared_template_UV_faces_source_bounds_and_slots": 114,
+      "static_geometry_elements": 25,
+      "planar_zero_depth_elements": 5,
+      "blockstate_model_link_rules": 512,
+      "static_shelf_property_combinations": 128,
+      "scope_material_png_covered": 31,
+      "model_leaf_material_slot_references": 183,
+      "official_client_jar_verified": 0,
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-11/TEX11-R004/REPORT.md",
+      "evidence_paths": [
+        "research/vanilla_textures/by_stage/1-1-11/TEX11-R004/LEAF_MODEL_DIRECT_AUDIT.csv",
+        "research/vanilla_textures/by_stage/1-1-11/TEX11-R004/STATIC_STATE_MODEL_LINKS.csv",
+        "research/vanilla_textures/by_stage/1-1-11/TEX11-R004/TEMPLATE_UV_FACE_VALIDATION.csv",
+        "research/vanilla_textures/by_stage/1-1-11/TEX11-R004/MODEL_ELEMENT_GEOMETRY.csv",
+        "research/vanilla_textures/by_stage/1-1-11/TEX11-R004/TEXTURE_REFERENCE_COVERAGE.csv",
+        "research/vanilla_textures/by_stage/1-1-11/TEX11-R004/SUMMARY.json"
+      ]
     }
   ],
   "next_steps": [
-    "Read STATE.json to ensure current TEX11-R003, next TEX11-R004 and compare stage SHA before writing",
-    "Use user-provided 1.21.11/ extracted content first, mirror only cross-check, keep four separate verification tiers",
-    "Verify complete original JAR ZIP bytes SHA1 against version metadata fetched directly from Mojang when genuine jar and metadata become available",
-    "Only count actual in-game static UV/culling/door seam once game evidence exists; current 0/31",
-    "Preserve v38 and R001-R003 immutable folders; no animation, PZ conversion or 3D model creation"
+    "Re-read GitHub stage STATE.json and confirm TEX11-R004 current / TEX11-R005 next before modifying stage",
+    "Continue primary user-provided 1.21.11 source first, preserve four evidence tiers and all R001-R004 immutable reports",
+    "Obtain genuine original client.jar bytes and official Mojang version manifest and independently hash entire jar SHA1 only when available",
+    "Obtain real game static visuals or controlled test captures before claiming renderer UV/lighting/culling/seam validation",
+    "If expanding source-only research, analyze state-rotated geometry/UV source projections with clear non-ingame caveat; no animation",
+    "Do not change global v38, other stage state, root files or produce Project Zomboid conversion/furniture models"
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -625,23 +684,24 @@
   "project_overall_completion_pct": null,
   "do_not_count_planning_as_research": true,
   "stage_current_source_analysis_verified_count": 31,
-  "source_priority": "user_provided_1.21.11_extracted_JAR_GitHub_files_then_R001_R002_unofficial_asset_mirror_for_cross_validation",
+  "source_priority": "user_provided_1.21.11_extracted_JAR_GitHub_folder_before_third_party_mirror",
   "source_attestation": "user_reports_extracted_1.21.11_folder_from_their_own_Minecraft_Java_1.21.11_JAR_not_official_Mojang_authentication",
   "four_distinct_validation_tiers": {
     "user_provided_extracted_content": {
-      "status": "R003_direct_PNG_SHA256_CRC_31_of_31_JSON_bodies_48_of_48_JSON_tree_SHA_175_of_175",
-      "fully_authenticated_for_this_user_provided_source_only": true
+      "status": "R004_R003_PNG_31_sha_crc_preserved_plus_127_leaf_JSON_body_parent_texture_verified_21_templates_114_UV_faces_25_elements_23_blockstates_512_rule_links_all_matched",
+      "scope_pngs_verified_source": 31,
+      "full_original_JAR_authentication_not_implied": true
     },
     "existing_unofficial_mirror_comparison": {
-      "status": "R003_user_png_bytes_match_v4_SHA256_and_mirror_Git_SHA_31_json_Git_sha_equal_175",
-      "files_different": 0
+      "status": "R003_PNG_31_JSON_175_git_blob_sha_matched_plus_R004_leaf_sha_127_equal_to_R003",
+      "files_different_found": 0
     },
     "official_mojang_original_jar": {
-      "status": "pending_no_original_JAR_bytes_or_direct_official_manifest_SHA1",
+      "status": "pending_original_container_SHA1_not_verified_direct_mojang_metadata_not_verified",
       "verified_pngs": 0
     },
     "ingame_static_validation": {
-      "status": "pending_no_actual_game_execution",
+      "status": "pending_runtime_static_visual_observation_not_performed",
       "verified_pngs": 0
     }
   }
