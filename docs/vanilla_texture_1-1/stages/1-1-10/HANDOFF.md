@@ -112,3 +112,15 @@
 - 현재 **적용되는 3가지 검증 축**: ① 사용자 제공 `1.21.11/` 추출본 실제 내용 검증, ② 기존 비공식 미러 교차 검증, ③ **실제 Minecraft 인게임 정적 렌더 확인**. ③은 아직 0/8로 남아 있음.
 - 과거 `TEX10-R001`~`TEX10-R004` 보고서의 4축 상태표·`official 0/8` 표시는 **그 시점의 역사적 기록**이므로 고치거나 삭제하지 않음. 현재 연구의 공식 인증 상태는 **미완료(pending)가 아니라 정책상 제외(excluded / not applicable)**이며 완료율 분모에 포함하지 않음.
 - **현재 버전 `TEX10-R004` 유지, 다음 신규 근거를 저장할 때 `TEX10-R005`**. 이는 연구 실측이 아니라 검증 범위 정책 변경이므로 별도 R005 결과물을 만들지 않음. 전체 `v38` 및 다른 단계 무변경. 애니메이션 분석/가구 3D 제작/Project Zomboid 변환은 기존대로 보류·제외.
+
+---
+
+## TEX10-R005 — 2026-11-13 · 아이템 틴트·덩굴 아이템 기하·지형 셰이더
+
+- 사용자 추출본 `1.21.11/`에서 **신규 고유 경로 16개** 직접 조회: 아이템 JSON 8, item 모델 2, terrain 셰이더 2, import include 4. 이전 R003–R004 고유 32 + R005 16 = 누적 **48경로**. 8개 원래 PNG는 새 텍스처로 중복 가산하지 않음.
+- 기존 **8 PNG 바이트 재조회**: 8/8 PNG 전체 청크 CRC32 성공, Git blob SHA 기존 기록 일치. 7개 `tRNS` 투명 청크, `moss_block`은 없음; PNG palette 6종, grayscale 2종. raw SHA-256 R001 값과 R002 마스크·R004 colormap 131,072 픽셀 계승; **R005 raw SHA-256 새 산출 0, RGBA 새 픽셀 계수 0**.
+- `items` 8종의 `minecraft:constant` **5종**: oak `#48B518`, spruce `#619961`, birch `#80A755`, mangrove `#92C648`, vine `#48B518`; azalea / flowering azalea / moss는 `tints` 미선언. 블록 tintindex와 아이템 constant 구별. item→model **8/8**.
+- vine 아이템은 `item/vine → item/generated → builtin/generated`(layer0 `block/vine`), 블록은 두께 0 양면 평면+multipart; R001 44 UV 행, R002 32 논리 상태는 계승.
+- `terrain.vsh` UV0 및 Color×라이트맵, `terrain.fsh` 텍스처×vertexColor 및 `#ifdef ALPHA_CUTOUT` 조건부 `discard` 소스 확인. 런타임 매크로 임계값, biome→colormap XY 및 인게임 최종 색은 **미확인**.
+- [R005 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R005/REPORT.md), [요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R005/SUMMARY.json), [PNG 청크 기록](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R005/PNG_CONTAINER_RECHECK.csv), [아이템 틴트 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R005/ITEM_TINT_LEDGER.csv).
+- **인게임 정적 0/8**, Mojang 공식 JAR 인증은 사용자 지시로 필수 범위 제외(성공 인증 아님). 애니메이션·PZ 변환·가구 제작 보류. 전체 `v38` 및 다른 단계·R001–R004 불변. 현재 `TEX10-R005`, 다음 신규 증거 발견 시 `TEX10-R006`.

@@ -7,10 +7,10 @@
   "stage_id": "1-1-10",
   "material_family": "잎·식생",
   "stage_prefix": "TEX10",
-  "current_revision": "TEX10-R004",
-  "next_revision": "TEX10-R005",
-  "revision_sequence": 4,
-  "revision_status": "R004_two_supporting_colormap_pngs_rgb_crc_adler_verified_atlas_block_directory_version_json_user_extraction_8_target_unchanged",
+  "current_revision": "TEX10-R005",
+  "next_revision": "TEX10-R006",
+  "revision_sequence": 5,
+  "revision_status": "R005_item_constant_tints5_of8_terrain_shader_conditional_alpha_png8_crc_verified_biome_runtime_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 8,
@@ -42,27 +42,27 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "R003_primary_user_provided_1_21_11_source_attributed_existing_mirror_crosscheck_R001_only",
+      "status": "R005_new_16_unique_user_extracted_item_model_shader_source_paths_checked",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R004_user_repo_two_additional_supporting_colormap_pngs_crc32_and_adler32_verified;8_target_png_prior_sha_crc_preserved",
+      "status": "R005_8_existing_target_PNG_chunk_CRC32_git_blob_rechecked_prior_R001_SHA256_inherited",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R004_two_supporting_256x256_RGB_colormaps_131072_pixels_extracted;prior_8_target_rgba_metrics_not_recounted",
+      "status": "R005_zero_new_RGBA_pixel_counts_R001_R002_and_R004_colormap_inherited",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "D1_D3_prior_checked_D2_new_two_source_colormap_rgb_distributions_measured_and_tint_runtime_pending",
+      "status": "R005_item_constant_tint_5_versus_block_tintindex_alpha_chunk_shader_cutout_conditional_biome_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R004_static_atlases_blocks_json_directory_block_covers_8_target_texture_paths_and_version_json_internal_meta_checked;R003_target_model_references_preserved",
+      "status": "R005_item_to_model_8_vine_generated_vs_block_plane_and_terrain_shader_UV0_paths_static_checked",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
@@ -72,7 +72,7 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "TEX10_R004_stage_only_colormap_atlas_version_four_axis_report_saved",
+      "status": "TEX10_R005_stage_only_REPORT_SUMMARY_ITEM_PNG_SOURCE_SHADER_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -80,17 +80,17 @@
     {
       "id": "D1",
       "check": "잎·덩굴 알파 마스크·가시 영역·투명 외곽",
-      "status": "source_checked_8_of_8"
+      "status": "source_checked_8_R001_R002_inherited_R005_7_tRNS_chunks_and_conditional_shader_cutout"
     },
     {
       "id": "D2",
       "check": "PNG의 녹색과 생물군계 tintindex의 차이",
-      "status": "source_checked_R004_foliage_grass_color_map_RGB_65536_each;runtime_biome_sampling_species_override_pending"
+      "status": "R005_item_constant_tint_5_of8_shader_vertex_color_checked_biome_colormap_coordinate_runtime_pending"
     },
     {
       "id": "D3",
       "check": "컷아웃 영역과 3D 요소의 담당 역할 구분",
-      "status": "source_checked_8_of_8"
+      "status": "R005_vine_item_generated_vs_block_plane_static_chain_verified_existing_UV_faces_inherited"
     }
   ],
   "items": [
@@ -136,7 +136,11 @@
         "ingame_static_render": {
           "verified": false
         }
-      }
+      },
+      "item_definition_git_blob_sha": "dde03296145175f502ffd81a9ad6250492e41593",
+      "item_model_reference": "minecraft:block/oak_leaves",
+      "item_tint_constant_argb": "#FF48B518",
+      "item_tint_source_verified_revision": "TEX10-R005"
     },
     {
       "item_id": "1-1-10-002",
@@ -180,7 +184,11 @@
         "ingame_static_render": {
           "verified": false
         }
-      }
+      },
+      "item_definition_git_blob_sha": "48be842cf8fdcb18b786329c0512459894de448f",
+      "item_model_reference": "minecraft:block/spruce_leaves",
+      "item_tint_constant_argb": "#FF619961",
+      "item_tint_source_verified_revision": "TEX10-R005"
     },
     {
       "item_id": "1-1-10-003",
@@ -224,7 +232,11 @@
         "ingame_static_render": {
           "verified": false
         }
-      }
+      },
+      "item_definition_git_blob_sha": "f06b0a4ad6810d9081cef69821630c0c9390490c",
+      "item_model_reference": "minecraft:block/birch_leaves",
+      "item_tint_constant_argb": "#FF80A755",
+      "item_tint_source_verified_revision": "TEX10-R005"
     },
     {
       "item_id": "1-1-10-004",
@@ -268,7 +280,11 @@
         "ingame_static_render": {
           "verified": false
         }
-      }
+      },
+      "item_definition_git_blob_sha": "3314939b86ed7bb0dccc15fb9544796bf6ec9665",
+      "item_model_reference": "minecraft:block/mangrove_leaves",
+      "item_tint_constant_argb": "#FF92C648",
+      "item_tint_source_verified_revision": "TEX10-R005"
     },
     {
       "item_id": "1-1-10-005",
@@ -312,7 +328,11 @@
         "ingame_static_render": {
           "verified": false
         }
-      }
+      },
+      "item_definition_git_blob_sha": "107c301f480c94df90e744ff02b0143bdda23fff",
+      "item_model_reference": "minecraft:block/azalea_leaves",
+      "item_tint_constant_argb": null,
+      "item_tint_source_verified_revision": "TEX10-R005"
     },
     {
       "item_id": "1-1-10-006",
@@ -356,7 +376,11 @@
         "ingame_static_render": {
           "verified": false
         }
-      }
+      },
+      "item_definition_git_blob_sha": "f9be9776774371a1207992e40213a143dfc51477",
+      "item_model_reference": "minecraft:block/moss_block",
+      "item_tint_constant_argb": null,
+      "item_tint_source_verified_revision": "TEX10-R005"
     },
     {
       "item_id": "1-1-10-007",
@@ -400,7 +424,11 @@
         "ingame_static_render": {
           "verified": false
         }
-      }
+      },
+      "item_definition_git_blob_sha": "e13000c145d4a7fdcc4e3ceaeb6610f37ab32d3e",
+      "item_model_reference": "minecraft:item/vine",
+      "item_tint_constant_argb": "#FF48B518",
+      "item_tint_source_verified_revision": "TEX10-R005"
     },
     {
       "item_id": "1-1-10-008",
@@ -444,7 +472,11 @@
         "ingame_static_render": {
           "verified": false
         }
-      }
+      },
+      "item_definition_git_blob_sha": "35fe16d993c1040a8a213d0b477d1fe1f6676603",
+      "item_model_reference": "minecraft:block/flowering_azalea_leaves",
+      "item_tint_constant_argb": null,
+      "item_tint_source_verified_revision": "TEX10-R005"
     }
   ],
   "revisions": [
@@ -622,5 +654,17 @@
     "version_bump_for_policy_change": false
   },
   "official_client_jar_authentication_policy": "excluded_by_user_historical_count_0_do_not_track_as_pending",
-  "stage_fully_authenticated_and_ingame_verified_count_is_historical_metric": true
+  "stage_fully_authenticated_and_ingame_verified_count_is_historical_metric": true,
+  "r005_new_static_evidence": {
+    "new_unique_static_paths": 16,
+    "existing_PNG_crc_rechecks": 8,
+    "new_texture_target_count": 0,
+    "new_RGBA_pixel_measurements": 0,
+    "cumulative_distinct_source_paths_from_R003": 48,
+    "item_constant_tints": 5,
+    "shader_source_files": 2,
+    "shader_include_files": 4,
+    "ingame_static_render_verified_count": 0,
+    "official_jar_SHA1": "excluded_not_authenticated"
+  }
 }

@@ -1,0 +1,329 @@
+{
+  "schema": "TEX10-R005/user-extracted-static-shader-and-model-crosscheck/v1",
+  "revision": "TEX10-R005",
+  "target_texture_paths": 8,
+  "new_direct_source_paths": 16,
+  "source_provenance": "user attests 1.21.11/ is extracted from owned Minecraft Java 1.21.11 client JAR; official full JAR SHA1 not authenticated nor required",
+  "items": [
+    {
+      "texture_id": "oak_leaves",
+      "item_json_path": "1.21.11/assets/minecraft/items/oak_leaves.json",
+      "item_json_git_sha": "dde03296145175f502ffd81a9ad6250492e41593",
+      "model_ref": "minecraft:block/oak_leaves",
+      "tint_type": "minecraft:constant",
+      "signed_value": -12012264,
+      "argb": "#FF48B518",
+      "rgb": "#48B518",
+      "block_face_tintindex": "0",
+      "model_path_difference": "same_block_model_reference"
+    },
+    {
+      "texture_id": "spruce_leaves",
+      "item_json_path": "1.21.11/assets/minecraft/items/spruce_leaves.json",
+      "item_json_git_sha": "48be842cf8fdcb18b786329c0512459894de448f",
+      "model_ref": "minecraft:block/spruce_leaves",
+      "tint_type": "minecraft:constant",
+      "signed_value": -10380959,
+      "argb": "#FF619961",
+      "rgb": "#619961",
+      "block_face_tintindex": "0",
+      "model_path_difference": "same_block_model_reference"
+    },
+    {
+      "texture_id": "birch_leaves",
+      "item_json_path": "1.21.11/assets/minecraft/items/birch_leaves.json",
+      "item_json_git_sha": "f06b0a4ad6810d9081cef69821630c0c9390490c",
+      "model_ref": "minecraft:block/birch_leaves",
+      "tint_type": "minecraft:constant",
+      "signed_value": -8345771,
+      "argb": "#FF80A755",
+      "rgb": "#80A755",
+      "block_face_tintindex": "0",
+      "model_path_difference": "same_block_model_reference"
+    },
+    {
+      "texture_id": "mangrove_leaves",
+      "item_json_path": "1.21.11/assets/minecraft/items/mangrove_leaves.json",
+      "item_json_git_sha": "3314939b86ed7bb0dccc15fb9544796bf6ec9665",
+      "model_ref": "minecraft:block/mangrove_leaves",
+      "tint_type": "minecraft:constant",
+      "signed_value": -7158200,
+      "argb": "#FF92C648",
+      "rgb": "#92C648",
+      "block_face_tintindex": "0",
+      "model_path_difference": "same_block_model_reference"
+    },
+    {
+      "texture_id": "azalea_leaves",
+      "item_json_path": "1.21.11/assets/minecraft/items/azalea_leaves.json",
+      "item_json_git_sha": "107c301f480c94df90e744ff02b0143bdda23fff",
+      "model_ref": "minecraft:block/azalea_leaves",
+      "tint_type": "absent",
+      "signed_value": "",
+      "argb": "",
+      "rgb": "",
+      "block_face_tintindex": "absent",
+      "model_path_difference": "same_block_model_reference"
+    },
+    {
+      "texture_id": "moss_block",
+      "item_json_path": "1.21.11/assets/minecraft/items/moss_block.json",
+      "item_json_git_sha": "f9be9776774371a1207992e40213a143dfc51477",
+      "model_ref": "minecraft:block/moss_block",
+      "tint_type": "absent",
+      "signed_value": "",
+      "argb": "",
+      "rgb": "",
+      "block_face_tintindex": "absent",
+      "model_path_difference": "same_block_model_reference"
+    },
+    {
+      "texture_id": "vine",
+      "item_json_path": "1.21.11/assets/minecraft/items/vine.json",
+      "item_json_git_sha": "e13000c145d4a7fdcc4e3ceaeb6610f37ab32d3e",
+      "model_ref": "minecraft:item/vine",
+      "tint_type": "minecraft:constant",
+      "signed_value": -12012264,
+      "argb": "#FF48B518",
+      "rgb": "#48B518",
+      "block_face_tintindex": "0",
+      "model_path_difference": "item/generated_2D_vs_block_plane"
+    },
+    {
+      "texture_id": "flowering_azalea_leaves",
+      "item_json_path": "1.21.11/assets/minecraft/items/flowering_azalea_leaves.json",
+      "item_json_git_sha": "35fe16d993c1040a8a213d0b477d1fe1f6676603",
+      "model_ref": "minecraft:block/flowering_azalea_leaves",
+      "tint_type": "absent",
+      "signed_value": "",
+      "argb": "",
+      "rgb": "",
+      "block_face_tintindex": "absent",
+      "model_path_difference": "same_block_model_reference"
+    }
+  ],
+  "vine_item_model": {
+    "path": "1.21.11/assets/minecraft/models/item/vine.json",
+    "sha": "c1eaec4021f94d52babc6b148591230ba768dc0e",
+    "parent": "minecraft:item/generated",
+    "textures": {
+      "layer0": "minecraft:block/vine"
+    },
+    "generated_parent": "builtin/generated",
+    "generated_json_sha": "89aa79e9508eb32395eb85dce141b1b149d685b5"
+  },
+  "inherited_vine_block_model": {
+    "source": "1.21.11/assets/minecraft/models/block/vine.json",
+    "from": [
+      0,
+      0,
+      0.8
+    ],
+    "to": [
+      16,
+      16,
+      0.8
+    ],
+    "faces": {
+      "north": {
+        "uv": [
+          16,
+          0,
+          0,
+          16
+        ],
+        "tintindex": 0
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          16,
+          16
+        ],
+        "tintindex": 0
+      }
+    },
+    "status": "previously measured R001/R002; no new UV face count"
+  },
+  "terrain_shader": {
+    "vertex_path": "1.21.11/assets/minecraft/shaders/core/terrain.vsh",
+    "vertex_sha": "a685eab73b407de7c3e0770a842fa5cea995b611",
+    "fragment_path": "1.21.11/assets/minecraft/shaders/core/terrain.fsh",
+    "fragment_sha": "67e9a8efd74333b3e9b879b851236705f77d1960",
+    "imports": [
+      {
+        "path": "1.21.11/assets/minecraft/shaders/include/fog.glsl",
+        "sha": "cbdcb2d138d2c24f178465b2ed79be3fb16f290b"
+      },
+      {
+        "path": "1.21.11/assets/minecraft/shaders/include/globals.glsl",
+        "sha": "bd5515ec85151c3820f5e4ef728835f797bfa981"
+      },
+      {
+        "path": "1.21.11/assets/minecraft/shaders/include/chunksection.glsl",
+        "sha": "a8db49f002a90180016e2f06ab6a4015618fb98d"
+      },
+      {
+        "path": "1.21.11/assets/minecraft/shaders/include/projection.glsl",
+        "sha": "c405b8f8b58e52dcf18749041befb9b3f4ebfd8a"
+      }
+    ],
+    "verified_from_file_text": [
+      "texCoord0 = UV0",
+      "vertexColor = Color * minecraft_sample_lightmap(Sampler2, UV2)",
+      "Sampler0 sampleNearest or sampleRGSS depending on UseRgss",
+      "sampled texture is multiplied by vertexColor",
+      "ALPHA_CUTOUT compile-conditional check color.a < ALPHA_CUTOUT then discard",
+      "No literal foliage.png/grass.png/colormap sampling reference in the two terrain shaders"
+    ],
+    "unverified": [
+      "Shader macro ALPHA_CUTOUT actual runtime definition/value",
+      "Whether these exact shaders are selected for each tested block in game",
+      "CPU biome lookup and temperature/humidity to colormap XY transform",
+      "Final static game color/alpha edge under mipmap and graphics settings"
+    ]
+  },
+  "png_container_recheck": {
+    "count": 8,
+    "byte_and_crc_direct_recheck": 8,
+    "git_blob_sha_match_prior": 8,
+    "sha256_R005_newly_computed": 0,
+    "sha256_prior_8_preserved": true,
+    "pixel_rgba_count_new": 0,
+    "records": [
+      {
+        "texture_id": "oak_leaves",
+        "path": "1.21.11/assets/minecraft/textures/block/oak_leaves.png",
+        "bytes": 202,
+        "width": 16,
+        "height": 16,
+        "bit_depth": 4,
+        "color_type": 3,
+        "has_tRNS": true,
+        "chunk_types": "IHDR|PLTE|tRNS|IDAT|IEND",
+        "all_chunk_crc_ok": true,
+        "git_blob_sha": "0f1793d68df14a8551ca59d4c428bba24acb9c50",
+        "sha256_prior_R001": "69c9c7048695e014aee6b8a2c4cb080607bd7a2a5291c06218b8134cbfcdc04f",
+        "sha256_new_R005": "not_recomputed",
+        "png_rgba_pixels_new_R005": 0
+      },
+      {
+        "texture_id": "spruce_leaves",
+        "path": "1.21.11/assets/minecraft/textures/block/spruce_leaves.png",
+        "bytes": 175,
+        "width": 16,
+        "height": 16,
+        "bit_depth": 8,
+        "color_type": 0,
+        "has_tRNS": true,
+        "chunk_types": "IHDR|tRNS|IDAT|IEND",
+        "all_chunk_crc_ok": true,
+        "git_blob_sha": "85e413b57168a3dc0334326c9a19c5bd0d954740",
+        "sha256_prior_R001": "538a4d679a8677d710cde7a99c44f9dd95d1e117aa42844d1dad1e24ed47fb16",
+        "sha256_new_R005": "not_recomputed",
+        "png_rgba_pixels_new_R005": 0
+      },
+      {
+        "texture_id": "birch_leaves",
+        "path": "1.21.11/assets/minecraft/textures/block/birch_leaves.png",
+        "bytes": 197,
+        "width": 16,
+        "height": 16,
+        "bit_depth": 4,
+        "color_type": 3,
+        "has_tRNS": true,
+        "chunk_types": "IHDR|PLTE|tRNS|IDAT|IEND",
+        "all_chunk_crc_ok": true,
+        "git_blob_sha": "1ea855f93be7379eec41199cb63afd994db8f5bc",
+        "sha256_prior_R001": "03ea357f700a55a3e830e9bd0264c8b0a6c2901e3d1d328808adc1c7c97cc330",
+        "sha256_new_R005": "not_recomputed",
+        "png_rgba_pixels_new_R005": 0
+      },
+      {
+        "texture_id": "mangrove_leaves",
+        "path": "1.21.11/assets/minecraft/textures/block/mangrove_leaves.png",
+        "bytes": 221,
+        "width": 16,
+        "height": 16,
+        "bit_depth": 4,
+        "color_type": 3,
+        "has_tRNS": true,
+        "chunk_types": "IHDR|PLTE|tRNS|IDAT|IEND",
+        "all_chunk_crc_ok": true,
+        "git_blob_sha": "b85bfd39664b8f226887eb15023bb36877c9177a",
+        "sha256_prior_R001": "1044dd96b9d2225d56bcdf9549e7890283c29f434fd80740c0ad0d8c571915c5",
+        "sha256_new_R005": "not_recomputed",
+        "png_rgba_pixels_new_R005": 0
+      },
+      {
+        "texture_id": "azalea_leaves",
+        "path": "1.21.11/assets/minecraft/textures/block/azalea_leaves.png",
+        "bytes": 209,
+        "width": 16,
+        "height": 16,
+        "bit_depth": 4,
+        "color_type": 3,
+        "has_tRNS": true,
+        "chunk_types": "IHDR|PLTE|tRNS|IDAT|IEND",
+        "all_chunk_crc_ok": true,
+        "git_blob_sha": "83c96ec13141621ae355fd5c61c89ac253938612",
+        "sha256_prior_R001": "fdfa370f1bc7460a0f51d70fd57c691a86ee9269bbaba5b7e46693bb2de09a2a",
+        "sha256_new_R005": "not_recomputed",
+        "png_rgba_pixels_new_R005": 0
+      },
+      {
+        "texture_id": "moss_block",
+        "path": "1.21.11/assets/minecraft/textures/block/moss_block.png",
+        "bytes": 204,
+        "width": 16,
+        "height": 16,
+        "bit_depth": 4,
+        "color_type": 3,
+        "has_tRNS": false,
+        "chunk_types": "IHDR|PLTE|IDAT|IEND",
+        "all_chunk_crc_ok": true,
+        "git_blob_sha": "a1ee8448fb69d6643ca0f73991d6d3639b425683",
+        "sha256_prior_R001": "863aae6a09178ccd3700c7ee6e3e9f2448e99f51cbbd8c157dd0126f8c749c80",
+        "sha256_new_R005": "not_recomputed",
+        "png_rgba_pixels_new_R005": 0
+      },
+      {
+        "texture_id": "vine",
+        "path": "1.21.11/assets/minecraft/textures/block/vine.png",
+        "bytes": 167,
+        "width": 16,
+        "height": 16,
+        "bit_depth": 8,
+        "color_type": 0,
+        "has_tRNS": true,
+        "chunk_types": "IHDR|tRNS|IDAT|IEND",
+        "all_chunk_crc_ok": true,
+        "git_blob_sha": "fb75e7f5d570ad8bf4be0277eda3b9ea81dd12c1",
+        "sha256_prior_R001": "5ca6b688ee8cce05df9d90a8d0f7bb669361ce27dba4a761dcb209819e0d232e",
+        "sha256_new_R005": "not_recomputed",
+        "png_rgba_pixels_new_R005": 0
+      },
+      {
+        "texture_id": "flowering_azalea_leaves",
+        "path": "1.21.11/assets/minecraft/textures/block/flowering_azalea_leaves.png",
+        "bytes": 220,
+        "width": 16,
+        "height": 16,
+        "bit_depth": 8,
+        "color_type": 3,
+        "has_tRNS": true,
+        "chunk_types": "IHDR|PLTE|tRNS|IDAT|IEND",
+        "all_chunk_crc_ok": true,
+        "git_blob_sha": "a99c5f310cff760758cc484521c15ab5d1cd3ecf",
+        "sha256_prior_R001": "b6e494ed60f5e4fa2704645777d56d585ac0aa4b2c7493879f286a954ce9a9d6",
+        "sha256_new_R005": "not_recomputed",
+        "png_rgba_pixels_new_R005": 0
+      }
+    ]
+  },
+  "prior_colormap_2_png_131072_RGB_pixels": "R004 inherited, not recounted",
+  "in_game_static_verified_count": 0,
+  "official_clientjar_sha1": "not required, not authenticated",
+  "animation_deferred": true
+}
