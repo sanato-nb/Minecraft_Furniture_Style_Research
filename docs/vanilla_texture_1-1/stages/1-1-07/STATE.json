@@ -7,10 +7,10 @@
   "stage_id": "1-1-07",
   "material_family": "콘크리트·색면",
   "stage_prefix": "TEX07",
-  "current_revision": "TEX07-R005",
-  "next_revision": "TEX07-R006",
-  "revision_sequence": 5,
-  "revision_status": "R005_policy_official_auth_excluded_ingame_static_still_pending",
+  "current_revision": "TEX07-R006",
+  "next_revision": "TEX07-R007",
+  "revision_sequence": 6,
+  "revision_status": "R006_user_extracted_luma_spatial_autocorr_and_boundary_peak_new_metrics_ingame_static_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 7,
@@ -52,12 +52,12 @@
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R001_RGBA_measurements_transfer_by_R003_byte_identity_not_newly_counted",
+      "status": "R006_7_new_luminance_spatial_profiles_on_1792_existing_PNG_pixels",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R001_R002_color_stats_apply_to_identical_R003_bytes_no_new_measurement",
+      "status": "R006_7_directional_autocorrelations_and_peak_seam_checks_no_source_error_certified",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
@@ -72,7 +72,7 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R004_results_and_offline_verifier_saved",
+      "status": "R006_REPORT_SUMMARY_7_SPATIAL_NOISE_EDGE_AUDIT_and_REPRODUCE_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -85,7 +85,7 @@
     {
       "id": "D2",
       "check": "미세 픽셀 분산과 단색 평면 경계 검사",
-      "status": "R002_7_full_pixel_seam_and_center_border_audits"
+      "status": "R006_7_spatial_luminance_and_peak_edge_checks_added_to_R002_mean_seam_audit"
     },
     {
       "id": "D3",
@@ -111,7 +111,7 @@
       "item_git_blob_sha": "822c0565dd76ebde927db1e0fd75fbf2472f3a48",
       "pixel_count_checked": 256,
       "static_faces_traced": 6,
-      "last_reexamined_revision": "TEX07-R002",
+      "last_reexamined_revision": "TEX07-R006",
       "R002_same_mirror_binary_sha_crc_rgba_recheck": true,
       "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/white_concrete.png",
       "user_extracted_sha256": "cf3300b0ebbdf5859a7ce14ca004d4529a3cd2e0de1c830acf00fb3dec8baea4",
@@ -120,7 +120,8 @@
       "user_extracted_png_sha_crc_verified": true,
       "user_extracted_JSON_chain_verified": true,
       "mirror_full_content_crossmatched": true,
-      "official_jar_auth_required": false
+      "official_jar_auth_required": false,
+      "R006_source_spatial_metrics_rechecked": true
     },
     {
       "item_id": "1-1-07-002",
@@ -139,7 +140,7 @@
       "item_git_blob_sha": "88adfa33174d380fe9a6ce42cc2e2beb32880d66",
       "pixel_count_checked": 256,
       "static_faces_traced": 6,
-      "last_reexamined_revision": "TEX07-R002",
+      "last_reexamined_revision": "TEX07-R006",
       "R002_same_mirror_binary_sha_crc_rgba_recheck": true,
       "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/black_concrete.png",
       "user_extracted_sha256": "0d2f1cf4f6b7f1abada383bb2dbeb4bf274628a65793b2d388805dd8a5c1b0cb",
@@ -148,7 +149,8 @@
       "user_extracted_png_sha_crc_verified": true,
       "user_extracted_JSON_chain_verified": true,
       "mirror_full_content_crossmatched": true,
-      "official_jar_auth_required": false
+      "official_jar_auth_required": false,
+      "R006_source_spatial_metrics_rechecked": true
     },
     {
       "item_id": "1-1-07-003",
@@ -167,7 +169,7 @@
       "item_git_blob_sha": "756a4cea5b3dfe6cf51370c759078c26891881e9",
       "pixel_count_checked": 256,
       "static_faces_traced": 6,
-      "last_reexamined_revision": "TEX07-R002",
+      "last_reexamined_revision": "TEX07-R006",
       "R002_same_mirror_binary_sha_crc_rgba_recheck": true,
       "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/red_concrete.png",
       "user_extracted_sha256": "4069c61ef07e5c113c2e0850b009d8c814c21881525535a01dffea7d52fd1896",
@@ -176,7 +178,8 @@
       "user_extracted_png_sha_crc_verified": true,
       "user_extracted_JSON_chain_verified": true,
       "mirror_full_content_crossmatched": true,
-      "official_jar_auth_required": false
+      "official_jar_auth_required": false,
+      "R006_source_spatial_metrics_rechecked": true
     },
     {
       "item_id": "1-1-07-004",
@@ -195,7 +198,7 @@
       "item_git_blob_sha": "cc0b5b9dc1c1ec79a1bd025276e3f99ecae5e6c3",
       "pixel_count_checked": 256,
       "static_faces_traced": 6,
-      "last_reexamined_revision": "TEX07-R002",
+      "last_reexamined_revision": "TEX07-R006",
       "R002_same_mirror_binary_sha_crc_rgba_recheck": true,
       "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/blue_concrete.png",
       "user_extracted_sha256": "54eea9be4c801ed6206fdb79fab7711185e5dcda5ccf5251871013ce14d1da33",
@@ -204,7 +207,8 @@
       "user_extracted_png_sha_crc_verified": true,
       "user_extracted_JSON_chain_verified": true,
       "mirror_full_content_crossmatched": true,
-      "official_jar_auth_required": false
+      "official_jar_auth_required": false,
+      "R006_source_spatial_metrics_rechecked": true
     },
     {
       "item_id": "1-1-07-005",
@@ -223,7 +227,7 @@
       "item_git_blob_sha": "c8a3f219dcd9002d59f45b32807997bf32710514",
       "pixel_count_checked": 256,
       "static_faces_traced": 6,
-      "last_reexamined_revision": "TEX07-R002",
+      "last_reexamined_revision": "TEX07-R006",
       "R002_same_mirror_binary_sha_crc_rgba_recheck": true,
       "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/green_concrete.png",
       "user_extracted_sha256": "42bf8de7fd911c4f649f03eb428e35bd303a571f012046b929bea9070ab37f34",
@@ -232,7 +236,8 @@
       "user_extracted_png_sha_crc_verified": true,
       "user_extracted_JSON_chain_verified": true,
       "mirror_full_content_crossmatched": true,
-      "official_jar_auth_required": false
+      "official_jar_auth_required": false,
+      "R006_source_spatial_metrics_rechecked": true
     },
     {
       "item_id": "1-1-07-006",
@@ -251,7 +256,7 @@
       "item_git_blob_sha": "c55b15f196ecb1f6f91972909ce499fd05d16b30",
       "pixel_count_checked": 256,
       "static_faces_traced": 6,
-      "last_reexamined_revision": "TEX07-R002",
+      "last_reexamined_revision": "TEX07-R006",
       "R002_same_mirror_binary_sha_crc_rgba_recheck": true,
       "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/yellow_concrete.png",
       "user_extracted_sha256": "c66ed9653baf4abb311cd41a2acc444fe7139355259e12aed79a511723c69367",
@@ -260,7 +265,8 @@
       "user_extracted_png_sha_crc_verified": true,
       "user_extracted_JSON_chain_verified": true,
       "mirror_full_content_crossmatched": true,
-      "official_jar_auth_required": false
+      "official_jar_auth_required": false,
+      "R006_source_spatial_metrics_rechecked": true
     },
     {
       "item_id": "1-1-07-007",
@@ -279,7 +285,7 @@
       "item_git_blob_sha": "5c85b853ae774bac4e3b262fcc850eebcc7b3a88",
       "pixel_count_checked": 256,
       "static_faces_traced": 6,
-      "last_reexamined_revision": "TEX07-R002",
+      "last_reexamined_revision": "TEX07-R006",
       "R002_same_mirror_binary_sha_crc_rgba_recheck": true,
       "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/gray_concrete.png",
       "user_extracted_sha256": "a760d9bc6255fc2c1bcbe481b57a8a242687eda6c64459812398d7c40c9769bc",
@@ -288,7 +294,8 @@
       "user_extracted_png_sha_crc_verified": true,
       "user_extracted_JSON_chain_verified": true,
       "mirror_full_content_crossmatched": true,
-      "official_jar_auth_required": false
+      "official_jar_auth_required": false,
+      "R006_source_spatial_metrics_rechecked": true
     }
   ],
   "revisions": [
@@ -431,5 +438,9 @@
     "static_RGBA_color_UV_model_blockstate",
     "ingame_static_render_when_evidence_available"
   ],
-  "original_jar_sha1_authentication_ready_procedure_role": "historical_optional_only_not_required_or_scheduled"
+  "original_jar_sha1_authentication_ready_procedure_role": "historical_optional_only_not_required_or_scheduled",
+  "source_png_luma_spatial_profile_revision": "TEX07-R006",
+  "source_png_luma_spatial_profile_rows": 7,
+  "source_png_luma_spatial_profile_pixels_reused": 1792,
+  "new_unique_texture_paths_in_R006": 0
 }

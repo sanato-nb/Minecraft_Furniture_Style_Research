@@ -1,3 +1,14 @@
+# 1-1-07 콘크리트·색면 — R006 신규 정적 공간 패턴 계측 (2026-11-13)
+
+- **현재 `TEX07-R006`**, 다음 `TEX07-R007`. 사용자 추출 `1.21.11/`의 고정 7 PNG를 **다시 직접 읽어** SHA256·Git blob SHA·PNG CRC 7/7 일치 확인. 기존 원본 7개를 14개로 누적 계산하지 않음.
+- **R006 새 결과**: 같은 소스 1,792픽셀에 대한 새로운 휘도 표준편차/범위, 1픽셀 방향별 순환 자기상관, 7×255=1,785개 주기 이동 상관, 224개 이음 경계 최대 불연속, 전체 동일 행·열 검출을 CSV 7행으로 기록. 경계의 최고 휘도차가 내부 최고값을 넘는 경계쌍 **0/224**, 원본 소스 오류 확정 0건. 이것은 인게임 이음매 무결성 인증이 아님.
+- 7개 색상별 모델 JSON 및 3개 공유 부모와 white blockstate(11 JSON) 재열람. **42면·파생 UV는 R001~R004에서 승계**, 신규 면/UV 0건. 6색 blockstate/item은 R003 기존 근거를 승계; R006 신규 조사로 세지 않음.
+- [R006 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R006/REPORT.md) · [기계 요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R006/SUMMARY.json) · [7행 신규 공간 계측 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R006/7_SPATIAL_NOISE_EDGE_AUDIT.csv) · [재현 코드](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R006/REPRODUCE.py).
+- **인게임 정적 렌더 검증 0/7 유지**. Mojang 공식 client.jar SHA-1/공식 메타데이터 인증은 사용자 요청으로 연구 요구에서 제외(인증 성공 아님). 애니메이션 계속 보류. 글로벌 v38 및 타 단계 파일 불변.
+- 이후 정적 스크린샷 또는 새로운 소스 검증 근거가 있을 때만 다음 리비전 발행. 다른 채팅 경합 전에 라이브 STATE SHA 및 HEAD/출력 폴더 재검증.
+
+---
+
 # 1-1-07 콘크리트·색면 — 최신 인수인계
 
 ## TEX07-R005 (2026-11-13) — 공식 인증 요구 제외
