@@ -7,10 +7,10 @@
   "stage_id": "1-1-08",
   "material_family": "복합·기능면",
   "stage_prefix": "TEX08",
-  "current_revision": "TEX08-R006",
-  "next_revision": "TEX08-R007",
-  "revision_sequence": 6,
-  "revision_status": "2_rechecked_target_png_156_of_256_pairwise_rgba_changes_6_UV_regions_64_unique_atlas_256_conditions_checked_no_ingame",
+  "current_revision": "TEX08-R007",
+  "next_revision": "TEX08-R008",
+  "revision_sequence": 7,
+  "revision_status": "complete_user_scope_static_source_21_pngs_73_variants_256_multipart_states_329_join_rows",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 21,
@@ -42,45 +42,45 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "user_extracted_primary_source_first_verified_in_R003_R004",
+      "status": "source_scope_complete_R001_to_R007",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R004"
+      "latest_revision": "TEX08-R007"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R003_previous_target21_SHA_preserved;R006_2_chiseled_static_original_PNG_SHA_CRC_reverified",
+      "status": "source_scope_complete_R001_to_R007",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R006"
+      "latest_revision": "TEX08-R007"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R001_21_RGBA_retained;R006_chiseled_empty_occupied_pairwise_RGBA_156_of_256_and_6_slot_partitions",
+      "status": "source_scope_complete_R001_to_R007",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R006"
+      "latest_revision": "TEX08-R007"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R005_status_matrix_preserved;R006_64_static_source_atlas_compositions_all_distinct",
+      "status": "source_scope_complete_R001_to_R007",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R006"
+      "latest_revision": "TEX08-R007"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R004_39_model_8_parents_143_face_preserved;R006_chiseled_256_blockstate_cases_evaluated_against_source",
+      "status": "source_scope_complete_R001_to_R007",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R006"
+      "latest_revision": "TEX08-R007"
     },
     "F": {
       "title": "F 사용자 추출본 기반 정적 모델·UV 적용 근거 (인게임·공식 인증 제외)",
-      "status": "in_game_verification_excluded_by_user;official_jar_authentication_excluded_by_user;source_only",
+      "status": "excluded_in_game_and_official_auth_under_explicit_user_policy;static_source_documented",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R004"
+      "latest_revision": "TEX08-R007"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R006_immutable_data_report_verifier_and_handoff_saved",
+      "status": "source_scope_complete_R001_to_R007",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R006"
+      "latest_revision": "TEX08-R007"
     }
   },
   "material_specific_checks": [
@@ -573,14 +573,27 @@
       "source_new_unique_count": 0,
       "report_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R006/REPORT.md",
       "ingame_verified": false
+    },
+    {
+      "revision": "TEX08-R007",
+      "kind": "full_static_source_state_model_UV_coverage",
+      "new_state_face_uv_join_rows": 329,
+      "target_texture_coverage": 21,
+      "renderable_source_models": 33,
+      "model_face_instance_uses": 3254,
+      "target_face_instance_uses": 1683,
+      "target_UV_area_uses": 102912,
+      "no_new_unique_source_files_or_pixels": true,
+      "source_scope_complete": true,
+      "report_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R007/REPORT.md"
     }
   ],
   "next_steps": [
-    "Check if genuinely new static PNG/model/blockstate/UV source evidence exists, otherwise stop and report static research completion; do not fabricate version increments.",
-    "Never ask for in-game screenshots or require actual game rendering/particle/uvlock observation in this stage.",
-    "Keep historical in-game verified 0/21 without treating it as a blocker or as verified; official JAR SHA1 metadata remains excluded and animation deferred.",
-    "Preserve fixed 21 PNG and existing 5376 original pixels, R004 39 models+8 parents/143 faces, R005 62 pairs, R006 64 source atlas/256 blockstate validations, with no duplicate accounting.",
-    "If new evidence exists, reread live state, handoff, branch head, state SHA and check new release path, then write stage-only immutable next revision."
+    "1-1-08 static source PNG/model/blockstate/UV research is completed under user's explicit exclusions; when user says just 'continue', STOP and report completion rather than inventing R008.",
+    "Maintain historical in-game 0/21, but game screenshots/renders/runtime UV/particle are excluded and never required.",
+    "Official full client JAR authentication excluded, animation deferred, no PZ conversion or 3D asset fabrication.",
+    "R007 329 state joins, 21 texture coverage and 102912 UV area uses are source references, not new pixels or model definitions.",
+    "R008 requires genuinely new static source data/question/correction and renewed live GitHub HEAD/state/blob/next path checks."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -596,8 +609,8 @@
   "stage_source_png_rgba_verified_count": 21,
   "stage_model_uv_source_checked_count": 21,
   "stage_fully_official_and_ingame_verified_count": 0,
-  "last_release_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R006/",
-  "last_release_source_note": "R006 primary extracted chiseled bookshelf empty and occupied PNG CRC/SHA/RGBA rechecked; 156/256 pairwise changed pixels partitioned into 6 UV slots; 64 source-only atlas compositions unique; all 256 actual blockstate selections valid 1 body+6 slots; in-game 0.",
+  "last_release_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R007/",
+  "last_release_source_note": "R007 329 rows source-state model-face UV reference joining 73 variant and 256 chiseled states; 21/21 PNG mapping; 33 source-selected models; no new unique PNG pixels. Ingame and full official JAR excluded.",
   "stage_1_1_08_official_jar_blocker": "SUPERSEDED_POLICY: official Mojang client.jar authentication removed from requirements by user on 2026-11-13; historical SHA-1 status remains unverified, not a blocker.",
   "stage_auxiliary_static_png_newly_examined_R002": [
     "barrel_top_open"
@@ -735,5 +748,45 @@
     "change": "exclude_in_game_verification",
     "current_revision_unchanged": "TEX08-R006",
     "next_revision_unchanged": "TEX08-R007"
+  },
+  "stage_source_state_weighted_audit_R007": {
+    "source_16_blockstates_reparsed": true,
+    "previous_face_source_model_rows": 143,
+    "variants": {
+      "states": 73,
+      "model_refs": 73,
+      "face_refs": 438,
+      "target_face_refs": 147,
+      "all_uv": 111872,
+      "target_uv": 37376
+    },
+    "multipart": {
+      "states": 256,
+      "model_refs": 1792,
+      "face_refs": 2816,
+      "target_face_refs": 1536,
+      "all_uv": 393216,
+      "target_uv": 65536
+    },
+    "total": {
+      "states": 329,
+      "model_refs": 1865,
+      "face_refs": 3254,
+      "target_face_refs": 1683,
+      "all_uv": 505088,
+      "target_uv": 102912
+    },
+    "all_targets_covered": 21,
+    "selected_models": 33,
+    "new_unique_pixel_addition_claimed": 0
+  },
+  "source_static_analysis_status_1_1_08": {
+    "status": "complete_under_user_agreed_source_only_scope",
+    "source_target_textures": 21,
+    "source_target_coverage": 21,
+    "model_reference_missing": 0,
+    "report_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R007/REPORT.md",
+    "in_game_verification_excluded": true,
+    "default_continue_behavior": "STOP_and_report_completed_unless_user_supplies_new_static_source_or_changes_scope"
   }
 }
