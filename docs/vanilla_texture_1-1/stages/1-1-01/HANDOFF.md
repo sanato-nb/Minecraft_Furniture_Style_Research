@@ -1,21 +1,26 @@
-# 1-1-01 목재·원목 전용 인수인계 — TEX01-R003
+# 1-1-01 목재·원목 전용 인수인계 — TEX01-R004
 
-**현재 TEX01-R003 · 다음 TEX01-R004 · 전체 v38 유지.** R001/R002 파일과 커밋 불변, 고정 범위 18 PNG.
+현재 TEX01-R004, 다음 TEX01-R005. 기존 글로벌 v38 변경 금지. R001/R002/R003 원본·CSV·커밋 불변. 18 목재 PNG 고정.
 
-## 최우선 출처 원칙
-GitHub `1.21.11/`은 사용자가 **직접 Minecraft Java 1.21.11 client.jar을 압축 해제해 업로드한 사용자 제공 추출본**임을 확인해 주었다. 이 폴더를 원본 소스로 우선 활용. R001에서 이 폴더 PNG 18개 바이트/정적 JSON 43개 직접 검증했음. 이전 미러/추출본 혼재 표기를 R003 보고서에서 정정하되 과거 결과 소급 변경 없음. **사용자 추출본 유래와 Mojang 공식 client.jar SHA1 인증은 절대 동일하지 않음.**
+## 핵심 출처/검증
 
-| 검증 계층 | 결과 |
-|---|---|
-| 사용자 제공 추출본 | R001 실제 PNG SHA·CRC·RGBA 18/18, JSON 43개·모델 로컬면 150. R003 현재 Git blob·크기·PNG IHDR 18/18 재확인. indexed palette 4비트 4개, 8비트 14개. |
-| 이전 미러 | 과거 v4 기록 SHA와 R001 PNG SHA 18/18 일치, 별도 미러 바이너리 직접 비교 0 |
-| Mojang 원본 공식 JAR | 0/18. 전체 JAR SHA1·size 공식 메타데이터 대조 없음 |
-| 인게임 정적 렌더 | 0/18. 실제 엔진 UV·컬링·조명 미확인 |
+사용자 GitHub 1.21.11/은 사용자가 직접 Minecraft Java 1.21.11 JAR을 압축 해제한 사용자 제공 자료. R001에서 18 PNG SHA/CRC/RGBA, 43 정적 모델 JSON을 그 경로에서 직접 검증했다. 미러 v4 기록 SHA와 18개 일치하지만 독립 미러 바이너리 비교 0. Mojang 공식 JAR SHA1 인증 0/18, 실제 게임 렌더 0/18 — 서로 다른 검증 수준.
 
-새 원본 `version.json`에서 id 1.21.11, `atlases/blocks.json`에서 `block/` 정적 아틀라스 디렉터리 선언 검증. **이 메타 JSON 2개를 모델 JSON 43개에 합산하지 않음.** 기존 R002의 72 조건은 가상 인접 회전 실험일 뿐 인게임 배치 규칙이 아님.
+## 이번 R004 신규 분석
 
-[R003 REPORT](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R003/REPORT.md) · [R003 SOURCE_LEDGER](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R003/SOURCE_LEDGER.csv) · [R003 EXTRACT_METADATA](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R003/EXTRACT_METADATA.json) · [R003 SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R003/SUMMARY.json).
+- 원본 18 PNG를 R001 SHA 기반으로 재확인하고 RGB 최초 등장 클래스 라벨을 16×16 전 픽셀에 적용한 **구조 차이 위치 분석**. 9종 판자 256/256 공통 패턴, mangrove 254/256(12,14 및 13,14 다름), acacia 252/256(9,8·1,12·11,12·11,13 다름), bamboo 20/256(236 다름). 공통 9종 정확 RGB 팔레트 대응표 **63건**. oak_log와 spruce_log도 256/256 동일한 구조 클래스를 가짐.
+- 기존 R001 정적 로컬면 **150개 재사용**, 이 중 고정 18 PNG 연결 **132면**에 샘플 6개씩 **792 면별 RGB 결합**. 이는 신규 모델면 수나 새 고유 픽셀 수가 아님. 직접 본 원본 PNG의 6좌표 × 18 = **108 좌표색**에 근거. 고정 외부 단면 **18면 무샘플**.
+- 모델 JSON 명시 UV rotation180 8면 중 2면(oak_log_top)은 범위 내라 180도 로컬 UV 좌표로 RGB 변환. 나머지 6면 범위 밖이라 RGB 생략. 축별 blockstate 회전값은 별도 저장. 엔진 최종 월드 UV/인게임 정적 렌더 확인 아님.
 
-[R001 REPORT](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R001/REPORT.md) · [R002 REPORT](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R002/REPORT.md).
+## R004 새 불변 산출물
 
-다음 작업 `TEX01-R004` 전 STATE.json SHA·current/next revision·main HEAD와 R004 경로 미존재 확인. 실제 신규 근거만 전용 새 폴더. Mojang client JAR 전체 해시/공식 메타데이터 직접 확인 이전 공식 0/18 유지, 실제 게임 장면 없으면 인게임 0/18. 다른 재질 단계, 루트 HANDOFF.md·PROGRESS.md·handoff/STATE.json, v38 수정 금지. 애니메이션·PZ 변환·가구 3D 제작 보류.
+- [REPORT.md](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R004/REPORT.md)
+- [SOURCE_LEDGER.csv](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R004/SOURCE_LEDGER.csv)
+- [CANONICAL_PLANK_RGB_LUT.csv](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R004/CANONICAL_PLANK_RGB_LUT.csv)
+- [ANCHOR_SOURCE_RGB.json](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R004/ANCHOR_SOURCE_RGB.json)
+- [MODEL_FACE_PIXEL_ANCHORS.csv](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R004/MODEL_FACE_PIXEL_ANCHORS.csv)
+- [SUMMARY.json](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-01/TEX01-R004/SUMMARY.json)
+
+## 다음 TEX01-R005
+
+재진입 시 1-1-01 STATE.json 현재/다음 버전, SHA, main HEAD, 새 R005 폴더 존재 여부 확인. R001~R004 중복 완료량 적립 금지. A–G 절차 준수. Mojang 공식 전체 JAR SHA1/size 인증과 실제 인게임 정적 장면 검증은 각각 증거 확보 전 0 유지. 블록/월드 UV는 별도 소스 근거가 없으면 가정 금지. 사용자 JAR 추출본 최우선. R005 결과만 신규 폴더에 저장. 이 단계 HANDOFF.md, STATE.json만 갱신. 루트 HANDOFF.md/PROGRESS.md/handoff/STATE.json, v38, 다른 재질 1-1-nn 수정 금지. 애니메이션/PZ/실제 가구 3D 제작 보류.
