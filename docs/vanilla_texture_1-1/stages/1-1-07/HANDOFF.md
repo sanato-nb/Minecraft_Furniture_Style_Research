@@ -1,3 +1,16 @@
+# 1-1-07 최신 판정 — TEX07-R008 콘크리트 7종 애니메이션 원본 검사 완료 (2026-11-13)
+
+> 이번 최신 기록은 아래 R007 및 구버전의 “애니메이션 전면 보류” 지시보다 **우선한다**. 사용자의 “그럼 보류한 애니메이션하자” 요청에 따라 **오직 이 단계 7종의 원본 애니메이션 적합성 연구를 실제 수행**했다. 다른 단계에는 보류 해제를 적용하지 않는다.
+
+- 사용자 제공 `1.21.11/`의 **PNG 7/7개를 실제 디코딩**: 전부 16×16, 팔레트 PNG, `IHDR/PLTE/IDAT/IEND` 4청크, CRC 검증 통과, APNG 제어 청크 0. 16×16 기준 세로 프레임 타일 **각 1개**.
+- 7개 각각의 `<color>_concrete.png.mcmeta` 파일을 **현재 main 및 원본 고정 커밋 `2a43897b8f605b4e0c96a272bca476ee6b70058e`**에서 조회: **모두 404로 부재**. PNG와 연동되는 애니메이션 시간/키프레임 메타데이터 없음.
+- 색별 blockstate 7 · 블록 모델 7 · item 7 · 공유 부모 모델 3 = **24 JSON 직접 조사**: 모두 고정 단일 큐브 모델 체인; 시간 기반 모델 전환·애니메이션 정의 0. `block.json`의 `display.rotation` 값은 **정적 방향 표시**이지 움직이는 키프레임이 아님.
+- **판정: 7/7개 원본에 텍스처/모델 애니메이션 정의 없음 → 이 고정 범위의 애니메이션 연구는 '해당 없음'으로 완료.** 애니메이션 프레임을 가정/합성하지 말 것. 이는 게임 엔진 전체나 다른 재질·외부 리소스팩에 대한 인증이 아님.
+- [R008 상세 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R008/REPORT.md) · [원본별 감사 7행](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R008/SOURCE_LEDGER.csv) · [기계 요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R008/SUMMARY.json) · [재현 코드](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R008/REPRODUCE.py).
+- 정적 A–E+G 및 이번 애니메이션 적합성 조사까지 완료. 실제 인게임 검증·Mojang 공식 JAR 인증은 이전 사용자 지시대로 **제외**, 기존 확인치 0/7 보존. 다른 단계·전역 `v38` 불변. 최신 `TEX07-R008`, 다음 번호 후보 `TEX07-R009`는 **새 실측 근거가 생기기 전 생성 금지**. 다음 “계속해줘”에서는 이 7종 완료를 알리고 멈출 것.
+
+---
+
 # 1-1-07 연구 범위 결정 — 인게임 검증 제외 (2026-11-13)
 
 > **이 항목이 아래 R007 및 이전 인수인계·기존 작업표의 인게임/F 진행 지시보다 우선한다.** 사용자 지시: **“인게임 검증은 제외해줘 어차피 모델링이랑 텍스텨있는데 필요없을거같아”**.
