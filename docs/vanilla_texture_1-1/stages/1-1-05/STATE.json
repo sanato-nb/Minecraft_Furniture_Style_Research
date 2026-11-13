@@ -7,10 +7,10 @@
   "stage_id": "1-1-05",
   "material_family": "유리",
   "stage_prefix": "TEX05",
-  "current_revision": "TEX05-R007",
-  "next_revision": "TEX05-R008",
-  "revision_sequence": 7,
-  "revision_status": "R007_source_static_evidence_recorded_ingame_and_official_auth_excluded_by_user",
+  "current_revision": "TEX05-R008",
+  "next_revision": "TEX05-R009",
+  "revision_sequence": 8,
+  "revision_status": "R008_six_glass_source_sprite_animation_none_three_control_animated_sources_verified",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 6,
@@ -60,9 +60,9 @@
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R006_original_glass_alpha_rgb_pattern_recorded_D1_D2_source_verified_D3_out_of_scope_by_user",
+      "status": "R008_six_16x16_glass_sprites_no_authored_animation_three_animated_positive_controls_compared",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX05-R006"
+      "last_evidence_revision": "TEX05-R008"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
@@ -81,9 +81,9 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "evidence_report_written_TEX05_R007",
+      "status": "evidence_report_written_TEX05_R008",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX05-R007"
+      "last_evidence_revision": "TEX05-R008"
     }
   },
   "material_specific_checks": [
@@ -101,6 +101,11 @@
       "id": "D3",
       "check": "인게임 render layer·투명 정렬·조명은 정적 모델·텍스처 연구 완료 조건에서 제외",
       "status": "out_of_scope_by_user_no_ingame_or_runtime_required"
+    },
+    {
+      "id": "D4",
+      "check": "원본 애니메이션 시트·PNG 청크·.png.mcmeta animation 정의 점검",
+      "status": "R008_six_of_six_no_authored_animation"
     }
   ],
   "items": [
@@ -113,7 +118,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX05-R006",
+      "last_verified_revision": "TEX05-R008",
       "evidence_status": "user_extracted_png_model_uv_atlas_and_static_shader_sources_verified_runtime_excluded",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "cb89c706dce86eac3123cef087d359b5f23098b658a468fb91662b4a9922bcd0",
@@ -152,7 +157,11 @@
       "r007_terrain_shader_sources_reviewed_not_proof_of_binding": true,
       "r007_actual_shader_binding_unverified": true,
       "ingame_static_render_required": false,
-      "ingame_static_render_status": "out_of_scope_not_verified"
+      "ingame_static_render_status": "out_of_scope_not_verified",
+      "r008_frame_slots": 1,
+      "r008_authored_sprite_animation_present": false,
+      "r008_apng_chunks_present": false,
+      "r008_runtime_animation_not_evaluated": true
     },
     {
       "item_id": "1-1-05-002",
@@ -163,7 +172,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX05-R006",
+      "last_verified_revision": "TEX05-R008",
       "evidence_status": "user_extracted_png_model_uv_atlas_and_static_shader_sources_verified_runtime_excluded",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "4520f85fee79972191217d623c8b38522cacf74cb7c71113c0a6240d3b1f2ad2",
@@ -202,7 +211,11 @@
       "r007_terrain_shader_sources_reviewed_not_proof_of_binding": true,
       "r007_actual_shader_binding_unverified": true,
       "ingame_static_render_required": false,
-      "ingame_static_render_status": "out_of_scope_not_verified"
+      "ingame_static_render_status": "out_of_scope_not_verified",
+      "r008_frame_slots": 1,
+      "r008_authored_sprite_animation_present": false,
+      "r008_apng_chunks_present": false,
+      "r008_runtime_animation_not_evaluated": true
     },
     {
       "item_id": "1-1-05-003",
@@ -213,7 +226,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX05-R006",
+      "last_verified_revision": "TEX05-R008",
       "evidence_status": "user_extracted_png_model_uv_atlas_and_static_shader_sources_verified_runtime_excluded",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "62c705812949f0372dcc2fa82a5d89f7028ba1d9b3bd38765613e344f34f5b1c",
@@ -252,7 +265,11 @@
       "r007_terrain_shader_sources_reviewed_not_proof_of_binding": true,
       "r007_actual_shader_binding_unverified": true,
       "ingame_static_render_required": false,
-      "ingame_static_render_status": "out_of_scope_not_verified"
+      "ingame_static_render_status": "out_of_scope_not_verified",
+      "r008_frame_slots": 1,
+      "r008_authored_sprite_animation_present": false,
+      "r008_apng_chunks_present": false,
+      "r008_runtime_animation_not_evaluated": true
     },
     {
       "item_id": "1-1-05-004",
@@ -263,7 +280,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX05-R006",
+      "last_verified_revision": "TEX05-R008",
       "evidence_status": "user_extracted_png_model_uv_atlas_and_static_shader_sources_verified_runtime_excluded",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "7d6cfe98ddc5d975b3bcf5f9cffc008f90db94d5d981ef440f7b68e8267ae247",
@@ -302,7 +319,11 @@
       "r007_terrain_shader_sources_reviewed_not_proof_of_binding": true,
       "r007_actual_shader_binding_unverified": true,
       "ingame_static_render_required": false,
-      "ingame_static_render_status": "out_of_scope_not_verified"
+      "ingame_static_render_status": "out_of_scope_not_verified",
+      "r008_frame_slots": 1,
+      "r008_authored_sprite_animation_present": false,
+      "r008_apng_chunks_present": false,
+      "r008_runtime_animation_not_evaluated": true
     },
     {
       "item_id": "1-1-05-005",
@@ -313,7 +334,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX05-R006",
+      "last_verified_revision": "TEX05-R008",
       "evidence_status": "user_extracted_png_model_uv_atlas_and_static_shader_sources_verified_runtime_excluded",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "dc82be445bd9c7cf158bd57651d51bfef400310f2ad4937fe1e5b1c60b4f5916",
@@ -352,7 +373,11 @@
       "r007_terrain_shader_sources_reviewed_not_proof_of_binding": true,
       "r007_actual_shader_binding_unverified": true,
       "ingame_static_render_required": false,
-      "ingame_static_render_status": "out_of_scope_not_verified"
+      "ingame_static_render_status": "out_of_scope_not_verified",
+      "r008_frame_slots": 1,
+      "r008_authored_sprite_animation_present": false,
+      "r008_apng_chunks_present": false,
+      "r008_runtime_animation_not_evaluated": true
     },
     {
       "item_id": "1-1-05-006",
@@ -363,7 +388,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX05-R006",
+      "last_verified_revision": "TEX05-R008",
       "evidence_status": "user_extracted_png_model_uv_atlas_and_static_shader_sources_verified_runtime_excluded",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "2d4504957fa123a6e9f35d93e05f94fb053ec213541f01fcecbc0097eaa5df75",
@@ -402,7 +427,11 @@
       "r007_terrain_shader_sources_reviewed_not_proof_of_binding": true,
       "r007_actual_shader_binding_unverified": true,
       "ingame_static_render_required": false,
-      "ingame_static_render_status": "out_of_scope_not_verified"
+      "ingame_static_render_status": "out_of_scope_not_verified",
+      "r008_frame_slots": 1,
+      "r008_authored_sprite_animation_present": false,
+      "r008_apng_chunks_present": false,
+      "r008_runtime_animation_not_evaluated": true
     }
   ],
   "revisions": [
@@ -512,24 +541,32 @@
       "report_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R007/REPORT.md",
       "source_ledger_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R007/SOURCE_LEDGER.csv",
       "summary_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R007/SUMMARY.json"
+    },
+    {
+      "revision": "TEX05-R008",
+      "kind": "source_binary_png_and_mcmeta_sprite_animation_audit",
+      "target_pngs_reinspected": 6,
+      "animated_sprite_targets": 0,
+      "positive_control_animated_sprites": 3,
+      "new_target_static_paths": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R008/REPORT.md",
+      "source_ledger_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R008/SOURCE_LEDGER.csv",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R008/SUMMARY.json"
     }
   ],
   "next_steps": [
-    "Source-only goal for 1-1-05: six glass PNGs and models/UV references are verified from the user-extracted 1.21.11 source (6/6). Evaluate only additional source-backed questions that materially change the study.",
-    "Do not require or request Minecraft game screenshots, real-time render/GPU traces, or in-game transparency/layer/adjacency verification for this stage. Such effects remain unverified, not passed.",
-    "Do not require or count Mojang official client.jar SHA-1 verification, previously excluded by user instruction.",
-    "Do not claim glass shader is bound in runtime, final mipmap/color/lighting/sorting/face culling; these cannot be inferred from static shaders and models alone.",
-    "User's prior stop rule still applies: if requested to 'continue' after static source research is complete or when no useful source evidence remains, stop and report no extra user data is needed in the excluded categories, instead of incrementing TEX05-R008.",
-    "Create TEX05-R008 only if genuinely new source analysis/evidence is found; before that reread live STATE and HEAD and check immutable release absence.",
-    "Preserve animation research hold, no PZ conversion/furniture building, no changes to global v38 or other stages."
+    "Static texture-sprite animation study is complete for fixed six glass textures; all 6 are single-frame and lack animation metadata. No user game screenshots needed.",
+    "Do not create TEX05-R009 if no materially new source evidence. Follow user's stop-on-completion rule.",
+    "Other material stage animation research is not automatically released by this local stage policy edit.",
+    "Game/runtime/particle/shader effects cannot be ruled out from static sprite data and are not verified. Official whole JAR authentication and in-game validation remain out of scope.",
+    "Keep R000-R008 immutable, v38 and other stages unchanged; no Project Zomboid conversion/furniture model building."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
-  "animation_study_deferred": true,
+  "animation_study_deferred": false,
   "scope_excluded": [
     "Project Zomboid conversion",
     "actual furniture 3D asset building",
-    "animation study until explicitly resumed",
     "Mojang official client.jar full SHA-1 authentication (removed from required research by user)",
     "Minecraft actual in-game glass static rendering, screenshots, GPU passes, shader-binding/transparent sorting tests (removed from required research by user)"
   ],
@@ -626,7 +663,7 @@
   },
   "research_policy": {
     "amended_on": "2026-11-13",
-    "latest_instruction": "User explicitly excluded in-game Minecraft verification from 1-1-05; source texture/model/UV/JSON analysis is the required basis; Mojang full client.jar SHA-1 auth remains out of scope.",
+    "latest_instruction": "User resumed held animation research for 1-1-05 glass. Target 6 sprite assets have no authored animation; game/in-game verification remains excluded; other stages unchanged.",
     "mojang_official_jar_sha1_authentication_required": false,
     "mojang_official_jar_sha1_authentication_status": "out_of_scope_not_evaluated_not_verified",
     "active_verification_lanes": [
@@ -639,7 +676,8 @@
     "ingame_static_render_required": false,
     "ingame_static_render_status": "out_of_scope_not_verified",
     "remove_ingame_static_render_from_completion_gate": true,
-    "scope_of_source_based_conclusion": "Only PNG/JSON/model/UV/atlas/shader code as inspected, no runtime visual/render claims"
+    "scope_of_source_based_conclusion": "Only PNG/JSON/model/UV/atlas/shader code as inspected, no runtime visual/render claims",
+    "animation_study_resumed_for_glass": true
   },
   "policy_amendments": [
     {
@@ -662,6 +700,14 @@
       "runtime_evidence_count_unchanged": 0,
       "source_static_verified_count_unchanged": 6,
       "scope_applies_to": "1-1-05 only; parent/global and other independent stages remain unchanged"
+    },
+    {
+      "date": "2026-11-13",
+      "kind": "animation_scope_resumed_with_new_primary_source_analysis",
+      "field": "animation_study_deferred",
+      "revision": "TEX05-R008",
+      "new_value": false,
+      "stage_id": "1-1-05"
     }
   ],
   "r005_reverified_existing_png_count": 6,
@@ -689,5 +735,13 @@
   "r007_terrain_shader_present_not_glass_binding_proven": true,
   "ingame_static_render_required": false,
   "ingame_static_render_completion_gate": false,
-  "stage_source_only_research_status": "six_of_six_source_and_model_static_verification_covered; runtime_behavior_not_claimed"
+  "stage_source_only_research_status": "six_of_six_source_and_model_static_verification_covered; runtime_behavior_not_claimed",
+  "animation_research": {
+    "status": "source_sprite_animation_audit_complete",
+    "target_count": 6,
+    "target_authored_animated_texture_count": 0,
+    "positive_control_animated_textures": 3,
+    "source_revision": "TEX05-R008",
+    "runtime_effects_unverified_and_out_of_scope": true
+  }
 }

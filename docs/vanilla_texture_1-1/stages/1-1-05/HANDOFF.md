@@ -156,3 +156,12 @@
 - 단계 F와 D3 인게임 체크는 `pending`이 아닌 `out_of_scope_by_user`로 관리한다. `R007`의 `terrain.fsh` 샘플링 코드, `block.fsh` 비교, `glass.png.mcmeta=mean` 등은 정적 코드/메타데이터 관찰만 입증한다. 게임 투명 정렬, 렌더 레이어, 셰이더 바인딩, 실제 GPU 밉맵 출력의 사실 판정은 **하지 않는다**.
 - **소스 기준 목표의 현재 성과:** 고정 대상 6종에 대한 소스 기반 측정과 모델 연결 조사 기록이 존재한다. 추가 새 근거가 없으면 `TEX05-R008`을 만들 필요가 없다. 사용자가 "계속해줘"라고 요청해도 새로운 유효 정적 자료/분석이 없으면 **연구가 현재 정해진 범위에서 충분히 진행되었음을 알리고 중단**한다. 이제 인게임 스크린샷은 사용자에게 요구하지 않는다.
 - 본 변경은 **정책만 변경**했으므로 현재 `TEX05-R007`, 다음 고유 연구 버전 `TEX05-R008`을 그대로 유지하며, 새 연구 릴리스 폴더 생성이나 PNG 연구량 증가는 없다. 전역 `v38`, 다른 단계, 애니메이션 보류, PZ 변환/가구 제작 제외도 유지.
+
+
+## TEX05-R008 — 사용자 지시로 애니메이션 보류 해제, 유리 6종 소스 확인 (2026-11-13)
+
+- 사용자가 보류된 애니메이션 연구를 명시적으로 재개. 본 `1-1-05`에만 적용, 다른 재질 단계는 변경하지 않음. 인게임·공식 client.jar 검증 제외 방침 유지.
+- 사용자 원본 유리 PNG 6개 직접 바이너리 재검사: **6/6 전부 16×16 단일 슬롯**, `IHDR/IDAT/IEND` 외 APNG 청크 없음. `glass.png.mcmeta`는 `texture.mipmap_strategy=mean`만 있고 `animation` 없음. 착색 5개의 대응 `*.png.mcmeta`는 각각 원본 경로에서 404. **저작된 유리 텍스처 애니메이션 0/6.**
+- 실물 양성 대조 3개를 확인: 물 `water_still` 16×512/32슬롯/`frametime=2`; 용암 `lava_still` 16×320/20슬롯/`frames` 38항목·`frametime=2`; 불 `fire_0` 16×512/32슬롯/`frames` 32항목·`frametime` 미기재. 대조군의 3 PNG + 3 mcmeta는 유리 대상 누적 37개에 가산하지 않음.
+- [R008 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R008/REPORT.md) · [애니메이션 감사 9개](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R008/ANIMATION_AUDIT_9.csv) · [출처 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R008/SOURCE_LEDGER.csv) · [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R008/SUMMARY.json).
+- 이 결론은 원본 텍스처 스프라이트 애니메이션에 한정하며 월드/셰이더/상태 변화의 부재를 주장하지 않음. 실제 게임 검증은 제외. 현재 `TEX05-R008`, 다음 `TEX05-R009`는 유효한 신규 근거 때만, 아니면 사용자에게 종료 알림. 전역 v38 및 기존 R000~R007 불변.
