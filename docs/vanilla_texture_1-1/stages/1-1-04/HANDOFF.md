@@ -1,6 +1,17 @@
 # 1-1-04 — 직물·양털 전용 채팅 인수인계
 
-> **최종 상태: 정적 소스 연구 완료** · **TEX04-R008 유지** · 9/9 양털 PNG, 필수 단계 **A–E 및 G 완료**, F(공식 인증·인게임) **사용자 정책에 따라 제외** · 새 근거 없는 R009 발행 금지 · 전역 v38 유지.
+> **최신: TEX04-R009 — 보류했던 애니메이션 소스 연구 재개 및 완료** (2026-11-13). 9색 양털 **애니메이션 정의 0/9(정적 단일 프레임)**. R001–R008 정적 연구 완료 유지. 인게임/공식 JAR 검증 필수 제외. 다음 `TEX04-R010`은 신규 원본 증거 있을 때만. 전역 v38 불변.
+
+## TEX04-R009 — 신규 애니메이션 연구 완료: 양털 9종 모두 정적 (2026-11-13)
+
+- [R009 원본 증거 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R009/REPORT.md) · [9종 PNG/모델·메타 검사 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R009/WOOL_ANIMATION_SOURCE_AUDIT_9.csv) · [실제 애니메이션 대조군 3종](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R009/ANIMATED_POSITIVE_CONTROLS_3.csv) · [재현 코드](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R009/REPRODUCE_ANIMATION_AUDIT_R009.py).
+- **사용자가 이전에 보류한 양털 애니메이션 연구를 명시적으로 재개 요청함**. `1.21.11/assets/minecraft/textures/block/<color>_wool.png.mcmeta` 9개 경로는 전부 부재(404). 원본 9 PNG 전체가 16×16, 청크 `IHDR/PLTE/IDAT/IEND`이며 추가 프레임과 APNG 제어 청크가 없다.
+- 같은 게임 소스의 `water_still`(32프레임), `lava_still`(20프레임), `fire_0`(32프레임)의 `.png.mcmeta` 및 세로 프레임 시트를 **양성 대조군으로 직접 검사**. 양털과 다르게 메타가 실제 존재함. 이 세 종류 자체의 전체 재질 연구를 완료했다는 의미는 아님.
+- 9개 블록 leaf/9 blockstate/9 item JSON도 다시 확인. **양털 9종의 원본 리소스에 정의된 텍스처 애니메이션은 0**. 정적 소스 연구 R001–R008 및 기존 완료 보고서는 역사적 기록으로 불변.
+- 인게임 검증과 공식 배포 JAR 인증은 기존 사용자 정책대로 필요 없음(미검증 숫자 0 유지); 게임 엔진의 모든 시간 의존 효과가 없다고 주장하지 않음.
+- **이 단계의 보류 애니메이션 연구는 완료**. 다음 범위가 없다면 추가 작업을 중단한다.
+
+---
 
 ## 최종 완료 공지 — 정적 소스 연구 (2026-11-13)
 

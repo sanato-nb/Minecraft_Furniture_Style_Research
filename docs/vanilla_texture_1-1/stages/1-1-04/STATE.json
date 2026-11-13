@@ -7,10 +7,10 @@
   "stage_id": "1-1-04",
   "material_family": "직물·양털",
   "stage_prefix": "TEX04",
-  "current_revision": "TEX04-R008",
-  "next_revision": "TEX04-R009",
-  "revision_sequence": 8,
-  "revision_status": "TEX04_R008_SOURCE_STUDY_COMPLETE_USER_SCOPE_FINAL_REPORT_UPLOADED",
+  "current_revision": "TEX04-R009",
+  "next_revision": "TEX04-R010",
+  "revision_sequence": 9,
+  "revision_status": "R009_ANIMATION_SOURCE_AUDIT_COMPLETE_NINE_WOOL_STATIC_NO_ANIMATED_FRAMES_OR_PNG_MCMETA",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 9,
@@ -101,10 +101,11 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "COMPLETED_source_only_R001_R008_final_completion_record_saved",
+      "status": "COMPLETED_source_only_R001_R008_plus_R009_animation_negative_audit_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX04-R008",
-      "completion_record": "research/vanilla_textures/by_stage/1-1-04/COMPLETION_SOURCE_ONLY_2026-11-13.md"
+      "last_revision": "TEX04-R009",
+      "completion_record": "research/vanilla_textures/by_stage/1-1-04/COMPLETION_SOURCE_ONLY_2026-11-13.md",
+      "animation_addendum": "research/vanilla_textures/by_stage/1-1-04/TEX04-R009/REPORT.md"
     }
   },
   "material_specific_checks": [
@@ -627,22 +628,45 @@
       "report_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R008/REPORT.md",
       "summary_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R008/SUMMARY.json",
       "reproducer_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R008/REPRODUCE_R008.py"
+    },
+    {
+      "revision": "TEX04-R009",
+      "kind": "user_resumed_wool_animation_source_audit_png_mcmeta_frame_chains_positive_controls",
+      "source_wool_pngs_rechecked": 9,
+      "wool_png_mcmeta_found": 0,
+      "wool_png_single_frame_count": 9,
+      "wool_png_APNG_detected": 0,
+      "static_model_leaf_state_item_link_chains": 9,
+      "animated_source_positive_control_count": 3,
+      "animated_wool_texture_count": 0,
+      "new_unique_wool_pngs": 0,
+      "new_unique_wool_pixels": 0,
+      "new_wool_faces": 0,
+      "official_jar_verified": 0,
+      "ingame_verified": 0,
+      "official_JAR_and_ingame_not_required": true,
+      "report_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R009/REPORT.md",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R009/SUMMARY.json",
+      "wool_audit_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R009/WOOL_ANIMATION_SOURCE_AUDIT_9.csv",
+      "controls_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R009/ANIMATED_POSITIVE_CONTROLS_3.csv",
+      "reproduce_script_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R009/REPRODUCE_ANIMATION_AUDIT_R009.py"
     }
   ],
   "next_steps": [
-    "STOP: user-approved 1-1-04 nine-wool static source research is completed and final report has been uploaded; do not loop, advance release or ask for screenshots.",
-    "Keep R001–R008 reports immutable, original 2,304 pixels and 54 model faces counted once; final completion record is research/vanilla_textures/by_stage/1-1-04/COMPLETION_SOURCE_ONLY_2026-11-13.md.",
-    "In-game 0/9 and official JAR verification 0 are explicitly excluded from mandatory research, not verified; source/actual-game claims remain distinguished.",
-    "Only reopen with genuinely new source evidence or user-defined research scope; re-read live STATE/HANDOFF and GitHub HEAD, and check folder absence before first R009.",
-    "Other 1-1 texture stages, animation, PZ and 3D furniture building are not completed by this stage."
+    "1-1-04 animation source audit is now COMPLETE via R009: all nine wool PNG 16×16 one frame, no png.mcmeta or APNG control chunks, static models, 0 animated wool textures.",
+    "Prior static source research R001–R008 remains completed and immutable; prior COMPLETION_SOURCE_ONLY_2026-11-13.md remains a historical source-static completion record.",
+    "Do not request game screenshots or whole Mojang client.jar authentication; both excluded by user, no claims of verified runtime rendering.",
+    "Other Minecraft texture groups and animations of water, lava and fire were only positive controls; do not falsely count them as completed studies.",
+    "If user says '계속해줘' within 1-1-04 and no genuinely new scope/evidence: report that no wool animations exist and pause; do not repeatedly bump version.",
+    "For an actual new animation-bearing texture family, explicitly create/enter that separate stage under its own scope, unless user requests expanding beyond 1-1-04.",
+    "Only create R010 if new source evidence appears; live HEAD/STATE/HANDOFF and folder absence check first."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
-  "animation_study_deferred": true,
+  "animation_study_deferred": false,
   "scope_excluded": [
     "Project Zomboid conversion",
-    "actual furniture 3D asset building",
-    "animation study until explicitly resumed"
+    "actual furniture 3D asset building"
   ],
   "project_overall_completion_pct": null,
   "do_not_count_planning_as_research": true,
@@ -792,5 +816,22 @@
     "in_game_required": false,
     "official_jar_authenticated_count_historically": 0,
     "official_jar_mandatory": false
+  },
+  "animation_extension": {
+    "status": "COMPLETED_SOURCE_AUDIT_ALL_NINE_WOOL_NO_VANILLA_TEXTURE_ANIMATION",
+    "user_reactivated_on": "2026-11-13",
+    "stage_only": "1-1-04",
+    "target_wool_count": 9,
+    "wool_png_metafiles_checked": 9,
+    "wool_png_mcmeta_present": 0,
+    "wool_png_16x16_single_frame": 9,
+    "apng_chunk_detected_in_wool_png_count": 0,
+    "block_model_item_state_static_chains_checked": 9,
+    "positive_control_animated_textures_detected": 3,
+    "animated_wool_texture_count": 0,
+    "ingame_verification_optional": true,
+    "static_source_study_already_completed_previous_revision": "TEX04-R008",
+    "report_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R009/REPORT.md",
+    "note": "No animated wool texture sources in user-provided extracted 1.21.11; no evidence-based claim about engine dynamic effects or modded packs."
   }
 }
