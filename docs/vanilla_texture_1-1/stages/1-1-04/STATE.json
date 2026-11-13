@@ -10,7 +10,7 @@
   "current_revision": "TEX04-R008",
   "next_revision": "TEX04-R009",
   "revision_sequence": 8,
-  "revision_status": "R008_green_quantization_two_RGB_groups_73_inversions_dual_metric_confirmed_await_user_static_ingame_evidence",
+  "revision_status": "TEX04_R008_source_based_9_of_9_finished_no_required_ingame_verification_user_policy_2026_11_13",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 9,
@@ -90,17 +90,18 @@
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "mandatory_official_jar_auth_excluded_by_user_no_auth_claim__ingame_static_pending_0_of_9",
+      "status": "excluded_from_required_scope_by_user_official_jar_and_ingame_both_optional_not_verified",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "last_revision": "TEX04-R004",
       "note_r002": "Candidate Mojang SHA1 found only in third-party indexes, jar bytes unavailable",
       "note_r003": "User-uploaded extracted folder confirms internal version.json but source JAR entire bytes and Mojang official distribution SHA1 unauthenticated",
       "note_r004": "Signature metadata SHA384 digests self-consistent, PKCS7 MOJANGCS.RSA not cryptographically verified, full JAR SHA1 and Mojang metadata unavailable",
-      "note_r005": "Official whole client.jar SHA1/Mojang metadata verification removed from mandatory scope/denominator by user; historic 0/9 remains. In-game static 0/9 remains mandatory evidential gap."
+      "note_r005": "Official whole client.jar SHA1/Mojang metadata verification removed from mandatory scope/denominator by user; historic 0/9 remains. In-game static 0/9 remains mandatory evidential gap.",
+      "user_policy_update_2026_11_13": "Source-only study accepted for 1-1-04; in-game static screenshots/rendering verification no longer mandatory; game 0/9 remains unverified, official 0 remains unauthenticated."
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "saved_TEX04_R008_and_awaiting_user_controlled_1_21_11_static_game_screenshots",
+      "status": "saved_R008_stage_source_only_scope_closed_no_mandatory_ingame_gate",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "last_revision": "TEX04-R008"
     }
@@ -628,12 +629,13 @@
     }
   ],
   "next_steps": [
-    "STOP source-only iterative relabeling: new user proof is needed for 1.21.11 actual game static visual verification of all 9 coloured wool blocks",
-    "Ask for 1.21.11 in-game 9 wool colours visible screenshot(s), version visible/attested, and resource-pack/shader state before claiming in-game 1/9 or 9/9",
-    "Before TEX04-R009, re-fetch live STATE/HANDOFF and main HEAD, check next revision folder absent; make new immutable revision only for genuinely new source or in-game evidence",
-    "Retain previous R001-R007 2304 original pixels, 54 model faces and prior 73 inverted comparisons; do not duplicate original counts",
-    "Official Mojang client.jar SHA1 and metadata are out of mandatory denominator, not authenticated",
-    "Animation, other 1-1 stages, Project Zomboid conversion and furniture 3D modeling remain out of scope"
+    "1-1-04 source-based study of the nine original wool PNGs + static block/item JSON is COMPLETE within user-approved source-only scope through R008; do not invent additional work.",
+    "Do not request 1.21.11 in-game screenshots, F3, resource-pack/shader screenshots or run game solely to complete this stage. In-game static 0/9 is excluded, not verified.",
+    "Continue source-only research only when user supplies new original textures/models or a genuinely distinct unstudied source question; otherwise when user says '계속해줘' say this scope is finished and pause.",
+    "To create R009 only if new source evidence/analysis actually exists: live re-fetch STATE/HANDOFF, main HEAD, check absent revision folder and preserve past immutable releases.",
+    "Keep original existing nine PNG / 2304 pixels / 54 UV faces and R007/R008 findings as inherited, not additional distinct files/pixels.",
+    "Mojang official full client.jar SHA1 and official metadata remain excluded and unauthenticated; never imply cryptographically verified provenance.",
+    "Animations, other 1-1 stages, Project Zomboid conversion and furniture 3D modeling still outside current stage."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -721,8 +723,13 @@
     "official_jar_whole_sha1_required": false,
     "official_mojang_metadata_required": false,
     "official_authenticated_count_historically": 0,
-    "ingame_static_verification_required_for_claim": true,
-    "ingame_static_verified_count": 0
+    "ingame_static_verification_required_for_claim": false,
+    "ingame_static_verified_count": 0,
+    "ingame_static_verification_required_for_completion": false,
+    "ingame_static_verification_policy": "EXCLUDED_FROM_MANDATORY_RESEARCH_BY_USER_2026_11_13",
+    "source_only_claims_must_be_labelled": true,
+    "actual_game_render_claim_permitted_without_game_evidence": false,
+    "future_in_game_evidence_status": "OPTIONAL_NOT_REQUESTED_NOT_A_BLOCKER"
   },
   "r005_new_unique_texture_count": 0,
   "r005_metric_rows": 126,
@@ -748,5 +755,16 @@
   "r008_rgb_levels": 4,
   "r008_inversion_coordinates_involved": 14,
   "r008_inversion_dual_metric_same": true,
-  "r008_ingame_user_evidence_required": true
+  "r008_ingame_user_evidence_required": false,
+  "study_2026_11_13_scope_decision": {
+    "user_policy": "Exclude all actual in-game verification and screenshots from required scope; user considers PNG textures + block/item model JSON enough for source-based study.",
+    "applies_to": "1-1-04 nine wool texture source-only research; use this principle for future user-directed source studies unless user changes policy",
+    "current_revision_stays": "TEX04-R008",
+    "next_revision_candidate_not_published": "TEX04-R009",
+    "static_source_scope": "complete_for_9_existing_user_extracted_textures_and_static_model_JSON_as_documented_R001_R008",
+    "rendered_view_not_verified": "0/9 (historical observation; excluded from completion and progress denominators)",
+    "official_client_jar_full_sha1_and_mojang_metadata": "already excluded from required denominator; not authenticated",
+    "limits": "Only provenance supported by uploaded extracted source bytes; cannot claim verified GUI screenshot, renderer shading, runtime texture pack compatibility, or official distribution authenticity.",
+    "no_new_revision_for_policy_change": true
+  }
 }
