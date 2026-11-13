@@ -1,5 +1,18 @@
 # 1-1-11 — 목재·구조부품 별도 채팅 인수인계
 
+## 최신 연구: TEX11-R010 — 선반 5종의 32×32 원본 전체 UV면·연결 조건·전면 경계 측정 (2026-11-13)
+
+- **현재 `TEX11-R010` / 다음 `TEX11-R011`.** 사용자 제공 `1.21.11/` 원본 **shelf 5 PNG, leaf 30 JSON, template 6 JSON, blockstate 5 JSON** 직접 분석. PNG 5/5 CRC 검증 통과, 5,120 기존 원본 RGBA 텍셀, 완전/부분 투명 없음. 기존 PNG 총31개 변경·추가 없음.
+- 모델 **100 UV 면 패치/6,880 PNG texel 참조**, 그중 R007에서 이미 조사한 35 패치/4,720참조를 제외해 **신규 본체 면 패치 65개/2,160 texel 참조**. 프런트 5역할(각16×8) 전부 PNG 실픽셀 추출.
+- 원본 multipart **120규칙**, 5재질 × 4facing × 2powered × 4side_chain = **160 논리 정적 상태**, 각 body+overlay 모델2개·16면·864 texel 참조 → **2,560 state-face 참조 / 138,240 반복 UV 참조**. 원본 signature 중복제거하면 **100 모델·회전 조합**(powered=false의 side_chain 반복 때문). **160상태나100서명이 160/100개 별도 인게임 시각 인증을 뜻하지 않음**. R006 4목재 128상태, 역사적 v38 oak_shelf 32 상태를 새로 중복 가산하지 않음.
+- **overlay 구조 25개**의 소스 geometry 8항목씩 검증, 25/25 통과. center front는 Z=13 두께0, Y4..12; 상·하단 부재 경계와 정렬. 본체15면 중 cullface 지정11면, 전면1면은 미지정. 게임 런타임 z-fighting/cull 테스트 아님.
+- **25개 가상 패널 인접·총 200 경계 텍셀 쌍 실측**. left→center의 두 번째 패널 반전 점수는 4목재(참나무·가문비·자작·벚나무) RGB L1=0, 대나무104. 독립 atlas 영역 간 유사도 수치이지 인게임 연결 방향 확정 아님. `SHELF_FRONT_EDGE_CANDIDATES.csv`에 전 후보 보존.
+- **증거 폴더:** https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/research/vanilla_textures/by_stage/1-1-11/TEX11-R010/ (REPORT/SUMMARY, 5 CSV, source atlas SVG, 재현 규약). R000–R009 이전 버전과 전역 v38/타단계 불변. PNG31·leaf127·원본 rule512·기존 544 state·672 instances·4320 faces 등 과거 실적 계승.
+- **인게임 정적 검증 0/31.** 공식 Mojang JAR SHA-1 인증은 사용자 결정에 따라 필수 검증에서 제외(인증했다고 하지 않음). 애니메이션 보류, PZ 변환·실제 3D 가구 제작 금지.
+- **다음 R011:** 7종 목재 문 상·하단 총 14 PNG에 대해 이미 수행한 원본 경계/UV 연동 검사와 중복하지 않는 **전체 문 모델 5면 실 RGBA UV 패치·alpha/cullface/평면 감도** 등 추가 independent source-only 연구가 가능. 즉, 현재 사용자의 추가 도움 없이는 진행할 수 없는 상태가 아니다. 다만 실제 게임 정적 판정이 필수로 바뀌거나 더 이상 신규 독립 실측이 없으면, 사용자가 `계속해줘`라고 해도 멈추고 구체적인 필요 자료를 알려준다.
+
+---
+
 ## 최신 연구: TEX11-R009 — 다락문 12종 모든 면 UV·192상태·180도 알파 마스크 (2026-11-13)
 
 - **현재 `TEX11-R009`, 다음 `TEX11-R010`.** 사용자 직접 추출본 `1.21.11/` **다락문 blockstate 12 JSON·leaf 36 JSON·template 6 JSON·PNG 12개** 실제 다시 읽어 검사. PNG 실화소 12/12 CRC 통과. 원본 192상태×6면=**1,152 상태·면 투영**, 12×3 모델×6면=**216 실제 UV 패치**, **25,344 면별 UV 텍셀 참조**. R007에서 이미 수행한 36 면 패치를 제외한 **180개의 새로운 고유 모델·면 패치 / 16,128 UV 참조**만 신규로 집계; 물리 PNG 픽셀을 새로 추가한 것은 아님.

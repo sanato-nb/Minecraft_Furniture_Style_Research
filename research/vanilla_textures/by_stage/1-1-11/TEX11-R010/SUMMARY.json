@@ -1,0 +1,71 @@
+{
+  "revision": "TEX11-R010",
+  "date": "2026-11-13",
+  "stage": "1-1-11",
+  "primary_source": "User-provided extracted Minecraft Java 1.21.11/ PNGs and static JSON",
+  "new_measurements": {
+    "png_direct_crc_verified": 5,
+    "png_source_texels": 5120,
+    "model_leaf_direct_read": 30,
+    "model_templates_direct_read": 6,
+    "blockstate_JSON_direct_read": 5,
+    "multipart_source_rules": 120,
+    "logical_static_state_combinations": 160,
+    "distinct_visual_combinations": 100,
+    "repeated_state_signatures": 60,
+    "source_model_face_patches": 100,
+    "source_model_face_UV_texel_uses": 6880,
+    "new_source_face_patches_not_R007": 65,
+    "new_source_face_UV_texel_uses_not_R007": 2160,
+    "source_state_face_uses": 2560,
+    "source_state_face_texel_uses": 138240,
+    "patches_partial_alpha": 0,
+    "patches_alpha_zero": 0,
+    "ingame_verified": 0,
+    "source_geometry_overlay_models_checked": 25,
+    "source_geometry_invariants_checked": 200,
+    "geometry_failures": 0,
+    "body_faces_marked_cullface_per_model": 11,
+    "body_faces_unmarked_cullface_per_model": 4,
+    "source_state_face_cullface_marked": 1760,
+    "source_state_face_cullface_unmarked": 800,
+    "front_edge_candidate_count": 25,
+    "front_edge_pixel_pairs": 200,
+    "original_png_bytes": 2388
+  },
+  "context_not_new": {
+    "scope_PNG_unique": 31,
+    "source_leaf_model_census": 127,
+    "source_blockstate_rules_previous": 512,
+    "source_static_states_previous_excluding_historic_oak_shelf": 544,
+    "source_model_instances_previous": 672,
+    "source_oriented_faces_previous": 4320,
+    "historic_oak_shelf_v38_static_states_referenced_not_recounted": 32,
+    "R007_shelf_existing_face_patches": 35,
+    "R007_shelf_existing_UV_texel_references": 4720
+  },
+  "scope_restrictions": {
+    "in_game_static_verified": 0,
+    "official_client_jar_authentication_required": false,
+    "animations_still_deferred": true,
+    "global_v38_unchanged": true
+  },
+  "source_blobs": {
+    "template_batch": "0815a17100c6b1de514016354304bded0a08f96b",
+    "blockstate_batch": "b29cf7eb6d72197fa83a97479450eeb4337d0440",
+    "leaf_batches": [
+      "7801e35c0fdfea0933c655c022ba02101112effa",
+      "a6eb7e2da81d9286e5c6705b59224cabee803abe",
+      "36528450e3f145a3d4b656e49ad9a2c25fa72a40"
+    ],
+    "PNG_batch": "1832c245c0c10b0332deb78bfa3760e4bb124a9d",
+    "R010_evidence_models": "65b86697b58ad667de445cbc8c7e1a40dc15885d",
+    "R010_evidence_edges": "ef83d8c4d505e515cd857543efbb820b9330e27c",
+    "R010_evidence_geometry": "ccc5ad602aa58907b453d9d750abd014370bf1d6"
+  },
+  "warnings": [
+    "160 states are not 160 distinguishable on-screen appearances: 100 model/yaw signatures and 60 repeated logical combinations.",
+    "PNG atlas colors and seam scores are SOURCE-only. Relative panel flip does not establish correct game connection direction.",
+    "The source collection contained these 5 PNGs before R010; re-decoding does not increment unique texture totals."
+  ]
+}

@@ -7,10 +7,10 @@
   "stage_id": "1-1-11",
   "material_family": "목재·구조부품",
   "stage_prefix": "TEX11",
-  "current_revision": "TEX11-R009",
-  "next_revision": "TEX11-R010",
-  "revision_sequence": 9,
-  "revision_status": "R009_12_trapdoor_192_states_1152_faces_216_face_RGBA_patches_180_new_face_patches_180deg_alpha_warped38_jungle20_ingame0",
+  "current_revision": "TEX11-R010",
+  "next_revision": "TEX11-R011",
+  "revision_sequence": 10,
+  "revision_status": "R010_5_shelf_32px_PNG_RGBA_100_model_faces_65_new_160_logical_states_100_signatures_25_edge_candidates_source_only_ingame0",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 31,
@@ -42,37 +42,37 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "R009_original_1_21_11_12_trapdoor_binaries_12_state_JSON_36_leaf_JSON_6_templates_prior_31_scope_PNG_preserved",
+      "status": "R010_5_shelf_original_PNG_30_leaf_6_template_5_blockstates_prior_R001_R009_preserved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R009_trapdoor_PNG_12_12_direct_chunk_CRC_RGBA_decode_existing_PNG_not_new_sources",
+      "status": "R010_5_shelf_direct_PNG_CRC_RGBA_5120_original_texels_0_transparency",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R009_12_trapdoor_216_UV_face_RGBA_masks_180deg_3072_pixel_comparisons_warped38_jungle20",
+      "status": "R010_100_shelf_model_face_RGBA_patches_65_new_face_patches_2160_new_face_texel_references_25_edge_candidates",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R009_12_trapdoors_thin_edge_144_faces_zero_alpha_transparency_0_partial_0_front_rotation_probe",
+      "status": "R010_25_front_geometry_all_8_checks_valid_11_body_cullface_defined_25_panel_edge_candidates",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R009_192_trapdoor_states_1152_state_faces_216_UV_patches_180_new_faces_16_128_UV_pixel_refs_48_front_normal_pairs",
+      "status": "R010_120_multipart_rules_160_logical_states_100_unique_model_signatures_2560_faces_138240_repeated_UV_refs",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
       "title": "F 인게임 정적 렌더·문양 접합·컬링 검증 (공식 원본 JAR 인증 제외)",
-      "status": "R009_ingame_static_visual_0_of_31_no_screenshots_official_JAR_SHA1_excluded_by_user",
+      "status": "R010_ingame_static_render_0_of_31_no_runtime_capture_official_JAR_SHA1_excluded",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R009_immutable_REPORT_SUMMARY_UV_FACE_STATE_CSV_ROT180_CSV_SVG_METHODS_stage_only",
+      "status": "R010_immutable_REPORT_SUMMARY_5_CSV_SOURCE_ATLAS_SVG_METHODS_stage_ONLY",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -85,12 +85,12 @@
     {
       "id": "D2",
       "check": "32×32 5종 shelf texture atlas와 일반 16×16 비교",
-      "status": "R007_5_shelf_32px_atlases_35_source_UV_face_patches_5_front_mirror_candidates"
+      "status": "R010_shelf_5x32px_CRC_RGB_100_face_patches_65_new_25_front_edge_candidates_160_states_100_signatures"
     },
     {
       "id": "D3",
       "check": "v38 oak_shelf 7 leaf·38원본 explicit UV면·32 정적 상태 평가 근거 재사용 후 미검증 파생목재 확대",
-      "status": "R007_oak_shelf_pixel_sample_included_historic_v38_32_states_NOT_recounted"
+      "status": "R010_5_shelf_original_PNG_face_sources_including_oak_v38_32_historic_states_not_recounted"
     }
   ],
   "items": [
@@ -713,7 +713,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R007",
+      "last_verified_revision": "TEX11-R010",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -724,7 +724,9 @@
       "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
       "r007_direct_pixel_decode_verified": true,
       "r007_direct_png_crc_sha256_match": true,
-      "r007_pixel_research_kind": "shelf_atlas_UV"
+      "r007_pixel_research_kind": "shelf_atlas_UV",
+      "r010_RGBA_all_model_faces_sampled": true,
+      "r010_runtime_verified": false
     },
     {
       "item_id": "1-1-11-028",
@@ -735,7 +737,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R007",
+      "last_verified_revision": "TEX11-R010",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -746,7 +748,9 @@
       "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
       "r007_direct_pixel_decode_verified": true,
       "r007_direct_png_crc_sha256_match": true,
-      "r007_pixel_research_kind": "shelf_atlas_UV"
+      "r007_pixel_research_kind": "shelf_atlas_UV",
+      "r010_RGBA_all_model_faces_sampled": true,
+      "r010_runtime_verified": false
     },
     {
       "item_id": "1-1-11-029",
@@ -757,7 +761,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R007",
+      "last_verified_revision": "TEX11-R010",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -768,7 +772,9 @@
       "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
       "r007_direct_pixel_decode_verified": true,
       "r007_direct_png_crc_sha256_match": true,
-      "r007_pixel_research_kind": "shelf_atlas_UV"
+      "r007_pixel_research_kind": "shelf_atlas_UV",
+      "r010_RGBA_all_model_faces_sampled": true,
+      "r010_runtime_verified": false
     },
     {
       "item_id": "1-1-11-030",
@@ -779,7 +785,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R007",
+      "last_verified_revision": "TEX11-R010",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -790,7 +796,9 @@
       "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
       "r007_direct_pixel_decode_verified": true,
       "r007_direct_png_crc_sha256_match": true,
-      "r007_pixel_research_kind": "shelf_atlas_UV"
+      "r007_pixel_research_kind": "shelf_atlas_UV",
+      "r010_RGBA_all_model_faces_sampled": true,
+      "r010_runtime_verified": false
     },
     {
       "item_id": "1-1-11-031",
@@ -801,7 +809,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R007",
+      "last_verified_revision": "TEX11-R010",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -812,7 +820,9 @@
       "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
       "r007_direct_pixel_decode_verified": true,
       "r007_direct_png_crc_sha256_match": true,
-      "r007_pixel_research_kind": "shelf_atlas_UV"
+      "r007_pixel_research_kind": "shelf_atlas_UV",
+      "r010_RGBA_all_model_faces_sampled": true,
+      "r010_runtime_verified": false
     }
   ],
   "revisions": [
@@ -964,15 +974,31 @@
       "source_180_alpha_jungle": 20,
       "ingame_static_verified": 0,
       "report_path": "research/vanilla_textures/by_stage/1-1-11/TEX11-R009/REPORT.md"
+    },
+    {
+      "revision": "TEX11-R010",
+      "kind": "original_shelf_32px_whole_model_face_RGBA_static_multipart_geometry_and_front_edge_candidates",
+      "date": "2026-11-13",
+      "source_PNG_redecoded": 5,
+      "model_face_patches_total": 100,
+      "model_face_patches_new_over_R007": 65,
+      "new_model_face_texel_uses": 2160,
+      "logical_shelf_states_derived": 160,
+      "unique_model_signatures": 100,
+      "model_state_face_uses": 2560,
+      "front_panel_edge_candidates": 25,
+      "source_geometry_overlays_passed": 25,
+      "actual_ingame_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-11/TEX11-R010/REPORT.md"
     }
   ],
   "next_steps": [
-    "Read live stages/1-1-11/STATE.json and HANDOFF.md first; only publish unique immutable TEX11-R010 if new evidence exists.",
-    "Continue source-only 5-wood 32x32 shelf atlas model-face UV/connected geometry research, not already sampled R007 front 7 patches.",
-    "For warped/jungle trapdoors, game screenshots with exact facing/half/open and camera angle would enable actual rendered-pattern verification; in-game currently 0/31.",
-    "Maintain original 31 source PNG count; 127 leaf, 512 rules, 544 source-derived static states, 672 model instances, 4320 faces, and historical v38 oak shelf remain inherited not new.",
-    "If independent research has run out or essential user evidence is needed, STOP when user says continue and explain exactly which input is required.",
-    "Official Mojang client.jar SHA1 not required; do not ask. No animations, PZ conversion, furniture 3D asset construction, global v38 edits, or other stage mutations."
+    "Read live stages/1-1-11/STATE.json and HANDOFF.md first; only publish immutable TEX11-R011 when actual new measurements are performed.",
+    "Next independent source-only work: sample remaining full door model-face UV RGBA/alpha for 7 wood types, 8 shared model templates, top/bottom original PNG 14, distinct from R007 seam pairs and R008 2 broad face UV binds.",
+    "Separate source geometry/UV evidence from runtime in-game screenshots; static Minecraft game verification still 0/31.",
+    "Do not double count historical PNG31, model leaves127, source rules512, static 544, model instances672, oriented faces4320, historical oak shelf v38 states32.",
+    "If user says continue and source work is exhausted or essential Minecraft screenshots/controls become necessary, STOP and explicitly tell user what exact evidence is required.",
+    "Official Mojang JAR full SHA1 is excluded by prior user decision; no animations, PZ conversion, actual furniture 3D modeling, v38 global change, or other stage writes."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
