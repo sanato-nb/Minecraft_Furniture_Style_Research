@@ -1,0 +1,71 @@
+{
+  "schema": "TEX11-source-provenance-validation-v1",
+  "stage": "1-1-11",
+  "revision": "TEX11-R003",
+  "next_revision": "TEX11-R004",
+  "date": "2026-11-13",
+  "global_checkpoint": "v38",
+  "source_tier": "user_provided_unpacked_client_JAR_GitHub_folder",
+  "user_provided_root": "1.21.11/",
+  "pinned_source_commit": "2a43897b8f605b4e0c96a272bca476ee6b70058e",
+  "tier1_user_extracted": {
+    "png_real_bytes_sha256_recalculated": 31,
+    "png_crc_pass": 31,
+    "png_sha_matches_previous_v4": 31,
+    "total_png_bytes": 8080,
+    "png_16x16": 26,
+    "png_32x32": 5,
+    "png_4bit_indexed": [
+      "bamboo_shelf"
+    ],
+    "direct_json_parsed": 48,
+    "direct_json_report_rule_face_count_matches": 48,
+    "scope_pngs": 31
+  },
+  "tier2_cross_mirror": {
+    "png_git_blob_sha_matches_31": 31,
+    "json_tree_sha_and_size_matches_175": 175,
+    "json_current_source_records_168": 168,
+    "historic_oak_shelf_leaf_crosschecked_not_counted_as_new": 7,
+    "direct_json_source_SHA_matches_R001": 48
+  },
+  "static_json_counts": {
+    "blockstates": 23,
+    "templates": 21,
+    "shelf_items": 4,
+    "door_variants": 224,
+    "trapdoor_variants": 192,
+    "non_oak_shelf_multipart_rules": 96,
+    "explicit_uv_faces_across_21_templates": 114,
+    "leaf_census_by_type": {
+      "door": 56,
+      "trapdoor": 36,
+      "non_oak_shelf": 28,
+      "historic_oak_shelf": 7
+    }
+  },
+  "tier3_official_mojang_authentication": {
+    "official_jar_obtained": false,
+    "official_version_metadata_direct_authenticated": false,
+    "full_original_jar_sha1_computed": false,
+    "official_jar_inside_pngs_verified": 0,
+    "not_equivalent_to_user_extracted_validation": true,
+    "mirror_copied_metadata_claimed_sha1": "ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd"
+  },
+  "tier4_ingame": {
+    "static_render_verified": 0,
+    "actual_game_instance_observed": false
+  },
+  "animation_deferred": true,
+  "project_zomboid_conversion_excluded": true,
+  "model_creation_excluded": true,
+  "all_A_to_G_fully_complete": false,
+  "files": [
+    "REPORT.md",
+    "PROVIDED_PNG_SHA256_AUDIT.csv",
+    "PROVIDED_MODEL_JSON_SHA_CENSUS.csv",
+    "PROVIDED_STATIC_JSON_AUDIT.csv",
+    "PROVENANCE_LEVELS.json",
+    "SUMMARY.json"
+  ]
+}

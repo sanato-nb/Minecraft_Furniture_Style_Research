@@ -1,5 +1,17 @@
 # 1-1-11 — 목재·구조부품 별도 채팅 인수인계
 
+## 최신 인수인계: TEX11-R003 — 사용자 제공 추출본 소스 정정 (2026-11-13)
+
+- **현재 `TEX11-R003`**, 다음 `TEX11-R004`, 전역 `v38` 변경 없음. 기존 `R001`/`R002` 분석·커밋·CSV/JSON을 수정하거나 중복 계산하지 않았다.
+- **우선 출처:** https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/1.21.11 — 사용자가 Minecraft Java 1.21.11 JAR을 직접 압축 해제하여 업로드했다고 밝힌 폴더. 해당 사용자 제공 추출본은 Mojang 공식 배포본 무결성 인증과 별도.
+- **신규 실제 검증:** 고정 PNG 31개를 이 `1.21.11/` 폴더에서 직접 읽어 SHA-256/PNG CRC 재계산 **31/31 통과**, 기존 v4/R001 PNG 해시 및 미러 blob SHA **31/31 동일**. 31 PNG의 파일 바이트 총 8,080; 16×16 26개, 32×32 5개, `bamboo_shelf` 4bit. 이전 RGB/알파/UV 실측은 동일 바이트라서 입력 자료로만 재사용하며 재측정 새 수량 없음.
+- **모델/블록 상태/아이템:** 사용자 추출본과 미러 Git blob SHA·size 대조 **175/175 일치**: 현재 범위 168개(leaf120 + blockstate23 + template21 + shelf item4), 역사적 참나무 선반 7 leaf는 중복 미계상. 추출본 JSON 본문 직접 파싱 **48/48**(블록상태23, 템플릿21, 아이템4), 이전 기록의 rule/UV면 수 **48/48** 동일.
+- **4종 검증 층 분리:** ① 사용자 제공 추출본 31 PNG+48 JSON 실파일 / ② 비공식 미러 교차 SHA 31 PNG+175 JSON / ③ **Mojang 공식 원본 JAR 전체 SHA-1 인증 미완료 0/31** / ④ **실제 인게임 정적 렌더 0/31**. 추출 폴더 파일 해시로 원본 JAR 컨테이너 SHA-1을 증명할 수 없음. 애니메이션 계속 보류.
+- **R003 새 증거 폴더:** https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/research/vanilla_textures/by_stage/1-1-11/TEX11-R003/
+- **다음 TEX11-R004:** 최신 STATE·HEAD 충돌 검사 후 진짜 원본 JAR bytes + Mojang 직접 버전 메타데이터 확인(가능할 때만), 정적 인게임 UV·접합·컬링 증거 확보. Project Zomboid 변환/가구 3D 모델 생성 금지, 다른 재질 단계와 루트 v38 수정 금지.
+
+---
+
 ## 최신 독립 릴리스 — TEX11-R002 (2026-11-13)
 
 - **현재 `TEX11-R002`**, 다음 `TEX11-R003`, 전역 레거시 `v38` 유지. 이전 R001/R000은 아래 역사적 문맥으로 보존.

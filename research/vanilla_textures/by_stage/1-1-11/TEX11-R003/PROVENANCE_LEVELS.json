@@ -1,0 +1,29 @@
+{
+  "version": "1.21.11",
+  "source_user_statement": "User unpacked their Minecraft Java Edition 1.21.11 client JAR and uploaded extracted contents under this repository's 1.21.11 directory.",
+  "primary_source_repository": "sanato-nb/Minecraft_Furniture_Style_Research",
+  "primary_source_ref": "2a43897b8f605b4e0c96a272bca476ee6b70058e",
+  "primary_source_root": "1.21.11/assets/minecraft/",
+  "primary_source_subtree_git_sha": {
+    "textures/block": "9a7172896d4a28b405b990733d51b77dcb50930c",
+    "models/block": "57eb7fbc4d0af0e931a04de94b4b6a766242d36e",
+    "blockstates": "7a36f7d757e62aa61ee61aebcd8d5689bc462a8d",
+    "items": "7d69ecf23776a293081627ae28af965d4a142699"
+  },
+  "secondary_mirror": "InventivetalentDev/minecraft-assets @ ref 1.21.11",
+  "mirror_tree_sha": "0c2358f50e81e34def33b75af34fc65409893dc0",
+  "tier1_user_source_png_sha256_crc_checked": 31,
+  "tier1_user_source_JSON_direct_parsed": 48,
+  "tier2_same_git_blob_sha_png": 31,
+  "tier2_same_git_blob_sha_JSON": 175,
+  "tier3_mojang_official_manifest_and_original_jar_sha1_validated": false,
+  "tier3_mojang_png_authenticated": 0,
+  "tier4_game_runtime_static_render_verified": 0,
+  "technical_note": "A directory extracted from a JAR is not the same byte sequence as the ZIP/JAR container. Independently hashing extracted PNGs and JSON files does not authenticate full original client.jar SHA-1 or its official Mojang origin.",
+  "deferred": [
+    "official SHA-1 validation against direct Mojang version metadata",
+    "runtime static UV/culling/lighting",
+    "animations, frames and motion",
+    "PZ conversion and new furniture models"
+  ]
+}
