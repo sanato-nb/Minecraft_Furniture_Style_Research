@@ -2,7 +2,7 @@
 
 > Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 초기 고유 버전 **`TEX05-R000` (계획만 저장)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
-**현재 최신 실제 검사 버전: `TEX05-R003` (2026-11-13). 다음 후보 `TEX05-R004`.** 이 문서의 기존 R000 '미시작' 기술은 최초 계획 당시의 이력이며 현재 상태는 하단 R001 결과와 `STATE.json`을 우선한다.
+**현재 최신 실제 검사 버전: `TEX05-R004` (2026-11-13). 다음 후보 `TEX05-R005`.** 이 문서의 기존 R000 '미시작' 기술은 최초 계획 당시의 이력이며 현재 상태는 하단 R001 결과와 `STATE.json`을 우선한다.
 
 > **현재 적용 출처 지시(2026-11-13 / TEX05-R003):** 저장소 `1.21.11/`는 사용자가 Minecraft Java 1.21.11 JAR을 직접 추출해 업로드했다고 밝힌 **사용자 제공 추출본**이며 본 단계의 **1순위 원본 분석 자료**다. 별도 `InventivetalentDev/minecraft-assets`는 교차 검증 대상일 뿐이다. 추출본 검증/미러 대조/공식 Mojang JAR SHA-1 인증/인게임 렌더 검증의 **네 증거 수준을 엄격히 분리**한다. 이전 R001·R002 기록은 당대 출처 기술을 포함한 불변 이력이며 현행 출처 우선순위는 R003을 따른다.\n\n## 연구 목표와 정확한 표본
 
@@ -51,7 +51,7 @@
 ## 버전 상태·저장 경로·갱신 규칙
 
 - 최초 **`TEX05-R000`**: 단계 분리/작업 안내만 저장한 계획 상태(역사적 이력).
-- 불변 선행 검증 **`TEX05-R001`**, **`TEX05-R002`**를 모두 보존. 현재 최신 신규 분석 **`TEX05-R003`**; 새 실증 발생 시 다음 **`TEX05-R004`**(쓰기 전 STATE 재확인).
+- 불변 선행 검증 **`TEX05-R001`**, **`TEX05-R002`**, **`TEX05-R003`**를 모두 보존. 현재 최신 신규 분석 **`TEX05-R004`**; 새 실증 발생 시 다음 **`TEX05-R005`**(쓰기 전 STATE 재확인).
 - 이 단계 진행 관리: [STATE.json](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/docs/vanilla_texture_1-1/stages/1-1-05/STATE.json)와 이 `HANDOFF.md`만 단계 자체 채팅에서 갱신.
 - 다른 번호 단계의 `STATE/HANDOFF` 및 루트 프로젝트 공통 체크포인트·진행 문서는 **수정 금지**. 통합 시 최종 집계 담당자가 별도로 확인.
 - 소스 증거의 신뢰도는 최소 `legacy_only`, `mirror_sha_pixel_checked`, `official_jar_authenticated`, `ingame_static_verified`로 구분하되, 서로 상충·불충분하면 `pending` 유지.
@@ -97,3 +97,14 @@
 - 이번 27개는 서로 다른 27종 텍스처를 뜻하지 않음. 고유 PNG 표본 **6개**, R001 측정 1,536 RGBA·R002 경계 값 재계산 완료량 **추가하지 않음**.
 - 새 파일: [R003 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R003/REPORT.md) · [27개 출처 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R003/SOURCE_LEDGER.csv) · [6종 모델 체인 검수](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R003/MODEL_CHAIN_AUDIT.csv) · [R001 지문 오류 불변 정정](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R003/LEGACY_LEDGER_ERRATA.md) · [4층 검증 SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R003/SUMMARY.json).
 - 현재 **TEX05-R003**, 다음 고유 증거 버전 **TEX05-R004**. 전체 공통 `v38` 그대로. 애니메이션·PZ 변환·실제 가구 모델링 제외.
+
+## TEX05-R004 — 정적 .mcmeta·blocks atlas·일반 block shader 근거 추가 (2026-11-13)
+
+- 유리 고유 PNG 6개와 1,536 RGBA, 36 정적 면, R003의 27개 추출 소스 검수는 **반복·증가 산정하지 않았다**.
+- 사용자 제공 `1.21.11/assets/minecraft/`에서 신규 **4개** 실제 파일 직접 읽기: `textures/block/glass.png.mcmeta`, `atlases/blocks.json`, `shaders/core/block.fsh`, `shaders/core/block.vsh`. 대응하는 비공식 `InventivetalentDev/minecraft-assets@1.21.11`와 **4/4 동일 Git blob SHA 및 동일 원문**. 서로 다른 정적 출처 경로 **총 31개**(R003 27+R004 4).
+- 새 재질 고유 정적 설정: `glass.png.mcmeta`는 `texture.mipmap_strategy="mean"`. 착색 5종은 대응 `*.png.mcmeta` 조회 결과 **5/5 없음**. 없다는 사실에서 기본 필터를 추론하지 않음.
+- `atlases/blocks.json`: `type=minecraft:directory`, `source=block`, `prefix=block/` 규칙이 기존 6종 모델의 `minecraft:block/<id>`와 **정적 경로 상 합치**. 실제 압축 아틀라스 좌표/패딩은 문서에 없음.
+- 일반 블록 `block.fsh`: `Sampler0`과 `#ifdef ALPHA_CUTOUT` 조건부 `discard` 및 `apply_fog`. `block.vsh`: `UV0→texCoord0`, `UV2/Sampler2` 광원맵 샘플을 `vertexColor`에 반영하는 코드 존재. **실제 게임 유리에서 해당 셰이더가 실행되었는지/컷아웃 매크로 활성화·투명 블렌드·정렬·컬링되는지는 전혀 검증되지 않음**.
+- 4단계 증거: (1) 사용자 추출본 고유 소스 경로 31건, (2) 미러 동일 Git blob SHA 31건, (3) 공식 `client.jar` SHA-1 **0/6 pending**, (4) 인게임 유리 정적 검증 **0/6 pending**. 공식 완료 A–G 판정 계속 미충족. 기존 공통 `v38` 유지.
+- 산출물: [R004 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R004/REPORT.md), [신규 4개 소스 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R004/SOURCE_LEDGER.csv), [유리 6종 메타데이터 매트릭스](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R004/SPRITE_METADATA_MATRIX.csv), [셰이더 증거 제한 문서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R004/STATIC_RESOURCE_CONSTRAINTS.md), [단계 SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R004/SUMMARY.json).
+- 다음 고유 릴리스 **TEX05-R005**. 사용자 제공 JAR 추출본 우선, 애니메이션 분석 보류, Project Zomboid 변환 및 실제 가구 3D 모델 제작 제외. 저장 전 HEAD/STATE/새 경로 충돌 검사 필수.

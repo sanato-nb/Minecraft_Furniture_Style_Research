@@ -7,10 +7,10 @@
   "stage_id": "1-1-05",
   "material_family": "유리",
   "stage_prefix": "TEX05",
-  "current_revision": "TEX05-R003",
-  "next_revision": "TEX05-R004",
-  "revision_sequence": 3,
-  "revision_status": "R003_user_provided_1_21_11_jarextract_direct_27_assets_legacy_mirror_27_match_R001_1_sha_erratum_official_ingame_pending",
+  "current_revision": "TEX05-R004",
+  "next_revision": "TEX05-R005",
+  "revision_sequence": 4,
+  "revision_status": "R004_four_user_extracted_static_sidecar_atlas_block_shaders_checked_mirror_same_D3_F_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 6,
@@ -42,15 +42,15 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "user_provided_source_authority_correction_prior_results_crosschecked",
+      "status": "prior_4_revisions_and_fixed_six_source_targets_crosschecked",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX05-R003"
+      "last_evidence_revision": "TEX05-R004"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "user_extracted_png_raw_sha256_6_of_6_and_mirror_27_file_crosscheck",
+      "status": "user_supplied_static_auxiliary_4_paths_checked_mirror_4_same_existing_pngs_not_recounted",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX05-R003"
+      "last_evidence_revision": "TEX05-R004"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
@@ -60,27 +60,27 @@
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "D1_D2_R001_R002_static_pixel_evidence_R003_same_source_sha_D3_pending",
+      "status": "D1_D2_original_rgba_and_glass_mcmeta_static_mipmap_mean_examined_D3_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX05-R002"
+      "last_evidence_revision": "TEX05-R004"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "user_extracted_21_json_static_model_blockstate_item_parent_chain_verified",
+      "status": "leaf_models_to_block_atlas_directory_plus_block_shader_static_code_examined_runtime_binding_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX05-R003"
+      "last_evidence_revision": "TEX05-R004"
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_official_jar_sha1_and_ingame_not_substituted_by_user_extraction",
+      "status": "pending_official_sha1_and_ingame_transparency_sorting_no_shader_runtime_attribution",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX05-R003"
+      "last_evidence_revision": "TEX05-R004"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "evidence_report_written_TEX05_R003",
+      "status": "evidence_report_written_TEX05_R004",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX05-R003"
+      "last_evidence_revision": "TEX05-R004"
     }
   },
   "material_specific_checks": [
@@ -110,8 +110,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX05-R003",
-      "evidence_status": "user_extracted_png_and_static_json_verified_mirror_same_blob_official_jar_ingame_pending",
+      "last_verified_revision": "TEX05-R004",
+      "evidence_status": "user_extracted_png_models_block_atlas_sidecar_inventory_static_shader_source_only_official_ingame_pending",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "cb89c706dce86eac3123cef087d359b5f23098b658a468fb91662b4a9922bcd0",
       "png_crc_verified": true,
@@ -123,7 +123,11 @@
       "user_extracted_png_sha256_matches_prior_v4": true,
       "user_extracted_model_blockstate_item_json_verified": true,
       "legacy_mirror_git_blob_matches_current_extracted_source": true,
-      "user_provided_extraction_source_priority": true
+      "user_provided_extraction_source_priority": true,
+      "static_block_atlas_directory_rule_checked": true,
+      "static_shader_program_seen_not_necessarily_bound": true,
+      "png_mcmeta_exists": true,
+      "png_mcmeta_mipmap_strategy": "mean"
     },
     {
       "item_id": "1-1-05-002",
@@ -134,8 +138,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX05-R003",
-      "evidence_status": "user_extracted_png_and_static_json_verified_mirror_same_blob_official_jar_ingame_pending",
+      "last_verified_revision": "TEX05-R004",
+      "evidence_status": "user_extracted_png_models_block_atlas_sidecar_inventory_static_shader_source_only_official_ingame_pending",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "4520f85fee79972191217d623c8b38522cacf74cb7c71113c0a6240d3b1f2ad2",
       "png_crc_verified": true,
@@ -147,7 +151,11 @@
       "user_extracted_png_sha256_matches_prior_v4": true,
       "user_extracted_model_blockstate_item_json_verified": true,
       "legacy_mirror_git_blob_matches_current_extracted_source": true,
-      "user_provided_extraction_source_priority": true
+      "user_provided_extraction_source_priority": true,
+      "static_block_atlas_directory_rule_checked": true,
+      "static_shader_program_seen_not_necessarily_bound": true,
+      "png_mcmeta_exists": false,
+      "png_mcmeta_not_found": true
     },
     {
       "item_id": "1-1-05-003",
@@ -158,8 +166,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX05-R003",
-      "evidence_status": "user_extracted_png_and_static_json_verified_mirror_same_blob_official_jar_ingame_pending",
+      "last_verified_revision": "TEX05-R004",
+      "evidence_status": "user_extracted_png_models_block_atlas_sidecar_inventory_static_shader_source_only_official_ingame_pending",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "62c705812949f0372dcc2fa82a5d89f7028ba1d9b3bd38765613e344f34f5b1c",
       "png_crc_verified": true,
@@ -171,7 +179,11 @@
       "user_extracted_png_sha256_matches_prior_v4": true,
       "user_extracted_model_blockstate_item_json_verified": true,
       "legacy_mirror_git_blob_matches_current_extracted_source": true,
-      "user_provided_extraction_source_priority": true
+      "user_provided_extraction_source_priority": true,
+      "static_block_atlas_directory_rule_checked": true,
+      "static_shader_program_seen_not_necessarily_bound": true,
+      "png_mcmeta_exists": false,
+      "png_mcmeta_not_found": true
     },
     {
       "item_id": "1-1-05-004",
@@ -182,8 +194,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX05-R003",
-      "evidence_status": "user_extracted_png_and_static_json_verified_mirror_same_blob_official_jar_ingame_pending",
+      "last_verified_revision": "TEX05-R004",
+      "evidence_status": "user_extracted_png_models_block_atlas_sidecar_inventory_static_shader_source_only_official_ingame_pending",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "7d6cfe98ddc5d975b3bcf5f9cffc008f90db94d5d981ef440f7b68e8267ae247",
       "png_crc_verified": true,
@@ -195,7 +207,11 @@
       "user_extracted_png_sha256_matches_prior_v4": true,
       "user_extracted_model_blockstate_item_json_verified": true,
       "legacy_mirror_git_blob_matches_current_extracted_source": true,
-      "user_provided_extraction_source_priority": true
+      "user_provided_extraction_source_priority": true,
+      "static_block_atlas_directory_rule_checked": true,
+      "static_shader_program_seen_not_necessarily_bound": true,
+      "png_mcmeta_exists": false,
+      "png_mcmeta_not_found": true
     },
     {
       "item_id": "1-1-05-005",
@@ -206,8 +222,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX05-R003",
-      "evidence_status": "user_extracted_png_and_static_json_verified_mirror_same_blob_official_jar_ingame_pending",
+      "last_verified_revision": "TEX05-R004",
+      "evidence_status": "user_extracted_png_models_block_atlas_sidecar_inventory_static_shader_source_only_official_ingame_pending",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "dc82be445bd9c7cf158bd57651d51bfef400310f2ad4937fe1e5b1c60b4f5916",
       "png_crc_verified": true,
@@ -219,7 +235,11 @@
       "user_extracted_png_sha256_matches_prior_v4": true,
       "user_extracted_model_blockstate_item_json_verified": true,
       "legacy_mirror_git_blob_matches_current_extracted_source": true,
-      "user_provided_extraction_source_priority": true
+      "user_provided_extraction_source_priority": true,
+      "static_block_atlas_directory_rule_checked": true,
+      "static_shader_program_seen_not_necessarily_bound": true,
+      "png_mcmeta_exists": false,
+      "png_mcmeta_not_found": true
     },
     {
       "item_id": "1-1-05-006",
@@ -230,8 +250,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX05-R003",
-      "evidence_status": "user_extracted_png_and_static_json_verified_mirror_same_blob_official_jar_ingame_pending",
+      "last_verified_revision": "TEX05-R004",
+      "evidence_status": "user_extracted_png_models_block_atlas_sidecar_inventory_static_shader_source_only_official_ingame_pending",
       "static_extracted_model_uv_verified": true,
       "source_sha256_independently_recomputed": "2d4504957fa123a6e9f35d93e05f94fb053ec213541f01fcecbc0097eaa5df75",
       "png_crc_verified": true,
@@ -243,7 +263,11 @@
       "user_extracted_png_sha256_matches_prior_v4": true,
       "user_extracted_model_blockstate_item_json_verified": true,
       "legacy_mirror_git_blob_matches_current_extracted_source": true,
-      "user_provided_extraction_source_priority": true
+      "user_provided_extraction_source_priority": true,
+      "static_block_atlas_directory_rule_checked": true,
+      "static_shader_program_seen_not_necessarily_bound": true,
+      "png_mcmeta_exists": false,
+      "png_mcmeta_not_found": true
     }
   ],
   "revisions": [
@@ -301,15 +325,35 @@
       "source_ledger_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R003/SOURCE_LEDGER.csv",
       "summary_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R003/SUMMARY.json",
       "errata_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R003/LEGACY_LEDGER_ERRATA.md"
+    },
+    {
+      "revision": "TEX05-R004",
+      "kind": "static_sprite_mcmeta_blocks_atlas_and_generic_block_shaders_source_audit",
+      "new_unique_target_png_count": 0,
+      "new_distinct_auxiliary_source_files": 4,
+      "new_files_same_git_blob_as_legacy_mirror": 4,
+      "prior_directly_verified_files": 27,
+      "total_distinct_static_paths_checked": 31,
+      "glass_mcmeta_mipmap_strategy": "mean",
+      "stained_mcmeta_absence_checks": 5,
+      "block_atlas_directory_rule_verified": true,
+      "conditional_alpha_cutout_static_shader_verified": true,
+      "shader_binding_to_glass_verified": false,
+      "official_jar_verified": 0,
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R004/REPORT.md",
+      "source_ledger_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R004/SOURCE_LEDGER.csv",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R004/SUMMARY.json",
+      "sprite_metadata_matrix_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R004/SPRITE_METADATA_MATRIX.csv"
     }
   ],
   "next_steps": [
-    "Before writing TEX05-R004, re-read 1-1-05 STATE.json and HANDOFF.md SHA, branch HEAD, and next release path.",
-    "Use user-provided 1.21.11/ as primary source; keep user-extraction, legacy-mirror crosscheck, Mojang original JAR SHA1, and ingame runtime evidence in four separate columns.",
-    "Correct R001 green_stained_glass blockstate truncated SHA via R003 errata references only; never modify immutable R001 files.",
-    "Check whole original 1.21.11 client.jar SHA1 and Mojang official metadata when independently available; user-extracted files do not prove them.",
-    "Obtain real Minecraft 1.21.11 static render captures / test configuration to verify glass transparency sorting/adjacent culling/lighting D3; until then pending.",
-    "Animations deferred; no Project Zomboid conversion or furniture 3D building. Do not change global v38."
+    "Before any TEX05-R005 write, reread stage STATE/HANDOFF SHA, current revision, GitHub HEAD and ensure immutable release folder absent.",
+    "Continue to prioritize user-provided 1.21.11/ and separately record four provenance levels; metadata and general shaders cannot substitute for actual in-game bindings.",
+    "Investigate mipmap_strategy mean meaning only if verified actual engine source/docs; do not infer runtime filter from .mcmeta alone.",
+    "Resolve whether glass uses block.fsh and which ALPHA_CUTOUT defines, blend, sort, face visibility and game lighting only with runtime evidence or authoritative code binding plus test.",
+    "Verify original Mojang 1.21.11 complete client.jar SHA-1 and official metadata only if original binary available; current state 0/6 official.",
+    "Keep animation study deferred; no PZ conversion/furniture modeling. Preserve global v38 and prior immutable releases."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -351,13 +395,17 @@
       "pngs": 6,
       "jsons": 21,
       "sha256_png_matches": 6,
-      "source_revision": "TEX05-R003"
+      "source_revision": "TEX05-R003",
+      "static_source_paths_cumulative": 31,
+      "new_r004_auxiliary_source_paths": 4
     },
     "legacy_mirror_crosscheck": {
       "status": "same_git_blob_sha",
       "verified_files": 27,
       "denominator_files": 27,
-      "source_revision": "TEX05-R003"
+      "source_revision": "TEX05-R003",
+      "static_source_paths_cumulative_same_git_blob": 31,
+      "new_r004_auxiliary_source_paths_same_blob": 4
     },
     "mojang_official_client_jar": {
       "status": "pending",
@@ -383,5 +431,21 @@
       "source_revision_record_unchanged": true,
       "corrective_evidence_revision": "TEX05-R003"
     }
-  ]
+  ],
+  "ancillary_static_resource_audit": {
+    "revision": "TEX05-R004",
+    "new_actual_source_paths": 4,
+    "prior_actual_source_paths": 27,
+    "cumulative_actual_source_paths": 31,
+    "mirror_same_git_blob_sha_new_paths": 4,
+    "glass_sidecar_exists": true,
+    "glass_sidecar_mipmap_strategy": "mean",
+    "stained_glass_sidecar_not_found_count": 5,
+    "stained_glass_sidecar_paths_checked": 5,
+    "block_atlas_directory_rule": "type=minecraft:directory;source=block;prefix=block/",
+    "shader_block_fragment_alpha_cutout": "conditional_ifdef_only_not_glass_runtime_proof",
+    "shader_block_vertex_lightmap": "static_code_only_not_glass_runtime_proof",
+    "packed_atlas_uv_unknown": true,
+    "real_game_render_blending_unknown": true
+  }
 }
