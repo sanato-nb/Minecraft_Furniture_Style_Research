@@ -1,0 +1,57 @@
+{
+  "revision": "TEX11-R008",
+  "time": "2026-11-13",
+  "stage": "1-1-11",
+  "source": "User-provided 1.21.11/ extracted Minecraft Java 1.21.11 PNG and JSON plus documented R007 original PNG border RGBA",
+  "new_research": {
+    "door_blockstate_files_live_direct_read": 7,
+    "door_template_JSON_live_direct_read": 8,
+    "door_PNG_blob_referenced": 14,
+    "door_PNG_edge_RGB_RGBA_source": "R007 112 original texel pairs reused (not remeasured)",
+    "door_half_static_pairs_bound": 112,
+    "door_state_broad_face_rows": 224,
+    "door_unique_face_template_configurations": 56,
+    "door_model_UV_bound_pixel_rows": 896,
+    "door_state_face_pixel_uses_repeated": 3584,
+    "door_state_face_alpha_mismatch_uses_REPEATED": 128,
+    "door_source_UV_cullface_pair_conflicts": 0,
+    "trapdoor_PNG_direct_redecoded": 12,
+    "trapdoor_png_crc_ok": 12,
+    "trapdoor_unique_texels_read": 3072,
+    "trapdoor_symmetry_axis_comparisons": 6144,
+    "trapdoor_alpha_full_H_symmetry": 11,
+    "trapdoor_alpha_full_V_symmetry": 10,
+    "trapdoor_rgba_full_H_symmetry": 0,
+    "trapdoor_rgba_full_V_symmetry": 0
+  },
+  "inherited_not_new": {
+    "fixed_PNG": 31,
+    "leaves": 127,
+    "blockstate_source_rules": 512,
+    "static_states_excluding_historic_oak_shelf": 544,
+    "model_instances": 672,
+    "oriented_faces": 4320,
+    "door_geometric_half_pairs": 112,
+    "R007_UV_patches": 71,
+    "R007_original_door_edge_rgba_pairs": 112,
+    "v38_oak_shelf_historic_states_not_recounted": 32
+  },
+  "ingame_static_verified_count": 0,
+  "official_client_jar_sha1_required": false,
+  "official_authenticated_claimed": false,
+  "source_blobs": {
+    "door_blockstate_batch": "fd7193eebb35c1b5280e7b2df86b808df82eb364",
+    "door_template_batch": "ee46114240999f37855a8b7df341068ae236a29d",
+    "R007_door_pixel_detail": "fa2dbf631bdba5866638c1897d9aaa6264770f9c",
+    "trapdoor_input_batches": [
+      "d6189c23a83cf7287feaa452e237a0d27638da21",
+      "dd8859e9802f36f93e80fc4e6964be34b32e4d90"
+    ]
+  },
+  "cautions": [
+    "R008 128 cherry alpha mismatch state-face pixel uses are projections of 4 distinct original image x columns; do not count as new physical errors.",
+    "112 door pairs were already geometrically aligned in R006; the new aspect is model face UV and cullface alignment under the state variants.",
+    "RGB symmetry of transparent texels is purely source-byte measurement.",
+    "No game screenshot or actual renderer was accessed."
+  ]
+}
