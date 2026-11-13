@@ -1,8 +1,20 @@
 # 1-1-04 — 직물·양털 전용 채팅 인수인계
 
-> **현재 단계 고유 버전: `TEX04-R002` (2026-11-13)** · 다음 예약 번호: `TEX04-R003` (커밋 전 반드시 다시 확인) · 상위 역사적 체크포인트 `v38` 유지.
+> **현재 단계 고유 버전: `TEX04-R003` (2026-11-13)** · 다음 예약 번호: `TEX04-R004` (커밋 전 반드시 다시 확인) · 상위 역사적 체크포인트 `v38` 유지.
 
-## TEX04-R002 후속 픽셀 실측 (2026-11-13)
+## TEX04-R003 사용자 제공 1.21.11 추출본 우선 검증 (2026-11-13)
+
+**이번 연구의 기준 원본 변경:** 사용자 GitHub 저장소 [`1.21.11/`](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/1.21.11)은 사용자가 직접 Minecraft Java Edition 1.21.11 JAR을 압축 해제해 업로드했다고 설명한 자료다. 이번 채팅은 **이 폴더의 실제 PNG 9개 / 색상별 모델 JSON 9개 / blockstate JSON 9개 / 공통 부모 JSON 3개 / version.json**을 직접 열람했다.
+
+- [**TEX04-R003 검증 폴더**](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R003) — 보고서, 원본 9행 원장, 면별 54행 UV 재검증, 4가지 독립 인증 등급, 역사적 SHA 정오표, 기계 판독 요약, 로컬 재현 코드.
+- **사용자 제공 PNG 9개 SHA-256 새 재계산 9/9 모두 R001/v4 값과 일치**. PNG 시그니처/청크 CRC/16×16 색인 PNG도 9/9 확인. 기존 미러의 Git blob SHA와도 9/9 일치.
+- 사용자 제공 모델 leaf JSON 9개, 블록상태 JSON 9개 각각 미러와 동일한 파일 내용; `cube_all → cube → block` 정적 상속 확인, 기존 54면의 텍스처 매핑·implicit UV 전체 범위를 **사용자 제공 추출본 기준으로 추가 교차 검증**. R001에서 미러로 측정한 9개를 별도 9개로 중복 집계 금지.
+- **R001 전사 오류 발견:** `black_wool`의 모델 blob SHA가 R001 출처 CSV 1행/UV 6면에서 **39자리**로 기록됨. 실제 사용자 제공 파일·미러의 올바른 **40자리** 값은 `7fea63ff530cad3b51435e662daa2c4d6324bd8a`. R001 원본은 수정하지 않고 [R003 정오표](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/research/vanilla_textures/by_stage/1-1-04/TEX04-R003/ERRATA_R001_BLACK_WOOL_MODEL_SHA.md)와 새 원장에서 정정.
+- **4분리 검증:** 사용자 추출본 직접검사 9/9, 미러 교차검증 9/9, Mojang 공식 원본 `client.jar` 전체 SHA1 인증 **0/9**, 실제 인게임 정적 장면 **0/9**. `version.json`이 `1.21.11`이라도 파일 추출본이 Mojang 배포 바이너리와 인증됐다는 뜻은 아님.
+- 다음 버전은 **`TEX04-R004` 예정**. 새 채팅마다 GitHub `STATE.json` SHA/current/next와 새 결과 폴더 충돌 먼저 조회. 공식 Mojang version manifest→version JSON→full client.jar SHA1/size→JAR 내부 9 PNG/JSON SHA→인게임 고정 조건 정적 관찰만 미완료 범위로 진행.
+- 정지 명령 유지: 애니메이션/프레임·움직임 연구, 실제 가구 3D 제작, Project Zomboid 변환. **기존 R001/R002, 다른 1-1 단계, 루트 공통 문서, 전역 v38 불변.**
+
+## 이전 기록 (역사적 참고): TEX04-R002 후속 픽셀 실측 (2026-11-13)
 
 R001의 **동일한 양털 9개** 미러 PNG를 SHA-256 재검사해 모두 기존 SHA와 일치했다. 이번 새 분석은 9색의 **36개 서로 다른 색쌍**에 대한 공간 명도 Spearman/Pearson 상관과 팔레트 인덱스 일치 수, **9개 이미지의 좌우/상하 반복 경계**를 재측정한 것이다. 고유 원본을 18개로 부풀리지 말 것.
 
