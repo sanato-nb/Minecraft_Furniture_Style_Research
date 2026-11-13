@@ -10,7 +10,7 @@
   "current_revision": "TEX09-R007",
   "next_revision": "TEX09-R008",
   "revision_sequence": 7,
-  "revision_status": "R007_dirt_to_three_side_png_spatial_RGB_provenance_confirmed__static_source_research_mature__awaiting_user_ingame_static_evidence",
+  "revision_status": "TEX09-R007_source_only_scope_sufficient__both_official_and_ingame_validation_excluded_by_2026_11_13_user_policy",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 9,
@@ -71,15 +71,15 @@
       "last_updated_revision": "TEX09-R007"
     },
     "F": {
-      "title": "F 인게임 정적 렌더 검증 (Mojang 공식 JAR 인증 요구 제외)",
-      "status": "pending_ingame_static_only__official_authentication_excluded_by_user_policy",
+      "title": "F 인게임 정적 렌더 검증 — 사용자 정책으로 제외 (미검증, 완료 아님)",
+      "status": "excluded_by_user_request_not_required_not_verified",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "last_updated_revision": "TEX09-R004",
-      "policy_change": "2026-11-13: official Mojang JAR SHA-1 and manifest validation explicitly excluded from stage requirements; not a completion claim"
+      "policy_change": "2026-11-13: both Mojang JAR authentication and in-game static-render verification explicitly removed from required 1-1-09 research. Historic ingame 0/9 remains accurate. Do not request screenshots, do not mark actual rendering verified; rely on original static PNG, blockstate and model JSON/UV evidence."
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "done_R007_dirt_side_pixel_alignment_masks_csv_handoff_and_waiting_on_user_F",
+      "status": "done_R007_source_evidence_handoff_and_2026_11_13_scope_override_no_new_revision",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "last_updated_revision": "TEX09-R007"
     }
@@ -99,8 +99,8 @@
     },
     {
       "id": "D3",
-      "check": "grass/podzol PNG와 인게임 tint·주변 블록 효과 구분",
-      "status": "R007_dirt_vs_grass_side195_podzol_side188_snow_side145_shared_below_rows_proved__runtime_tint_ingame_pending",
+      "check": "grass/podzol PNG와 정적 model tintindex·알파·색맵 구조 구분 (실제 인게임 색상 확인은 제외)",
+      "status": "R007_static_source_grass_podzol_snow_dirt_pixel_and_model_tintindex_checked__runtime_visual_excluded",
       "last_verified_revision": "TEX09-R007"
     }
   ],
@@ -344,12 +344,11 @@
     }
   ],
   "next_steps": [
-    "On future '계속해줘' requests: if no new authentic static-game image/runtime evidence is available, STOP without an empty revision and tell the user which materials are needed",
-    "Static source 9/9 target PNG and model/UV records plus supporting grass/podzol/snow/colormap comparisons are already analyzed and preserved in TEX09-R001..R007",
-    "Await controlled Minecraft Java 1.21.11 in-game STATIC screenshots/captures for 9 soil/ground blocks; include F3 biome where possible, grass/podzol snowy=false/true and neighboring block contexts",
-    "Only start candidate TEX09-R008 if actual new independently checkable evidence becomes available; reread LIVE STATE and HEAD before any write",
-    "Do not authenticate official Mojang client.jar, per user policy; leave in-game verification 0/9 until actually observed",
-    "Animation and furniture/Zomboid conversion out of scope, preserve global v38 and other stages"
+    "For the current 1-1-09 scope, accept the nine user-extracted PNGs, their recorded pixels, blockstates, models, parent chains, UV and static tintindex as research evidence; historical source results are preserved in TEX09-R001..R007",
+    "Both Mojang JAR official authentication and Minecraft in-game screenshot/static render checks are excluded from requirements; do not request them, and do not present in-game facts as verified",
+    "If a future '계속해줘' arrives with no new independent static asset evidence, report completion of current source-only scope and stop; no placeholder revision",
+    "Only commit TEX09-R008 if genuinely new independently verifiable source/analysis evidence emerges and LIVE STATE/HEAD checks pass",
+    "Keep animation deferred and furniture/Project Zomboid conversions out of this stage; preserve global v38, prior immutable releases and all other stages"
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -357,11 +356,12 @@
   "scope_excluded": [
     "Project Zomboid conversion",
     "actual furniture 3D asset building",
-    "animation study until explicitly resumed"
+    "animation study until explicitly resumed",
+    "in-game static render validation (user excluded; historic verification remains 0/9)"
   ],
   "project_overall_completion_pct": null,
   "do_not_count_planning_as_research": true,
-  "stage_current_analysis_completed_count_definition": "9/9 mirror PNG source static A-E checks, NOT official/ingame/entire A-G completion",
+  "stage_current_analysis_completed_count_definition": "9/9 user-extracted or byte-equivalent static PNG, state/model/UV and supporting source analysis in R001..R007; official authentication and ingame validation excluded from current requirements, historic ingame verification 0/9 retained.",
   "official_reference_download": {
     "source": "PrismLauncher/meta-launcher@master/net.minecraft/1.21.11.json",
     "client_sha1_reference": "ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd",
@@ -391,7 +391,10 @@
       "official_target_png_count": 0
     },
     "ingame_static": {
-      "verified_target_count": 0
+      "verified_target_count": 0,
+      "required": false,
+      "status": "not_required_by_user_not_measured",
+      "completed_by_exclusion": false
     },
     "animation_study_deferred": true
   },
@@ -438,10 +441,22 @@
     "active_validation_track": [
       "user_provided_1.21.11_extracted_png_json_model_direct_checks",
       "crosscheck_extracted_files_with_existing_asset_mirror",
-      "in_game_static_render_validation_when_accessible"
-    ]
+      "static PNG pixels and blockstate/model parent UV/tintindex/source-colormap relationships; distinguish from actual runtime behavior"
+    ],
+    "ingame_static_render": {
+      "required": false,
+      "enabled_for_future_work": false,
+      "status": "excluded_by_user_request",
+      "effective_date": "2026-11-13",
+      "scope": "1-1-09 only",
+      "applies_to": "future A-G validation criteria, completion status, research questions, and all future continue requests",
+      "preserve_old_records": true,
+      "historic_ingame_verified_count": 0,
+      "not_equal_to_ingame_verified": true,
+      "rationale": "User says models and original textures are sufficient; do not require or request in-game screenshots."
+    }
   },
-  "revision_policy_note": "2026-11-13 user-directed administrative scope update; kept current_revision TEX09-R004 and next_revision TEX09-R005 because no new source measurement was performed",
+  "revision_policy_note": "2026-11-13 user-directed scope update: exclude both official JAR authentication and in-game verification in 1-1-09; keep TEX09-R007 current and TEX09-R008 candidate unchanged because no new PNG/JSON/pixel evidence was added. Prior reports are immutable.",
   "supporting_source_analyses": {
     "TEX09-R005": {
       "new_target_png": 0,
@@ -500,11 +515,14 @@
     }
   },
   "study_gate": {
-    "source_only_analysis_status": "mature_9_targets_and_supporting_png_json_analyzed",
-    "next_substantive_step": "ingame_static_render_observation",
-    "user_input_required": true,
-    "needed_from_user": "User-captured vanilla 1.21.11 in-game screenshots (nine target blocks and grass/podzol snow states), ideally same lighting/angle with F3 biome metadata",
-    "on_continue_without_evidence": "stop_and_request_user_evidence_no_new_revision",
+    "source_only_analysis_status": "complete_for_current_9_fixed_PNG_static_source_and_related_model_blockstate_UV_scope_as_recorded_R001_R007",
+    "stage_source_research_sufficient_for_current_scope": true,
+    "next_substantive_step": "no pending mandatory validation; investigate only genuinely new static source evidence, conflicting findings or newly provided sources",
+    "user_input_required": false,
+    "needed_from_user": null,
+    "ingame_static_render_excluded": true,
+    "official_jar_authentication_excluded": true,
+    "on_continue_without_evidence": "stop_and_report_source_track_complete; no screenshot request, do not create empty revision",
     "last_checked_revision": "TEX09-R007"
   }
 }
