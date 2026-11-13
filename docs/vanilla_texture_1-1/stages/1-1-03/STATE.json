@@ -7,10 +7,10 @@
   "stage_id": "1-1-03",
   "material_family": "금속·금속부품",
   "stage_prefix": "TEX03",
-  "current_revision": "TEX03-R002",
-  "next_revision": "TEX03-R003",
-  "revision_sequence": 2,
-  "revision_status": "R002_static_mirror_uv_face_alpha_145_face_records_new_official_pending",
+  "current_revision": "TEX03-R003",
+  "next_revision": "TEX03-R004",
+  "revision_sequence": 3,
+  "revision_status": "R003_user_extracted_source_direct_69_and_mirror_sha1_match",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 16,
@@ -28,7 +28,7 @@
     "version_policy": "docs/vanilla_texture_1-1/ISOLATED_CHAT_VERSIONING.md",
     "output_root": "research/vanilla_textures/by_stage/1-1-03/"
   },
-  "source_note": "v4 표본에 iron_door, iron_trapdoor, anvil_top 등 포함. 금속 반사/광택 표현은 원본 PNG 통계와 런타임 셰이더를 구분할 것.",
+  "source_note": "v4 표본에 iron_door, iron_trapdoor, anvil_top 등 포함. 금속 반사/광택 표현은 원본 PNG 통계와 런타임 셰이더를 구분할 것. TEX03-R003: 사용자가 풀어 올린 1.21.11/ 69개 소스를 실제 직접 검사, 미러 Git Blob SHA-1 69/69 및 PNG SHA-256 16/16 일치; 공식 Mojang JAR 전체 SHA-1 인증 아님.",
   "allowed_write_paths": [
     "docs/vanilla_texture_1-1/stages/1-1-03/HANDOFF.md",
     "docs/vanilla_texture_1-1/stages/1-1-03/STATE.json",
@@ -42,37 +42,37 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "mirror_evidence_completed_TEX03_R001",
+      "status": "user_extracted_69_file_provenance_verified_R003",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "mirror_evidence_completed_TEX03_R001",
+      "status": "user_PNG_direct_SHA256_CRC_16_of_16_R003",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "mirror_evidence_completed_TEX03_R001",
+      "status": "R001_RGBA_pixel_metrics_transferred_by_matching_SHA256_not_remeasured_R003",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "D1_D2_D3_mirror_static_checked_TEX03_R002",
+      "status": "R001_R002_metal_UV_evidence_transferred_by_matching_source_bytes_R003",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "mirror_model_UV_and_real_alpha_face_census_145_checked_TEX03_R002",
+      "status": "user_extracted_14_blockstates_39_models_direct_and_mirror_SHA_crosscheck_R003",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_official_client_jar_and_ingame_static",
+      "status": "pending_Mojang_official_jar_and_ingame_static",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "mirror_evidence_completed_TEX03_R001",
+      "status": "TEX03_R003_evidence_and_handoff_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -80,17 +80,17 @@
     {
       "id": "D1",
       "check": "철·구리·녹청·단조 부품의 팔레트 단계",
-      "status": "mirror_source_checked_official_pending"
+      "status": "user_source_mirror_crosschecked_official_pending_R003"
     },
     {
       "id": "D2",
       "check": "철문·철다락문·모루/격자의 알파 마스크와 부품면 구분",
-      "status": "mirror_RGBA_UV_per_face_checked_TEX03_R002"
+      "status": "R002_UV_145_faces_preserved_user_source_same_bytes_R003"
     },
     {
       "id": "D3",
       "check": "고정 블록 상태마다 정적 텍스처 경로 변화 조사",
-      "status": "mirror_source_checked_official_pending"
+      "status": "user_source_mirror_crosschecked_official_pending_R003"
     }
   ],
   "items": [
@@ -103,8 +103,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R002",
-      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "last_verified_revision": "TEX03-R003",
+      "evidence_status": "user_extraction_binary_sha_and_static_model_graph_cross_verified_official_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -114,7 +114,13 @@
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 6,
       "uv_alpha_hole_face_records": 0,
-      "uv_alpha_transparent_texel_occurrences": 0
+      "uv_alpha_transparent_texel_occurrences": 0,
+      "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/iron_block.png",
+      "user_extracted_git_blob_sha1": "b7bb5794b7f74da3156fbf51d88e43eb11dd1f89",
+      "user_extracted_direct_sha256": "dafa9944ba49fe71958553eded50e87d7bea9c7410cfe568745989bede101c49",
+      "user_extracted_PNG_crc_verified": true,
+      "user_extracted_mirror_exact_match": true,
+      "user_extracted_direct_verified_revision": "TEX03-R003"
     },
     {
       "item_id": "1-1-03-002",
@@ -125,8 +131,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R002",
-      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "last_verified_revision": "TEX03-R003",
+      "evidence_status": "user_extraction_binary_sha_and_static_model_graph_cross_verified_official_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -136,7 +142,13 @@
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 6,
       "uv_alpha_hole_face_records": 0,
-      "uv_alpha_transparent_texel_occurrences": 0
+      "uv_alpha_transparent_texel_occurrences": 0,
+      "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/copper_block.png",
+      "user_extracted_git_blob_sha1": "c994d8abb7eaea0315bda72715e3d76880721ae8",
+      "user_extracted_direct_sha256": "1b0aaab59d19b4f909a9ac1208b02363bd2796637b10641a8b7cb0ed587c2aa7",
+      "user_extracted_PNG_crc_verified": true,
+      "user_extracted_mirror_exact_match": true,
+      "user_extracted_direct_verified_revision": "TEX03-R003"
     },
     {
       "item_id": "1-1-03-003",
@@ -147,8 +159,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R002",
-      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "last_verified_revision": "TEX03-R003",
+      "evidence_status": "user_extraction_binary_sha_and_static_model_graph_cross_verified_official_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -158,7 +170,13 @@
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 6,
       "uv_alpha_hole_face_records": 0,
-      "uv_alpha_transparent_texel_occurrences": 0
+      "uv_alpha_transparent_texel_occurrences": 0,
+      "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/exposed_copper.png",
+      "user_extracted_git_blob_sha1": "c823e36424abbce6d31906edd92d94fd1f6459cd",
+      "user_extracted_direct_sha256": "cfb6c192d230fa65f83c7691a4e8d5b686d904b1df329949e792ad85ae372fb7",
+      "user_extracted_PNG_crc_verified": true,
+      "user_extracted_mirror_exact_match": true,
+      "user_extracted_direct_verified_revision": "TEX03-R003"
     },
     {
       "item_id": "1-1-03-004",
@@ -169,8 +187,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R002",
-      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "last_verified_revision": "TEX03-R003",
+      "evidence_status": "user_extraction_binary_sha_and_static_model_graph_cross_verified_official_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -180,7 +198,13 @@
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 6,
       "uv_alpha_hole_face_records": 0,
-      "uv_alpha_transparent_texel_occurrences": 0
+      "uv_alpha_transparent_texel_occurrences": 0,
+      "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/oxidized_copper.png",
+      "user_extracted_git_blob_sha1": "c36a46dcb9fc9ed5882a045cfc1c0206fd3b64a8",
+      "user_extracted_direct_sha256": "c784fc83327169877d6a125f2eae00a5fbf784b9caaaa64e2fbc015d664d0bfb",
+      "user_extracted_PNG_crc_verified": true,
+      "user_extracted_mirror_exact_match": true,
+      "user_extracted_direct_verified_revision": "TEX03-R003"
     },
     {
       "item_id": "1-1-03-005",
@@ -191,8 +215,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R002",
-      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "last_verified_revision": "TEX03-R003",
+      "evidence_status": "user_extraction_binary_sha_and_static_model_graph_cross_verified_official_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -202,7 +226,13 @@
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 6,
       "uv_alpha_hole_face_records": 0,
-      "uv_alpha_transparent_texel_occurrences": 0
+      "uv_alpha_transparent_texel_occurrences": 0,
+      "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/cut_copper.png",
+      "user_extracted_git_blob_sha1": "38decb0d9e47a41a3191c9cfebab598084313a09",
+      "user_extracted_direct_sha256": "4bfc7253ccb07028fcefd90b4f7960873cd843521a1fdaaa6d4c450e7d032bba",
+      "user_extracted_PNG_crc_verified": true,
+      "user_extracted_mirror_exact_match": true,
+      "user_extracted_direct_verified_revision": "TEX03-R003"
     },
     {
       "item_id": "1-1-03-006",
@@ -213,8 +243,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R002",
-      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "last_verified_revision": "TEX03-R003",
+      "evidence_status": "user_extraction_binary_sha_and_static_model_graph_cross_verified_official_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -224,7 +254,13 @@
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 6,
       "uv_alpha_hole_face_records": 0,
-      "uv_alpha_transparent_texel_occurrences": 0
+      "uv_alpha_transparent_texel_occurrences": 0,
+      "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/exposed_cut_copper.png",
+      "user_extracted_git_blob_sha1": "a8a085bd1f47ef44616e949da1d249c88fba7622",
+      "user_extracted_direct_sha256": "7d2bd18a2b2d92204face126960c1afdf9564d48be015dc9cce9c63435bdf43f",
+      "user_extracted_PNG_crc_verified": true,
+      "user_extracted_mirror_exact_match": true,
+      "user_extracted_direct_verified_revision": "TEX03-R003"
     },
     {
       "item_id": "1-1-03-007",
@@ -235,8 +271,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R002",
-      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "last_verified_revision": "TEX03-R003",
+      "evidence_status": "user_extraction_binary_sha_and_static_model_graph_cross_verified_official_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -246,7 +282,13 @@
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 6,
       "uv_alpha_hole_face_records": 0,
-      "uv_alpha_transparent_texel_occurrences": 0
+      "uv_alpha_transparent_texel_occurrences": 0,
+      "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/weathered_copper.png",
+      "user_extracted_git_blob_sha1": "7061d0aab247b2df9163ac48f8744e6f3d36cba6",
+      "user_extracted_direct_sha256": "c41c28938fb64540576d5f607c87a2446a18bf8b78a388dbc5e147779925062a",
+      "user_extracted_PNG_crc_verified": true,
+      "user_extracted_mirror_exact_match": true,
+      "user_extracted_direct_verified_revision": "TEX03-R003"
     },
     {
       "item_id": "1-1-03-008",
@@ -257,8 +299,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R002",
-      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "last_verified_revision": "TEX03-R003",
+      "evidence_status": "user_extraction_binary_sha_and_static_model_graph_cross_verified_official_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -268,7 +310,13 @@
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 6,
       "uv_alpha_hole_face_records": 6,
-      "uv_alpha_transparent_texel_occurrences": 462
+      "uv_alpha_transparent_texel_occurrences": 462,
+      "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/copper_grate.png",
+      "user_extracted_git_blob_sha1": "92c5ac8f4c662956fae6dc676ef03ad2e50642db",
+      "user_extracted_direct_sha256": "c704177ce251df01260937e301723ceadc29fb6f586ea669782cc7174aa32b72",
+      "user_extracted_PNG_crc_verified": true,
+      "user_extracted_mirror_exact_match": true,
+      "user_extracted_direct_verified_revision": "TEX03-R003"
     },
     {
       "item_id": "1-1-03-009",
@@ -279,8 +327,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R002",
-      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "last_verified_revision": "TEX03-R003",
+      "evidence_status": "user_extraction_binary_sha_and_static_model_graph_cross_verified_official_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -290,7 +338,13 @@
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 18,
       "uv_alpha_hole_face_records": 6,
-      "uv_alpha_transparent_texel_occurrences": 216
+      "uv_alpha_transparent_texel_occurrences": 216,
+      "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/iron_trapdoor.png",
+      "user_extracted_git_blob_sha1": "2eaab820b34da1fc5dd293d0fc9c29edaac0121b",
+      "user_extracted_direct_sha256": "ca84a5c288bcfe8c9a53f066536175f50effa21e85cfb933094805527c5894ba",
+      "user_extracted_PNG_crc_verified": true,
+      "user_extracted_mirror_exact_match": true,
+      "user_extracted_direct_verified_revision": "TEX03-R003"
     },
     {
       "item_id": "1-1-03-010",
@@ -301,8 +355,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R002",
-      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "last_verified_revision": "TEX03-R003",
+      "evidence_status": "user_extraction_binary_sha_and_static_model_graph_cross_verified_official_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -312,7 +366,13 @@
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 20,
       "uv_alpha_hole_face_records": 0,
-      "uv_alpha_transparent_texel_occurrences": 0
+      "uv_alpha_transparent_texel_occurrences": 0,
+      "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/iron_door_bottom.png",
+      "user_extracted_git_blob_sha1": "9c163edcefffd9481c27e99a728140124eb63094",
+      "user_extracted_direct_sha256": "e9d6c7dc182ca275a3d455ba28a8df325d1ad0c1539aace4ee11d0359f6fc83a",
+      "user_extracted_PNG_crc_verified": true,
+      "user_extracted_mirror_exact_match": true,
+      "user_extracted_direct_verified_revision": "TEX03-R003"
     },
     {
       "item_id": "1-1-03-011",
@@ -323,8 +383,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R002",
-      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "last_verified_revision": "TEX03-R003",
+      "evidence_status": "user_extraction_binary_sha_and_static_model_graph_cross_verified_official_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -334,7 +394,13 @@
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 6,
       "uv_alpha_hole_face_records": 0,
-      "uv_alpha_transparent_texel_occurrences": 0
+      "uv_alpha_transparent_texel_occurrences": 0,
+      "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/gold_ore.png",
+      "user_extracted_git_blob_sha1": "50658812eabb224e1cae671c3dec82b7f48e11c0",
+      "user_extracted_direct_sha256": "5253e5a8ea32739a5c8cb1d844f0e46c8c85641f77c3d07dcc03645e2914dd1f",
+      "user_extracted_PNG_crc_verified": true,
+      "user_extracted_mirror_exact_match": true,
+      "user_extracted_direct_verified_revision": "TEX03-R003"
     },
     {
       "item_id": "1-1-03-012",
@@ -345,8 +411,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R002",
-      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "last_verified_revision": "TEX03-R003",
+      "evidence_status": "user_extraction_binary_sha_and_static_model_graph_cross_verified_official_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -356,7 +422,13 @@
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 6,
       "uv_alpha_hole_face_records": 0,
-      "uv_alpha_transparent_texel_occurrences": 0
+      "uv_alpha_transparent_texel_occurrences": 0,
+      "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/raw_iron_block.png",
+      "user_extracted_git_blob_sha1": "7736fc2619fe0a1f75e219f203261f059b3b962a",
+      "user_extracted_direct_sha256": "e2133b553079d3eb43c6b6dcecbe7f0b3feebc05766a9e28b789ca779a1159f3",
+      "user_extracted_PNG_crc_verified": true,
+      "user_extracted_mirror_exact_match": true,
+      "user_extracted_direct_verified_revision": "TEX03-R003"
     },
     {
       "item_id": "1-1-03-013",
@@ -367,8 +439,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R002",
-      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "last_verified_revision": "TEX03-R003",
+      "evidence_status": "user_extraction_binary_sha_and_static_model_graph_cross_verified_official_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -378,7 +450,13 @@
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 6,
       "uv_alpha_hole_face_records": 0,
-      "uv_alpha_transparent_texel_occurrences": 0
+      "uv_alpha_transparent_texel_occurrences": 0,
+      "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/heavy_core.png",
+      "user_extracted_git_blob_sha1": "96e70ae30b4e4b07396999fbb06179b5fc560f59",
+      "user_extracted_direct_sha256": "c74cc835fa46f5c24688cb163ee76122538a6920f806d36151260cc13e8242cc",
+      "user_extracted_PNG_crc_verified": true,
+      "user_extracted_mirror_exact_match": true,
+      "user_extracted_direct_verified_revision": "TEX03-R003"
     },
     {
       "item_id": "1-1-03-014",
@@ -389,8 +467,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R002",
-      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "last_verified_revision": "TEX03-R003",
+      "evidence_status": "user_extraction_binary_sha_and_static_model_graph_cross_verified_official_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -400,7 +478,13 @@
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 20,
       "uv_alpha_hole_face_records": 8,
-      "uv_alpha_transparent_texel_occurrences": 384
+      "uv_alpha_transparent_texel_occurrences": 384,
+      "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/iron_door_top.png",
+      "user_extracted_git_blob_sha1": "62b9a1d7ba6a08f9e1da08e605e0f6e4bb6fb311",
+      "user_extracted_direct_sha256": "54930bb1139268de1855ea03ce5b95097717e25307cbfa1ecce6e665e6da8d88",
+      "user_extracted_PNG_crc_verified": true,
+      "user_extracted_mirror_exact_match": true,
+      "user_extracted_direct_verified_revision": "TEX03-R003"
     },
     {
       "item_id": "1-1-03-015",
@@ -411,8 +495,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R002",
-      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "last_verified_revision": "TEX03-R003",
+      "evidence_status": "user_extraction_binary_sha_and_static_model_graph_cross_verified_official_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -422,7 +506,13 @@
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 20,
       "uv_alpha_hole_face_records": 0,
-      "uv_alpha_transparent_texel_occurrences": 0
+      "uv_alpha_transparent_texel_occurrences": 0,
+      "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/anvil.png",
+      "user_extracted_git_blob_sha1": "1c3cee9b89691acb529572b6cfb1f0fc7168f714",
+      "user_extracted_direct_sha256": "2266db251b99f5df98d8f049e3f7dd6cd85e8146b46011f6918995f392721e48",
+      "user_extracted_PNG_crc_verified": true,
+      "user_extracted_mirror_exact_match": true,
+      "user_extracted_direct_verified_revision": "TEX03-R003"
     },
     {
       "item_id": "1-1-03-016",
@@ -433,8 +523,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX03-R002",
-      "evidence_status": "mirror_sha_pixel_checked_official_pending",
+      "last_verified_revision": "TEX03-R003",
+      "evidence_status": "user_extraction_binary_sha_and_static_model_graph_cross_verified_official_ingame_pending",
       "current_stream_png_crc_verified": true,
       "current_stream_rgba_decoded": true,
       "current_stream_static_model_uv_checked": true,
@@ -444,7 +534,13 @@
       "uv_alpha_face_sampled_revision": "TEX03-R002",
       "uv_alpha_face_records": 1,
       "uv_alpha_hole_face_records": 0,
-      "uv_alpha_transparent_texel_occurrences": 0
+      "uv_alpha_transparent_texel_occurrences": 0,
+      "user_extracted_source_path": "1.21.11/assets/minecraft/textures/block/anvil_top.png",
+      "user_extracted_git_blob_sha1": "caff2b757288904d74180e8e4770a94756741bfd",
+      "user_extracted_direct_sha256": "757d6f79099583c159e3f95e9981efe0b16b524bed90739ae213142ad40fad26",
+      "user_extracted_PNG_crc_verified": true,
+      "user_extracted_mirror_exact_match": true,
+      "user_extracted_direct_verified_revision": "TEX03-R003"
     }
   ],
   "revisions": [
@@ -474,13 +570,31 @@
       "ingame_static_verified": 0,
       "report_path": "research/vanilla_textures/by_stage/1-1-03/TEX03-R002/REPORT.md",
       "source_revision": "TEX03-R001"
+    },
+    {
+      "revision": "TEX03-R003",
+      "kind": "user_uploaded_JAR_extraction_file_binary_and_static_JSON_cross_validation",
+      "distinct_user_provided_source_files_direct_read": 69,
+      "new_provenance_PNG_SHA256": 16,
+      "new_provenance_blockstate_JSON": 14,
+      "new_provenance_model_JSON": 39,
+      "mirror_git_blob_sha1_match": 69,
+      "PNG_SHA256_match": 16,
+      "PNG_crc_ok": 16,
+      "prior_RGBA_pixel_remeasurement": 0,
+      "prior_UV_face_remeasurement": 0,
+      "prior_R002_UV_face_records_carried": 145,
+      "official_jar_authenticated": 0,
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-03/TEX03-R003/REPORT.md"
     }
   ],
   "next_steps": [
-    "TEX03-R003 only after further actual evidence; never modify R001 or R002 release folders",
-    "secure Minecraft Java 1.21.11 official launcher client.jar; validate Mojang metadata SHA1 and exact 16 PNG byte hashes",
-    "ingame static render validation of alpha and UV; defer all animation work",
-    "do not edit global v38 or other 1-1-xx stages"
+    "TEX03-R004 only with new evidence; preserve R001,R002,R003 immutably",
+    "prioritize user-provided 1.21.11/ extracted files for this stage",
+    "verify original intact client.jar SHA1 against Mojang official version metadata when original jar becomes available",
+    "verify actual static in-game rendering only with game evidence; animation deferred",
+    "no other 1-1-XX stages, global v38, or root handoff/progress writes"
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -492,5 +606,37 @@
   ],
   "project_overall_completion_pct": null,
   "do_not_count_planning_as_research": true,
-  "scope_completion_note": "A-E static mirror evidence for 16 textures checked; F official and ingame still pending"
+  "scope_completion_note": "User extraction direct 16 PNG +14 blockstate +39 model JSON verified and mirror cross-checked 69/69. Prior R001 pixel and R002 145 UV face measurements reused without recount; official JAR and ingame pending.",
+  "source_preference": "user_provided_1.21.11_extraction_first",
+  "user_extraction_base_path": "1.21.11/",
+  "verification_tracks": {
+    "user_provided_extraction": {
+      "status": "verified_direct_GitHub_1_21_11_assets",
+      "png_sha256_and_crc": 16,
+      "blockstate_json": 14,
+      "model_json": 39,
+      "unique_assets": 69,
+      "source_claim_by_user": "extracted by user from Minecraft Java 1.21.11 client JAR"
+    },
+    "previous_mirror_crosscheck": {
+      "status": "sha_match",
+      "sha1_git_blob_exact_match": 69,
+      "png_sha256_exact_match": 16,
+      "sha_mismatches": 0,
+      "mirror": "InventivetalentDev/minecraft-assets@1.21.11"
+    },
+    "mojang_official_JAR": {
+      "status": "pending",
+      "jar_sha1_authenticated": false,
+      "jar_metadata_SHA1_verified": false,
+      "official_count": 0
+    },
+    "in_game_render": {
+      "status": "pending",
+      "static_render_verified_count": 0
+    }
+  },
+  "user_extraction_verified_png_count": 16,
+  "user_extraction_verified_blockstate_count": 14,
+  "user_extraction_verified_model_count": 39
 }

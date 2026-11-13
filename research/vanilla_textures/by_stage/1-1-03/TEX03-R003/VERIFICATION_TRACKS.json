@@ -1,0 +1,66 @@
+{
+  "schema": "mc_tex03_4_track_source_provenance/v1",
+  "date": "2026-11-13",
+  "stage": "1-1-03",
+  "revision": "TEX03-R003",
+  "primary_source_root": "1.21.11/",
+  "repository": "sanato-nb/Minecraft_Furniture_Style_Research",
+  "user_extraction_version_json": {
+    "path": "1.21.11/version.json",
+    "git_blob_sha1": "b49974d3ebd6cb73291d9e4c92d23b3192dadd66",
+    "id": "1.21.11",
+    "world_version": 4671,
+    "protocol_version": 774,
+    "pack_resource_major": 75,
+    "interpretation": "internal metadata only; not Mojang official authentication"
+  },
+  "tracks": {
+    "user_provided_extraction": {
+      "status": "verified_direct_GitHub_1_21_11_assets",
+      "png_sha256_and_crc": 16,
+      "blockstate_json": 14,
+      "model_json": 39,
+      "unique_assets": 69,
+      "source_claim_by_user": "extracted by user from Minecraft Java 1.21.11 client JAR"
+    },
+    "previous_mirror_crosscheck": {
+      "status": "sha_match",
+      "sha1_git_blob_exact_match": 69,
+      "png_sha256_exact_match": 16,
+      "sha_mismatches": 0,
+      "mirror": "InventivetalentDev/minecraft-assets@1.21.11"
+    },
+    "mojang_official_JAR": {
+      "status": "pending",
+      "jar_sha1_authenticated": false,
+      "jar_metadata_SHA1_verified": false,
+      "official_count": 0
+    },
+    "in_game_render": {
+      "status": "pending",
+      "static_render_verified_count": 0
+    }
+  },
+  "model_graph": {
+    "blockstates": 14,
+    "variants": 63,
+    "unique_leaf_models": 23,
+    "unique_linked_parent_and_template_models": 16,
+    "total_unique_model_json": 39
+  },
+  "prior_unchanged": {
+    "R001_PNG_pixel_metrics": "referenced via exact matching SHA256",
+    "R002_static_face_UV_records": 145,
+    "new_RGBA_measurements": 0,
+    "new_UV_face_measurements": 0
+  },
+  "original_client_JAR_bytes_available": false,
+  "animations_deferred": true,
+  "global_checkpoint_unchanged": "v38",
+  "evidence_paths": {
+    "PNG": "research/vanilla_textures/by_stage/1-1-03/TEX03-R003/USER_PNG_BINARY_CROSSCHECK.csv",
+    "blockstates": "research/vanilla_textures/by_stage/1-1-03/TEX03-R003/USER_BLOCKSTATE_CROSSCHECK.csv",
+    "models": "research/vanilla_textures/by_stage/1-1-03/TEX03-R003/USER_MODEL_JSON_CROSSCHECK.csv",
+    "report": "research/vanilla_textures/by_stage/1-1-03/TEX03-R003/REPORT.md"
+  }
+}
