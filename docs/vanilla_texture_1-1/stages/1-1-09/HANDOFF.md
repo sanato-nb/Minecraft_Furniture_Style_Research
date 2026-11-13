@@ -1,6 +1,6 @@
 # 1-1-09 — 토양·지면 별도 채팅 인수인계
 
-> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 단계 버전 **`TEX09-R002` (정적 상태·UV 70면·회전 이음새 보강)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
+> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 단계 버전 **`TEX09-R003` (사용자 제공 JAR 추출본 9 PNG·26 JSON·보조 PNG 5 교차 검증)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 ## 연구 목표와 정확한 표본
 
@@ -51,8 +51,8 @@
 
 ## 버전 상태·저장 경로·갱신 규칙
 
-- 최초 **`TEX09-R000`**: 단계 분리/작업 안내만 저장, 실측 신규 완료 0. 현재 **`TEX09-R001`**: 9개 미러 PNG 재해시·CRC·RGBA·모델 JSON/UV 확인, 공식/인게임 0.
-- 이번 추가 검증 결과: **`TEX09-R002`**; 저장 경로 `research/vanilla_textures/by_stage/1-1-09/TEX09-R002/`. 다음 후보는 단계 전용 `TEX09-R003` (시작 전 STATE 재검증).
+- 최초 **`TEX09-R000`**는 계획, **R001**은 미러 PNG 실측, **R002**는 정적 UV/회전, **R003**은 사용자 제공 JAR 추출본의 9개 PNG·26개 JSON 교차 검증. 공식/인게임 0.
+- 이번 출처 보강 결과: **`TEX09-R003`**; 경로 `research/vanilla_textures/by_stage/1-1-09/TEX09-R003/`. 다음 후보 `TEX09-R004` (시작 전 STATE 재검증).
 - 이 단계 진행 관리: [STATE.json](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/docs/vanilla_texture_1-1/stages/1-1-09/STATE.json)와 이 `HANDOFF.md`만 단계 자체 채팅에서 갱신.
 - 다른 번호 단계의 `STATE/HANDOFF` 및 루트 프로젝트 공통 체크포인트·진행 문서는 **수정 금지**. 통합 시 최종 집계 담당자가 별도로 확인.
 - 소스 증거의 신뢰도는 최소 `legacy_only`, `mirror_sha_pixel_checked`, `official_jar_authenticated`, `ingame_static_verified`로 구분하되, 서로 상충·불충분하면 `pending` 유지.
@@ -85,3 +85,15 @@
 - **공식 JAR 예상 해시 참조만 확보:** 제3자 캐시 메타데이터의 SHA-1 `ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd`, 크기 31,152,600바이트. Mojang 서버의 실제 JAR 수신·해시 확인 및 9종 공식 PNG 대조는 **0/9**. 인게임 정적 렌더도 **0/9**.
 - R001 보고서의 PNG 총 바이트 부분에는 잘못 출력된 문자열이 남아 있으나 불변 릴리스라 수정하지 않았고, R002에서 **2,198바이트**로 정정했다.
 - **현재 R002 / 다음 예상 `TEX09-R003`**. 현재 SHA 및 HEAD를 다음 채팅이 먼저 읽고 버전 충돌 재검사. `v38` 유지, 애니메이션 전면 보류, 다른 단계/루트 수정 금지.
+
+
+## TEX09-R003 — 사용자 제공 1.21.11/ 추출본 검증 및 다음 인수인계 (2026-11-13)
+
+사용자가 `1.21.11/` 폴더를 직접 보유한 Minecraft Java 1.21.11 JAR 압축 해제본이라고 밝힘. 이제 이 자료를 분석 우선 출처로 삼되, **공식 Mojang JAR의 SHA-1 인증 또는 인게임 사실과 혼동하면 안 됨**.
+
+- [R003 상세 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R003/REPORT.md), [40개 파일 경로·Git blob·해시 대조 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R003/SOURCE_LEDGER.csv), [9개 블록-상태-모델 연결](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R003/MODEL_BLOCKSTATE_LINKAGE.csv), [4계층 요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R003/SUMMARY.json).
+- 고정 범위 **1-1-09 PNG 9개**: 사용자 추출본에서 직접 다운로드/디코드한 PNG SHA-256=과거 v4=미러 **9/9**, PNG 청크 CRC 9/9. 기존 R001 픽셀 분석 값은 **바이트 동일성으로 재사용**하며 이번 새 표본 0개. 16×16×9=2,304픽셀.
+- 사용자 제공 **블록상태 9개 + 선택 모델 9개 + 부모/상태/대체 모델 8개 = JSON 26개**를 직접 파싱; 동일 파일의 미러 blob과 26/26 일치. `mud_bricks` 북/서 UV `[16,0,0,16]`, `grass_block` 상단/측면 overlay `tintindex:0`, `podzol snowy=true`의 `grass_block_snow` 선택을 사용자 제공 JSON에서 확인.
+- **보조 PNG 5개**: 잔디 측면/오버레이/눈, 포드졸 측면, `colormap/grass.png`의 출처 비교만 수행. 9개 공식 단계 표본에 추가하지 않음. 색맵 파일 존재가 곧 인게임 tint RGB 증명은 아님.
+- **분리할 검증 4종:** (1) 사용자 추출본 9 PNG·26 JSON (검증), (2) 미러 교차 검사 (일치), (3) Mojang 공식 JAR SHA-1 및 메타데이터 인증 (미완료), (4) 실제 인게임 정적 렌더 (미완료).
+- **현재 R003, 다음 R004 후보**. 추가 커밋 전 최신 `STATE.json`의 revision/SHA와 HEAD를 다시 확인할 것. R001/R002 불변; `v38`와 타 단계 파일 건드리지 말 것. 애니메이션 전면 보류.

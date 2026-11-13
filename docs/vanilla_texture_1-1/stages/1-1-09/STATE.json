@@ -7,10 +7,10 @@
   "stage_id": "1-1-09",
   "material_family": "토양·지면",
   "stage_prefix": "TEX09",
-  "current_revision": "TEX09-R002",
-  "next_revision": "TEX09-R003",
-  "revision_sequence": 2,
-  "revision_status": "R002_static_70_face_69_rotation_seams_36_uv_pixels__official_jar_unavailable",
+  "current_revision": "TEX09-R003",
+  "next_revision": "TEX09-R004",
+  "revision_sequence": 3,
+  "revision_status": "R003_user_supplied_extracted_png_9_sha_crc_equal_mirror__26_json_equal__official_ingame_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 9,
@@ -42,65 +42,65 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "done_9of9_v4_ledger_mirror_crosschecked",
+      "status": "R003_user_extracted_files_provenance_and_9_targets_reconciled",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R001"
+      "last_updated_revision": "TEX09-R003"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "done_9of9_mirror_png_bytes_sha256_crc_checked",
+      "status": "R003_user_extracted_png_9of9_sha256_crc_and_mirror_byte_equivalence",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R001"
+      "last_updated_revision": "TEX09-R003"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R002_source_rotation_seam_69_combinations_plus_prior_R001_pixel_metrics",
+      "status": "R003_previous_R001_pixel_metrics_reused_by_binary_equivalence_not_new_count",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R002"
+      "last_updated_revision": "TEX09-R003"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R002_D1_prior_D2_69_rotational_pairs_D3_static_grass_overlay_and_snow_states_checked__ingame_pending",
+      "status": "R003_D1_D2_prior_pixel_metrics_preserved_D3_user_json_tint_and_support_context_crosschecked__ingame_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R002"
+      "last_updated_revision": "TEX09-R003"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R002_70_static_face_records_plus_36_mudbrick_uv_samples__official_pending",
+      "status": "R003_user_extracted_9_blockstates_9_selected_models_8_support_models_verified_equal_mirror",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R002"
+      "last_updated_revision": "TEX09-R003"
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_official_artifact_sha1_from_third_party_cache_only_JAR_not_downloaded_ingame_not_checked",
+      "status": "pending_no_original_client_jar_sha1_no_mojang_direct_manifest_no_ingame",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R002"
+      "last_updated_revision": "TEX09-R003"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "done_R002_evidence_ledgers_summary_handoff_saved",
+      "status": "R003_source_ledger_and_report_summary_handoff_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_updated_revision": "TEX09-R002"
+      "last_updated_revision": "TEX09-R003"
     }
   },
   "material_specific_checks": [
     {
       "id": "D1",
       "check": "흙·자갈·진흙 등의 명도 및 반복 무늬",
-      "status": "mirror_source_pixel_checked",
-      "last_verified_revision": "TEX09-R002"
+      "status": "prior_R001_R002_pixel_measurement_applicable_to_user_source_by_byte_equivalence",
+      "last_verified_revision": "TEX09-R003"
     },
     {
       "id": "D2",
       "check": "좌우/상하 이음새·고주파 패턴",
-      "status": "mirror_png_69_rotation_neighbor_pairs_checked",
-      "last_verified_revision": "TEX09-R002"
+      "status": "prior_R001_R002_pixel_measurement_applicable_to_user_source_by_byte_equivalence",
+      "last_verified_revision": "TEX09-R003"
     },
     {
       "id": "D3",
       "check": "grass/podzol PNG와 인게임 tint·주변 블록 효과 구분",
-      "status": "static_models_70_faces_tint_snow_overlay_checked_ingame_pending",
-      "last_verified_revision": "TEX09-R002"
+      "status": "user_extracted_models_tint_context_checked_ingame_pending",
+      "last_verified_revision": "TEX09-R003"
     }
   ],
   "items": [
@@ -113,10 +113,13 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX09-R002",
-      "evidence_status": "mirror_sha_pixel_checked_static_uv_rotation_refined_R002__official_and_ingame_pending",
+      "last_verified_revision": "TEX09-R003",
+      "evidence_status": "user_extracted_png_sha256_crc_and_model_json_crosschecked_with_mirror__official_and_ingame_pending",
       "current_stream_static_model_uv_checked": true,
-      "current_stream_source_variant_rotation_audited": true
+      "current_stream_source_variant_rotation_audited": true,
+      "user_provided_extracted_png_verified": true,
+      "user_extracted_equals_mirror_sha256": true,
+      "user_extracted_json_model_blockstate_checked": true
     },
     {
       "item_id": "1-1-09-002",
@@ -127,10 +130,13 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX09-R002",
-      "evidence_status": "mirror_sha_pixel_checked_static_uv_rotation_refined_R002__official_and_ingame_pending",
+      "last_verified_revision": "TEX09-R003",
+      "evidence_status": "user_extracted_png_sha256_crc_and_model_json_crosschecked_with_mirror__official_and_ingame_pending",
       "current_stream_static_model_uv_checked": true,
-      "current_stream_source_variant_rotation_audited": true
+      "current_stream_source_variant_rotation_audited": true,
+      "user_provided_extracted_png_verified": true,
+      "user_extracted_equals_mirror_sha256": true,
+      "user_extracted_json_model_blockstate_checked": true
     },
     {
       "item_id": "1-1-09-003",
@@ -141,10 +147,13 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX09-R002",
-      "evidence_status": "mirror_sha_pixel_checked_static_uv_rotation_refined_R002__official_and_ingame_pending",
+      "last_verified_revision": "TEX09-R003",
+      "evidence_status": "user_extracted_png_sha256_crc_and_model_json_crosschecked_with_mirror__official_and_ingame_pending",
       "current_stream_static_model_uv_checked": true,
-      "current_stream_source_variant_rotation_audited": true
+      "current_stream_source_variant_rotation_audited": true,
+      "user_provided_extracted_png_verified": true,
+      "user_extracted_equals_mirror_sha256": true,
+      "user_extracted_json_model_blockstate_checked": true
     },
     {
       "item_id": "1-1-09-004",
@@ -155,10 +164,13 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX09-R002",
-      "evidence_status": "mirror_sha_pixel_checked_static_uv_rotation_refined_R002__official_and_ingame_pending",
+      "last_verified_revision": "TEX09-R003",
+      "evidence_status": "user_extracted_png_sha256_crc_and_model_json_crosschecked_with_mirror__official_and_ingame_pending",
       "current_stream_static_model_uv_checked": true,
-      "current_stream_source_variant_rotation_audited": true
+      "current_stream_source_variant_rotation_audited": true,
+      "user_provided_extracted_png_verified": true,
+      "user_extracted_equals_mirror_sha256": true,
+      "user_extracted_json_model_blockstate_checked": true
     },
     {
       "item_id": "1-1-09-005",
@@ -169,10 +181,13 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX09-R002",
-      "evidence_status": "mirror_sha_pixel_checked_static_uv_rotation_refined_R002__official_and_ingame_pending",
+      "last_verified_revision": "TEX09-R003",
+      "evidence_status": "user_extracted_png_sha256_crc_and_model_json_crosschecked_with_mirror__official_and_ingame_pending",
       "current_stream_static_model_uv_checked": true,
-      "current_stream_source_variant_rotation_audited": true
+      "current_stream_source_variant_rotation_audited": true,
+      "user_provided_extracted_png_verified": true,
+      "user_extracted_equals_mirror_sha256": true,
+      "user_extracted_json_model_blockstate_checked": true
     },
     {
       "item_id": "1-1-09-006",
@@ -183,10 +198,13 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX09-R002",
-      "evidence_status": "mirror_sha_pixel_checked_static_uv_rotation_refined_R002__official_and_ingame_pending",
+      "last_verified_revision": "TEX09-R003",
+      "evidence_status": "user_extracted_png_sha256_crc_and_model_json_crosschecked_with_mirror__official_and_ingame_pending",
       "current_stream_static_model_uv_checked": true,
-      "current_stream_source_variant_rotation_audited": true
+      "current_stream_source_variant_rotation_audited": true,
+      "user_provided_extracted_png_verified": true,
+      "user_extracted_equals_mirror_sha256": true,
+      "user_extracted_json_model_blockstate_checked": true
     },
     {
       "item_id": "1-1-09-007",
@@ -197,10 +215,13 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX09-R002",
-      "evidence_status": "mirror_sha_pixel_checked_static_uv_rotation_refined_R002__official_and_ingame_pending",
+      "last_verified_revision": "TEX09-R003",
+      "evidence_status": "user_extracted_png_sha256_crc_and_model_json_crosschecked_with_mirror__official_and_ingame_pending",
       "current_stream_static_model_uv_checked": true,
-      "current_stream_source_variant_rotation_audited": true
+      "current_stream_source_variant_rotation_audited": true,
+      "user_provided_extracted_png_verified": true,
+      "user_extracted_equals_mirror_sha256": true,
+      "user_extracted_json_model_blockstate_checked": true
     },
     {
       "item_id": "1-1-09-008",
@@ -211,10 +232,13 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX09-R002",
-      "evidence_status": "mirror_sha_pixel_checked_static_uv_rotation_refined_R002__official_and_ingame_pending",
+      "last_verified_revision": "TEX09-R003",
+      "evidence_status": "user_extracted_png_sha256_crc_and_model_json_crosschecked_with_mirror__official_and_ingame_pending",
       "current_stream_static_model_uv_checked": true,
-      "current_stream_source_variant_rotation_audited": true
+      "current_stream_source_variant_rotation_audited": true,
+      "user_provided_extracted_png_verified": true,
+      "user_extracted_equals_mirror_sha256": true,
+      "user_extracted_json_model_blockstate_checked": true
     },
     {
       "item_id": "1-1-09-009",
@@ -225,10 +249,13 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX09-R002",
-      "evidence_status": "mirror_sha_pixel_checked_static_uv_rotation_refined_R002__official_and_ingame_pending",
+      "last_verified_revision": "TEX09-R003",
+      "evidence_status": "user_extracted_png_sha256_crc_and_model_json_crosschecked_with_mirror__official_and_ingame_pending",
       "current_stream_static_model_uv_checked": true,
-      "current_stream_source_variant_rotation_audited": true
+      "current_stream_source_variant_rotation_audited": true,
+      "user_provided_extracted_png_verified": true,
+      "user_extracted_equals_mirror_sha256": true,
+      "user_extracted_json_model_blockstate_checked": true
     }
   ],
   "revisions": [
@@ -260,13 +287,27 @@
       "official_jar_verified": 0,
       "ingame_static_verified": 0,
       "trust": "mirror_sha_pixel_checked plus third-party-cached-client-metadata-reference"
+    },
+    {
+      "revision": "TEX09-R003",
+      "kind": "user_provided_jar_extraction_9_target_png_binary_and_26_static_json_source_crosscheck",
+      "source_files_reviewed_as_new": 0,
+      "user_extracted_target_png_sha_crc_verified": 9,
+      "mirror_equal_png": 9,
+      "model_blockstate_json_equal": 26,
+      "supporting_png_context_only": 5,
+      "ledger_path": "research/vanilla_textures/by_stage/1-1-09/TEX09-R003/SOURCE_LEDGER.csv",
+      "report_path": "research/vanilla_textures/by_stage/1-1-09/TEX09-R003/REPORT.md",
+      "official_jar_verified": 0,
+      "ingame_static_verified": 0
     }
   ],
   "next_steps": [
-    "Re-read STATE.json and HEAD before next revision; current candidate TEX09-R003",
-    "Obtain actual Mojang 1.21.11 client.jar and check full SHA-1 ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd, then compare 9 official embedded PNG SHA256 values",
-    "Study game static frame for grass/podzol biome tint, snow state, lighting and adjacent blocks; keep out-of-scope overlay textures uncounted",
-    "Keep animations, 3D furniture, Zomboid conversion deferred; never update global v38"
+    "At next chat start, re-read STATE.json and HEAD; expected next TEX09-R004 only if R003 remains latest",
+    "Obtain the whole original JAR and verify official Mojang metadata + SHA-1 independently before marking official",
+    "Obtain actual static game captures for grass/podzol tint, snowy state, surrounding blocks and lighting",
+    "Preserve nine-stage texture scope; supporting images may remain context only, not counted toward target",
+    "Do not perform animation study or modify other stage and global v38 files"
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -284,5 +325,32 @@
     "client_sha1_reference": "ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd",
     "client_size_bytes_reference": 31152600,
     "verified_against_live_mojang_endpoint": false
+  },
+  "validation_levels": {
+    "user_extracted": {
+      "source_root": "1.21.11/",
+      "source_kind": "user_provided_JAR_extraction_not_officially_authenticated",
+      "target_png_sha256_crc_verified": 9,
+      "selected_blockstates_verified": 9,
+      "selected_models_verified": 9,
+      "support_models_verified": 8,
+      "context_only_png_compared": 5
+    },
+    "mirror_crosscheck": {
+      "target_png_byte_equal": 9,
+      "selected_blockstate_equal": 9,
+      "selected_model_equal": 9,
+      "support_model_equal": 8,
+      "context_only_png_equal": 5
+    },
+    "mojang_official": {
+      "authenticated_jar": false,
+      "jar_sha1_verified": false,
+      "official_target_png_count": 0
+    },
+    "ingame_static": {
+      "verified_target_count": 0
+    },
+    "animation_study_deferred": true
   }
 }
