@@ -1,0 +1,42 @@
+{
+  "schema": "TEX10-R004/four-verification-axes/v1",
+  "stage": "1-1-10",
+  "revision": "TEX10-R004",
+  "date": "2026-11-13",
+  "texture_targets": 8,
+  "axes": [
+    {
+      "axis": "user_provided_extraction",
+      "status": "static_source_checked",
+      "target_checked": 8,
+      "revision_latest": "TEX10-R004",
+      "new_evidence": "2 separate 256x256 colormap PNGs decoded CRC/Adler/pixel counted; block atlas JSON and internal version.json parsed; 4 supplementary source paths. R003 original 28 source paths continue to be trusted.",
+      "user_attested_origin_only": true,
+      "mojang_sha1_claim": false
+    },
+    {
+      "axis": "nonofficial_mirror_crosscheck",
+      "status": "8_target_png_matching_prior_evidence",
+      "target_checked": 8,
+      "evidence_revision": "TEX10-R001",
+      "new_mirror_matching_in_R004": 0
+    },
+    {
+      "axis": "mojang_official_original_clientjar_sha1",
+      "status": "pending",
+      "target_checked": 0,
+      "official_jar_bytes_available": false,
+      "mojang_version_manifest_client_sha1_matched": false,
+      "reason": "No original complete client.jar bytes to hash and compare to Mojang manifest"
+    },
+    {
+      "axis": "actual_ingame_static_render",
+      "status": "pending",
+      "target_checked": 0,
+      "game_executed": false,
+      "reason": "No accessible Minecraft 1.21.11 real rendering session for biome tint/atlas/mipmap validation"
+    }
+  ],
+  "animation_study_deferred": true,
+  "world_checkpoint": "v38"
+}

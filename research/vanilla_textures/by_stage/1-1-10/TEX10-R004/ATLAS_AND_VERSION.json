@@ -1,0 +1,38 @@
+{
+  "schema": "TEX10-R004/extracted-atlas-version-metadata/v1",
+  "reference_root": "1.21.11/",
+  "origin": "user-attested original JAR extraction, not official whole JAR authenticated",
+  "atlas": {
+    "path": "1.21.11/assets/minecraft/atlases/blocks.json",
+    "git_blob_sha": "541ce56ad0b09f258963dd2bf3e3cb6e786d2d79",
+    "source_count": 4,
+    "source_directory_block": {
+      "type": "minecraft:directory",
+      "source": "block",
+      "prefix": "block/"
+    },
+    "expected_block_textures_all_8_in_block_directory": true,
+    "direct_per_texture_atlas_entries": 0,
+    "colormap_folder_explicitly_selected_in_this_atlas": false,
+    "interpretation": "directory rule covers block/*; does not prove in-game atlas binding, tint, GPU upload, or colormap usage"
+  },
+  "internal_extracted_version_json": {
+    "path": "1.21.11/version.json",
+    "git_blob_sha": "b49974d3ebd6cb73291d9e4c92d23b3192dadd66",
+    "id": "1.21.11",
+    "name": "1.21.11",
+    "world_version": 4671,
+    "protocol_version": 774,
+    "pack_version": {
+      "resource_major": 75,
+      "resource_minor": 0,
+      "data_major": 94,
+      "data_minor": 1
+    },
+    "java_component": "java-runtime-delta",
+    "java_version": 21,
+    "build_time": "2025-12-09T12:20:42+00:00",
+    "stable": true,
+    "interpretation": "internal archive metadata only, not Mojang official manifest SHA-1 verification"
+  }
+}

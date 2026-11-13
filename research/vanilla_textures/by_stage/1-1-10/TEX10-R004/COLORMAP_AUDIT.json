@@ -1,0 +1,302 @@
+{
+  "schema": "TEX10-R004/colormap-direct-png-static-pixel-audit/v1",
+  "stage": "1-1-10",
+  "revision": "TEX10-R004",
+  "date": "2026-11-13",
+  "source_kind": "GitHub uploaded user-extracted client files, independent whole JAR SHA-1 NOT verified",
+  "measurement_method": "fetch PNG Base64 via connected GitHub source, decode PNG manually in JS, verify each PNG chunk CRC32, zlib Adler32, DEFLATE Huffman/uncompressed blocks, PNG row filters and RGB pixels",
+  "metadata_method": "8-bit truecolor PNG IHDR; 256*256*3=196608 RGB bytes per decoded texture; 256 scanline filter bytes",
+  "total_colormap_images": 2,
+  "total_new_supporting_colormap_pixels": 131072,
+  "target_block_texture_count_unchanged": 8,
+  "block_texture_pixel_metrics_new_in_this_revision": 0,
+  "inspected_files": [
+    {
+      "id": "foliage",
+      "path": "1.21.11/assets/minecraft/textures/colormap/foliage.png",
+      "git_blob_sha": "d58fce229108e9e6e188ed13baa75bc432ead19a",
+      "png_size_bytes": 14154,
+      "width": 256,
+      "height": 256,
+      "bit_depth": 8,
+      "png_color_type": 2,
+      "png_channels": 3,
+      "rgba_alpha_channel_present": false,
+      "pixels": 65536,
+      "unique_rgb_colors": 8837,
+      "rgb_min": [
+        26,
+        147,
+        0
+      ],
+      "rgb_max": [
+        174,
+        191,
+        147
+      ],
+      "rgb_mean": [
+        95.121,
+        162.376,
+        70.843
+      ],
+      "filters": [
+        0,
+        7,
+        236,
+        0,
+        13
+      ],
+      "crc_valid": true,
+      "adler32_valid": true,
+      "top_colors": [
+        [
+          "#579B67",
+          70
+        ],
+        [
+          "#709A7C",
+          66
+        ],
+        [
+          "#709A8A",
+          65
+        ],
+        [
+          "#709A88",
+          64
+        ],
+        [
+          "#359F4E",
+          58
+        ]
+      ],
+      "chunk_types": [
+        "IHDR",
+        "IDAT",
+        "IEND"
+      ],
+      "sample_count": 12,
+      "samples": [
+        {
+          "colormap": "foliage",
+          "x": 0,
+          "y": 0,
+          "rgb": "#1ABF00"
+        },
+        {
+          "colormap": "foliage",
+          "x": 128,
+          "y": 0,
+          "rgb": "#68975F"
+        },
+        {
+          "colormap": "foliage",
+          "x": 255,
+          "y": 0,
+          "rgb": "#749A3E"
+        },
+        {
+          "colormap": "foliage",
+          "x": 0,
+          "y": 128,
+          "rgb": "#64B216"
+        },
+        {
+          "colormap": "foliage",
+          "x": 128,
+          "y": 128,
+          "rgb": "#5BAB47"
+        },
+        {
+          "colormap": "foliage",
+          "x": 255,
+          "y": 128,
+          "rgb": "#2F9B2D"
+        },
+        {
+          "colormap": "foliage",
+          "x": 0,
+          "y": 255,
+          "rgb": "#AEA42A"
+        },
+        {
+          "colormap": "foliage",
+          "x": 128,
+          "y": 255,
+          "rgb": "#86A354"
+        },
+        {
+          "colormap": "foliage",
+          "x": 255,
+          "y": 255,
+          "rgb": "#60A17B"
+        },
+        {
+          "colormap": "foliage",
+          "x": 64,
+          "y": 64,
+          "rgb": "#42B426"
+        },
+        {
+          "colormap": "foliage",
+          "x": 192,
+          "y": 192,
+          "rgb": "#65A464"
+        },
+        {
+          "colormap": "foliage",
+          "x": 32,
+          "y": 224,
+          "rgb": "#95A830"
+        }
+      ]
+    },
+    {
+      "id": "grass",
+      "path": "1.21.11/assets/minecraft/textures/colormap/grass.png",
+      "git_blob_sha": "f2e783063d40120245cd7141349681305e773831",
+      "png_size_bytes": 5930,
+      "width": 256,
+      "height": 256,
+      "bit_depth": 8,
+      "png_color_type": 2,
+      "png_channels": 3,
+      "rgba_alpha_channel_present": false,
+      "pixels": 65536,
+      "unique_rgb_colors": 4536,
+      "rgb_min": [
+        71,
+        180,
+        51
+      ],
+      "rgb_max": [
+        255,
+        255,
+        255
+      ],
+      "rgb_mean": [
+        196.219,
+        221.512,
+        176.053
+      ],
+      "filters": [
+        0,
+        0,
+        256,
+        0,
+        0
+      ],
+      "crc_valid": true,
+      "adler32_valid": true,
+      "white_rgb_pixel_count": 32640,
+      "top_colors": [
+        [
+          "#FFFFFF",
+          32640
+        ],
+        [
+          "#85B590",
+          54
+        ],
+        [
+          "#83B593",
+          50
+        ],
+        [
+          "#85B68C",
+          43
+        ],
+        [
+          "#88B688",
+          38
+        ]
+      ],
+      "chunk_types": [
+        "IHDR",
+        "IDAT",
+        "IEND"
+      ],
+      "sample_count": 12,
+      "samples": [
+        {
+          "colormap": "grass",
+          "x": 0,
+          "y": 0,
+          "rgb": "#47CD33"
+        },
+        {
+          "colormap": "grass",
+          "x": 128,
+          "y": 0,
+          "rgb": "#FFFFFF"
+        },
+        {
+          "colormap": "grass",
+          "x": 255,
+          "y": 0,
+          "rgb": "#FFFFFF"
+        },
+        {
+          "colormap": "grass",
+          "x": 0,
+          "y": 128,
+          "rgb": "#83C245"
+        },
+        {
+          "colormap": "grass",
+          "x": 128,
+          "y": 128,
+          "rgb": "#7CBD6C"
+        },
+        {
+          "colormap": "grass",
+          "x": 255,
+          "y": 128,
+          "rgb": "#FFFFFF"
+        },
+        {
+          "colormap": "grass",
+          "x": 0,
+          "y": 255,
+          "rgb": "#BFB755"
+        },
+        {
+          "colormap": "grass",
+          "x": 128,
+          "y": 255,
+          "rgb": "#9FB676"
+        },
+        {
+          "colormap": "grass",
+          "x": 255,
+          "y": 255,
+          "rgb": "#80B497"
+        },
+        {
+          "colormap": "grass",
+          "x": 64,
+          "y": 64,
+          "rgb": "#67C451"
+        },
+        {
+          "colormap": "grass",
+          "x": 192,
+          "y": 192,
+          "rgb": "#84B783"
+        },
+        {
+          "colormap": "grass",
+          "x": 32,
+          "y": 224,
+          "rgb": "#AABA5A"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "PNG colormap colors are static source data, not biome coordinate mapping",
+    "Unspecified direct renderer code and species-specific tint rules not authenticated",
+    "No actual game screenshot or final RGB measured",
+    "Colormaps add 2 supporting PNGs, not 2 target textures"
+  ]
+}

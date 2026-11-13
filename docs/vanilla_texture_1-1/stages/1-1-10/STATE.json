@@ -7,10 +7,10 @@
   "stage_id": "1-1-10",
   "material_family": "잎·식생",
   "stage_prefix": "TEX10",
-  "current_revision": "TEX10-R003",
-  "next_revision": "TEX10-R004",
-  "revision_sequence": 3,
-  "revision_status": "R003_user_attested_jar_extraction_first_party_user_repo_source_provenance_28_file_chain_verified_official_and_ingame_pending",
+  "current_revision": "TEX10-R004",
+  "next_revision": "TEX10-R005",
+  "revision_sequence": 4,
+  "revision_status": "R004_two_supporting_colormap_pngs_rgb_crc_adler_verified_atlas_block_directory_version_json_user_extraction_8_target_unchanged",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 8,
@@ -47,32 +47,32 @@
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R003_user_repository_current_png_binary_fetched_8_of_8_git_sha_matches_prior_8_of_8_prior_sha256_crc_evidence_preserved",
+      "status": "R004_user_repo_two_additional_supporting_colormap_pngs_crc32_and_adler32_verified;8_target_png_prior_sha_crc_preserved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "rgba_quantified_8_of_8",
+      "status": "R004_two_supporting_256x256_RGB_colormaps_131072_pixels_extracted;prior_8_target_rgba_metrics_not_recounted",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "D1_D2_D3_source_checked_R002_additional_alpha_mask_boundary_and_azalea_pixel_diff_8_of_8",
+      "status": "D1_D3_prior_checked_D2_new_two_source_colormap_rgb_distributions_measured_and_tint_runtime_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R003_user_jar_extracted_repo_8_model_and_8_blockstate_and_4_parent_json_reference_closure_verified_8_of_8",
+      "status": "R004_static_atlases_blocks_json_directory_block_covers_8_target_texture_paths_and_version_json_internal_meta_checked;R003_target_model_references_preserved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_mojang_official_client_jar_SHA1_manifest_0_of_8_and_actual_ingame_static_0_of_8",
+      "status": "pending_official_Mojang_original_clientjar_sha1_plus_version_manifest_0_of_8_actual_ingame_static_0_of_8",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "TEX10-R003_stage_only_report_four_axis_matrix_source_provenance_and_handoff_saved",
+      "status": "TEX10_R004_stage_only_colormap_atlas_version_four_axis_report_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -85,7 +85,7 @@
     {
       "id": "D2",
       "check": "PNG의 녹색과 생물군계 tintindex의 차이",
-      "status": "source_checked_biome_runtime_pending"
+      "status": "source_checked_R004_foliage_grass_color_map_RGB_65536_each;runtime_biome_sampling_species_override_pending"
     },
     {
       "id": "D3",
@@ -467,15 +467,30 @@
       "official_client_jar_authenticated_count": 0,
       "ingame_static_verified_count": 0,
       "global_legacy_checkpoint": "v38"
+    },
+    {
+      "revision": "TEX10-R004",
+      "kind": "new_2_user_extracted_static_colormap_pixel_analyses_atlas_blocks_json_and_internal_version_json",
+      "source_files_reviewed_as_new": 0,
+      "additional_unique_texture_count": 0,
+      "additional_supporting_colormap_png_count": 2,
+      "additional_supporting_pixels_measured": 131072,
+      "additional_user_source_paths_checked": 4,
+      "report_path": "research/vanilla_textures/by_stage/1-1-10/TEX10-R004/REPORT.md",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-10/TEX10-R004/SUMMARY.json",
+      "colormap_audit_path": "research/vanilla_textures/by_stage/1-1-10/TEX10-R004/COLORMAP_AUDIT.json",
+      "official_client_jar_authenticated_count": 0,
+      "ingame_static_verified_count": 0,
+      "global_legacy_checkpoint": "v38"
     }
   ],
   "next_steps": [
-    "Use user-attested extracted 1.21.11/ repository as priority for any future TEX10 analysis; distinguish source-content checks from provenance of original jar",
-    "Keep separate statuses: user-provided extracted source; existing mirror crosscheck; Mojang official client.jar SHA-1 with Mojang official version manifest; actual in-game static render",
-    "To complete official authentication: obtain full Minecraft 1.21.11 client.jar and official Mojang manifest for whole-jar SHA-1; extracted-file Git blob SHA is not an official JAR certification",
-    "To complete static in-game verification: actual executable game instance/screenshots/biome tint checks required",
-    "Do not add more textures or count old 8 again; no new revision without new evidence; animation deferred",
-    "Before publishing R004, verify latest 1-1-10 STATE/HANDOFF SHAs and that next immutable directory is absent; never alter global v38."
+    "If official 1.21.11 complete client.jar and Mojang version manifest become available, compute full JAR SHA-1 and compare. No official authentication until both bytes and reference hash validate.",
+    "Actual in-game static foliage/grass tint check in reproducible biome/weather/graphics preset/mipmap setups remains pending.",
+    "Use user-attested 1.21.11/ extraction as primary source; source colormap pixel data does not establish biome coordinate mapping or species overrides.",
+    "Keep 8 target textures fixed; do not count 2 auxiliary colormaps as 2 new target textures.",
+    "Animation/movement/frame research deferred; no 3D furniture creation or Project Zomboid conversion.",
+    "Next if new evidence: TEX10-R005 stage only; verify stage state/handoff SHA and next folder absent before any write."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -514,14 +529,21 @@
       "shared_parent_models_directly_read": 4,
       "total_unique_github_paths_directly_read": 28,
       "source_jar_extraction_attribution": "user_attested_not_jar_sha1_authenticated",
-      "evidence_revision": "TEX10-R003"
+      "evidence_revision": "TEX10-R003",
+      "supporting_colormap_files_png_directly_decoded": 2,
+      "supporting_colormap_pixels_examined": 131072,
+      "supplementary_atlas_json_directly_checked": true,
+      "extracted_version_json_directly_checked": true,
+      "total_unique_github_paths_across_R003_R004": 32,
+      "latest_supporting_evidence_revision": "TEX10-R004"
     },
     "existing_mirror_crosscheck": {
       "status": "verified_in_prior_revision_not_recounted",
       "prior_matching_pngs": 8,
       "prior_evidence_revision": "TEX10-R001",
       "new_mirror_files_fetched_in_R003": 0,
-      "repository_source_sha_unchanged": true
+      "repository_source_sha_unchanged": true,
+      "new_mirror_files_fetched_in_R004": 0
     },
     "mojang_official_jar_sha1": {
       "status": "pending",
@@ -538,5 +560,20 @@
   "user_repo_source_reference_closure_checked_count": 8,
   "directly_read_unique_user_repo_source_paths_R003": 28,
   "mirror_crosscheck_prior_R001_kept_count": 8,
-  "mirror_crosscheck_new_R003_count": 0
+  "mirror_crosscheck_new_R003_count": 0,
+  "colormap_static_evidence_R004": {
+    "source_root": "1.21.11/",
+    "new_supporting_colormap_pngs": 2,
+    "source_unique_paths_newly_read": 4,
+    "total_colormap_pixel_positions_examined": 131072,
+    "foliage_unique_rgb": 8837,
+    "grass_unique_rgb": 4536,
+    "grass_white_pixels": 32640,
+    "atlas_block_directory_source_rule_present": true,
+    "version_json_id": "1.21.11",
+    "official_jar_sha1_authenticated": false,
+    "runtime_biome_tint_verified": false,
+    "evidence_revision": "TEX10-R004"
+  },
+  "source_paths_directly_read_distinct_cumulative_R004": 32
 }
