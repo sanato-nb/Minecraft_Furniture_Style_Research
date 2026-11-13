@@ -1,5 +1,20 @@
 # 1-1-07 콘크리트·색면 — 최신 인수인계
 
+## TEX07-R005 (2026-11-13) — 공식 인증 요구 제외
+
+- 사용자의 **“공식 인증 빼”** 지시에 따라 **Mojang 공식 client.jar 전체 SHA-1/메타데이터 인증은 1-1-07의 필수 검증·완료 기준·후속 작업에서 제외**한다. 공식 인증을 완료했다고 간주하는 뜻이 아니다.
+- 앞으로는 사용자 GitHub [`1.21.11/`](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/1.21.11) PNG·JSON 직접 검사 → 필요할 때 비공식 미러 교차 검증 → 정적 모델/색상/UV/블록 상태 분석을 계속한다.
+- **인게임 정적 검증은 별도 유지:** 실제 게임 렌더 관찰 0/7. 캡처/게임 실행 증거가 있으면 진행한다. 애니메이션 분석은 계속 보류한다.
+- R001~R004 기존 보고서·CSV·JSON·커밋·R004 보조 인증 스크립트는 **역사 기록으로 그대로 보존**, 더 이상 인증 스크립트 실행을 다음 단계의 요구사항으로 잡지 않는다. R005는 **정책 변경만**이며 신규 텍스처/픽셀/모델 분석 건수 0.
+- [R005 변경 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R005/REPORT.md), [R005 요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R005/SUMMARY.json). 글로벌 `v38` 및 다른 재질 단계는 불변.
+- **다음 TEX07-R006.** 작업 전 최신 STATE SHA 및 R006 출력 폴더 충돌 확인. 연구 범위 1-1-07 유지, PZ 변환 및 실제 가구 제작 금지.
+
+---
+
+## 아래는 R004 이하 과거 인수인계로, 당시의 공식 인증 언급은 **현재 의무사항이 아닌 역사 기록**이다.
+
+# 1-1-07 콘크리트·색면 — 최신 인수인계
+
 ## TEX07-R004 (2026-11-13) — 사용자 추출본 정적 모델 선언 필드·버전 내부 정보
 
 - **이번 새 근거:** [R004 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R004/REPORT.md)와 사용자 `1.21.11/version.json` 직접 확인: id 1.21.11, protocol 774, world 4671, 리소스팩 75.0, Java 21. 내부 버전 일관성의 근거일 뿐 공식 JAR 인증 아님.

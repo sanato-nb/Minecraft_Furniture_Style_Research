@@ -7,10 +7,10 @@
   "stage_id": "1-1-07",
   "material_family": "콘크리트·색면",
   "stage_prefix": "TEX07",
-  "current_revision": "TEX07-R004",
-  "next_revision": "TEX07-R005",
-  "revision_sequence": 4,
-  "revision_status": "R004_internal_version_metadata_42_face_cullflags_7_display_contexts_official_pending",
+  "current_revision": "TEX07-R005",
+  "next_revision": "TEX07-R006",
+  "revision_sequence": 5,
+  "revision_status": "R005_policy_official_auth_excluded_ingame_static_still_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 7,
@@ -66,8 +66,8 @@
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
-      "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_official_JAR_SHA1_and_ingame_static_mojang_DNS_access_failed",
+      "title": "F 인게임 정적 렌더 검증 (Mojang 공식 JAR 인증 범위 제외)",
+      "status": "pending_ingame_static_only_official_auth_excluded_by_user",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "G": {
@@ -104,7 +104,7 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX07-R003",
-      "evidence_status": "user_extract_and_mirror_31_file_equality_official_JAR_ingame_pending",
+      "evidence_status": "user_extract_and_mirror_crossmatched_static_assets;ingame_pending;official_JAR_auth_excluded_by_user_R005",
       "mirror_git_blob_sha": "3571ebe0e4fd8737d44ec5d3d2bb512054465123",
       "blockstate_git_blob_sha": "5ce10cd26ecf414b24fd265e58064e499207baa6",
       "model_git_blob_sha": "92188f4784c4a13dcec2e7a1bcc291d3480158f4",
@@ -119,7 +119,8 @@
       "user_extracted_verified_revision": "TEX07-R003",
       "user_extracted_png_sha_crc_verified": true,
       "user_extracted_JSON_chain_verified": true,
-      "mirror_full_content_crossmatched": true
+      "mirror_full_content_crossmatched": true,
+      "official_jar_auth_required": false
     },
     {
       "item_id": "1-1-07-002",
@@ -131,7 +132,7 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX07-R003",
-      "evidence_status": "user_extract_and_mirror_31_file_equality_official_JAR_ingame_pending",
+      "evidence_status": "user_extract_and_mirror_crossmatched_static_assets;ingame_pending;official_JAR_auth_excluded_by_user_R005",
       "mirror_git_blob_sha": "fee9134d3916946bc2493f13a7204bf93615f1b7",
       "blockstate_git_blob_sha": "797f0358ea5e32be5d9502cc2d388f2227b57cba",
       "model_git_blob_sha": "a2748b557cbc2dfe74d69ba690c9373ea03e1474",
@@ -146,7 +147,8 @@
       "user_extracted_verified_revision": "TEX07-R003",
       "user_extracted_png_sha_crc_verified": true,
       "user_extracted_JSON_chain_verified": true,
-      "mirror_full_content_crossmatched": true
+      "mirror_full_content_crossmatched": true,
+      "official_jar_auth_required": false
     },
     {
       "item_id": "1-1-07-003",
@@ -158,7 +160,7 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX07-R003",
-      "evidence_status": "user_extract_and_mirror_31_file_equality_official_JAR_ingame_pending",
+      "evidence_status": "user_extract_and_mirror_crossmatched_static_assets;ingame_pending;official_JAR_auth_excluded_by_user_R005",
       "mirror_git_blob_sha": "1b8690f16ae8b77312f13f74ab0fb5ab78dc179b",
       "blockstate_git_blob_sha": "ef1aedb05cd89ade373dbbdc1494f8c22c5bc4a4",
       "model_git_blob_sha": "aed4725eee2ff730159ff85532e15859e9a55818",
@@ -173,7 +175,8 @@
       "user_extracted_verified_revision": "TEX07-R003",
       "user_extracted_png_sha_crc_verified": true,
       "user_extracted_JSON_chain_verified": true,
-      "mirror_full_content_crossmatched": true
+      "mirror_full_content_crossmatched": true,
+      "official_jar_auth_required": false
     },
     {
       "item_id": "1-1-07-004",
@@ -185,7 +188,7 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX07-R003",
-      "evidence_status": "user_extract_and_mirror_31_file_equality_official_JAR_ingame_pending",
+      "evidence_status": "user_extract_and_mirror_crossmatched_static_assets;ingame_pending;official_JAR_auth_excluded_by_user_R005",
       "mirror_git_blob_sha": "193a7738b6448a9476e435eac4441352dfd13e77",
       "blockstate_git_blob_sha": "7c63116c0ec11097f640ea669c26eaf25243e6c8",
       "model_git_blob_sha": "b2423fb60a6c4856f31e09c8160f71fb98d88053",
@@ -200,7 +203,8 @@
       "user_extracted_verified_revision": "TEX07-R003",
       "user_extracted_png_sha_crc_verified": true,
       "user_extracted_JSON_chain_verified": true,
-      "mirror_full_content_crossmatched": true
+      "mirror_full_content_crossmatched": true,
+      "official_jar_auth_required": false
     },
     {
       "item_id": "1-1-07-005",
@@ -212,7 +216,7 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX07-R003",
-      "evidence_status": "user_extract_and_mirror_31_file_equality_official_JAR_ingame_pending",
+      "evidence_status": "user_extract_and_mirror_crossmatched_static_assets;ingame_pending;official_JAR_auth_excluded_by_user_R005",
       "mirror_git_blob_sha": "a9478879f95f5f054f8ad92d06c7de49ae918b52",
       "blockstate_git_blob_sha": "3ac2d62c7fae6fb44b976c47907c76b4dfcf697b",
       "model_git_blob_sha": "98a35206f29e058cbcc24937e981c581a824b771",
@@ -227,7 +231,8 @@
       "user_extracted_verified_revision": "TEX07-R003",
       "user_extracted_png_sha_crc_verified": true,
       "user_extracted_JSON_chain_verified": true,
-      "mirror_full_content_crossmatched": true
+      "mirror_full_content_crossmatched": true,
+      "official_jar_auth_required": false
     },
     {
       "item_id": "1-1-07-006",
@@ -239,7 +244,7 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX07-R003",
-      "evidence_status": "user_extract_and_mirror_31_file_equality_official_JAR_ingame_pending",
+      "evidence_status": "user_extract_and_mirror_crossmatched_static_assets;ingame_pending;official_JAR_auth_excluded_by_user_R005",
       "mirror_git_blob_sha": "096219c0bc23db64a92f7a5b1eeae68e93f7b18c",
       "blockstate_git_blob_sha": "92ca5a20204babfc86ad21f50879c9fa09cc4a12",
       "model_git_blob_sha": "b89815249705e37120bd68a6dab07219b39e1383",
@@ -254,7 +259,8 @@
       "user_extracted_verified_revision": "TEX07-R003",
       "user_extracted_png_sha_crc_verified": true,
       "user_extracted_JSON_chain_verified": true,
-      "mirror_full_content_crossmatched": true
+      "mirror_full_content_crossmatched": true,
+      "official_jar_auth_required": false
     },
     {
       "item_id": "1-1-07-007",
@@ -266,7 +272,7 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX07-R003",
-      "evidence_status": "user_extract_and_mirror_31_file_equality_official_JAR_ingame_pending",
+      "evidence_status": "user_extract_and_mirror_crossmatched_static_assets;ingame_pending;official_JAR_auth_excluded_by_user_R005",
       "mirror_git_blob_sha": "9bd24a5162c0250b5df9a67557e432331cb27db4",
       "blockstate_git_blob_sha": "95c74d4af29e6860b1a6de0a212d8a706d3a0ccb",
       "model_git_blob_sha": "12c16a3b1f63eca546ae10e22e30c76cd87de1f0",
@@ -281,7 +287,8 @@
       "user_extracted_verified_revision": "TEX07-R003",
       "user_extracted_png_sha_crc_verified": true,
       "user_extracted_JSON_chain_verified": true,
-      "mirror_full_content_crossmatched": true
+      "mirror_full_content_crossmatched": true,
+      "official_jar_auth_required": false
     }
   ],
   "revisions": [
@@ -334,14 +341,26 @@
       "official_jar_authenticated": 0,
       "ingame_static_verified": 0,
       "report_path": "research/vanilla_textures/by_stage/1-1-07/TEX07-R004/REPORT.md"
+    },
+    {
+      "revision": "TEX07-R005",
+      "kind": "scope_and_required_validation_policy_change_only",
+      "source_files_reviewed_as_new": 0,
+      "new_unique_texture_paths": 0,
+      "new_pixel_measurements": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-07/TEX07-R005/REPORT.md",
+      "official_jar_authentication_required": false,
+      "ingame_static_verified": 0,
+      "previous_evidence_preserved": true
     }
   ],
   "next_steps": [
-    "R005 start by checking current_revision TEX07-R004 and STATE SHA and that output directory is absent.",
-    "Use user-provided 1.21.11/ as primary source; retain mirror crosscheck separately.",
-    "To complete official verification obtain actual owned original client.jar binary plus Mojang online metadata; invoke R004 VERIFY_CLIENT_JAR.py with R003 SOURCE_LEDGER.csv, then manually review evidence.",
-    "Actual game runtime or user-provided static screenshots required to verify in-game rendered colors/culling.",
-    "Keep animation deferred, no PZ conversion, no furniture modeling, no edits outside this stage or v38."
+    "Before R006: reread stage STATE.json, verify current_revision TEX07-R005 and absence of R006 output directory.",
+    "Use user GitHub 1.21.11/ extracted files as primary static asset source; crosscheck mirror only where useful.",
+    "Continue static texture/model/UV/blockstate evidence work without duplicating R001-R004 verified measurements.",
+    "In-game STATIC surfaces can be verified only when real Minecraft runtime/captures are available.",
+    "Do not pursue Mojang official whole-JAR authentication; excluded by user request R005.",
+    "Keep animations deferred; no Project Zomboid conversion or furniture 3D modeling; preserve global v38 and other stages."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -374,11 +393,13 @@
     "official_mojang_artifact": {
       "original_jar_sha1_authenticated": false,
       "texture_paths_authenticated": 0,
-      "status": "pending"
+      "status": "excluded_by_user_request_R005",
+      "included_in_completion_criteria": false,
+      "historical_values_preserved": true
     },
     "ingame_static_render": {
       "texture_paths_verified": 0,
-      "status": "pending"
+      "status": "pending_game_runtime_or_static_capture"
     }
   },
   "user_extracted_verified_count": 7,
@@ -399,5 +420,16 @@
     "shared_display_contexts": 7,
     "inherited_gui_light": "side",
     "ingame_render_confirmed": false
-  }
+  },
+  "official_authentication_required": false,
+  "official_authentication_policy": "excluded_by_user_request_2026-11-13",
+  "official_authentication_status": "not_applicable_excluded_not_a_blocker",
+  "official_auth_historical_fields_are_nonblocking": true,
+  "active_verification_axes": [
+    "user_provided_1.21.11_PNG_JSON_assets",
+    "independent_mirror_crosscheck",
+    "static_RGBA_color_UV_model_blockstate",
+    "ingame_static_render_when_evidence_available"
+  ],
+  "original_jar_sha1_authentication_ready_procedure_role": "historical_optional_only_not_required_or_scheduled"
 }

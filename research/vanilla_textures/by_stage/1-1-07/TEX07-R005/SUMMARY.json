@@ -1,0 +1,34 @@
+{
+  "stage_id": "1-1-07",
+  "revision": "TEX07-R005",
+  "date": "2026-11-13",
+  "change_type": "verification_policy_change_only",
+  "user_instruction": "공식 인증 빼",
+  "required_verification_axes": [
+    "user_provided_extracted_assets",
+    "mirror_crosscheck_when_useful",
+    "static_texture_model_UV_state",
+    "ingame_static_render"
+  ],
+  "excluded_validation_axis": "Mojang_official_whole_JAR_SHA1_and_metadata_authentication",
+  "official_authentication_required": false,
+  "official_authentication_completion_state": "excluded_not_applicable",
+  "in_game_verification_required_for_ingame_claims": true,
+  "ingame_static_verified_count": 0,
+  "previously_verified_user_extracted_pngs": 7,
+  "previously_crossmatched_asset_files": 31,
+  "new_unique_textures_verified": 0,
+  "new_model_or_pixel_measurements": 0,
+  "existing_unique_texture_ids": 7,
+  "previous_revisions_preserved": [
+    "TEX07-R001",
+    "TEX07-R002",
+    "TEX07-R003",
+    "TEX07-R004"
+  ],
+  "historical_official_verifier_retained_but_not_required": "research/vanilla_textures/by_stage/1-1-07/TEX07-R004/VERIFY_CLIENT_JAR.py",
+  "next_revision": "TEX07-R006",
+  "global_checkpoint_unchanged": "v38",
+  "animation_deferred": true,
+  "scope_only": "1-1-07"
+}
