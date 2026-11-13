@@ -413,11 +413,11 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "Continue vanilla 01/02 by directly decoding animated campfire/soul fire PNG frame RGBA and matching the 7-element lit vs 5-element off model source UVs, including actual mcmeta.frame timings as source properties not renderer proof.",
-    "Independently authenticate Mojang Minecraft Java 1.21.11 client.jar; public user-uploaded 1.21.11 assets and GitHub mirror do not establish independently authoritative origin.",
-    "Verify actual game model loader multi-part compositing, uvlock, transformed coordinates, culling, animated fire and true in-game appearance; v31 condition evaluation is a JS reproduction of source JSON only.",
-    "Avoid double-counting v31 47 source faces/53 material records and earlier v7/v8 bookshelf 52-rule discovery. Keep v30 grayscale PNG tRNS fix.",
-    "Preserve mod v24 evidence and rights caution for publicly uploaded raw Mojang assets; stage1 final completed remains 0/5."
+    "Animation analysis temporarily deferred by explicit user instruction 2026-11-13; do NOT analyze animated PNG frames, keyframes, clips, flame/book movement or animated in-game validation until user explicitly resumes.",
+    "Continue vanilla 01/02 static models: campfire lit/off static source geometry, additional furniture-like models, original PNG static UV/texture/alpha evidence (do not process animation timelines).",
+    "Independently verify official Mojang 1.21.11 client.jar and original asset hashes; public uploaded asset GitHub and unofficial mirrors do not establish authoritative provenance.",
+    "Verify in-game STATIC orientation, uvlock behavior, culling and lighting using actual game/client implementation, without animated reproduction.",
+    "Preserve past v9/v26/v31 animation metadata/evidence without deleting it, preserve mod v24 metrics and copyright caveat, completion remains 0/5."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -1556,5 +1556,25 @@
       "research/vanilla_models/v31/10_two_v4_shelf_png_metrics_crosscheck.csv",
       "research/vanilla_models/v31/v31_bookshelf_brewing_campfire_summary.json"
     ]
+  },
+  "user_scope_override": {
+    "updated_at_kst": "2026-11-13",
+    "animation_status": "deferred_by_user_until_explicit_resumption",
+    "do_not_start": [
+      "animation sprite frame-by-frame analysis",
+      "animation clips and keyframe analysis",
+      "movement/replay/animated render validation",
+      "campfire animated flame or lectern/enchanting table book animation validation"
+    ],
+    "allowed_priority": [
+      "vanilla static model JSON geometry and elements",
+      "vanilla PNG texture and explicit/derived UV source-pixel mapping without animation frame analysis",
+      "blockstate static variants and multipart rules",
+      "official Mojang Minecraft Java 1.21.11 client.jar source/hash validation",
+      "in-game static model rotation uvlock culling lighting verification"
+    ],
+    "preserve_existing_animation_research": true,
+    "no_new_research_checkpoint_for_scope_change": true,
+    "stage1_final_completed_substeps": 0
   }
 }

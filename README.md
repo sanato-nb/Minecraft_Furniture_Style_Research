@@ -41,6 +41,10 @@
 
 **학습 전체 5개 작업:** 01 바닐라 텍스처(표본 완료/검증 보류), 02 바닐라 3D(진행 중), 03 가구 모드 모델(v11~v12 실측 진행 중), 04 모드 텍스처·UV(PNG 24개 전체 실화소 및 13모델 571면 UV 표본 정렬 측정), 05 바닐라/모드 비교(5쌍 사전 비교, 최종 검증 미착수). 최종 확정 완료는 **0/5**입니다.
 
+## 작업 우선순위 변경 — 애니메이션 보류 (2026-11-13)
+
+**사용자 최신 작업 지시(2026-11-13): 애니메이션 분석은 일단 보류.** 새로운 애니메이션 프레임 해독, 키프레임·클립 분석, 움직임 재현 및 애니메이션 인게임 검증을 진행하지 않는다. 기존 v9/v26/v31 애니메이션 관련 기록은 삭제하지 않고 보존하되, 새로운 진행도에 포함하지 않는다. 우선순위는 **정적 바닐라 3D 모델·기하·텍스처·UV·블록 상태·정적 렌더링 검증·공식 원본 무결성**이다. 애니메이션 연구는 사용자가 명시적으로 재개를 요청할 때까지 유지 보류.
+
 ## 빠른 탐색
 
 - [**v31 최신 바닐라: 책장·양조기 264상태/47 source 면·6 PNG/모닥불 원본 형상**](research/vanilla_models/v31/00_v31_책장양조기_264상태_47면_PNG실화소_모닥불원본보고서.md) · [59 원본 multipart 규칙](research/vanilla_models/v31/01_bookshelf_brewing_59_original_multipart_rules.csv) · [264 조건 평가](research/vanilla_models/v31/02_bookshelf_256_and_brewing_8_combinations.csv) · [책장 17면×재질 UV 픽셀](research/vanilla_models/v31/04_bookshelf_17_source_face_material_rgba.csv) · [양조기 36면 UV 픽셀](research/vanilla_models/v31/06_brewing_36_face_original_png_rgba.csv) · [기계 summary](research/vanilla_models/v31/v31_bookshelf_brewing_campfire_summary.json). 확정 완료 0/5.
