@@ -1,5 +1,16 @@
 # 1-1-11 — 목재·구조부품 별도 채팅 인수인계
 
+## 최신 독립 릴리스 — TEX11-R002 (2026-11-13)
+
+- **현재 `TEX11-R002`**, 다음 `TEX11-R003`, 전역 레거시 `v38` 유지. 이전 R001/R000은 아래 역사적 문맥으로 보존.
+- 31 PNG 직접 재조회·CRC/zlib/RGBA 파싱 31/31, R001 미러 Git blob SHA 일치 31/31. 모든 PNG는 가로·세로 정확 순환 RGBA 반복 최소 이동이 원본 가로/세로 크기(16 또는 32)와 동일. 좌우 alpha 경계 차이 0/31, 상하 alpha 경계는 cherry_door_bottom(2열), cherry_door_top(6열)만. R001의 서로 다른 문 PNG 경계 4열 비교와 별도.
+- 선반 5종 32×32의 가로 16px 순환 픽셀 일치율은 62.695~65.039%이며 완전 반복 아님. 모델 리프 120/120 Git tree SHA/파일 크기 확인(문56, 다락문36, 비참나무 선반28). 그중 12개만 이번 회차 leaf JSON 본문·부모 SHA 독립 확인, 나머지 108개는 Git tree 수준.
+- 미러 root `1.21.11.json`에 복사된 예상 Mojang client.jar SHA1 `ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd`와 31,152,600바이트 확인했지만 **공식 바이너리 접근 실패**. 공식 JAR 내 PNG 인증 0/31, 인게임 정적 0/31. 애니메이션 금지 계속 유지.
+- 근거 저장: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/research/vanilla_textures/by_stage/1-1-11/TEX11-R002/
+- **다음 TEX11-R003**에서 STATE/HEAD 충돌 검사 후 Mojang 공식 JAR 획득·전체 SHA1·31 PNG 교차 인증, 인게임 정적 UV 경계부터 진행. 다른 단계·루트 v38·과거 불변 폴더 수정 금지.
+
+---
+
 ## 2026-11-13 신규 독립 검증 — TEX11-R001
 
 - 단계 최신 버전 **TEX11-R001**, 다음 **TEX11-R002**. 기존 전역 v38 불변. 아래 R000 계획 문구는 최초 설정 당시 기록이다.
