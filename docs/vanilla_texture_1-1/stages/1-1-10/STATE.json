@@ -28,7 +28,7 @@
     "version_policy": "docs/vanilla_texture_1-1/ISOLATED_CHAT_VERSIONING.md",
     "output_root": "research/vanilla_textures/by_stage/1-1-10/"
   },
-  "source_note": "애니메이션/흔들림 연구는 보류; 정적 이미지와 인게임 정적 검증만 허용.",
+  "source_note": "애니메이션/흔들림 연구는 보류; 정적 이미지와 인게임 정적 검증만 허용. 사용자 지시(2026-11-13): 공식 JAR 인증 필수 절차 제외; 인게임 정적 검증은 유지.",
   "allowed_write_paths": [
     "docs/vanilla_texture_1-1/stages/1-1-10/HANDOFF.md",
     "docs/vanilla_texture_1-1/stages/1-1-10/STATE.json",
@@ -66,8 +66,8 @@
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
-      "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_official_Mojang_original_clientjar_sha1_plus_version_manifest_0_of_8_actual_ingame_static_0_of_8",
+      "title": "F 인게임 정적 검증 (공식 Mojang JAR 인증 제외)",
+      "status": "pending_ingame_static_0_of_8; official_mojang_original_clientjar_sha1_excluded_by_user_not_required",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "G": {
@@ -128,7 +128,10 @@
         },
         "mojang_official_original_jar": {
           "authenticated": false,
-          "jar_sha1_verified_against_mojang_manifest": false
+          "jar_sha1_verified_against_mojang_manifest": false,
+          "policy_status": "excluded_by_user_not_required",
+          "required": false,
+          "in_completion_denominator": false
         },
         "ingame_static_render": {
           "verified": false
@@ -169,7 +172,10 @@
         },
         "mojang_official_original_jar": {
           "authenticated": false,
-          "jar_sha1_verified_against_mojang_manifest": false
+          "jar_sha1_verified_against_mojang_manifest": false,
+          "policy_status": "excluded_by_user_not_required",
+          "required": false,
+          "in_completion_denominator": false
         },
         "ingame_static_render": {
           "verified": false
@@ -210,7 +216,10 @@
         },
         "mojang_official_original_jar": {
           "authenticated": false,
-          "jar_sha1_verified_against_mojang_manifest": false
+          "jar_sha1_verified_against_mojang_manifest": false,
+          "policy_status": "excluded_by_user_not_required",
+          "required": false,
+          "in_completion_denominator": false
         },
         "ingame_static_render": {
           "verified": false
@@ -251,7 +260,10 @@
         },
         "mojang_official_original_jar": {
           "authenticated": false,
-          "jar_sha1_verified_against_mojang_manifest": false
+          "jar_sha1_verified_against_mojang_manifest": false,
+          "policy_status": "excluded_by_user_not_required",
+          "required": false,
+          "in_completion_denominator": false
         },
         "ingame_static_render": {
           "verified": false
@@ -292,7 +304,10 @@
         },
         "mojang_official_original_jar": {
           "authenticated": false,
-          "jar_sha1_verified_against_mojang_manifest": false
+          "jar_sha1_verified_against_mojang_manifest": false,
+          "policy_status": "excluded_by_user_not_required",
+          "required": false,
+          "in_completion_denominator": false
         },
         "ingame_static_render": {
           "verified": false
@@ -333,7 +348,10 @@
         },
         "mojang_official_original_jar": {
           "authenticated": false,
-          "jar_sha1_verified_against_mojang_manifest": false
+          "jar_sha1_verified_against_mojang_manifest": false,
+          "policy_status": "excluded_by_user_not_required",
+          "required": false,
+          "in_completion_denominator": false
         },
         "ingame_static_render": {
           "verified": false
@@ -374,7 +392,10 @@
         },
         "mojang_official_original_jar": {
           "authenticated": false,
-          "jar_sha1_verified_against_mojang_manifest": false
+          "jar_sha1_verified_against_mojang_manifest": false,
+          "policy_status": "excluded_by_user_not_required",
+          "required": false,
+          "in_completion_denominator": false
         },
         "ingame_static_render": {
           "verified": false
@@ -415,7 +436,10 @@
         },
         "mojang_official_original_jar": {
           "authenticated": false,
-          "jar_sha1_verified_against_mojang_manifest": false
+          "jar_sha1_verified_against_mojang_manifest": false,
+          "policy_status": "excluded_by_user_not_required",
+          "required": false,
+          "in_completion_denominator": false
         },
         "ingame_static_render": {
           "verified": false
@@ -485,12 +509,13 @@
     }
   ],
   "next_steps": [
-    "If official 1.21.11 complete client.jar and Mojang version manifest become available, compute full JAR SHA-1 and compare. No official authentication until both bytes and reference hash validate.",
+    "Skip all Mojang official client.jar certification, full JAR SHA-1, official version manifest matching, and authentication-based completion requirements per user request; historical results remain retained.",
     "Actual in-game static foliage/grass tint check in reproducible biome/weather/graphics preset/mipmap setups remains pending.",
     "Use user-attested 1.21.11/ extraction as primary source; source colormap pixel data does not establish biome coordinate mapping or species overrides.",
     "Keep 8 target textures fixed; do not count 2 auxiliary colormaps as 2 new target textures.",
     "Animation/movement/frame research deferred; no 3D furniture creation or Project Zomboid conversion.",
-    "Next if new evidence: TEX10-R005 stage only; verify stage state/handoff SHA and next folder absent before any write."
+    "Next if new evidence: TEX10-R005 stage only; verify stage state/handoff SHA and next folder absent before any write.",
+    "Use 3 active evidence axes: user-provided extraction source, prior mirror crosscheck, actual in-game static verification; do not count excluded official authentication as pending or as denominator."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -498,7 +523,8 @@
   "scope_excluded": [
     "Project Zomboid conversion",
     "actual furniture 3D asset building",
-    "animation study until explicitly resumed"
+    "animation study until explicitly resumed",
+    "Mojang official client.jar certification / SHA-1 manifest comparison as active research requirement"
   ],
   "project_overall_completion_pct": null,
   "do_not_count_planning_as_research": true,
@@ -546,15 +572,19 @@
       "new_mirror_files_fetched_in_R004": 0
     },
     "mojang_official_jar_sha1": {
-      "status": "pending",
+      "status": "excluded_by_user_not_applicable_to_current_research",
       "official_manifest_sha1_checked": false,
       "original_client_jar_bytes_authenticated": false,
-      "files_authenticated_count": 0
+      "files_authenticated_count": 0,
+      "required": false,
+      "in_completion_denominator": false,
+      "historical_count_0_preserved": true
     },
     "in_game_static_render": {
-      "status": "pending",
+      "status": "pending_required_for_actual_render",
       "game_client_executed": false,
-      "files_static_render_verified_count": 0
+      "files_static_render_verified_count": 0,
+      "required": true
     }
   },
   "user_repo_source_reference_closure_checked_count": 8,
@@ -575,5 +605,22 @@
     "runtime_biome_tint_verified": false,
     "evidence_revision": "TEX10-R004"
   },
-  "source_paths_directly_read_distinct_cumulative_R004": 32
+  "source_paths_directly_read_distinct_cumulative_R004": 32,
+  "active_verification_policy": {
+    "effective_date": "2026-11-13",
+    "user_instruction": "Exclude official Mojang original client.jar certification from current research",
+    "required_axes": [
+      "user_provided_extraction",
+      "existing_mirror_crosscheck",
+      "in_game_static_render"
+    ],
+    "excluded_axes": [
+      "mojang_official_jar_sha1"
+    ],
+    "official_jar_sha1_excluded_from_tasks_and_completion_denominator": true,
+    "retain_previous_report_values_as_history": true,
+    "version_bump_for_policy_change": false
+  },
+  "official_client_jar_authentication_policy": "excluded_by_user_historical_count_0_do_not_track_as_pending",
+  "stage_fully_authenticated_and_ingame_verified_count_is_historical_metric": true
 }

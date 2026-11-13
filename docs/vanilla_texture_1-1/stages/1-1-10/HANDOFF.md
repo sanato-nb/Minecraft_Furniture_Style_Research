@@ -103,3 +103,12 @@
 - `atlases/blocks.json`에서 `minecraft:directory` + `source:block` + `prefix:block/` 실제 존재 확인. 대상 8개 경로 `textures/block/...`에 해당하는 규칙이나 `colormap/`은 별도이며 이 아틀라스 정의에는 명시적으로 없음. `version.json`의 1.21.11, Java 21, world version 4671, protocol 774, resource major 75는 사용자 추출본 **내부 버전 자료**, 공식 JAR SHA-1 인증은 아님.
 - [R004 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R004/REPORT.md), [colormap 감사 JSON](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R004/COLORMAP_AUDIT.json), [24개 색상 샘플 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R004/COLORMAP_SAMPLE_PIXELS.csv), [아틀라스·내부 버전](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R004/ATLAS_AND_VERSION.json).
 - 4축: 사용자 추출본 기존 대상 8/8 + 보조 색상표 2개, R001 비공식 미러 기존 8/8(신규 0), Mojang 공식 JAR SHA-1 인증 **0/8**, 인게임 정적 확인 **0/8**. 기존 R001/R002/R003 불변, 공통 `v38` 불변, 애니메이션 보류. 현재 `TEX10-R004`, 다음 신규 증거 시 `TEX10-R005`.
+
+---
+
+## 운영 범위 변경 — 2026-11-13 · 공식 인증 제외 (릴리스 버전 증가 없음)
+
+- 사용자 직접 지시에 따라 **Mojang 공식 `client.jar` 전체 SHA-1 및 공식 버전 매니페스트 대조는 현재 연구의 검증 절차·완료조건·미완료 집계에서 제외**. 더 이상 공식 인증을 시도하거나 필수 과제로 요구하지 않음.
+- 현재 **적용되는 3가지 검증 축**: ① 사용자 제공 `1.21.11/` 추출본 실제 내용 검증, ② 기존 비공식 미러 교차 검증, ③ **실제 Minecraft 인게임 정적 렌더 확인**. ③은 아직 0/8로 남아 있음.
+- 과거 `TEX10-R001`~`TEX10-R004` 보고서의 4축 상태표·`official 0/8` 표시는 **그 시점의 역사적 기록**이므로 고치거나 삭제하지 않음. 현재 연구의 공식 인증 상태는 **미완료(pending)가 아니라 정책상 제외(excluded / not applicable)**이며 완료율 분모에 포함하지 않음.
+- **현재 버전 `TEX10-R004` 유지, 다음 신규 근거를 저장할 때 `TEX10-R005`**. 이는 연구 실측이 아니라 검증 범위 정책 변경이므로 별도 R005 결과물을 만들지 않음. 전체 `v38` 및 다른 단계 무변경. 애니메이션 분석/가구 3D 제작/Project Zomboid 변환은 기존대로 보류·제외.
