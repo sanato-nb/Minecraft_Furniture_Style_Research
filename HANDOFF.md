@@ -1,7 +1,7 @@
 # 인수인계 · Minecraft Furniture Style Research
 
 > **새 채팅 진입점 / 단일 인수인계 기준 문서**  
-> 최종 확인일: **2026-11-13 (KST)** · 현재 체크포인트: **v31**
+> 최종 확인일: **2026-11-13 (KST)** · 현재 체크포인트: **v32**
 
 **사용자 최신 작업 지시(2026-11-13): 애니메이션 분석은 일단 보류.** 새로운 애니메이션 프레임 해독, 키프레임·클립 분석, 움직임 재현 및 애니메이션 인게임 검증을 진행하지 않는다. 기존 v9/v26/v31 애니메이션 관련 기록은 삭제하지 않고 보존하되, 새로운 진행도에 포함하지 않는다. 우선순위는 **정적 바닐라 3D 모델·기하·텍스처·UV·블록 상태·정적 렌더링 검증·공식 원본 무결성**이다. 애니메이션 연구는 사용자가 명시적으로 재개를 요청할 때까지 유지 보류.  
 > 저장소: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research  
@@ -19,15 +19,15 @@
 
 | 번호 | 범위 | 2026-11-13 상태 |
 |---|---|---|
-| 01 | 바닐라 재질·텍스처 | 기존 v4 **150/150 선정 표본** 유지, v31 **원본 PNG 6종·1,536픽셀 직접 RGBA**(2경로 v4 표본 중복, 4경로 v4 표본 밖). 전체 게임·공식 JAR·인게임은 미완료 |
-| 02 | 바닐라 3D 형태·모델 JSON·UV·상태·특수 렌더링 | v30 91면/93면×재질 계승, v31 책장+양조기 **59 multipart source 규칙·264합성 조건 전수 JS 평가**, **47 source face/53재질면·3,808 원본 PNG 텍셀 사용**, 모닥불 상태 원본 요소/애니메이션 메타 사전 분석. 실제 런타임/공식 JAR 미검증 |
+| 01 | 바닐라 재질·텍스처 | 기존 **150/150 선정표본** 유지. v32 정적 통·베틀·작업대에 쓰이는 원본 PNG **25경로/6,400픽셀** 전 RGBA 직접 디코딩(완전 불투명6,400), 기존 v4 표본 **12경로 중복/13경로 밖**. 공식 Mojang client.jar/인게임 미검증 |
+| 02 | 바닐라 3D 형태·모델 JSON·UV·상태·특수 렌더링 | v32 정적 바닐라 **6블록/7 leaf**의 `cube` 부모 1요소/6원본면 상속(leaf별 6면×7=**42면 재질 사용 인스턴스**), **암시적 full-face UV 추론**·10,752 texel-uses, 6 blockstates/20 variants. `barrel` 열림·닫힘 top PNG **132/256 위치 색 변화**. 애니메이션 보류/공식 JAR 미검증 |
 | 03 | 가구 모드 3D 모델 | **v24: 의자 leaf 39개 제작자 원본 JSON·Git SHA 직접 검사**, 누적 Another **204 leaf**; 신규 10 상태 Another 모델 경로 **91/91** 읽기 완료. 원형 69/블록 상태 22/177 유지, Handcrafted 원형 120/leaf16, Macaw 모델 0 |
 | 04 | 가구 모드 텍스처·UV·팔레트 | **Another 모드 원본 PNG 151종/실제 UV RGBA 3,329면(기존 2,210+v23 1,119), Handcrafted 24 PNG/784면 → 두 모드 PNG 175종/면 4,113인스턴스.** 새 PNG 42종·모드 면 1,119 직접 원본 화소, 공식 바닐라 dirt 16면/oak_planks 2면·전체/인게임 미검증. |
 | 05 | 바닐라 ↔ 가구 모드 비교·공통 특성 검증 | **사전 비교: 의자·벤치·소파 5쌍 비교표만 작성, 바닐라·인게임 최종 검증 미시작** |
 
 **확정 완료 0/5개.** 01의 100%는 **표본 수 목표**만 의미한다. 02는 미리 합의한 전체 분석 대상이 없어 퍼센트를 임의로 계산하면 안 된다.
 
-## 2. 누적 연구 결과: v1–v31
+## 2. 누적 연구 결과: v1–v32
 
 | 체크포인트 | 내용 | 확인할 자료 |
 |---|---|---|
@@ -60,6 +60,7 @@
 | v29 | 바닐라 참나무 울타리문 **4원형 전체 160 source UV면**에 기존 `oak_planks` 실제 RGBA **1,952회**, 열림 6요소 변화/담장 연결 시 전 요소 y -3. PNG 독립 Pillow·Git SHA/기존 v4 SHA-256 교차검증 | [v29 원본 픽셀/기하 보고서](research/vanilla_models/v29/00_v29_울타리문160면_실제PNG_UV_열림담장좌표비교보고서.md) |
 | v30 | 바닐라 독서대·숫돌·화분·마법부여대·모루 원형 **5모델/91소스 면·93재질면/18 PNG 4,608픽셀** 직접 실화소 검증(6,012 texel-uses). v26 석재절단기 `tRNS` 누락 수치 독립 Pillow 정정 | [v30 검증·정정 보고서](research/vanilla_models/v30/00_v30_바닐라5모델_91면UV_18PNG_RGBA_투명도정정보고서.md) |
 | v31 | 끌로 조각한 책장52·양조기7 `multipart` 규칙 원본 **59**, 합성 입력 256+8=**264개 전수 평가**. 원본 면 **47개/53면×재질** 실제 PNG 3,808 texel-uses(불투명3,052·투명756), PNG6종 전 화소. 모닥불 원형 7요소/꺼짐5요소·`mcmeta` 사전 조사 | [v31 직접 실측 보고서](research/vanilla_models/v31/00_v31_책장양조기_264상태_47면_PNG실화소_모닥불원본보고서.md) |
+| v32 | 사용자 요청대로 **애니메이션 분석 보류**. 통(닫힘/열림)·베틀·4작업대 7 leaf가 공통 `cube` 형상 상속; **42면×재질 인스턴스(공통 원본 선언면은 6)**, PNG **25경로/6,400픽셀 전 RGBA**(전부 불투명), 암시적 전체면 UV 기반 **10,752 uses**, blockstates **20 variants**, 통 윗면 두 PNG 실제 **132픽셀 차이** | [v32 정적 모델·PNG 연구보고서](research/vanilla_models/v32/00_v32_정적통베틀작업대_25PNG_42면암시UV_20상태보고서.md) |
 
 ### 실제 SQLite에서 확인된 행 수 (v10까지의 바닐라 DB)
 
@@ -281,6 +282,14 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 - 모닥불 `template_campfire` 7요소/32면(그중 0두께2·회전2), `campfire_off` 5요소/28면(0두께0), 일반·영혼 모닥불의 blockstate 8+8변형, 불꽃 `.png.mcmeta` **frametime=2** 직접 확인. **모닥불 원본 PNG 자체/프레임 알파 면별 실화소는 v31에서 미측정**.
 - 공식 Mojang 1.21.11 `client.jar` 독립 검증·게임의 UVlock/실제 렌더·책장/병/불꽃 시각 검증은 **미완료**, v24 모드 수치 그대로, 단계 종료 **0/5**.
 
+### v32 정적 통·베틀·작업대 7 leaf의 25 PNG 전 화소·정육면체 상속 검증 (2026-11-13)
+
+- [v32 전체 보고서](research/vanilla_models/v32/00_v32_정적통베틀작업대_25PNG_42면암시UV_20상태보고서.md) · [7 leaf/3원형 상속 CSV](research/vanilla_models/v32/01_seven_leaf_parent_chain.csv) · [42면 최종 PNG 바인딩](research/vanilla_models/v32/02_42_inherited_cube_face_texture_bindings.csv) · [PNG 12종](research/vanilla_models/v32/03_png_12_full_rgba_metrics.csv) · [PNG 13종](research/vanilla_models/v32/04_png_13_full_rgba_metrics.csv) · [42면의 암시 UV full-face PNG 대조](research/vanilla_models/v32/05_42_inherited_faces_png_full_rgba_evidence.csv) · [상태20행](research/vanilla_models/v32/07_six_blocks_20_static_state_variants.csv) · [원본 통 윗면 정적 두 PNG 비교](research/vanilla_models/v32/09_barrel_open_closed_rgba_difference.json) · [기계 summary](research/vanilla_models/v32/v32_static_cube_face_png_audit_summary.json).
+- 사용자 GitHub `1.21.11` 원본에서 `barrel`, `barrel_open`, `loom`, `cartography_table`, `fletching_table`, `smithing_table`, `crafting_table` **7 leaf 원본 JSON + `cube/cube_bottom_top/orientable_with_bottom` 3 부모**를 읽음. 7 leaf 자체 요소0, `cube` 원본은 **1요소/6 face 선언**. leaf마다 6면씩 **42면-재질 인스턴스**이며 고유 소스 기하 면 42개를 새로 찾은 것은 **아님**. 기존 v25의 `cube` 상속 구조 일부 근거 중복.
+- 실제 사용되는 **25PNG×16×16=6,400 원본 화소** 전 RGBA 직접 해독(**불투명6,400/완전 투명0**). v4 150선정 표본에 경로 **12개 중복**, 13개 표본 밖. 원본 `cube`에 명시 UV가 없으므로 **16×16 완전한 면에서 암시적으로 유도되는 전면 `[0,0,16,16]`**을 *추론*하여 각 면256 texel-uses, 총 **42×256=10,752 uses**(전부 불투명)을 계산. 실제 게임의 면별 방향·UV 회전·조명 검증은 아님.
+- 블록 상태 원본 **6파일/20 variants** = 통12(6방향×open2), 베틀4, 4종 작업대 각1. `x`비0 10행/`y`비0 9행, `uvlock` 키 부재 20행. 통 `barrel_top` 대 `barrel_top_open` 16×16 원본을 **독립 Pillow PNG/sha** 검증해 **132픽셀 차이(124픽셀 동일)** 실측. **정적 두 상태의 재질 바뀜만 연구, 애니메이션 분석 없음**.
+- **우선순위 고정:** 사용자 지시로 애니메이션 신규 연구 보류. 공식 Mojang 1.21.11 client.jar 출처/해시 인증, 실제 게임 정적 UV 순서·`uvlock`·컬링·조명 검증 미완료. 모드 v24/단계03·04 기록 보존, 최종 완료 판정 **0/5**.
+
 ## 5. 새 채팅이 곧바로 이어갈 실제 작업
 
 **작업 계획서를 반복 작성하지 말고 실제 데이터 분석을 진행한다.**
@@ -305,13 +314,13 @@ GitHub 접근 도구가 SQLite 바이너리 내용을 텍스트로 읽을 수 �
 
 [새 채팅용 프롬프트 파일](docs/NEW_CHAT_START.md)을 열어 내용을 붙여넣거나 아래 한 문장을 사용한다.
 
-> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **v31 체크포인트부터 바닐라 01/02 연구를 우선 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
+> `https://github.com/sanato-nb/Minecraft_Furniture_Style_Research`의 `HANDOFF.md`를 먼저 전체 읽고, `PROGRESS.md`·최신 연구 DB/보고서를 확인해 Minecraft 가구 모델링 학습 프로젝트를 **v32 체크포인트부터 바닐라 01/02 연구를 우선 실제로 이어서 진행해 줘**. 기존 작업을 반복하지 말고 검증된 사실과 미검증 사항을 분리하고, 결과를 GitHub에 업로드한 뒤 HANDOFF/PROGRESS까지 갱신해 줘.
 
-**바로 다음 작업(애니메이션 보류):** 바닐라 01/02의 정적 모델 범위를 확대하고, 특히 모닥불 **켜짐/꺼짐 정적 기하**·모델별 UV/텍스처의 고정 상태를 비교한다. Mojang 공식 1.21.11 client.jar 독립 출처/해시, 실제 게임의 **정적** 모델 방향·UVlock·면 컬링·조명 일치 여부를 검증한다. **불꽃 프레임, 모션·애니메이션, 책 애니메이션 검증은 진행하지 않는다.** v24 모드·v31 연구 결과는 보존하고 최종 완료 0/5를 유지한다.
+**바로 다음 작업(애니메이션 보류):** v32에서 7개의 정적 통·작업대 leaf가 공통 `cube` 6면을 상속해 면별로 25PNG를 연결하는 구조, 20 source variants, 통 닫힘/열림 윗면 132픽셀 차이를 검증했다. **다음은 새로운 바닐라 입체 부품형 가구(정적) 모델의 직접 기하/UV/PNG 계량, 공식 Mojang 1.21.11 client.jar 출처·해시 인증, 실제 게임의 정적 회전·UVlock·음영·컬링 대조**를 우선한다. 사용자 명시 재개 전까지 애니메이션 프레임/모션·책·불꽃 동작은 보류. v24 모드 보존, 최종 0/5.
 
 ## 7. 인수인계 유지 방법
 
-- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v31).
+- **정본:** 저장소 루트의 `HANDOFF.md` (현재 v32).
 - **진행도:** `PROGRESS.md`.
 - **새 채팅 복사용:** `docs/NEW_CHAT_START.md`.
 - **기계 판독 상태:** `handoff/STATE.json`.

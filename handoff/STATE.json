@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-13",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v31",
+  "current_checkpoint": "v32",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -19,7 +19,7 @@
     {
       "id": "01",
       "topic": "vanilla material and texture analysis",
-      "status": "v31_six_png_full_original_rgba_1536_pixels_v4_two_duplicates_official_game_jar_not_verified",
+      "status": "v32_static_cube_leaf_25_source_png_6400_rgba_all_opaque_12_v4_overlap_official_mojang_jar_pending",
       "sample_count": 150,
       "target": 150,
       "v26_pngs_full_rgba_decoded": 8,
@@ -39,12 +39,15 @@
       "v30_erratum_v26": true,
       "v31_png_full_decoded": 6,
       "v31_png_pixels": 1536,
-      "v31_v4_overlap": 2
+      "v31_v4_overlap": 2,
+      "v32_png_count": 25,
+      "v32_png_pixels": 6400,
+      "v32_v4_selected_150_overlap": 12
     },
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v31_bookshelf_brewing_multipart_264_combinations_47_faces_53_material_uv_rgba_samples_campfire_source_preliminary",
+      "status": "v32_static_7_cube_inherited_leaf_faces_42_material_applications_implicit_uv_inferred_20_blockstates_official_runtime_unverified",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -76,7 +79,11 @@
       "v31_source_faces": 47,
       "v31_face_material_records": 53,
       "v31_texel_uses": 3808,
-      "v31_campfire_source_only": true
+      "v31_campfire_source_only": true,
+      "v32_source_face_unique_declarations": 6,
+      "v32_leaf_face_material_applications": 42,
+      "v32_full_face_uv_inferred_texel_uses": 10752,
+      "v32_static_variant_count": 20
     },
     {
       "id": "03",
@@ -413,11 +420,11 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "Animation analysis temporarily deferred by explicit user instruction 2026-11-13; do NOT analyze animated PNG frames, keyframes, clips, flame/book movement or animated in-game validation until user explicitly resumes.",
-    "Continue vanilla 01/02 static models: campfire lit/off static source geometry, additional furniture-like models, original PNG static UV/texture/alpha evidence (do not process animation timelines).",
-    "Independently verify official Mojang 1.21.11 client.jar and original asset hashes; public uploaded asset GitHub and unofficial mirrors do not establish authoritative provenance.",
-    "Verify in-game STATIC orientation, uvlock behavior, culling and lighting using actual game/client implementation, without animated reproduction.",
-    "Preserve past v9/v26/v31 animation metadata/evidence without deleting it, preserve mod v24 metrics and copyright caveat, completion remains 0/5."
+    "Respect user's explicit animation deferral: do NOT conduct new animation, frame-by-frame, keyframe, clip, movement, flame/book animation or animated runtime research until they explicitly resume it.",
+    "Continue vanilla static 01/02: directly measure genuinely new complex furniture-like model geometry, UV/PNG source pixels and static blockstate variants; v32 cube parent source 6 faces and seven leaf-specific material 42 records are not 42 newly declared faces.",
+    "Independently authenticate original Mojang Minecraft Java Edition 1.21.11 client.jar, and compare user-uploaded resource hashes; unofficial repo is not official provenance.",
+    "Validate actual in-game STATIC model orientation, implicit UV winding, uvlock, culling, lighting and blockstate transformed geometry; full-face 16x16 UV in v32 is geometric inference, not actual engine proof.",
+    "Preserve v24 furniture-mod measurements and prior animation study records; user has deferred new animation work and stage1 final completion remains 0/5."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -1576,5 +1583,59 @@
     "preserve_existing_animation_research": true,
     "no_new_research_checkpoint_for_scope_change": true,
     "stage1_final_completed_substeps": 0
+  },
+  "v32": {
+    "date_kst": "2026-11-13",
+    "priority": "vanilla_01_02_static_only",
+    "report": "research/vanilla_models/v32/00_v32_정적통베틀작업대_25PNG_42면암시UV_20상태보고서.md",
+    "animation_status": "deferred_by_user",
+    "blocks": 6,
+    "leaf_models": 7,
+    "source_parent_models_covered": 3,
+    "leaf_own_elements_count": 0,
+    "cube_unique_source_declaration_elements": 1,
+    "cube_unique_source_declaration_faces": 6,
+    "leaf_face_material_application_records": 42,
+    "source_face_uv_explicit": false,
+    "full_face_uv_geometrically_inferred": true,
+    "source_pngs_full_rgba_decoded": 25,
+    "source_png_pixels": 6400,
+    "source_png_opaque": 6400,
+    "source_png_transparent": 0,
+    "source_png_partial": 0,
+    "source_face_material_texel_uses_inferred": 10752,
+    "source_face_material_texel_uses_opaque": 10752,
+    "old_v4_150_png_overlap": 12,
+    "png_outside_v4_150_sample": 13,
+    "old_v4_png_metrics_match": "12/12",
+    "source_blockstate_json": 6,
+    "source_variants": 20,
+    "source_barrel_variants": 12,
+    "source_loom_variants": 4,
+    "source_other_four_worktables_variants_each": 1,
+    "source_rotation_x_nonzero": 10,
+    "source_rotation_y_nonzero": 9,
+    "source_uvlock_key_absent": 20,
+    "barrel_top_static_png_difference_pixels": 132,
+    "barrel_top_same_pixels": 124,
+    "barrel_top_and_open_pngs_independent_pillow_git_sha_match": "2/2",
+    "mojang_official_client_jar_verified": false,
+    "ingame_static_uv_render_verified": false,
+    "runtime_implicit_uv_orientation_verified": false,
+    "mod_v24_unchanged": true,
+    "stage1_completed_substeps": 0,
+    "stage1_total_substeps": 5,
+    "output_paths": [
+      "research/vanilla_models/v32/01_seven_leaf_parent_chain.csv",
+      "research/vanilla_models/v32/02_42_inherited_cube_face_texture_bindings.csv",
+      "research/vanilla_models/v32/03_png_12_full_rgba_metrics.csv",
+      "research/vanilla_models/v32/04_png_13_full_rgba_metrics.csv",
+      "research/vanilla_models/v32/05_42_inherited_faces_png_full_rgba_evidence.csv",
+      "research/vanilla_models/v32/06_v4_overlap_png_byte_pixel_crosscheck.csv",
+      "research/vanilla_models/v32/07_six_blocks_20_static_state_variants.csv",
+      "research/vanilla_models/v32/08_barrel_two_top_png_pillow_sha256.csv",
+      "research/vanilla_models/v32/09_barrel_open_closed_rgba_difference.json",
+      "research/vanilla_models/v32/v32_static_cube_face_png_audit_summary.json"
+    ]
   }
 }
