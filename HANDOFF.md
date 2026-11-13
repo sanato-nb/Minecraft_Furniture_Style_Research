@@ -8,6 +8,13 @@
 > **새 채팅에서 먼저 이 문서, [PROGRESS.md](PROGRESS.md), [SOURCES_AND_LIMITS.md](SOURCES_AND_LIMITS.md)를 읽고 기존 작업을 이어간다.**
 
 
+## 1-1 실행 작업번호 확정 — 재질 11분류·150 텍스처 추적표 (2026-11-13)
+
+- [1-1 작업 통합 목록과 A–G 검증 절차](docs/vanilla_texture_1-1/README.md) · [11개 번호별 독립 실행 문서](docs/vanilla_texture_1-1/) · [v4 150개 텍스처 파일별 번호·원본 SHA256 추적 CSV](research/vanilla_textures/1-1_150_texture_numbered_task_ledger.csv).
+- 고정 번호 `1-1-01` 목재·원목18 / `1-1-02` 석재·벽돌17 / `1-1-03` 금속·금속부품16 / `1-1-04` 직물·양털9 / `1-1-05` 유리6 / `1-1-06` 도기·유광도기8 / `1-1-07` 콘크리트·색면7 / `1-1-08` 복합·기능면21 / `1-1-09` 토양·지면9 / `1-1-10` 잎·식생8 / `1-1-11` 목재·구조부품31 = **11개 작업/150개 고유 PNG 경로**.
+- 분류별 A 기존 증거, B 원본 무결성, C RGBA·명암 등 실제 화소, D 각 재질 특화 비교, E 정적 모델·UV 결합, F 공식 JAR·인게임 검증, G 완료 근거·파일 갱신. 사용자가 `1-1-04 시작해줘`처럼 번호 지정하면 해당 문서에서 이어갈 것.
+- **계획만 수립했으며 신규 PNG·모델을 추가 분석 완료한 것은 아님.** v4의 150/150 표본 측정 및 v38 기존 증거는 유지하고, A–G 새 체크박스는 0부터 시작. 공식 Mojang client.jar/인게임 확인은 여전히 미완료. **체크포인트 v38과 상위 세부과제 최종 완료 0/5 불변**, 애니메이션 보류 및 기존 v24 모드 결과 보존.
+
 ## v38 최신 — 참나무 선반 7 leaf/7 template·32 정적 상태·38 UV 원본 실화소 (2026-11-13)
 
 - [v38 오크 선반 상세 보고서](research/vanilla_models/v38/00_v38_오크선반7리프7부모_32상태_38UV실화소분석.md) · [리프/부모 7+7 SHA·기하](research/vanilla_models/v38/01_oak_shelf_7_leaf_7_template_source_sha_geometry.csv) · [원본 38 UV면](research/vanilla_models/v38/02_oak_shelf_38_original_declared_faces_explicit_uv.csv) · [24 multipart 규칙](research/vanilla_models/v38/03_oak_shelf_24_original_blockstate_multipart_rules.csv) · [32 상태 전수 평가](research/vanilla_models/v38/04_oak_shelf_32_static_blockstate_combinations_evaluated.csv) · [2 PNG 원본 검사](research/vanilla_models/v38/05_oak_shelf_2_original_png_pillow_rgba_crc_sha.csv) · [38면 전 화소 실측](research/vanilla_models/v38/06_oak_shelf_38_face_original_png_uv_rgba_regions.csv).
