@@ -215,3 +215,14 @@
 - 결과 10개 경로 `research/vanilla_textures/by_stage/1-1-10/TEX10-R012/`에 기록: 두 raw RGBA zlib+base64 텍스트(`BASE_RGBA_ZLIB_B64.txt` 8192 raw bytes, `MIP_RGBA_ZLIB_B64.txt` 2720 raw bytes), `DATASET_LAYOUT.json`/`REPRODUCE.md` 해시·복구 방법, `SOURCE_PREPROCESS_8.csv`, `MIP_LEVEL4_RGB_8.csv`, `RGB_PREPROCESS_CLASS_AUDIT.json`, `REPORT.md`, `SUMMARY.json`, `SOURCE_LEDGER.csv`.
 - [R012 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R012/REPORT.md) 및 [데이터 복원 형식](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R012/DATASET_LAYOUT.json).
 - **현재 TEX10-R012, 다음 TEX10-R013**. 추가 정적 연구는 Java 실제 소스 메서드 실행 검증/atlas 데이터 검증 등이 후보. 인게임 검증 의무 제외, 전체 JAR SHA1 필수 제외(인증 성공 아님), 애니메이션/PZ/가구 작업 보류, 이전 Rxxx/전역 v38/다른 단계 불변.
+
+---
+
+## TEX10-R013 — 2026-11-13 · SpriteContents/Loader/Atlas UV와 원본 밉맵 수준 상한
+
+- 신규 고유 원본 클래스 5개: `ilk.class` SpriteContents, `ill.class` SpriteLoader, `ilp.class` Sprite, `ilt.class` SpriteOpener, `bgj.class` MathHelper. Git blob SHA·메서드·호출 근거는 R013 결과에 기록. 누적 소스 경로 **148 → 153**; 기존 R010~R012 자료 중복 가산 없음.
+- `ilk` 생성자에서 원본 metadata 전략(`ile`)·cutoff bias를 저장하며 `ilk.a(I)V`가 이전 R010의 `ild.a(...)` MipmapHelper를 실제 호출함 확인. `ill` 568바이트 stitch 메서드는 요청 mip 수를 각 스프라이트 가로세로의 최하위 set bit와 전역 atlas sprite 조건으로 제한하고 `ilp`를 생성.
+- 기존 R011 8 PNG 모두 16×16 → **각 텍스처 단독 최대 L4**. 이 값은 L4 사용 인증이 아님. 실제 atlas 수치·설정 및 8종 실제 mip 선택은 미확정. `ilp` 원본에서 UV = (atlas x/y + padding + 지역 좌표) / atlas width/height 계산식 직접 검증, 실제 수치 UV 미확정.
+- [R013 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R013/REPORT.md), [8종 mip 상한 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R013/ATLAS_MIP_LIMIT_8.csv), [atlas UV 수식](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R013/ATLAS_UV_FORMULAS.json), [클래스 호출 근거](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R013/SPRITE_SOURCE_CALLGRAPH_AUDIT.json).
+- R012 680 full RGBA 재생성은 과거의 **source-guided Python 실험**을 계승, R013에 신규 RGBA 계산 0. 원본 JVM 실행 비교/실제 GPU 아틀라스 인증은 완료 주장하지 않음. 인게임 검증 의무 제외, 공식 전체 client.jar SHA1 의무 제외(인증 성공 아님), 애니메이션/PZ/가구 제작 보류.
+- **현재 TEX10-R013 / 다음 TEX10-R014**. 구체 SpriteOpener lambda/atlas 배치 문맥의 정적 검증이 남아 있으면 추가 근거 있을 때만. 다른 연구 단계·전역 `v38`·기존 R001–R012 무변경.

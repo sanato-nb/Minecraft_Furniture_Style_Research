@@ -1,0 +1,145 @@
+{
+  "schema": "TEX10-R013/JVM-sprite-loader-atlas-call-graph/v1",
+  "revision": "TEX10-R013",
+  "game": "Minecraft Java 1.21.11",
+  "primary_sources": [
+    {
+      "path": "1.21.11/ilk.class",
+      "sha": "71909dbd8a8d20910b3eaa00c9846273068a0c1f",
+      "mapped_name": "SpriteContents",
+      "role": "holds original image, metadata strategy/bias and calls mipmap helper"
+    },
+    {
+      "path": "1.21.11/ill.class",
+      "sha": "246d1344510e5a6e0a2918e291a1c470c31e6e47",
+      "mapped_name": "SpriteLoader",
+      "role": "clamps requested mip levels using all stitched sprites and schedules generateMipmaps"
+    },
+    {
+      "path": "1.21.11/ilp.class",
+      "sha": "076a9076dd3aaaf92265a78f07e05addad0449bc",
+      "mapped_name": "Sprite",
+      "role": "records atlas padded bounds and maps normalized sprite UV to atlas UV"
+    },
+    {
+      "path": "1.21.11/ilt.class",
+      "sha": "59ad784d006bb046b47ca097de5bd006f2667500",
+      "mapped_name": "SpriteOpener",
+      "role": "static source: SpriteContents loader interface, create lambda; loadSprite abstract"
+    },
+    {
+      "path": "1.21.11/bgj.class",
+      "sha": "89604a1a7dfc4e63be8bc0eb170352b59c7f5374",
+      "mapped_name": "MathHelper",
+      "role": "power-of-two and logarithmic mip-level helper"
+    }
+  ],
+  "reference_inherited_classes": [
+    "1.21.11/ild.class (R010), MipmapHelper",
+    "1.21.11/inj.class (R010), TextureResourceMetadata",
+    "1.21.11/fyh.class (R012), NativeImage"
+  ],
+  "secondary_name_mapping": "Fabric Yarn 1.21.11 class documentation used only for class-name disambiguation; proof below from user provided bytecode",
+  "call_graph": [
+    {
+      "from": "ilt::loadSprite(Lamo;Lbax;)Lilk; [interface]",
+      "to": "ilk SpriteContents",
+      "verification": "interface and create() dynamic factory read; concrete lambda implementation not separately audited",
+      "source": "1.21.11/ilt.class"
+    },
+    {
+      "from": "ilk::<init>(Lamo;Lina;Lfyh;Optional;List;Optional)",
+      "to": "metadata strategy ile.a AUTO or metadata inj::c()Lile; and bias inj::d()F",
+      "source": "1.21.11/ilk.class",
+      "bytecode_length": 126,
+      "fields": [
+        "ilk.j:Lile;",
+        "ilk.k:F",
+        "ilk.g:[Lfyh;"
+      ]
+    },
+    {
+      "from": "ill::a(Ljava/util/List;ILjava/util/concurrent/Executor;)Lill$a;",
+      "to": "all sprite sizes -> mip level clipping and stitch result",
+      "source": "1.21.11/ill.class",
+      "bytecode_length": 568,
+      "pc_instructions": {
+        "requested_scale": "PC26..29 iconst_1; iload_2; ishl; istore7",
+        "source_image_min_dimension": "PC61..79 Math.min(width,height) then Math.min across sprites",
+        "power_of_two_per_sprite": "PC81..100 Integer.lowestOneBit(width), lowestOneBit(height), Math.min",
+        "reduce_requested_if_needed": "PC102..179 if per-sprite min power-of-two less than requested scale, set max bound",
+        "final_mip_choice": "PC182..256 derives floorLog2(min over sprite/scale) and may lower mipLevel",
+        "additional_option_dependency": "PC258..303 reads runtime options, not inspected as actual user graphics value"
+      }
+    },
+    {
+      "from": "ill::a(ILilp;)V",
+      "to": "ilp::e()Lilk; -> ilk::a(I)V",
+      "bytecode_length": 9,
+      "source": "1.21.11/ill.class",
+      "actual_value_of_I_unobserved": true
+    },
+    {
+      "from": "ilk::a(I)V",
+      "to": "ild::a(Lamo;[Lfyh;ILile;F)[Lfyh;",
+      "bytecode_length": 119,
+      "source": "1.21.11/ilk.class",
+      "input_order": [
+        "sprite id",
+        "prior mip images[]",
+        "selected mip count",
+        "strategy from metadata",
+        "cutoff bias from metadata"
+      ]
+    },
+    {
+      "from": "ill::a(Map,IILilk;III)V",
+      "to": "ilp::<init>(Lamo;Lilk;IIIII)V sprite coordinates/padding",
+      "bytecode_length": 34,
+      "source": "1.21.11/ill.class"
+    },
+    {
+      "from": "ilp::<init>(Lamo;Lilk;IIIII)V",
+      "to": "atlas normalized bounds / later frameUV interpolation",
+      "bytecode_length": 97,
+      "source": "1.21.11/ilp.class"
+    }
+  ],
+  "mip_level_math_helper": {
+    "source": "1.21.11/bgj.class",
+    "sha": "89604a1a7dfc4e63be8bc0eb170352b59c7f5374",
+    "methods": [
+      {
+        "method": "e(I)Z",
+        "code_length": 18,
+        "meaning": "positive power of two test n>0 && ((n & (n-1))==0)"
+      },
+      {
+        "method": "f(I)I",
+        "code_length": 34,
+        "meaning": "ceil integer log2 helper used by g"
+      },
+      {
+        "method": "g(I)I",
+        "code_length": 18,
+        "meaning": "floor integer log2 for positive n: f(n)-(isPowerOfTwo(n)?0:1)"
+      }
+    ],
+    "confirmed_for_16": 4
+  },
+  "per_target_inherited_png_size": {
+    "count": 8,
+    "width": 16,
+    "height": 16,
+    "from": "R011 ORIGINAL_PNG_REHASH_8.csv",
+    "new_PNG_reads_in_R013": 0
+  },
+  "limits": [
+    "No evidence that the eight sampled sprites share one exact atlas or that all four mip levels are requested.",
+    "No loaded resource pack / atlas stitch results, atlas width/height, sprite x/y or padding measured.",
+    "Static code path checked, not GPU screenshot or in-game pixels.",
+    "Original R012 680 RGBA positions remain a Python source-guided experiment, not proof of actual Java JAR output.",
+    "Animation source is out of current scope even if these classes contain animation-related members.",
+    "No global client.jar SHA1 official authentication required per user."
+  ]
+}

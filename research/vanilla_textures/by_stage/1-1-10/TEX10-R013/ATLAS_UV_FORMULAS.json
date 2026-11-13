@@ -1,0 +1,45 @@
+{
+  "schema": "TEX10-R013/atlas-UV-formula-from-user-JVM-class/v1",
+  "source": {
+    "path": "1.21.11/ilp.class",
+    "sha": "076a9076dd3aaaf92265a78f07e05addad0449bc",
+    "method": "<init>(Lamo;Lilk;IIIII)V",
+    "code_bytes": 97
+  },
+  "native_constructor_arguments": {
+    "atlas_id": 1,
+    "sprite_contents": 2,
+    "atlas_width": 3,
+    "atlas_height": 4,
+    "sprite_atlas_cell_x": 5,
+    "sprite_atlas_cell_y": 6,
+    "padding": 7
+  },
+  "observed_static_formula": {
+    "minU": "float(x + padding) / float(atlasWidth)",
+    "maxU": "float(x + padding + spriteContents.width) / float(atlasWidth)",
+    "minV": "float(y + padding) / float(atlasHeight)",
+    "maxV": "float(y + padding + spriteContents.height) / float(atlasHeight)",
+    "frameU": "minU + localNormalizedU * (maxU - minU)",
+    "frameV": "minV + localNormalizedV * (maxV - minV)"
+  },
+  "coordinate_description": "The source constructor includes atlas stitcher placement origin and padding; model 0..16 face UV requires a separate normalized-coordinate mapping before Sprite frame interpolation; no actual atlas placement measured.",
+  "verified_source_methods": [
+    {
+      "method": "ilp::<init>(Lamo;Lilk;IIIII)V",
+      "code_length": 97
+    },
+    {
+      "method": "ilp::a(F)F",
+      "code_length": 19
+    },
+    {
+      "method": "ilp::b(F)F",
+      "code_length": 19
+    }
+  ],
+  "target_texture_original_dimensions": "16x16 each (R011 raw rehash source inherited)",
+  "per_target_numeric_UV_computed": false,
+  "reason_unresolved": "No actual atlasWidth/Height, atlas x/y, padding or current runtime stitcher configuration read",
+  "animation_study": "excluded"
+}
