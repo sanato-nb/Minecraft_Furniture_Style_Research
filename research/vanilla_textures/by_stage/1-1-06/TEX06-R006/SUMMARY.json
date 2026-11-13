@@ -1,0 +1,52 @@
+{
+  "schema": "mc-furniture-texture-stage-result/v1",
+  "date": "2026-11-13",
+  "stage_id": "1-1-06",
+  "revision": "TEX06-R006",
+  "base_revision": "TEX06-R005",
+  "global_checkpoint": "v38",
+  "new_unique_textures": 0,
+  "source_user_png_blobs_unchanged": {
+    "black": "58832984e6700a295c890ab86b568929d36567d5",
+    "white": "a500a876f14d6fab28d140023d32436f28f2512e"
+  },
+  "source_template_json_blob": "c6574a9f94db43f5cae8e925e94ad309bc4f145b",
+  "source_black_blockstates_blob": "e20988dcdafdba18006a35e6a4437bb7d2e78f3f",
+  "source_white_blockstates_blob": "8c64ce09f7c0bf11dad8908ef220917b567673a9",
+  "inherited_R005_pixel_coordinate_CSV_blob": "2bc30b7754348a05ad3494fb26e15ad51d408b90",
+  "inherited_distinct_border_texels_per_image": 60,
+  "new_PNG_decodes_and_sha_CRC_checks": 0,
+  "new_independent_RGBA_texels": 0,
+  "new_world_side_uv_mapping_rows": 64,
+  "new_contextual_edge_score_rows": 512,
+  "source_RGB_pairs_reused_with_new_side_geometry": 8192,
+  "new_side_2x2_facing_hypotheses": 4096,
+  "side_optimum_rows": 16,
+  "side_optimum_for_every_world_face_and_UV_sign": {
+    "black": {
+      "L1": 916,
+      "MAE": "4.770833",
+      "equal": 28
+    },
+    "white": {
+      "L1": 412,
+      "MAE": "2.145833",
+      "equal": 44
+    }
+  },
+  "projection_convention": "right-handed +Y rotation, outward face x-right N:+X E:+Z S:-X W:-Z, y-down=-Y; two UV rotation signs ±",
+  "UV_sign_certified_in_game": false,
+  "side_facing_certified_in_game": false,
+  "ingame_static_verified_count": 0,
+  "Mojang_official_jar_sha1_authentication": "excluded_by_user_not_authenticated",
+  "animation_deferred": true,
+  "PZ_or_3D_furniture_excluded": true,
+  "outputs": [
+    "REPORT.md",
+    "SIDE_FACE_SOURCE_MAP.csv",
+    "SIDE_EDGE_PAIRWISE.csv",
+    "SIDE_PANEL_OPTIMA.csv",
+    "SUMMARY.json",
+    "REPRODUCE_SIDE_PIXEL_AUDIT.py"
+  ]
+}

@@ -7,10 +7,10 @@
   "stage_id": "1-1-06",
   "material_family": "도기·유광도기",
   "stage_prefix": "TEX06",
-  "current_revision": "TEX06-R005",
-  "next_revision": "TEX06-R006",
-  "revision_sequence": 5,
-  "revision_status": "R005_2_user_glazed_PNG_SHA_CRC_redecoded_256_RGB_source_coords_40_top_uv_corners",
+  "current_revision": "TEX06-R006",
+  "next_revision": "TEX06-R007",
+  "revision_sequence": 6,
+  "revision_status": "R006_64_conditional_side_UV_maps_512_edge_comparisons_4096_panels_R005_RGB_inherited",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 8,
@@ -60,15 +60,15 @@
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R005_256_glazed_edge_coordinates_40_item_block_top_corners",
+      "status": "R006_side_world_UV_and_512_conditional_seam_pairwise",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX06-R005"
+      "last_revision": "TEX06-R006"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R005_source_top_UV_pixel_coordinate_conditionals_game_pending",
+      "status": "R006_64_side_source_coord_frames_and_2_UV_sign_hypotheses",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX06-R005"
+      "last_revision": "TEX06-R006"
     },
     "F": {
       "title": "F 인게임 정적 렌더·UV·facing 검증 (공식 원본 JAR 인증 제외)",
@@ -78,9 +78,9 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R005_report_CSV_summary_reproduction_and_handoff",
+      "status": "R006_report_3_CSV_summary_reproducer_and_handoff",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX06-R005"
+      "last_revision": "TEX06-R006"
     }
   },
   "material_specific_checks": [
@@ -94,15 +94,15 @@
     {
       "id": "D2",
       "check": "무늬 이어붙이기와 UV/회전 상태에 따른 패턴 방향",
-      "status": "R005_256_source_RGB_seam_coordinates_R002_values_reproduced",
-      "last_revision": "TEX06-R005",
+      "status": "R006_512_side_seam_pairwise_4096_panels_best_invariant",
+      "last_revision": "TEX06-R006",
       "source_user_extracted_verification_revision": "TEX06-R003"
     },
     {
       "id": "D3",
       "check": "특정 패턴을 만드는 블록 상태의 정적 회전·UV 연결",
-      "status": "R005_40_item_block_top_UV_source_corners_game_pending",
-      "last_revision": "TEX06-R005",
+      "status": "R006_64_world_side_UV_coordinate_maps_two_signs_ingame_pending",
+      "last_revision": "TEX06-R006",
       "source_user_extracted_verification_revision": "TEX06-R003"
     }
   ],
@@ -260,8 +260,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX06-R005",
-      "evidence_status": "R005_user_original_PNG_16x16_pixel_coordinates_conditional_UV_game_pending",
+      "last_verified_revision": "TEX06-R006",
+      "evidence_status": "R006_source_side_UV_geometry_R005_RGBA_inherited_not_ingame_rendered",
       "mirror_png_blob_sha": "58832984e6700a295c890ab86b568929d36567d5",
       "mirror_model_blob_sha": "f973bbba2a75c5bfa1e93ad6004b2ae1ff97d41b",
       "mirror_blockstate_blob_sha": "e20988dcdafdba18006a35e6a4437bb7d2e78f3f",
@@ -276,7 +276,10 @@
       "user_unpacked_item_json_blob_sha": "02d6d5e5020ff9f166d7a9049c78cc72ca67629a",
       "item_json_mirror_byte_identical": true,
       "R005_source_pair_coordinate_records": 128,
-      "R005_top_corner_records": 20
+      "R005_top_corner_records": 20,
+      "R006_side_UV_map_rows": 32,
+      "R006_side_pairwise_rows": 256,
+      "R006_new_independent_RGBA_texels": 0
     },
     {
       "item_id": "1-1-06-008",
@@ -287,8 +290,8 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX06-R005",
-      "evidence_status": "R005_user_original_PNG_16x16_pixel_coordinates_conditional_UV_game_pending",
+      "last_verified_revision": "TEX06-R006",
+      "evidence_status": "R006_source_side_UV_geometry_R005_RGBA_inherited_not_ingame_rendered",
       "mirror_png_blob_sha": "a500a876f14d6fab28d140023d32436f28f2512e",
       "mirror_model_blob_sha": "e33fbedc0fd18cda66fd3ec878211f2b00c5adc2",
       "mirror_blockstate_blob_sha": "8c64ce09f7c0bf11dad8908ef220917b567673a9",
@@ -303,7 +306,10 @@
       "user_unpacked_item_json_blob_sha": "5cb0220c53e32b994d164f54c95afe2c91fcaa69",
       "item_json_mirror_byte_identical": true,
       "R005_source_pair_coordinate_records": 128,
-      "R005_top_corner_records": 20
+      "R005_top_corner_records": 20,
+      "R006_side_UV_map_rows": 32,
+      "R006_side_pairwise_rows": 256,
+      "R006_new_independent_RGBA_texels": 0
     }
   ],
   "revisions": [
@@ -359,13 +365,26 @@
       "ingame_static_verified": 0,
       "report_path": "research/vanilla_textures/by_stage/1-1-06/TEX06-R004/REPORT.md",
       "summary_path": "research/vanilla_textures/by_stage/1-1-06/TEX06-R004/SUMMARY.json"
+    },
+    {
+      "revision": "TEX06-R006",
+      "kind": "conditional_source_world_side_UV_geometry_and_side_RGB_seam_mapping",
+      "new_unique_textures": 0,
+      "R005_border_source_RGB_inherited_per_glazed": 60,
+      "new_side_face_map_rows": 64,
+      "new_side_pairwise_metric_rows": 512,
+      "new_side_2x2_hypotheses": 4096,
+      "new_independent_RGB_texels": 0,
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-06/TEX06-R006/REPORT.md",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-06/TEX06-R006/SUMMARY.json"
     }
   ],
   "next_steps": [
-    "Inspect actual Minecraft Java 1.21.11 top and side static screenshots for both glazed terracotta IDs, including four facing states",
-    "Compare in-game static UV and facing against TEX06-R004 predicted four-panel setups without treating mathematical projection as proof",
-    "Create TEX06-R005 only when new static source or in-game verification evidence exists; keep existing R001–R004 and global v38 intact",
-    "No Mojang official client.jar SHA-1 download, authentication, or verification required for this stage; animation and 3D furniture/PZ work remain outside scope"
+    "Compare actual Minecraft Java 1.21.11 static glazed terracotta north/east/south/west wall 2x2 panels and item-view captures to source-projection variants without claiming render verification from source only",
+    "Read live next_revision and latest 1-1-06 state before starting R007; preserve older TEX06 releases and global v38",
+    "User-provided 1.21.11 PNG/JSON is primary evidence; Mojang compressed client.jar SHA-1 authentication excluded by user",
+    "Animation, PZ conversion, and furniture 3D construction remain deferred"
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -463,11 +482,15 @@
   "version_advance_for_this_policy_update": false,
   "official_client_jar_authentication_policy": "excluded_by_user_not_claimed",
   "new_in_current_revision": {
-    "rechecked_existing_png_count": 2,
-    "new_unique_textures": 0,
-    "new_position_level_rgb_pair_records": 256,
-    "new_top_uv_source_corner_rows": 40,
+    "new_unique_PNG": 0,
+    "new_direct_PNG_SHA_CRC_tests": 0,
+    "inherited_R005_border_source_coordinates_per_glazed": 60,
+    "new_conditional_world_side_UV_map_rows": 64,
+    "new_conditional_pairwise_side_seam_metric_rows": 512,
+    "new_conditional_side_2x2_layouts_tested": 4096,
+    "new_2x2_optimum_rows": 16,
+    "new_independent_RGBA_texels": 0,
     "ingame_static_verified_count": 0,
-    "output_root": "research/vanilla_textures/by_stage/1-1-06/TEX06-R005/"
+    "output_root": "research/vanilla_textures/by_stage/1-1-06/TEX06-R006/"
   }
 }
