@@ -1,6 +1,6 @@
 # 1-1-09 — 토양·지면 별도 채팅 인수인계
 
-> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 단계 버전 **`TEX09-R001` (미러 PNG·정적 모델 소스 검증)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
+> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 단계 버전 **`TEX09-R002` (정적 상태·UV 70면·회전 이음새 보강)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 ## 연구 목표와 정확한 표본
 
@@ -19,13 +19,13 @@
 
 | 코드 | 작업 | 독립 단계 현황 |
 |---|---|---|
-| 1-1-09-A | A 기존 출처·파일·중복 대조 | 이 단계에서 신규 완료 확인 전 / v4 증거 별도 존재 |
-| 1-1-09-B | B PNG 실제 바이너리·SHA·CRC 검증 | 이 단계에서 신규 완료 확인 전 / v4 증거 별도 존재 |
-| 1-1-09-C | C RGBA·밝기·알파·반복 정량 검사 | 이 단계에서 신규 완료 확인 전 / v4 증거 별도 존재 |
-| 1-1-09-D | D 재질 특화 세부 검사 | 이 단계에서 신규 완료 확인 전 / v4 증거 별도 존재 |
-| 1-1-09-E | E 정적 모델 JSON·UV·상태 연결 | 이 단계에서 신규 완료 확인 전 / v4 증거 별도 존재 |
-| 1-1-09-F | F 공식 Mojang client.jar·인게임 정적 검증 | 이 단계에서 신규 완료 확인 전 / v4 증거 별도 존재 |
-| 1-1-09-G | G 근거 보고서·단계 인수인계 저장 | 이 단계에서 신규 완료 확인 전 / v4 증거 별도 존재 |
+| 1-1-09-A | A 기존 출처·파일·중복 대조 | R001: 9종 v4·번호 원장 대조 확인 |
+| 1-1-09-B | B PNG 실제 바이너리·SHA·CRC 검증 | R001: 9/9 미러 바이너리 확인 |
+| 1-1-09-C | C RGBA·밝기·알파·반복 정량 검사 | R001: RGBA 9/9; R002: 회전 이음새 69건 |
+| 1-1-09-D | D 재질 특화 세부 검사 | R002: 정적 D1–D3 보강; 실제 틴트/인게임 보류 |
+| 1-1-09-E | E 정적 모델 JSON·UV·상태 연결 | R002: 면별 연결 70건·진흙 벽돌 실화소 36건 |
+| 1-1-09-F | F 공식 Mojang client.jar·인게임 정적 검증 | 보류: JAR 실제 파일 미확보 / 인게임 0 |
+| 1-1-09-G | G 근거 보고서·단계 인수인계 저장 | R001·R002 증거 원장 및 STATE 저장 |
 
 **D 재질 특화 기준**
 
@@ -52,7 +52,7 @@
 ## 버전 상태·저장 경로·갱신 규칙
 
 - 최초 **`TEX09-R000`**: 단계 분리/작업 안내만 저장, 실측 신규 완료 0. 현재 **`TEX09-R001`**: 9개 미러 PNG 재해시·CRC·RGBA·모델 JSON/UV 확인, 공식/인게임 0.
-- 다음 검증 보고서: **`TEX09-R001`**; 저장 경로 `research/vanilla_textures/by_stage/1-1-09/TEX09-R001/`. 다음은 이 단계만 `TEX09-R002`...
+- 이번 추가 검증 결과: **`TEX09-R002`**; 저장 경로 `research/vanilla_textures/by_stage/1-1-09/TEX09-R002/`. 다음 후보는 단계 전용 `TEX09-R003` (시작 전 STATE 재검증).
 - 이 단계 진행 관리: [STATE.json](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/docs/vanilla_texture_1-1/stages/1-1-09/STATE.json)와 이 `HANDOFF.md`만 단계 자체 채팅에서 갱신.
 - 다른 번호 단계의 `STATE/HANDOFF` 및 루트 프로젝트 공통 체크포인트·진행 문서는 **수정 금지**. 통합 시 최종 집계 담당자가 별도로 확인.
 - 소스 증거의 신뢰도는 최소 `legacy_only`, `mirror_sha_pixel_checked`, `official_jar_authenticated`, `ingame_static_verified`로 구분하되, 서로 상충·불충분하면 `pending` 유지.
@@ -75,3 +75,13 @@
 - **미완료 F 공식 client.jar 인증 0/9, 실제 인게임 정적 렌더 0/9.** 색상·주변 블록 및 눈 상태는 실제 게임과 미대조. 가짜 공식 인증 금지.
 - **현재 버전 TEX09-R001 / 다음 후보 TEX09-R002**. 매 수정 전에 실제 `STATE.json` SHA, HEAD, 새 릴리스 경로 재확인. 다른 채팅과 충돌 시 **덮어쓰지 않음**. `v38`는 전역 최신 그대로.
 - 기존 A–G 초기 표는 초기 R000 체크포인트 이력으로 보존. **이번 이후 상태는 아래 신규 검증과 `STATE.json` 최신 `phases` 값이 우선**. 애니메이션 전면 보류.
+
+
+## TEX09-R002 실제 신규 근거 및 미완료 인수인계 (2026-11-13)
+
+- [R002 상세 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R002/REPORT.md), [70면 정적 출처 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R002/STATIC_FACE_RESOLUTION_70.csv), [회전 이음새 69쌍](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R002/ROTATION_SEAM_PAIRS.csv), [회전별 9종 요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R002/ROTATION_SUMMARY.csv), [mud_bricks UV 화소 36건](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R002/MUD_BRICKS_UV_PIXEL_SAMPLES.csv), [SOURCE_LEDGER](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R002/SOURCE_LEDGER.csv), [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R002/SUMMARY.json).
+- **9개 고정 PNG 원본 다시 해시 일치** (기존 R001 측정 파일 재사용, 신규 텍스처 0). R002 새 검증량은 **70면 모델 요소/상태 연결, 69 인접 회전 시뮬레이션, 36 UV 화소 대응**. 이 수량을 독립 PNG나 공식 검증 완료 개수로 가산 금지.
+- **D3** 일반 grass 상단 및 측면 overlay `tintindex=0`, snowy=true 별도 상속 모델 및 podzol snowy=true 모델 연결을 소스 JSON에서 확인. 해당 오버레이 PNG 및 게임 화면의 실제 컬러는 별도 미검증.
+- **공식 JAR 예상 해시 참조만 확보:** 제3자 캐시 메타데이터의 SHA-1 `ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd`, 크기 31,152,600바이트. Mojang 서버의 실제 JAR 수신·해시 확인 및 9종 공식 PNG 대조는 **0/9**. 인게임 정적 렌더도 **0/9**.
+- R001 보고서의 PNG 총 바이트 부분에는 잘못 출력된 문자열이 남아 있으나 불변 릴리스라 수정하지 않았고, R002에서 **2,198바이트**로 정정했다.
+- **현재 R002 / 다음 예상 `TEX09-R003`**. 현재 SHA 및 HEAD를 다음 채팅이 먼저 읽고 버전 충돌 재검사. `v38` 유지, 애니메이션 전면 보류, 다른 단계/루트 수정 금지.

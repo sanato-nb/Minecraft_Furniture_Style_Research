@@ -1,0 +1,49 @@
+{
+  "revision": "TEX09-R002",
+  "date": "2026-11-13",
+  "scope": "1-1-09 soil_ground 9 fixed textures",
+  "global_version_unchanged": "v38",
+  "direct_new_png_files": 0,
+  "source_png_reread_rehashed_again": 9,
+  "reused_from": "TEX09-R001",
+  "new_static_variant_face_records": 70,
+  "new_rotation_neighbor_pair_measurements": 69,
+  "new_mud_bricks_pixel_uv_samples": 36,
+  "source_types": [
+    "mirror_png_pixel_checked",
+    "mirror_static_json_blockstate_checked",
+    "third_party_cached_mojang_manifest_metadata_only"
+  ],
+  "third_party_metadata": {
+    "source": "PrismLauncher/meta-launcher/net.minecraft/1.21.11.json",
+    "cached_json_git_blob_sha1": "e7974624c6d46b9189e09a8efc2a9db1173649fb",
+    "source_kind": "third_party_cache_not_official_download",
+    "client_sha1": "ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd",
+    "client_size": 31152600,
+    "client_url": "https://piston-data.mojang.com/v1/objects/ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd/client.jar"
+  },
+  "official_jar_downloaded": false,
+  "official_jar_sha_checked": false,
+  "official_jar_authenticated_count": 0,
+  "ingame_static_render_verified_count": 0,
+  "source_png_16x16_count": 9,
+  "source_pixels_existing": 2304,
+  "animation_study_deferred": true,
+  "important_findings": [
+    "grass_block snowy=false up and overlay 4 faces tintindex 0",
+    "grass_block snowy=true cube_bottom_top without declared tintindex",
+    "podzol snowy=true mirror JSON selects grass_block_snow model",
+    "mud_bricks north/west explicit [16,0,0,16] UV with 36 pixel address examples",
+    "variant rotations create 69 source-only neighbor seam combinations"
+  ],
+  "release_files": [
+    "REPORT.md",
+    "SOURCE_LEDGER.csv",
+    "STATIC_FACE_RESOLUTION_70.csv",
+    "ROTATION_SEAM_PAIRS.csv",
+    "ROTATION_SUMMARY.csv",
+    "MUD_BRICKS_UV_PIXEL_SAMPLES.csv",
+    "SUMMARY.json"
+  ],
+  "next_revision": "TEX09-R003"
+}
