@@ -1,0 +1,191 @@
+{
+  "schema": "TEX10-R008/JVM-block-registry-factory-and-foliage-resolver-evidence/v1",
+  "source_version": "user-extracted 1.21.11",
+  "new_source_files": [
+    {
+      "path": "1.21.11/dzs.class",
+      "sha": "b58e7153fb0cfbb47313c3a59dd7c8516ee3642c",
+      "type": "JVM class",
+      "role": "Blocks registry names and static fields"
+    },
+    {
+      "path": "1.21.11/hns.class",
+      "sha": "3764254251aadfd1549e5d155d48a43efd5d2194",
+      "type": "JVM class",
+      "role": "biome-tint provider method references and lambda bootstrap"
+    }
+  ],
+  "previously_seen_but_now_reanalyzed": [
+    {
+      "path": "1.21.11/ggr.class",
+      "sha": "386634bd8081e5fde55a7381ad8dd2c427ae4f75"
+    },
+    {
+      "path": "1.21.11/dxo.class",
+      "sha": "97adf9e3b39c3e49d17426338c1ab223dc4c54f8"
+    }
+  ],
+  "registry_dzs_class": {
+    "class": "dzs",
+    "method": "<clinit>()V",
+    "class_blob": "b58e7153fb0cfbb47313c3a59dd7c8516ee3642c",
+    "target_symbol_resolution": [
+      {
+        "id": "oak_leaves",
+        "literal_pc": 3353,
+        "putstatic_pc": 3370,
+        "field": "dzs.aK"
+      },
+      {
+        "id": "spruce_leaves",
+        "literal_pc": 3373,
+        "putstatic_pc": 3390,
+        "field": "dzs.aL"
+      },
+      {
+        "id": "birch_leaves",
+        "literal_pc": 3393,
+        "putstatic_pc": 3410,
+        "field": "dzs.aM"
+      },
+      {
+        "id": "mangrove_leaves",
+        "literal_pc": 3637,
+        "putstatic_pc": 3654,
+        "field": "dzs.aS"
+      },
+      {
+        "id": "azalea_leaves",
+        "literal_pc": 3657,
+        "putstatic_pc": 3674,
+        "field": "dzs.aT"
+      },
+      {
+        "id": "flowering_azalea_leaves",
+        "literal_pc": 3677,
+        "putstatic_pc": 3694,
+        "field": "dzs.aU"
+      },
+      {
+        "id": "vine",
+        "literal_pc": 13633,
+        "putstatic_pc": 13683,
+        "field": "dzs.fN"
+      },
+      {
+        "id": "moss_block",
+        "literal_pc": 38472,
+        "putstatic_pc": 38510,
+        "field": "dzs.ub"
+      }
+    ]
+  },
+  "blockcolors_ggr_class": {
+    "class": "ggr",
+    "known_blob_sha": "386634bd8081e5fde55a7381ad8dd2c427ae4f75",
+    "factory_method": "a()Lggr;",
+    "explicit_provider_groups": [
+      {
+        "factory_indy_pc": 125,
+        "bootstrap_cp_index": 121,
+        "bootstrap_target": "ggr.k(Leoh;Ldvq;Lis;I)I",
+        "factory_field_pc": [
+          136
+        ],
+        "fields": [
+          "dzs.aL"
+        ],
+        "source_textures": [
+          "spruce_leaves"
+        ],
+        "return_literal_rgb": "#619961",
+        "return_bytecode": "13 01 59 ac"
+      },
+      {
+        "factory_indy_pc": 144,
+        "bootstrap_cp_index": 129,
+        "bootstrap_target": "ggr.j(Leoh;Ldvq;Lis;I)I",
+        "factory_field_pc": [
+          155
+        ],
+        "fields": [
+          "dzs.aM"
+        ],
+        "source_textures": [
+          "birch_leaves"
+        ],
+        "return_literal_rgb": "#80A755",
+        "return_bytecode": "13 01 58 ac"
+      },
+      {
+        "factory_indy_pc": 163,
+        "bootstrap_cp_index": 136,
+        "bootstrap_target": "ggr.i(Leoh;Ldvq;Lis;I)I",
+        "factory_field_pc": [
+          175,
+          181,
+          187,
+          193,
+          199,
+          205
+        ],
+        "fields": [
+          "dzs.aK",
+          "dzs.aN",
+          "dzs.aO",
+          "dzs.aQ",
+          "dzs.fN",
+          "dzs.aS"
+        ],
+        "source_textures": [
+          "oak_leaves",
+          "jungle_leaves",
+          "acacia_leaves",
+          "dark_oak_leaves",
+          "vine",
+          "mangrove_leaves"
+        ],
+        "biome_provider_method_call_cp_index": "0x157",
+        "fallback_literal_cp_index": "0x155",
+        "fallback_literal_rgb": "#48B518",
+        "method_code_hex": "2b c6 00 07 2c c7 00 07 13 01 55 ac 2b 2c b8 01 57 ac"
+      }
+    ],
+    "missing_factory_symbols": [
+      "dzs.aT",
+      "dzs.aU",
+      "dzs.ub"
+    ],
+    "missing_factory_textures": [
+      "azalea_leaves",
+      "flowering_azalea_leaves",
+      "moss_block"
+    ],
+    "getColor_when_provider_unregistered": "a(Leoh;Ldvq;Lis;I)I returns int -1 (0x02 iconst_m1) on null provider; models also have no tintindex",
+    "note": "Registration method mapping reconstructed using constant pool, BootstrapMethods, class factory bytecode and dzs registry literals. No full GPU render assertion."
+  },
+  "biome_color_helper_hns_class": {
+    "path": "1.21.11/hns.class",
+    "blob": "3764254251aadfd1549e5d155d48a43efd5d2194",
+    "method": "b(Ldvq;Lis;)I",
+    "method_code_hex": "2a 2b b2 00 27 b8 00 25 ac",
+    "static_field": "hns.b",
+    "clinit_indy_cp": "0x4e",
+    "bootstrap_index": 1,
+    "lambda_target": "hns.c(Ldxo;DD)I",
+    "synthetic_method": "c(Ldxo;DD)I",
+    "synthetic_code_hex": "2a b6 00 39 ac",
+    "biome_method": "dxo.d()I = Biome.getFoliageColor()",
+    "resolution": "ggr.i -> hns.b(world,position) -> world resolver -> Biome.getFoliageColor()"
+  },
+  "source_boundary": {
+    "block_model_effective_face_counts": 44,
+    "block_pixels_newly_decoded": 0,
+    "in_game_render_excluded_by_user": true,
+    "limitations": [
+      "The 65×8 table is a single-biome reference multiplier (or no-tint) and is not a pixel shader output.",
+      "World biome color blending, light/ambient shading and target-specific render pass still not directly reproduced.",
+      "Leaves texture alpha is handled by PNG and shader; cube geometric silhouettes are not leaf-shaped 3D polygons."
+    ]
+  }
+}

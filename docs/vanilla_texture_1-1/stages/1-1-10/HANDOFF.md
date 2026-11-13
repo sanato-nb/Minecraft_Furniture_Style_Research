@@ -160,3 +160,14 @@
 - 앞서 사용자 지시로 제외한 **Mojang 공식 전체 client.jar SHA-1 인증** 역시 필수 절차에서 제외한 상태를 유지한다(인증 성공 아님).
 - **현재 연구 버전 `TEX10-R007` 그대로**, 다음 신규 정적 분석·근거를 실제로 추가할 때만 `TEX10-R008` 생성. **정책 변경만으로 새 연구 R008 릴리스를 만들지 않는다.** 이전 R001–R007 연구 보고서는 작성 당시 기록으로 불변. 전체 `v38`, 다른 단계의 요구사항과 파일도 변경하지 않는다. 애니메이션 연구·실제 가구 3D 작업·PZ→Minecraft 변환 보류 유지.
 - 사용자가 `계속해줘`라고 하면 이 업데이트를 우선 적용하여 **정적 검증에서 아직 남아 있는 독립 검증 사항을 조사**할 것. 정적 범위 연구가 완전히 끝났거나, 필수 원본을 추가로 제공해야 해서 더 이상 진행할 수 없을 때에만 사용자에게 멈춘 이유와 정확한 필요 자료를 알릴 것.
+
+---
+
+## TEX10-R008 — 2026-11-13 · 8종 BlockColors 공급자·모델 틴트 원본 연결 + 덩굴 32 상태 정적 기하
+
+- 사용자 추출본 **신규 `.class` 2경로** `dzs.class`(Blocks 레지스트리)와 `hns.class`(바이옴 색상 리졸버) 원본 바이트코드·bootstrap 분석. R007 기존 `ggr.class`(BlockColors)와 `dxo.class`(Biome)를 원본 SHA 재확인 후 심화 분석하여 **8개 블록의 이름→registry field→색상 공급자→모델 tintindex** 연결 확정.
+- 블록 8종 중 **바이옴 foliage 3종** oak / mangrove / vine, **고정색 2종** spruce `#619961` / birch `#80A755`, **틴트 없는 3종** azalea / flowering azalea / moss. `ggr.i→hns.b→dxo.d()` foliage 경로, `ggr.k/j`의 고정값, 색상 공급자 미등록 블록의 `tintindex` 부재를 구분. **아이템 고정 틴트와 배치 블록 바이옴 틴트는 별도 계층**(oak/mangrove/vine 차이).
+- 모델/블록상태 기존 원본 **21경로 재확인**(대상 8모델+8blockstates+부모3+ggr/dxo 2). **44 모델 face 수량**(틴트 큐브 24 + 무틴트 큐브 18 + 덩굴 양면 2) 확인. 덩굴 multipart **10규칙/32논리상태/합계 85 평면 적용·170 양면**, 모두 false 상태는 5평면 대체 배치. 실제 게임 상태 빈도나 한 화면 폴리곤 합산이 아님.
+- R006 원본 바이옴 65종·R007 계산 색상표를 계승하여 **65×8=520단일 바이옴 참조 틴트 행** 생성. 바이옴 근처 보간/조명/화면 색상 실측 아님. 신규 JPEG/PNG 실측·신규 RGBA 픽셀 0. **이번 새 고유 원본 경로 2개**, R003 이후 누적 **136개**.
+- [R008 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R008/REPORT.md), [8종 블록 색상 공급자](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R008/BLOCK_COLOR_PROVIDER_8.csv), [등록 코드 증거](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R008/CLASS_REGISTRATION_AUDIT.json), [65×8 틴트 참조](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R008/BIOME_TINT_REFERENCE_65x8.csv), [덩굴 32상태](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R008/VINE_MULTIPART_32.csv).
+- **인게임 검증은 사용자 지시에 따라 제외**(0/8 역사적 기록만 유지), 공식 Mojang 원본 전체 JAR SHA1 인증도 제외. 필요시 남은 **정적 소스** 렌더 패스·mipmap·세계 바이옴 색상 샘플링을 연구하되 인게임 캡처를 요구하거나 완료 분모에 넣지 말 것. 현 버전 `TEX10-R008`, 다음 새 근거 시 `TEX10-R009`. 전역 `v38`, 타 단계, 과거 R001–R007 불변. 애니메이션/PZ변환/가구 제작 보류.
