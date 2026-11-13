@@ -2,6 +2,8 @@
 
 > Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 초기 고유 버전 **`TEX05-R000` (계획만 저장)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
+**현재 최신 실제 검사 버전: `TEX05-R001` (2026-11-13). 다음 후보 `TEX05-R002`.** 이 문서의 기존 R000 '미시작' 기술은 최초 계획 당시의 이력이며 현재 상태는 하단 R001 결과와 `STATE.json`을 우선한다.
+
 ## 연구 목표와 정확한 표본
 
 - 담당: **1-1-05 / 유리 / 6개 v4 텍스처 경로**.
@@ -48,8 +50,8 @@
 
 ## 버전 상태·저장 경로·갱신 규칙
 
-- 현재 **`TEX05-R000`**: 단계 분리/작업 안내만 저장, 실측 신규 완료 0.
-- 다음 검증 보고서: **`TEX05-R001`**; 저장 경로 `research/vanilla_textures/by_stage/1-1-05/TEX05-R001/`. 다음은 이 단계만 `TEX05-R002`...
+- 최초 **`TEX05-R000`**: 단계 분리/작업 안내만 저장한 계획 상태(역사적 이력).
+- 최신 실제 검증 결과: **`TEX05-R001`**; 보존 위치 `research/vanilla_textures/by_stage/1-1-05/TEX05-R001/`. 향후 새 증거 발견 시 다음 **`TEX05-R002`**(그때 STATE 재확인).
 - 이 단계 진행 관리: [STATE.json](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/docs/vanilla_texture_1-1/stages/1-1-05/STATE.json)와 이 `HANDOFF.md`만 단계 자체 채팅에서 갱신.
 - 다른 번호 단계의 `STATE/HANDOFF` 및 루트 프로젝트 공통 체크포인트·진행 문서는 **수정 금지**. 통합 시 최종 집계 담당자가 별도로 확인.
 - 소스 증거의 신뢰도는 최소 `legacy_only`, `mirror_sha_pixel_checked`, `official_jar_authenticated`, `ingame_static_verified`로 구분하되, 서로 상충·불충분하면 `pending` 유지.
@@ -62,3 +64,15 @@
 2. 과거 v4 측정과 타 버전(해당되면 v35~v38)의 동일 경로 SHA/화소를 대조해 **새로 분석할 실제 빈틈**을 고른다.
 3. 자료를 직접 검사하고 `REPORT.md`·`SOURCE_LEDGER.csv`·`SUMMARY.json`을 고유 릴리스 폴더에 보존한다. 미완료 작업은 근거/차단 원인을 기록한다.
 4. 마지막으로 이 `HANDOFF.md`·본 단계 `STATE.json`만 갱신하고 다음 채팅에서 그 다음 미완료 부분으로 이어가게 한다.
+
+## TEX05-R001 — 2026-11-13 독립 실측 완료 부분과 다음 작업
+
+- **A**: v4 150 측정 원장 + 150 번호 원장 + 본 분류 STATE의 동일 6개 경로·SHA 재대조. 새 샘플을 더하지 않음.
+- **B**: GitHub 1.21.11 미러에서 6개 PNG 원본 바이트를 실제 취득하고 SHA-256을 재계산해 v4 기록 6/6 일치. IHDR/IDAT/IEND CRC 6/6 확인. 저장소 자체의 `1.21.11/`와 Git blob SHA 동일.
+- **C/D1**: 6×256=1,536 실제 RGBA 기록. 무색 glass 알파0 191·불투명65, 착색 5종은 각각 알파102 191·155 5·163 60(완전투명 없음). 모든 착색 유리의 알파 배열 일치.
+- **D2**: 16×16 마스크와 좌표 증거 확보. 내부 강조 5픽셀 (4,2), (3,3), (2,4), (13,12), (12,13). 자세한 전체 픽셀은 새 원장 참조.
+- **E**: leaf 모델 6, blockstate 6, item descriptors 6, 부모 `cube_all → cube` 소스 검사. 36 정적 면의 유도 전체 UV [0,0,16,16]. 원본에 명시 face UV 0/36.
+- **D3/F — pending**: Mojang 공식 client.jar 인증·인게임 정적 render layer/정렬 확인 모두 0/6. 미러 SHA가 공식 인증을 대체하지 않는다. **애니메이션은 계속 전면 보류**.
+- **G**: [보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R001/REPORT.md) · [소스 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R001/SOURCE_LEDGER.csv) · [요약 JSON](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R001/SUMMARY.json) · [좌표 마스크](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R001/ALPHA_MASKS.md) · [원본 픽셀 1536행](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R001/PIXEL_RGBA.csv) · [정적 UV 36행](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-05/TEX05-R001/UV_FACE_LEDGER.csv).
+
+최신 단계 상태: **정적 소스 재검증 6/6**, **공식 JAR/인게임 0/6**, **A–G 공식 완료 0/6**; 전체 전역 v38과 전체 완료 0/5는 불변. 다음 버전 **TEX05-R002**는 STATE, SHA, 다음 릴리스 경로 재검사 후 새 실증이 있을 때만 개시한다.

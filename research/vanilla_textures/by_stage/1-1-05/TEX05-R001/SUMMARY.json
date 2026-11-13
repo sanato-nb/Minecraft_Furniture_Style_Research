@@ -1,0 +1,83 @@
+{
+  "schema": "tex05-stage-evidence/v1",
+  "revision": "TEX05-R001",
+  "stage": "1-1-05",
+  "date": "2026-11-13",
+  "base_revision": "TEX05-R000",
+  "global_checkpoint_unchanged": "v38",
+  "target_png_files": 6,
+  "directly_decoded_png_files": 6,
+  "sha256_matches_legacy_v4": 6,
+  "crc_ihdr_idat_iend_passed": 6,
+  "unique_rgba_pixels_measured": 1536,
+  "extracted_static_leaf_models": 6,
+  "blockstates": 6,
+  "item_descriptors": 6,
+  "common_parent_models": 2,
+  "face_material_bindings": 36,
+  "explicit_uv_faces": 0,
+  "implicit_full_face_uv_bindings": 36,
+  "alpha": {
+    "clear_glass": {
+      "transparent": 191,
+      "partial": 0,
+      "opaque": 65,
+      "mean": 64.74609375
+    },
+    "each_of_five_stained": {
+      "transparent": 0,
+      "partial": 256,
+      "opaque": 0,
+      "mean": 117.33203125,
+      "histogram": {
+        "102": 191,
+        "155": 5,
+        "163": 60
+      }
+    }
+  },
+  "five_stained_alpha_masks_identical": true,
+  "clear_opaque_coords_match_stained_edge_and_accent_coords": true,
+  "accent_xy": [
+    [
+      4,
+      2
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      13,
+      12
+    ],
+    [
+      12,
+      13
+    ]
+  ],
+  "evidence_tier": "mirror_sha_pixel_checked_plus_extracted_static_model_uv_checked",
+  "official_client_jar_authenticated_count": 0,
+  "ingame_static_verified_count": 0,
+  "render_layer_sorting": "pending",
+  "D3": "pending",
+  "F": "pending",
+  "A_B_C_D1_D2_E": "source_static_verified",
+  "G": "evidence_report_saved",
+  "files": [
+    "REPORT.md",
+    "SOURCE_LEDGER.csv",
+    "SUMMARY.json",
+    "ALPHA_MASKS.md",
+    "UV_FACE_LEDGER.csv",
+    "PIXEL_RGBA.csv"
+  ],
+  "source_repo": "InventivetalentDev/minecraft-assets",
+  "source_ref": "1.21.11",
+  "project_asset_copy_root": "1.21.11/",
+  "note": "The repo's extracted assets and third party mirror cannot substitute for Mojang official client.jar authentication. No animation work."
+}

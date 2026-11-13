@@ -7,15 +7,15 @@
   "stage_id": "1-1-05",
   "material_family": "유리",
   "stage_prefix": "TEX05",
-  "current_revision": "TEX05-R000",
-  "next_revision": "TEX05-R001",
-  "revision_sequence": 0,
-  "revision_status": "R000_initial_handoff_created_no_new_analysis",
+  "current_revision": "TEX05-R001",
+  "next_revision": "TEX05-R002",
+  "revision_sequence": 1,
+  "revision_status": "R001_6_mirror_png_sha_crc_rgba_and_static_extracted_model_uv_verified_official_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 6,
   "v4_legacy_measurements_recorded": 6,
-  "stage_current_analysis_completed_count": 0,
+  "stage_current_analysis_completed_count": 6,
   "official_client_jar_authenticated_count": 0,
   "ingame_static_render_verified_count": 0,
   "paths": {
@@ -42,55 +42,62 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "not_audited_in_isolated_workstream",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "status": "source_legacy_crosschecked_6_of_6",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "last_evidence_revision": "TEX05-R001"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "not_audited_in_isolated_workstream",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "status": "mirror_png_binary_sha_crc_verified_6_of_6",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "last_evidence_revision": "TEX05-R001"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "not_audited_in_isolated_workstream",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "status": "png_rgba_all_1536_pixels_verified",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "last_evidence_revision": "TEX05-R001"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "not_audited_in_isolated_workstream",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "status": "D1_D2_checked_6_of_6_D3_pending",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "last_evidence_revision": "TEX05-R001"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "not_audited_in_isolated_workstream",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "status": "static_extracted_model_json_uv_6_of_6",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "last_evidence_revision": "TEX05-R001"
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "not_audited_in_isolated_workstream",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "status": "pending_official_jar_and_ingame",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "last_evidence_revision": "TEX05-R001"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "not_audited_in_isolated_workstream",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "status": "evidence_report_written_TEX05_R001",
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "last_evidence_revision": "TEX05-R001"
     }
   },
   "material_specific_checks": [
     {
       "id": "D1",
       "check": "무색/착색 유리 팔레트와 알파 0·255·부분투명 분포",
-      "status": "pending"
+      "status": "mirror_png_pixel_verified_6_of_6"
     },
     {
       "id": "D2",
       "check": "윤곽·모서리와 투명 구멍의 실제 픽셀 위치",
-      "status": "pending"
+      "status": "mirror_png_pixel_verified_6_of_6"
     },
     {
       "id": "D3",
       "check": "인게임 정적 render layer/정렬은 공식 런타임에서만 검증",
-      "status": "pending"
+      "status": "pending_official_ingame_static_runtime"
     }
   ],
   "items": [
@@ -100,11 +107,15 @@
       "source_path": "assets/minecraft/textures/block/glass.png",
       "v4_sha256": "cb89c706dce86eac3123cef087d359b5f23098b658a468fb91662b4a9922bcd0",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX05-R001",
+      "evidence_status": "mirror_sha_pixel_checked_and_extracted_static_json_uv_checked_official_pending",
+      "static_extracted_model_uv_verified": true,
+      "source_sha256_independently_recomputed": "cb89c706dce86eac3123cef087d359b5f23098b658a468fb91662b4a9922bcd0",
+      "png_crc_verified": true,
+      "rgba_pixels_measured": 256
     },
     {
       "item_id": "1-1-05-002",
@@ -112,11 +123,15 @@
       "source_path": "assets/minecraft/textures/block/red_stained_glass.png",
       "v4_sha256": "4520f85fee79972191217d623c8b38522cacf74cb7c71113c0a6240d3b1f2ad2",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX05-R001",
+      "evidence_status": "mirror_sha_pixel_checked_and_extracted_static_json_uv_checked_official_pending",
+      "static_extracted_model_uv_verified": true,
+      "source_sha256_independently_recomputed": "4520f85fee79972191217d623c8b38522cacf74cb7c71113c0a6240d3b1f2ad2",
+      "png_crc_verified": true,
+      "rgba_pixels_measured": 256
     },
     {
       "item_id": "1-1-05-003",
@@ -124,11 +139,15 @@
       "source_path": "assets/minecraft/textures/block/black_stained_glass.png",
       "v4_sha256": "62c705812949f0372dcc2fa82a5d89f7028ba1d9b3bd38765613e344f34f5b1c",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX05-R001",
+      "evidence_status": "mirror_sha_pixel_checked_and_extracted_static_json_uv_checked_official_pending",
+      "static_extracted_model_uv_verified": true,
+      "source_sha256_independently_recomputed": "62c705812949f0372dcc2fa82a5d89f7028ba1d9b3bd38765613e344f34f5b1c",
+      "png_crc_verified": true,
+      "rgba_pixels_measured": 256
     },
     {
       "item_id": "1-1-05-004",
@@ -136,11 +155,15 @@
       "source_path": "assets/minecraft/textures/block/blue_stained_glass.png",
       "v4_sha256": "7d6cfe98ddc5d975b3bcf5f9cffc008f90db94d5d981ef440f7b68e8267ae247",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX05-R001",
+      "evidence_status": "mirror_sha_pixel_checked_and_extracted_static_json_uv_checked_official_pending",
+      "static_extracted_model_uv_verified": true,
+      "source_sha256_independently_recomputed": "7d6cfe98ddc5d975b3bcf5f9cffc008f90db94d5d981ef440f7b68e8267ae247",
+      "png_crc_verified": true,
+      "rgba_pixels_measured": 256
     },
     {
       "item_id": "1-1-05-005",
@@ -148,11 +171,15 @@
       "source_path": "assets/minecraft/textures/block/green_stained_glass.png",
       "v4_sha256": "dc82be445bd9c7cf158bd57651d51bfef400310f2ad4937fe1e5b1c60b4f5916",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX05-R001",
+      "evidence_status": "mirror_sha_pixel_checked_and_extracted_static_json_uv_checked_official_pending",
+      "static_extracted_model_uv_verified": true,
+      "source_sha256_independently_recomputed": "dc82be445bd9c7cf158bd57651d51bfef400310f2ad4937fe1e5b1c60b4f5916",
+      "png_crc_verified": true,
+      "rgba_pixels_measured": 256
     },
     {
       "item_id": "1-1-05-006",
@@ -160,11 +187,15 @@
       "source_path": "assets/minecraft/textures/block/white_stained_glass.png",
       "v4_sha256": "2d4504957fa123a6e9f35d93e05f94fb053ec213541f01fcecbc0097eaa5df75",
       "v4_measurement_recorded": true,
-      "current_stream_independent_binary_reverified": false,
+      "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": null,
-      "evidence_status": "legacy_v4_measurement_only_pending_this_workstream"
+      "last_verified_revision": "TEX05-R001",
+      "evidence_status": "mirror_sha_pixel_checked_and_extracted_static_json_uv_checked_official_pending",
+      "static_extracted_model_uv_verified": true,
+      "source_sha256_independently_recomputed": "2d4504957fa123a6e9f35d93e05f94fb053ec213541f01fcecbc0097eaa5df75",
+      "png_crc_verified": true,
+      "rgba_pixels_measured": 256
     }
   ],
   "revisions": [
@@ -173,13 +204,26 @@
       "kind": "planning_handoff_only",
       "source_files_reviewed_as_new": 0,
       "report_path": null
+    },
+    {
+      "revision": "TEX05-R001",
+      "kind": "direct_mirror_source_png_and_extracted_static_model_uv_analysis",
+      "source_files_reviewed_as_new": 6,
+      "unique_rgba_pixels_measured": 1536,
+      "independent_source_sha_matches_v4": 6,
+      "source_static_model_uv_verified": 6,
+      "official_jar_verified": 0,
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R001/REPORT.md",
+      "source_ledger_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R001/SOURCE_LEDGER.csv",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R001/SUMMARY.json"
     }
   ],
   "next_steps": [
-    "read handoff and source category plan",
-    "reconcile existing v4 and relevant later sources",
-    "perform direct source verification and save stage-specific immutable evidence",
-    "advance own revision only after new work was actually verified"
+    "Recheck STATE.json, handoff SHA, release folder existence, and branch head before any TEX05-R002 write.",
+    "Authenticate Mojang's official 1.21.11 client.jar distribution bytes and compare six assets against certified jar source when available.",
+    "Capture official in-game static glass/colored-glass render layering, sorting, adjacency and lighting; D3/F remain pending until observed.",
+    "Keep animations fully deferred and write only this stage's two docs and new immutable release folder."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -190,5 +234,7 @@
     "animation study until explicitly resumed"
   ],
   "project_overall_completion_pct": null,
-  "do_not_count_planning_as_research": true
+  "do_not_count_planning_as_research": true,
+  "stage_source_static_verified_count": 6,
+  "stage_full_A_to_G_official_verified_count": 0
 }
