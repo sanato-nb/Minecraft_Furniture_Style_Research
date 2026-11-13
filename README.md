@@ -39,6 +39,7 @@
 | v30 | 독서대·숫돌·화분·마법부여대·모루 **5원본 모델/91면·93재질면**, PNG18개/4,608 RGBA 픽셀, face UV **6,012 texel-uses** 실제 측정. 그레이스케일 PNG `tRNS` 누락 발견·v26 수치 교정 | 바닐라 01/02 진행, 공식 Mojang JAR·실제 렌더링은 미검증 |
 | v31 | 끌로 조각한 책장/양조기 `multipart` 원본59규칙을 256+8=**264조건**으로 실제 평가, 원본 **47면/53재질면** PNG UV **3,808 uses**(불투명3,052/투명756); 원본 PNG6경로/1,536픽셀; 모닥불 켜짐/꺼짐 소스 기하 조사 | 원본 source·RGBA 실화소/합성조건 계산, 공식 JAR·실제 게임 미검증 |
 | v32 | **애니메이션 보류 유지**. 통 닫힘/열림·베틀·4작업대 총7 leaf가 공통 `cube` 선언6면을 상속하여 **42 face×material**, 25 PNG/6,400 화소 실측(전부 불투명), **10,752 암시 full-face UV uses**, 6 blockstate 20 variants, 통 윗면 132픽셀 차이 | 정적 상속/원본 PNG 검증, 공식 client.jar/게임 정적 UV 미확인 |
+| v33 | 애니메이션 보류 유지. 가마솥·호퍼(아래·측면)·퇴비통(본체+내용물) **12소스모델/40요소/148원본면**, **12 PNG경로/3,072RGBA 픽셀**(불투명2,332/투명740), UV 명시없음→기하유도 추론 **9,280 uses** 전부 불투명, 15원본 정적 상태·퇴비통 9수준 선택 계산, 4PNG 독립 Pillow | 공식 Mojang JAR/실제 게임 UV방향 미검증 |
 
 **학습 전체 5개 작업:** 01 바닐라 텍스처(표본 완료/검증 보류), 02 바닐라 3D(진행 중), 03 가구 모드 모델(v11~v12 실측 진행 중), 04 모드 텍스처·UV(PNG 24개 전체 실화소 및 13모델 571면 UV 표본 정렬 측정), 05 바닐라/모드 비교(5쌍 사전 비교, 최종 검증 미착수). 최종 확정 완료는 **0/5**입니다.
 
@@ -47,6 +48,8 @@
 **사용자 최신 작업 지시(2026-11-13): 애니메이션 분석은 일단 보류.** 새로운 애니메이션 프레임 해독, 키프레임·클립 분석, 움직임 재현 및 애니메이션 인게임 검증을 진행하지 않는다. 기존 v9/v26/v31 애니메이션 관련 기록은 삭제하지 않고 보존하되, 새로운 진행도에 포함하지 않는다. 우선순위는 **정적 바닐라 3D 모델·기하·텍스처·UV·블록 상태·정적 렌더링 검증·공식 원본 무결성**이다. 애니메이션 연구는 사용자가 명시적으로 재개를 요청할 때까지 유지 보류.
 
 ## 빠른 탐색
+
+- [**v33 최신 정적 가마솥·호퍼·퇴비통: 148 source face / PNG12 경로·3,072픽셀 / 15 원본 상태**](research/vanilla_models/v33/00_v33_가마솥호퍼퇴비통_148면_암시UV_PNG정적분석.md) · [40요소 원시 기하](research/vanilla_models/v33/01_twelve_model_40_elements_geometry.csv) · [148면 기하유도 UV](research/vanilla_models/v33/02_twelve_model_148_inferred_uv_faces.csv) · [12원본 PNG 7+5 파일](research/vanilla_models/v33/04_cauldron_hopper_7_png_rgba.csv) · [퇴비통 PNG5](research/vanilla_models/v33/06_composter_5_png_full_rgba.csv) · [기계 요약](research/vanilla_models/v33/v33_hollow_static_model_uv_png_summary.json). 사용자 애니메이션 보류 유지, 최종0/5.
 
 - [**v32 최신 정적 모델: 통·베틀·4작업대 7 leaf /25 PNG/20상태·암시 UV 42면**](research/vanilla_models/v32/00_v32_정적통베틀작업대_25PNG_42면암시UV_20상태보고서.md) · [7 leaf 상속](research/vanilla_models/v32/01_seven_leaf_parent_chain.csv) · [42면의 최종 재질](research/vanilla_models/v32/02_42_inherited_cube_face_texture_bindings.csv) · [25 PNG 원본 RGBA](research/vanilla_models/v32/03_png_12_full_rgba_metrics.csv) · [PNG 추가 13종](research/vanilla_models/v32/04_png_13_full_rgba_metrics.csv) · [기계 summary](research/vanilla_models/v32/v32_static_cube_face_png_audit_summary.json). 사용자 애니메이션 보류 지시 유지, 최종 0/5.
 
