@@ -182,3 +182,16 @@
 - 기존 `dzs.class`의 `BootstrapMethods`/생성자와 신규 leaf classes 슈퍼클래스 대조: oak/spruce/birch `eir→eei`, mangrove `ees→eir→eei`, azalea/flowering azalea `eje→eei`. **철쭉도 LeavesBlock 분기 대상**임을 정적 원본으로 확정. 덩굴은 CUTOUT, 이끼는 SOLID.
 - **이번 신규 경로 6**, R003–R008 누적 136→R009 누적 **142**. 신규 픽셀·UV·대상 PNG 수 **0**, 과거 44면/3컬러맵 196,608 RGB 픽셀 계승. [R009 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R009/REPORT.md), [8종 render-layer 표](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R009/RENDER_LAYER_8.csv), [상속·블록 생성자](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R009/LEAF_FACTORY_INHERITANCE_6.csv), [바이트코드 근거](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R009/CLASS_RENDER_LAYER_AUDIT.json), [요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R009/SUMMARY.json).
 - 사용자 정책: **인게임 검증 의무 제외**, 공식 원본 JAR SHA-1 필수 제외, 애니메이션·가구 제작·PZ 변환 보류. **현재 `TEX10-R009`, 다음 `TEX10-R010`은 미확인 정적 알고리즘에 대해 새로운 1차 자료 검증이 있을 때만**. R001–R008/전역 v38/다른 단계 무변경.
+
+---
+
+## TEX10-R010 — 2026-11-13 · 원본 MipmapHelper로 잎·덩굴·이끼 8개 기본 전략 확인
+
+- 신규 원본 Java 클래스 3개: ild (MipmapHelper), ile (MipmapStrategy), inj (TextureResourceMetadata). 파일 SHA와 메서드 경로는 R010 SOURCE_LEDGER/CLASS_AUDIT에 보존.
+- inj metadata default: mipmap_strategy AUTO, alpha_cutoff_bias 0.0F. ild AUTO 해석: alpha=0 픽셀이 하나라도 존재하면 CUTOUT, 없으면 MEAN.
+- 잎 6종은 기존 mcmeta에 dark_cutout 명시. 덩굴은 mcmeta 부재 및 기존 R002 투명 110/256→CUTOUT. 이끼는 부재/0/256→MEAN.
+- DARK_CUTOUT은 특수 알파 기반 2×2 보간, CUTOUT/STRICT_CUTOUT/DARK_CUTOUT은 mip alpha coverage 조정 분기로 확인. helper 내부 기본 0.5F/strict 0.3F는 shader cutout 정의와 별개.
+- 신규 파일 경로 3개, 누적 고유 경로 142→145. 이전 R002 마스크 8종 및 R007 mcmeta 6종은 계승. 신규 RGBA 픽셀 0, 실제 mip 이미지 생성/검증 0, 인게임 0/8은 사용자 정책상 제외.
+- 상세 근거: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R010/REPORT.md
+- 전략 CSV: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R010/MIPMAP_EFFECTIVE_STRATEGY_8.csv
+- 현재 TEX10-R010, 다음 TEX10-R011. 향후 mip 수준별 바이트 일치 정적 재생성 가능하지만 미완료. 전체 v38, 다른 단계, 과거 릴리스 무변경. 애니메이션 및 가구/PZ 작업 보류.

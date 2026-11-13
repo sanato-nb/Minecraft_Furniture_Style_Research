@@ -7,10 +7,10 @@
   "stage_id": "1-1-10",
   "material_family": "잎·식생",
   "stage_prefix": "TEX10",
-  "current_revision": "TEX10-R009",
-  "next_revision": "TEX10-R010",
-  "revision_sequence": 9,
-  "revision_status": "R009_BlocksRenderLayers_hoe_6_leaves_option_SOLID_CUTOUT_vine_CUTOUT_moss_SOLID_original_JVM_source_verified",
+  "current_revision": "TEX10-R010",
+  "next_revision": "TEX10-R011",
+  "revision_sequence": 10,
+  "revision_status": "R010_mipmap_strategy_6_explicit_dark_cutout_vine_AUTO_CUTOUT_moss_AUTO_MEAN_JVM_bytecode_verified",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 8,
@@ -42,27 +42,27 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "R009_6_unique_original_JVM_class_paths_direct_read_and_reused_dzs_hpa_source_SHA_crosschecked",
+      "status": "R010_three_new_JVM_class_paths_and_R002_mask_R007_mcmeta_old_evidence_crosschecked",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R007_three_colormap_PNG_CRC32_Adler32_valid_foliage_and_grass_rechecked_dry_newly_RGB_decoded;prior_target_PNG8_inherited",
+      "status": "R010_original_png_alpha_masks_R002_inherited_no_new_PNG_binary_count",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R007_dry_foliage_65536_new_RGB_pixels_268_colors_3_colormaps_65_biome_triplets_195_computed_values_not_ingame",
+      "status": "R010_auto_strategy_classification_uses_8_previous_alpha_masks_new_RGBA_pixel_count_zero",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R009_color_providers_R008_inherited_6_leaves_render_layer_option_separate_from_color_tintindex",
+      "status": "R010_8_effective_mipmap_strategies_6_dark_1_vine_cutout_1_moss_mean_source_method_verified",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R009_6_leaf_block_factory_inheritance_and_8_render_layers_static_verified_7_CUTOUT_map_targets_no_GPU_render_claim",
+      "status": "R010_mipmap_algorithm_and_R009_render_layer_separated_static_44_model_UV_faces_inherited",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
@@ -72,7 +72,7 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "TEX10_R009_6_new_class_paths_render_layer_factory_enum_pipeline_REPORT_CSV_JSON_saved",
+      "status": "TEX10_R010_3_original_classes_mipmap_strategy8_and_reports_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -80,7 +80,7 @@
     {
       "id": "D1",
       "check": "잎·덩굴 알파 마스크·가시 영역·투명 외곽",
-      "status": "R009_6_leaf_optional_CUTOUT_SOLID_terrain_alpha_0_5_if_cutout_vine_cutout_moss_solid_static; actual_mip_alpha_not_yet_measured"
+      "status": "R010_mipmap_6_dark_cutout_1_AUTO_CUTOUT_1_AUTO_MEAN_from_R002_masks_static_helper_verified"
     },
     {
       "id": "D2",
@@ -90,7 +90,7 @@
     {
       "id": "D3",
       "check": "컷아웃 영역과 3D 요소의 담당 역할 구분",
-      "status": "R009_8_block_model_geometry_inherited_and_actual_static_layer_routing_hoe_hth_hpa_verified"
+      "status": "R010_render_layer_and_mipmap_separately_verified_mip_pixel_levels_not_simulated"
     }
   ],
   "items": [
@@ -159,6 +159,12 @@
         "source_class_path": "1.21.11/hoe.class",
         "verified_revision": "TEX10-R009",
         "actual_game_mode_not_measured": true
+      },
+      "mipmap_static_R010": {
+        "strategy": "DARK_CUTOUT",
+        "alpha_zero_pixels_inherited_R002": 84,
+        "source": "1.21.11/ild.class;ile.class;inj.class",
+        "new_mip_pixels_measured": 0
       }
     },
     {
@@ -226,6 +232,12 @@
         "source_class_path": "1.21.11/hoe.class",
         "verified_revision": "TEX10-R009",
         "actual_game_mode_not_measured": true
+      },
+      "mipmap_static_R010": {
+        "strategy": "DARK_CUTOUT",
+        "alpha_zero_pixels_inherited_R002": 96,
+        "source": "1.21.11/ild.class;ile.class;inj.class",
+        "new_mip_pixels_measured": 0
       }
     },
     {
@@ -293,6 +305,12 @@
         "source_class_path": "1.21.11/hoe.class",
         "verified_revision": "TEX10-R009",
         "actual_game_mode_not_measured": true
+      },
+      "mipmap_static_R010": {
+        "strategy": "DARK_CUTOUT",
+        "alpha_zero_pixels_inherited_R002": 112,
+        "source": "1.21.11/ild.class;ile.class;inj.class",
+        "new_mip_pixels_measured": 0
       }
     },
     {
@@ -360,6 +378,12 @@
         "source_class_path": "1.21.11/hoe.class",
         "verified_revision": "TEX10-R009",
         "actual_game_mode_not_measured": true
+      },
+      "mipmap_static_R010": {
+        "strategy": "DARK_CUTOUT",
+        "alpha_zero_pixels_inherited_R002": 44,
+        "source": "1.21.11/ild.class;ile.class;inj.class",
+        "new_mip_pixels_measured": 0
       }
     },
     {
@@ -427,6 +451,12 @@
         "source_class_path": "1.21.11/hoe.class",
         "verified_revision": "TEX10-R009",
         "actual_game_mode_not_measured": true
+      },
+      "mipmap_static_R010": {
+        "strategy": "DARK_CUTOUT",
+        "alpha_zero_pixels_inherited_R002": 59,
+        "source": "1.21.11/ild.class;ile.class;inj.class",
+        "new_mip_pixels_measured": 0
       }
     },
     {
@@ -494,6 +524,12 @@
         "source_class_path": "1.21.11/hoe.class",
         "verified_revision": "TEX10-R009",
         "actual_game_mode_not_measured": true
+      },
+      "mipmap_static_R010": {
+        "strategy": "MEAN",
+        "alpha_zero_pixels_inherited_R002": 0,
+        "source": "1.21.11/ild.class;ile.class;inj.class",
+        "new_mip_pixels_measured": 0
       }
     },
     {
@@ -561,6 +597,12 @@
         "source_class_path": "1.21.11/hoe.class",
         "verified_revision": "TEX10-R009",
         "actual_game_mode_not_measured": true
+      },
+      "mipmap_static_R010": {
+        "strategy": "CUTOUT",
+        "alpha_zero_pixels_inherited_R002": 110,
+        "source": "1.21.11/ild.class;ile.class;inj.class",
+        "new_mip_pixels_measured": 0
       }
     },
     {
@@ -628,6 +670,12 @@
         "source_class_path": "1.21.11/hoe.class",
         "verified_revision": "TEX10-R009",
         "actual_game_mode_not_measured": true
+      },
+      "mipmap_static_R010": {
+        "strategy": "DARK_CUTOUT",
+        "alpha_zero_pixels_inherited_R002": 51,
+        "source": "1.21.11/ild.class;ile.class;inj.class",
+        "new_mip_pixels_measured": 0
       }
     }
   ],
@@ -973,5 +1021,15 @@
     "cutout_terrain_alpha_define_R007_inherited": 0.5,
     "ingame_static_validation_excluded": true,
     "static_mipmap_algorithm_unresolved": true
+  },
+  "r010_evidence": {
+    "new_unique_original_sources": 3,
+    "unique_original_source_paths_R003_R010": 145,
+    "explicit_dark_cutout": 6,
+    "auto_vine_cutout": 1,
+    "auto_moss_mean": 1,
+    "static_proof": true,
+    "no_new_pixel_measurements": true,
+    "ingame_excluded": true
   }
 }

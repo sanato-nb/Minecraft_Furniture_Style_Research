@@ -1,0 +1,6 @@
+strategy,selection,downsample,coverage
+AUTO,any original alpha==0 => CUTOUT; else MEAN,resolved strategy,resolved strategy
+MEAN,explicit or AUTO fully opaque,bel.a(IIII) average,no
+CUTOUT,explicit or AUTO with alpha-zero,bel.a(IIII) average,yes
+STRICT_CUTOUT,explicit,bel.a(IIII) average,"yes, strict float source 0.3"
+DARK_CUTOUT,explicit for six leaves,ild.a(IIII) darkened blend,yes

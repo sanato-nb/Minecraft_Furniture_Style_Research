@@ -1,0 +1,129 @@
+{
+  "schema": "TEX10-R010/original-mipmap-jvm-method-evidence/v1",
+  "version": "1.21.11",
+  "source_origin": "user-provided extracted client JAR, not Mojang whole-client SHA1 certified",
+  "new_primary_sources": [
+    {
+      "path": "1.21.11/ild.class",
+      "sha": "127f8a5f2cf483ee6101a7f8e0fe005aec419faf",
+      "role": "MipmapHelper main selector, blend and coverage methods"
+    },
+    {
+      "path": "1.21.11/ile.class",
+      "sha": "55d1873af156f8cd7afd93600b1e976dc7e1d6e1",
+      "role": "MipmapStrategy five enum cases"
+    },
+    {
+      "path": "1.21.11/inj.class",
+      "sha": "87c376c6c9a4b7de2fc0d598c74794eafc25fe31",
+      "role": "TextureResourceMetadata default strategy and cutoff bias"
+    }
+  ],
+  "ile_class": {
+    "enum_fields": {
+      "a": "AUTO",
+      "b": "MEAN",
+      "c": "CUTOUT",
+      "d": "STRICT_CUTOUT",
+      "e": "DARK_CUTOUT"
+    },
+    "source_sha": "55d1873af156f8cd7afd93600b1e976dc7e1d6e1"
+  },
+  "inj_class": {
+    "codec_method": "a(RecordCodecBuilder.Instance)",
+    "mipmap_default": "AUTO (ile.a)",
+    "cutoff_bias_default": 0,
+    "codec_optional_method": "optionalFieldOf",
+    "source_sha": "87c376c6c9a4b7de2fc0d598c74794eafc25fe31"
+  },
+  "ild_class": {
+    "source_sha": "127f8a5f2cf483ee6101a7f8e0fe005aec419faf",
+    "getMipmapLevelsImages": {
+      "descriptor": "a(Lamo;[Lfyh;ILile;F)[Lfyh;",
+      "code_length": 434,
+      "auto_resolver": "if ile.a AUTO: if ild.a(originalNativeImage) then ile.c CUTOUT else ile.b MEAN",
+      "dark_branch": "ile.e DARK_CUTOUT => ild.a(IIII)I instead of bel.a(IIII)I",
+      "alpha_coverage_modes": [
+        "CUTOUT",
+        "STRICT_CUTOUT",
+        "DARK_CUTOUT"
+      ],
+      "opacity_coverage_call": "ild.a(Lfyh;FF)F",
+      "adjust_alpha_call": "ild.a(Lfyh;FFF)V"
+    },
+    "hasAlpha": {
+      "descriptor": "a(Lfyh;)Z",
+      "code_length": 48,
+      "predicate": "alpha byte of any pixel equals zero"
+    },
+    "blendDarkenedCutout": {
+      "descriptor": "a(IIII)I",
+      "code_length": 284,
+      "predicate": "source alpha !=0 gates RGB/alpha contribution, then normalize by 4"
+    },
+    "thresholds_from_class_float_constant_pool": {
+      "default_coverage": 0.5,
+      "strict_coverage": 0.30000001192092896,
+      "default_float_hex": "0x3f000000",
+      "strict_float_hex": "0x3e99999a"
+    },
+    "other_calls": [
+      "TextureUtil.solidify",
+      "TextureUtil.fillEmptyAreasWithDarkColor"
+    ]
+  },
+  "inherited_mask_pixels_total": 2048,
+  "new_RGBA_pixel_count": 0,
+  "generated_mip_images_count": 0,
+  "per_target": [
+    {
+      "id": "oak_leaves",
+      "resolved_static_strategy": "DARK_CUTOUT",
+      "transparent_pixels_inherited_R002": 84,
+      "mcmeta_strategy": "dark_cutout"
+    },
+    {
+      "id": "spruce_leaves",
+      "resolved_static_strategy": "DARK_CUTOUT",
+      "transparent_pixels_inherited_R002": 96,
+      "mcmeta_strategy": "dark_cutout"
+    },
+    {
+      "id": "birch_leaves",
+      "resolved_static_strategy": "DARK_CUTOUT",
+      "transparent_pixels_inherited_R002": 112,
+      "mcmeta_strategy": "dark_cutout"
+    },
+    {
+      "id": "mangrove_leaves",
+      "resolved_static_strategy": "DARK_CUTOUT",
+      "transparent_pixels_inherited_R002": 44,
+      "mcmeta_strategy": "dark_cutout"
+    },
+    {
+      "id": "azalea_leaves",
+      "resolved_static_strategy": "DARK_CUTOUT",
+      "transparent_pixels_inherited_R002": 59,
+      "mcmeta_strategy": "dark_cutout"
+    },
+    {
+      "id": "flowering_azalea_leaves",
+      "resolved_static_strategy": "DARK_CUTOUT",
+      "transparent_pixels_inherited_R002": 51,
+      "mcmeta_strategy": "dark_cutout"
+    },
+    {
+      "id": "vine",
+      "resolved_static_strategy": "CUTOUT",
+      "transparent_pixels_inherited_R002": 110,
+      "mcmeta_strategy": "absent => AUTO"
+    },
+    {
+      "id": "moss_block",
+      "resolved_static_strategy": "MEAN",
+      "transparent_pixels_inherited_R002": 0,
+      "mcmeta_strategy": "absent => AUTO"
+    }
+  ],
+  "disclaimer": "Static method/strategy routing only. In-game color, requested mip levels and byte-exact mip outputs not verified. Animation deferred."
+}
