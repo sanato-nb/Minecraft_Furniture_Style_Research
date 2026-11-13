@@ -117,3 +117,13 @@
 - 과거 `TEX09-R001`~`R004`의 기록/원장/인증 여부는 역사적 사실로 **불변 보존**. 과거 보고서 중 “공식 인증 필요/보류”라고 한 부분은 그 시점의 작업 규칙이며, **현재 적용되는 범위 규칙은 이 최신 항목이 우선**한다.
 - **이번 변경은 연구 방식 지시의 갱신이지 새로운 바이너리·픽셀 검증이 아니므로 버전을 올리지 않는다.** 현재 `TEX09-R004`, 다음 신규 실측 버전 `TEX09-R005` 그대로 유지.
 - 공통 `ISOLATED_CHAT_VERSIONING.md`는 다른 단계를 건드리지 않기 위해 수정하지 않았다. `1-1-09` 한정 사용자 지시가 해당 문서의 기존 F단계 공식 인증 기본값보다 우선한다. 다른 단계, 통합 `v38`, 애니메이션 보류 및 범위 제외 규칙 모두 그대로.
+
+## TEX09-R005 — 사용자 grass colormap RGB 삼각영역 및 정적 grass/podzol/snow tint·UV 경로 (2026-11-13)
+
+- [상세 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R005/REPORT.md), [256행 colormap 검사](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R005/COLORMAP_GRASS_ROW_AUDIT.csv), [RGB 실제 샘플](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R005/COLORMAP_GRASS_PIXEL_SAMPLES.csv), [정적 face 28행](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R005/STATIC_COLOR_FACE_LINKS.csv), [소스 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R005/SOURCE_LEDGER.csv), [요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-09/TEX09-R005/SUMMARY.json).
+- 사용자 제공 1.21.11/assets/minecraft/textures/colormap/grass.png **1개 보조 PNG의 65,536 RGBA 픽셀 신규 디코드**. PNG CRC 3/3·zlib Adler 및 SHA-256 대조. x>y인 32,640 픽셀 전부 흰색, x≤y인 32,896 픽셀 전부 비순백, 고유 RGB 4,536. 이 보조 PNG 파일 경로/Git blob은 R003에 이미 기록되어 있어 새로 발견한 파일로 중복 가산하지 않음.
+- 원본 상태·모델 JSON **8개 재파싱(신규 JSON 0)**으로 grass/podzol snowy=false/true 총 4상태 및 28개 면별 texture·UV·tint·cullface 연결을 파생 정리. 일반 grass 10면 중 UV 명시 10면과 tintindex=0 5면(상단 1/측면 오버레이4), 나머지 18면의 UV 필드는 부모 cube에서 생략(implicit). 이 28면은 신규 소스 경로 표이며 28개의 새 모델이나 새 독립 face 이미지가 아니다.
+- **기존 R004의 overlay 45 불투명/211 투명, snow 순백 16은 계승**. 4x45=180은 원본 alpha/모델 4면에 의한 이론상 투영이며 게임 렌더에서 관측된 픽셀 수가 아님.
+- 고정 9개 PNG·기존 26 JSON 연결 유지, 신규 고정 PNG 0, 실제 인게임 정적 확인 0/9. 실제 바이옴 tint RGB 및 colormap 런타임 좌표·엔진 조명·주변 블록 렌더 확인 안 됨.
+- Mojang 공식 client.jar 전체 SHA-1/메타데이터 인증은 사용자 정책으로 필수 제외, 공식 인증 성공 아님. 애니메이션 연구 전면 보류. 타 단계, 공용 HANDOFF/PROGRESS, 전역 v38 수정 금지.
+- 현재 TEX09-R005 / 다음 후보 TEX09-R006. 반드시 새 작업 시 LIVE STATE/HEAD 및 마지막 릴리스 근거 재조회. 실제 인게임 정적 관측·검증 가능한 런타임 색상표 룩업이 없는 한 F를 완료하지 말 것.
