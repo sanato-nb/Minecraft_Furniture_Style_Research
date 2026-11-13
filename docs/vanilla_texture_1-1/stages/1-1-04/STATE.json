@@ -7,10 +7,10 @@
   "stage_id": "1-1-04",
   "material_family": "직물·양털",
   "stage_prefix": "TEX04",
-  "current_revision": "TEX04-R002",
-  "next_revision": "TEX04-R003",
-  "revision_sequence": 2,
-  "revision_status": "R002_36_pairwise_pattern_9_seam_metrics_unofficial_mirror_official_F_pending",
+  "current_revision": "TEX04-R003",
+  "next_revision": "TEX04-R004",
+  "revision_sequence": 3,
+  "revision_status": "R003_user_provided_1.21.11_extraction_9_png_sha256_crc_9_models_9_blockstates_54_faces_mirror_identical_official_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 9,
@@ -42,15 +42,15 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "completed_v4_ledger_and_later_source_crosscheck_9_of_9",
+      "status": "completed_user_source_and_legacy_crosswalk_9_of_9",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX04-R001"
+      "last_revision": "TEX04-R003"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "verified_unofficial_mirror_png_sha_crc_9_of_9",
+      "status": "user_extracted_png_sha256_crc_and_mirror_binary_checked_9_of_9",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX04-R001",
+      "last_revision": "TEX04-R003",
       "note_r002": "Existing 9 mirror source PNG SHA-256 values rechecked, not official client.jar"
     },
     "C": {
@@ -58,33 +58,36 @@
       "status": "measured_rgba_16x16_9_of_9_2304_pixels",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "last_revision": "TEX04-R002",
-      "note_r002": "New 36 pairwise 256-pixel luma spatial comparisons and nine opposite-edge seam comparisons"
+      "note_r002": "New 36 pairwise 256-pixel luma spatial comparisons and nine opposite-edge seam comparisons",
+      "note_r003": "R001 RGBA 2304 pixels reused without recount, user extracted bytes identical to legacy mirror 9/9"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
       "status": "D1_D2_numeric_9_of_9_D3_hypothesis_separated",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "last_revision": "TEX04-R002",
-      "note_r002": "Near-identical luma rank layouts across colors; PNG palette indices not interchangeable RGB; horizontal edges show higher delta than internal horizontal neighbors"
+      "note_r002": "Near-identical luma rank layouts across colors; PNG palette indices not interchangeable RGB; horizontal edges show higher delta than internal horizontal neighbors",
+      "note_r003": "D1/D2 from R001/R002 remain valid for identical user supplied PNG bytes, D3 source fact/hypothesis separated"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "verified_source_json_static_uv_9_of_9_54_faces",
+      "status": "user_extracted_9_static_models_9_blockstates_3_parents_verified_54_inherited_face_uv_bindings",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX04-R001"
+      "last_revision": "TEX04-R003"
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
       "status": "pending_official_client_jar_and_ingame_static_0_of_9",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "last_revision": "TEX04-R001",
-      "note_r002": "Candidate Mojang SHA1 found only in third-party indexes, jar bytes unavailable"
+      "note_r002": "Candidate Mojang SHA1 found only in third-party indexes, jar bytes unavailable",
+      "note_r003": "User-uploaded extracted folder confirms internal version.json but source JAR entire bytes and Mojang official distribution SHA1 unauthenticated"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "saved_TEX04_R002_36_color_pairs_9_seam_report_script_and_handoff",
+      "status": "saved_TEX04_R003_user_extract_binary_and_static_json_54_faces_ledger_errata_handoff",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_revision": "TEX04-R002"
+      "last_revision": "TEX04-R003"
     }
   },
   "material_specific_checks": [
@@ -117,11 +120,22 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R002",
-      "evidence_status": "mirror_sha_pixel_checked",
+      "last_verified_revision": "TEX04-R003",
+      "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
-      "r002_repeat_seam_checked": true
+      "r002_repeat_seam_checked": true,
+      "user_extracted_png_path": "1.21.11/assets/minecraft/textures/block/white_wool.png",
+      "user_extracted_png_sha256": "70c9c9a9901d71ef9a5a89ea2cc4bc0d99ff5e65f733d1467da8b92f746107a5",
+      "user_extracted_png_git_blob_sha": "4049383411c5bd48db33db3fbcda960698f36036",
+      "user_extracted_model_git_blob_sha": "8af86fa1b32d212d3305005ecaf0934280f87344",
+      "user_extracted_blockstate_git_blob_sha": "3c23fc0931b6dd1c3f802886656037743684761c",
+      "user_extracted_png_sha256_recomputed": true,
+      "user_extracted_png_crc_checked": true,
+      "user_extracted_model_json_checked": true,
+      "user_extracted_blockstate_json_checked": true,
+      "user_extracted_static_6_faces_checked": true,
+      "mirror_binary_crosschecked": true
     },
     {
       "item_id": "1-1-04-002",
@@ -132,11 +146,22 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R002",
-      "evidence_status": "mirror_sha_pixel_checked",
+      "last_verified_revision": "TEX04-R003",
+      "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
-      "r002_repeat_seam_checked": true
+      "r002_repeat_seam_checked": true,
+      "user_extracted_png_path": "1.21.11/assets/minecraft/textures/block/red_wool.png",
+      "user_extracted_png_sha256": "07b48cec9b4610e908025807fb85fa686dd50f17918fa677ce655d28b3ba3464",
+      "user_extracted_png_git_blob_sha": "989cc5a1906f1b06558cde170cd35233f57eec4f",
+      "user_extracted_model_git_blob_sha": "72267b6288f7aa36cb8e2b144e3ca764d1667f0a",
+      "user_extracted_blockstate_git_blob_sha": "d756ff397b698ff62bf1af1322c107088cac4f0c",
+      "user_extracted_png_sha256_recomputed": true,
+      "user_extracted_png_crc_checked": true,
+      "user_extracted_model_json_checked": true,
+      "user_extracted_blockstate_json_checked": true,
+      "user_extracted_static_6_faces_checked": true,
+      "mirror_binary_crosschecked": true
     },
     {
       "item_id": "1-1-04-003",
@@ -147,11 +172,22 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R002",
-      "evidence_status": "mirror_sha_pixel_checked",
+      "last_verified_revision": "TEX04-R003",
+      "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
-      "r002_repeat_seam_checked": true
+      "r002_repeat_seam_checked": true,
+      "user_extracted_png_path": "1.21.11/assets/minecraft/textures/block/blue_wool.png",
+      "user_extracted_png_sha256": "2ca85a3e25a3ea9b0d8209edab2ab93f64e458d8c6baf8215536912159a6e2db",
+      "user_extracted_png_git_blob_sha": "b568f9a38775c2109d88e3197b3b76db45c25fde",
+      "user_extracted_model_git_blob_sha": "4fb7fa5b149e400e1195bce5a90f6d607d965bcd",
+      "user_extracted_blockstate_git_blob_sha": "1b65b8e61774f71f455b0b9041142ff15e0fa1b9",
+      "user_extracted_png_sha256_recomputed": true,
+      "user_extracted_png_crc_checked": true,
+      "user_extracted_model_json_checked": true,
+      "user_extracted_blockstate_json_checked": true,
+      "user_extracted_static_6_faces_checked": true,
+      "mirror_binary_crosschecked": true
     },
     {
       "item_id": "1-1-04-004",
@@ -162,11 +198,22 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R002",
-      "evidence_status": "mirror_sha_pixel_checked",
+      "last_verified_revision": "TEX04-R003",
+      "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
-      "r002_repeat_seam_checked": true
+      "r002_repeat_seam_checked": true,
+      "user_extracted_png_path": "1.21.11/assets/minecraft/textures/block/black_wool.png",
+      "user_extracted_png_sha256": "8cefbc855a4ff04f6125ded6a69e8bd21144802fc466b179665c8c0203daffd9",
+      "user_extracted_png_git_blob_sha": "c38f621a89ed0e3038d1afd96201880ccca3b473",
+      "user_extracted_model_git_blob_sha": "7fea63ff530cad3b51435e662daa2c4d6324bd8a",
+      "user_extracted_blockstate_git_blob_sha": "18b2cb6c77faa902229b46f78f105284e2e63b53",
+      "user_extracted_png_sha256_recomputed": true,
+      "user_extracted_png_crc_checked": true,
+      "user_extracted_model_json_checked": true,
+      "user_extracted_blockstate_json_checked": true,
+      "user_extracted_static_6_faces_checked": true,
+      "mirror_binary_crosschecked": true
     },
     {
       "item_id": "1-1-04-005",
@@ -177,11 +224,22 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R002",
-      "evidence_status": "mirror_sha_pixel_checked",
+      "last_verified_revision": "TEX04-R003",
+      "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
-      "r002_repeat_seam_checked": true
+      "r002_repeat_seam_checked": true,
+      "user_extracted_png_path": "1.21.11/assets/minecraft/textures/block/green_wool.png",
+      "user_extracted_png_sha256": "a2cd93d4bcead9b808d367fefa17081e12e5bd96ebff6993fc3d486422ecb9ad",
+      "user_extracted_png_git_blob_sha": "90c7bfe2b2705dba0ab134b5fb4c31a2c71de427",
+      "user_extracted_model_git_blob_sha": "79b5a21f1558df27242543b3e178dd2d431af8af",
+      "user_extracted_blockstate_git_blob_sha": "895370355c077c05d9dc55546fdafba686e76f12",
+      "user_extracted_png_sha256_recomputed": true,
+      "user_extracted_png_crc_checked": true,
+      "user_extracted_model_json_checked": true,
+      "user_extracted_blockstate_json_checked": true,
+      "user_extracted_static_6_faces_checked": true,
+      "mirror_binary_crosschecked": true
     },
     {
       "item_id": "1-1-04-006",
@@ -192,11 +250,22 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R002",
-      "evidence_status": "mirror_sha_pixel_checked",
+      "last_verified_revision": "TEX04-R003",
+      "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
-      "r002_repeat_seam_checked": true
+      "r002_repeat_seam_checked": true,
+      "user_extracted_png_path": "1.21.11/assets/minecraft/textures/block/yellow_wool.png",
+      "user_extracted_png_sha256": "cc77805bdc4ccb24d210ec65e304f1c367ae9e9ee0fed404ec99143bf62a2ef2",
+      "user_extracted_png_git_blob_sha": "aab1cb2e10184d28b418829789a47277aa144d73",
+      "user_extracted_model_git_blob_sha": "2f0dab3676be960542b7ba4a00e26258c44d73b9",
+      "user_extracted_blockstate_git_blob_sha": "1392ae5132567dd4de940b4c9ecbbed759143568",
+      "user_extracted_png_sha256_recomputed": true,
+      "user_extracted_png_crc_checked": true,
+      "user_extracted_model_json_checked": true,
+      "user_extracted_blockstate_json_checked": true,
+      "user_extracted_static_6_faces_checked": true,
+      "mirror_binary_crosschecked": true
     },
     {
       "item_id": "1-1-04-007",
@@ -207,11 +276,22 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R002",
-      "evidence_status": "mirror_sha_pixel_checked",
+      "last_verified_revision": "TEX04-R003",
+      "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
-      "r002_repeat_seam_checked": true
+      "r002_repeat_seam_checked": true,
+      "user_extracted_png_path": "1.21.11/assets/minecraft/textures/block/purple_wool.png",
+      "user_extracted_png_sha256": "f8f5d7eb9145633d27d80c4c06a9a71e21eaea522c277f81a4d6d9e8fd60f0d9",
+      "user_extracted_png_git_blob_sha": "89964f6fc77cebc6d198b2c2da5c564a2f082635",
+      "user_extracted_model_git_blob_sha": "c59282e591e405ffd674334054374045032a05e1",
+      "user_extracted_blockstate_git_blob_sha": "a14ba55d50a1d97cd48215a16d0b8a825c239471",
+      "user_extracted_png_sha256_recomputed": true,
+      "user_extracted_png_crc_checked": true,
+      "user_extracted_model_json_checked": true,
+      "user_extracted_blockstate_json_checked": true,
+      "user_extracted_static_6_faces_checked": true,
+      "mirror_binary_crosschecked": true
     },
     {
       "item_id": "1-1-04-008",
@@ -222,11 +302,22 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R002",
-      "evidence_status": "mirror_sha_pixel_checked",
+      "last_verified_revision": "TEX04-R003",
+      "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
-      "r002_repeat_seam_checked": true
+      "r002_repeat_seam_checked": true,
+      "user_extracted_png_path": "1.21.11/assets/minecraft/textures/block/cyan_wool.png",
+      "user_extracted_png_sha256": "68706949a22ed0877a42ddca38e5ec428039d52ff23e6614f2900e33cb759303",
+      "user_extracted_png_git_blob_sha": "faf3d2c6e200fa8bf343ba42fcf2664c4fe4e062",
+      "user_extracted_model_git_blob_sha": "d686a24086637fce53c4ae33049af8584602fb5e",
+      "user_extracted_blockstate_git_blob_sha": "48b12b5acd19714cfb6beda94bcdd7b9a173beef",
+      "user_extracted_png_sha256_recomputed": true,
+      "user_extracted_png_crc_checked": true,
+      "user_extracted_model_json_checked": true,
+      "user_extracted_blockstate_json_checked": true,
+      "user_extracted_static_6_faces_checked": true,
+      "mirror_binary_crosschecked": true
     },
     {
       "item_id": "1-1-04-009",
@@ -237,11 +328,22 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX04-R002",
-      "evidence_status": "mirror_sha_pixel_checked",
+      "last_verified_revision": "TEX04-R003",
+      "evidence_status": "user_provided_extraction_and_mirror_binary_crosschecked_official_pending",
       "static_source_model_uv_checked": true,
       "r002_spatial_colour_pairwise_checked": true,
-      "r002_repeat_seam_checked": true
+      "r002_repeat_seam_checked": true,
+      "user_extracted_png_path": "1.21.11/assets/minecraft/textures/block/orange_wool.png",
+      "user_extracted_png_sha256": "de3ec43fe8ca99026bdda3c036a964990e7d9b08c8b67690e2f975ddbdc5ff68",
+      "user_extracted_png_git_blob_sha": "3581fa5b18d8c29f89de592ea769ed13460487ff",
+      "user_extracted_model_git_blob_sha": "89a99b52b0a59de44ef8ee73b932889b8d3e1499",
+      "user_extracted_blockstate_git_blob_sha": "ae3fabee34a107decb628bfdeb9c55220e24af91",
+      "user_extracted_png_sha256_recomputed": true,
+      "user_extracted_png_crc_checked": true,
+      "user_extracted_model_json_checked": true,
+      "user_extracted_blockstate_json_checked": true,
+      "user_extracted_static_6_faces_checked": true,
+      "mirror_binary_crosschecked": true
     }
   ],
   "revisions": [
@@ -280,16 +382,37 @@
       "reproduction_script": "research/vanilla_textures/by_stage/1-1-04/TEX04-R002/REPRODUCE_R002.py",
       "official_verification_gate": "research/vanilla_textures/by_stage/1-1-04/TEX04-R002/OFFICIAL_VERIFICATION_GATE.md",
       "summary_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R002/SUMMARY.json"
+    },
+    {
+      "revision": "TEX04-R003",
+      "kind": "user_provided_1.21.11_jar_extraction_png_binary_models_blockstates_crosscheck",
+      "new_unique_textures_added": 0,
+      "source_files_reviewed_as_new": 9,
+      "source_png_sha256_directly_recomputed": 9,
+      "mirror_png_git_sha_binary_equal_count": 9,
+      "user_extracted_model_jsons": 9,
+      "user_extracted_blockstates": 9,
+      "common_model_parents": 3,
+      "static_uv_faces_crosschecked_from_new_source": 54,
+      "official_client_jar_verified": 0,
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R003/REPORT.md",
+      "source_comparison_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R003/USER_EXTRACT_9_PNG_JSON_CROSSCHECK.csv",
+      "static_uv_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R003/USER_EXTRACT_54_FACE_UV_SOURCE_CHECK.csv",
+      "errata_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R003/ERRATA_R001_BLACK_WOOL_MODEL_SHA.md",
+      "four_tiers_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R003/SOURCE_PROVENANCE_AND_FOUR_GATES.md",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R003/SUMMARY.json",
+      "verification_script": "research/vanilla_textures/by_stage/1-1-04/TEX04-R003/VERIFY_USER_EXTRACT.py"
     }
   ],
   "next_steps": [
-    "Before any next write re-fetch stage STATE/HANDOFF Git SHAs and verify release folder absence",
-    "Obtain Mojang authoritative live manifest and 1.21.11 version JSON; authenticate metadata SHA1",
-    "Download official client.jar and verify its full SHA1 and file size against Mojang metadata",
-    "From authenticated JAR compare 9 wool PNG SHA256 with selected v4/R001/R002 source hashes",
-    "If game available capture the nine wool variants in static controlled in-game screenshots",
-    "Keep 0 official and 0 in-game statuses unless actually verified; never count 9 repeatedly",
-    "Animation remains deferred; do not edit other stage or global v38 files"
+    "Always first reread own stage STATE.json/HANDOFF.md and check current_revision, next_revision, current blob SHA and output folder before write",
+    "Prioritize direct user-uploaded 1.21.11 extracted assets for 1-1-04; do not repeat 9 existing PNG pixel measurements",
+    "Obtain Mojang official version manifest and authoritative 1.21.11 version JSON, verify published client.jar SHA1 and size against actual JAR binary bytes",
+    "Only after authenticating whole client.jar verify its nine wool PNG and static JSON members against R003 source SHA256",
+    "With actual game screenshots under recorded Minecraft 1.21.11 pack/lighting/view confirm static visual rendering; otherwise keep 0/9",
+    "Keep SHA1 of Git blobs distinct from SHA1 of complete client.jar; retain R001 black_wool historical SHA erratum without changing R001/R002",
+    "Keep animation deferred, avoid Project Zomboid conversion/3D furniture creation and global v38 or other 1-1 stages"
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -312,5 +435,56 @@
   "r002_seam_test_count": 9,
   "r002_direct_official_client_jar_metadata": false,
   "r002_direct_official_client_jar_binary": false,
-  "r002_unverified_client_sha1_candidate_from_third_party": "ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd"
+  "r002_unverified_client_sha1_candidate_from_third_party": "ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd",
+  "primary_source": {
+    "repo": "sanato-nb/Minecraft_Furniture_Style_Research",
+    "root": "1.21.11/",
+    "description": "user-uploaded client.jar extracted files, officially unauthenticated",
+    "source_priority": "user_provided_extraction_first",
+    "version_json_git_blob_sha": "b49974d3ebd6cb73291d9e4c92d23b3192dadd66",
+    "version_id": "1.21.11"
+  },
+  "user_provided_extraction_checked_count": 9,
+  "existing_mirror_binary_crosschecked_count": 9,
+  "user_extraction_png_sha256_recomputed_count": 9,
+  "user_extraction_png_crc_checked_count": 9,
+  "user_extraction_model_json_checked_count": 9,
+  "user_extraction_blockstate_json_checked_count": 9,
+  "user_extraction_shared_parent_json_checked_count": 3,
+  "user_extraction_static_uv_faces_crosschecked": 54,
+  "user_extraction_version_json_checked": true,
+  "R003_additional_unique_textures": 0,
+  "verification_dimensions": {
+    "user_provided_extraction": {
+      "status": "checked",
+      "verified_files": 9,
+      "total": 9,
+      "source_class": "user_uploaded_unverified_jar_extraction"
+    },
+    "mirror_comparison": {
+      "status": "checked_binary_identical",
+      "verified_files": 9,
+      "total": 9
+    },
+    "mojang_official_binary": {
+      "status": "pending",
+      "verified_files": 0,
+      "total": 9,
+      "jar_sha1_not_verified": true
+    },
+    "ingame_static": {
+      "status": "pending",
+      "verified_files": 0,
+      "total": 9
+    }
+  },
+  "r001_immutable_errata": {
+    "texture_id": "black_wool",
+    "historical_sha_39": "7fea63ff530cad3b51435e662daa2c4d6324bd8",
+    "correct_sha_40": "7fea63ff530cad3b51435e662daa2c4d6324bd8a",
+    "affected_source_records": 1,
+    "affected_uv_records": 6,
+    "errata_path": "research/vanilla_textures/by_stage/1-1-04/TEX04-R003/ERRATA_R001_BLACK_WOOL_MODEL_SHA.md",
+    "r001_not_modified": true
+  }
 }
