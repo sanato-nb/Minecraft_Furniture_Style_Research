@@ -1,0 +1,71 @@
+{
+  "schema": "TEX10-R011/bytecode-reconstruction-math-and-cross-implementation-evidence/v1",
+  "original_java_release": "Minecraft Java 1.21.11 user-provided source class bytes",
+  "new_source_file": "1.21.11/bel.class",
+  "new_source_blob": "0cdc7305b8b2477802947c717f420eb7e3f29b18",
+  "reused_helper_blob": "127f8a5f2cf483ee6101a7f8e0fe005aec419faf",
+  "eight_original_png_blob_sha_checked": true,
+  "raw_png_sha256_rechecked_in_local_Python_Pillow": true,
+  "new_unique_binary_source_paths": 1,
+  "source_paths_cumulative_R003_R011": 146,
+  "source_real_RGBA_pixels_newly_redecoded_in_R011": 2048,
+  "source_unique_pixel_positions_added": 0,
+  "derived_alpha_bytes": 680,
+  "independent_implementations": [
+    "Python3 Pillow numpy.float32",
+    "JavaScript Math.fround (GitHub plugin V8 execution)"
+  ],
+  "per_level_independent_CRC32_matches": 32,
+  "combined_CRC32": "2171e3da",
+  "source_bytecode_methods": [
+    {
+      "class": "ild",
+      "method": "a(Lfyh;FF)F",
+      "role": "opacity coverage over (width-1)*(height-1) cells each sampled at 4x4 bilinear midpoints"
+    },
+    {
+      "class": "ild",
+      "method": "a(Lfyh;FFF)V",
+      "role": "five-iteration search min0 max4 best alpha scale + bias +0.025"
+    },
+    {
+      "class": "ild",
+      "method": "a(IIII)I",
+      "role": "DARK_CUTOUT RGB+alpha gamma aware average with zero-alpha input ignored"
+    },
+    {
+      "class": "bel",
+      "method": "a(I)F",
+      "role": "unsigned 8-bit LUT converted to 10-bit linear fraction"
+    },
+    {
+      "class": "bel",
+      "method": "a(F)I",
+      "role": "10-bit linear float converted back to 8-bit sRGB via LUT"
+    },
+    {
+      "class": "bel",
+      "method": "m(I)F",
+      "role": "alpha byte divided by 255"
+    },
+    {
+      "class": "bel",
+      "method": "a(IIII)I",
+      "role": "normal mean alpha=sum four alpha/4 integer, RGB LUT averages"
+    }
+  ],
+  "MIP_LEVEL_COUNT_EXPERIMENT": 4,
+  "strategy_based_on_R010": {
+    "leaf_6": "DARK_CUTOUT",
+    "vine": "CUTOUT",
+    "moss": "MEAN"
+  },
+  "source_base_cleaning_dependency": "TextureUtil.solidify/TextureUtil.fillEmptyAreasWithDarkColor source RGB may affect full generated RGB, but alpha processing independently reconstructed",
+  "critical_limitations": [
+    "Two independent reimplementations agree with each other, not an executed original JVM pixel-for-pixel output.",
+    "All 680 derived positions are ALPHA only, not byte-accurate full RGBA Java mip images.",
+    "Gamma LUT Math.pow and fround can differ in low bits from JVM; do not advertise original JAR byte-identical results.",
+    "Computed isolated 16x16 4-step mip textures, not observed sprite atlas, actual mipmap user setting or in-game framebuffer.",
+    "No full raw client.jar Mojang SHA1 authentication requested; excluded."
+  ]
+}

@@ -195,3 +195,12 @@
 - 상세 근거: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R010/REPORT.md
 - 전략 CSV: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R010/MIPMAP_EFFECTIVE_STRATEGY_8.csv
 - 현재 TEX10-R010, 다음 TEX10-R011. 향후 mip 수준별 바이트 일치 정적 재생성 가능하지만 미완료. 전체 v38, 다른 단계, 과거 릴리스 무변경. 애니메이션 및 가구/PZ 작업 보류.
+
+---
+
+## TEX10-R011 — 2026-11-13 · 실제 PNG 재해시 + 정적 재현 680개 밉맵 alpha 값
+
+- 신규 원본 고유 경로 **`1.21.11/bel.class` 한 개**, JVM constant pool 및 알파/gamma LUT 관련 메서드 분석. R010 `ild.class` 재해석. R002 잎·덩굴·이끼 8종 PNG 원본 다시 받아 Python PIL 16×16 RGBA **2,048화소 재디코드**하고 raw SHA256 **8/8 이전 원본과 일치**. 같은 원본 위치이므로 고유 신원본 화소 추가 0.
+- 전 8종 원본 16×16에서 8×8/4×4/2×2/1×1 **각 85개×8=680개 alpha 값 실험 재계산**. Python numpy.float32+Pillow 구현 vs JavaScript Math.fround 구현이 **32/32 레벨 CRC32 일치**, 전체 680바이트 CRC `2171e3da`. 595개 부분 알파/85개 불투명/0개 완전 투명 값(재현 실험 산출, 게임 결과 아님).
+- [보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R011/REPORT.md), [alpha 680개 행별 hex](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R011/ALPHA_LEVELS_HEX_8.json), [32개 레벨 계측 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R011/MIP_ALPHA_METRICS_32.csv), [원본 PNG 8 SHA256](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R011/ORIGINAL_PNG_REHASH_8.csv), [원본 코드/한계](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R011/BYTECODE_ALPHA_MATH_AUDIT.json).
+- **두 재구현의 일치 ≠ 실제 Java NativeImage/JVM 실행 byte-exact 검증**. full RGB/PNG atlas GPU 화면 검증 0, 인게임 검증 의무 제외. 새 source 1개, 누적 고유 경로 **145→146**. 기존 R001–R010 및 전역 v38·타 단계 불변. 후속은 `TEX10-R012`, 새 정적 실제 근거가 있을 때만. 애니메이션/PZ변환/실제 가구 제작 보류.
