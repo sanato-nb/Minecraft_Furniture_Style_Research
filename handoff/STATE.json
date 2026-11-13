@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-13",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v36",
+  "current_checkpoint": "v37",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -19,7 +19,7 @@
     {
       "id": "01",
       "topic": "vanilla material and texture analysis",
-      "status": "v35_p1_16_static_png_full_rgba_4096_pixels_3496_opaque_600_transparent_6_pillow_independent_official_jar_unverified",
+      "status": "v37_static_furnace_11_png_2816_rgba_all_opaque_crc_adler_v34_sha_11_of_11_two_sprite_paths_deferred",
       "sample_count": 150,
       "target": 150,
       "v26_pngs_full_rgba_decoded": 8,
@@ -54,12 +54,22 @@
       "v35_png_paths": 16,
       "v35_png_pixels": 4096,
       "v35_uv_texel_uses": 10900,
-      "v35_particle_only_png": "bell_bottom"
+      "v35_particle_only_png": "bell_bottom",
+      "v37_original_static_png_files": 11,
+      "v37_original_static_png_pixels": 2816,
+      "v37_source_pixels_opaque": 2816,
+      "v37_source_pixels_transparent": 0,
+      "v37_source_pixels_partial_alpha": 0,
+      "v37_v34_git_sha_matches": 11,
+      "v37_static_furnace_pair_rgb_changed_pixels": 36,
+      "v37_static_furnace_pair_alpha_changed_pixels": 0,
+      "v37_deferred_multi_frame_png_files": 2,
+      "v37_independent_pillow_crosscheck": false
     },
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v36_p1_v35_15_plus_v36_6_direct_source_sha_and_24_static_variants_no_official_jar",
+      "status": "v37_v36_six_static_leaf_36_face_material_34_static_png_pixels_connected_two_multiframe_deferred",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -122,7 +132,13 @@
       "v36_prior_full_historical_reconciliation_complete": false,
       "v36_new_static_variants": 24,
       "v36_face_material_rows": 36,
-      "v36_original_png_rgba_new": 0
+      "v36_original_png_rgba_new": 0,
+      "v37_six_leaf_static_face_material_pixel_connected": 34,
+      "v37_deferred_multiframe_face_material": 2,
+      "v37_inferred_uv_texel_uses": 8704,
+      "v37_inferred_uv_opaque_uses": 8704,
+      "v37_inferred_uv_transparent_uses": 0,
+      "v37_implicit_uv_engine_authenticated": false
     },
     {
       "id": "03",
@@ -1927,5 +1943,30 @@
     "ingame_static_renderer_verified": false,
     "animations_deferred": true,
     "final_completed_substeps": 0
+  },
+  "v37": {
+    "date": "2026-11-13",
+    "report": "research/vanilla_models/v37/00_v37_화로용광로훈연기_정적11PNG_34면실화소_분석보고서.md",
+    "static_png_manifest": "research/vanilla_models/v37/01_eleven_static_png_original_rgba_crc_adler.csv",
+    "face_pixel_audit": "research/vanilla_models/v37/02_six_leaf_36_face_material_static_png_rgba_vs_deferred.csv",
+    "summary_json": "research/vanilla_models/v37/v37_static_furnaces_png_pixels_summary.json",
+    "original_png_files_decoded": 11,
+    "original_source_pixels": 2816,
+    "opaque_original_source_pixels": 2816,
+    "transparent_original_source_pixels": 0,
+    "partial_original_source_pixels": 0,
+    "source_png_sha_matches_v34": 11,
+    "png_crc_adler_valid_all_11": true,
+    "static_face_material_rows_pixel_checked": 34,
+    "deferred_multiframe_face_material_rows": 2,
+    "implicit_uv_texel_uses": 8704,
+    "implicit_uv_opaque_uses": 8704,
+    "front_furnace_on_off_rgba_changed": 36,
+    "front_furnace_on_off_alpha_changed": 0,
+    "independent_pillow_verification": false,
+    "official_mojang_client_jar_verified": false,
+    "ingame_static_render_verified": false,
+    "animation_study_deferred": true,
+    "substeps_completed": 0
   }
 }
