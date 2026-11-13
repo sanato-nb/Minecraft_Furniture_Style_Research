@@ -95,3 +95,14 @@
 - 검증 등급 1. 사용자 추출본 **8/8** / 2. 미러 바이트 일치 **8/8** / 3. Mojang 공식 JAR SHA-1 **0/8** / 4. 인게임 정적 화면 **0/8**.
 - [R003 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R003/REPORT.md) · [PNG/모델/블록 상태 해시 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R003/SOURCE_LEDGER.csv) · [정적 JSON·UV 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R003/STATIC_SOURCE_AUDIT.json) · [4계층 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R003/FOUR_TIER_VERIFICATION.csv).
 - 후속 **TEX06-R004**: 압축 원본 JAR 해시 공식 인증 혹은 인게임 정적 렌더 추가 증거 확보. 애니메이션/PZ 변환/가구 3D 제작 중지 유지.
+
+## TEX06-R004 — 2026-11-13 신규 아이템 출처·유광 면 방향 정적 분석
+
+- 현재 단계 버전 **TEX06-R004**, 다음 **TEX06-R005**, 통합 체크포인트 **v38 불변**. 이전 R001–R003 근거/버전 원본 그대로 보존.
+- 신규 소스: 사용자 `1.21.11/assets/minecraft/items/`의 관련 **8개 아이템 JSON을 직접 확인**, 8개가 각자 `minecraft:block/<id>`를 참조하고 고정 비공식 미러에서 직접 대조한 Git blob도 **8/8 일치**.
+- 신규 기하 계산: 유광 2종의 `4 facing × 6 source faces` 총 **48행** 원본 로컬 면→월드 면 법선 매핑 (3D Y축 표준 변환 적용). 원래 face UV 선언과 최종 월드 렌더상 2D 이미지 회전을 **구분**, Minecraft 실행으로 확인하지 않음.
+- 기존 **R002 64개 원본 이음쌍 RGB 점수**를 조건부 top-view facing명으로 변환한 **64행 lookup** 저장. 기존 R002 최적 검정 MAE 4.770833/28동일쌍, 흰색 2.145833/44동일쌍 재확인. **새 PNG/RGBA 계측 0**, 신규 고유 텍스처 0.
+- 아이템 JSON은 블록 모델을 그대로 참조하지만, 설치된 유광 블록은 facing별 모델 y회전이 추가됨. **구조상 차이**만 확인; 인게임 아이템 vs 설치 블록의 보이는 방향은 아직 검증되지 않음.
+- 실게임 재현용 4패널/16블록 `STATIC_FACING_COMPARISON.mcfunction`을 준비했으나 **미실행**. 게임 캡처·공식 원본 JAR SHA-1 검사 **계속 0/8**.
+- [R004 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R004/REPORT.md) · [아이템 SHA 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R004/ITEM_MODEL_LEDGER.csv) · [월드 방향 48행](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R004/WORLD_FACE_UV_MAPPING.csv) · [기존 이음값 facing LUT](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R004/FACING_EDGE_LOOKUP.csv) · [실게임 시험 배치 명령](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R004/STATIC_FACING_COMPARISON.mcfunction).
+- **TEX06-R005**는 정식 압축 JAR SHA-1 확인 또는 게임 내 정적 실화면 검증 같은 신규 1차 증거가 있을 때만 생성. 다른 1-1-XX 단계, 애니메이션, PZ 변환, 가구 3D 제작, 공통 v38 변경 금지.
