@@ -1,0 +1,8 @@
+path,git_blob_sha,shader_role,static_observation
+1.21.11/assets/minecraft/shaders/core/block.vsh,256610d97e910739b631026aa225eb089f1c008e,vertex,UV0 forwarded; Color multiplied by lightmap
+1.21.11/assets/minecraft/shaders/core/block.fsh,df69ca7f2f03994a4790a5b33e60eb4a7644273d,fragment,Sampler0 * vertexColor * ColorModulator; conditional ALPHA_CUTOUT
+1.21.11/assets/minecraft/shaders/core/entity.vsh,56997e6a2ac369e69d05993b070a000a2e556dd0,vertex,UV0 forwarded; branch PER_FACE_LIGHTING / NO_CARDINAL_LIGHTING
+1.21.11/assets/minecraft/shaders/core/entity.fsh,c267e18e0657e750cf523017f27c578ed8fe75ec,fragment,texture alpha tested before lighting branches if ALPHA_CUTOUT compiled
+1.21.11/assets/minecraft/shaders/core/particle.fsh,333f972afcc658996f722a87cc3f5b1d6d255fae,fragment,"literal alpha threshold 0.1 in particle shader, NOT proven block threshold"
+1.21.11/assets/minecraft/shaders/include/light.glsl,80a0f7ea621084a50bf41674af50a46254b04178,include,minecraft_mix_light_separate: normal-based RGB lighting; alpha retained
+1.21.11/assets/minecraft/shaders/include/dynamictransforms.glsl,51f1a315db4fde0ef8f8943191ef70f259e51e8c,include,defines ColorModulator and ModelOffset/TextureMat

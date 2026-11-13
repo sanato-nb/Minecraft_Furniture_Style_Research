@@ -1,0 +1,62 @@
+{
+  "schema": "TEX10-R006/extra-shader-static-fragment-comparison/v1",
+  "root": "1.21.11/",
+  "new_glsl_source_paths": 7,
+  "files": [
+    {
+      "path": "1.21.11/assets/minecraft/shaders/core/block.vsh",
+      "sha": "256610d97e910739b631026aa225eb089f1c008e",
+      "role": "vertex",
+      "evidence": "UV0 forwarded; Color multiplied by lightmap"
+    },
+    {
+      "path": "1.21.11/assets/minecraft/shaders/core/block.fsh",
+      "sha": "df69ca7f2f03994a4790a5b33e60eb4a7644273d",
+      "role": "fragment",
+      "evidence": "Sampler0 * vertexColor * ColorModulator; conditional ALPHA_CUTOUT"
+    },
+    {
+      "path": "1.21.11/assets/minecraft/shaders/core/entity.vsh",
+      "sha": "56997e6a2ac369e69d05993b070a000a2e556dd0",
+      "role": "vertex",
+      "evidence": "UV0 forwarded; branch PER_FACE_LIGHTING / NO_CARDINAL_LIGHTING"
+    },
+    {
+      "path": "1.21.11/assets/minecraft/shaders/core/entity.fsh",
+      "sha": "c267e18e0657e750cf523017f27c578ed8fe75ec",
+      "role": "fragment",
+      "evidence": "texture alpha tested before lighting branches if ALPHA_CUTOUT compiled"
+    },
+    {
+      "path": "1.21.11/assets/minecraft/shaders/core/particle.fsh",
+      "sha": "333f972afcc658996f722a87cc3f5b1d6d255fae",
+      "role": "fragment",
+      "evidence": "literal alpha threshold 0.1 in particle shader, NOT proven block threshold"
+    },
+    {
+      "path": "1.21.11/assets/minecraft/shaders/include/light.glsl",
+      "sha": "80a0f7ea621084a50bf41674af50a46254b04178",
+      "role": "include",
+      "evidence": "minecraft_mix_light_separate: normal-based RGB lighting; alpha retained"
+    },
+    {
+      "path": "1.21.11/assets/minecraft/shaders/include/dynamictransforms.glsl",
+      "sha": "51f1a315db4fde0ef8f8943191ef70f259e51e8c",
+      "role": "include",
+      "evidence": "defines ColorModulator and ModelOffset/TextureMat"
+    }
+  ],
+  "conditional_alpha_in_block_frag": "block.fsh: #ifdef ALPHA_CUTOUT; if (color.a < ALPHA_CUTOUT) discard;",
+  "conditional_alpha_in_entity_frag": "entity.fsh: #ifdef ALPHA_CUTOUT; if (color.a < ALPHA_CUTOUT) discard;",
+  "literal_particle_alpha": "particle.fsh: if (color.a < 0.1) discard;",
+  "distinction": "particle 0.1 is explicit in particle shader only; cannot substitute as the block/entity or terrain runtime macro value",
+  "block_color_path": "block.fsh: sampled texel * vertexColor * ColorModulator, where block.vsh derives vertexColor from Color * lightmap",
+  "entity_color_path": "entity.fsh: sample alpha cutoff before PER_FACE_LIGHTING or vertexColor and ColorModulator, overlay and lightmap; source branches are not tested in actual game",
+  "static_scope_only": true,
+  "unresolved": [
+    "runtime #define ALPHA_CUTOUT for tested targets",
+    "specific render pipeline binding of target 8",
+    "CPU biome-color transformation and override precedence",
+    "ingame screenshot/measurements"
+  ]
+}

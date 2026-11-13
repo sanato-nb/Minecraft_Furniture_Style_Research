@@ -7,10 +7,10 @@
   "stage_id": "1-1-10",
   "material_family": "잎·식생",
   "stage_prefix": "TEX10",
-  "current_revision": "TEX10-R005",
-  "next_revision": "TEX10-R006",
-  "revision_sequence": 5,
-  "revision_status": "R005_item_constant_tints5_of8_terrain_shader_conditional_alpha_png8_crc_verified_biome_runtime_pending",
+  "current_revision": "TEX10-R006",
+  "next_revision": "TEX10-R007",
+  "revision_sequence": 6,
+  "revision_status": "R006_65_biome_json_colors_7_foliage_overrides_7_glsl_new_dry_foliage_png_crc_biome_runtime_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 8,
@@ -42,27 +42,27 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "R005_new_16_unique_user_extracted_item_model_shader_source_paths_checked",
+      "status": "R006_user_extracted_65_biome_json_7_shader_1_colormap_new_unique_paths_attributed",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R005_8_existing_target_PNG_chunk_CRC32_git_blob_rechecked_prior_R001_SHA256_inherited",
+      "status": "R006_supplemental_dry_foliage_png_IHDR_IDAT_IEND_CRC32_checked_prior_8_target_png_recheck_inherited",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R005_zero_new_RGBA_pixel_counts_R001_R002_and_R004_colormap_inherited",
+      "status": "R006_biome_JSON_65_color_fields_static_derived_no_new_RGB_or_RGBA_decoded_pixel_count",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R005_item_constant_tint_5_versus_block_tintindex_alpha_chunk_shader_cutout_conditional_biome_pending",
+      "status": "R006_biome_foliage_color_7_explicit_swamp_mangrove_counterexample_grass_dry_modifiers_static;runtime_mapping_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R005_item_to_model_8_vine_generated_vs_block_plane_and_terrain_shader_UV0_paths_static_checked",
+      "status": "R006_extra_block_entity_shader_conditional_ALPHA_CUTOUT_and_particle_0_1_separate_shader_paths;block_cutout_threshold_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
@@ -72,7 +72,7 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "TEX10_R005_stage_only_REPORT_SUMMARY_ITEM_PNG_SOURCE_SHADER_saved",
+      "status": "TEX10_R006_stage_only_biome65_shader7_dry_png_support_report_and_evidence_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -80,17 +80,17 @@
     {
       "id": "D1",
       "check": "잎·덩굴 알파 마스크·가시 영역·투명 외곽",
-      "status": "source_checked_8_R001_R002_inherited_R005_7_tRNS_chunks_and_conditional_shader_cutout"
+      "status": "R006_glsl_conditional_cutout_terrain_block_entity_source_checked_no_render_threshold_8_alpha_masks_inherited"
     },
     {
       "id": "D2",
       "check": "PNG의 녹색과 생물군계 tintindex의 차이",
-      "status": "R005_item_constant_tint_5_of8_shader_vertex_color_checked_biome_colormap_coordinate_runtime_pending"
+      "status": "R006_65_biomes_7_explicit_foliage_colors_equal_climate_different_overrides_color_map_XY_runtime_pending"
     },
     {
       "id": "D3",
       "check": "컷아웃 영역과 3D 요소의 담당 역할 구분",
-      "status": "R005_vine_item_generated_vs_block_plane_static_chain_verified_existing_UV_faces_inherited"
+      "status": "R006_shader_7_paths_reviewed_previous_block_and_vine_geometry_UV_44_inherited_render_path_pending"
     }
   ],
   "items": [
@@ -666,5 +666,23 @@
     "shader_include_files": 4,
     "ingame_static_render_verified_count": 0,
     "official_jar_SHA1": "excluded_not_authenticated"
+  },
+  "r006_evidence": {
+    "new_unique_static_source_paths": 73,
+    "biome_json_directly_read": 65,
+    "biome_explicit_foliage_color": 7,
+    "biome_explicit_grass_color": 5,
+    "biome_explicit_dry_foliage_color": 4,
+    "biome_grass_color_modifier": 3,
+    "biome_temperature_modifier": 2,
+    "new_shader_source_paths": 7,
+    "new_supplemental_png": 1,
+    "new_decoded_RGB_pixels": 0,
+    "new_target_RGBA_pixels": 0,
+    "prior_RGBA_and_colormap_pixels_inherited": true,
+    "cumulative_source_paths_R003_to_R006": 121,
+    "biome_coordinate_lookup_rule_verified": false,
+    "block_alpha_cutout_runtime_value_verified": false,
+    "ingame_static_render_verified_count": 0
   }
 }

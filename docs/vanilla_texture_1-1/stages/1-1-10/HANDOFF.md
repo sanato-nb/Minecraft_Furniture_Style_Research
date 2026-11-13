@@ -124,3 +124,15 @@
 - `terrain.vsh` UV0 및 Color×라이트맵, `terrain.fsh` 텍스처×vertexColor 및 `#ifdef ALPHA_CUTOUT` 조건부 `discard` 소스 확인. 런타임 매크로 임계값, biome→colormap XY 및 인게임 최종 색은 **미확인**.
 - [R005 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R005/REPORT.md), [요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R005/SUMMARY.json), [PNG 청크 기록](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R005/PNG_CONTAINER_RECHECK.csv), [아이템 틴트 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R005/ITEM_TINT_LEDGER.csv).
 - **인게임 정적 0/8**, Mojang 공식 JAR 인증은 사용자 지시로 필수 범위 제외(성공 인증 아님). 애니메이션·PZ 변환·가구 제작 보류. 전체 `v38` 및 다른 단계·R001–R004 불변. 현재 `TEX10-R005`, 다음 신규 증거 발견 시 `TEX10-R006`.
+
+---
+
+## TEX10-R006 — 2026-11-13 · 바이옴 65개 잎색 명시 오버라이드 + 컷아웃 셰이더 비교
+
+- 사용자 제공 `1.21.11/data/minecraft/worldgen/biome/` **65/65 JSON 직접 읽음**. 정적 필드 확인: foliage_color **7**, grass_color **5**, dry_foliage_color **4**, grass_color_modifier **3**, temperature_modifier **2**. 필드 중복 바이옴 혼합 없이 구분.
+- `swamp`/ `mangrove_swamp`은 temperature 0.8, downfall 0.9로 같으나 `foliage_color`는 각각 `#6a7039` / `#8db127`. 바이옴 JSON 명시 오버라이드와 colormap 좌표/아이템 상수 틴트를 분리할 것. 실제 룩업 좌표/우선순위와 인게임 색 미확정.
+- 신규 GLSL 7개(`block.{vsh,fsh}`, `entity.{vsh,fsh}`, `particle.fsh`, `light.glsl`, `dynamictransforms.glsl`) 직접 읽음. block/entity 조건부 `ALPHA_CUTOUT`, particle **0.1**은 particle 전용 숫자. 실제 8개 블록 컷아웃 값/패스는 여전히 미확인.
+- `colormap/dry_foliage.png` 보조 **1개** 원본 컨테이너 확인: 8,979 bytes, 256×256 RGB, 전 PNG 청크 CRC 통과. **픽셀 디코딩 0**, 보조 1개를 8개 표본에 합산 금지.
+- **R006 새 고유 소스 경로 73 = 바이옴 65 + shader 7 + 지원 colormap 1**; R003–R005 계승 고유 48 포함 누적 **121경로**. R001 RGBA 2,048, R001 UV 44, R004 colormap 131,072 RGB 픽셀 계승; 이번 신규 대상 텍스처/화소/UV 실측 0.
+- [R006 연구 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R006/REPORT.md), [65개 바이옴 감사](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R006/BIOME_SOURCE_AUDIT.csv), [명시적 색상 사례](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R006/BIOME_OVERRIDE_CASES.csv), [셰이더 근거](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R006/SHADER_STATIC_AUDIT.json), [R006 요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-10/TEX10-R006/SUMMARY.json).
+- 인게임 정적 **0/8**, Mojang 공식 전체 JAR SHA-1 필수 절차 제외/인증 성공 아님, 애니메이션·PZ 변환·실제 가구 3D 작업 보류. 이번 리비전 이후 다음 후보 `TEX10-R007`이며 새로운 근거가 있을 때에만 작성. v38 및 다른 단계/이전 Rxxx 변경 금지.
