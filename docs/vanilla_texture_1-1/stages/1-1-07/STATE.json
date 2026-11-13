@@ -7,10 +7,10 @@
   "stage_id": "1-1-07",
   "material_family": "콘크리트·색면",
   "stage_prefix": "TEX07",
-  "current_revision": "TEX07-R003",
-  "next_revision": "TEX07-R004",
-  "revision_sequence": 3,
-  "revision_status": "R003_user_extracted_png7_json24_direct_31_mirror_equal_official_ingame_pending",
+  "current_revision": "TEX07-R004",
+  "next_revision": "TEX07-R005",
+  "revision_sequence": 4,
+  "revision_status": "R004_internal_version_metadata_42_face_cullflags_7_display_contexts_official_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 7,
@@ -62,17 +62,17 @@
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R003_user_extracted_7_blockstate_7_model_7_item_3_parents_and_42_static_faces_checked",
+      "status": "R004_user_source_model_face_flags_42_inherited_and_parent_display_contexts_7_checked",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_mojang_original_JAR_SHA1_and_ingame",
+      "status": "pending_official_JAR_SHA1_and_ingame_static_mojang_DNS_access_failed",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R003_report_and_source_ledgers_saved",
+      "status": "R004_results_and_offline_verifier_saved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -322,13 +322,26 @@
       "official_jar_authenticated": 0,
       "ingame_static_verified": 0,
       "report_path": "research/vanilla_textures/by_stage/1-1-07/TEX07-R003/REPORT.md"
+    },
+    {
+      "revision": "TEX07-R004",
+      "kind": "new_user_source_version_json_and_detailed_static_face_flag_display_audit",
+      "source_files_reviewed_as_new": 1,
+      "new_unique_texture_paths": 0,
+      "prior_42_faces_newly_counted": 0,
+      "audited_face_field_instances": 42,
+      "shared_display_contexts_audited": 7,
+      "official_jar_authenticated": 0,
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-07/TEX07-R004/REPORT.md"
     }
   ],
   "next_steps": [
-    "R004: reread STATE and verify exact source SHA/next revision/output folder absence.",
-    "Prioritize user GitHub 1.21.11/ file contents for source, not third party mirror alone.",
-    "Original JAR + Mojang version metadata required for official SHA1; game runtime/capture required for ingame static.",
-    "Keep animations deferred; preserve all older reports, other stages and v38."
+    "R005 start by checking current_revision TEX07-R004 and STATE SHA and that output directory is absent.",
+    "Use user-provided 1.21.11/ as primary source; retain mirror crosscheck separately.",
+    "To complete official verification obtain actual owned original client.jar binary plus Mojang online metadata; invoke R004 VERIFY_CLIENT_JAR.py with R003 SOURCE_LEDGER.csv, then manually review evidence.",
+    "Actual game runtime or user-provided static screenshots required to verify in-game rendered colors/culling.",
+    "Keep animation deferred, no PZ conversion, no furniture modeling, no edits outside this stage or v38."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -341,7 +354,7 @@
   "project_overall_completion_pct": null,
   "do_not_count_planning_as_research": true,
   "stage_full_A_to_G_verified_count": 0,
-  "stage_current_analysis_completed_count_definition": "7 unique textures; R003 adds new user-extracted source verification for same seven (31 asset files), not 7 new textures",
+  "stage_current_analysis_completed_count_definition": "7 unique source texture paths only; R004 extended metadata/flags without repeating old PNG or 42-face unique counts",
   "original_game_files_preferred_source": "1.21.11/assets/minecraft/",
   "user_extracted_source_claim": "User extracted from Minecraft Java 1.21.11 JAR; not independent Mojang authenticity proof",
   "user_extracted_source_pinned_commit": "2a43897b8f605b4e0c96a272bca476ee6b70058e",
@@ -370,5 +383,21 @@
   },
   "user_extracted_verified_count": 7,
   "mirror_cross_verified_count": 7,
-  "user_extracted_asset_file_verified_count": 31
+  "user_extracted_asset_file_verified_count": 31,
+  "original_jar_sha1_authentication_ready_procedure_path": "research/vanilla_textures/by_stage/1-1-07/TEX07-R004/VERIFY_CLIENT_JAR.py",
+  "user_extracted_version_json_verified": true,
+  "user_extracted_version_json_blob_sha1": "b49974d3ebd6cb73291d9e4c92d23b3192dadd66",
+  "model_face_metadata": {
+    "shared_template_faces": 6,
+    "inherited_face_instances": 42,
+    "cullface_equal_face": 42,
+    "explicit_numeric_uv": 0,
+    "explicit_face_rotation": 0,
+    "explicit_face_tintindex": 0,
+    "explicit_face_shade": 0,
+    "per_color_model_display_overrides": 0,
+    "shared_display_contexts": 7,
+    "inherited_gui_light": "side",
+    "ingame_render_confirmed": false
+  }
 }

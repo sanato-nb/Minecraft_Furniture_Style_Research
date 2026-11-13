@@ -1,5 +1,19 @@
 # 1-1-07 콘크리트·색면 — 최신 인수인계
 
+## TEX07-R004 (2026-11-13) — 사용자 추출본 정적 모델 선언 필드·버전 내부 정보
+
+- **이번 새 근거:** [R004 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R004/REPORT.md)와 사용자 `1.21.11/version.json` 직접 확인: id 1.21.11, protocol 774, world 4671, 리소스팩 75.0, Java 21. 내부 버전 일관성의 근거일 뿐 공식 JAR 인증 아님.
+- R003에서 확인된 7색+31개 파일·42개 모델 면을 중복 계상하지 않고, **새로운 필드 감사**: 6면 모두 방향 일치 `cullface`, 면별 UV/rotation/tintindex/shade 명시 0, 7개 색 모델의 개별 display override 0. 공통 부모의 `gui_light=side`, 공유 아이템 표시 변환 7종을 CSV로 별도 기록.
+- [42면 선언 감사](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R004/42_STATIC_FACE_FLAGS.csv) / [표시 변환 7건](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R004/7_DISPLAY_CONTEXTS.csv) / [R004 상태 요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R004/SUMMARY.json).
+- Mojang 공식 manifest/파일 서버 DNS 접속 실패. **공식 JAR SHA-1 인증 0/7**, **인게임 정적 검증 0/7**. 다음에 사용자가 실제 JAR을 확보하면 [검증용 스크립트](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R004/VERIFY_CLIENT_JAR.py)를 이용해 공식 SHA1과 31개 엔트리 해시를 *별도로* 확인할 수 있음. 이 스크립트는 실제 client.jar 인증에 사용된 것이 아니므로 현재 상태를 높이지 말 것.
+- 다음 단계는 **TEX07-R005**. 작업 시작 전 단계 STATE SHA·current_revision, R005 출력 폴더 충돌 확인. 이전 R001~R003 불변, 다른 단계/전체 **v38** 수정 금지. 애니메이션 연구, 좀보이드 변환, 실제 가구 제작 금지.
+
+---
+
+## 이전 단계의 인수인계 원문 보존 (R003 이하)
+
+# 1-1-07 콘크리트·색면 — 최신 인수인계
+
 ## TEX07-R003 / 사용자 제공 1.21.11 자료 검증 (2026-11-13)
 
 - 사용자 직접 JAR 추출이라고 알려준 [`1.21.11/` 폴더](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/1.21.11)의 7 콘크리트 PNG, 7 blockstate, 7 block model, 7 item, 공통 모델 3 = **31개 파일 원본 직접 조회**.
