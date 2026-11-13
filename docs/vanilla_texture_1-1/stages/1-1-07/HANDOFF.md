@@ -1,5 +1,19 @@
 # 1-1-07 콘크리트·색면 — 최신 인수인계
 
+## 최신: TEX07-R002 (2026-11-13)
+
+- 범위는 그대로 7색 콘크리트만. R001의 비공식 미러 PNG 7개를 **R002에서 같은 바이트로 다시 SHA256/CRC/Pillow 디코딩 재검사 7/7**. R001과 R002를 합쳐 14개 고유 경로로 세지 말 것.
+- R002 신규 계측: **38개 RGB 팔레트 빈도 기록, 7개 반복 경계·중앙/외곽 기록, 21개 CIEDE2000 색차쌍**. [R002 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R002/REPORT.md) / [기계 판독 요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R002/SUMMARY.json).
+- 공식 Mojang 1.21.11 `client.jar` 전체 인증 및 내부 7 PNG 대조 **0/7**, 실제 인게임 정적 장면 **0/7**. 공식 엔드포인트는 알지만 다운로드 차단. 제3자 목록의 클라이언트 JAR SHA1은 실제 공식 JAR 대조 결과로 인정 금지.
+- R001에서 검증한 42개 정적 면의 UV 영역은 **JSON 숫자 명시가 아니라 풀 큐브에서 파생**. R002 새로운 면 모델 수 0. 상위 체크포인트 **v38 불변**. 애니메이션 전면 보류.
+- **다음 TEX07-R003**, 작업 전 GitHub 단계 `STATE.json` SHA와 버전을 재조회하고 신규 R003 디렉터리 부재를 검사. 다른 단계 문서/루트 문서 쓰지 말 것.
+
+---
+
+## 과거 인수인계 보존 (이하는 R001/R000 시점 기록)
+
+# 1-1-07 콘크리트·색면 — 최신 인수인계
+
 ## TEX07-R001 (2026-11-13)
 
 - 이번 독립 분석: 비공식 미러 1.21.11 실제 PNG 바이너리·CRC·SHA·RGBA **7/7**, 정적 상태/모델/아이템 JSON 7+7+7 및 공통 부모 3개, 면 42개 색면 UV 참조. 자세한 [REPORT](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R001/REPORT.md), [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R001/SUMMARY.json).

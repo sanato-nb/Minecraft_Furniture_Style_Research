@@ -7,10 +7,10 @@
   "stage_id": "1-1-07",
   "material_family": "콘크리트·색면",
   "stage_prefix": "TEX07",
-  "current_revision": "TEX07-R001",
-  "next_revision": "TEX07-R002",
-  "revision_sequence": 1,
-  "revision_status": "R001_mirror_binary_rgba_static_uv_checked_official_pending",
+  "current_revision": "TEX07-R002",
+  "next_revision": "TEX07-R003",
+  "revision_sequence": 2,
+  "revision_status": "R002_rechecked_same_7_mirror_png_38_palette_7_seams_21_ciede2000_official_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 7,
@@ -57,7 +57,7 @@
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "completed_in_R001_with_mirror_scope_limit",
+      "status": "R001_source_verified_R002_pixel_distribution_seams_ciede2000_extended_mirror_only",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
@@ -72,7 +72,7 @@
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "completed_in_R001_with_mirror_scope_limit",
+      "status": "R002_saved_within_stage_boundary",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -80,17 +80,17 @@
     {
       "id": "D1",
       "check": "7색 콘크리트의 평균 RGB·명도·채도",
-      "status": "measured_directly_in_R001"
+      "status": "R002_38_palette_counts_and_21_ciede2000_pairs_plus_R001_RGB_HSV"
     },
     {
       "id": "D2",
       "check": "미세 픽셀 분산과 단색 평면 경계 검사",
-      "status": "measured_directly_in_R001"
+      "status": "R002_7_full_pixel_seam_and_center_border_audits"
     },
     {
       "id": "D3",
       "check": "가구 평면의 색상 사용 가설을 원본 관찰과 분리",
-      "status": "observation_vs_hypothesis_separated_hypothesis_not_tested"
+      "status": "source_observation_separated_from_unverified_furniture_style_hypotheses"
     }
   ],
   "items": [
@@ -103,14 +103,16 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX07-R001",
-      "evidence_status": "unofficial_mirror_png_rgba_and_static_json_uv_checked_official_pending",
+      "last_verified_revision": "TEX07-R002",
+      "evidence_status": "mirror_R001_binary_R002_palette_seam_color_distance_verified_official_ingame_pending",
       "mirror_git_blob_sha": "3571ebe0e4fd8737d44ec5d3d2bb512054465123",
       "blockstate_git_blob_sha": "5ce10cd26ecf414b24fd265e58064e499207baa6",
       "model_git_blob_sha": "92188f4784c4a13dcec2e7a1bcc291d3480158f4",
       "item_git_blob_sha": "822c0565dd76ebde927db1e0fd75fbf2472f3a48",
       "pixel_count_checked": 256,
-      "static_faces_traced": 6
+      "static_faces_traced": 6,
+      "last_reexamined_revision": "TEX07-R002",
+      "R002_same_mirror_binary_sha_crc_rgba_recheck": true
     },
     {
       "item_id": "1-1-07-002",
@@ -121,14 +123,16 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX07-R001",
-      "evidence_status": "unofficial_mirror_png_rgba_and_static_json_uv_checked_official_pending",
+      "last_verified_revision": "TEX07-R002",
+      "evidence_status": "mirror_R001_binary_R002_palette_seam_color_distance_verified_official_ingame_pending",
       "mirror_git_blob_sha": "fee9134d3916946bc2493f13a7204bf93615f1b7",
       "blockstate_git_blob_sha": "797f0358ea5e32be5d9502cc2d388f2227b57cba",
       "model_git_blob_sha": "a2748b557cbc2dfe74d69ba690c9373ea03e1474",
       "item_git_blob_sha": "88adfa33174d380fe9a6ce42cc2e2beb32880d66",
       "pixel_count_checked": 256,
-      "static_faces_traced": 6
+      "static_faces_traced": 6,
+      "last_reexamined_revision": "TEX07-R002",
+      "R002_same_mirror_binary_sha_crc_rgba_recheck": true
     },
     {
       "item_id": "1-1-07-003",
@@ -139,14 +143,16 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX07-R001",
-      "evidence_status": "unofficial_mirror_png_rgba_and_static_json_uv_checked_official_pending",
+      "last_verified_revision": "TEX07-R002",
+      "evidence_status": "mirror_R001_binary_R002_palette_seam_color_distance_verified_official_ingame_pending",
       "mirror_git_blob_sha": "1b8690f16ae8b77312f13f74ab0fb5ab78dc179b",
       "blockstate_git_blob_sha": "ef1aedb05cd89ade373dbbdc1494f8c22c5bc4a4",
       "model_git_blob_sha": "aed4725eee2ff730159ff85532e15859e9a55818",
       "item_git_blob_sha": "756a4cea5b3dfe6cf51370c759078c26891881e9",
       "pixel_count_checked": 256,
-      "static_faces_traced": 6
+      "static_faces_traced": 6,
+      "last_reexamined_revision": "TEX07-R002",
+      "R002_same_mirror_binary_sha_crc_rgba_recheck": true
     },
     {
       "item_id": "1-1-07-004",
@@ -157,14 +163,16 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX07-R001",
-      "evidence_status": "unofficial_mirror_png_rgba_and_static_json_uv_checked_official_pending",
+      "last_verified_revision": "TEX07-R002",
+      "evidence_status": "mirror_R001_binary_R002_palette_seam_color_distance_verified_official_ingame_pending",
       "mirror_git_blob_sha": "193a7738b6448a9476e435eac4441352dfd13e77",
       "blockstate_git_blob_sha": "7c63116c0ec11097f640ea669c26eaf25243e6c8",
       "model_git_blob_sha": "b2423fb60a6c4856f31e09c8160f71fb98d88053",
       "item_git_blob_sha": "cc0b5b9dc1c1ec79a1bd025276e3f99ecae5e6c3",
       "pixel_count_checked": 256,
-      "static_faces_traced": 6
+      "static_faces_traced": 6,
+      "last_reexamined_revision": "TEX07-R002",
+      "R002_same_mirror_binary_sha_crc_rgba_recheck": true
     },
     {
       "item_id": "1-1-07-005",
@@ -175,14 +183,16 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX07-R001",
-      "evidence_status": "unofficial_mirror_png_rgba_and_static_json_uv_checked_official_pending",
+      "last_verified_revision": "TEX07-R002",
+      "evidence_status": "mirror_R001_binary_R002_palette_seam_color_distance_verified_official_ingame_pending",
       "mirror_git_blob_sha": "a9478879f95f5f054f8ad92d06c7de49ae918b52",
       "blockstate_git_blob_sha": "3ac2d62c7fae6fb44b976c47907c76b4dfcf697b",
       "model_git_blob_sha": "98a35206f29e058cbcc24937e981c581a824b771",
       "item_git_blob_sha": "c8a3f219dcd9002d59f45b32807997bf32710514",
       "pixel_count_checked": 256,
-      "static_faces_traced": 6
+      "static_faces_traced": 6,
+      "last_reexamined_revision": "TEX07-R002",
+      "R002_same_mirror_binary_sha_crc_rgba_recheck": true
     },
     {
       "item_id": "1-1-07-006",
@@ -193,14 +203,16 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX07-R001",
-      "evidence_status": "unofficial_mirror_png_rgba_and_static_json_uv_checked_official_pending",
+      "last_verified_revision": "TEX07-R002",
+      "evidence_status": "mirror_R001_binary_R002_palette_seam_color_distance_verified_official_ingame_pending",
       "mirror_git_blob_sha": "096219c0bc23db64a92f7a5b1eeae68e93f7b18c",
       "blockstate_git_blob_sha": "92ca5a20204babfc86ad21f50879c9fa09cc4a12",
       "model_git_blob_sha": "b89815249705e37120bd68a6dab07219b39e1383",
       "item_git_blob_sha": "c55b15f196ecb1f6f91972909ce499fd05d16b30",
       "pixel_count_checked": 256,
-      "static_faces_traced": 6
+      "static_faces_traced": 6,
+      "last_reexamined_revision": "TEX07-R002",
+      "R002_same_mirror_binary_sha_crc_rgba_recheck": true
     },
     {
       "item_id": "1-1-07-007",
@@ -211,14 +223,16 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX07-R001",
-      "evidence_status": "unofficial_mirror_png_rgba_and_static_json_uv_checked_official_pending",
+      "last_verified_revision": "TEX07-R002",
+      "evidence_status": "mirror_R001_binary_R002_palette_seam_color_distance_verified_official_ingame_pending",
       "mirror_git_blob_sha": "9bd24a5162c0250b5df9a67557e432331cb27db4",
       "blockstate_git_blob_sha": "95c74d4af29e6860b1a6de0a212d8a706d3a0ccb",
       "model_git_blob_sha": "12c16a3b1f63eca546ae10e22e30c76cd87de1f0",
       "item_git_blob_sha": "5c85b853ae774bac4e3b262fcc850eebcc7b3a88",
       "pixel_count_checked": 256,
-      "static_faces_traced": 6
+      "static_faces_traced": 6,
+      "last_reexamined_revision": "TEX07-R002",
+      "R002_same_mirror_binary_sha_crc_rgba_recheck": true
     }
   ],
   "revisions": [
@@ -235,13 +249,25 @@
       "report_path": "research/vanilla_textures/by_stage/1-1-07/TEX07-R001/REPORT.md",
       "official_jar_authenticated": 0,
       "ingame_static_verified": 0
+    },
+    {
+      "revision": "TEX07-R002",
+      "kind": "direct_remeasurement_of_same_seven_unofficial_mirror_files_plus_new_palette_seam_deltaE_evidence",
+      "source_files_reviewed_as_new": 0,
+      "source_files_reexamined": 7,
+      "palette_records": 38,
+      "seam_records": 7,
+      "intercolor_distance_pairs": 21,
+      "official_jar_authenticated": 0,
+      "ingame_static_verified": 0,
+      "report_path": "research/vanilla_textures/by_stage/1-1-07/TEX07-R002/REPORT.md"
     }
   ],
   "next_steps": [
-    "Before R002: reread stage STATE.json and check SHA/revision/output folder absence.",
-    "Verify seven PNG/JSON files against owned Mojang 1.21.11 client.jar when available.",
-    "Verify seven static in-game rendered surfaces; animation analysis remains deferred.",
-    "Do not modify other stages or global v38."
+    "Before TEX07-R003 read STATE SHA/current_revision and verify R003 directory is absent to prevent collision.",
+    "If official Mojang 1.21.11 client.jar can be accessed, verify whole artifact against official version JSON SHA1 and size, then compare seven PNG/JSON entries to mirror SHA.",
+    "Perform actual Minecraft static scene verification for the seven colors; animation remains deferred.",
+    "Do not update other stages or global v38."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -254,5 +280,5 @@
   "project_overall_completion_pct": null,
   "do_not_count_planning_as_research": true,
   "stage_full_A_to_G_verified_count": 0,
-  "stage_current_analysis_completed_count_definition": "7 mirror source PNG and static JSON checked; F official/ingame still pending"
+  "stage_current_analysis_completed_count_definition": "7 unique unofficial-mirror PNG source paths; R002 independently remeasured same 7 files, not 14 unique sources"
 }
