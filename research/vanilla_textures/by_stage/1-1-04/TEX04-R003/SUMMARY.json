@@ -1,0 +1,99 @@
+{
+  "schema": "mc-furniture-texture-1-1-04-TEX04-R003/v1",
+  "date": "2026-11-13",
+  "stage_id": "1-1-04",
+  "revision": "TEX04-R003",
+  "previous_revision": "TEX04-R002",
+  "next_revision_planned": "TEX04-R004",
+  "global_checkpoint_unchanged": "v38",
+  "source_priority": "user provided JAR extraction on GitHub",
+  "source_repo": "sanato-nb/Minecraft_Furniture_Style_Research",
+  "source_root": "1.21.11/",
+  "source_version_git_blob_sha": "b49974d3ebd6cb73291d9e4c92d23b3192dadd66",
+  "source_version_json_id": "1.21.11",
+  "original_client_jar_not_supplied": true,
+  "existing_unique_wool_textures": 9,
+  "new_unique_texture_ids_added": 0,
+  "newly_read_user_extracted_png_files": 9,
+  "newly_rehashed_user_extracted_png_sha256": 9,
+  "png_chunk_crc_verified": 9,
+  "matching_existing_v4_R001_png_sha256": 9,
+  "matching_mirror_png_git_blobs": 9,
+  "source_png_16x16_indexed": 9,
+  "user_extracted_leaf_model_json_checked": 9,
+  "user_extracted_blockstate_json_checked": 9,
+  "shared_parent_models_checked": 3,
+  "parent_models": [
+    "minecraft:block/cube_all",
+    "block/cube",
+    "block/block"
+  ],
+  "version_json_checked": 1,
+  "static_source_json_files_checked": 21,
+  "static_face_bindings_reverified_in_user_source": 54,
+  "static_face_bindings_new_unique": 0,
+  "legacy_rgba_pixels_reused_not_new": 2304,
+  "legacy_pairwise_colour_comparisons_reused_not_new": 36,
+  "verification_dimensions": {
+    "user_provided_extraction": {
+      "checked_count": 9,
+      "total": 9,
+      "status": "user_provided_extraction_checked",
+      "file_types": [
+        "PNG",
+        "block model JSON",
+        "blockstate JSON"
+      ],
+      "png_sha256_recomputed": true,
+      "png_chunks_crc_checked": true
+    },
+    "mirror_comparison": {
+      "checked_count": 9,
+      "total": 9,
+      "status": "mirror_binary_crosschecked",
+      "matched_png_binary": 9,
+      "matched_model_json_binary": 9,
+      "matched_blockstate_json_binary": 9,
+      "model_ledger_transcription_errata": 1
+    },
+    "mojang_official_jar": {
+      "checked_count": 0,
+      "total": 9,
+      "status": "pending_official_client_jar_authentication",
+      "jar_entire_bytes_available": false,
+      "official_manifest_direct_authenticated": false,
+      "official_jar_sha1_verified": false
+    },
+    "ingame_static": {
+      "checked_count": 0,
+      "total": 9,
+      "status": "pending_ingame_static_render",
+      "evidence_screenshots": 0
+    }
+  },
+  "r001_errata": {
+    "field": "model_git_blob_sha",
+    "texture_id": "black_wool",
+    "bad_39_char_sha": "7fea63ff530cad3b51435e662daa2c4d6324bd8",
+    "correct_40_char_sha": "7fea63ff530cad3b51435e662daa2c4d6324bd8a",
+    "affected_original_source_ledger_rows": 1,
+    "affected_original_uv_face_rows": 6,
+    "prior_release_files_mutated": false
+  },
+  "file_paths": [
+    "research/vanilla_textures/by_stage/1-1-04/TEX04-R003/REPORT.md",
+    "research/vanilla_textures/by_stage/1-1-04/TEX04-R003/USER_EXTRACT_9_PNG_JSON_CROSSCHECK.csv",
+    "research/vanilla_textures/by_stage/1-1-04/TEX04-R003/USER_EXTRACT_54_FACE_UV_SOURCE_CHECK.csv",
+    "research/vanilla_textures/by_stage/1-1-04/TEX04-R003/ERRATA_R001_BLACK_WOOL_MODEL_SHA.md",
+    "research/vanilla_textures/by_stage/1-1-04/TEX04-R003/SOURCE_PROVENANCE_AND_FOUR_GATES.md",
+    "research/vanilla_textures/by_stage/1-1-04/TEX04-R003/SUMMARY.json",
+    "research/vanilla_textures/by_stage/1-1-04/TEX04-R003/VERIFY_USER_EXTRACT.py"
+  ],
+  "retained_versions": [
+    "TEX04-R001",
+    "TEX04-R002"
+  ],
+  "animation_study_deferred": true,
+  "project_zomboid_conversion_excluded": true,
+  "furniture_model_building_excluded": true
+}
