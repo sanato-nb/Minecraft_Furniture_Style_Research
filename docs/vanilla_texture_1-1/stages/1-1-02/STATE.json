@@ -7,10 +7,10 @@
   "stage_id": "1-1-02",
   "material_family": "석재·벽돌",
   "stage_prefix": "TEX02",
-  "current_revision": "TEX02-R001",
-  "next_revision": "TEX02-R002",
-  "revision_sequence": 1,
-  "revision_status": "R001_mirror_png_sha_crc_rgba_and_static_model_uv_audited_official_pending",
+  "current_revision": "TEX02-R002",
+  "next_revision": "TEX02-R003",
+  "revision_sequence": 2,
+  "revision_status": "R002_supplemental_endface_2_png_pixel_verified_17_static_face_slots_102_variant_entries_31_official_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 17,
@@ -42,45 +42,45 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "verified_17_crosswalk",
+      "status": "R001_17_fixed_source_provenance_reused_R002_2_supplemental_traced",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R001"
+      "last_evidence_revision": "TEX02-R002"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "mirror_png_sha_crc_verified_17",
+      "status": "R001_17_fixed_png_verified_R002_2_supplemental_png_crc_sha_verified",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R001"
+      "last_evidence_revision": "TEX02-R002"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "mirror_png_rgba_pixel_measured_17",
+      "status": "R001_17_fixed_rgba_R002_2_supplemental_rgba_measured",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R001"
+      "last_evidence_revision": "TEX02-R002"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "mirror_pixel_D1_D2_and_model_based_D3_audited_17",
+      "status": "R001_D1_D2_reused_R002_D3_face_slot_and_end_side_pixel_audit",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R001"
+      "last_evidence_revision": "TEX02-R002"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "model_json_blockstate_uv_source_audited_17_with_2_out_of_scope_end_textures",
+      "status": "R002_102_local_face_slots_31_blockstate_entries_2_verified_supplemental_end_images",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R001"
+      "last_evidence_revision": "TEX02-R002"
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_official_jar_and_ingame_static",
+      "status": "pending_official_jar_and_ingame_static_0_of_17",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R001"
+      "last_evidence_revision": "TEX02-R002"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "committed_stage_artifacts",
+      "status": "R002_artifacts_committed_with_explicit_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "last_evidence_revision": "TEX02-R001"
+      "last_evidence_revision": "TEX02-R002"
     }
   },
   "material_specific_checks": [
@@ -97,7 +97,7 @@
     {
       "id": "D3",
       "check": "모델 면 회전과 UV 반복이 벽면 패턴에 미치는 영향",
-      "status": "model_json_uv_transform_probe_verified_ingame_pending"
+      "status": "R002_model_local_102_face_slots_and_31_variants_verified_pending_ingame"
     }
   ],
   "items": [
@@ -302,12 +302,18 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R001",
+      "last_verified_revision": "TEX02-R002",
       "evidence_status": "mirror_sha_pixel_checked_official_pending",
       "mirror_png_git_blob_sha": "bb7dc9ced1943d1dc86ab0cded598e8541fd280a",
       "mirror_model_git_blob_sha": "dff2a5c69138d558950260815f784ba554c34821",
       "mirror_blockstate_git_blob_sha": "dd197be8f2c979cee97d316ee97e5033c7231746",
-      "static_model_uv_source_checked": true
+      "static_model_uv_source_checked": true,
+      "end_face_supplement": {
+        "path": "assets/minecraft/textures/block/deepslate_top.png",
+        "sha256": "9f2f5e0a67b4a007244cf7064e09da7e693322cfd21b1884190bcd6b26e91aec",
+        "git_blob_sha": "a560ccfb90cae70a1df6d2fd89d0c6405c2c4347",
+        "verification": "mirror_png_rgba_sha_crc_checked_R002_official_pending"
+      }
     },
     {
       "item_id": "1-1-02-014",
@@ -334,12 +340,18 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX02-R001",
+      "last_verified_revision": "TEX02-R002",
       "evidence_status": "mirror_sha_pixel_checked_official_pending",
       "mirror_png_git_blob_sha": "314a2df0e85319d0493a3b10d8b692e23ae6cdd2",
       "mirror_model_git_blob_sha": "d6e7b5852a756aa4212e98f6f71bd44d677403f6",
       "mirror_blockstate_git_blob_sha": "5b6e6a417a608d45980509e801994340d3329b10",
-      "static_model_uv_source_checked": true
+      "static_model_uv_source_checked": true,
+      "end_face_supplement": {
+        "path": "assets/minecraft/textures/block/blackstone_top.png",
+        "sha256": "9eb9bce7a27defc49dd8a2b2dc74f4c7710dc3bbcaa5108a6c1193c82922935d",
+        "git_blob_sha": "0dbc81f6e3045cfdfb1b58aa32d710f6fbaa286b",
+        "verification": "mirror_png_rgba_sha_crc_checked_R002_official_pending"
+      }
     },
     {
       "item_id": "1-1-02-016",
@@ -410,12 +422,27 @@
       "source_count": 17,
       "official_count": 0,
       "ingame_count": 0
+    },
+    {
+      "revision": "TEX02-R002",
+      "path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R002/",
+      "evidence_tier": "mirror_sha_pixel_checked_supplement_2",
+      "fixed_count": 17,
+      "new_fixed_png_binary_count": 0,
+      "extra_png_count": 2,
+      "model_local_faces": 102,
+      "blockstate_variants": 31,
+      "official_count": 0,
+      "ingame_count": 0
     }
   ],
-  "current_release_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R001/",
+  "current_release_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R002/",
   "remaining_blockers": [
-    "official_mojang_client_jar_not_authenticated",
-    "in_game_static_scene_not_reviewed",
-    "deepslate_blackstone_end_face_png_out_of_fixed_sample_not_measured"
-  ]
+    "official_mojang_client_jar_not_available_in_runtime",
+    "official_manifest_metadata_and_jar_sha1_not_authenticated",
+    "ingame_static_renderer_uv_and_lighting_unverified"
+  ],
+  "current_stream_supplemental_end_face_binary_verified_count": 2,
+  "static_face_model_local_source_entries": 102,
+  "blockstate_json_variant_entries_recorded": 31
 }

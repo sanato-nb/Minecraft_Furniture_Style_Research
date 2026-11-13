@@ -1,0 +1,61 @@
+{
+  "schema": "mc-furniture-texture-stage-result/v1",
+  "stage_id": "1-1-02",
+  "revision": "TEX02-R002",
+  "previous_revision": "TEX02-R001",
+  "date": "2026-11-13",
+  "source_pin": "InventivetalentDev/minecraft-assets@7241a12cc2707abd7022f399c5d9033153e492e1",
+  "verification_tier": "mirror_sha_pixel_checked_official_pending",
+  "counts": {
+    "stage_fixed_texture_count": 17,
+    "prior_R001_mirror_png_sha_crc_rgba_verified": 17,
+    "newly_binary_png_verified_in_R002_fixed_sample": 0,
+    "newly_binary_png_verified_in_R002_supplemental": 2,
+    "supplemental_end_face_pixels_rgba_checked": 512,
+    "supplemental_opaque_pixels": 512,
+    "stage_faces_source_mapped": 102,
+    "blockstate_variant_entries_explicitly_recorded": 31,
+    "model_parent_slot_audit": 17,
+    "official_mojang_client_jar_authenticated_count": 0,
+    "ingame_static_render_verified_count": 0,
+    "fully_complete_A_to_G_count": 0
+  },
+  "supplemental": [
+    {
+      "texture_id": "deepslate_top",
+      "sha256": "9f2f5e0a67b4a007244cf7064e09da7e693322cfd21b1884190bcd6b26e91aec",
+      "pixels_same_as_side": 37,
+      "source_is_unofficial_mirror": true
+    },
+    {
+      "texture_id": "blackstone_top",
+      "sha256": "9eb9bce7a27defc49dd8a2b2dc74f4c7710dc3bbcaa5108a6c1193c82922935d",
+      "pixels_same_as_side": 37,
+      "source_is_unofficial_mirror": true
+    }
+  ],
+  "official": {
+    "mojang_jar_retrieved": false,
+    "official_version_manifest_authenticated": false,
+    "official_client_sha1_checked": false,
+    "all_items_pending": true,
+    "reason": "Runtime cannot retrieve Mojang client.jar; no actual official JAR SHA-1 or official asset comparison performed"
+  },
+  "caveats": [
+    "17 fixed PNGs are prior R001 results and not newly counted as R002 original measurements",
+    "2 supplemental faces do not expand fixed 17",
+    "six-face mapping is Minecraft JSON static source semantics, not engine-rendered UV/rotation proof",
+    "Mojang manifest data mirrored on third party is not Mojang authentication",
+    "in-game static screenshots not accessible; animations deferred"
+  ],
+  "next_revision": "TEX02-R003",
+  "global_checkpoint_unchanged": "v38",
+  "outputs": [
+    "REPORT.md",
+    "END_FACE_SUPPLEMENT.csv",
+    "FACE_SOURCE_LEDGER.csv",
+    "BLOCKSTATE_VARIANTS.csv",
+    "SUMMARY.json",
+    "VERIFY_OFFICIAL_JAR.py"
+  ]
+}
