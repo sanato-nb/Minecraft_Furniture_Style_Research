@@ -1,0 +1,86 @@
+{
+  "schema": "tex05-static-resource-r004/v1",
+  "stage_id": "1-1-05",
+  "revision": "TEX05-R004",
+  "previous": "TEX05-R003",
+  "date": "2026-11-13",
+  "global_checkpoint_unchanged": "v38",
+  "source_priority": "user_provided_JAR_extraction_in_repository_main/1.21.11",
+  "new_source_files_verified": 4,
+  "new_source_files_mirror_identical": 4,
+  "prior_unique_asset_paths_checked": 27,
+  "cumulative_unique_static_asset_paths": 31,
+  "unique_target_glass_pngs_unchanged": 6,
+  "previous_rgba_measured_unchanged": 1536,
+  "previous_uv_face_bindings_unchanged": 36,
+  "new_static_findings": {
+    "glass_png_mcmeta": {
+      "exists": true,
+      "blob_sha": "5cb0fb739d59e745149bd602cc0d3cc2ee4f2d5b",
+      "texture_mipmap_strategy": "mean"
+    },
+    "stained_glass_png_mcmeta": {
+      "checked": 5,
+      "not_found": 5,
+      "default_setting_unknown": true
+    },
+    "atlas_blocks": {
+      "blob_sha": "541ce56ad0b09f258963dd2bf3e3cb6e786d2d79",
+      "includes_directory_source": "block",
+      "prefix": "block/",
+      "does_not_give_packed_uv_coordinates": true
+    },
+    "block_fragment_shader": {
+      "blob_sha": "df69ca7f2f03994a4790a5b33e60eb4a7644273d",
+      "samples_texture_sampler0": true,
+      "optional_alpha_cutout_macro": "ALPHA_CUTOUT",
+      "conditional_discard": true,
+      "apply_fog": true,
+      "not_proof_of_glass_shader_binding": true
+    },
+    "block_vertex_shader": {
+      "blob_sha": "256610d97e910739b631026aa225eb089f1c008e",
+      "passes_UV0_to_texCoord0": true,
+      "samples_lightmap_at_UV2": true,
+      "vertex_color_multiplied_by_lightmap": true,
+      "not_proof_of_active_render_path": true
+    }
+  },
+  "verification_tiers": {
+    "user_provided_extraction": {
+      "static_unique_paths": 31,
+      "new_paths": 4,
+      "new_checks_verified": 4
+    },
+    "legacy_mirror_crosscheck": {
+      "static_unique_matching_paths": 31,
+      "new_paths_matching": 4
+    },
+    "mojang_official_jar_authentication": {
+      "status": "pending",
+      "verified_glass_png_count": 0
+    },
+    "ingame_static_render": {
+      "status": "pending",
+      "verified_glass_png_count": 0
+    }
+  },
+  "source_findings_do_not_prove": [
+    "actual_mipmap_filter_or_default_strategy",
+    "packed_texture_atlas_coordinates",
+    "active_shader_for_specific_glass_block",
+    "alpha_cutout_macro_active",
+    "transparent_blend_mode_or_sorting",
+    "adjacent_face_culling",
+    "in_game_lighting"
+  ],
+  "animation_deferred": true,
+  "project_zomboid_and_furniture_build_excluded": true,
+  "files": [
+    "REPORT.md",
+    "SOURCE_LEDGER.csv",
+    "SPRITE_METADATA_MATRIX.csv",
+    "STATIC_RESOURCE_CONSTRAINTS.md",
+    "SUMMARY.json"
+  ]
+}
