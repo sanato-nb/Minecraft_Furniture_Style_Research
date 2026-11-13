@@ -1,0 +1,37 @@
+{
+  "revision": "TEX11-R007",
+  "date": "2026-11-13",
+  "source": "1.21.11/ user-provided JAR extraction",
+  "new_work": {
+    "png_directly_decoded": 31,
+    "png_sha256_match": 31,
+    "png_crc_verified": 31,
+    "PNG_bytes": 8080,
+    "PNG_source_texels": 11776,
+    "model_templates_direct_read": 12,
+    "model_leaves_direct_read": 24,
+    "door_material_pairs": 7,
+    "door_new_boundary_pixel_pairs": 112,
+    "UV_face_patches": 71,
+    "UV_source_texel_samples": 13936,
+    "orientation_candidate_rows": 17,
+    "ingame_verified": 0
+  },
+  "prior_preserved": {
+    "PNG": 31,
+    "model_leaves": 127,
+    "blockstate_source_rules": 512,
+    "static_state_combinations": 544,
+    "model_instances": 672,
+    "oriented_faces": 4320,
+    "door_half_geometry_pairs": 112,
+    "historic_oak_shelf_static_states_not_counted": 32
+  },
+  "source_boundary": "not an in-game screenshot, GPU/UV raster confirmation or Mojang jar authentication",
+  "official_jar_sha1_mandatory": false,
+  "ingame_static_verified_png": 0,
+  "notes": [
+    "Door source boundary compares top y15 and bottom y0; X reversal is a candidate only.",
+    "Shelf left and right panel UV regions are distinct; lower pixel difference does not prove correct in-game orientation."
+  ]
+}

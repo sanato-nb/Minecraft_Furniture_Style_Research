@@ -7,10 +7,10 @@
   "stage_id": "1-1-11",
   "material_family": "목재·구조부품",
   "stage_prefix": "TEX11",
-  "current_revision": "TEX11-R006",
-  "next_revision": "TEX11-R007",
-  "revision_sequence": 6,
-  "revision_status": "R006_user_source_derived_544_static_state_projections_672_models_4320_oriented_faces_112_door_half_geometry_pairs_verified_ingame_0_official_jar_out_of_scope",
+  "current_revision": "TEX11-R007",
+  "next_revision": "TEX11-R008",
+  "revision_sequence": 7,
+  "revision_status": "R007_user_extracted_31_PNG_redecoded_CRC_SHA_match_112_door_boundary_pixel_pairs_71_UV_face_patches_17_orientation_candidates_ingame_0_official_jar_out_of_scope",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 31,
@@ -42,37 +42,37 @@
   "phases": {
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
-      "status": "R006_R005_source_priority_and_scope_historic_v38_oak_shelf_separated",
+      "status": "R007_existing_sources_and_v38_oak_shelf_no_duplicate_state_counts",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
-      "status": "R006_R003_31_PNG_direct_SHA_CRC_preserved_no_new_png_hash",
+      "status": "R007_31_PNG_direct_CRC_SHA256_reverified_prior_R003_31_files_NOT_new_unique_count",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
-      "status": "R006_R001_R002_R003_RGBA_data_retained_no_new_pixel_sampler",
+      "status": "R007_all_31_PNG_RGBA_decoded_112_new_pixel_seam_pairs_71_face_UV_source_samples",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "R006_112_door_half_pair_geo_alignment_pass_oriented_door_trapdoor_shelf_faces_source_only_pixel_seam_unverified",
+      "status": "R007_7_door_seams_12_trapdoor_texture_symmetry_5_shelf_front_flip_candidates_source_only",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "R006_544_static_states_672_model_instances_4320_faces_state_rotated_xz_bounds_normals_cullfaces_31_materials_source_mapped",
+      "status": "R007_12_direct_template_JSON_24_direct_leaf_JSON_71_real_UV_face_texel_patches_prior_544_states_and_4320_faces_preserved",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "F": {
       "title": "F 인게임 정적 렌더·문양 접합·컬링 검증 (공식 원본 JAR 인증 제외)",
-      "status": "R006_official_JAR_SHA1_authentication_EXCLUDED_by_user_ingame_static_visual_0_of_31",
+      "status": "R007_Mojang_official_JAR_SHA1_required_FALSE_ingame_static_visual_0_of_31",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "R006_immutable_source_projection_report_6_files_written_STATE_HANDOFF_revision_advanced",
+      "status": "R007_immutable_report_summary_4_CSV_2_SVG_and_stage_only_STATE_HANDOFF_updates",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
     }
   },
@@ -80,17 +80,17 @@
     {
       "id": "D1",
       "check": "문·다락문 윗/아랫면 알파와 무늬 연결",
-      "status": "R006_door_112_half_pairs_geometrically_aligned_pixel_seam_actual_game_pending"
+      "status": "R007_112_true_pixel_edge_pairs_7_door_materials_cherry_4_alpha_discrepant_columns_source_only_runtime_pending"
     },
     {
       "id": "D2",
       "check": "32×32 5종 shelf texture atlas와 일반 16×16 비교",
-      "status": "R006_5_shelf_textures_R004_all_slots_checked_128_non_oak_static_states_oriented_32px_UV_pixel_sampling_next"
+      "status": "R007_5_shelf_32px_atlases_35_source_UV_face_patches_5_front_mirror_candidates"
     },
     {
       "id": "D3",
       "check": "v38 oak_shelf 7 leaf·38원본 explicit UV면·32 정적 상태 평가 근거 재사용 후 미검증 파생목재 확대",
-      "status": "R006_non_oak_shelf_128_static_combinations_256_instance_projections_oak_v38_32_historic_not_recounted"
+      "status": "R007_oak_shelf_pixel_sample_included_historic_v38_32_states_NOT_recounted"
     }
   ],
   "items": [
@@ -103,7 +103,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -111,7 +111,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "trapdoor_UV_symmetry"
     },
     {
       "item_id": "1-1-11-002",
@@ -122,7 +125,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -130,7 +133,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "trapdoor_UV_symmetry"
     },
     {
       "item_id": "1-1-11-003",
@@ -141,7 +147,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -149,7 +155,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "trapdoor_UV_symmetry"
     },
     {
       "item_id": "1-1-11-004",
@@ -160,7 +169,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -168,7 +177,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "trapdoor_UV_symmetry"
     },
     {
       "item_id": "1-1-11-005",
@@ -179,7 +191,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -187,7 +199,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "trapdoor_UV_symmetry"
     },
     {
       "item_id": "1-1-11-006",
@@ -198,7 +213,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -206,7 +221,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "door_edge"
     },
     {
       "item_id": "1-1-11-007",
@@ -217,7 +235,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -225,7 +243,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "door_edge"
     },
     {
       "item_id": "1-1-11-008",
@@ -236,7 +257,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -244,7 +265,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "trapdoor_UV_symmetry"
     },
     {
       "item_id": "1-1-11-009",
@@ -255,7 +279,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -263,7 +287,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "trapdoor_UV_symmetry"
     },
     {
       "item_id": "1-1-11-010",
@@ -274,7 +301,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -282,7 +309,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "trapdoor_UV_symmetry"
     },
     {
       "item_id": "1-1-11-011",
@@ -293,7 +323,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -301,7 +331,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "trapdoor_UV_symmetry"
     },
     {
       "item_id": "1-1-11-012",
@@ -312,7 +345,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -320,7 +353,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "door_edge"
     },
     {
       "item_id": "1-1-11-013",
@@ -331,7 +367,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -339,7 +375,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "door_edge"
     },
     {
       "item_id": "1-1-11-014",
@@ -350,7 +389,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -358,7 +397,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "door_edge"
     },
     {
       "item_id": "1-1-11-015",
@@ -369,7 +411,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -377,7 +419,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "door_edge"
     },
     {
       "item_id": "1-1-11-016",
@@ -388,7 +433,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -396,7 +441,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "door_edge"
     },
     {
       "item_id": "1-1-11-017",
@@ -407,7 +455,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -415,7 +463,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "door_edge"
     },
     {
       "item_id": "1-1-11-018",
@@ -426,7 +477,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -434,7 +485,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "door_edge"
     },
     {
       "item_id": "1-1-11-019",
@@ -445,7 +499,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -453,7 +507,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "door_edge"
     },
     {
       "item_id": "1-1-11-020",
@@ -464,7 +521,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -472,7 +529,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "door_edge"
     },
     {
       "item_id": "1-1-11-021",
@@ -483,7 +543,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -491,7 +551,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "door_edge"
     },
     {
       "item_id": "1-1-11-022",
@@ -502,7 +565,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -510,7 +573,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "door_edge"
     },
     {
       "item_id": "1-1-11-023",
@@ -521,7 +587,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -529,7 +595,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "door_edge"
     },
     {
       "item_id": "1-1-11-024",
@@ -540,7 +609,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -548,7 +617,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "trapdoor_UV_symmetry"
     },
     {
       "item_id": "1-1-11-025",
@@ -559,7 +631,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -567,7 +639,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "trapdoor_UV_symmetry"
     },
     {
       "item_id": "1-1-11-026",
@@ -578,7 +653,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -586,7 +661,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "trapdoor_UV_symmetry"
     },
     {
       "item_id": "1-1-11-027",
@@ -597,7 +675,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -605,7 +683,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "shelf_atlas_UV"
     },
     {
       "item_id": "1-1-11-028",
@@ -616,7 +697,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -624,7 +705,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "shelf_atlas_UV"
     },
     {
       "item_id": "1-1-11-029",
@@ -635,7 +719,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -643,7 +727,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "shelf_atlas_UV"
     },
     {
       "item_id": "1-1-11-030",
@@ -654,7 +741,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -662,7 +749,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "shelf_atlas_UV"
     },
     {
       "item_id": "1-1-11-031",
@@ -673,7 +763,7 @@
       "current_stream_independent_binary_reverified": true,
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
-      "last_verified_revision": "TEX11-R004",
+      "last_verified_revision": "TEX11-R007",
       "evidence_status": "R004_all_target_PNG_referenced_by_validated_user_source_leaf_uv_model_connection_ingame_and_official_pending",
       "user_provided_extraction_verified": true,
       "user_provided_extraction_sha256_matches_v4": true,
@@ -681,7 +771,10 @@
       "user_provided_model_texture_reference_resolved": true,
       "official_authentication_required": false,
       "official_authentication_excluded_from_completion": true,
-      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only"
+      "static_projection_source_status": "R006_represented_in_scope_with_R004_material_references; oak_shelf historic_leaf_static_32_states_from_v38_only",
+      "r007_direct_pixel_decode_verified": true,
+      "r007_direct_png_crc_sha256_match": true,
+      "r007_pixel_research_kind": "shelf_atlas_UV"
     }
   ],
   "revisions": [

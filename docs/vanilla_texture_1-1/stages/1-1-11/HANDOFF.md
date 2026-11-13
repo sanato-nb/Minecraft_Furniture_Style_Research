@@ -1,5 +1,18 @@
 # 1-1-11 — 목재·구조부품 별도 채팅 인수인계
 
+## 최신 연구: TEX11-R007 — 실제 사용자 추출본 PNG 경계·정적 UV 텍셀 연구 (2026-11-13)
+
+- **현재 `TEX11-R007` / 다음 `TEX11-R008`.** 사용자 제공 `1.21.11/` 원본 31 PNG를 다시 바이너리 디코딩, PNG CRC/SHA-256 기존 기록과 **31/31 일치**. 이전 확보한 31 PNG의 재검증이며 새로운 고유 텍스처 31개를 추가한 것이 아님.
+- **신규 문 실화소 연구:** 7종 문 위/아래 경계 16열씩, 총 **112개 실제 RGBA 쌍**. 상단 파일 y15 ↔ 하단 파일 y0 비교; **벚나무 문에서 alpha 차이 4/16열**, 나머지 6재질 0/16. x반전 후보 점수도 보존. R006의 112개 기하 정렬과 다른 검사.
+- **신규 UV 정적 면 픽셀 연구:** 사용자 제공 원본 템플릿 JSON **12개**·리프 JSON **24개** 직접 읽고, 다락문 12종×3면=36 패치 및 선반 5종×7면=35 패치, 총 **71 UV face patch / 13,936 텍셀 참조** 샘플. 다락문 12개 수평/수직 RGB·알파 대칭 및 선반 5종 left/right 반전 후보 **17개** 비교. 선반 5종은 RGB L1에서 수평반전 후보의 차이가 더 작았으나, 이는 **독립 UV 영역의 수치 비교만으로 실제 방향 판정이 아님**.
+- **정적 소스 이미지 증거:** [문 조립 SVG](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-11/TEX11-R007/DOOR_SOURCE_SEAM_PREVIEW.svg) · [선반 UV 픽셀 패치 SVG](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-11/TEX11-R007/SHELF_FACE_UV_RASTER.svg). **실제 Minecraft 게임 스크린샷이 아니며** UV 면의 엔진 카메라 투영/가림/컬링 검증도 아님.
+- **기존 연구 실적 별도 보존:** 31 PNG/127 leaf/512 blockstate 규칙/544 정적 상태/672 모델 인스턴스/4,320 회전 면/112 문 기하 정렬. 역사적 v38 참나무 선반 32 정적 상태는 중복 가산하지 않았고, 루트 v38 변경도 없음.
+- **실제 인게임 정적 검증 0/31** 그대로 유지. Mojang 원본 JAR 전체 SHA-1/공식 메타데이터 인증은 사용자 결정에 따라 필수 항목과 분모에서 제외(공식 인증 성공 주장 아님). 애니메이션은 계속 전면 보류, 기존 기록 삭제 없음. PZ 변환·실제 가구 3D 모델링은 하지 않음.
+- **증거 결과:** https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/main/research/vanilla_textures/by_stage/1-1-11/TEX11-R007/ — REPORT, SUMMARY, CSV 4개, SVG 2개. 이전 R000–R006 불변.
+- **다음 TEX11-R008:** 실제 Minecraft 게임에서 재현 가능한 정적 facing/hinge/half/열림 상태와 스크린샷이 확보되면 벚나무 문 RGBA 이음새·다락문 오리엔테이션·선반 전면 후보의 엔진 화면 실측. 그렇지 않으면 소스 위주의 자산/면 투영을 더 검증하되 **인게임 검증을 0에서 올리지 말 것**.
+
+---
+
 ## 최신 연구: TEX11-R006 — 정적 상태별 회전·UV 투영 (2026-11-13)
 
 - **현재 `TEX11-R006`**, 다음 **`TEX11-R007`**. 주 원본은 사용자가 게임 설치본 JAR에서 추출해 업로드한 `1.21.11/`. 이전 R001~R005 및 전역 v38 불변.
