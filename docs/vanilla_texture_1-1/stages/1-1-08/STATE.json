@@ -7,10 +7,10 @@
   "stage_id": "1-1-08",
   "material_family": "복합·기능면",
   "stage_prefix": "TEX08",
-  "current_revision": "TEX08-R001",
-  "next_revision": "TEX08-R002",
-  "revision_sequence": 1,
-  "revision_status": "R001_21_png_mirror_sha_rgba_crc_model_uv_checked_official_pending",
+  "current_revision": "TEX08-R002",
+  "next_revision": "TEX08-R003",
+  "revision_sequence": 2,
+  "revision_status": "R002_static_blockstates_16_uv_texel_62_barrel_static_pair_checked_official_pending",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 21,
@@ -60,47 +60,47 @@
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
-      "status": "completed_mirror_source_level_only_official_pending",
+      "status": "completed_source_level_official_and_ingame_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R001"
+      "latest_revision": "TEX08-R002"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
-      "status": "completed_mirror_source_level_only_official_pending",
+      "status": "completed_source_level_official_and_ingame_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R001"
+      "latest_revision": "TEX08-R002"
     },
     "F": {
       "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_official_jar_and_ingame_static",
+      "status": "pending_client_jar_download_failed_and_ingame_static_unavailable",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R001"
+      "latest_revision": "TEX08-R002"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
-      "status": "completed_stage_only_report_and_handoff_saved",
+      "status": "completed_source_level_official_and_ingame_pending",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
-      "latest_revision": "TEX08-R001"
+      "latest_revision": "TEX08-R002"
     }
   },
   "material_specific_checks": [
     {
       "id": "D1",
       "check": "작업대·화로·훈연기·책장·통의 정면·측면·상단 기능적 재질 분할",
-      "status": "checked_static_mirror_source_level_not_ingame",
-      "latest_revision": "TEX08-R001"
+      "status": "source_mirror_static_json_and_png_checked_official_pending",
+      "latest_revision": "TEX08-R002"
     },
     {
       "id": "D2",
       "check": "꺼짐·켜짐 등 두 고정 텍스처 차이만 비교, 다중 프레임 해독 금지",
-      "status": "checked_static_mirror_source_level_not_ingame",
-      "latest_revision": "TEX08-R001"
+      "status": "source_mirror_static_json_and_png_checked_official_pending",
+      "latest_revision": "TEX08-R002"
     },
     {
       "id": "D3",
       "check": "기능면의 #all·#front·#side 슬롯 및 실제 face UV/particle 분리",
-      "status": "checked_static_mirror_source_level_not_ingame",
-      "latest_revision": "TEX08-R001"
+      "status": "source_mirror_static_json_and_png_checked_official_pending",
+      "latest_revision": "TEX08-R002"
     }
   ],
   "items": [
@@ -114,10 +114,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-002",
@@ -129,10 +130,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-003",
@@ -144,10 +146,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-004",
@@ -159,10 +162,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-005",
@@ -174,10 +178,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-006",
@@ -189,10 +194,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-007",
@@ -204,10 +210,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-008",
@@ -219,10 +226,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-009",
@@ -234,10 +242,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-010",
@@ -249,10 +258,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-011",
@@ -264,10 +274,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-012",
@@ -279,10 +290,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-013",
@@ -294,10 +306,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-014",
@@ -309,10 +322,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-015",
@@ -324,10 +338,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-016",
@@ -339,10 +354,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-017",
@@ -354,10 +370,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-018",
@@ -369,10 +386,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-019",
@@ -384,10 +402,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-020",
@@ -399,10 +418,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     },
     {
       "item_id": "1-1-08-021",
@@ -414,10 +434,11 @@
       "official_client_jar_authenticated": false,
       "ingame_static_render_verified": false,
       "last_verified_revision": "TEX08-R001",
-      "evidence_status": "mirror_sha_pixel_checked_model_uv_source_checked_official_pending",
+      "evidence_status": "mirror_png_sha_pixel_and_model_blockstate_uv_source_checked_official_jar_pending",
       "source_png_rgba_verified": true,
       "png_crc_adler_checked": true,
-      "model_uv_source_checked": true
+      "model_uv_source_checked": true,
+      "last_state_uv_crosscheck_revision": "TEX08-R002"
     }
   ],
   "revisions": [
@@ -447,6 +468,22 @@
   "stage_source_png_rgba_verified_count": 21,
   "stage_model_uv_source_checked_count": 21,
   "stage_fully_official_and_ingame_verified_count": 0,
-  "last_release_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R001/",
-  "last_release_source_note": "GitHub unofficial asset mirror 1.21.11, all 21 original PNG v4 SHA-256 match, source model JSON UV; no official jar or game verification"
+  "last_release_path": "research/vanilla_textures/by_stage/1-1-08/TEX08-R002/",
+  "last_release_source_note": "Original 1.21.11 unofficial mirror 16 blockstates and new auxiliary barrel_top_open PNG; 62-face Pillow UV re-sampling inherited from R001; official Jar not accessed",
+  "stage_1_1_08_official_jar_blocker": "Local executable environment could not fetch official Mojang client.jar; do not infer authenticity from mirror or version URL",
+  "stage_auxiliary_static_png_newly_examined_R002": [
+    "barrel_top_open"
+  ],
+  "stage_blockstate_audit_R002": {
+    "source_blockstates": 16,
+    "explicit_variants": 73,
+    "multipart_rules": 52
+  },
+  "stage_uv_texel_use_R002": {
+    "source_model_face_rows": 62,
+    "texel_uses": 13056,
+    "opaque_texel_uses": 13056,
+    "explicit_uv_faces": 16,
+    "inferred_uv_faces": 46
+  }
 }
