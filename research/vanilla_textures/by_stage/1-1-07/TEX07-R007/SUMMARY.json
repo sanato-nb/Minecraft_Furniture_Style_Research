@@ -1,0 +1,52 @@
+{
+  "stage_id": "1-1-07",
+  "revision": "TEX07-R007",
+  "date": "2026-11-13",
+  "game": "Minecraft Java Edition 1.21.11",
+  "source_type": "user_provided_extracted_1.21.11_GitHub_PNG_not_Mojang_JAR_authenticated",
+  "source_png_paths_unique_total": 7,
+  "new_unique_png_paths_in_R007": 0,
+  "reexamined_pngs": 7,
+  "prior_rgba_pixels_unique_inherited": 1792,
+  "new_unique_pixels": 0,
+  "source_png_sha256_matched": 7,
+  "r006_prior_metric_rows_reproduced": 7,
+  "independent_fft_vs_direct_roll_checked": 7,
+  "max_numerical_difference_leq": 2.3e-16,
+  "new_evidence": {
+    "randomized_16_by_16_arrays": 140000,
+    "permutations_per_texture": 20000,
+    "seed_start": 20261113,
+    "statistics_per_texture": 2,
+    "hypothesis_tests": 14,
+    "first_statistic": "max_over_255_nonzero_toroidal_luma_autocorr",
+    "second_statistic": "frequency_energy_fraction_in_24_lowfreq_bins",
+    "tail": "upper",
+    "pvalue_formula": "(1 + count(null>=observed)) / 20001",
+    "multiple_testing": "Holm_14",
+    "nominal_p_below_0_05": 0,
+    "Holm_significant_p_below_0_05": 0,
+    "maxcorr_highest_texture": "red_concrete",
+    "maxcorr_highest_value": 0.201963809,
+    "maxcorr_red_pvalue": 0.084245788,
+    "max_lowfreq_texture": "gray_concrete",
+    "max_lowfreq_value": 0.130218655,
+    "max_lowfreq_gray_pvalue": 0.09059547
+  },
+  "new_model_elements_faces_explicit_UV": 0,
+  "inherited_face_mappings_from_R004": 42,
+  "ingame_static_verified_count": 0,
+  "official_mojang_jar_SHA1_authentication": {
+    "required": false,
+    "status": "excluded_not_certified"
+  },
+  "animation_study_deferred": true,
+  "global_checkpoint_unchanged": "v38",
+  "next_revision": "TEX07-R008",
+  "study_files": [
+    "REPORT.md",
+    "SUMMARY.json",
+    "7_PERMUTATION_SPATIAL_TESTS.csv",
+    "REPRODUCE.py"
+  ]
+}

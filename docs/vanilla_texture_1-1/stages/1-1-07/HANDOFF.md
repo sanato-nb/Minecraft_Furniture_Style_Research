@@ -1,3 +1,13 @@
+# 1-1-07 콘크리트·색면 — TEX07-R007 통계적 무늬 후보 검증 (2026-11-13)
+
+- 사용자 제공 `1.21.11/`의 기존 PNG **7개**로 R006 7행 실측을 **재현**(기존 픽셀 1,792개 계승, 새 고유 PNG 0개). 7개 전체 순환 상관을 **독립 FFT와 직접 픽셀 이동**으로 교차 확인.
+- **이번 신규 근거**: PNG별 원본 색상 빈도를 보존한 정적 픽셀 순열 **20,000회×7=140,000개**에 대해, 255개 이동 중 최고 자기상관·24-bin 저주파 에너지 집중 두 통계량을 계산. **14개 사전 정의한 우측 꼬리 검정 중 p<0.05 0건**, Holm 보정 후 0건. 기존 R006의 최고 자기상관 ~0.20만으로 규칙적 노이즈를 확정할 수 없음.
+- 인게임 정적 화면 **0/7 보류**, 게임 UV 방향이나 시각 품질을 실제 렌더로 인증하지 않음. 공식 JAR 인증 요구 제외(인증 성공 아님); 애니메이션 전면 보류. R004 **42면 파생 UV**는 승계, R007 신규 UV/모델 면 0건.
+- [R007 상세 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R007/REPORT.md) · [7색 새 통계 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R007/7_PERMUTATION_SPATIAL_TESTS.csv) · [요약 JSON](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R007/SUMMARY.json) · [재현 스크립트](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R007/REPRODUCE.py).
+- 다음 후보 `TEX07-R008`. 새로운 직접 원본·픽셀/UV 검증이나 인게임 정적 증거가 없으면 형식적인 리비전 증가 금지. 글로벌 v38·타 단계 불변. 새 채팅 진입 시 라이브 STATE와 GitHub HEAD 재확인.
+
+---
+
 # 1-1-07 콘크리트·색면 — R006 신규 정적 공간 패턴 계측 (2026-11-13)
 
 - **현재 `TEX07-R006`**, 다음 `TEX07-R007`. 사용자 추출 `1.21.11/`의 고정 7 PNG를 **다시 직접 읽어** SHA256·Git blob SHA·PNG CRC 7/7 일치 확인. 기존 원본 7개를 14개로 누적 계산하지 않음.
