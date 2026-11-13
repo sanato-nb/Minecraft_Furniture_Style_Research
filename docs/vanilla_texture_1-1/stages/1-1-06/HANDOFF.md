@@ -106,3 +106,14 @@
 - 실게임 재현용 4패널/16블록 `STATIC_FACING_COMPARISON.mcfunction`을 준비했으나 **미실행**. 게임 캡처·공식 원본 JAR SHA-1 검사 **계속 0/8**.
 - [R004 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R004/REPORT.md) · [아이템 SHA 원장](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R004/ITEM_MODEL_LEDGER.csv) · [월드 방향 48행](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R004/WORLD_FACE_UV_MAPPING.csv) · [기존 이음값 facing LUT](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R004/FACING_EDGE_LOOKUP.csv) · [실게임 시험 배치 명령](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-06/TEX06-R004/STATIC_FACING_COMPARISON.mcfunction).
 - **TEX06-R005**는 정식 압축 JAR SHA-1 확인 또는 게임 내 정적 실화면 검증 같은 신규 1차 증거가 있을 때만 생성. 다른 1-1-XX 단계, 애니메이션, PZ 변환, 가구 3D 제작, 공통 v38 변경 금지.
+
+## 연구 기준 변경 — 2026-11-13 (새 릴리스 아님)
+
+**사용자 명시 지시: "공식 인증 빼". 이 지시가 본 단계 1-1-06의 최신 수행 기준이며, 위 R001~R004 역사적 기록보다 우선한다.**
+
+- Minecraft Mojang **공식 원본 압축 JAR SHA-1 인증은 연구 범위 및 완료 조건에서 제외**한다. 향후 공식 JAR을 다운로드·검사하거나 이를 R005의 필수 선행 조건으로 삼지 않는다.
+- 기존 보고서의 '공식 인증 미완료' 표기는 과거 시점 증거 기록이며 **삭제·수정하지 않는다**. 현재 연구의 공식 인증 상태는 `pending`이 아니라 **`excluded_by_user`** 이다. 이전 데이터의 0건 자체는 역사적 사실로만 남겨둔다.
+- 이제 정적 연구 검증은 **① 사용자 제공 GitHub `1.21.11/`의 직접 PNG/JSON·모델 분석, ② 고정 미러와 파일/내용 교차 검증, ③ 실제 Minecraft 1.21.11 정적 인게임 화면 검증**을 서로 구분하여 관리한다. ①·② 관련 기존 8/8 검증 유지, ③ 현재 0/8 실측 미완료.
+- 현재 버전 **`TEX06-R004` 유지**, 다음 고유 검증 버전 **`TEX06-R005` 유지**. 본 변경은 **방법·완료 기준만 수정**한 것으로 신규 분석 근거가 없으므로 새 릴리스 버전을 발행하거나 기존 데이터 수치를 중복 집계하지 않는다.
+- R005의 우선순위는 `STATIC_FACING_COMPARISON.mcfunction`의 정적 게임 테스트(4개 2×2 패널/16블록, 방향별 상단·측면 및 아이템 렌더 캡처), 결과와 원본 UV/블록 상태 연결 확인. 공식 인증은 검사 목록에서 뺀다.
+- 애니메이션 보류, PZ 변환·가구 3D 제작 금지, 다른 단계·공통 `v38`·기존 R001~R004 결과 보존.

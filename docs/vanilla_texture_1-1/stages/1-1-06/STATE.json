@@ -71,8 +71,8 @@
       "last_revision": "TEX06-R004"
     },
     "F": {
-      "title": "F 공식 Mojang client.jar·인게임 정적 검증",
-      "status": "pending_original_JAR_SHA1_and_ingame_test",
+      "title": "F 인게임 정적 렌더·UV·facing 검증 (공식 원본 JAR 인증 제외)",
+      "status": "pending_ingame_static_only_official_JAR_SHA1_excluded_by_user",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "last_revision": "TEX06-R004"
     },
@@ -358,9 +358,10 @@
     }
   ],
   "next_steps": [
-    "Verify original compressed Minecraft Java 1.21.11 client.jar SHA1 against official Mojang metadata; unpacked folder doesn't authenticate the archive",
-    "Execute the static four-panel 2x2 test in Minecraft 1.21.11 and obtain tagged top/side screenshots; do not count unexecuted commands as verification",
-    "Advance TEX06-R005 only with new primary evidence; all other stages and v38 preserved"
+    "Inspect actual Minecraft Java 1.21.11 top and side static screenshots for both glazed terracotta IDs, including four facing states",
+    "Compare in-game static UV and facing against TEX06-R004 predicted four-panel setups without treating mathematical projection as proof",
+    "Create TEX06-R005 only when new static source or in-game verification evidence exists; keep existing R001–R004 and global v38 intact",
+    "No Mojang official client.jar SHA-1 download, authentication, or verification required for this stage; animation and 3D furniture/PZ work remain outside scope"
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -410,9 +411,11 @@
       "item_model_json_count": 8
     },
     "Mojang_official_client_jar_sha1": {
-      "status": "pending",
+      "status": "excluded_by_user",
+      "required": false,
+      "in_scope": false,
       "count": 0,
-      "reason": "original compressed JAR SHA1 not authenticated"
+      "note": "Historical unauthenticated count retained; not a blocker, completion condition, or next-step task from 2026-11-13"
     },
     "ingame_static_render": {
       "status": "pending",
@@ -424,5 +427,34 @@
   "user_unpacked_item_JSON_mirror_byte_identical_count": 8,
   "world_face_geometry_derived_rows": 48,
   "R002_seam_facing_reindex_rows": 64,
-  "in_game_test_panels_executed": 0
+  "in_game_test_panels_executed": 0,
+  "research_scope_policy": {
+    "updated_at": "2026-11-13",
+    "update_type": "user_requested_methodology_change_not_new_evidence",
+    "current_stage": "1-1-06",
+    "official_Mojang_compressed_jar_SHA1_certification": {
+      "required": false,
+      "in_scope": false,
+      "status": "excluded_by_user",
+      "historical_values_preserved": true
+    },
+    "user_supplied_1_21_11_unpacked_png_JSON": {
+      "required": true,
+      "status": "8_of_8_verified"
+    },
+    "unofficial_mirror_crosscheck": {
+      "required": true,
+      "status": "8_of_8_verified"
+    },
+    "actual_ingame_static_render": {
+      "required": true,
+      "status": "pending",
+      "count": 0
+    },
+    "animation": "deferred",
+    "project_zomboid_or_furniture_3D": "excluded",
+    "immutable_releases_R001_through_R004": "preserved",
+    "global_project_checkpoint": "v38_unchanged"
+  },
+  "version_advance_for_this_policy_update": false
 }
