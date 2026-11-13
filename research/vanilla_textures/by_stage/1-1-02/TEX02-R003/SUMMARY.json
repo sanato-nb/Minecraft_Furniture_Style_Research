@@ -1,0 +1,64 @@
+{
+  "stage_id": "1-1-02",
+  "material": "석재·벽돌",
+  "revision": "TEX02-R003",
+  "prior_revision": "TEX02-R002",
+  "next_revision": "TEX02-R004",
+  "date": "2026-11-13",
+  "global_legacy_checkpoint": "v38",
+  "primary_source": {
+    "name": "user_provided_1.21.11_unpacked_client_folder",
+    "path": "1.21.11/",
+    "repo_commit": "2a43897b8f605b4e0c96a272bca476ee6b70058e",
+    "source_claim": "The user directly extracted client.jar; original jar hash remains unauthenticated"
+  },
+  "mirror_secondary": {
+    "repo": "InventivetalentDev/minecraft-assets",
+    "commit": "7241a12cc2707abd7022f399c5d9033153e492e1"
+  },
+  "verification_levels": {
+    "user_extracted_assets": {
+      "status": "source_files_directly_verified",
+      "PNG_sha256_CRC": 17,
+      "models": 17,
+      "blockstates": 17,
+      "extra_PNG": 2,
+      "shared_models": 8
+    },
+    "mirror_crosscheck": {
+      "status": "byte_identical_by_github_git_blob_sha",
+      "PNG": 17,
+      "models": 17,
+      "blockstates": 17,
+      "extra_PNG": 2,
+      "shared_models": 8
+    },
+    "official_Mojang_jar": {
+      "status": "unverified",
+      "authenticated": 0,
+      "reason": "No original client.jar SHA-1 comparison against authenticated Mojang metadata"
+    },
+    "ingame_static": {
+      "status": "unverified",
+      "verified": 0,
+      "reason": "No game render"
+    }
+  },
+  "measurement_reuse": {
+    "prior_R001_rgba_pixels": 4352,
+    "new_rgba_pixels_this_revision": 0,
+    "prior_R002_static_face_source_entries": 102,
+    "prior_R002_blockstate_variant_entries": 31,
+    "new_distinct_target_textures": 0
+  },
+  "fixed_denominator": 17,
+  "complete_A_to_G": 0,
+  "animation_deferred": true,
+  "outputs": [
+    "REPORT.md",
+    "SOURCE_LEDGER.csv",
+    "MODEL_JSON_CROSSCHECK.csv",
+    "SUPPLEMENTAL_END_FACE_LEDGER.csv",
+    "SUMMARY.json"
+  ]
+}

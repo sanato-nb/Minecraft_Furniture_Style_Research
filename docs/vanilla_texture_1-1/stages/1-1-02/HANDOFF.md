@@ -1,6 +1,6 @@
 # 1-1-02 — 석재·벽돌 별도 채팅 인수인계
 
-> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R002` (비공식 미러 원본 PNG+정적 모델 검수)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
+> Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 현재 고유 버전 **`TEX02-R003` (사용자 제공 1.21.11/ 직접 검증)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
 ## 연구 목표와 정확한 표본
 
@@ -59,8 +59,8 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 
 ## 버전 상태·저장 경로·갱신 규칙
 
-- 현재 **`TEX02-R002`**: R001의 고정 17/17 증거 계승 + 신규 보조 끝면 PNG 2/2 검증, model-local 102면 슬롯, 상태 변형 31개 정리. 공식/인게임 인증 0/17.
-- 최신 검증 결과: **`TEX02-R002`**; 저장 경로 `research/vanilla_textures/by_stage/1-1-02/TEX02-R002/`. 다음은 이 단계만 **`TEX02-R003`**...
+- 현재 **`TEX02-R003`**: 사용자 추출본의 PNG 17 SHA256/CRC, 모델/상태 JSON 각 17, 부모·미러 JSON 8, 보조 PNG 2 직접 검증·기존 미러와 일치. 공식/인게임 인증 0/17.
+- 최신 검증 결과: **`TEX02-R003`**; 저장 경로 `research/vanilla_textures/by_stage/1-1-02/TEX02-R003/`. 다음은 이 단계만 **`TEX02-R004`**...
 - 이 단계 진행 관리: [STATE.json](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/docs/vanilla_texture_1-1/stages/1-1-02/STATE.json)와 이 `HANDOFF.md`만 단계 자체 채팅에서 갱신.
 - 다른 번호 단계의 `STATE/HANDOFF` 및 루트 프로젝트 공통 체크포인트·진행 문서는 **수정 금지**. 통합 시 최종 집계 담당자가 별도로 확인.
 - 소스 증거의 신뢰도는 최소 `legacy_only`, `mirror_sha_pixel_checked`, `official_jar_authenticated`, `ingame_static_verified`로 구분하되, 서로 상충·불충분하면 `pending` 유지.
@@ -86,3 +86,11 @@ v4 측정 데이터가 기본. 이전 v5~v38의 관련 모델 연구는 먼저 �
 - [상세 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R002/REPORT.md) · [보조 끝면 PNG 측정](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R002/END_FACE_SUPPLEMENT.csv) · [정적 102면 텍스처 슬롯](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R002/FACE_SOURCE_LEDGER.csv) · [31개 blockstate 변형](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R002/BLOCKSTATE_VARIANTS.csv) · [기계 판독 요약](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R002/SUMMARY.json) · [공식 JAR 오프라인 검사기](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R002/VERIFY_OFFICIAL_JAR.py).
 - **이번 신규 바이너리 검증은 2개 보조 끝면 PNG**: `deepslate_top`, `blackstone_top`. 둘 다 PNG CRC·16×16·불투명 256픽셀 확인, 측면과 37/256 픽셀만 RGBA 일치. 고정 대상은 **계속 17개**. 이전 R001의 17 PNG 측정을 신규 17개로 중복 기록하지 말 것.
 - **공식 `client.jar` 취득 실패**: 공식 JAR SHA 인증 0/17, 인게임 정적 렌더 0/17. 새 검사기 자체는 인증 증거가 아님. `TEX02-R003`에서는 실제 Mojang 공식 파일 수급·JAR 해시 검증 및 정적 인게임 장면 검사를 우선 수행할 것. 전역 `v38` 변경 없음, 애니메이션 계속 보류.
+
+## TEX02-R003 원본 출처 정정 및 검증 (2026-11-13)
+
+- **1차 분석 원본:** [사용자 제공 직접 JAR 압축 해제 `1.21.11/`](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/tree/2a43897b8f605b4e0c96a272bca476ee6b70058e/1.21.11), pinned commit `2a43897b8f605b4e0c96a272bca476ee6b70058e`. **2차 증거:** 기존 GitHub 비공식 미러. 사용자 설명에 따른 추출 출처이므로 Mojang 원본 JAR 인증을 뜻하지 않음.
+- [R003 보고서](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R003/REPORT.md) · [17종 SHA/CRC CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R003/SOURCE_LEDGER.csv) · [42 JSON 교차검증 CSV](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R003/MODEL_JSON_CROSSCHECK.csv) · [끝면 2 PNG](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R003/SUPPLEMENTAL_END_FACE_LEDGER.csv) · [4수준 검증 SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-02/TEX02-R003/SUMMARY.json).
+- 사용자 추출본 PNG SHA256/CRC **17/17**, 모델 JSON **17/17**, blockstate **17/17**, 공유/미러 JSON **8/8**, 보조 끝면 PNG **2/2** 모두 기존 미러와 정확히 일치. R001 4,352 RGBA 픽셀·R002 102 모델 면과 31 blockstate 변형 기록은 **새 계측이 아닌 바이트 일치로 계승**, 중복 성과 계산 금지.
+- 4수준 독립 검증: 사용자 추출본 인증 **예**, 비공식 미러 교차 검증 **예**, Mojang 공식 압축 JAR SHA-1 인증 **아니오 (0/17)**, 인게임 정적 장면 **아니오 (0/17)**.
+- 다음 단계 고유 번호 **TEX02-R004**. 작성 직전 GitHub STATE 및 HEAD를 재검증할 것. `v38` 및 다른 단계·R001/R002 불변, 애니메이션 연구 보류.
