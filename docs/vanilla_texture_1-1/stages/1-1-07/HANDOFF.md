@@ -1,4 +1,16 @@
-# 1-1-07 — 콘크리트·색면 별도 채팅 인수인계
+# 1-1-07 콘크리트·색면 — 최신 인수인계
+
+## TEX07-R001 (2026-11-13)
+
+- 이번 독립 분석: 비공식 미러 1.21.11 실제 PNG 바이너리·CRC·SHA·RGBA **7/7**, 정적 상태/모델/아이템 JSON 7+7+7 및 공통 부모 3개, 면 42개 색면 UV 참조. 자세한 [REPORT](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R001/REPORT.md), [SUMMARY](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/blob/main/research/vanilla_textures/by_stage/1-1-07/TEX07-R001/SUMMARY.json).
+- A/B/C/D/E/G는 미러 소스 범위 분석 기록 완료, F 공식 Mojang client.jar 인증 **0/7**, 인게임 정적 렌더 **0/7**. 전체 A–G 완료라고 주장 금지.
+- UV 수치 42면은 **명시 UV 0 / 16×16 풀큐브로부터 파생된 영역 42**; 독립 PNG 위치 1,792개와 42면 참조 합 10,752 texel-uses는 구별한다.
+- 다음 단계 고유 버전 **TEX07-R002**. 새 작업 전에 STATE SHA/버전 및 출력 경로 충돌 검사. 전체 v38 불변, 다른 단계 수정 불가. 애니메이션 전면 보류, 좀보이드 변환 및 가구 실모델 제작 범위 제외.
+
+---
+
+## R000 당시 계획 인수인계 (아래 과거 현황 문구는 초기 상태의 역사적 기록)
+
 
 > Minecraft Java 1.21.11 · 사용자 요청에 따라 **새 채팅마다 독립 진행** · 초기 고유 버전 **`TEX07-R000` (계획만 저장)** · 공식 전체 연구 체크포인트 **`v38` 유지**.
 
