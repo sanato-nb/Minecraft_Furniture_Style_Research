@@ -71,8 +71,8 @@
       "latest_revision": "TEX08-R006"
     },
     "F": {
-      "title": "F 사용자 추출본 정적 적용 근거·인게임 관찰(가능한 범위) — 공식 JAR 인증 제외",
-      "status": "official_JAR_authentication_excluded_by_user;ingame_static_observation_unavailable",
+      "title": "F 사용자 추출본 기반 정적 모델·UV 적용 근거 (인게임·공식 인증 제외)",
+      "status": "in_game_verification_excluded_by_user;official_jar_authentication_excluded_by_user;source_only",
       "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
       "latest_revision": "TEX08-R004"
     },
@@ -576,12 +576,11 @@
     }
   ],
   "next_steps": [
-    "Re-read live 1-1-08 STATE/HANDOFF, next TEX08-R007 only with new static source evidence.",
-    "Do not double-count R006 256 paired pixel positions or 64 2D atlases as new unique PNG pixels.",
-    "256 multipart combinations were evaluated from JSON; not an ingame image or particle render certification.",
-    "Actual Minecraft in-game static UV winding/particle and uvlock screen behavior still unobserved (0/21).",
-    "Mojang full official client.jar SHA1 metadata authentication excluded by user, not verified; animation study paused.",
-    "Any next release must be immutable, and stage-only after checking live HEAD and STATE SHA."
+    "Check if genuinely new static PNG/model/blockstate/UV source evidence exists, otherwise stop and report static research completion; do not fabricate version increments.",
+    "Never ask for in-game screenshots or require actual game rendering/particle/uvlock observation in this stage.",
+    "Keep historical in-game verified 0/21 without treating it as a blocker or as verified; official JAR SHA1 metadata remains excluded and animation deferred.",
+    "Preserve fixed 21 PNG and existing 5376 original pixels, R004 39 models+8 parents/143 faces, R005 62 pairs, R006 64 source atlas/256 blockstate validations, with no duplicate accounting.",
+    "If new evidence exists, reread live state, handoff, branch head, state SHA and check new release path, then write stage-only immutable next revision."
   ],
   "official_client_jar_available": false,
   "ingame_static_render_verified": false,
@@ -589,7 +588,8 @@
   "scope_excluded": [
     "Project Zomboid conversion",
     "actual furniture 3D asset building",
-    "animation study until explicitly resumed"
+    "animation study until explicitly resumed",
+    "Minecraft in-game static screenshot/render/UV-lock/particle/runtime verification"
   ],
   "project_overall_completion_pct": null,
   "do_not_count_planning_as_research": true,
@@ -677,10 +677,9 @@
     "not_a_blocker_for_static_source_research": true
   },
   "research_success_criteria_1_1_08": {
-    "required": "user_provided_extracted_source + static texture/color/model/face/UV/blockstate verification + evidence report",
-    "optional_when_observable": "actual Minecraft in-game static rendering",
-    "excluded": "official Mojang full client.jar SHA-1 / version metadata authentication; animated frames/keyframes",
-    "note": "An absence of Mojang JAR authentication is not an incomplete required task."
+    "required": "User-supplied extracted Minecraft Java 1.21.11 static PNG analysis, color/alpha/CRC verification, model and parent-chain texture slots, face UV and blockstates source evidence, documented report for fixed 21 PNG",
+    "excluded": "actual in-game screenshots and runtime Minecraft rendering verification; Mojang official full JAR SHA1/manifest certification; animated frames",
+    "note": "User excluded all in-game verification from required work. 0/21 in-game is a historical observation count, not a pending requirement, and is not to be represented as verified."
   },
   "stage_static_state_face_pairwise_R005": {
     "state_pairwise_rows": 62,
@@ -719,5 +718,22 @@
     "seven_applied_models_each_state": true,
     "ingame_verified": 0,
     "animation_frames_studied": 0
+  },
+  "ingame_static_render_policy": {
+    "effective_date": "2026-11-13",
+    "scope": "excluded_from_completion_requirements",
+    "source": "user_explicit_instruction",
+    "required": false,
+    "game_launch_or_screenshots_required": false,
+    "source_only_evidence_basis": "provided Minecraft Java 1.21.11 extracted PNG + models/blockstates JSON + inherited faces/UV",
+    "retain_historical_observed_count": 0,
+    "avoid_claiming_render_verified": true
+  },
+  "last_scope_policy_change": {
+    "effective_date": "2026-11-13",
+    "policy_only": true,
+    "change": "exclude_in_game_verification",
+    "current_revision_unchanged": "TEX08-R006",
+    "next_revision_unchanged": "TEX08-R007"
   }
 }
