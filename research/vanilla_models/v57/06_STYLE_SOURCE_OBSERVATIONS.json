@@ -1,0 +1,31 @@
+{
+  "schema": "v57_furniture_style_observed_source_only",
+  "records": [
+    {
+      "model": "stonecutter",
+      "direct_source": "two elements; 9/16-high solid base plus Z=8 zero-thickness two-sided saw [1,9,8]→[15,16,8]",
+      "observation": "solid base and planar geometry combined, with saw alpha0 and opaque pixels; not universal style rule"
+    },
+    {
+      "model": "lectern",
+      "direct_source": "3 elements; support 2 units high; central 8x13x8 column; rotated upper element -22.5° x",
+      "observation": "narrower structural support below a tilted top"
+    },
+    {
+      "model": "composter",
+      "direct_source": "5 elements; 18 own face declarations, source UV omitted, side thickness 2/16",
+      "observation": "open container silhouette formed by four thin cuboids and base; implicit UV unverified"
+    },
+    {
+      "model": "bookshelf and barrel_open",
+      "direct_source": "cube_column->cube, cube_bottom_top->cube parent source; texture overrides",
+      "observation": "full 16-unit cube reusable with textures rather than finer geometry"
+    },
+    {
+      "model": "anvil and template_anvil",
+      "direct_source": "anvil inherits 4 elements and 21 faces; parent defines geometry and explicit UV",
+      "observation": "parent geometry reuse and child texture override; not double counted"
+    }
+  ],
+  "global_style_rules_established": false
+}

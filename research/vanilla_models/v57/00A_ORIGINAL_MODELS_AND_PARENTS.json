@@ -1,0 +1,546 @@
+{
+  "schema": "v57_direct_model_originals_group_A",
+  "P1_leaf_models": 8,
+  "original_P1_models": [
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/bookshelf.json",
+      "git_blob_sha": "c095a7d7ebf88c0a72dc9131b64e3b4f5963aad8",
+      "original": {
+        "parent": "minecraft:block/cube_column",
+        "textures": {
+          "end": "minecraft:block/oak_planks",
+          "side": "minecraft:block/bookshelf"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf.json",
+      "git_blob_sha": "a9bda72e10095343fb80de2bc4654212a1dc6834",
+      "original": {
+        "parent": "block/block",
+        "textures": {
+          "top": "block/chiseled_bookshelf_top",
+          "side": "block/chiseled_bookshelf_side",
+          "particle": "#top"
+        },
+        "elements": [
+          {
+            "name": "chiseled_bookshelf_body",
+            "from": [
+              0,
+              0,
+              0
+            ],
+            "to": [
+              16,
+              16,
+              16
+            ],
+            "faces": {
+              "east": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#side",
+                "cullface": "east"
+              },
+              "south": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#side",
+                "cullface": "south"
+              },
+              "west": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#side",
+                "cullface": "west"
+              },
+              "up": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#top",
+                "cullface": "up"
+              },
+              "down": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#top",
+                "cullface": "down"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/crafting_table.json",
+      "git_blob_sha": "aa056b15efba47ef049e029b560029a6b1e3be84",
+      "original": {
+        "parent": "minecraft:block/cube",
+        "textures": {
+          "down": "minecraft:block/oak_planks",
+          "east": "minecraft:block/crafting_table_side",
+          "north": "minecraft:block/crafting_table_front",
+          "particle": "minecraft:block/crafting_table_front",
+          "south": "minecraft:block/crafting_table_side",
+          "up": "minecraft:block/crafting_table_top",
+          "west": "minecraft:block/crafting_table_front"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/barrel.json",
+      "git_blob_sha": "cff930084d47d226817f274616d14f4b07c0a9d4",
+      "original": {
+        "parent": "minecraft:block/cube_bottom_top",
+        "textures": {
+          "bottom": "minecraft:block/barrel_bottom",
+          "side": "minecraft:block/barrel_side",
+          "top": "minecraft:block/barrel_top"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/barrel_open.json",
+      "git_blob_sha": "c7d013e7b442624011ab4a0bef8b4e9ac5570ea9",
+      "original": {
+        "parent": "minecraft:block/cube_bottom_top",
+        "textures": {
+          "bottom": "minecraft:block/barrel_bottom",
+          "side": "minecraft:block/barrel_side",
+          "top": "minecraft:block/barrel_top_open"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/loom.json",
+      "git_blob_sha": "66f7792d3addb454db7c6b83d976a2b2f0eeb921",
+      "original": {
+        "parent": "minecraft:block/orientable_with_bottom",
+        "textures": {
+          "bottom": "minecraft:block/loom_bottom",
+          "front": "minecraft:block/loom_front",
+          "side": "minecraft:block/loom_side",
+          "top": "minecraft:block/loom_top"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/smithing_table.json",
+      "git_blob_sha": "f7bcd3e1f5f740089ded6cc3627b8018e8a55c83",
+      "original": {
+        "parent": "minecraft:block/cube",
+        "textures": {
+          "down": "minecraft:block/smithing_table_bottom",
+          "east": "minecraft:block/smithing_table_side",
+          "north": "minecraft:block/smithing_table_front",
+          "particle": "minecraft:block/smithing_table_front",
+          "south": "minecraft:block/smithing_table_front",
+          "up": "minecraft:block/smithing_table_top",
+          "west": "minecraft:block/smithing_table_side"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/stonecutter.json",
+      "git_blob_sha": "b89f0aaa1647332191fd685fd55633dbc8a879cb",
+      "original": {
+        "parent": "block/block",
+        "textures": {
+          "particle": "block/stonecutter_bottom",
+          "bottom": "block/stonecutter_bottom",
+          "top": "block/stonecutter_top",
+          "side": "block/stonecutter_side",
+          "saw": "block/stonecutter_saw"
+        },
+        "elements": [
+          {
+            "from": [
+              0,
+              0,
+              0
+            ],
+            "to": [
+              16,
+              9,
+              16
+            ],
+            "faces": {
+              "down": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#bottom",
+                "cullface": "down"
+              },
+              "up": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#top"
+              },
+              "north": {
+                "uv": [
+                  0,
+                  7,
+                  16,
+                  16
+                ],
+                "texture": "#side",
+                "cullface": "north"
+              },
+              "south": {
+                "uv": [
+                  0,
+                  7,
+                  16,
+                  16
+                ],
+                "texture": "#side",
+                "cullface": "south"
+              },
+              "west": {
+                "uv": [
+                  0,
+                  7,
+                  16,
+                  16
+                ],
+                "texture": "#side",
+                "cullface": "west"
+              },
+              "east": {
+                "uv": [
+                  0,
+                  7,
+                  16,
+                  16
+                ],
+                "texture": "#side",
+                "cullface": "east"
+              }
+            }
+          },
+          {
+            "from": [
+              1,
+              9,
+              8
+            ],
+            "to": [
+              15,
+              16,
+              8
+            ],
+            "faces": {
+              "north": {
+                "uv": [
+                  1,
+                  9,
+                  15,
+                  16
+                ],
+                "texture": "#saw",
+                "tintindex": 0
+              },
+              "south": {
+                "uv": [
+                  15,
+                  9,
+                  1,
+                  16
+                ],
+                "texture": "#saw",
+                "tintindex": 0
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "original_parent_templates": [
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/cube_column.json",
+      "git_blob_sha": "358b9847efe8bb17811ef48eedd219d8c9b51499",
+      "original": {
+        "parent": "block/cube",
+        "textures": {
+          "particle": "#side",
+          "down": "#end",
+          "up": "#end",
+          "north": "#side",
+          "east": "#side",
+          "south": "#side",
+          "west": "#side"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/cube.json",
+      "git_blob_sha": "1b9780b479aee527f79bde950656b82f1524128b",
+      "original": {
+        "parent": "block/block",
+        "elements": [
+          {
+            "from": [
+              0,
+              0,
+              0
+            ],
+            "to": [
+              16,
+              16,
+              16
+            ],
+            "faces": {
+              "down": {
+                "texture": "#down",
+                "cullface": "down"
+              },
+              "up": {
+                "texture": "#up",
+                "cullface": "up"
+              },
+              "north": {
+                "texture": "#north",
+                "cullface": "north"
+              },
+              "south": {
+                "texture": "#south",
+                "cullface": "south"
+              },
+              "west": {
+                "texture": "#west",
+                "cullface": "west"
+              },
+              "east": {
+                "texture": "#east",
+                "cullface": "east"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/block.json",
+      "git_blob_sha": "f9c72559950abcb186b8e3959e135c0f2d542bdf",
+      "original": {
+        "gui_light": "side",
+        "display": {
+          "gui": {
+            "rotation": [
+              30,
+              225,
+              0
+            ],
+            "translation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.625,
+              0.625,
+              0.625
+            ]
+          },
+          "ground": {
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "translation": [
+              0,
+              3,
+              0
+            ],
+            "scale": [
+              0.25,
+              0.25,
+              0.25
+            ]
+          },
+          "fixed": {
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "translation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ]
+          },
+          "on_shelf": {
+            "rotation": [
+              0,
+              180,
+              0
+            ],
+            "translation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "thirdperson_righthand": {
+            "rotation": [
+              75,
+              45,
+              0
+            ],
+            "translation": [
+              0,
+              2.5,
+              0
+            ],
+            "scale": [
+              0.375,
+              0.375,
+              0.375
+            ]
+          },
+          "firstperson_righthand": {
+            "rotation": [
+              0,
+              45,
+              0
+            ],
+            "translation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.4,
+              0.4,
+              0.4
+            ]
+          },
+          "firstperson_lefthand": {
+            "rotation": [
+              0,
+              225,
+              0
+            ],
+            "translation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.4,
+              0.4,
+              0.4
+            ]
+          }
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/cube_bottom_top.json",
+      "git_blob_sha": "4c610597880f4593c7b6e62d7da0feb95dac5b8f",
+      "original": {
+        "parent": "block/cube",
+        "textures": {
+          "particle": "#side",
+          "down": "#bottom",
+          "up": "#top",
+          "north": "#side",
+          "east": "#side",
+          "south": "#side",
+          "west": "#side"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/orientable_with_bottom.json",
+      "git_blob_sha": "d03a89bdbe0a92cc69ebbc3ca3436d003360d0b1",
+      "original": {
+        "parent": "block/cube",
+        "display": {
+          "firstperson_righthand": {
+            "rotation": [
+              0,
+              135,
+              0
+            ],
+            "translation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.4,
+              0.4,
+              0.4
+            ]
+          }
+        },
+        "textures": {
+          "particle": "#front",
+          "down": "#bottom",
+          "up": "#top",
+          "north": "#front",
+          "east": "#side",
+          "south": "#side",
+          "west": "#side"
+        }
+      }
+    }
+  ],
+  "prior_new175_png_scope_excluded": true
+}

@@ -1,0 +1,115 @@
+{
+  "schema": "v57_secondary_renderer_java_not_official_source",
+  "original_repo_source_scope": "1.21.11/assets/minecraft/models/block JSON only",
+  "externals": [
+    {
+      "asset_type": "third_party_decompiled_java",
+      "full_source_path": "H1lkaaaGD/Minecraft_1.21.11_Source/main/net/minecraft/client/model/monster/shulker/ShulkerModel.java",
+      "git_blob_sha": "68407ea9bd25c444e66e7b327c9edec00ecb53fb",
+      "source_version_claimed": "1.21.11",
+      "character_count": 2725,
+      "independently_authenticated_against_Mojang_client_JAR": false
+    },
+    {
+      "asset_type": "third_party_decompiled_java",
+      "full_source_path": "H1lkaaaGD/Minecraft_1.21.11_Source/main/net/minecraft/client/renderer/blockentity/ShulkerBoxRenderer.java",
+      "git_blob_sha": "73e119a0c3f73a85d2bc5568ddc9c272a0475e96",
+      "source_version_claimed": "1.21.11",
+      "character_count": 5198,
+      "independently_authenticated_against_Mojang_client_JAR": false
+    },
+    {
+      "asset_type": "third_party_decompiled_java",
+      "full_source_path": "H1lkaaaGD/Minecraft_1.21.11_Source/main/net/minecraft/client/model/object/skull/SkullModel.java",
+      "git_blob_sha": "697ed6054fe3f1a1dc35a29b5e8043005a845f47",
+      "source_version_claimed": "1.21.11",
+      "character_count": 1752,
+      "independently_authenticated_against_Mojang_client_JAR": false
+    },
+    {
+      "asset_type": "third_party_decompiled_java",
+      "full_source_path": "H1lkaaaGD/Minecraft_1.21.11_Source/main/net/minecraft/client/renderer/special/SpecialModelRenderers.java",
+      "git_blob_sha": "807166bc3c9e5c8c7e2252249ac128e04725a24c",
+      "source_version_claimed": "1.21.11",
+      "character_count": 16698,
+      "independently_authenticated_against_Mojang_client_JAR": false
+    },
+    {
+      "asset_type": "third_party_decompiled_java",
+      "full_source_path": "H1lkaaaGD/Minecraft_1.21.11_Source/main/net/minecraft/client/renderer/special/SkullSpecialRenderer.java",
+      "git_blob_sha": "b91cc84660a6bac437b80cda58a28b0cff9ab474",
+      "source_version_claimed": "1.21.11",
+      "character_count": 3497,
+      "independently_authenticated_against_Mojang_client_JAR": false
+    },
+    {
+      "asset_type": "third_party_decompiled_java",
+      "full_source_path": "H1lkaaaGD/Minecraft_1.21.11_Source/main/net/minecraft/client/renderer/blockentity/SkullBlockRenderer.java",
+      "git_blob_sha": "a11776826771a75c1bd6c1cbee3573ed48527a10",
+      "source_version_claimed": "1.21.11",
+      "character_count": 7694,
+      "independently_authenticated_against_Mojang_client_JAR": false
+    }
+  ],
+  "shulker": {
+    "source_files": [
+      {
+        "asset_type": "third_party_decompiled_java",
+        "full_source_path": "H1lkaaaGD/Minecraft_1.21.11_Source/main/net/minecraft/client/model/monster/shulker/ShulkerModel.java",
+        "git_blob_sha": "68407ea9bd25c444e66e7b327c9edec00ecb53fb",
+        "source_version_claimed": "1.21.11",
+        "character_count": 2725,
+        "independently_authenticated_against_Mojang_client_JAR": false
+      },
+      {
+        "asset_type": "third_party_decompiled_java",
+        "full_source_path": "H1lkaaaGD/Minecraft_1.21.11_Source/main/net/minecraft/client/renderer/blockentity/ShulkerBoxRenderer.java",
+        "git_blob_sha": "73e119a0c3f73a85d2bc5568ddc9c272a0475e96",
+        "source_version_claimed": "1.21.11",
+        "character_count": 5198,
+        "independently_authenticated_against_Mojang_client_JAR": false
+      },
+      {
+        "asset_type": "third_party_decompiled_java",
+        "full_source_path": "H1lkaaaGD/Minecraft_1.21.11_Source/main/net/minecraft/client/renderer/special/SpecialModelRenderers.java",
+        "git_blob_sha": "807166bc3c9e5c8c7e2252249ac128e04725a24c",
+        "source_version_claimed": "1.21.11",
+        "character_count": 16698,
+        "independently_authenticated_against_Mojang_client_JAR": false
+      }
+    ],
+    "observed": "ShulkerModel.createBoxLayer adds lid at (-8,-16,-8) dims (16,12,16), base (-8,-8,-8) dims(16,8,16), both offset(0,24,0), texture sheet 64x64; ShulkerBoxRenderer lid position y=24-progress*8, y rotation 270deg*progress; facing transforms are applied",
+    "verdict": "secondary Java implementation clue; 13 colored/variant P1 special models still not runtime authenticated"
+  },
+  "skull": {
+    "source_files": [
+      {
+        "asset_type": "third_party_decompiled_java",
+        "full_source_path": "H1lkaaaGD/Minecraft_1.21.11_Source/main/net/minecraft/client/model/object/skull/SkullModel.java",
+        "git_blob_sha": "697ed6054fe3f1a1dc35a29b5e8043005a845f47",
+        "source_version_claimed": "1.21.11",
+        "character_count": 1752,
+        "independently_authenticated_against_Mojang_client_JAR": false
+      },
+      {
+        "asset_type": "third_party_decompiled_java",
+        "full_source_path": "H1lkaaaGD/Minecraft_1.21.11_Source/main/net/minecraft/client/renderer/special/SkullSpecialRenderer.java",
+        "git_blob_sha": "b91cc84660a6bac437b80cda58a28b0cff9ab474",
+        "source_version_claimed": "1.21.11",
+        "character_count": 3497,
+        "independently_authenticated_against_Mojang_client_JAR": false
+      },
+      {
+        "asset_type": "third_party_decompiled_java",
+        "full_source_path": "H1lkaaaGD/Minecraft_1.21.11_Source/main/net/minecraft/client/renderer/blockentity/SkullBlockRenderer.java",
+        "git_blob_sha": "a11776826771a75c1bd6c1cbee3573ed48527a10",
+        "source_version_claimed": "1.21.11",
+        "character_count": 7694,
+        "independently_authenticated_against_Mojang_client_JAR": false
+      }
+    ],
+    "observed": "generic SkullModel head addBox(-4,-8,-4,8,8,8); humanoid overlay hat cube 8x8x8 with CubeDeformation 0.25; SkullSpecialRenderer picks SkullBlock.Type, delegates to SkullBlockRenderer and per-type model; not all skull kinds share same geometry",
+    "verdict": "secondary implementation clue; original P1 skull.json renderer geometry not certified from official JAR"
+  },
+  "runtime_renderer_validated": false
+}
