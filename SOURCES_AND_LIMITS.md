@@ -1,5 +1,8 @@
 # 출처, 저작권 및 검증 한계
 
+> **최신 v53 (2026-11-14):** [원본 모델 전수 path+SHA 연구](research/vanilla_models/v53/REPORT.md) · [P1 544행 확장 원장](research/vanilla_models/v53/01_P1_544_EVIDENCE_LEDGER.csv) · [다음 채팅용 인수인계](research/vanilla_models/v53/NEXT_CHAT_HANDOFF.md). **v52 369 → v53 544/544 P1 모델 원본 경로·SHA 연결**(175개 직접 원본 JSON 새 검사; 미연결0). 신규 자체 요소4/면20(명시UV20), 부모 적용3413면(명시UV3245·암시UV168), blockstate8파일·variants58, PNG4파일 실제RGBA1024픽셀. **544는 원본 신원 연결 범위이며 전체 1-2-A 의미론 통합·기하·UV·PNG·상태·렌더러 완료율이 아니다. 1-2-A/1-2 진행 중, 1-1 승인150/150·상위1/5 완료 유지.** 아래 v52 이하 내용은 역사적 기록.
+
+
 > **현재 기준 v42(2026-11-14):** [1-1 지정 11분류·150종 소스 연구 완료](docs/vanilla_texture_1-1/CURRENT_STATUS.md) · [원본 Git tree·연구 근거 독립 재검수](research/vanilla_textures/audits/2026-11-14_v42_scope_verification/REPORT.md). 상위 세부과제 **1/5 완료**. 아래 v38~v41 문장/수치는 **당시 스냅샷**이며 현행 업무 지시가 아님.
 
 ## 최신 전역 v42 — 목재 완료 판정 오류 정정 · 1-1 소스 연구 150/150 완료

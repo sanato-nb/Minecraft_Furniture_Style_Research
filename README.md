@@ -1,5 +1,8 @@
 # Minecraft Furniture Style Research
 
+> **최신 v53 (2026-11-14):** [원본 모델 전수 path+SHA 연구](research/vanilla_models/v53/REPORT.md) · [P1 544행 확장 원장](research/vanilla_models/v53/01_P1_544_EVIDENCE_LEDGER.csv) · [다음 채팅용 인수인계](research/vanilla_models/v53/NEXT_CHAT_HANDOFF.md). **v52 369 → v53 544/544 P1 모델 원본 경로·SHA 연결**(175개 직접 원본 JSON 새 검사; 미연결0). 신규 자체 요소4/면20(명시UV20), 부모 적용3413면(명시UV3245·암시UV168), blockstate8파일·variants58, PNG4파일 실제RGBA1024픽셀. **544는 원본 신원 연결 범위이며 전체 1-2-A 의미론 통합·기하·UV·PNG·상태·렌더러 완료율이 아니다. 1-2-A/1-2 진행 중, 1-1 승인150/150·상위1/5 완료 유지.** 아래 v52 이하 내용은 역사적 기록.
+
+
 > **최신 v52 (2026-11-14):** [v52 직접 원본 연구](research/vanilla_models/v52/REPORT.md) · [P1 전체 544행 원장](research/vanilla_models/v52/01_P1_544_EVIDENCE_LEDGER.csv) · [v52 다음 채팅 인수인계](research/vanilla_models/v52/NEXT_CHAT_HANDOFF.md). v51 **335 → v52 369개** 모델 경로+SHA 연결(신규34, 미연결175). 신규 자체23요소/60면(모두 원본 명시 UV), 상속 적용394면(원본 명시376·암시18), blockstates9/variants43/배열 선택지103, 원본 PNG 4종 실제 RGBA1024픽셀 Git blob SHA 검증. **1-2-A/1-2 미완료·완료율 미산정; 1-1 승인150/150·상위1/5 유지.** 아래 v51 이하 '현행' 표시는 역사적 기록.
 
 
