@@ -1,5 +1,8 @@
 # Minecraft Furniture Style Research
 
+> **최신 v54 (2026-11-14):** [원본 블록상태·UV 실측 보고서](research/vanilla_models/v54/REPORT.md) · [P1 전체544행 원장](research/vanilla_models/v54/01_P1_544_EVIDENCE_LEDGER.csv) · [v54 다음 채팅 인수인계](research/vanilla_models/v54/NEXT_CHAT_HANDOFF.md). **P1 모델 path+SHA 544/544 유지.** v53 신규175 모델 관련 원본 블록상태 기존8 + v54 신규49 + skull/head 신규14 = **71 원본 경로**(원본 variants/apply 각239), 블록상태에서 **173/175 모델 직접 참조**, 나머지 2개는 피스톤 헤드 부모 템플릿. 피스톤 자식 face 텍스처 경로40/40 해결. 실제 PNG 3종의 원본 명시 UV 16영역, 모델별 face 226개에서 **1,736회 반복 포함 원본 RGBA 픽셀 관측**(중복 없는 텍셀 좌표298, 모두 불투명). **실게임 렌더/전체 1-2-A 완료 의미 아님. 1-1 승인150/150·상위1/5 완료 유지, 1-2-A/1-2 미완료, 실질 완료율 미산정.** 아래 v53 이하는 역사 기록.
+
+
 > **최신 v53 (2026-11-14):** [원본 모델 전수 path+SHA 연구](research/vanilla_models/v53/REPORT.md) · [P1 544행 확장 원장](research/vanilla_models/v53/01_P1_544_EVIDENCE_LEDGER.csv) · [다음 채팅용 인수인계](research/vanilla_models/v53/NEXT_CHAT_HANDOFF.md). **v52 369 → v53 544/544 P1 모델 원본 경로·SHA 연결**(175개 직접 원본 JSON 새 검사; 미연결0). 신규 자체 요소4/면20(명시UV20), 부모 적용3413면(명시UV3245·암시UV168), blockstate8파일·variants58, PNG4파일 실제RGBA1024픽셀. **544는 원본 신원 연결 범위이며 전체 1-2-A 의미론 통합·기하·UV·PNG·상태·렌더러 완료율이 아니다. 1-2-A/1-2 진행 중, 1-1 승인150/150·상위1/5 완료 유지.** 아래 v52 이하 내용은 역사적 기록.
 
 
