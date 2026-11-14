@@ -1,4 +1,7 @@
-# 새로운 ChatGPT 채팅 시작 — 최신 v43
+# 새로운 ChatGPT 채팅 시작 — 최신 v44
+
+> **현재 GitHub v44:** 1-2-A [544개 모델 SHA 근거 1차 검수](../research/vanilla_models/v44/REPORT.md) 완료, **A 전체는 미완료**. 다음 연구는 나머지 v5~v43 증거 파일 중복 재조정. [1-2 현재 인수인계](vanilla_models_1-2/CURRENT_STATUS.md) · [전용 새 채팅 안내](vanilla_models_1-2/NEW_CHAT_START.md).
+
 
 > **1-2 연구 최신 문서:** [진행 상태](vanilla_models_1-2/CURRENT_STATUS.md) · [연구 계획](vanilla_models_1-2/WORK_PLAN.md) · [별도 새 채팅 지시서](vanilla_models_1-2/NEW_CHAT_START.md). 이후 작업은 이 인수인계를 사용하고 기존 v38 28 leaf 기준 설명을 최신으로 취급하지 말 것.
 

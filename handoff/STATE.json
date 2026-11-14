@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-14",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v43",
+  "current_checkpoint": "v44",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -83,7 +83,7 @@
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v43_crafter_4_direct_leaf_48_source_variants_24_face_bindings_and_2_sha_type_false_positives",
+      "status": "v44_1_2_A_first_pass_544_P1_source_path_SHA_index_110_unique_linked_434_not_linked_selected_sources_full_history_pending",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -175,7 +175,21 @@
       "v43_effective_texture_binding_sets": 3,
       "v43_original_png_newly_decoded": 0,
       "v43_historical_sha_cross_type_false_positives": 2,
-      "v43_ingame_verified": false
+      "v43_ingame_verified": false,
+      "v44_A1_source_model_tree_sha": "57eb7fbc4d0af0e931a04de94b4b6a766242d36e",
+      "v44_A1_p1_candidate_count": 544,
+      "v44_A1_p1_selected_evidence_sha_linked_unique": 110,
+      "v44_A1_p1_not_linked_in_selected_evidence": 434,
+      "v44_A1_prior_sha_linked_unique": 83,
+      "v44_A1_recent_selected_direct_leaf": 32,
+      "v44_A1_repeated_v38_prior_leaf": 5,
+      "v44_A1_historical_csv_count": 17,
+      "v44_A1_historical_source_reference_rows": 144,
+      "v44_A1_sha_cross_type_false_positive_resolved": 2,
+      "v44_A1_complete": false,
+      "v44_A1_full_v5_v43_historical_evidence_reconciled": false,
+      "v44_A1_p1_actual_source_deep_completion_percent": null,
+      "v44_A1_new_source_json_decoded": 0
     },
     {
       "id": "03",
@@ -512,12 +526,12 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "1-2 v43 crafter new direct 4 leaf/48 source variants, historical path-type SHA conflict false-positive 2; v35-v43 selected direct leaf cumulative 32, overall P1 closure still unknown.",
-    "Stage 1 substep 01 vanilla material/texture user-approved source-only research is completed in v42 (11 categories, 150/150 selected PNGs). Wood was already integrated in v39-v41; stale legacy 0/18 now corrected, no new research release.",
-    "Continue independent Stage 1 substeps 03 mod furniture geometry, 04 mod texture UV, 05 vanilla-vs-mod comparison. Stage1 total substeps completed now 1/5, not all five.",
-    "Keep source-only texture evidence distinct from official compressed JAR authenticity and actual in-game rendering; those verifications excluded by user, not successfully measured.",
-    "Animation asset study resumed in nine material stages, still deferred for 1-1-02 and 1-1-10 at latest stage-level STATE; runtime animation effects not authenticated.",
-    "Preserve all v39/v40/v41 and TEXnn original evidence immutable. Project Zomboid conversion/actual furniture asset building excluded."
+    "Continue 1-2-A after v44: expand v5-v43 all-artifact historical evidence scan beyond selected 17 source CSVs; reclassify 434 P1 models not matched in current sampled evidence as evidence is discovered; DO NOT call them unstudied.",
+    "Use typed (asset_type,full_source_path,blob_sha) for P1 544 model verification; v44 matches 110 unique source-SHA-linked models and has 176 evidence links. This is not a P1 deep-model completion rate.",
+    "Do not recount v38 5 historical duplicate oak shelf models, the 2 v43 resolved blockstates-vs-model basename false positives, or existing v31/v38 static states as fresh model research.",
+    "After 1-2-A full original coverage reconciliation, proceed to geometry/inheritance, UV/texture references, blockstates and render exceptions in 1-2-B..G. Any model/PNG measurements require direct source evidence and new version.",
+    "1-1 v42 150/150 textures complete within user-approved source scope, remains unchanged. Stage1 completed substeps 1/5; 1-2 not completed.",
+    "Official compressed Mojang JAR verification and in-game runtime render verification excluded from mandatory scope by user, not claimed performed. Archive v43 and older research immutable."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -2719,5 +2733,33 @@
     "completed_substeps_unchanged": 1,
     "official_jar_authenticated": false,
     "ingame_verified": false
+  },
+  "v44": {
+    "date_kst": "2026-11-14",
+    "revision": "v44",
+    "research_stage": "1-2-A",
+    "progress": "first-pass historical evidence provenance completed, full archive and depth coverage not yet done",
+    "source_ledger": "research/vanilla_models/v44/01_P1_544_SHA_CROSSWALK.csv",
+    "link_ledger": "research/vanilla_models/v44/02_SOURCE_EVIDENCE_LINKS_176.csv",
+    "historical_source_audit": "research/vanilla_models/v44/03_HISTORICAL_17_CSV_AUDIT.csv",
+    "issues": "research/vanilla_models/v44/04_SHA_TYPE_ISSUES.csv",
+    "report": "research/vanilla_models/v44/REPORT.md",
+    "summary": "research/vanilla_models/v44/SUMMARY.json",
+    "summary_git_sha": "a5be9e3c91d7f85014068486f1a9ec2cbb815b00",
+    "p1_candidate_count": 544,
+    "models_with_SHA_evidence_in_selected_csvs": 110,
+    "models_without_match_in_selected_csvs": 434,
+    "pre35_models": 83,
+    "newer_selected_direct_models": 32,
+    "repeated_models": 5,
+    "independent_historical_source_csv_files_checked": 17,
+    "evidence_refs_rechecked": 144,
+    "historical_1_2_complete": false,
+    "all_p1_geometry_uv_state_validated": false,
+    "overall_p1_completion_percent": null,
+    "original_json_newly_decoded": 0,
+    "whole_stage_1_completed_substeps": 1,
+    "whole_stage_1_total_substeps": 5,
+    "source_git_main_before_integration": "241ceaad5b0fb832a4bed6ef2292809e70616d51"
   }
 }

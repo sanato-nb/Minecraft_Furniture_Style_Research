@@ -1,5 +1,8 @@
 # Minecraft Furniture Style Research
 
+> **현재 전역 v44 · 2026-11-14:** [1-2-A P1 544개 역사적 SHA 증거 1차 대조](research/vanilla_models/v44/REPORT.md) · [544개 모델별 원장](research/vanilla_models/v44/01_P1_544_SHA_CROSSWALK.csv). **110개는 선택한 과거 증거에서 SHA가 연결된 고유 모델, 434개는 이번 자료에서 미연결**(미분석 확정 아님). v38 중복 5개 제거·오탐 2건 정정, v5~v43 전체 증거 통합은 **계속 진행 중**. 1-1 v42 소스 완료 150/150 및 전체 **1/5 완료 유지**. 아래 v43/v42 '최신' 문구는 당시 스냅샷.
+
+
 > **1-2 최신 안내:** [모델·UV·블록상태 v43 실적](docs/vanilla_models_1-2/CURRENT_STATUS.md) · [세부 작업계획](docs/vanilla_models_1-2/WORK_PLAN.md) · [새 채팅 인수인계](docs/vanilla_models_1-2/NEW_CHAT_START.md). 1-1 v42 텍스처 연구 150/150 완료, 1-2 진행 중; 전역 세부과제 1/5 유지.
 
 > **전역 최신 연구 v43 · 2026-11-14:** [1-2 crafter 원본 4 leaf / 48 source variants / 24 상속 face 연결, v36 SHA 유형 오탐 2건](research/vanilla_models/v43/REPORT.md). v35~v43 선택 회차 직접 leaf **28+4=32**, P1 544는 후보 분모이며 v5~v34 전체 역사 검수 완료는 아님. **1-1 v42의 150/150 완료 및 상위 세부과제 1/5 상태는 유지**. 아래 v42/v38의 '현재' 문구는 역사적 스냅샷. 공식 JAR/인게임 실증 미실시.

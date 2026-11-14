@@ -1,5 +1,8 @@
 # 1-2 바닐라 3D 모델·UV·블록상태 — 최신 인수인계 (v43)
 
+> **[최신 1-2-A v44 대조 결과](../../research/vanilla_models/v44/REPORT.md):** [544개 SHA 근거 원장](../../research/vanilla_models/v44/01_P1_544_SHA_CROSSWALK.csv), [176개 연결 기록](../../research/vanilla_models/v44/02_SOURCE_EVIDENCE_LINKS_176.csv), [오탐 정정](../../research/vanilla_models/v44/04_SHA_TYPE_ISSUES.csv). 선택 근거 110개 고유 모델 연결·434개 미연결, 전체 v5~v43 역사 증거 조사와 P1 심층 검사 **진행 중**. 아래 문서는 v43 시점 기초 상태를 보존한다.
+
+
 > 작성일 2026-11-14 KST · GitHub HEAD `937224f328ae85060e7e5eb3140bbffc299cb151`의 기초 연구 자료를 읽어 **기존 자료를 정리한 문서**. 새 모델·PNG 실측, 새 리비전 발행 또는 전체 1-2 완료 판정을 수행한 문서가 아니다. **항상 [전역 최신 STATE](../../handoff/STATE.json)에서 현재 체크포인트를 다시 확인**한다.
 
 ## 목적과 현재 판정
