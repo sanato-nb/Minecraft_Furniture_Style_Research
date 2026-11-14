@@ -1,5 +1,8 @@
 # 1-2 새 채팅 인수인계·시작 프롬프트 (v43 이후)
 
+> **현행 v46 · 2026-11-14:** [1-2-A 실제 연구 보고서](../../research/vanilla_models/v46/REPORT.md) · [P1 544 모델별 근거원장](../../research/vanilla_models/v46/01_P1_544_MODEL_VERIFICATION_LEDGER.csv) · [다음 채팅 전용 인계](../../research/vanilla_models/v46/NEXT_CHAT_HANDOFF.md). v45의 기존 119 SHA 연결 모델 **경로**에서 9개 원본 JSON 직접 검사(기존 4 재검증·새 5 경로 추가)하여 **124/544 SHA 연결**, 검토 근거에서 미연결 **420개**. 역사 MD/JSON 49개 전체 원문 열람 및 SHA/경로/모델명 참조 검수, 최근 v35~v43 CSV 30개 재대조, SHA 동일해도 서로 다른 모델 경로 2그룹/7경로 확인. 모든 파일명을 같은 기하 구조로 보지 말고 `(asset_type, full_source_path, git_blob_sha)`를 유지. 1-2-A 및 1-2 **진행 중, 완료율 미산정**, 1-1 v42 150/150 완료 및 상위 5과제 중 **1/5 완료 유지**. 아래 이전 버전의 '최신' 안내는 당시 스냅샷.
+
+
 > **새 채팅은 v45에서 재개 (2026-11-14):** [v45 직접 연구 보고서](../../research/vanilla_models/v45/REPORT.md) · [544행 상태 원장](../../research/vanilla_models/v45/01_P1_544_MODEL_VERIFICATION_LEDGER.csv) · [실제 최신 인수인계](../../research/vanilla_models/v45/NEXT_CHAT_HANDOFF.md). 아래 v43/v44 시작문은 **과거 출발점**. 반드시 GitHub main HEAD 및 handoff/STATE.json을 재확인하고, **119 SHA 연결/425 선택 근거 미연결**, 지난 연구 CSV 86추가 검사·과거 2건 회수·신규 acacia_shelf 7 leaf 검증을 계승하라. 1-2-A·1-2 전체 계속 진행, 완료 퍼센트 미산정. 1-1 완료 및 상위 1/5 유지.
 
 

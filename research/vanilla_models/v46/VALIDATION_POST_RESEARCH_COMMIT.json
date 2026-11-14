@@ -1,0 +1,37 @@
+{
+  "schema": "mc-furniture-v46-github-post-research-commit-validation/v1",
+  "date_kst": "2026-11-14",
+  "research_commit": "914046b9a65d51925e92f4484f7553edcb5b0a23",
+  "readback_source": "GitHub contents API read file and compare to Git blob SHA",
+  "actual_research_files_readback": 13,
+  "all_blob_shas_match_git_tree": true,
+  "verified_record_counts": {
+    "model_ledger": 544,
+    "history_md_json_file_audit": 49,
+    "history_name_only_refs": 32,
+    "history_exact_P1_SHA_refs": 4,
+    "original_model_json_direct": 9,
+    "blockstate_link_lookups": 9,
+    "shared_blob_paths": 7,
+    "recent_CSV_files": 30,
+    "new_P1_model_path_source_links": 5,
+    "unresolved_or_resolved_issue_rows": 8
+  },
+  "checked_semantics": {
+    "P1_total_model_paths": 544,
+    "P1_unique_blob_shas": 539,
+    "P1_blob_shared_groups": 2,
+    "P1_original_SHA_linked_paths": 124,
+    "P1_unlinked_in_examined_sources": 420,
+    "historical_new_model_links_from_md_json_SHA": 0,
+    "source_only_3d_geometry_not_verified": true,
+    "full_1_2_completion_not_claimed": true
+  },
+  "limits": [
+    "Not all historical SQLite/build scripts semantically audited",
+    "Name-only weak references not promoted to SHA evidence",
+    "No PNG pixel sampling in this revision",
+    "No official client.jar authentication or ingame render verification"
+  ],
+  "verification_status": "passed_v46_research_files_only; status docs to be updated in following commit"
+}

@@ -1,4 +1,7 @@
-# 1-2 바닐라 3D 모델·UV·블록상태 — 최신 인수인계 (v45, 기존 v43 근거 보존)
+# 1-2 바닐라 3D 모델·UV·블록상태 — 최신 인수인계 (v46, 기존 v43~v45 기록 보존)
+
+> **현행 v46 · 2026-11-14:** [1-2-A 실제 연구 보고서](../../research/vanilla_models/v46/REPORT.md) · [P1 544 모델별 근거원장](../../research/vanilla_models/v46/01_P1_544_MODEL_VERIFICATION_LEDGER.csv) · [다음 채팅 전용 인계](../../research/vanilla_models/v46/NEXT_CHAT_HANDOFF.md). v45의 기존 119 SHA 연결 모델 **경로**에서 9개 원본 JSON 직접 검사(기존 4 재검증·새 5 경로 추가)하여 **124/544 SHA 연결**, 검토 근거에서 미연결 **420개**. 역사 MD/JSON 49개 전체 원문 열람 및 SHA/경로/모델명 참조 검수, 최근 v35~v43 CSV 30개 재대조, SHA 동일해도 서로 다른 모델 경로 2그룹/7경로 확인. 모든 파일명을 같은 기하 구조로 보지 말고 `(asset_type, full_source_path, git_blob_sha)`를 유지. 1-2-A 및 1-2 **진행 중, 완료율 미산정**, 1-1 v42 150/150 완료 및 상위 5과제 중 **1/5 완료 유지**. 아래 이전 버전의 '최신' 안내는 당시 스냅샷.
+
 
 > **현행 v45 연구 갱신 · 2026-11-14:** [1-2-A 실제 검증 보고서](../../research/vanilla_models/v45/REPORT.md) · [544행 검증 상태 원장](../../research/vanilla_models/v45/01_P1_544_MODEL_VERIFICATION_LEDGER.csv) · [9개 추가 SHA 연결 증거](../../research/vanilla_models/v45/02_NEW_EVIDENCE_LINKS_9.csv). v44 연결 110 + 과거 v30 중복 제거 후 증거 회수 2 + 새로운 acacia_shelf 7 leaf 원본 확인 = **119개 SHA 연결**, **425개는 조사한 근거에서만 미연결**. v44 제외 역사 CSV **86개 SHA 필드 조사**; v38 부모 7템플릿은 재사용, blockstate 원본 24개 multipart/파생 32조합. 1-2-A 전체 v5~v43 서술형/JSON 대조, PNG·특수 렌더 검증 **남아 있으며 전체 1-2 완료율 미산정**. v42 1-1 150/150 완료, 상위 **1/5 유지**. 아래 v44/v43 '최신' 표현은 역사적 스냅샷.
 
