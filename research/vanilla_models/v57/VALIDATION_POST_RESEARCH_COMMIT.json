@@ -1,14 +1,91 @@
 {
-  "schema": "v57_POST_RESEARCH_GITHUB_READBACK",
-  "status": "pending_post_commit",
-  "research_commit_main_HEAD": null,
-  "readback_checks_pending": [
-    "main HEAD",
-    "ledger SHA/544×225",
-    "old209 field preservation",
-    "pixel count/UV sample",
-    "all v57 paths",
-    "handoff updates"
+  "schema": "Minecraft_Furniture_Style_Research/v57_POST_RESEARCH_GITHUB_READBACK",
+  "validated_KST_date": "2026-11-14",
+  "status": "passed",
+  "research_commit_main_head": "3dc7ad623ac3e6a7cd0de5e8dbb94d7b9c7fa0cf",
+  "source_base_main_head": "3f2b6098d146eb06771fa7d981ef4309fa6c91b1",
+  "research_commit_url": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/commit/3dc7ad623ac3e6a7cd0de5e8dbb94d7b9c7fa0cf",
+  "readback_main_HEAD_matched": true,
+  "readback_v57_folder_file_count": 16,
+  "model_source_scope": "16 previously SHA identified P1 paths in remaining 369, original JSON rechecked",
+  "ledger": {
+    "asset_type": "evidence_ledger_csv",
+    "full_source_path": "research/vanilla_models/v57/07_P1_544_EVIDENCE_LEDGER.csv",
+    "git_blob_sha": "83c44aac0abe1c1bbbbb0c4d879cc6871821bf30",
+    "rows": 544,
+    "columns": 225,
+    "original_544_unique_model_source_SHA_identities": true,
+    "v55_original_198_columns_all_cells_preserved": true,
+    "v56_original_209_columns_all_cells_preserved": true,
+    "original_P1_16_JSON_path_SHA_match": true
+  },
+  "source_model_counts": {
+    "own_elements": 33,
+    "own_faces": 156,
+    "effective_applied_elements": 44,
+    "effective_applied_faces": 219,
+    "source_declared_UV_faces": 95,
+    "source_implicit_UV_candidate_faces": 124
+  },
+  "blockstate_counts": {
+    "original_JSON_files": 13,
+    "variant_keys": 37,
+    "multipart_rules": 68,
+    "apply_references": 105
+  },
+  "original_png_pixel_crosscheck": {
+    "files": 4,
+    "source_rgba_pixels": 1536,
+    "original_git_sha_matched_independent_python": true,
+    "source_sha256_calculated": true,
+    "stonecutter_original_explicit_uv_face_refs": 2,
+    "stonecutter_weighted_texels": 196,
+    "stonecutter_weighted_alpha255": 164,
+    "stonecutter_weighted_alpha0": 32,
+    "stonecutter_unique_source_coordinates": 98
+  },
+  "preserved_scope": {
+    "v56_png_source_uv_paths": 49,
+    "v56_source_PNG_face_refs": 3393,
+    "v56_source_weighted_texel_observations": 51228,
+    "v56_summary_blob_sha_unchanged": "7e8277d809bc089b45d18b2c4597631803f58e6b",
+    "v56_implicit_cake_uv_candidate": 168,
+    "source_1_1_approved_150_of_150": true,
+    "overall_stages_done": 1,
+    "overall_stages_total": 5,
+    "model_1_2_A_complete": false,
+    "whole_model_1_2_complete": false,
+    "exact_deep_completion_percentage": null
+  },
+  "renderer": {
+    "secondary_decompiled_Java_clues": true,
+    "official_1_21_11_client_JAR_SHA_authenticated": false,
+    "game_runtime_render_verified": false,
+    "prior_special_renderer_14_still_unresolved": true
+  },
+  "checks": {
+    "research_HEAD": true,
+    "all_16_v57_files": true,
+    "ledger_544_rows": true,
+    "ledger_225_columns": true,
+    "old209_exact": true,
+    "old198_exact": true,
+    "model_path_sha": true,
+    "model_face_counts": true,
+    "explicit_vs_candidate_UV_distinguished": true,
+    "blockstate_references": true,
+    "source_RGBA_pixel_totals": true,
+    "saw_explicitUV_pixel_totals": true,
+    "state_v57_checkpoint": true,
+    "stage_1_2_not_overclaimed": true,
+    "v56_history_not_overwritten": true,
+    "final_handoff_exists": true
+  },
+  "known_limits": [
+    "Pillow source PNG/UV rectangles not game rendering or all P1 texture verification",
+    "16 model direct JSON rechecks are not first-ever SHA source discoveries",
+    "third-party decompiled Java clues are not an authenticated official client JAR",
+    "past semantic evidence v1-v56 not yet fully audited"
   ],
-  "reason": "This record will be replaced after the actual GitHub commit and post-commit readback."
+  "validation_commit_main_head": "will be the commit returned by the GitHub contents update (cannot embed self-referential SHA)"
 }
