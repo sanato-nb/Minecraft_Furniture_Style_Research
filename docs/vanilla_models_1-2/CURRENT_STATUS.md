@@ -1,4 +1,7 @@
-# 1-2 바닐라 3D 모델·UV·블록상태 — 최신 인수인계 (v47, 기존 v43~v46 기록 보존)
+# 1-2 바닐라 3D 모델·UV·블록상태 — 최신 인수인계 (v48, 기존 v43~v47 기록 보존)
+
+> **현행 v48 · 2026-11-14:** [원본 모델/상속·UV·상태 1-2-A 연구 보고서](../../research/vanilla_models/v48/REPORT.md) · [P1 544행 최신 검증 원장](../../research/vanilla_models/v48/01_P1_544_EVIDENCE_LEDGER.csv) · [신규 정확한 SHA 연결 36건](../../research/vanilla_models/v48/02_NEW_P1_36_TYPED_SOURCE_LINKS.csv) · [다음 채팅 인수인계](../../research/vanilla_models/v48/NEXT_CHAT_HANDOFF.md). v47 135 → v48 **171개 P1 모델 경로 SHA 연결**, 검사된 근거에서 **373개 미연결**(미연구 확정 아님). 새 원본 모델 경로 36개 직접 조회/parent 20개 재검수; 원본 own element14/explicit UV faces68(그중 v38 기존 원형 3요소/18면 별도 재검증). 3가지 블록상태 원문 multipart 100규칙·파생 static320조합·1920 모델 적용. 별도 6개 블록상태 9 variants. PNG 실화소 신규 0, 런타임 검증 미실시. **1-2-A와 전체 1-2 미완료, 완료율 미산정, 1-1 승인150/150과 상위 과제1/5 완료 유지.** 아래 v47·v46 '현재'는 이전 체크포인트의 기록임.
+
 
 > **현행 v47 · 2026-11-14:** [실제 근거 조사 보고서](../../research/vanilla_models/v47/REPORT.md) · [P1 544개 모델별 최신 검증 원장](../../research/vanilla_models/v47/01_P1_544_EVIDENCE_LEDGER.csv) · [다음 채팅 인계](../../research/vanilla_models/v47/NEXT_CHAT_HANDOFF.md). v46 **124 → v47 135** 모델 source PATH+SHA 연결(신규 11 원본 모델 JSON 직접 조사), **409개는 검사 근거에서 미연결**이며 미연구 확정 아님. 역사 SQLite v5~v8 **4 DB 원본 테이블/행 실조사**(5/10/16/20테이블)·생성 스크립트 4개 확인, 이전 연결 53개 재검증·역사 중복 신규 0. 화분 템플릿 3모델+비콘의 원본 26요소/100명시 UV 선언면, bamboo_shelf 7 leaf 공통 v38 부모 원형 재사용, blockstates multipart 24개/파생 32조합. 실제 PNG 화소 재검증 신규 0. 1-2-A·1-2 미완료, 완료 퍼센트 미산정. v42 1-1 완료 및 상위 **1/5 완료 상태 유지**. 이전 문구의 v46/v45 '최신'은 과거 기록.
 

@@ -1,5 +1,8 @@
 # Minecraft Furniture Style Research
 
+> **현행 전역 v48 · 2026-11-14:** [1-2-A P1 모델 36경로 원본 검증 보고서](research/vanilla_models/v48/REPORT.md) · [모델별 544행 증거 원장](research/vanilla_models/v48/01_P1_544_EVIDENCE_LEDGER.csv) · [v48 다음 채팅 인수인계](research/vanilla_models/v48/NEXT_CHAT_HANDOFF.md). v47 SHA 연결 **135 → v48 171개 원본 모델 경로**, 이번 조사 근거에서 미연결 **373개**(미연구 확정 아님). 신규 P1 모델 JSON 36경로(자작/벚 선반14, 조각책장10, 기타9, 신규 연결 부모3). 원본/부모 직접 선언 요소14·명시 UV면68 재검수, 그중 v38 기하 원형 3요소/18면 별도 제외. 원본 multipart 100규칙/파생정적 320조합·1920 모델 적용, 추가 blockstate 6파일/9 variants. PNG 화소 신규0·인게임 렌더 미검증. **1-2-A와 1-2 진행 중, 실제 완료율 미산정. 1-1 승인 150/150 및 상위 5과제 중 1/5 완료 유지.** 아래 v47 이전 현행 표시는 그 당시 기록.
+
+
 > **현행 전역 v47 · 2026-11-14:** [1-2-A 신규 원본 모델 검증·역사 SQLite DB 조사 보고서](research/vanilla_models/v47/REPORT.md) · [P1 544 모델별 최신 SHA 근거원장](research/vanilla_models/v47/01_P1_544_EVIDENCE_LEDGER.csv) · [v47 다음 채팅 인계](research/vanilla_models/v47/NEXT_CHAT_HANDOFF.md). 이전 v46 연결 124에 신규 원본 직접 조사 11개 모델 경로를 추가해 **135/544 SHA 연결**, 현 조사 출처에서 미연결 **409개**(미연구 확정 아님). 기존 SQLite v5~v8 네 DB 직접 읽기/5·10·16·20테이블, 기존 연결 고유 P1 53개 확인 **신규 과거 연결 0개**, 빌드 스크립트 네 개 조사. 신규 flower-pot 3템플릿+beacon 원본 **26 elements/100 explicit UV faces**, bamboo_shelf 7 leaf는 v38/v45 부모 원형 재사용, 원본 multipart24/파생32조합. 원본 PNG 신규 실화소 분석 0. **1-2-A와 1-2 계속 진행 중**, 1-2 전체 완료율 미산정. **1-1 150/150 완료 및 상위 과제 1/5 완료 보존**. 아래 이전 버전의 '현행' 표현은 과거 스냅샷.
 
 
