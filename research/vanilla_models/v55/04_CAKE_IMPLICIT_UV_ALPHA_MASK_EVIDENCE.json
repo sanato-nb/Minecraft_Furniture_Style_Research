@@ -1,0 +1,201 @@
+{
+  "schema": "v55_cake_original_geometry_implicit_UV_candidate_vs_PNG_opaque_region",
+  "source_original_geometry_model": "template_cake_with_candle.json",
+  "geometry_source_path": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+  "geometry_git_blob_SHA": "82a6ee824a3657a9d3080dbec303a83171f1baf2",
+  "source_first_element": {
+    "from": [
+      1,
+      0,
+      1
+    ],
+    "to": [
+      15,
+      8,
+      15
+    ],
+    "faces": {
+      "down": {
+        "texture": "#bottom",
+        "cullface": "down"
+      },
+      "up": {
+        "texture": "#top"
+      },
+      "north": {
+        "texture": "#side"
+      },
+      "south": {
+        "texture": "#side"
+      },
+      "west": {
+        "texture": "#side"
+      },
+      "east": {
+        "texture": "#side"
+      }
+    }
+  },
+  "model_source_original_faces_have_UV": false,
+  "derived_cube_implicit_UV_reference_formula": {
+    "down": "[from.x,16-to.z,to.x,16-from.z]",
+    "up": "[from.x,from.z,to.x,to.z]",
+    "north": "[16-to.x,16-to.y,16-from.x,16-from.y]",
+    "south": "[from.x,16-to.y,to.x,16-from.y]",
+    "west": "[from.z,16-to.y,to.z,16-from.y]",
+    "east": "[16-to.z,16-to.y,16-from.z,16-from.y]"
+  },
+  "formula_origin": "inferred Minecraft Java-style default cube UV mapping, not source's explicit UV and not runtime engine independently authenticated",
+  "source_element_faces_6_derived": [
+    {
+      "face": "down",
+      "from": [
+        1,
+        0,
+        1
+      ],
+      "to": [
+        15,
+        8,
+        15
+      ],
+      "original_UV_key_present": false,
+      "derived_UV_candidate": [
+        1,
+        1,
+        15,
+        15
+      ],
+      "source_texture_slot": "#bottom"
+    },
+    {
+      "face": "up",
+      "from": [
+        1,
+        0,
+        1
+      ],
+      "to": [
+        15,
+        8,
+        15
+      ],
+      "original_UV_key_present": false,
+      "derived_UV_candidate": [
+        1,
+        1,
+        15,
+        15
+      ],
+      "source_texture_slot": "#top"
+    },
+    {
+      "face": "north",
+      "from": [
+        1,
+        0,
+        1
+      ],
+      "to": [
+        15,
+        8,
+        15
+      ],
+      "original_UV_key_present": false,
+      "derived_UV_candidate": [
+        1,
+        8,
+        15,
+        16
+      ],
+      "source_texture_slot": "#side"
+    },
+    {
+      "face": "south",
+      "from": [
+        1,
+        0,
+        1
+      ],
+      "to": [
+        15,
+        8,
+        15
+      ],
+      "original_UV_key_present": false,
+      "derived_UV_candidate": [
+        1,
+        8,
+        15,
+        16
+      ],
+      "source_texture_slot": "#side"
+    },
+    {
+      "face": "west",
+      "from": [
+        1,
+        0,
+        1
+      ],
+      "to": [
+        15,
+        8,
+        15
+      ],
+      "original_UV_key_present": false,
+      "derived_UV_candidate": [
+        1,
+        8,
+        15,
+        16
+      ],
+      "source_texture_slot": "#side"
+    },
+    {
+      "face": "east",
+      "from": [
+        1,
+        0,
+        1
+      ],
+      "to": [
+        15,
+        8,
+        15
+      ],
+      "original_UV_key_present": false,
+      "derived_UV_candidate": [
+        1,
+        8,
+        15,
+        16
+      ],
+      "source_texture_slot": "#side"
+    }
+  ],
+  "source_png_opaque_alpha_mask_equals_computed_rectangle": {
+    "cake_side": {
+      "source_png_blob": "c8f7d7a7ba188beb72becf2400baf48103c4a4ba",
+      "opaque_full_source_png_pixels": 112,
+      "computed_rectangle_pixel_coordinates": 112,
+      "match": true
+    },
+    "cake_top": {
+      "source_png_blob": "d29f17eb2f3ec08d03319e6ad37aff6708e94a66",
+      "opaque_full_source_png_pixels": 196,
+      "computed_rectangle_pixel_coordinates": 196,
+      "match": true
+    },
+    "cake_bottom": {
+      "source_png_blob": "d0cae19311854ebe7c9299909863522fddc4bbe4",
+      "opaque_full_source_png_pixels": 196,
+      "computed_rectangle_pixel_coordinates": 196,
+      "match": true
+    }
+  },
+  "source_face_application_count_derived_cake": 168,
+  "source_RGBA_weighted_pixel_observations_derived_cake": 23520,
+  "source_uv_candidate_is_engine_proven": false,
+  "interpretation": "Geometry-derived implicit UV candidate exactly overlays the full opaque alpha mask of each original cake PNG. Strong source consistency check; not proof of actual render orientation or runtime mapping."
+}
