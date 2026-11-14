@@ -1,0 +1,1148 @@
+{
+  "schema": "v45_acacia_shelf_source_state_and_derived_combinations",
+  "original_blockstate_path": "1.21.11/assets/minecraft/blockstates/acacia_shelf.json",
+  "original_blockstate_sha": "b622ec8a2c3755ce2fdbfb1dc44cf9017902924c",
+  "original_source_multipart_rules": [
+    {
+      "rule_index": 0,
+      "original_when": {
+        "facing": "north"
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf"
+      },
+      "source_x_present": false,
+      "source_y_present": false,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 1,
+      "original_when": {
+        "facing": "east"
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf",
+        "y": 90
+      },
+      "source_x_present": false,
+      "source_y_present": true,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 2,
+      "original_when": {
+        "facing": "south"
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf",
+        "y": 180
+      },
+      "source_x_present": false,
+      "source_y_present": true,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 3,
+      "original_when": {
+        "facing": "west"
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf",
+        "y": 270
+      },
+      "source_x_present": false,
+      "source_y_present": true,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 4,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "north"
+          },
+          {
+            "powered": "false"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_unpowered"
+      },
+      "source_x_present": false,
+      "source_y_present": false,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 5,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "east"
+          },
+          {
+            "powered": "false"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_unpowered",
+        "y": 90
+      },
+      "source_x_present": false,
+      "source_y_present": true,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 6,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "south"
+          },
+          {
+            "powered": "false"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_unpowered",
+        "y": 180
+      },
+      "source_x_present": false,
+      "source_y_present": true,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 7,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "west"
+          },
+          {
+            "powered": "false"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_unpowered",
+        "y": 270
+      },
+      "source_x_present": false,
+      "source_y_present": true,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 8,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "north"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "unconnected"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_unconnected"
+      },
+      "source_x_present": false,
+      "source_y_present": false,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 9,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "east"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "unconnected"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_unconnected",
+        "y": 90
+      },
+      "source_x_present": false,
+      "source_y_present": true,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 10,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "south"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "unconnected"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_unconnected",
+        "y": 180
+      },
+      "source_x_present": false,
+      "source_y_present": true,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 11,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "west"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "unconnected"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_unconnected",
+        "y": 270
+      },
+      "source_x_present": false,
+      "source_y_present": true,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 12,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "north"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "left"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_left"
+      },
+      "source_x_present": false,
+      "source_y_present": false,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 13,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "east"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "left"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_left",
+        "y": 90
+      },
+      "source_x_present": false,
+      "source_y_present": true,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 14,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "south"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "left"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_left",
+        "y": 180
+      },
+      "source_x_present": false,
+      "source_y_present": true,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 15,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "west"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "left"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_left",
+        "y": 270
+      },
+      "source_x_present": false,
+      "source_y_present": true,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 16,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "north"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "center"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_center"
+      },
+      "source_x_present": false,
+      "source_y_present": false,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 17,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "east"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "center"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_center",
+        "y": 90
+      },
+      "source_x_present": false,
+      "source_y_present": true,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 18,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "south"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "center"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_center",
+        "y": 180
+      },
+      "source_x_present": false,
+      "source_y_present": true,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 19,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "west"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "center"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_center",
+        "y": 270
+      },
+      "source_x_present": false,
+      "source_y_present": true,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 20,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "north"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "right"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_right"
+      },
+      "source_x_present": false,
+      "source_y_present": false,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 21,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "east"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "right"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_right",
+        "y": 90
+      },
+      "source_x_present": false,
+      "source_y_present": true,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 22,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "south"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "right"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_right",
+        "y": 180
+      },
+      "source_x_present": false,
+      "source_y_present": true,
+      "source_uvlock_present": false
+    },
+    {
+      "rule_index": 23,
+      "original_when": {
+        "AND": [
+          {
+            "facing": "west"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "right"
+          }
+        ]
+      },
+      "original_apply": {
+        "model": "minecraft:block/acacia_shelf_right",
+        "y": 270
+      },
+      "source_x_present": false,
+      "source_y_present": true,
+      "source_uvlock_present": false
+    }
+  ],
+  "derived_enumeration": [
+    {
+      "properties": {
+        "facing": "north",
+        "powered": "false",
+        "side_chain": "unconnected"
+      },
+      "selected_rule_indices": [
+        0,
+        4
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unpowered"
+      ],
+      "source_rotations_y": [
+        "key_absent",
+        "key_absent"
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "north",
+        "powered": "false",
+        "side_chain": "left"
+      },
+      "selected_rule_indices": [
+        0,
+        4
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unpowered"
+      ],
+      "source_rotations_y": [
+        "key_absent",
+        "key_absent"
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "north",
+        "powered": "false",
+        "side_chain": "center"
+      },
+      "selected_rule_indices": [
+        0,
+        4
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unpowered"
+      ],
+      "source_rotations_y": [
+        "key_absent",
+        "key_absent"
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "north",
+        "powered": "false",
+        "side_chain": "right"
+      },
+      "selected_rule_indices": [
+        0,
+        4
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unpowered"
+      ],
+      "source_rotations_y": [
+        "key_absent",
+        "key_absent"
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "north",
+        "powered": "true",
+        "side_chain": "unconnected"
+      },
+      "selected_rule_indices": [
+        0,
+        8
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unconnected"
+      ],
+      "source_rotations_y": [
+        "key_absent",
+        "key_absent"
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "north",
+        "powered": "true",
+        "side_chain": "left"
+      },
+      "selected_rule_indices": [
+        0,
+        12
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_left"
+      ],
+      "source_rotations_y": [
+        "key_absent",
+        "key_absent"
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "north",
+        "powered": "true",
+        "side_chain": "center"
+      },
+      "selected_rule_indices": [
+        0,
+        16
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_center"
+      ],
+      "source_rotations_y": [
+        "key_absent",
+        "key_absent"
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "north",
+        "powered": "true",
+        "side_chain": "right"
+      },
+      "selected_rule_indices": [
+        0,
+        20
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_right"
+      ],
+      "source_rotations_y": [
+        "key_absent",
+        "key_absent"
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "east",
+        "powered": "false",
+        "side_chain": "unconnected"
+      },
+      "selected_rule_indices": [
+        1,
+        5
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unpowered"
+      ],
+      "source_rotations_y": [
+        90,
+        90
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "east",
+        "powered": "false",
+        "side_chain": "left"
+      },
+      "selected_rule_indices": [
+        1,
+        5
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unpowered"
+      ],
+      "source_rotations_y": [
+        90,
+        90
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "east",
+        "powered": "false",
+        "side_chain": "center"
+      },
+      "selected_rule_indices": [
+        1,
+        5
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unpowered"
+      ],
+      "source_rotations_y": [
+        90,
+        90
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "east",
+        "powered": "false",
+        "side_chain": "right"
+      },
+      "selected_rule_indices": [
+        1,
+        5
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unpowered"
+      ],
+      "source_rotations_y": [
+        90,
+        90
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "east",
+        "powered": "true",
+        "side_chain": "unconnected"
+      },
+      "selected_rule_indices": [
+        1,
+        9
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unconnected"
+      ],
+      "source_rotations_y": [
+        90,
+        90
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "east",
+        "powered": "true",
+        "side_chain": "left"
+      },
+      "selected_rule_indices": [
+        1,
+        13
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_left"
+      ],
+      "source_rotations_y": [
+        90,
+        90
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "east",
+        "powered": "true",
+        "side_chain": "center"
+      },
+      "selected_rule_indices": [
+        1,
+        17
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_center"
+      ],
+      "source_rotations_y": [
+        90,
+        90
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "east",
+        "powered": "true",
+        "side_chain": "right"
+      },
+      "selected_rule_indices": [
+        1,
+        21
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_right"
+      ],
+      "source_rotations_y": [
+        90,
+        90
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "south",
+        "powered": "false",
+        "side_chain": "unconnected"
+      },
+      "selected_rule_indices": [
+        2,
+        6
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unpowered"
+      ],
+      "source_rotations_y": [
+        180,
+        180
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "south",
+        "powered": "false",
+        "side_chain": "left"
+      },
+      "selected_rule_indices": [
+        2,
+        6
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unpowered"
+      ],
+      "source_rotations_y": [
+        180,
+        180
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "south",
+        "powered": "false",
+        "side_chain": "center"
+      },
+      "selected_rule_indices": [
+        2,
+        6
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unpowered"
+      ],
+      "source_rotations_y": [
+        180,
+        180
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "south",
+        "powered": "false",
+        "side_chain": "right"
+      },
+      "selected_rule_indices": [
+        2,
+        6
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unpowered"
+      ],
+      "source_rotations_y": [
+        180,
+        180
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "south",
+        "powered": "true",
+        "side_chain": "unconnected"
+      },
+      "selected_rule_indices": [
+        2,
+        10
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unconnected"
+      ],
+      "source_rotations_y": [
+        180,
+        180
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "south",
+        "powered": "true",
+        "side_chain": "left"
+      },
+      "selected_rule_indices": [
+        2,
+        14
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_left"
+      ],
+      "source_rotations_y": [
+        180,
+        180
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "south",
+        "powered": "true",
+        "side_chain": "center"
+      },
+      "selected_rule_indices": [
+        2,
+        18
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_center"
+      ],
+      "source_rotations_y": [
+        180,
+        180
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "south",
+        "powered": "true",
+        "side_chain": "right"
+      },
+      "selected_rule_indices": [
+        2,
+        22
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_right"
+      ],
+      "source_rotations_y": [
+        180,
+        180
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "west",
+        "powered": "false",
+        "side_chain": "unconnected"
+      },
+      "selected_rule_indices": [
+        3,
+        7
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unpowered"
+      ],
+      "source_rotations_y": [
+        270,
+        270
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "west",
+        "powered": "false",
+        "side_chain": "left"
+      },
+      "selected_rule_indices": [
+        3,
+        7
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unpowered"
+      ],
+      "source_rotations_y": [
+        270,
+        270
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "west",
+        "powered": "false",
+        "side_chain": "center"
+      },
+      "selected_rule_indices": [
+        3,
+        7
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unpowered"
+      ],
+      "source_rotations_y": [
+        270,
+        270
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "west",
+        "powered": "false",
+        "side_chain": "right"
+      },
+      "selected_rule_indices": [
+        3,
+        7
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unpowered"
+      ],
+      "source_rotations_y": [
+        270,
+        270
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "west",
+        "powered": "true",
+        "side_chain": "unconnected"
+      },
+      "selected_rule_indices": [
+        3,
+        11
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_unconnected"
+      ],
+      "source_rotations_y": [
+        270,
+        270
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "west",
+        "powered": "true",
+        "side_chain": "left"
+      },
+      "selected_rule_indices": [
+        3,
+        15
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_left"
+      ],
+      "source_rotations_y": [
+        270,
+        270
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "west",
+        "powered": "true",
+        "side_chain": "center"
+      },
+      "selected_rule_indices": [
+        3,
+        19
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_center"
+      ],
+      "source_rotations_y": [
+        270,
+        270
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    },
+    {
+      "properties": {
+        "facing": "west",
+        "powered": "true",
+        "side_chain": "right"
+      },
+      "selected_rule_indices": [
+        3,
+        23
+      ],
+      "selected_models": [
+        "minecraft:block/acacia_shelf",
+        "minecraft:block/acacia_shelf_right"
+      ],
+      "source_rotations_y": [
+        270,
+        270
+      ],
+      "derived_evidence": "static combinatorial evaluation, not game runtime"
+    }
+  ],
+  "source_rule_count": 24,
+  "derived_combinations": 32,
+  "derived_apply_count": 64,
+  "original_uvlock_keys_present": 0,
+  "renderer_or_runtime_verified": false
+}

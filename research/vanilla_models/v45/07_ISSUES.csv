@@ -1,0 +1,6 @@
+issue_id,status,evidence_or_gap,next_action
+"HIST-REPORT","pending","v5-v43 narrative Markdown/JSON not yet exhaustively reconciled","Review source-path/SHA-bearing report and JSON evidence, distinguish missing SHA vs no evidence"
+"UNLINKED-425","pending","425 P1 models have no linked SHA in chosen + additional CSV and new direct leaf sources","Do not label never-studied; continue typed source crosswalk"
+"ACACIA-PNG","pending","Original acacia_shelf/stripped_acacia_log PNG RGBA pixels not decoded in v45","Cross-check 1.21.11 source PNG SHA then exact UV pixel samples"
+"RENDER-EXCEPTIONS","pending","Special renderer/culling/actual runtime behavior not independently tested","Classify source-only exceptions; no claim of in-game verification"
+"MODEL-BLOCKSTATE-BASENAME","resolved_v43","chiseled_bookshelf.json/oak_shelf.json mismatched asset-type SHA comparison","Maintain (asset_type, full_source_path, Git blob SHA)"
