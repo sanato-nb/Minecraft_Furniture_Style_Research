@@ -1,0 +1,46 @@
+{
+  "schema": "v59_shelf_style_source_observations_not_generalized_rules",
+  "observations": [
+    {
+      "feature": "shared_template_parent",
+      "source": "28 leaf models share seven template_shelf_* parent models",
+      "interpretation": "Material variation stored as per-wood texture override, 3D shape shared between four observed woods",
+      "scope": "four wood families only"
+    },
+    {
+      "feature": "rear_thin_depth",
+      "source": "shelf_body z=13..16 and shelf_bottom/shelf_top z=11..13",
+      "interpretation": "World shelf footprint reaches five of sixteen units (z=11..16); not a full-depth cube",
+      "scope": "shared template geometry"
+    },
+    {
+      "feature": "surface_overlay",
+      "source": "state front plane from [0,4,13] to [16,12,13], Z thickness zero",
+      "interpretation": "One planar face changes with power/side_chain while 3D body remains invariant",
+      "scope": "template front variants"
+    },
+    {
+      "feature": "original_high_res_atlas",
+      "source": "4 original 32x32 PNG with UV 0..16, including 0.5 UV endpoints",
+      "interpretation": "2 actual texels per UV unit; half-UV grid aligns to one physical texel",
+      "scope": "source evidence and geometry only; game UV engine unverified"
+    },
+    {
+      "feature": "source_explicit_uv_flips",
+      "source": "40 reversed U and 40 reversed V applied face records",
+      "interpretation": "Original authored UV reversal preserved; color crop rectangles do not confirm runtime orientation",
+      "scope": "35 P1 model instances"
+    },
+    {
+      "feature": "state_branching",
+      "source": "24 multipart rules per wood, 32 valid combinations per wood, two models chosen each",
+      "interpretation": "State-dependent front overlays rather than replacing the block geometry",
+      "scope": "four wood families"
+    }
+  ],
+  "limits": [
+    "No new furniture model creation",
+    "No Project Zomboid conversion",
+    "No official client renderer execution"
+  ]
+}

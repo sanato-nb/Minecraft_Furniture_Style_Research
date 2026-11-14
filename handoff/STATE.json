@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-14",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v58",
+  "current_checkpoint": "v59",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -83,7 +83,7 @@
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v58_P1_544_SHA_retained_242column_ledger_27_new_depth_models_52_bookshelf_state_rules_256_combinations_9_composter_states_4_Pillow_PNG_1024_RGBA_13_explicitUV_faces_768_source_pixels_8_implicit_candidates_1152_pixel_samples_engine_pending",
+      "status": "v59_P1_544_SHA_retained_259column_ledger_35_shelf_original_JSON_sha_models_190_inherited_explicit_UV_faces_4_shelf_blockstates_128_static_states_4_Pillow_RGBA_PNG_4096_pixels_20_front_originalUV_faces_2560_crop_texels_engine_pending",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -513,7 +513,33 @@
       "v58_implicitUV_candidate_pixel_face_samples": 8,
       "v58_implicitUV_candidate_weighted_texels": 1152,
       "v58_ledger_columns": 242,
-      "v58_client_engine_verified": false
+      "v58_client_engine_verified": false,
+      "v59_new_original_P1_JSON_rechecks": 35,
+      "v59_new_P1_identity_links": 0,
+      "v59_wood_shelf_leaf_models": 28,
+      "v59_shelf_shared_template_models": 7,
+      "v59_source_own_elements": 11,
+      "v59_source_own_faces": 38,
+      "v59_effective_applied_elements": 55,
+      "v59_effective_applied_faces": 190,
+      "v59_original_explicit_UV_faces": 190,
+      "v59_computed_implicitUV_candidates": 0,
+      "v59_zero_thickness_applied_elements": 25,
+      "v59_source_leaves_resolved_PNG_face_paths": 152,
+      "v59_standalone_templates_unresolved_PNG_face_paths": 38,
+      "v59_original_blockstate_source_files": 4,
+      "v59_original_blockstate_multipart_rules": 96,
+      "v59_exhaustive_valid_static_blockstates": 128,
+      "v59_static_matching_apply_refs": 256,
+      "v59_source_PNG_files_verified_Pillow": 4,
+      "v59_source_PNG_dimensions": "32x32",
+      "v59_original_PNG_full_RGBA_pixels": 4096,
+      "v59_original_Pillow_explicit_UV_front_face_crops": 20,
+      "v59_original_Pillow_front_pixel_uses": 2560,
+      "v59_ledger_columns": 259,
+      "v59_engine_runtime_authenticated": false,
+      "v59_step_1_2_A_complete": false,
+      "v59_true_completion_percent": null
     },
     {
       "id": "03",
@@ -850,13 +876,15 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "Check latest GitHub main HEAD before any write; read v56 REPORT, SUMMARY, VALIDATION_POST_RESEARCH_COMMIT, updated 544-row 209-column ledger via Git Blob API, and handoff.",
-    "Preserve all exact SHA records for P1 544/544. v56 new 37 actual PNG binary SHA, CRC, deflate/Adler, 9472 full RGBA pixels, original explicit UV 2926 face refs; 49/49 resolved texture paths for v53 new175 cohort now source-pixel audited.",
-    "All 3393 resolved model-face source UV samples: original explicit UV 3225 plus 168 geometry-derived implicit cake UV candidates. Do not claim game engine authenticates inferred UV or runtime renderer.",
-    "15? No: 14 special renderer model geometry unresolved (13 shulker + skull) and two standalone piston abstract parent templates with 20 unbound placeholder faces; do not conflate with missing texture files.",
-    "Research broadened P1 369 other models' source PNG/UV, all P1 544 geometry/UV/states and 2390 total block models, historical v1-v55 semantic source evidence, and renderer engine/implicit UV.",
-    "Keep stage 1-1 approved 150/150 and overall stage 1/5. 1-2-A and 1-2 not complete, actual completion percentage uncalculated; no Minecraft furniture modeling nor PZ conversion.",
-    "Check main HEAD immediately before commit and after commit read back all 544 rows/209 columns/old fields + new 37 SHA proof and 3393 UV face refs."
+    "Open live GitHub main HEAD; follow v59 SUMMARY, REPORT, VALIDATION_POST_RESEARCH_COMMIT and NEXT_CHAT_HANDOFF. Use the 544x259 ledger via Git Blob API.",
+    "Keep v58 old 242 ledger columns unchanged; v59 new 17 columns apply to 35 additional shelf P1 model rows only.",
+    "v59 original JSON 35 shelf P1 SHA checks, 28 leaves + seven templates, source own11 elements/38 faces vs effective55 elements/190 faces; source explicit UV190, zero-thickness25.",
+    "v59 four shelf blockstates contain 96 source multipart rules; all 128 valid facing4*powered2*side_chain4 states statically checked, 256 selected model references; not engine runtime.",
+    "v59 original PNG 4x32x32=4096 RGBA, 20 explicit front UV face crops of 128 texels each = 2560 actual Pillow sampled source texels; 132 other resolved leaf faces not sampled.",
+    "Remaining 291 P1 outside v53 new175/v57 16/v58 27/v59 35 still need further source detail. Do not misstate the 291 as all unknown or unlinked.",
+    "Continue official 1.21.11 engine UV/rotation and 14 special renderer verification, and full historical semantic evidence integration; source-only evidence is not engine verification.",
+    "Keep stage 1-1 150/150 approved complete and top-level 1/5. Stage 1-2-A and 1-2 remain incomplete, completion percentage null; no furniture modeling nor Project Zomboid conversion.",
+    "Prior to commit recheck main HEAD, after commit verify all original paths/SHA, 544x259 ledger with 242 old columns, source PNG sha, blockstate validity, final handoff/summary and repository readback."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -3494,13 +3522,25 @@
       "handoff": "research/vanilla_models/v56/NEXT_CHAT_HANDOFF.md"
     }
   },
-  "latest_vanilla_model_research": "research/vanilla_models/v58/REPORT.md",
+  "latest_vanilla_model_research": "research/vanilla_models/v59/REPORT.md",
   "v58": {
     "checkpoint": "research/vanilla_models/v58/REPORT.md",
     "ledger": "research/vanilla_models/v58/07_P1_544_EVIDENCE_LEDGER.csv",
     "model_count": 27,
     "source_original_PNG_count": 4,
     "source_png_full_rgba_pixels": 1024,
+    "source_only": true,
+    "model_identification_links_retained": 544,
+    "all_1_2_A_complete": false
+  },
+  "v59": {
+    "checkpoint": "research/vanilla_models/v59/REPORT.md",
+    "ledger": "research/vanilla_models/v59/07_P1_544_EVIDENCE_LEDGER.csv",
+    "model_count": 35,
+    "source_original_PNG_count": 4,
+    "source_png_full_rgba_pixels": 4096,
+    "source_original_UV_front_Pillow_face_crops": 20,
+    "source_front_Pillow_2560_pixel_uses": 2560,
     "source_only": true,
     "model_identification_links_retained": 544,
     "all_1_2_A_complete": false
