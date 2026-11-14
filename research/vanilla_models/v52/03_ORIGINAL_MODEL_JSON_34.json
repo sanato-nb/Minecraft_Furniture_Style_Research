@@ -1,0 +1,1424 @@
+{
+  "schema": "v52_original_P1_block_model_json_34",
+  "identity_key": [
+    "asset_type",
+    "full_source_path",
+    "git_blob_sha"
+  ],
+  "note": "Model SHA from live GitHub Contents API cross-checked with v51 544 P1 source census; parent paths are separate and may reuse prior geometry.",
+  "model_sources": [
+    {
+      "asset_type": "block_model_json",
+      "model": "blue_candle_one_candle.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/blue_candle_one_candle.json",
+      "git_blob_sha": "dc89790e507538c75166ed90b3cc8ff2cc60df23",
+      "source_json": {
+        "parent": "minecraft:block/template_candle",
+        "textures": {
+          "all": "minecraft:block/blue_candle",
+          "particle": "minecraft:block/blue_candle"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "blue_candle_one_candle_lit.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/blue_candle_one_candle_lit.json",
+      "git_blob_sha": "b3410f67582eb4f34329839f69317c6d614c94dc",
+      "source_json": {
+        "parent": "minecraft:block/template_candle",
+        "textures": {
+          "all": "minecraft:block/blue_candle_lit",
+          "particle": "minecraft:block/blue_candle_lit"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "blue_candle_cake.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/blue_candle_cake.json",
+      "git_blob_sha": "c6ffe7206874622db69c5700721168f7f3d2d4ff",
+      "source_json": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "textures": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/blue_candle",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "blue_candle_cake_lit.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/blue_candle_cake_lit.json",
+      "git_blob_sha": "515e258d7cedc6ea9ec66c9d47327f6636a5926e",
+      "source_json": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "textures": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/blue_candle_lit",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "black_shulker_box.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/black_shulker_box.json",
+      "git_blob_sha": "0e74df954fb516e5a9f66e9136265ae2f183dbd3",
+      "source_json": {
+        "textures": {
+          "particle": "minecraft:block/black_shulker_box"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "blue_shulker_box.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/blue_shulker_box.json",
+      "git_blob_sha": "29b739d852a53cd984d123f9a168969d8f0335ba",
+      "source_json": {
+        "textures": {
+          "particle": "minecraft:block/blue_shulker_box"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "black_carpet.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/black_carpet.json",
+      "git_blob_sha": "a89fa48122b0ce06dace5d3247b01cb4a5237ce3",
+      "source_json": {
+        "parent": "minecraft:block/carpet",
+        "textures": {
+          "wool": "minecraft:block/black_wool"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "blue_carpet.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/blue_carpet.json",
+      "git_blob_sha": "be41fd8756aa5e3aef31b5ecdf072009a78f7d6c",
+      "source_json": {
+        "parent": "minecraft:block/carpet",
+        "textures": {
+          "wool": "minecraft:block/blue_wool"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "redstone_torch.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/redstone_torch.json",
+      "git_blob_sha": "b435343100376dc2196dc71abc1030bcb6a30457",
+      "source_json": {
+        "parent": "minecraft:block/template_redstone_torch",
+        "textures": {
+          "torch": "minecraft:block/redstone_torch"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "redstone_wall_torch.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/redstone_wall_torch.json",
+      "git_blob_sha": "6373dfb5ec293c7aad1d68876ed21d86df9267b0",
+      "source_json": {
+        "parent": "minecraft:block/template_redstone_torch_wall",
+        "textures": {
+          "torch": "minecraft:block/redstone_torch"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "template_redstone_torch.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/template_redstone_torch.json",
+      "git_blob_sha": "de6022cd64c42b336f0c82a7b14135599e5aee01",
+      "source_json": {
+        "ambientocclusion": false,
+        "textures": {
+          "particle": "#torch"
+        },
+        "elements": [
+          {
+            "from": [
+              7,
+              0,
+              7
+            ],
+            "to": [
+              9,
+              10,
+              9
+            ],
+            "shade": false,
+            "faces": {
+              "down": {
+                "uv": [
+                  7,
+                  13,
+                  9,
+                  15
+                ],
+                "texture": "#torch",
+                "cullface": "down"
+              },
+              "up": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  8
+                ],
+                "texture": "#torch"
+              },
+              "north": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  16
+                ],
+                "texture": "#torch"
+              },
+              "east": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  16
+                ],
+                "texture": "#torch"
+              },
+              "south": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  16
+                ],
+                "texture": "#torch"
+              },
+              "west": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  16
+                ],
+                "texture": "#torch"
+              }
+            }
+          },
+          {
+            "from": [
+              6.5,
+              7.5,
+              6.5
+            ],
+            "to": [
+              9.5,
+              7.5,
+              9.5
+            ],
+            "shade": false,
+            "faces": {
+              "up": {
+                "uv": [
+                  8,
+                  5,
+                  9,
+                  6
+                ],
+                "texture": "#torch"
+              }
+            }
+          },
+          {
+            "from": [
+              6.5,
+              10.5,
+              6.5
+            ],
+            "to": [
+              9.5,
+              10.5,
+              9.5
+            ],
+            "shade": false,
+            "faces": {
+              "down": {
+                "uv": [
+                  7,
+                  5,
+                  8,
+                  6
+                ],
+                "texture": "#torch"
+              }
+            }
+          },
+          {
+            "from": [
+              6.5,
+              7.5,
+              6.5
+            ],
+            "to": [
+              9.5,
+              10.5,
+              6.5
+            ],
+            "shade": false,
+            "faces": {
+              "south": {
+                "uv": [
+                  9,
+                  6,
+                  10,
+                  7
+                ],
+                "texture": "#torch"
+              }
+            }
+          },
+          {
+            "from": [
+              9.5,
+              7.5,
+              6.5
+            ],
+            "to": [
+              9.5,
+              10.5,
+              9.5
+            ],
+            "shade": false,
+            "faces": {
+              "west": {
+                "uv": [
+                  6,
+                  7,
+                  7,
+                  8
+                ],
+                "texture": "#torch"
+              }
+            }
+          },
+          {
+            "from": [
+              6.5,
+              7.5,
+              9.5
+            ],
+            "to": [
+              9.5,
+              10.5,
+              9.5
+            ],
+            "shade": false,
+            "faces": {
+              "north": {
+                "uv": [
+                  6,
+                  6,
+                  7,
+                  7
+                ],
+                "texture": "#torch"
+              }
+            }
+          },
+          {
+            "from": [
+              6.5,
+              7.5,
+              6.5
+            ],
+            "to": [
+              6.5,
+              10.5,
+              9.5
+            ],
+            "shade": false,
+            "faces": {
+              "east": {
+                "uv": [
+                  9,
+                  7,
+                  10,
+                  8
+                ],
+                "texture": "#torch"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "template_redstone_torch_wall.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/template_redstone_torch_wall.json",
+      "git_blob_sha": "6c11497f5026e55e7e07a87549e0e4ba0078e276",
+      "source_json": {
+        "ambientocclusion": false,
+        "textures": {
+          "particle": "#torch"
+        },
+        "elements": [
+          {
+            "from": [
+              -1,
+              3.5,
+              7
+            ],
+            "to": [
+              1,
+              13.5,
+              9
+            ],
+            "rotation": {
+              "origin": [
+                0,
+                3.5,
+                8
+              ],
+              "axis": "z",
+              "angle": -22.5
+            },
+            "shade": false,
+            "faces": {
+              "down": {
+                "uv": [
+                  7,
+                  13,
+                  9,
+                  15
+                ],
+                "texture": "#torch"
+              },
+              "up": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  8
+                ],
+                "texture": "#torch"
+              },
+              "north": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  16
+                ],
+                "texture": "#torch"
+              },
+              "east": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  16
+                ],
+                "texture": "#torch"
+              },
+              "south": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  16
+                ],
+                "texture": "#torch"
+              },
+              "west": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  16
+                ],
+                "texture": "#torch"
+              }
+            }
+          },
+          {
+            "from": [
+              -1.5,
+              8,
+              6.5
+            ],
+            "to": [
+              1.5,
+              11,
+              9.5
+            ],
+            "shade": false,
+            "rotation": {
+              "origin": [
+                0,
+                3.5,
+                8
+              ],
+              "axis": "z",
+              "angle": -22.5
+            },
+            "faces": {
+              "up": {
+                "uv": [
+                  6,
+                  5,
+                  7,
+                  6
+                ],
+                "texture": "#torch"
+              }
+            }
+          },
+          {
+            "from": [
+              -1.5,
+              14,
+              6.5
+            ],
+            "to": [
+              1.5,
+              17,
+              9.5
+            ],
+            "shade": false,
+            "rotation": {
+              "origin": [
+                0,
+                3.5,
+                8
+              ],
+              "axis": "z",
+              "angle": -22.5
+            },
+            "faces": {
+              "down": {
+                "uv": [
+                  6,
+                  5,
+                  7,
+                  6
+                ],
+                "texture": "#torch"
+              }
+            }
+          },
+          {
+            "from": [
+              -1.5,
+              11,
+              3.5
+            ],
+            "to": [
+              1.5,
+              14,
+              6.5
+            ],
+            "shade": false,
+            "rotation": {
+              "origin": [
+                0,
+                3.5,
+                8
+              ],
+              "axis": "z",
+              "angle": -22.5
+            },
+            "faces": {
+              "south": {
+                "uv": [
+                  6,
+                  5,
+                  7,
+                  6
+                ],
+                "texture": "#torch"
+              }
+            }
+          },
+          {
+            "from": [
+              1.5,
+              11,
+              6.5
+            ],
+            "to": [
+              4.5,
+              14,
+              9.5
+            ],
+            "shade": false,
+            "rotation": {
+              "origin": [
+                0,
+                3.5,
+                8
+              ],
+              "axis": "z",
+              "angle": -22.5
+            },
+            "faces": {
+              "west": {
+                "uv": [
+                  6,
+                  5,
+                  7,
+                  6
+                ],
+                "texture": "#torch"
+              }
+            }
+          },
+          {
+            "from": [
+              -1.5,
+              11,
+              9.5
+            ],
+            "to": [
+              1.5,
+              14,
+              12.5
+            ],
+            "shade": false,
+            "rotation": {
+              "origin": [
+                0,
+                3.5,
+                8
+              ],
+              "axis": "z",
+              "angle": -22.5
+            },
+            "faces": {
+              "north": {
+                "uv": [
+                  6,
+                  5,
+                  7,
+                  6
+                ],
+                "texture": "#torch"
+              }
+            }
+          },
+          {
+            "from": [
+              -4.5,
+              11,
+              6.5
+            ],
+            "to": [
+              -1.5,
+              14,
+              9.5
+            ],
+            "shade": false,
+            "rotation": {
+              "origin": [
+                0,
+                3.5,
+                8
+              ],
+              "axis": "z",
+              "angle": -22.5
+            },
+            "faces": {
+              "east": {
+                "uv": [
+                  6,
+                  5,
+                  7,
+                  6
+                ],
+                "texture": "#torch"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "turtle_egg.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/turtle_egg.json",
+      "git_blob_sha": "94ce75f720a8187bf7b0103fe46582fe0957aa06",
+      "source_json": {
+        "parent": "minecraft:block/template_turtle_egg",
+        "textures": {
+          "all": "minecraft:block/turtle_egg"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "template_turtle_egg.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/template_turtle_egg.json",
+      "git_blob_sha": "b42b49eabed9abeee0e8a8f8f2d4ebd45777e64e",
+      "source_json": {
+        "parent": "block/block",
+        "textures": {
+          "particle": "#all"
+        },
+        "elements": [
+          {
+            "from": [
+              5,
+              0,
+              4
+            ],
+            "to": [
+              9,
+              7,
+              8
+            ],
+            "faces": {
+              "down": {
+                "uv": [
+                  0,
+                  0,
+                  4,
+                  4
+                ],
+                "texture": "#all",
+                "cullface": "down"
+              },
+              "up": {
+                "uv": [
+                  0,
+                  0,
+                  4,
+                  4
+                ],
+                "texture": "#all"
+              },
+              "north": {
+                "uv": [
+                  1,
+                  4,
+                  5,
+                  11
+                ],
+                "texture": "#all"
+              },
+              "south": {
+                "uv": [
+                  1,
+                  4,
+                  5,
+                  11
+                ],
+                "texture": "#all"
+              },
+              "west": {
+                "uv": [
+                  1,
+                  4,
+                  5,
+                  11
+                ],
+                "texture": "#all"
+              },
+              "east": {
+                "uv": [
+                  1,
+                  4,
+                  5,
+                  11
+                ],
+                "texture": "#all"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "sea_pickle.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/sea_pickle.json",
+      "git_blob_sha": "31fef1af69318d8018571dc695f3212f12f58c80",
+      "source_json": {
+        "parent": "block/block",
+        "textures": {
+          "particle": "block/sea_pickle",
+          "all": "block/sea_pickle"
+        },
+        "elements": [
+          {
+            "from": [
+              6,
+              0,
+              6
+            ],
+            "to": [
+              10,
+              6,
+              10
+            ],
+            "faces": {
+              "down": {
+                "uv": [
+                  8,
+                  1,
+                  12,
+                  5
+                ],
+                "texture": "#all",
+                "cullface": "down"
+              },
+              "up": {
+                "uv": [
+                  4,
+                  1,
+                  8,
+                  5
+                ],
+                "texture": "#all"
+              },
+              "north": {
+                "uv": [
+                  4,
+                  5,
+                  8,
+                  11
+                ],
+                "texture": "#all"
+              },
+              "south": {
+                "uv": [
+                  0,
+                  5,
+                  4,
+                  11
+                ],
+                "texture": "#all"
+              },
+              "west": {
+                "uv": [
+                  8,
+                  5,
+                  12,
+                  11
+                ],
+                "texture": "#all"
+              },
+              "east": {
+                "uv": [
+                  12,
+                  5,
+                  16,
+                  11
+                ],
+                "texture": "#all"
+              }
+            }
+          },
+          {
+            "from": [
+              6,
+              5.95,
+              6
+            ],
+            "to": [
+              10,
+              5.95,
+              10
+            ],
+            "faces": {
+              "up": {
+                "uv": [
+                  8,
+                  1,
+                  12,
+                  5
+                ],
+                "texture": "#all"
+              }
+            }
+          },
+          {
+            "from": [
+              7.5,
+              5.2,
+              8
+            ],
+            "to": [
+              8.5,
+              8.7,
+              8
+            ],
+            "rotation": {
+              "origin": [
+                8,
+                8,
+                8
+              ],
+              "axis": "y",
+              "angle": 45,
+              "rescale": true
+            },
+            "shade": false,
+            "faces": {
+              "north": {
+                "uv": [
+                  1,
+                  0,
+                  3,
+                  5
+                ],
+                "texture": "#all"
+              },
+              "south": {
+                "uv": [
+                  3,
+                  0,
+                  1,
+                  5
+                ],
+                "texture": "#all"
+              }
+            }
+          },
+          {
+            "from": [
+              8,
+              5.2,
+              7.5
+            ],
+            "to": [
+              8,
+              8.7,
+              8.5
+            ],
+            "rotation": {
+              "origin": [
+                8,
+                8,
+                8
+              ],
+              "axis": "y",
+              "angle": 45,
+              "rescale": true
+            },
+            "shade": false,
+            "faces": {
+              "west": {
+                "uv": [
+                  13,
+                  0,
+                  15,
+                  5
+                ],
+                "texture": "#all"
+              },
+              "east": {
+                "uv": [
+                  15,
+                  0,
+                  13,
+                  5
+                ],
+                "texture": "#all"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "dead_sea_pickle.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/dead_sea_pickle.json",
+      "git_blob_sha": "ce3ee6ebcbe050f3b53f593990bfe552e3643a06",
+      "source_json": {
+        "parent": "block/block",
+        "textures": {
+          "particle": "block/sea_pickle",
+          "all": "block/sea_pickle"
+        },
+        "elements": [
+          {
+            "from": [
+              6,
+              0,
+              6
+            ],
+            "to": [
+              10,
+              6,
+              10
+            ],
+            "faces": {
+              "down": {
+                "uv": [
+                  8,
+                  1,
+                  12,
+                  5
+                ],
+                "texture": "#all",
+                "cullface": "down"
+              },
+              "up": {
+                "uv": [
+                  4,
+                  1,
+                  8,
+                  5
+                ],
+                "texture": "#all"
+              },
+              "north": {
+                "uv": [
+                  4,
+                  5,
+                  8,
+                  11
+                ],
+                "texture": "#all"
+              },
+              "south": {
+                "uv": [
+                  0,
+                  5,
+                  4,
+                  11
+                ],
+                "texture": "#all"
+              },
+              "west": {
+                "uv": [
+                  8,
+                  5,
+                  12,
+                  11
+                ],
+                "texture": "#all"
+              },
+              "east": {
+                "uv": [
+                  12,
+                  5,
+                  16,
+                  11
+                ],
+                "texture": "#all"
+              }
+            }
+          },
+          {
+            "from": [
+              6,
+              5.95,
+              6
+            ],
+            "to": [
+              10,
+              5.95,
+              10
+            ],
+            "faces": {
+              "up": {
+                "uv": [
+                  8,
+                  1,
+                  12,
+                  5
+                ],
+                "texture": "#all"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "blue_candle_two_candles.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/blue_candle_two_candles.json",
+      "git_blob_sha": "efc0f7a27917806271eb3234149ad90fc6d5c485",
+      "source_json": {
+        "parent": "minecraft:block/template_two_candles",
+        "textures": {
+          "all": "minecraft:block/blue_candle",
+          "particle": "minecraft:block/blue_candle"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "blue_candle_two_candles_lit.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/blue_candle_two_candles_lit.json",
+      "git_blob_sha": "22ab088f05bb905dbf111a0dc217d34c940ae414",
+      "source_json": {
+        "parent": "minecraft:block/template_two_candles",
+        "textures": {
+          "all": "minecraft:block/blue_candle_lit",
+          "particle": "minecraft:block/blue_candle_lit"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "blue_candle_three_candles.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/blue_candle_three_candles.json",
+      "git_blob_sha": "e9527b9840dd3deff88b6fb681c07e33ba9e70a4",
+      "source_json": {
+        "parent": "minecraft:block/template_three_candles",
+        "textures": {
+          "all": "minecraft:block/blue_candle",
+          "particle": "minecraft:block/blue_candle"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "blue_candle_three_candles_lit.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/blue_candle_three_candles_lit.json",
+      "git_blob_sha": "992be450a5d026fd0cf550057c78c6db7f703a32",
+      "source_json": {
+        "parent": "minecraft:block/template_three_candles",
+        "textures": {
+          "all": "minecraft:block/blue_candle_lit",
+          "particle": "minecraft:block/blue_candle_lit"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "blue_candle_four_candles.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/blue_candle_four_candles.json",
+      "git_blob_sha": "31d0de83fe312cc50b172ac09a796bfe3e8fc5d2",
+      "source_json": {
+        "parent": "minecraft:block/template_four_candles",
+        "textures": {
+          "all": "minecraft:block/blue_candle",
+          "particle": "minecraft:block/blue_candle"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "blue_candle_four_candles_lit.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/blue_candle_four_candles_lit.json",
+      "git_blob_sha": "b71df39eee87d7e0d127d49461a8a6734bf7cd4b",
+      "source_json": {
+        "parent": "minecraft:block/template_four_candles",
+        "textures": {
+          "all": "minecraft:block/blue_candle_lit",
+          "particle": "minecraft:block/blue_candle_lit"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "redstone_torch_off.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/redstone_torch_off.json",
+      "git_blob_sha": "a0686d2d32a15f56bcb69830c249d955fbcdd336",
+      "source_json": {
+        "parent": "minecraft:block/template_torch_unlit",
+        "textures": {
+          "torch": "minecraft:block/redstone_torch_off"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "redstone_wall_torch_off.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/redstone_wall_torch_off.json",
+      "git_blob_sha": "0e0889f6607360f8df841e7e63ea0202fa44c179",
+      "source_json": {
+        "parent": "minecraft:block/template_torch_wall_unlit",
+        "textures": {
+          "torch": "minecraft:block/redstone_torch_off"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "slightly_cracked_turtle_egg.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/slightly_cracked_turtle_egg.json",
+      "git_blob_sha": "fe9f6dc2ac6b92f43759c4354437bad8ac1f5d0c",
+      "source_json": {
+        "parent": "minecraft:block/template_turtle_egg",
+        "textures": {
+          "all": "minecraft:block/turtle_egg_slightly_cracked"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "very_cracked_turtle_egg.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/very_cracked_turtle_egg.json",
+      "git_blob_sha": "74ff1606153058d7e757a7176f26a9a1dc45a34b",
+      "source_json": {
+        "parent": "minecraft:block/template_turtle_egg",
+        "textures": {
+          "all": "minecraft:block/turtle_egg_very_cracked"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "red_carpet.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/red_carpet.json",
+      "git_blob_sha": "c31f191e3d3322765a7ea3bb48b93a46490168bf",
+      "source_json": {
+        "parent": "minecraft:block/carpet",
+        "textures": {
+          "wool": "minecraft:block/red_wool"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "white_carpet.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/white_carpet.json",
+      "git_blob_sha": "08d5186e6c24a87ce2a13d10f7bcab68ed079830",
+      "source_json": {
+        "parent": "minecraft:block/carpet",
+        "textures": {
+          "wool": "minecraft:block/white_wool"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "note_block.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/note_block.json",
+      "git_blob_sha": "5d7671bdac4bf7dd1f842e25234055448099338c",
+      "source_json": {
+        "parent": "minecraft:block/cube_all",
+        "textures": {
+          "all": "minecraft:block/note_block"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "wall_torch.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/wall_torch.json",
+      "git_blob_sha": "e30eec7f22e93e29491363254255fbec0246ca80",
+      "source_json": {
+        "parent": "minecraft:block/template_torch_wall",
+        "textures": {
+          "torch": "minecraft:block/torch"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "soul_torch.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/soul_torch.json",
+      "git_blob_sha": "275d76e25e9a5c5b043eda0063a68b20948eae34",
+      "source_json": {
+        "parent": "minecraft:block/template_torch",
+        "textures": {
+          "torch": "minecraft:block/soul_torch"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "soul_wall_torch.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/soul_wall_torch.json",
+      "git_blob_sha": "22b9e9ed8a18e092b5478e4138cc9fcba4ad64cf",
+      "source_json": {
+        "parent": "minecraft:block/template_torch_wall",
+        "textures": {
+          "torch": "minecraft:block/soul_torch"
+        }
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "template_torch_unlit.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/template_torch_unlit.json",
+      "git_blob_sha": "ef0829e2705a3b15e22e6c75ca789c4e2f417e09",
+      "source_json": {
+        "ambientocclusion": false,
+        "textures": {
+          "particle": "#torch"
+        },
+        "elements": [
+          {
+            "from": [
+              7,
+              0,
+              7
+            ],
+            "to": [
+              9,
+              10,
+              9
+            ],
+            "faces": {
+              "down": {
+                "uv": [
+                  7,
+                  13,
+                  9,
+                  15
+                ],
+                "texture": "#torch",
+                "cullface": "down"
+              },
+              "up": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  8
+                ],
+                "texture": "#torch"
+              },
+              "north": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  16
+                ],
+                "texture": "#torch"
+              },
+              "east": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  16
+                ],
+                "texture": "#torch"
+              },
+              "south": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  16
+                ],
+                "texture": "#torch"
+              },
+              "west": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  16
+                ],
+                "texture": "#torch"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "asset_type": "block_model_json",
+      "model": "template_torch_wall_unlit.json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/template_torch_wall_unlit.json",
+      "git_blob_sha": "3b11230baca620a6fb8e500547d0fe245a3cc1bc",
+      "source_json": {
+        "ambientocclusion": false,
+        "textures": {
+          "particle": "#torch"
+        },
+        "elements": [
+          {
+            "from": [
+              -1,
+              3.5,
+              7
+            ],
+            "to": [
+              1,
+              13.5,
+              9
+            ],
+            "rotation": {
+              "origin": [
+                0,
+                3.5,
+                8
+              ],
+              "axis": "z",
+              "angle": -22.5
+            },
+            "faces": {
+              "down": {
+                "uv": [
+                  7,
+                  13,
+                  9,
+                  15
+                ],
+                "texture": "#torch"
+              },
+              "up": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  8
+                ],
+                "texture": "#torch"
+              },
+              "north": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  16
+                ],
+                "texture": "#torch"
+              },
+              "east": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  16
+                ],
+                "texture": "#torch"
+              },
+              "south": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  16
+                ],
+                "texture": "#torch"
+              },
+              "west": {
+                "uv": [
+                  7,
+                  6,
+                  9,
+                  16
+                ],
+                "texture": "#torch"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
