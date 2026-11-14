@@ -1,0 +1,51 @@
+{
+  "schema": "mc-furniture-1-1-v42-independent-audit/v1",
+  "date_kst": "2026-11-14",
+  "source_git_head": "94820ac26d1da532b10aeeccda8e484fba4a8fce",
+  "verdict": "PASS_FOR_USER_APPROVED_SOURCE_SCOPE_PROVENANCE_AND_INTEGRATION_NOT_FULL_RAW_BYTE_RECOMPUTATION",
+  "stage_count": 11,
+  "texture_count": 150,
+  "unique_item_count": 150,
+  "unique_texture_count": 150,
+  "integration_id": "INT-1-1-20261114-02",
+  "stage_state_report_summary_git_blob_sha_matches": 33,
+  "source_github_tree": {
+    "root_extracted_dir_sha": "951e501a2586cd4c81111cfb617bef22fcfef67c",
+    "block_png_tree_sha": "9a7172896d4a28b405b990733d51b77dcb50930c",
+    "original_block_pngs": 1111,
+    "original_block_sidecar_mcmeta": 99
+  },
+  "fixed_png_paths_exist_count": 150,
+  "stage_source_blob_sha_matches_to_GitHub_tree": 150,
+  "stage_source_blob_sha_mismatches": 0,
+  "recorded_sha256_values_cross_checked_against_v4": 61,
+  "recorded_sha256_crosscheck_mismatches": 0,
+  "new_source_raw_png_sha256_recomputed": 0,
+  "new_source_raw_png_crc_computed": 0,
+  "new_script_runs": 0,
+  "stage_source_only_complete_count": 150,
+  "global_complete_substeps": 1,
+  "global_total_substeps": 5,
+  "model_evidence_csv_counts": {
+    "stone_sprite_faces": 186,
+    "wood_animation_source_png": 4,
+    "wood_animation_transition_rows": 18,
+    "wood_animation_mask_comparisons": 9,
+    "metal_open_close_endpoints": 24,
+    "composite_animation_metadata_checked": 52,
+    "composite_source_animation_frames": 5,
+    "wood_structure_static_state_candidates": 528
+  },
+  "source_only_scope_excluded": [
+    "official_compressed_client.jar_authentication",
+    "actual_ingame_runtime_renderer_verification"
+  ],
+  "animation_source_deferred_stages": [
+    "1-1-02",
+    "1-1-10"
+  ],
+  "documentation_caveat": "historical R000 unchecked plans and v39-v41 latest labels remain; v42 top and live STATE override",
+  "historical_evidence_unchanged": true,
+  "source_model_3d_furniture_created": false,
+  "report_path": "research/vanilla_textures/audits/2026-11-14_v42_scope_verification/REPORT.md"
+}
