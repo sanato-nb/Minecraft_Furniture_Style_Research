@@ -5,7 +5,7 @@
 > **전체 체크포인트 v42:** [1-1 고정 150종 원본 소스 연구 11/11단계 완료](research/vanilla_textures/integrations/v42_INT-1-1-11steps_150_SOURCE_COMPLETE/REPORT.md). 이전 v41의 목재 0/18은 기록상 완료 계수 미반영 오류였고 근거 감사 후 18/18 정정. 1단계 01 항목 완료, 전체 5개 세부과제 중 1/5; 과거 v39–v41 보고서 원본 보존.
 
 
-> **최신 통합 v41:** [11개 재질·150 원장 / 소스 연구 132개 완료](research/vanilla_textures/integrations/v41_INT-1-1-11steps_150_R017_REFRESH/REPORT.md). 석재·벽돌 R017(17/17) 최신 반영, 목재·원목 18개 미종결, 상위 과제 0/5 유지. 과거 v39/v40 불변.
+> **[과거 v41] 당시 통합 스냅샷:** [11개 재질·150 원장 / 소스 연구 132개 완료](research/vanilla_textures/integrations/v41_INT-1-1-11steps_150_R017_REFRESH/REPORT.md). 석재·벽돌 R017(17/17) 최신 반영, 목재·원목 18개 미종결, 상위 과제 0/5 유지. 과거 v39/v40 불변.
 
 
 
