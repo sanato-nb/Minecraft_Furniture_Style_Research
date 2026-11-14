@@ -1,0 +1,43 @@
+{
+  "schema": "v61_cauldron_source_only_observations",
+  "source_constrained": true,
+  "observations": [
+    {
+      "topic": "nested_containers",
+      "source": "cauldron.json original 13 elements/58 faces; template_cauldron_* each 14 elements/59 faces",
+      "interpretation": "Structure stays a hollow container with optional content surface (14th element in templates), not a separate fill solid"
+    },
+    {
+      "topic": "content_heights",
+      "source": "level1 [2,4,2]→[14,9,14], level2 →[14,12,14], full →[14,15,14]",
+      "interpretation": "Same xz range [2,14] while top Y changes 9/12/15 in declared geometry"
+    },
+    {
+      "topic": "tint",
+      "source": "10 content surface face records with tintindex 0 after inheritance application",
+      "interpretation": "Tint slot is declared; actual runtime tint color or biome rules not authenticated"
+    },
+    {
+      "topic": "UV_source_absence",
+      "source": "648 inherited-applied face JSON records omit uv entirely",
+      "interpretation": "No specific engine UV coordinates may be called verified. Per-face geometry and texture slot/path are directly resolved but actual sampling directions are engine dependent"
+    },
+    {
+      "topic": "pixel_transparency",
+      "source": "Five original static PNG Pillow 5×16×16 pixels: alpha255 1008, alpha0 272",
+      "interpretation": "Cauldron top/bottom source sprites include transparency while side/inner/powder_snow decoded sprites are fully opaque"
+    },
+    {
+      "topic": "animated_content",
+      "source": "water_still.png 16×512 and lava_still.png 16×320 IHDR; 2 animation mcmeta with frametime=2 and lava explicit 38-index sequence",
+      "interpretation": "Source declares animated atlas metadata, yet full frames and client renderer not tested"
+    }
+  ],
+  "not_verified": [
+    "official Minecraft engine implicit UV direction/rotation/uvlock",
+    "lava or water animation frame color pixels and texture shader",
+    "fluid transparency/tint in executed client",
+    "object geometry render or occlusion in game",
+    "broader universal design rule"
+  ]
+}
