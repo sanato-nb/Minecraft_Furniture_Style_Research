@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-14",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v42",
+  "current_checkpoint": "v43",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -83,7 +83,7 @@
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v38_p1_oak_shelf_seven_original_leaf_and_template_json_38_source_explicit_uv_32_static_states",
+      "status": "v43_crafter_4_direct_leaf_48_source_variants_24_face_bindings_and_2_sha_type_false_positives",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -166,7 +166,16 @@
       "v38_shelf_blockstate_enumerated_combinations": 32,
       "v38_shelf_zero_thickness_overlays": 5,
       "v38_shelf_official_client_jar_authenticated": false,
-      "v38_shelf_ingame_uv_verified": false
+      "v38_shelf_ingame_uv_verified": false,
+      "v43_p1_leaf_new_direct_sha_verified": 4,
+      "v43_p1_selected_rounds_distinct_direct_cumulative": 32,
+      "v43_crafter_source_variants": 48,
+      "v43_original_faces": 6,
+      "v43_inherited_face_material_rows": 24,
+      "v43_effective_texture_binding_sets": 3,
+      "v43_original_png_newly_decoded": 0,
+      "v43_historical_sha_cross_type_false_positives": 2,
+      "v43_ingame_verified": false
     },
     {
       "id": "03",
@@ -503,8 +512,8 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
+    "1-2 v43 crafter new direct 4 leaf/48 source variants, historical path-type SHA conflict false-positive 2; v35-v43 selected direct leaf cumulative 32, overall P1 closure still unknown.",
     "Stage 1 substep 01 vanilla material/texture user-approved source-only research is completed in v42 (11 categories, 150/150 selected PNGs). Wood was already integrated in v39-v41; stale legacy 0/18 now corrected, no new research release.",
-    "Continue Stage 1 substep 02 vanilla model JSON geometry UV and blockstate coverage. Do not infer full 2390 model closure from the 150 PNG completion.",
     "Continue independent Stage 1 substeps 03 mod furniture geometry, 04 mod texture UV, 05 vanilla-vs-mod comparison. Stage1 total substeps completed now 1/5, not all five.",
     "Keep source-only texture evidence distinct from official compressed JAR authenticity and actual in-game rendering; those verifications excluded by user, not successfully measured.",
     "Animation asset study resumed in nine material stages, still deferred for 1-1-02 and 1-1-10 at latest stage-level STATE; runtime animation effects not authenticated.",
@@ -2688,5 +2697,27 @@
         "source_completed": 31
       }
     ]
+  },
+  "v43": {
+    "date_kst": "2026-11-14",
+    "report": "research/vanilla_models/v43/REPORT.md",
+    "files": [
+      "research/vanilla_models/v43/REPORT.md",
+      "research/vanilla_models/v43/01_crafter_four_leaf_sha_parent.csv",
+      "research/vanilla_models/v43/02_crafter_48_original_variant_rules.csv",
+      "research/vanilla_models/v43/03_crafter_24_inherited_face_texture_bindings.csv",
+      "research/vanilla_models/v43/04_v36_sha_conflict_path_type_audit.csv",
+      "research/vanilla_models/v43/05_v43_source_validation.json"
+    ],
+    "original_source_leaf_direct_new": 4,
+    "previous_selected_direct_leaf": 28,
+    "selected_rounds_cumulative_distinct_leaf": 32,
+    "original_source_variants": 48,
+    "prior_v36_sha_conflict_false_positive_count": 2,
+    "full_history_reconciled": false,
+    "p1_candidates_unchanged": 544,
+    "completed_substeps_unchanged": 1,
+    "official_jar_authenticated": false,
+    "ingame_verified": false
   }
 }
