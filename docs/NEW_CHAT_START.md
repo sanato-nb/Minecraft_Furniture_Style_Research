@@ -1,5 +1,7 @@
 # 새로운 ChatGPT 채팅 시작 — 최신 v43
 
+> **1-2 연구 최신 문서:** [진행 상태](vanilla_models_1-2/CURRENT_STATUS.md) · [연구 계획](vanilla_models_1-2/WORK_PLAN.md) · [별도 새 채팅 지시서](vanilla_models_1-2/NEW_CHAT_START.md). 이후 작업은 이 인수인계를 사용하고 기존 v38 28 leaf 기준 설명을 최신으로 취급하지 말 것.
+
 > **전역 최신 연구 v43 · 2026-11-14:** [1-2 crafter 원본 4 leaf / 48 source variants / 24 상속 face 연결, v36 SHA 유형 오탐 2건](research/vanilla_models/v43/REPORT.md). v35~v43 선택 회차 직접 leaf **28+4=32**, P1 544는 후보 분모이며 v5~v34 전체 역사 검수 완료는 아님. **1-1 v42의 150/150 완료 및 상위 세부과제 1/5 상태는 유지**. 아래 v42/v38의 '현재' 문구는 역사적 스냅샷. 공식 JAR/인게임 실증 미실시.
 
 

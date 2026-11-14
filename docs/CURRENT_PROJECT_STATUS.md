@@ -1,5 +1,8 @@
 # Minecraft Furniture Style Research — 현재 프로젝트 진행도
 
+> **1-2 세부 정리 (현재 v43):** [현재 성과·모집단](vanilla_models_1-2/CURRENT_STATUS.md) · [7개 단계별 실행 계획](vanilla_models_1-2/WORK_PLAN.md) · [새 채팅 인수인계](vanilla_models_1-2/NEW_CHAT_START.md). 1-2는 진행 중, P1 544는 우선후보, v35~v43 선택 직접 leaf 32건은 전체 완료 분모가 아님. 전역 완료 **1/5**는 변경하지 않는다.
+
+
 > **최신 정본: v43 · 2026-11-14 (Asia/Seoul) · 상위 1단계 세부과제 1/5 완료.** 이 문서 및 [기계 판독 상태](../handoff/STATE.json)가 연구의 현재 진행 기준이며, v38~v41의 '최신/현재/0/5' 표현은 당시의 역사적 기록이다.
 
 ## v43 신규 1-2 증거
