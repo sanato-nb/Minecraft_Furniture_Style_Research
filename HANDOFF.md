@@ -1,5 +1,8 @@
 # 인수인계 · Minecraft Furniture Style Research
 
+> **현행 v51 (2026-11-14):** [1-2-A 신규 54모델 원본 조사 보고서](research/vanilla_models/v51/REPORT.md) · [P1 544모델 최신 원장](research/vanilla_models/v51/01_P1_544_EVIDENCE_LEDGER.csv) · [다음 채팅 인수인계](research/vanilla_models/v51/NEXT_CHAT_HANDOFF.md). **v50 281 → v51 335개 모델 path+SHA 근거 연결**, 조사된 근거에서 **209개 미연결**(미연구 확정 아님). 본 회차 신규 직접 원본 모델 54경로: 선반28·이끼카펫5+carpet 부모1·가마솥10·발광10. 원본 자체 44요소/185면(명시 UV8·암시 UV177), 모델에 적용된 상속면826건(명시 출처176·암시 출처650). 15개 원본 blockstate 변형21/multipart110, 선반 정적 파생128조합·256모델 적용. 11개의 템플릿 단독 텍스처 슬롯은 leaf 검증 전 보류. 원본 PNG 바이너리 직접 읽기 UTF-8 오류 → **새 RGBA 픽셀검사0, 런타임검사0**. **1-2-A·1-2 미완료, 1-2 완료율 미산정. 1-1 승인 텍스처150/150 및 상위 1/5과제 완료 유지.** 아래 이전 v50 '최신' 표시는 역사적 스냅샷.
+
+
 > **현행 전역 v50 · 2026-11-14:** [1-2-A 원본 모델 51경로 직접 연구](research/vanilla_models/v50/REPORT.md) · [P1 544행 최신 근거 원장](research/vanilla_models/v50/01_P1_544_EVIDENCE_LEDGER.csv) · [v50 다음 채팅 인수인계](research/vanilla_models/v50/NEXT_CHAT_HANDOFF.md). v49 **230 → v50 281개 원본 모델 경로+SHA 연결**, 선택 연구 근거에서 **263개 미연결**(미연구 확정 아님). 촛불/케이크·표지판·구리 조명/상자 관련 P1 **51모델 원본 JSON 직접 검증**: particle-only22·부모 기하 상속27·자체 elements 2; 자체 5요소/22면(명시UV16, 암시UV6), 부모 적용면561건(명시519, 암시42). 원본 blockstate JSON35종, 원본 variant74건; world state 직접 모델 참조49종, 템플릿2종 별도. v48 기존 랜턴 부모 SHA2개 재검증·신규 원형 실적 제외. **원본 PNG RGBA 픽셀 검증 0, 인게임 렌더 미검증, 1-2-A/1-2 전체 미완료 및 완료율 미산정. 1-1 v42 승인 150/150 완료와 상위 과제 1/5 완료 유지.** 아래 v49 이하 '현행'은 당시 기록.
 
 

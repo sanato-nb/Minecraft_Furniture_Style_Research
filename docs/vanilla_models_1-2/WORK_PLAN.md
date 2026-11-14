@@ -1,5 +1,8 @@
 # 1-2 연구 실행 계획 — 바닐라 모델/UV/blockstate
 
+> **현행 v51 · 2026-11-14:** [1-2-A 원본 근거 보고서](../../research/vanilla_models/v51/REPORT.md) · [544개 P1 최신 검증 원장](../../research/vanilla_models/v51/01_P1_544_EVIDENCE_LEDGER.csv) · [다음 채팅 인수인계](../../research/vanilla_models/v51/NEXT_CHAT_HANDOFF.md). v50 **281 → v51 335개 P1 모델 경로+SHA 직접 근거 연결**, 검사 근거에서 미연결 **209개**(미연구 확정 아님). 신규 원본 P1 JSON **54경로** (선반28, 이끼카펫5+carpet 부모1, 가마솥10, 조명10). 원본 고유 요소44/면185(명시UV8·암시UV177), 상속 적용면826(명시 출처176·암시 출처650). 원본 blockstates15 파일·variants21·multipart110 규칙, 선반 정적128조합/256모델 적용. 가마솥 템플릿 3종 177면은 원본 UV키 부재. PNG 바이너리 읽기에서 UTF-8 오류, 실제 RGBA 픽셀0·엔진 렌더0 검증. **1-2-A·1-2 미완료 및 완료율 미산정. 1-1 v42 승인150/150, 상위 5과제 1/5 완료 유지**. 아래 이전 v50 '현행'은 과거 기록.
+
+
 > **현행 v50 · 2026-11-14:** [원본 P1 모델 51경로 연구 보고서](../../research/vanilla_models/v50/REPORT.md) · [P1 544행 최신 근거 원장](../../research/vanilla_models/v50/01_P1_544_EVIDENCE_LEDGER.csv) · [다음 채팅 인수인계](../../research/vanilla_models/v50/NEXT_CHAT_HANDOFF.md). v49 230 → v50 **281개 원본 모델 경로+SHA 연결**, 검사한 출처에서 **263개 미연결**(미연구 확정 아님). 새 51개 모델 원본 직접 검증 = particle-only 22 / inherited geometry 27 / own source 2. 원본 자체 5 요소/22면(명시UV16·암시UV6), 상속 적용면 561건(명시UV519/암시UV42). 원본 blockstate 35파일 및 variants74, 해당 51 모델 중 월드 상태 참조49·템플릿2. 기존 랜턴 템플릿2 SHA 재검증 실적 재사용. 새 PNG RGBA 검증0·실게임 렌더0. **1-2-A·1-2 전체 미완료, 완료율 미산정. 1-1 승인150/150 완료 및 상위 1/5 완료 상태 유지.** 아래 v49 이하 '최신/현행'은 당시 스냅샷.
 
 
