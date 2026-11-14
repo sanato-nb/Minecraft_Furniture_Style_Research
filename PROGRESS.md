@@ -1,5 +1,8 @@
 # 학습 진행도
 
+> **현행 전역 v49 · 2026-11-14:** [1-2-A 화분 37·선반 21·P1 부모 1 원본 분석 보고서](research/vanilla_models/v49/REPORT.md) · [P1 544행 최신 상태 원장](research/vanilla_models/v49/01_P1_544_EVIDENCE_LEDGER.csv) · [v49 다음 채팅 인계](research/vanilla_models/v49/NEXT_CHAT_HANDOFF.md). v48 **171 → v49 230개 모델 원본 경로+SHA 근거 연결**, 검사 근거에서 미연결 **314개**(미연구 확정 아님). 이번 SHA 연결 59개 중 기존 v47 실제 source 검증 6개 재연결(신규 실적 미집계), 새로운 source 직접 연구 53개. 화분 37 leaf의 적용면 978건(명시 UV 972/암시 6), 고유 원본 새 직접 조사 30요소·106면(명시 UV100/암시6), 선반 leaf 21의 기존 부모 상속 적용면 114건. 화분 blockstate 37개 단일 variant, 선반 3블록상태 원본 72 multipart/파생 정적 96조합. 새 PNG RGBA 픽셀 검증0·런타임 미검증. **1-2-A 및 1-2 전체 진행 중, 전체 완료율 미산정. 1-1 승인 150/150·상위 5개 중 1/5 완료 유지**. 아래 v48 이하 '현행'은 과거 체크포인트.
+
+
 > **현행 전역 v48 · 2026-11-14:** [1-2-A P1 모델 36경로 원본 검증 보고서](research/vanilla_models/v48/REPORT.md) · [모델별 544행 증거 원장](research/vanilla_models/v48/01_P1_544_EVIDENCE_LEDGER.csv) · [v48 다음 채팅 인수인계](research/vanilla_models/v48/NEXT_CHAT_HANDOFF.md). v47 SHA 연결 **135 → v48 171개 원본 모델 경로**, 이번 조사 근거에서 미연결 **373개**(미연구 확정 아님). 신규 P1 모델 JSON 36경로(자작/벚 선반14, 조각책장10, 기타9, 신규 연결 부모3). 원본/부모 직접 선언 요소14·명시 UV면68 재검수, 그중 v38 기하 원형 3요소/18면 별도 제외. 원본 multipart 100규칙/파생정적 320조합·1920 모델 적용, 추가 blockstate 6파일/9 variants. PNG 화소 신규0·인게임 렌더 미검증. **1-2-A와 1-2 진행 중, 실제 완료율 미산정. 1-1 승인 150/150 및 상위 5과제 중 1/5 완료 유지.** 아래 v47 이전 현행 표시는 그 당시 기록.
 
 
