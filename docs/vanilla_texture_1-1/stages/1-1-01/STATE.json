@@ -15,7 +15,7 @@
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 18,
   "v4_legacy_measurements_recorded": 18,
-  "stage_current_analysis_completed_count": 0,
+  "stage_current_analysis_completed_count": 18,
   "ingame_static_render_verified_count": 0,
   "paths": {
     "start_prompt": "docs/vanilla_texture_1-1/stages/1-1-01/START_PROMPT.md",
@@ -42,37 +42,50 @@
     "A": {
       "title": "A 기존 출처·파일·중복 대조",
       "status": "completed_18_user_extracted_origin_reclassified_mirror_hash_legacy_distinguished",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "completion_state": "source_only_complete_2026_11_14_administrative_review_of_preexisting_R001_R008",
+      "completion_evidence_summary": "R001–R003 source inventory + R001/R005/R006 18 PNG sha/CRC rechecks"
     },
     "B": {
       "title": "B PNG 실제 바이너리·SHA·CRC 검증",
       "status": "R001_18_SHA_CRC_plus_R003_18_PNG_IHDR_and_git_blob_size_rechecked_R005_18_SHA_CRC_rechecked_R006_18_PNG_crc_recheck",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "completion_state": "source_only_complete_2026_11_14_administrative_review_of_preexisting_R001_R008",
+      "completion_evidence_summary": "18 original PNG SHA/CRC and decoder checks R001/R003/R006"
     },
     "C": {
       "title": "C RGBA·밝기·알파·반복 정량 검사",
       "status": "R001_4608_RGBA_source_measurement_plus_R004_canonical_color_class_topology_and_LUT_R005_18_multilag_d2_d4_d8_R006_18_PNG_7_D4_transforms_126_tests_R008_4_supplemental_animation_PNG_18_frames_18_RGB_transitions",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "completion_state": "source_only_complete_2026_11_14_administrative_review_of_preexisting_R001_R008",
+      "completion_evidence_summary": "18 PNG ×256=4,608 pixel source RGBA plus palette/multilag/transforms R001/R004/R005/R006"
     },
     "D": {
       "title": "D 재질 특화 세부 검사",
       "status": "D1_R001_6_partial_D2_R001_native_R002_synthetic72_D3_R004_132_face_local_UV_6anchor_RGB_source_mapping_R005_D2_19584_pixel_pairs_D3_72_world_normal_math_R006_D2_texture_rotation_reflection_full256_D3_oak_log_top_local_UV180_100changed_R007_D1_extra3_log_top_PNG_side_end_4of4_complete_R008_wood_related_stem_and_lit_log_animation_4_sprites_9_matched_pair_motion_masks",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "completion_state": "source_only_complete_2026_11_14_administrative_review_of_preexisting_R001_R008",
+      "completion_evidence_summary": "D1 4/4 log side/end pairs R007, D2 18 PNG rotational/edge characteristics R005/R006, D3 source model texture/UV evidence R004–R007"
     },
     "E": {
       "title": "E 정적 모델 JSON·UV·상태 연결",
       "status": "R001_43_model_JSON_150_face_static_refs_augmented_R004_132_in_scope_face_RGB_values_nonruntime_R005_18_source_JSON_reread_72_world_face_rows_R006_oak_horizontal_3_JSON_recheck_local_up_180_not_engine_R008_9_model_blockstate_sources_4_animation_material_links",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "completion_state": "source_only_complete_2026_11_14_administrative_review_of_preexisting_R001_R008",
+      "completion_evidence_summary": "original 43 model JSON and blockstate/UV links R001/R004/R005/R006, supported animation model slots R008"
     },
     "F": {
       "title": "F 실제 인게임 정적 렌더 검증 (사용자 요청으로 완료 기준 제외)",
       "status": "excluded_from_active_completion_2026-11-13_by_user_not_verified_no_screenshot_required",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "completion_state": "excluded_by_user_not_verified"
     },
     "G": {
       "title": "G 근거 보고서·단계 인수인계 저장",
       "status": "R008_animation_resume_21_static_audit_4_animated_supplemental_18_frames_8_immutable_evidence_files_saved",
-      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete"
+      "evidence_from_prior_v4": "existing_v4_measurement_only_not_step_complete",
+      "completion_state": "source_only_complete_2026_11_14_administrative_review_of_preexisting_R001_R008",
+      "completion_evidence_summary": "Immutable reports/summary/source ledgers R001–R008 and current stage handoff"
     }
   },
   "material_specific_checks": [
@@ -121,7 +134,9 @@
       "current_stream_face_local_RGB_resolved_R004": true,
       "current_stream_multilag_RGB_checked_R005": true,
       "current_stream_D4_source_spatial_rotation_reexamined_R006": true,
-      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree"
+      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree",
+      "stage_source_only_analysis_complete": true,
+      "source_only_completion_administrative_reconciled_at": "2026-11-14"
     },
     {
       "item_id": "1-1-01-002",
@@ -151,7 +166,9 @@
       "current_stream_face_local_RGB_resolved_R004": true,
       "current_stream_multilag_RGB_checked_R005": true,
       "current_stream_D4_source_spatial_rotation_reexamined_R006": true,
-      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree"
+      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree",
+      "stage_source_only_analysis_complete": true,
+      "source_only_completion_administrative_reconciled_at": "2026-11-14"
     },
     {
       "item_id": "1-1-01-003",
@@ -181,7 +198,9 @@
       "current_stream_face_local_RGB_resolved_R004": true,
       "current_stream_multilag_RGB_checked_R005": true,
       "current_stream_D4_source_spatial_rotation_reexamined_R006": true,
-      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree"
+      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree",
+      "stage_source_only_analysis_complete": true,
+      "source_only_completion_administrative_reconciled_at": "2026-11-14"
     },
     {
       "item_id": "1-1-01-004",
@@ -211,7 +230,9 @@
       "current_stream_face_local_RGB_resolved_R004": true,
       "current_stream_multilag_RGB_checked_R005": true,
       "current_stream_D4_source_spatial_rotation_reexamined_R006": true,
-      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree"
+      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree",
+      "stage_source_only_analysis_complete": true,
+      "source_only_completion_administrative_reconciled_at": "2026-11-14"
     },
     {
       "item_id": "1-1-01-005",
@@ -241,7 +262,9 @@
       "current_stream_face_local_RGB_resolved_R004": true,
       "current_stream_multilag_RGB_checked_R005": true,
       "current_stream_D4_source_spatial_rotation_reexamined_R006": true,
-      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree"
+      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree",
+      "stage_source_only_analysis_complete": true,
+      "source_only_completion_administrative_reconciled_at": "2026-11-14"
     },
     {
       "item_id": "1-1-01-006",
@@ -271,7 +294,9 @@
       "current_stream_face_local_RGB_resolved_R004": true,
       "current_stream_multilag_RGB_checked_R005": true,
       "current_stream_D4_source_spatial_rotation_reexamined_R006": true,
-      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree"
+      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree",
+      "stage_source_only_analysis_complete": true,
+      "source_only_completion_administrative_reconciled_at": "2026-11-14"
     },
     {
       "item_id": "1-1-01-007",
@@ -301,7 +326,9 @@
       "current_stream_face_local_RGB_resolved_R004": true,
       "current_stream_multilag_RGB_checked_R005": true,
       "current_stream_D4_source_spatial_rotation_reexamined_R006": true,
-      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree"
+      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree",
+      "stage_source_only_analysis_complete": true,
+      "source_only_completion_administrative_reconciled_at": "2026-11-14"
     },
     {
       "item_id": "1-1-01-008",
@@ -331,7 +358,9 @@
       "current_stream_face_local_RGB_resolved_R004": true,
       "current_stream_multilag_RGB_checked_R005": true,
       "current_stream_D4_source_spatial_rotation_reexamined_R006": true,
-      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree"
+      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree",
+      "stage_source_only_analysis_complete": true,
+      "source_only_completion_administrative_reconciled_at": "2026-11-14"
     },
     {
       "item_id": "1-1-01-009",
@@ -361,7 +390,9 @@
       "current_stream_face_local_RGB_resolved_R004": true,
       "current_stream_multilag_RGB_checked_R005": true,
       "current_stream_D4_source_spatial_rotation_reexamined_R006": true,
-      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree"
+      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree",
+      "stage_source_only_analysis_complete": true,
+      "source_only_completion_administrative_reconciled_at": "2026-11-14"
     },
     {
       "item_id": "1-1-01-010",
@@ -391,7 +422,9 @@
       "current_stream_face_local_RGB_resolved_R004": true,
       "current_stream_multilag_RGB_checked_R005": true,
       "current_stream_D4_source_spatial_rotation_reexamined_R006": true,
-      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree"
+      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree",
+      "stage_source_only_analysis_complete": true,
+      "source_only_completion_administrative_reconciled_at": "2026-11-14"
     },
     {
       "item_id": "1-1-01-011",
@@ -421,7 +454,9 @@
       "current_stream_face_local_RGB_resolved_R004": true,
       "current_stream_multilag_RGB_checked_R005": true,
       "current_stream_D4_source_spatial_rotation_reexamined_R006": true,
-      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree"
+      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree",
+      "stage_source_only_analysis_complete": true,
+      "source_only_completion_administrative_reconciled_at": "2026-11-14"
     },
     {
       "item_id": "1-1-01-012",
@@ -451,7 +486,9 @@
       "current_stream_face_local_RGB_resolved_R004": true,
       "current_stream_multilag_RGB_checked_R005": true,
       "current_stream_D4_source_spatial_rotation_reexamined_R006": true,
-      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree"
+      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree",
+      "stage_source_only_analysis_complete": true,
+      "source_only_completion_administrative_reconciled_at": "2026-11-14"
     },
     {
       "item_id": "1-1-01-013",
@@ -482,7 +519,9 @@
       "current_stream_multilag_RGB_checked_R005": true,
       "current_stream_log_axis_world_face_math_R005": true,
       "current_stream_D4_source_spatial_rotation_reexamined_R006": true,
-      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree"
+      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree",
+      "stage_source_only_analysis_complete": true,
+      "source_only_completion_administrative_reconciled_at": "2026-11-14"
     },
     {
       "item_id": "1-1-01-014",
@@ -513,7 +552,9 @@
       "current_stream_multilag_RGB_checked_R005": true,
       "current_stream_log_axis_world_face_math_R005": true,
       "current_stream_D4_source_spatial_rotation_reexamined_R006": true,
-      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree"
+      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree",
+      "stage_source_only_analysis_complete": true,
+      "source_only_completion_administrative_reconciled_at": "2026-11-14"
     },
     {
       "item_id": "1-1-01-015",
@@ -544,7 +585,9 @@
       "current_stream_multilag_RGB_checked_R005": true,
       "current_stream_log_axis_world_face_math_R005": true,
       "current_stream_D4_source_spatial_rotation_reexamined_R006": true,
-      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree"
+      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree",
+      "stage_source_only_analysis_complete": true,
+      "source_only_completion_administrative_reconciled_at": "2026-11-14"
     },
     {
       "item_id": "1-1-01-016",
@@ -576,7 +619,9 @@
       "current_stream_D4_source_spatial_rotation_reexamined_R006": true,
       "current_stream_full_256_local_UV180_diff_checked_R006": true,
       "current_stream_full_UV180_changed_pixels_R006": 100,
-      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree"
+      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree",
+      "stage_source_only_analysis_complete": true,
+      "source_only_completion_administrative_reconciled_at": "2026-11-14"
     },
     {
       "item_id": "1-1-01-017",
@@ -607,7 +652,9 @@
       "current_stream_multilag_RGB_checked_R005": true,
       "current_stream_log_axis_world_face_math_R005": true,
       "current_stream_D4_source_spatial_rotation_reexamined_R006": true,
-      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree"
+      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree",
+      "stage_source_only_analysis_complete": true,
+      "source_only_completion_administrative_reconciled_at": "2026-11-14"
     },
     {
       "item_id": "1-1-01-018",
@@ -637,7 +684,9 @@
       "current_stream_face_local_RGB_resolved_R004": true,
       "current_stream_multilag_RGB_checked_R005": true,
       "current_stream_D4_source_spatial_rotation_reexamined_R006": true,
-      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree"
+      "animation_mcmeta_source_audited_R008": "not_present_in_original_1.21.11_block_texture_tree",
+      "stage_source_only_analysis_complete": true,
+      "source_only_completion_administrative_reconciled_at": "2026-11-14"
     }
   ],
   "revisions": [
@@ -649,12 +698,12 @@
     }
   ],
   "next_steps": [
-    "Current wood-related animation source audit R008 includes 21 original/D1 PNG with no animation mcmeta and four explicitly supplemental animated wood/stem/campfire-log textures. All 4 additional animations directly verified from extracted PNG bytes and metadata.",
-    "Further work should only use new actual source evidence (e.g. another wood-related animated texture not yet analyzed) or an explicitly authorized broader animation material category; do not claim 99 block PNG.mcmeta files are all animated.",
-    "Do not request Minecraft in-game screenshots or official Mojang JAR authentication. Source timing, interpolation flag, frame count and model connection are not live game observations.",
-    "Preserve R001-R007 historical reports and 18 original texture/3 side-end supplementary counts; the four newly audited animated textures are a third separate group, not a replacement for the original 18.",
-    "On user '계속해줘', stop and report if the agreed wood-related scope has no new unexamined source tasks or if expanding into other independent stages requires scope approval. Do not pad progress or write a new revision without verified research.",
-    "No Project Zomboid conversion, actual Minecraft furniture 3D modeling, global v38 update, or writes to other 1-1-nn stages."
+    "Source-only 18/18 scope is completed based on R001-R008 existing evidence; no new R009 or new measurement was created for this administrative closeout.",
+    "Do not mistake archived zero stage_current_analysis_completed_count in v39/v40/v41 as evidence of incomplete PNG/UV research; it was a stale reporting field, corrected 2026-11-14.",
+    "Keep original 18 fixed PNG, 3 D1 supplementary PNG, and 4 animation supplementary PNG in separate denominators. All original reports are immutable.",
+    "Only create TEX01-R009 upon actual new source evidence or expanded scope, not to manufacture completion.",
+    "Official compressed jar verification and in-game runtime certification are excluded by user and still not performed; animation source has been resumed and its R008 scope completed.",
+    "Other 1-1 stages and global progress must be handled only by the global integration workflow; no PZ conversion or actual 3D furniture design."
   ],
   "ingame_static_render_verified": false,
   "animation_study_deferred": false,
@@ -867,5 +916,46 @@
     "matched_motion_masks": 9,
     "animation_metadata_checked": 4,
     "ingame_validation_requirement": "excluded"
+  },
+  "stage_status": "source_only_completed_18_of_18_by_existing_R001_R008_evidence_no_new_measurement",
+  "stage_source_only_research_status": "completed_within_user_approved_source_scope",
+  "stage_source_closeout_revision": "TEX01-R008",
+  "stage_source_closeout_date": "2026-11-14",
+  "source_only_completion_count": 18,
+  "source_only_target_count": 18,
+  "source_only_completion_evidence": {
+    "reason": "User confirmed original wood stage had completed; root v39/v40/v41 wrongly treated stale field stage_current_analysis_completed_count=0 as source research incomplete.",
+    "updated_by": "global source-only evidence reconciliation",
+    "kind": "administrative_completion_status_reconciliation_not_new_research",
+    "date_kst": "2026-11-14",
+    "source_revision": "TEX01-R008",
+    "original_fixed_texture_count": 18,
+    "old_count": 0,
+    "new_count": 18,
+    "source_png_bytes_redecoded_during_reconciliation": 0,
+    "source_png_pixels_remeasured_during_reconciliation": 0,
+    "stage_version_incremented": false,
+    "original_report_mutated": false,
+    "user_requested_exclusions_preserved": [
+      "official compressed client.jar sha1",
+      "actual in-game static/dynamic render"
+    ],
+    "evidence": [
+      {
+        "revision": "TEX01-R006",
+        "path": "research/vanilla_textures/by_stage/1-1-01/TEX01-R006/REPORT.md",
+        "finding": "18/18 original PNG sha/CRC/rgba; D2 transformations and D3 UV link"
+      },
+      {
+        "revision": "TEX01-R007",
+        "path": "research/vanilla_textures/by_stage/1-1-01/TEX01-R007/REPORT.md",
+        "finding": "D1 fixed log side/end original scope 4/4 and source model slots"
+      },
+      {
+        "revision": "TEX01-R008",
+        "path": "research/vanilla_textures/by_stage/1-1-01/TEX01-R008/REPORT.md",
+        "finding": "animation source scope reopened and completed on four separate support PNGs; static 21 PNG audit"
+      }
+    ]
   }
 }
