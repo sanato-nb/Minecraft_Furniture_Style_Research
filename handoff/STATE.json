@@ -1,8 +1,8 @@
 {
   "schema": "mc-furniture-handoff/v1",
-  "updated_at": "2026-11-14",
+  "updated_at": "2026-11-15",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v61",
+  "current_checkpoint": "v62",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -83,7 +83,7 @@
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v61_P1_544_originalSHA_retained_297_col_ledger_11_cauldron_models_648_applied_missingUV_faces_4_blockstates_8_variants_5_Pillow_static_PNG_1280_source_pixels_2_animated_PNG_IHDR_and_mcmeta_only_engine_pending",
+      "status": "v62_544_P1_source_SHA_identity_retained_historical_CSV21_original_SHA_rows176_selected_models110_direct_flags514_historical_only28_selected_identity_only2_prior_v44_CSV_SHA_typo6_links_544x310_old297_preserved_not_full_history_audit",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -589,7 +589,22 @@
       "v61_whole_renderer_complete": false,
       "v61_1_2_A_complete": false,
       "v61_actual_completion_percent": null,
-      "v61_new_ledger_columns": 297
+      "v61_new_ledger_columns": 297,
+      "v62_historical_CSV_files_reopened": 21,
+      "v62_historical_source_model_links": 176,
+      "v62_historical_source_models_distinct": 110,
+      "v62_historical_CSV_same_row_pathSHA": 78,
+      "v62_historical_CSV_same_row_nameSHA": 98,
+      "v62_history_selected_direct_JSON_flags_unique_models": 514,
+      "v62_history_old_source_SHA_without_direct_flags": 28,
+      "v62_selected_history_identity_only_without_direct_flags": 2,
+      "v62_v44_evidence_CSV_SHA_incorrect_link_count": 6,
+      "v62_v44_incorrect_link_source_CSV_unique_count": 1,
+      "v62_P1_evidence_ledger_columns": 310,
+      "v62_original_297_ledger_columns_preserved": true,
+      "v62_full_v5_v43_history_scanned": false,
+      "v62_stage_1_2_A_complete": false,
+      "v62_actual_1_2_A_percent": null
     },
     {
       "id": "03",
@@ -926,15 +941,15 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "Read live main HEAD; v61 source summary/report/validation, P1 544x297 ledger and 11 model SHA evidence before continuing.",
-    "Preserve previous 279 column values of all 544 P1 rows; v61 adds only 18 new columns for 11 non-overlapping cauldron models.",
-    "v61 raw source original 11 models own55 elements/235 faces vs inherited applied153 elements/648 faces; source explicit UV zero, absent UV 648, do NOT equate geometry inferred UV to official UV.",
-    "v61 content heights Y=9/12/15, content surface tintindex=0 in 10 applied model faces, static source 4 original blockstates/8 variants.",
-    "v61 seven original PNG Git file SHA + IHDR read; five static PNG source bytes independent SHA1/SHA256/Pillow RGBA1,280px with 1,008 opaque and 272 transparent; animated water/lava full pixel decode not run.",
-    "Continue official 1.21.11 implicit UV/tint/frame renderer and the 14 special renderer cases; source/engine distinction must stay explicit.",
-    "Remaining 266 P1 outside v53/v57/v58/v59/v60/v61 investigated cohorts: may already have prior evidence. Never treat as all unknown or all incomplete.",
-    "1-1 approved150/150 completed, top-level1/5 completed. 1-2-A and 1-2 ongoing, no actual completion %; no furniture model creation and no Project Zomboid conversion.",
-    "On write: recheck fast-forward main HEAD lease; after research commit remote readback original source/model SHA + ledger old/new columns, then write validation follow-up commit."
+    "Read live main HEAD; latest v62 SUMMARY, REPORT, ledger 544x310, validation and next-chat handoff.",
+    "Preserve all v61 297 prior columns for all 544 P1 rows; v62 extends 13 historic provenance columns, not new source model identity.",
+    "Reconcile all v5-v43 historical sources beyond selected v44 21 CSV files: original MD/JSON/SQLite and additional CSV by typed source path + Git model SHA.",
+    "Historical 176 source rows traced to 21 Git-SHA checked CSVs, exactly 110 P1 models: typed path+SHA 78, name+SHA 98; not exhaustive.",
+    "Review v44 v27 oak shelf original evidence CSV SHA typo 6 links from missing trailing 3; do not confuse file-SHA meta error with 6 model SHA conflicts.",
+    "v35-v61 model direct source JSON review flag union 514; 28 no flag but old source SHA proof; two selected-scope-only identities chipped_anvil/damaged_anvil may have evidence elsewhere.",
+    "Official 1.21.11 implicit UV, renderer exception 14 remain not runtime authenticated; actual stage 1-2-A completion null.",
+    "1-1 approved 150/150, top1/5 completed. 1-2-A and 1-2 open; no furniture model creation or Zomboid conversion.",
+    "Use optimistic branch lease, commit research, remote readback actual files/old cell values, followed by validation status commit."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -3572,7 +3587,7 @@
       "handoff": "research/vanilla_models/v56/NEXT_CHAT_HANDOFF.md"
     }
   },
-  "latest_vanilla_model_research": "research/vanilla_models/v61/REPORT.md",
+  "latest_vanilla_model_research": "research/vanilla_models/v62/REPORT.md",
   "v58": {
     "checkpoint": "research/vanilla_models/v58/REPORT.md",
     "ledger": "research/vanilla_models/v58/07_P1_544_EVIDENCE_LEDGER.csv",
@@ -3629,6 +3644,31 @@
     "independent_original_RGBA_pixels": 1280,
     "water_lava_full_Pillow_pixel_verification": false,
     "official_implicit_uv_runtime_verified": false,
+    "stage_1_2_A_complete": false
+  },
+  "v62": {
+    "checkpoint": "research/vanilla_models/v62/REPORT.md",
+    "summary": "research/vanilla_models/v62/SUMMARY.json",
+    "ledger": "research/vanilla_models/v62/07_P1_544_EVIDENCE_LEDGER.csv",
+    "source_review_544": "research/vanilla_models/v62/04_SOURCE_REVIEW_LEDGER_544.csv",
+    "historical_crosswalk_176": "research/vanilla_models/v62/01_HISTORICAL_EVIDENCE_CROSSWALK_176.csv",
+    "historical_errata_6": "research/vanilla_models/v62/03_V44_EVIDENCE_CSV_SHA_ERRATA_6.csv",
+    "handoff": "research/vanilla_models/v62/NEXT_CHAT_HANDOFF.md",
+    "historical_original_csv_files_reopened": 21,
+    "historical_model_sha_row_links": 176,
+    "distinct_p1_historical_models": 110,
+    "original_csv_path_and_sha_links": 78,
+    "original_csv_name_and_sha_links": 98,
+    "old_v44_evidence_CSV_SHA_truncation_affected_links": 6,
+    "explicit_direct_model_read_flag_models_v35_v61": 514,
+    "no_explicit_direct_flag_with_selected_historical_witness": 28,
+    "source_identity_only_in_selected_history": 2,
+    "p1_source_identity_sha_total": 544,
+    "p1_ledger_rows": 544,
+    "p1_ledger_columns": 310,
+    "previous_297_columns_all_old_values_same": true,
+    "full_v5_v43_historical_reconciliation_complete": false,
+    "actual_completed_percent": null,
     "stage_1_2_A_complete": false
   }
 }
