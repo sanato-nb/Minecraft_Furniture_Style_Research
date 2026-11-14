@@ -1,0 +1,5340 @@
+{
+  "schema": "v51_original_15_blockstate_source_references",
+  "source": "Minecraft Java 1.21.11 user-extracted JSON",
+  "original_blockstate_files": 15,
+  "original_variants": 21,
+  "original_multipart_rules": 110,
+  "derived_shelf_static_states": 128,
+  "derived_shelf_model_applications": 256,
+  "distinct_directly_referenced_source_model_refs": 45,
+  "of_new_54_model_paths_direct_world_state_referenced": 45,
+  "source_P1_models_not_directly_world_state_referenced": [
+    "jungle_shelf_inventory.json",
+    "mangrove_shelf_inventory.json",
+    "pale_oak_shelf_inventory.json",
+    "warped_shelf_inventory.json",
+    "mossy_carpet_side.json",
+    "template_cauldron_full.json",
+    "template_cauldron_level1.json",
+    "template_cauldron_level2.json",
+    "carpet.json"
+  ],
+  "entries": [
+    {
+      "blockstate": "jungle_shelf.json",
+      "source_path": "1.21.11/assets/minecraft/blockstates/jungle_shelf.json",
+      "asset_type": "blockstate_json",
+      "source_sha": "4995490e723bd24480ab3499d0016d459afc3793",
+      "original_multipart_rules": [
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf"
+          },
+          "when": {
+            "facing": "north"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf",
+            "y": 90
+          },
+          "when": {
+            "facing": "east"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf",
+            "y": 180
+          },
+          "when": {
+            "facing": "south"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf",
+            "y": 270
+          },
+          "when": {
+            "facing": "west"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_unpowered"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "false"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_unpowered",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "false"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_unpowered",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "false"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_unpowered",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "false"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_unconnected"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "unconnected"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_unconnected",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "unconnected"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_unconnected",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "unconnected"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_unconnected",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "unconnected"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_left"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "left"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_left",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "left"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_left",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "left"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_left",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "left"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_center"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "center"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_center",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "center"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_center",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "center"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_center",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "center"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_right"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "right"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_right",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "right"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_right",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "right"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/jungle_shelf_right",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "right"
+              }
+            ]
+          }
+        }
+      ],
+      "original_rule_count": 24,
+      "derived_static_state_count": 32,
+      "derived_model_applications": 64,
+      "derived_states": [
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "false",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            0,
+            4
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf"
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unpowered"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "false",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            0,
+            4
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf"
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unpowered"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "false",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            0,
+            4
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf"
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unpowered"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "false",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            0,
+            4
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf"
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unpowered"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "true",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            0,
+            8
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unconnected"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf"
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unconnected"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "true",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            0,
+            12
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_left"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf"
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_left"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "true",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            0,
+            16
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_center"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf"
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_center"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "true",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            0,
+            20
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_right"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf"
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_right"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "false",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            1,
+            5
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unpowered",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "false",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            1,
+            5
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unpowered",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "false",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            1,
+            5
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unpowered",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "false",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            1,
+            5
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unpowered",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "true",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            1,
+            9
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unconnected"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unconnected",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "true",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            1,
+            13
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_left"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_left",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "true",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            1,
+            17
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_center"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_center",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "true",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            1,
+            21
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_right"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_right",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "false",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            2,
+            6
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unpowered",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "false",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            2,
+            6
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unpowered",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "false",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            2,
+            6
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unpowered",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "false",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            2,
+            6
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unpowered",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "true",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            2,
+            10
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unconnected"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unconnected",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "true",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            2,
+            14
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_left"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_left",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "true",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            2,
+            18
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_center"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_center",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "true",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            2,
+            22
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_right"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_right",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "false",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            3,
+            7
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unpowered",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "false",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            3,
+            7
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unpowered",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "false",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            3,
+            7
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unpowered",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "false",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            3,
+            7
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unpowered",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "true",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            3,
+            11
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_unconnected"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_unconnected",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "true",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            3,
+            15
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_left"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_left",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "true",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            3,
+            19
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_center"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_center",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "true",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            3,
+            23
+          ],
+          "applied_models": [
+            "minecraft:block/jungle_shelf",
+            "minecraft:block/jungle_shelf_right"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/jungle_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/jungle_shelf_right",
+              "y": 270
+            }
+          ]
+        }
+      ],
+      "source_variant_count": 0,
+      "source_legal_runtime_states_verified": false
+    },
+    {
+      "blockstate": "mangrove_shelf.json",
+      "source_path": "1.21.11/assets/minecraft/blockstates/mangrove_shelf.json",
+      "asset_type": "blockstate_json",
+      "source_sha": "424ea32d3f0f347e5aaa0af640e98ddcb3a50c71",
+      "original_multipart_rules": [
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf"
+          },
+          "when": {
+            "facing": "north"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf",
+            "y": 90
+          },
+          "when": {
+            "facing": "east"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf",
+            "y": 180
+          },
+          "when": {
+            "facing": "south"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf",
+            "y": 270
+          },
+          "when": {
+            "facing": "west"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_unpowered"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "false"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_unpowered",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "false"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_unpowered",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "false"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_unpowered",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "false"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_unconnected"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "unconnected"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_unconnected",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "unconnected"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_unconnected",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "unconnected"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_unconnected",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "unconnected"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_left"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "left"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_left",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "left"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_left",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "left"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_left",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "left"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_center"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "center"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_center",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "center"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_center",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "center"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_center",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "center"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_right"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "right"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_right",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "right"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_right",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "right"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/mangrove_shelf_right",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "right"
+              }
+            ]
+          }
+        }
+      ],
+      "original_rule_count": 24,
+      "derived_static_state_count": 32,
+      "derived_model_applications": 64,
+      "derived_states": [
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "false",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            0,
+            4
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf"
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unpowered"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "false",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            0,
+            4
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf"
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unpowered"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "false",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            0,
+            4
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf"
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unpowered"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "false",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            0,
+            4
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf"
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unpowered"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "true",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            0,
+            8
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unconnected"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf"
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unconnected"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "true",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            0,
+            12
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_left"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf"
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_left"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "true",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            0,
+            16
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_center"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf"
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_center"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "true",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            0,
+            20
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_right"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf"
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_right"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "false",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            1,
+            5
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unpowered",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "false",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            1,
+            5
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unpowered",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "false",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            1,
+            5
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unpowered",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "false",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            1,
+            5
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unpowered",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "true",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            1,
+            9
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unconnected"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unconnected",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "true",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            1,
+            13
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_left"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_left",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "true",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            1,
+            17
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_center"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_center",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "true",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            1,
+            21
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_right"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_right",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "false",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            2,
+            6
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unpowered",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "false",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            2,
+            6
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unpowered",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "false",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            2,
+            6
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unpowered",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "false",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            2,
+            6
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unpowered",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "true",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            2,
+            10
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unconnected"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unconnected",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "true",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            2,
+            14
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_left"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_left",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "true",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            2,
+            18
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_center"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_center",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "true",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            2,
+            22
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_right"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_right",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "false",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            3,
+            7
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unpowered",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "false",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            3,
+            7
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unpowered",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "false",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            3,
+            7
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unpowered",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "false",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            3,
+            7
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unpowered",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "true",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            3,
+            11
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_unconnected"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_unconnected",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "true",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            3,
+            15
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_left"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_left",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "true",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            3,
+            19
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_center"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_center",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "true",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            3,
+            23
+          ],
+          "applied_models": [
+            "minecraft:block/mangrove_shelf",
+            "minecraft:block/mangrove_shelf_right"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/mangrove_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/mangrove_shelf_right",
+              "y": 270
+            }
+          ]
+        }
+      ],
+      "source_variant_count": 0,
+      "source_legal_runtime_states_verified": false
+    },
+    {
+      "blockstate": "pale_oak_shelf.json",
+      "source_path": "1.21.11/assets/minecraft/blockstates/pale_oak_shelf.json",
+      "asset_type": "blockstate_json",
+      "source_sha": "61f90668547a6033afe18cd15b46c7ea14bc81e1",
+      "original_multipart_rules": [
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf"
+          },
+          "when": {
+            "facing": "north"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf",
+            "y": 90
+          },
+          "when": {
+            "facing": "east"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf",
+            "y": 180
+          },
+          "when": {
+            "facing": "south"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf",
+            "y": 270
+          },
+          "when": {
+            "facing": "west"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_unpowered"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "false"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_unpowered",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "false"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_unpowered",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "false"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_unpowered",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "false"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_unconnected"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "unconnected"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_unconnected",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "unconnected"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_unconnected",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "unconnected"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_unconnected",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "unconnected"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_left"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "left"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_left",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "left"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_left",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "left"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_left",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "left"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_center"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "center"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_center",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "center"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_center",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "center"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_center",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "center"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_right"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "right"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_right",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "right"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_right",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "right"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_oak_shelf_right",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "right"
+              }
+            ]
+          }
+        }
+      ],
+      "original_rule_count": 24,
+      "derived_static_state_count": 32,
+      "derived_model_applications": 64,
+      "derived_states": [
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "false",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            0,
+            4
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf"
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unpowered"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "false",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            0,
+            4
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf"
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unpowered"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "false",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            0,
+            4
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf"
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unpowered"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "false",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            0,
+            4
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf"
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unpowered"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "true",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            0,
+            8
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unconnected"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf"
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unconnected"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "true",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            0,
+            12
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_left"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf"
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_left"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "true",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            0,
+            16
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_center"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf"
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_center"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "true",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            0,
+            20
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_right"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf"
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_right"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "false",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            1,
+            5
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unpowered",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "false",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            1,
+            5
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unpowered",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "false",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            1,
+            5
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unpowered",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "false",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            1,
+            5
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unpowered",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "true",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            1,
+            9
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unconnected"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unconnected",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "true",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            1,
+            13
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_left"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_left",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "true",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            1,
+            17
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_center"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_center",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "true",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            1,
+            21
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_right"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_right",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "false",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            2,
+            6
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unpowered",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "false",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            2,
+            6
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unpowered",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "false",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            2,
+            6
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unpowered",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "false",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            2,
+            6
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unpowered",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "true",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            2,
+            10
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unconnected"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unconnected",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "true",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            2,
+            14
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_left"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_left",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "true",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            2,
+            18
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_center"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_center",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "true",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            2,
+            22
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_right"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_right",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "false",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            3,
+            7
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unpowered",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "false",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            3,
+            7
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unpowered",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "false",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            3,
+            7
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unpowered",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "false",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            3,
+            7
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unpowered",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "true",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            3,
+            11
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_unconnected"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_unconnected",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "true",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            3,
+            15
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_left"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_left",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "true",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            3,
+            19
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_center"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_center",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "true",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            3,
+            23
+          ],
+          "applied_models": [
+            "minecraft:block/pale_oak_shelf",
+            "minecraft:block/pale_oak_shelf_right"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/pale_oak_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/pale_oak_shelf_right",
+              "y": 270
+            }
+          ]
+        }
+      ],
+      "source_variant_count": 0,
+      "source_legal_runtime_states_verified": false
+    },
+    {
+      "blockstate": "warped_shelf.json",
+      "source_path": "1.21.11/assets/minecraft/blockstates/warped_shelf.json",
+      "asset_type": "blockstate_json",
+      "source_sha": "72518324141eb46c1bbbf13e05ae301db05eefff",
+      "original_multipart_rules": [
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf"
+          },
+          "when": {
+            "facing": "north"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf",
+            "y": 90
+          },
+          "when": {
+            "facing": "east"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf",
+            "y": 180
+          },
+          "when": {
+            "facing": "south"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf",
+            "y": 270
+          },
+          "when": {
+            "facing": "west"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_unpowered"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "false"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_unpowered",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "false"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_unpowered",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "false"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_unpowered",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "false"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_unconnected"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "unconnected"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_unconnected",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "unconnected"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_unconnected",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "unconnected"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_unconnected",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "unconnected"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_left"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "left"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_left",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "left"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_left",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "left"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_left",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "left"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_center"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "center"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_center",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "center"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_center",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "center"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_center",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "center"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_right"
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "north"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "right"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_right",
+            "y": 90
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "east"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "right"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_right",
+            "y": 180
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "south"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "right"
+              }
+            ]
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/warped_shelf_right",
+            "y": 270
+          },
+          "when": {
+            "AND": [
+              {
+                "facing": "west"
+              },
+              {
+                "powered": "true"
+              },
+              {
+                "side_chain": "right"
+              }
+            ]
+          }
+        }
+      ],
+      "original_rule_count": 24,
+      "derived_static_state_count": 32,
+      "derived_model_applications": 64,
+      "derived_states": [
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "false",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            0,
+            4
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf"
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unpowered"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "false",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            0,
+            4
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf"
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unpowered"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "false",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            0,
+            4
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf"
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unpowered"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "false",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            0,
+            4
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf"
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unpowered"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "true",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            0,
+            8
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unconnected"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf"
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unconnected"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "true",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            0,
+            12
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_left"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf"
+            },
+            {
+              "model": "minecraft:block/warped_shelf_left"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "true",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            0,
+            16
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_center"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf"
+            },
+            {
+              "model": "minecraft:block/warped_shelf_center"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "north",
+            "powered": "true",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            0,
+            20
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_right"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf"
+            },
+            {
+              "model": "minecraft:block/warped_shelf_right"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "false",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            1,
+            5
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unpowered",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "false",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            1,
+            5
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unpowered",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "false",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            1,
+            5
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unpowered",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "false",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            1,
+            5
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unpowered",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "true",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            1,
+            9
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unconnected"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unconnected",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "true",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            1,
+            13
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_left"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/warped_shelf_left",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "true",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            1,
+            17
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_center"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/warped_shelf_center",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "east",
+            "powered": "true",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            1,
+            21
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_right"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/warped_shelf_right",
+              "y": 90
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "false",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            2,
+            6
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unpowered",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "false",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            2,
+            6
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unpowered",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "false",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            2,
+            6
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unpowered",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "false",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            2,
+            6
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unpowered",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "true",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            2,
+            10
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unconnected"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unconnected",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "true",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            2,
+            14
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_left"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/warped_shelf_left",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "true",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            2,
+            18
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_center"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/warped_shelf_center",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "south",
+            "powered": "true",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            2,
+            22
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_right"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/warped_shelf_right",
+              "y": 180
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "false",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            3,
+            7
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unpowered",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "false",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            3,
+            7
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unpowered",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "false",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            3,
+            7
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unpowered",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "false",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            3,
+            7
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unpowered"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unpowered",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "true",
+            "side_chain": "unconnected"
+          },
+          "matching_rule_indices": [
+            3,
+            11
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_unconnected"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/warped_shelf_unconnected",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "true",
+            "side_chain": "left"
+          },
+          "matching_rule_indices": [
+            3,
+            15
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_left"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/warped_shelf_left",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "true",
+            "side_chain": "center"
+          },
+          "matching_rule_indices": [
+            3,
+            19
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_center"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/warped_shelf_center",
+              "y": 270
+            }
+          ]
+        },
+        {
+          "properties": {
+            "facing": "west",
+            "powered": "true",
+            "side_chain": "right"
+          },
+          "matching_rule_indices": [
+            3,
+            23
+          ],
+          "applied_models": [
+            "minecraft:block/warped_shelf",
+            "minecraft:block/warped_shelf_right"
+          ],
+          "source_apply": [
+            {
+              "model": "minecraft:block/warped_shelf",
+              "y": 270
+            },
+            {
+              "model": "minecraft:block/warped_shelf_right",
+              "y": 270
+            }
+          ]
+        }
+      ],
+      "source_variant_count": 0,
+      "source_legal_runtime_states_verified": false
+    },
+    {
+      "name": "moss_carpet",
+      "asset_type": "blockstate_json",
+      "source_path": "1.21.11/assets/minecraft/blockstates/moss_carpet.json",
+      "source_sha": "3b338b55888331ccbc98ab29bb4a2932dcf4bca0",
+      "source_variants": [
+        {
+          "condition": "",
+          "source_apply": {
+            "model": "minecraft:block/moss_carpet"
+          },
+          "models": [
+            "minecraft:block/moss_carpet"
+          ]
+        }
+      ],
+      "source_variant_count": 1,
+      "source_multipart": [],
+      "source_multipart_count": 0,
+      "source_model_refs": [
+        "minecraft:block/moss_carpet"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "pale_moss_carpet",
+      "asset_type": "blockstate_json",
+      "source_path": "1.21.11/assets/minecraft/blockstates/pale_moss_carpet.json",
+      "source_sha": "1fd7b845ead5a49e2d739b01e78b7946fc947cb6",
+      "source_variants": [],
+      "source_variant_count": 0,
+      "source_multipart": [
+        {
+          "apply": {
+            "model": "minecraft:block/pale_moss_carpet"
+          },
+          "when": {
+            "bottom": "true"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_moss_carpet"
+          },
+          "when": {
+            "bottom": "false",
+            "east": "none",
+            "north": "none",
+            "south": "none",
+            "west": "none"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_moss_carpet_side_tall"
+          },
+          "when": {
+            "north": "tall"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_moss_carpet_side_small"
+          },
+          "when": {
+            "north": "low"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_moss_carpet_side_tall"
+          },
+          "when": {
+            "bottom": "false",
+            "east": "none",
+            "north": "none",
+            "south": "none",
+            "west": "none"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_moss_carpet_side_tall",
+            "uvlock": true,
+            "y": 90
+          },
+          "when": {
+            "east": "tall"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_moss_carpet_side_small",
+            "uvlock": true,
+            "y": 90
+          },
+          "when": {
+            "east": "low"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_moss_carpet_side_tall",
+            "uvlock": true,
+            "y": 90
+          },
+          "when": {
+            "bottom": "false",
+            "east": "none",
+            "north": "none",
+            "south": "none",
+            "west": "none"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_moss_carpet_side_tall",
+            "uvlock": true,
+            "y": 180
+          },
+          "when": {
+            "south": "tall"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_moss_carpet_side_small",
+            "uvlock": true,
+            "y": 180
+          },
+          "when": {
+            "south": "low"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_moss_carpet_side_tall",
+            "uvlock": true,
+            "y": 180
+          },
+          "when": {
+            "bottom": "false",
+            "east": "none",
+            "north": "none",
+            "south": "none",
+            "west": "none"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_moss_carpet_side_tall",
+            "uvlock": true,
+            "y": 270
+          },
+          "when": {
+            "west": "tall"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_moss_carpet_side_small",
+            "uvlock": true,
+            "y": 270
+          },
+          "when": {
+            "west": "low"
+          }
+        },
+        {
+          "apply": {
+            "model": "minecraft:block/pale_moss_carpet_side_tall",
+            "uvlock": true,
+            "y": 270
+          },
+          "when": {
+            "bottom": "false",
+            "east": "none",
+            "north": "none",
+            "south": "none",
+            "west": "none"
+          }
+        }
+      ],
+      "source_multipart_count": 14,
+      "source_model_refs": [
+        "minecraft:block/pale_moss_carpet",
+        "minecraft:block/pale_moss_carpet_side_tall",
+        "minecraft:block/pale_moss_carpet_side_small"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "lava_cauldron",
+      "asset_type": "blockstate_json",
+      "source_path": "1.21.11/assets/minecraft/blockstates/lava_cauldron.json",
+      "source_sha": "6ed31aab4a6686dd2c0a753e0c2c76438fe082c0",
+      "source_variants": [
+        {
+          "condition": "",
+          "source_apply": {
+            "model": "minecraft:block/lava_cauldron"
+          },
+          "models": [
+            "minecraft:block/lava_cauldron"
+          ]
+        }
+      ],
+      "source_variant_count": 1,
+      "source_multipart": [],
+      "source_multipart_count": 0,
+      "source_model_refs": [
+        "minecraft:block/lava_cauldron"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "water_cauldron",
+      "asset_type": "blockstate_json",
+      "source_path": "1.21.11/assets/minecraft/blockstates/water_cauldron.json",
+      "source_sha": "130d7b6b9da17611c4485f204d0b967bf6f4434c",
+      "source_variants": [
+        {
+          "condition": "level=1",
+          "source_apply": {
+            "model": "minecraft:block/water_cauldron_level1"
+          },
+          "models": [
+            "minecraft:block/water_cauldron_level1"
+          ]
+        },
+        {
+          "condition": "level=2",
+          "source_apply": {
+            "model": "minecraft:block/water_cauldron_level2"
+          },
+          "models": [
+            "minecraft:block/water_cauldron_level2"
+          ]
+        },
+        {
+          "condition": "level=3",
+          "source_apply": {
+            "model": "minecraft:block/water_cauldron_full"
+          },
+          "models": [
+            "minecraft:block/water_cauldron_full"
+          ]
+        }
+      ],
+      "source_variant_count": 3,
+      "source_multipart": [],
+      "source_multipart_count": 0,
+      "source_model_refs": [
+        "minecraft:block/water_cauldron_level1",
+        "minecraft:block/water_cauldron_level2",
+        "minecraft:block/water_cauldron_full"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "powder_snow_cauldron",
+      "asset_type": "blockstate_json",
+      "source_path": "1.21.11/assets/minecraft/blockstates/powder_snow_cauldron.json",
+      "source_sha": "f6e94684c647ee0c7316d6d098dbc8477a2d986d",
+      "source_variants": [
+        {
+          "condition": "level=1",
+          "source_apply": {
+            "model": "minecraft:block/powder_snow_cauldron_level1"
+          },
+          "models": [
+            "minecraft:block/powder_snow_cauldron_level1"
+          ]
+        },
+        {
+          "condition": "level=2",
+          "source_apply": {
+            "model": "minecraft:block/powder_snow_cauldron_level2"
+          },
+          "models": [
+            "minecraft:block/powder_snow_cauldron_level2"
+          ]
+        },
+        {
+          "condition": "level=3",
+          "source_apply": {
+            "model": "minecraft:block/powder_snow_cauldron_full"
+          },
+          "models": [
+            "minecraft:block/powder_snow_cauldron_full"
+          ]
+        }
+      ],
+      "source_variant_count": 3,
+      "source_multipart": [],
+      "source_multipart_count": 0,
+      "source_model_refs": [
+        "minecraft:block/powder_snow_cauldron_level1",
+        "minecraft:block/powder_snow_cauldron_level2",
+        "minecraft:block/powder_snow_cauldron_full"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "redstone_lamp",
+      "asset_type": "blockstate_json",
+      "source_path": "1.21.11/assets/minecraft/blockstates/redstone_lamp.json",
+      "source_sha": "bbd9d93559cd35cb1f0f624c58417ebcd9be59a0",
+      "source_variants": [
+        {
+          "condition": "lit=false",
+          "source_apply": {
+            "model": "minecraft:block/redstone_lamp"
+          },
+          "models": [
+            "minecraft:block/redstone_lamp"
+          ]
+        },
+        {
+          "condition": "lit=true",
+          "source_apply": {
+            "model": "minecraft:block/redstone_lamp_on"
+          },
+          "models": [
+            "minecraft:block/redstone_lamp_on"
+          ]
+        }
+      ],
+      "source_variant_count": 2,
+      "source_multipart": [],
+      "source_multipart_count": 0,
+      "source_model_refs": [
+        "minecraft:block/redstone_lamp",
+        "minecraft:block/redstone_lamp_on"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "glowstone",
+      "asset_type": "blockstate_json",
+      "source_path": "1.21.11/assets/minecraft/blockstates/glowstone.json",
+      "source_sha": "c60860b8c17e8b74007f13c6f0cd00cdf962fa92",
+      "source_variants": [
+        {
+          "condition": "",
+          "source_apply": {
+            "model": "minecraft:block/glowstone"
+          },
+          "models": [
+            "minecraft:block/glowstone"
+          ]
+        }
+      ],
+      "source_variant_count": 1,
+      "source_multipart": [],
+      "source_multipart_count": 0,
+      "source_model_refs": [
+        "minecraft:block/glowstone"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "shroomlight",
+      "asset_type": "blockstate_json",
+      "source_path": "1.21.11/assets/minecraft/blockstates/shroomlight.json",
+      "source_sha": "300f41e8012250edf4a8d8f37ffc043f18540ca9",
+      "source_variants": [
+        {
+          "condition": "",
+          "source_apply": {
+            "model": "minecraft:block/shroomlight"
+          },
+          "models": [
+            "minecraft:block/shroomlight"
+          ]
+        }
+      ],
+      "source_variant_count": 1,
+      "source_multipart": [],
+      "source_multipart_count": 0,
+      "source_model_refs": [
+        "minecraft:block/shroomlight"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "ochre_froglight",
+      "asset_type": "blockstate_json",
+      "source_path": "1.21.11/assets/minecraft/blockstates/ochre_froglight.json",
+      "source_sha": "2a4f1aa7048c183b1d8af3de5ccee31a9089e18a",
+      "source_variants": [
+        {
+          "condition": "axis=x",
+          "source_apply": {
+            "model": "minecraft:block/ochre_froglight_horizontal",
+            "x": 90,
+            "y": 90
+          },
+          "models": [
+            "minecraft:block/ochre_froglight_horizontal"
+          ]
+        },
+        {
+          "condition": "axis=y",
+          "source_apply": {
+            "model": "minecraft:block/ochre_froglight"
+          },
+          "models": [
+            "minecraft:block/ochre_froglight"
+          ]
+        },
+        {
+          "condition": "axis=z",
+          "source_apply": {
+            "model": "minecraft:block/ochre_froglight_horizontal",
+            "x": 90
+          },
+          "models": [
+            "minecraft:block/ochre_froglight_horizontal"
+          ]
+        }
+      ],
+      "source_variant_count": 3,
+      "source_multipart": [],
+      "source_multipart_count": 0,
+      "source_model_refs": [
+        "minecraft:block/ochre_froglight_horizontal",
+        "minecraft:block/ochre_froglight"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "pearlescent_froglight",
+      "asset_type": "blockstate_json",
+      "source_path": "1.21.11/assets/minecraft/blockstates/pearlescent_froglight.json",
+      "source_sha": "ff6fa267829361ce16a04eb895d58517cd07c41d",
+      "source_variants": [
+        {
+          "condition": "axis=x",
+          "source_apply": {
+            "model": "minecraft:block/pearlescent_froglight_horizontal",
+            "x": 90,
+            "y": 90
+          },
+          "models": [
+            "minecraft:block/pearlescent_froglight_horizontal"
+          ]
+        },
+        {
+          "condition": "axis=y",
+          "source_apply": {
+            "model": "minecraft:block/pearlescent_froglight"
+          },
+          "models": [
+            "minecraft:block/pearlescent_froglight"
+          ]
+        },
+        {
+          "condition": "axis=z",
+          "source_apply": {
+            "model": "minecraft:block/pearlescent_froglight_horizontal",
+            "x": 90
+          },
+          "models": [
+            "minecraft:block/pearlescent_froglight_horizontal"
+          ]
+        }
+      ],
+      "source_variant_count": 3,
+      "source_multipart": [],
+      "source_multipart_count": 0,
+      "source_model_refs": [
+        "minecraft:block/pearlescent_froglight_horizontal",
+        "minecraft:block/pearlescent_froglight"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "name": "verdant_froglight",
+      "asset_type": "blockstate_json",
+      "source_path": "1.21.11/assets/minecraft/blockstates/verdant_froglight.json",
+      "source_sha": "496c19c18e2301adb55acfd548724bfd593ad48d",
+      "source_variants": [
+        {
+          "condition": "axis=x",
+          "source_apply": {
+            "model": "minecraft:block/verdant_froglight_horizontal",
+            "x": 90,
+            "y": 90
+          },
+          "models": [
+            "minecraft:block/verdant_froglight_horizontal"
+          ]
+        },
+        {
+          "condition": "axis=y",
+          "source_apply": {
+            "model": "minecraft:block/verdant_froglight"
+          },
+          "models": [
+            "minecraft:block/verdant_froglight"
+          ]
+        },
+        {
+          "condition": "axis=z",
+          "source_apply": {
+            "model": "minecraft:block/verdant_froglight_horizontal",
+            "x": 90
+          },
+          "models": [
+            "minecraft:block/verdant_froglight_horizontal"
+          ]
+        }
+      ],
+      "source_variant_count": 3,
+      "source_multipart": [],
+      "source_multipart_count": 0,
+      "source_model_refs": [
+        "minecraft:block/verdant_froglight_horizontal",
+        "minecraft:block/verdant_froglight"
+      ],
+      "runtime_verified": false
+    }
+  ],
+  "limits": [
+    "world source refs are not runtime reachable-state proof",
+    "multipart source rules vs derived combinations vs applied source models differ",
+    "inventory, templates and other non-world models should not be credited as world state refs"
+  ]
+}

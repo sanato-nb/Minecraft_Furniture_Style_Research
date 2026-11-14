@@ -1,0 +1,307 @@
+[
+  {
+    "name": "carpet",
+    "path": "1.21.11/assets/minecraft/models/block/carpet.json",
+    "sha": "b52a11054868ad6f3da431c9cf0c314d333492ba",
+    "parent": "block/thin_block",
+    "keys": [
+      "parent",
+      "textures",
+      "elements"
+    ],
+    "textures": {
+      "particle": "#wool"
+    },
+    "elements": 1,
+    "faces": 6,
+    "explicitUV": 6,
+    "implicitUV": 0,
+    "source_json": {
+      "parent": "block/thin_block",
+      "textures": {
+        "particle": "#wool"
+      },
+      "elements": [
+        {
+          "from": [
+            0,
+            0,
+            0
+          ],
+          "to": [
+            16,
+            1,
+            16
+          ],
+          "faces": {
+            "down": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#wool",
+              "cullface": "down"
+            },
+            "up": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#wool"
+            },
+            "north": {
+              "uv": [
+                0,
+                15,
+                16,
+                16
+              ],
+              "texture": "#wool",
+              "cullface": "north"
+            },
+            "south": {
+              "uv": [
+                0,
+                15,
+                16,
+                16
+              ],
+              "texture": "#wool",
+              "cullface": "south"
+            },
+            "west": {
+              "uv": [
+                0,
+                15,
+                16,
+                16
+              ],
+              "texture": "#wool",
+              "cullface": "west"
+            },
+            "east": {
+              "uv": [
+                0,
+                15,
+                16,
+                16
+              ],
+              "texture": "#wool",
+              "cullface": "east"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "cube_all",
+    "path": "1.21.11/assets/minecraft/models/block/cube_all.json",
+    "sha": "fa2f9e776173224b2b523b8b537c695b921267f6",
+    "parent": "block/cube",
+    "keys": [
+      "parent",
+      "textures"
+    ],
+    "textures": {
+      "particle": "#all",
+      "down": "#all",
+      "up": "#all",
+      "north": "#all",
+      "east": "#all",
+      "south": "#all",
+      "west": "#all"
+    },
+    "elements": 0,
+    "faces": 0,
+    "explicitUV": 0,
+    "implicitUV": 0,
+    "source_json": {
+      "parent": "block/cube",
+      "textures": {
+        "particle": "#all",
+        "down": "#all",
+        "up": "#all",
+        "north": "#all",
+        "east": "#all",
+        "south": "#all",
+        "west": "#all"
+      }
+    }
+  },
+  {
+    "name": "cube_column",
+    "path": "1.21.11/assets/minecraft/models/block/cube_column.json",
+    "sha": "358b9847efe8bb17811ef48eedd219d8c9b51499",
+    "parent": "block/cube",
+    "keys": [
+      "parent",
+      "textures"
+    ],
+    "textures": {
+      "particle": "#side",
+      "down": "#end",
+      "up": "#end",
+      "north": "#side",
+      "east": "#side",
+      "south": "#side",
+      "west": "#side"
+    },
+    "elements": 0,
+    "faces": 0,
+    "explicitUV": 0,
+    "implicitUV": 0,
+    "source_json": {
+      "parent": "block/cube",
+      "textures": {
+        "particle": "#side",
+        "down": "#end",
+        "up": "#end",
+        "north": "#side",
+        "east": "#side",
+        "south": "#side",
+        "west": "#side"
+      }
+    }
+  },
+  {
+    "name": "cube_column_horizontal",
+    "path": "1.21.11/assets/minecraft/models/block/cube_column_horizontal.json",
+    "sha": "713dd8196bc9a92033695c155993df89103f1fcd",
+    "parent": "block/block",
+    "keys": [
+      "parent",
+      "elements",
+      "textures"
+    ],
+    "textures": {
+      "particle": "#side",
+      "down": "#end",
+      "up": "#end",
+      "north": "#side",
+      "east": "#side",
+      "south": "#side",
+      "west": "#side"
+    },
+    "elements": 1,
+    "faces": 6,
+    "explicitUV": 0,
+    "implicitUV": 6,
+    "source_json": {
+      "parent": "block/block",
+      "elements": [
+        {
+          "from": [
+            0,
+            0,
+            0
+          ],
+          "to": [
+            16,
+            16,
+            16
+          ],
+          "faces": {
+            "down": {
+              "texture": "#down",
+              "cullface": "down"
+            },
+            "up": {
+              "texture": "#up",
+              "rotation": 180,
+              "cullface": "up"
+            },
+            "north": {
+              "texture": "#north",
+              "cullface": "north"
+            },
+            "south": {
+              "texture": "#south",
+              "cullface": "south"
+            },
+            "west": {
+              "texture": "#west",
+              "cullface": "west"
+            },
+            "east": {
+              "texture": "#east",
+              "cullface": "east"
+            }
+          }
+        }
+      ],
+      "textures": {
+        "particle": "#side",
+        "down": "#end",
+        "up": "#end",
+        "north": "#side",
+        "east": "#side",
+        "south": "#side",
+        "west": "#side"
+      }
+    }
+  },
+  {
+    "name": "mossy_carpet_side",
+    "path": "1.21.11/assets/minecraft/models/block/mossy_carpet_side.json",
+    "sha": "e63ad2dd219dc3c15ab4cfed63ef8de1360159d0",
+    "parent": null,
+    "keys": [
+      "ambientocclusion",
+      "textures",
+      "elements"
+    ],
+    "textures": {
+      "particle": "#side"
+    },
+    "elements": 1,
+    "faces": 2,
+    "explicitUV": 2,
+    "implicitUV": 0,
+    "source_json": {
+      "ambientocclusion": true,
+      "textures": {
+        "particle": "#side"
+      },
+      "elements": [
+        {
+          "from": [
+            0,
+            0,
+            0.1
+          ],
+          "to": [
+            16,
+            16,
+            0.1
+          ],
+          "shade": true,
+          "faces": {
+            "north": {
+              "uv": [
+                16,
+                0,
+                0,
+                16
+              ],
+              "texture": "#side"
+            },
+            "south": {
+              "uv": [
+                0,
+                0,
+                16,
+                16
+              ],
+              "texture": "#side"
+            }
+          }
+        }
+      ]
+    }
+  }
+]
