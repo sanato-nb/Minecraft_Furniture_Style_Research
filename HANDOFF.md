@@ -1,5 +1,8 @@
 # 인수인계 · Minecraft Furniture Style Research
 
+> **최신 v56 (2026-11-14):** [원본 PNG·UV 실측 연구 보고서](research/vanilla_models/v56/REPORT.md) · [P1 전체 544행 209열 원장](research/vanilla_models/v56/07_P1_544_EVIDENCE_LEDGER.csv) · [다음 채팅 인수인계](research/vanilla_models/v56/NEXT_CHAT_HANDOFF.md). v53 신규175 모델의 **남은 37개 텍스처 경로 원본 바이너리·Git SHA·PNG CRC·zlib Adler·RGBA 16×16 전픽셀 검사 완료**. 새 명시 UV face **2,926면**, 반복 포함 소스 픽셀 **21,416건**. v54~v56 누적 **해결된 PNG 49/49경로, 3,393면, 51,228회 반복 RGBA 관측**, 명시 UV3225·계산 후보168 구분. 이는 소스 PNG 측정이며 **P1 544개 전체 형상·UV·렌더러 완료가 아니다**. 1-1 150/150 완료, 상위1/5 완료, 1-2-A/1-2 진행 중·완료율 미산정. 아래 v55 이하는 기존 역사 기록.
+
+
 > **최신 v55 (2026-11-14):** [원본 PNG·UV 검증 보고서](research/vanilla_models/v55/REPORT.md) · [P1 544행·198열 최신 증거 원장](research/vanilla_models/v55/07_P1_544_EVIDENCE_LEDGER.csv) · [다음 채팅 인수인계](research/vanilla_models/v55/NEXT_CHAT_HANDOFF.md). P1 모델 원본 path+SHA **544/544 유지**. 원본 PNG 바이너리/실제 SHA/Pillow RGBA **9개 추가**(v53+v55 확인 합계13개), v55 신규 UV 대응 면 **241건**(원본 명시73 + 케이크 원본 미기재 UV의 **기하 계산 후보168**) · 원본 PNG/UV 영역21종 · 반복 소스 텍셀28,076회. v54부터 누적 **467면/29,812회**, v53 신규175 모델 참조 PNG **49개 경로 중 12경로만 면 소스 픽셀 대조**. 케이크 실제 PNG 3개 alpha 불투명 마스크가 계산 후보 사각형과 일치하나 **게임 엔진 UV 공식/렌더 출력 인증은 아님**. 1-2-A/1-2 미완료·실질 완료율 미산정, 1-1 150/150 완료·상위 1/5 유지. 아래 v54 및 그 이전은 과거 기록.
 
 
