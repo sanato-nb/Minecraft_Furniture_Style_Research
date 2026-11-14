@@ -1,0 +1,10 @@
+# v63 → 다음 채팅 1-2-A 연속 인수인계
+
+- GitHub `main` HEAD를 새로 조회하여 최신 체크포인트가 v63인지 확인. `research/vanilla_models/v63/{REPORT.md,SUMMARY.json,07_P1_544_EVIDENCE_LEDGER.csv,VALIDATION_POST_RESEARCH_COMMIT.json}` 원격 읽기 검증. 뒤따르는 v64가 있으면 최신 우선.
+- v63 실제 분석: v5~v43 저장소의 `research/vanilla_models` 하위 실재21폴더 **Git tree nontruncated 전수 목록194 파일**(CSV137/MD30/JSON19/SQLite4/Python4). 이 회차의 내용 검수는 v62 21 CSV와 새 v63 3 CSV 중복 제거 **24개 파일**, 나머지 **170개는 v62~v63 내용 검수 미완료/트리 SHA 인벤토리만**. 기존 역사 다른 버전의 선행 검토를 부정하지 않기. v47 역사 SQLite 검수 선행 기록 있음; v63에서 DB 재판독 없음.
+- v62 선택 역사 CSV에 원본 근거 없던 `chipped_anvil.json`, `damaged_anvil.json`은 과거 v30 `08_anvil_three_leaf_top_texture_overrides.csv` 원본 행 SHA를 찾아 Minecraft 1.21.11 원본 모델 JSON까지 각각 재검증. anvil leaf 3 + template_anvil 1 = **4 P1 원본 모델 JSON 직접 재조회**, 이 중 새 고유 직접검증 범위는 **chipped+damaged 2개**, 신규 신원 링크는 **0**.
+- `template_anvil` own 4 elements/21 faces, 전부 원본 explicit UV. leaf 3은 own elements 0이며 부모 4요소21면을 상속 ⇒ 63 적용 face (body60/top3). 위쪽 3개 텍스처 override, body `block/anvil` 공유. original blockstates 3개×4방향=12 variant, original PNG4개 Git SHA+16×16 IHDR 직접 확인, v63 Pillow 전체 RGBA 신규 실측0. `00B`/`00C`/`00D` original source, `01_V30...` crosscheck, `02...` 63face, `03...` 12variant.
+- v62 선택 역사 CSV 176링크/110모델은 그대로 두고, 이번 v30/08 신규3기록을 별도 추가한 v63 `01_HISTORICAL_EVIDENCE_CROSSWALK_179.csv` ⇒ **179링크/112서로 다른 P1**. 지난 v44 증거 CSV Git SHA 오기6링크 기존 v62 `03_V44_EVIDENCE_CSV_SHA_ERRATA_6.csv` 계속 유효. v30/06은 기존 v62 21파일에 포함됐으므로 새 내용 검증 파일로 다시 세지 말 것.
+- P1 증거 원장 **544행×325열** (v62 310열 이전544행 **168,640 데이터셀 동일**, 신규15열). 보조 source review `04_SOURCE_REVIEW_LEDGER_544.csv`는 544행×30열 (v62 24열·544행 전 셀 동일, 새6열). 직접 JSON 판독 명시 플래그 집합 v35~v63 **516개**, 나머지28개는 선택 원본 역사 CSV SHA 행 연결. 이는 의미론 완료 숫자가 아님.
+- 다음 작업은 이전 v5~v43 **미검수 MD30/JSON19/SQLite4/Python4** 중 근거를 가장 크게 보완하는 자료부터 원본 내용 재조회 및 v47의 선행 DB 소스 SHA/테이블 기록 교차. 파일 수/모델 수/PNG 픽셀/face/variant 구분, 모델 identity 키 `(asset_type,full_source_path,git_blob_sha)` 유지. 모루 정확한 방향/UVLOCK 공식·모델 특수렌더14개 검증은 별도 범위.
+- 1-1 승인150/150, 상위5개 중1완료, **1-2-A와 1-2 미완료**·실질 완료율 미산정. 가구 모델 제작/좀보이드 변환 미시작. 커밋 직전 HEAD lease, 실제 GitHub 사후 remote readback 검증 후 validation 후속 커밋 필수.

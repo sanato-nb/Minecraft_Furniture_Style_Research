@@ -1,0 +1,556 @@
+{
+  "schema": "v63_original_Minecraft_1_21_11_three_anvil_leaf_parent_and_blockstates",
+  "source_main_HEAD_at_fetch": "830111f5edda425cff04e961f382eaa9f4aa1776",
+  "original_model_JSON_count": 4,
+  "original_blockstate_JSON_count": 3,
+  "common_block_parent": {
+    "path": "1.21.11/assets/minecraft/models/block/block.json",
+    "sha": "f9c72559950abcb186b8e3959e135c0f2d542bdf",
+    "original": {
+      "gui_light": "side",
+      "display": {
+        "gui": {
+          "rotation": [
+            30,
+            225,
+            0
+          ],
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.625,
+            0.625,
+            0.625
+          ]
+        },
+        "ground": {
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            3,
+            0
+          ],
+          "scale": [
+            0.25,
+            0.25,
+            0.25
+          ]
+        },
+        "fixed": {
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "on_shelf": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "thirdperson_righthand": {
+          "rotation": [
+            75,
+            45,
+            0
+          ],
+          "translation": [
+            0,
+            2.5,
+            0
+          ],
+          "scale": [
+            0.375,
+            0.375,
+            0.375
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            45,
+            0
+          ],
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.4,
+            0.4,
+            0.4
+          ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [
+            0,
+            225,
+            0
+          ],
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.4,
+            0.4,
+            0.4
+          ]
+        }
+      }
+    }
+  },
+  "models": [
+    {
+      "name": "anvil",
+      "path": "1.21.11/assets/minecraft/models/block/anvil.json",
+      "sha": "dc9d2555669a31984f3d0e221f778ca170d7f533",
+      "original": {
+        "parent": "minecraft:block/template_anvil",
+        "textures": {
+          "top": "minecraft:block/anvil_top"
+        }
+      }
+    },
+    {
+      "name": "chipped_anvil",
+      "path": "1.21.11/assets/minecraft/models/block/chipped_anvil.json",
+      "sha": "57719879c0a40ef4fbd2a220fb03d4fe8f6ce361",
+      "original": {
+        "parent": "minecraft:block/template_anvil",
+        "textures": {
+          "top": "minecraft:block/chipped_anvil_top"
+        }
+      }
+    },
+    {
+      "name": "damaged_anvil",
+      "path": "1.21.11/assets/minecraft/models/block/damaged_anvil.json",
+      "sha": "33ea477ba4400582e4ed1aea01ac02e9950d8d85",
+      "original": {
+        "parent": "minecraft:block/template_anvil",
+        "textures": {
+          "top": "minecraft:block/damaged_anvil_top"
+        }
+      }
+    },
+    {
+      "name": "template_anvil",
+      "path": "1.21.11/assets/minecraft/models/block/template_anvil.json",
+      "sha": "47a37763cc372fa5ad9f0f43719e246d6a5b16df",
+      "original": {
+        "parent": "block/block",
+        "textures": {
+          "particle": "block/anvil",
+          "body": "block/anvil"
+        },
+        "display": {
+          "fixed": {
+            "rotation": [
+              0,
+              90,
+              0
+            ],
+            "translation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.5,
+              0.5,
+              0.5
+            ]
+          },
+          "on_shelf": {
+            "rotation": [
+              0,
+              90,
+              0
+            ],
+            "translation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "elements": [
+          {
+            "__comment": "Anvil base",
+            "from": [
+              2,
+              0,
+              2
+            ],
+            "to": [
+              14,
+              4,
+              14
+            ],
+            "faces": {
+              "down": {
+                "uv": [
+                  2,
+                  2,
+                  14,
+                  14
+                ],
+                "texture": "#body",
+                "rotation": 180,
+                "cullface": "down"
+              },
+              "up": {
+                "uv": [
+                  2,
+                  2,
+                  14,
+                  14
+                ],
+                "texture": "#body",
+                "rotation": 180
+              },
+              "north": {
+                "uv": [
+                  2,
+                  12,
+                  14,
+                  16
+                ],
+                "texture": "#body"
+              },
+              "south": {
+                "uv": [
+                  2,
+                  12,
+                  14,
+                  16
+                ],
+                "texture": "#body"
+              },
+              "west": {
+                "uv": [
+                  0,
+                  2,
+                  4,
+                  14
+                ],
+                "texture": "#body",
+                "rotation": 90
+              },
+              "east": {
+                "uv": [
+                  4,
+                  2,
+                  0,
+                  14
+                ],
+                "texture": "#body",
+                "rotation": 270
+              }
+            }
+          },
+          {
+            "__comment": "Lower narrow portion",
+            "from": [
+              4,
+              4,
+              3
+            ],
+            "to": [
+              12,
+              5,
+              13
+            ],
+            "faces": {
+              "up": {
+                "uv": [
+                  4,
+                  3,
+                  12,
+                  13
+                ],
+                "texture": "#body",
+                "rotation": 180
+              },
+              "north": {
+                "uv": [
+                  4,
+                  11,
+                  12,
+                  12
+                ],
+                "texture": "#body"
+              },
+              "south": {
+                "uv": [
+                  4,
+                  11,
+                  12,
+                  12
+                ],
+                "texture": "#body"
+              },
+              "west": {
+                "uv": [
+                  4,
+                  3,
+                  5,
+                  13
+                ],
+                "texture": "#body",
+                "rotation": 90
+              },
+              "east": {
+                "uv": [
+                  5,
+                  3,
+                  4,
+                  13
+                ],
+                "texture": "#body",
+                "rotation": 270
+              }
+            }
+          },
+          {
+            "__comment": "Wider section beneath top portion",
+            "from": [
+              6,
+              5,
+              4
+            ],
+            "to": [
+              10,
+              10,
+              12
+            ],
+            "faces": {
+              "north": {
+                "uv": [
+                  6,
+                  6,
+                  10,
+                  11
+                ],
+                "texture": "#body"
+              },
+              "south": {
+                "uv": [
+                  6,
+                  6,
+                  10,
+                  11
+                ],
+                "texture": "#body"
+              },
+              "west": {
+                "uv": [
+                  5,
+                  4,
+                  10,
+                  12
+                ],
+                "texture": "#body",
+                "rotation": 90
+              },
+              "east": {
+                "uv": [
+                  10,
+                  4,
+                  5,
+                  12
+                ],
+                "texture": "#body",
+                "rotation": 270
+              }
+            }
+          },
+          {
+            "__comment": "Anvil top",
+            "from": [
+              3,
+              10,
+              0
+            ],
+            "to": [
+              13,
+              16,
+              16
+            ],
+            "faces": {
+              "down": {
+                "uv": [
+                  3,
+                  0,
+                  13,
+                  16
+                ],
+                "texture": "#body",
+                "rotation": 180
+              },
+              "up": {
+                "uv": [
+                  3,
+                  0,
+                  13,
+                  16
+                ],
+                "texture": "#top",
+                "rotation": 180
+              },
+              "north": {
+                "uv": [
+                  3,
+                  0,
+                  13,
+                  6
+                ],
+                "texture": "#body"
+              },
+              "south": {
+                "uv": [
+                  3,
+                  0,
+                  13,
+                  6
+                ],
+                "texture": "#body"
+              },
+              "west": {
+                "uv": [
+                  10,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#body",
+                "rotation": 90
+              },
+              "east": {
+                "uv": [
+                  16,
+                  0,
+                  10,
+                  16
+                ],
+                "texture": "#body",
+                "rotation": 270
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "blockstates": [
+    {
+      "name": "anvil",
+      "path": "1.21.11/assets/minecraft/blockstates/anvil.json",
+      "sha": "16586bb37193d767d9cd247dc1c2e3fabaf51956",
+      "original": {
+        "variants": {
+          "facing=east": {
+            "model": "minecraft:block/anvil",
+            "y": 270
+          },
+          "facing=north": {
+            "model": "minecraft:block/anvil",
+            "y": 180
+          },
+          "facing=south": {
+            "model": "minecraft:block/anvil"
+          },
+          "facing=west": {
+            "model": "minecraft:block/anvil",
+            "y": 90
+          }
+        }
+      }
+    },
+    {
+      "name": "chipped_anvil",
+      "path": "1.21.11/assets/minecraft/blockstates/chipped_anvil.json",
+      "sha": "466eb4c7bee6fce6b302b8f3a30207d7c9369f80",
+      "original": {
+        "variants": {
+          "facing=east": {
+            "model": "minecraft:block/chipped_anvil",
+            "y": 270
+          },
+          "facing=north": {
+            "model": "minecraft:block/chipped_anvil",
+            "y": 180
+          },
+          "facing=south": {
+            "model": "minecraft:block/chipped_anvil"
+          },
+          "facing=west": {
+            "model": "minecraft:block/chipped_anvil",
+            "y": 90
+          }
+        }
+      }
+    },
+    {
+      "name": "damaged_anvil",
+      "path": "1.21.11/assets/minecraft/blockstates/damaged_anvil.json",
+      "sha": "cca2bca49e88a063c10eee3c52f80b7f290afdaa",
+      "original": {
+        "variants": {
+          "facing=east": {
+            "model": "minecraft:block/damaged_anvil",
+            "y": 270
+          },
+          "facing=north": {
+            "model": "minecraft:block/damaged_anvil",
+            "y": 180
+          },
+          "facing=south": {
+            "model": "minecraft:block/damaged_anvil"
+          },
+          "facing=west": {
+            "model": "minecraft:block/damaged_anvil",
+            "y": 90
+          }
+        }
+      }
+    }
+  ]
+}
