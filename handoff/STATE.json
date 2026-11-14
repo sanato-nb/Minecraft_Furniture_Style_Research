@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-14",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v54",
+  "current_checkpoint": "v55",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -83,7 +83,7 @@
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v54_1_2_A_P1_544_SHA_links_57_related_blockstates_plus14_skull_aliases_239_variants_173_of175_blockstate_reverse_links_226_source_PNG_UV_face_samples_1736_RGBA_pixel_observations_historical_semantics_renderer_pending",
+      "status": "v55_P1_544_typed_SHA_retained_9_new_original_PNG_SHA_RGBA_241_face_UV_source_samples_73_explicit_168_derived_cake_opaque_mask_matches_cumulative467_sampled_faces_full_1_2_A_unfinished",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -435,7 +435,26 @@
       "v54_runtime_renderer_verified": false,
       "v54_1_2_A_completed": false,
       "v54_1_2_completed": false,
-      "v54_true_completion_percentage": null
+      "v54_true_completion_percentage": null,
+      "v55_new_original_PNGs_binary_RGBA_SHA": 9,
+      "v55_direct_PNG_binary_cumulative_v53_v55": 13,
+      "v55_original_explicitUV_face_RGBA_samples": 73,
+      "v55_derived_implicitUV_source_face_RGBA_samples": 168,
+      "v55_new_face_RGBA_samples": 241,
+      "v55_new_distinct_source_UV_rectangles": 21,
+      "v55_new_weighted_RGBA_source_pixel_observations": 28076,
+      "v55_v54_v55_cumulative_face_RGBA_samples": 467,
+      "v55_v54_v55_cumulative_weighted_pixel_observations": 29812,
+      "v55_cumulative_unique_PNG_pixel_coordinates": 1498,
+      "v55_source_PNG_UV_sampled_paths": 12,
+      "v55_v53_cohort_unique_PNG_ref_paths": 49,
+      "v55_source_models_with_sampledUV_in_new175": 44,
+      "v55_cake_3_opaque_mask_full_alpha_match": true,
+      "v55_implicitUV_engine_authenticated": false,
+      "v55_runtime_renderer_pixel_verified": false,
+      "v55_1_2_A_completed": false,
+      "v55_1_2_completed": false,
+      "v55_actual_completion_percentage": null
     },
     {
       "id": "03",
@@ -772,13 +791,12 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "Fetch latest main HEAD first and read v54 report, summary, validation, next handoff, and 544-row ledger via Git Blob API.",
-    "P1 544/544 typed JSON source identities closed in v53; v54 added related original blockstates 57 family + 14 named skull/head = 71 source paths; 239 variants/apply records; 173 of v53 new 175 models directly referenced; remaining two piston parent templates are indirect.",
-    "Piston parent standalone 20 placeholders are resolved across 40 faces in four leaf model texture override applications. Special shulker13 and skull1 geometry renderer remains unknown.",
-    "Source PNG explicit UV rectangles actually sampled for 226 model face applications from 3 original 16x16 PNGs: 16 unique path+UV rectangles; 1736 weighted pixel observations; 298 unique PNG texel coords. No runtime renderer or implicit UV pixels sampled.",
-    "Continue historical v1-v53 semantic evidence reconciliation and blockstates beyond 175 model cohort, broaden original PNG and implicit UV source checks, validate shulker/skull runtime renderer if source exists.",
-    "Preserve 1-1 approved150/150 and major1/5; never mark 1-2-A or 1-2 complete on SHA or partial UV check; do not create Minecraft furniture or PZ conversions.",
-    "Check main for concurrent changes before merge, then read back all counts and a validation document."
+    "Check live main HEAD before next work, and read v55 REPORT, SUMMARY, VALIDATION, 544-row 198-column source ledger via Git Blob API.",
+    "Continue direct source PNG SHA/RGBA and UV pixel samples for 37 of 49 texture paths in new175 cohort not sampled in v54-v55, especially candle color variants and wool.",
+    "Separate UV original explicit keys from derived implicit UV candidate on candle cakes. v55 cake alpha mask matches computed rectangles but engine UV generation formula not authenticated and runtime renderer pixels remain 0.",
+    "Audit prior v1-v55 historical semantic evidence rather than treating 544 original path+SHA links as complete model learning; carry prior v54 71 blockstate links and 14 special geometry exceptions.",
+    "Preserve 1-1 approved150/150 and overall major1/5, 1-2-A/1-2 both incomplete, no Minecraft furniture creation or PZ conversion.",
+    "Before merge check main for concurrent changes; after merge validate source ledger 544 rows/198 fields, 241/467 face samples and alpha/sha results."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -3340,5 +3358,38 @@
       "UV_reproducer": "research/vanilla_models/v54/REPRODUCE_SOURCE_PNG_UV_RECTANGLES.py",
       "handoff": "research/vanilla_models/v54/NEXT_CHAT_HANDOFF.md"
     }
+  },
+  "v55": {
+    "checkpoint": "v55",
+    "date_kst": "2026-11-14",
+    "base_main_head": "9ff78606528a0324b76830ef97ea82d6076f3427",
+    "research_branch": "work/v55-1-2-A-sourceUV-20261114",
+    "source_version": "Minecraft Java Edition 1.21.11 extracted original",
+    "P1_source_model_path_SHA_linked": 544,
+    "P1_source_model_identity_unlinked": 0,
+    "new_original_PNG_git_sha_and_RGBA_binaries": 9,
+    "source_PNG_SHA_RGBA_binaries_cumulative_v53_v55": 13,
+    "related_original_texture_paths_in_new175_models": 49,
+    "source_UV_texture_paths_sampled_v54_v55": 12,
+    "v55_original_explicitUV_face_refs": 73,
+    "v55_derived_implicitUV_face_refs": 168,
+    "v55_sourceUV_face_refs": 241,
+    "v55_sourceUV_rectangles": 21,
+    "v55_source_weighted_pixel_observations": 28076,
+    "v54_v55_cumulative_sourceUV_face_refs": 467,
+    "v54_v55_cumulative_weighted_pixel_observations": 29812,
+    "cumulative_unique_source_png_pixel_positions": 1498,
+    "distinct_v53_new175_models_with_v54_v55_UV_source_pixel_evidence": 44,
+    "v55_cake_opaque_mask_alpha_3_exact_matches": true,
+    "implicitUV_formula_authenticated_against_engine": false,
+    "in_game_renderer_pixels_measured": 0,
+    "full_v1_v54_semantic_historical_audit": false,
+    "substep_1_2_A_complete": false,
+    "substep_1_2_complete": false,
+    "overall_stages_completed": 1,
+    "overall_stages_total": 5,
+    "report": "research/vanilla_models/v55/REPORT.md",
+    "ledger": "research/vanilla_models/v55/07_P1_544_EVIDENCE_LEDGER.csv",
+    "handoff": "research/vanilla_models/v55/NEXT_CHAT_HANDOFF.md"
   }
 }

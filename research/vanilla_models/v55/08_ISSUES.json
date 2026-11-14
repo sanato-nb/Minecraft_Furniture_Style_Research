@@ -1,0 +1,38 @@
+{
+  "schema": "v55_pending_and_evidence_limits",
+  "issues": [
+    {
+      "id": "v55-cake-implicit",
+      "type": "formula_not_authenticated",
+      "status": "pending",
+      "affected_source_faces": 168,
+      "note": "Original cake JSON has no UV key on 6 body faces. Geometry-derived UV areas exactly match 3 original PNG opaque masks; engine formula and rendered UV orientation unverified."
+    },
+    {
+      "id": "v55-37-texture-paths",
+      "type": "further_PNG_pixel_sampling",
+      "status": "pending",
+      "count": 37,
+      "note": "Not sampled by v54-v55; earlier historical research may include samples."
+    },
+    {
+      "id": "v55-special-renderers",
+      "type": "unknown_geometry",
+      "status": "pending",
+      "models": 14,
+      "note": "13 shulker and skull no confirmed renderer geometry."
+    },
+    {
+      "id": "v55-history",
+      "type": "semantic_reconciliation",
+      "status": "pending",
+      "note": "Historical v1-v54 sources not fully reconciled."
+    },
+    {
+      "id": "v55-runtime",
+      "type": "in_game_renderer",
+      "status": "pending",
+      "note": "Actual face raster, rotation, atlas and light not measured."
+    }
+  ]
+}
