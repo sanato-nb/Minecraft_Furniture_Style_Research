@@ -1,4 +1,7 @@
 # Minecraft Furniture Style Research
+
+> **현재 기준 v42(2026-11-14):** [1-1 지정 11분류·150종 소스 연구 완료](docs/vanilla_texture_1-1/CURRENT_STATUS.md) · [원본 Git tree·연구 근거 독립 재검수](research/vanilla_textures/audits/2026-11-14_v42_scope_verification/REPORT.md). 상위 세부과제 **1/5 완료**. 아래 v38~v41 문장/수치는 **당시 스냅샷**이며 현행 업무 지시가 아님.
+
 > **전체 체크포인트 v42:** [1-1 고정 150종 원본 소스 연구 11/11단계 완료](research/vanilla_textures/integrations/v42_INT-1-1-11steps_150_SOURCE_COMPLETE/REPORT.md). 이전 v41의 목재 0/18은 기록상 완료 계수 미반영 오류였고 근거 감사 후 18/18 정정. 1단계 01 항목 완료, 전체 5개 세부과제 중 1/5; 과거 v39–v41 보고서 원본 보존.
 
 
@@ -6,7 +9,7 @@
 
 
 
-## 최신 기록: v40 바닐라 1-1 정적 근거 통합
+## [과거 v40] 당시 연구 기록: 바닐라 1-1 정적 근거 통합
 
 - [v40 보고서](research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/REPORT.md) · [11개 단계 원장](research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/STAGE_INTEGRATION_LEDGER.csv) · [150개 ID 원장](research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/TEXTURE_150_SCOPE_LEDGER.csv) · [매니페스트](research/vanilla_textures/integrations/v40_INT-1-1-11steps_150/MANIFEST.json).
 - 통합 ID `INT-1-1-20261113-02`, **11단계·150/150 IDs, 제외 없음**. **1-1-02는 요청에 따라 `TEX02-R015` 고정**, 실제 LIVE `TEX02-R017`은 별도. v39 역사적 10단계·133종은 원본 그대로 보존.
@@ -61,7 +64,7 @@
 
 **학습 전체 5개 작업:** 01 바닐라 텍스처(표본 완료/검증 보류), 02 바닐라 3D(진행 중), 03 가구 모드 모델(v11~v12 실측 진행 중), 04 모드 텍스처·UV(PNG 24개 전체 실화소 및 13모델 571면 UV 표본 정렬 측정), 05 바닐라/모드 비교(5쌍 사전 비교, 최종 검증 미착수). 최종 확정 완료는 **0/5**입니다.
 
-## 작업 우선순위 변경 — 애니메이션 보류 (2026-11-13)
+## [과거 지시] 애니메이션 보류 (2026-11-13)
 
 **사용자 최신 작업 지시(2026-11-13): 애니메이션 분석은 일단 보류.** 새로운 애니메이션 프레임 해독, 키프레임·클립 분석, 움직임 재현 및 애니메이션 인게임 검증을 진행하지 않는다. 기존 v9/v26/v31 애니메이션 관련 기록은 삭제하지 않고 보존하되, 새로운 진행도에 포함하지 않는다. 우선순위는 **정적 바닐라 3D 모델·기하·텍스처·UV·블록 상태·정적 렌더링 검증·공식 원본 무결성**이다. 애니메이션 연구는 사용자가 명시적으로 재개를 요청할 때까지 유지 보류.
 
