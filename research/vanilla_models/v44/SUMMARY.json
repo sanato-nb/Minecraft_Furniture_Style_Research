@@ -1,0 +1,76 @@
+{
+  "schema": "vanilla_model_1_2_A1_v44",
+  "date_kst": "2026-11-14",
+  "stage": "1-2-A",
+  "revision": "v44",
+  "source_main_commit": "241ceaad5b0fb832a4bed6ef2292809e70616d51",
+  "source_models_block_tree_sha": "57eb7fbc4d0af0e931a04de94b4b6a766242d36e",
+  "block_model_inventory_entries": 2390,
+  "original_model_tree_entries": 2390,
+  "original_inventory_path_and_sha_mismatches": 0,
+  "P1_candidates": 544,
+  "P1_historical_pre35_SHA_evidence": 83,
+  "P1_v35_direct": 15,
+  "P1_v36_direct": 6,
+  "P1_v38_direct": 7,
+  "P1_v43_direct": 4,
+  "P1_v38_overlapping_prior": 5,
+  "P1_v38_new_unique": 2,
+  "P1_SHA_linked_selected_evidence_unique": 110,
+  "P1_not_linked_in_selected_evidence": 434,
+  "P1_total_deep_geometry_UV_state_completion": "not_determined",
+  "P1_true_overall_completion_pct": null,
+  "pre35_verified_evidence_csv_files": 17,
+  "pre35_v36_source_links_reverified": 144,
+  "new_original_JSON_redecoded_during_v44": 0,
+  "stage1_major_substeps_completed": 1,
+  "stage1_major_substeps_total": 5,
+  "source_inputs": {
+    "queue": {
+      "path": "research/vanilla_models/v34/10_all_2390_future_review_queue_filename_categories.csv",
+      "sha": "a31f32b29e5aa307ed4a18f50c400b5f82935cc7"
+    },
+    "inventory": {
+      "path": "research/vanilla_models/v34/01_inventory_2390_block_model_paths_git_shas.csv",
+      "sha": "cb5771bfe047829aa7f2ca27da7a9e44ebe05da8"
+    },
+    "v35": {
+      "path": "research/vanilla_models/v35/12_p1_544_static_source_review_ledger.csv",
+      "sha": "e87a6c6285e882e38ee3a6933a2d79e2944f11af"
+    },
+    "v36": {
+      "path": "research/vanilla_models/v36/01_p1_544_historical_sha_evidence_crosswalk.csv",
+      "sha": "67f816fcb98b5a758a36853f38897b88058f56bd"
+    },
+    "v36six": {
+      "path": "research/vanilla_models/v36/02_six_furnace_smoker_static_leaf_geometry_sha.csv",
+      "sha": "7dbbb579f3b4c1eed29598fe64128f820e3fa821"
+    },
+    "v38": {
+      "path": "research/vanilla_models/v38/01_oak_shelf_7_leaf_7_template_source_sha_geometry.csv",
+      "sha": "0fe6ded6296c94ed2129835a3f1c61b140f0aaa9"
+    },
+    "v43": {
+      "path": "research/vanilla_models/v43/01_crafter_four_leaf_sha_parent.csv",
+      "sha": "12311d9efcb5faedc8f58e0485127ba6de63998d"
+    },
+    "conflicts": {
+      "path": "research/vanilla_models/v43/04_v36_sha_conflict_path_type_audit.csv",
+      "sha": "a3edce94a89b05f57b1e1af1c6197ca9932969bd"
+    },
+    "v7": {
+      "path": "research/vanilla_models/v7/04_v7_원본경로_해시.csv",
+      "sha": "326ebc7684ef829ff5ff798ef13abc6c363d6c92"
+    },
+    "v43val": {
+      "path": "research/vanilla_models/v43/05_v43_source_validation.json",
+      "sha": "05e84921ce979dd0e766c95271002a342b0e9ae9"
+    }
+  },
+  "notes": [
+    "v36 historical matching records include 84 model rows and 144 references, of which 83 distinct models have pre-v35 tier. One v35 tier model also has a v5-v34 matching entry.",
+    "34 or more other v5-v34 reports/selected evidence may exist; this is an anchored 17 CSV + v35/v36/v38/v43 first-pass and not a full v5-v43 all-artifact audit.",
+    "P1 candidates without matching SHA in selected evidence are not declared never investigated."
+  ],
+  "typed_SHA_conflict_corrections": 2
+}
