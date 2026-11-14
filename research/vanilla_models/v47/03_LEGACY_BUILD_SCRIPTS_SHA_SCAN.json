@@ -1,0 +1,719 @@
+[
+  {
+    "file": "research/vanilla_models/v5/build_v5.py",
+    "sha": "d8dc16688d88de8628eb9c14dccefb80cf5754c8",
+    "lines": 322,
+    "sha_occurrences": 16,
+    "already_linked_exact": 16,
+    "ambiguous_SHA_groups": 1,
+    "unlinked_candidate": [],
+    "exact": [
+      {
+        "line": 31,
+        "sha": "4b0f3db311717ef740c50638ea1d252256310180",
+        "models": [
+          "oak_shelf.json"
+        ],
+        "already_linked": true,
+        "snippet": "add('oak_shelf','template_shelf_body',sha='4b0f3db311717ef740c50638ea1d252256310180',textures={'all':'oak_shelf','particle':'stripped_oak_log'})"
+      },
+      {
+        "line": 32,
+        "sha": "c095a7d7ebf88c0a72dc9131b64e3b4f5963aad8",
+        "models": [
+          "bookshelf.json"
+        ],
+        "already_linked": true,
+        "snippet": "add('bookshelf','cube_column',sha='c095a7d7ebf88c0a72dc9131b64e3b4f5963aad8',textures={'end':'oak_planks','side':'bookshelf'})"
+      },
+      {
+        "line": 33,
+        "sha": "2b9817062fbc51325526c1fd4b72cd8aadb06a30",
+        "models": [
+          "chiseled_bookshelf_empty_slot_top_left.json"
+        ],
+        "already_linked": true,
+        "snippet": "add('chiseled_bookshelf_empty_slot_top_left','template_chiseled_bookshelf_slot_top_left',sha='2b9817062fbc51325526c1fd4b72cd8aadb06a30',textures={'texture':'chiseled_bookshelf_empt"
+      },
+      {
+        "line": 34,
+        "sha": "cff930084d47d226817f274616d14f4b07c0a9d4",
+        "models": [
+          "barrel.json"
+        ],
+        "already_linked": true,
+        "snippet": "add('barrel','cube_bottom_top',sha='cff930084d47d226817f274616d14f4b07c0a9d4',textures={'bottom':'barrel_bottom','side':'barrel_side','top':'barrel_top'})"
+      },
+      {
+        "line": 35,
+        "sha": "aa056b15efba47ef049e029b560029a6b1e3be84",
+        "models": [
+          "crafting_table.json"
+        ],
+        "already_linked": true,
+        "snippet": "add('crafting_table','cube',sha='aa056b15efba47ef049e029b560029a6b1e3be84',textures={'down':'oak_planks','north':'crafting_table_front','up':'crafting_table_top','others':'crafting"
+      },
+      {
+        "line": 36,
+        "sha": "f7bcd3e1f5f740089ded6cc3627b8018e8a55c83",
+        "models": [
+          "smithing_table.json"
+        ],
+        "already_linked": true,
+        "snippet": "add('smithing_table','cube',sha='f7bcd3e1f5f740089ded6cc3627b8018e8a55c83',textures={'down':'smithing_table_bottom','north':'smithing_table_front','up':'smithing_table_top','others"
+      },
+      {
+        "line": 37,
+        "sha": "a504fa96bc3c5c729adaaa015d927b8250a1bd63",
+        "models": [
+          "lectern.json"
+        ],
+        "already_linked": true,
+        "snippet": "add('lectern','block',boxes=[([0,0,0],[16,2,16]),([4,2,4],[12,15,12]),([0.0125,12,3],[15.9875,16,16])],sha='a504fa96bc3c5c729adaaa015d927b8250a1bd63',textures={'base':'lectern_base"
+      },
+      {
+        "line": 38,
+        "sha": "dc9d2555669a31984f3d0e221f778ca170d7f533",
+        "models": [
+          "anvil.json"
+        ],
+        "already_linked": true,
+        "snippet": "add('anvil','template_anvil',sha='dc9d2555669a31984f3d0e221f778ca170d7f533',textures={'top':'anvil_top'})"
+      },
+      {
+        "line": 39,
+        "sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+        "models": [
+          "composter.json"
+        ],
+        "already_linked": true,
+        "snippet": "add('composter','block',boxes=[([0,0,0],[16,2,16]),([0,0,0],[2,16,16]),([14,0,0],[16,16,16]),([2,0,0],[14,16,2]),([2,0,14],[14,16,16])],sha='9650f777a58fe668b42ad8ad6d57a643121f520"
+      },
+      {
+        "line": 45,
+        "sha": "c7d013e7b442624011ab4a0bef8b4e9ac5570ea9",
+        "models": [
+          "barrel_open.json"
+        ],
+        "already_linked": true,
+        "snippet": "add('barrel_open','cube_bottom_top',sha='c7d013e7b442624011ab4a0bef8b4e9ac5570ea9',textures={'top':'barrel_top_open'})"
+      },
+      {
+        "line": 49,
+        "sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+        "models": [
+          "banner.json",
+          "bed.json",
+          "chest.json",
+          "oak_sign.json",
+          "trapped_chest.json"
+        ],
+        "already_linked": true,
+        "snippet": "    add(n,None,sha='9406a8491ed2532d4878b0a91b16a0e5f8d93d80',textures={'particle':'oak_planks'})"
+      },
+      {
+        "line": 50,
+        "sha": "45c7a75b1e69ce35bf3bc76d794e1a922deccf53",
+        "models": [
+          "flower_pot.json"
+        ],
+        "already_linked": true,
+        "snippet": "add('flower_pot',None,boxes=[([5,0,5],[6,6,11]),([10,0,5],[11,6,11]),([6,0,5],[10,6,6]),([6,0,10],[10,6,11]),([6,0,6],[10,4,10])],sha='45c7a75b1e69ce35bf3bc76d794e1a922deccf53',tex"
+      },
+      {
+        "line": 65,
+        "sha": "2f258411f5a049fcd96f274e1253fb9acdaa570d",
+        "models": [
+          "template_shelf_body.json"
+        ],
+        "already_linked": true,
+        "snippet": "tmpl('template_shelf_body','block',[([0,0,13],[16,16,16]),([0,0,11],[16,4,13]),([0,12,11],[16,16,13])],sha='2f258411f5a049fcd96f274e1253fb9acdaa570d')"
+      },
+      {
+        "line": 69,
+        "sha": "da9fc59136a95d14a3fbe5eb363564b8fa45bf36",
+        "models": [
+          "template_chiseled_bookshelf_slot_top_left.json"
+        ],
+        "already_linked": true,
+        "snippet": "tmpl('template_chiseled_bookshelf_slot_top_left',None,[([10,8,0],[16,16,0])],sha='da9fc59136a95d14a3fbe5eb363564b8fa45bf36')"
+      },
+      {
+        "line": 70,
+        "sha": "47a37763cc372fa5ad9f0f43719e246d6a5b16df",
+        "models": [
+          "template_anvil.json"
+        ],
+        "already_linked": true,
+        "snippet": "tmpl('template_anvil','block',[([2,0,2],[14,4,14]),([4,4,3],[12,5,13]),([6,5,4],[10,10,12]),([3,10,0],[13,16,16])],sha='47a37763cc372fa5ad9f0f43719e246d6a5b16df')"
+      },
+      {
+        "line": 80,
+        "sha": "ad5b6a3fc7c2256e2cab8f18a46a82e085511cec",
+        "models": [
+          "template_shelf_unpowered.json"
+        ],
+        "already_linked": true,
+        "snippet": "tmpl('template_shelf_unpowered','block',[([0,4,13],[16,12,13])],sha='ad5b6a3fc7c2256e2cab8f18a46a82e085511cec')"
+      }
+    ],
+    "namedSample": [
+      {
+        "line": 132,
+        "text": "    url=f'{GITHUB}/models/block/{n}.json'"
+      },
+      {
+        "line": 134,
+        "text": "    sources.append(dict(path=f'assets/minecraft/models/block/{n}.json',github_blob_sha1=v['sha'],source_url=url,source_type='model',read_status='GitHub_connector_read_202"
+      }
+    ]
+  },
+  {
+    "file": "research/vanilla_models/v6/build_v6.py",
+    "sha": "821fca1331ad0f175f7809ba64be07780e5d7380",
+    "lines": 387,
+    "sha_occurrences": 13,
+    "already_linked_exact": 13,
+    "ambiguous_SHA_groups": 0,
+    "unlinked_candidate": [],
+    "exact": [
+      {
+        "line": 21,
+        "sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+        "models": [
+          "cauldron.json"
+        ],
+        "already_linked": true,
+        "snippet": " ('cauldron',None,13,'788da3e1449187f15d820c0172f33b80f39620ca','direct','empty vessel with side walls, bottom and feet'),"
+      },
+      {
+        "line": 22,
+        "sha": "cc5e0f1f985fb58e381d8b2dd8c9fc1b8aef1532",
+        "models": [
+          "grindstone.json"
+        ],
+        "already_linked": true,
+        "snippet": " ('grindstone','block',5,'cc5e0f1f985fb58e381d8b2dd8c9fc1b8aef1532','direct','stone body and two paired supports'),"
+      },
+      {
+        "line": 23,
+        "sha": "b89f0aaa1647332191fd685fd55633dbc8a879cb",
+        "models": [
+          "stonecutter.json"
+        ],
+        "already_linked": true,
+        "snippet": " ('stonecutter','block',2,'b89f0aaa1647332191fd685fd55633dbc8a879cb','direct','base plus zero-depth saw face'),"
+      },
+      {
+        "line": 24,
+        "sha": "12970adc81a3bd51666060e8312b7ef4cf476930",
+        "models": [
+          "lantern.json"
+        ],
+        "already_linked": true,
+        "snippet": " ('lantern','template_lantern',4,'12970adc81a3bd51666060e8312b7ef4cf476930','inherited','crossed, rotated decorative planes'),"
+      },
+      {
+        "line": 25,
+        "sha": "d047dcd004fa2d3bb374ae2c7f490587456b42b1",
+        "models": [
+          "lantern_hanging.json"
+        ],
+        "already_linked": true,
+        "snippet": " ('lantern_hanging','template_hanging_lantern',4,'d047dcd004fa2d3bb374ae2c7f490587456b42b1','inherited','hanging variant'),"
+      },
+      {
+        "line": 26,
+        "sha": "aeb57d0b7929e2df4e2c2b47dc0ce571fd53de97",
+        "models": [
+          "end_rod.json"
+        ],
+        "already_linked": true,
+        "snippet": " ('end_rod','block',2,'aeb57d0b7929e2df4e2c2b47dc0ce571fd53de97','direct','slender light rod'),"
+      },
+      {
+        "line": 27,
+        "sha": "7c6241d04d44dbaffcc87592470cbff2f82c0c8c",
+        "models": [
+          "torch.json"
+        ],
+        "already_linked": true,
+        "snippet": " ('torch','template_torch',1,'7c6241d04d44dbaffcc87592470cbff2f82c0c8c','inherited','small upright flame support'),"
+      },
+      {
+        "line": 28,
+        "sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+        "models": [
+          "hopper.json"
+        ],
+        "already_linked": true,
+        "snippet": " ('hopper',None,7,'ce9eb542c6ee3bd0a449183048fa5b6c090af550','direct','open container and downward spout'),"
+      },
+      {
+        "line": 29,
+        "sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+        "models": [
+          "hopper_side.json"
+        ],
+        "already_linked": true,
+        "snippet": " ('hopper_side',None,7,'28d3dc65b758afdaf9eed61ba964b6575c5e8c8e','direct','open container and sideways spout'),"
+      },
+      {
+        "line": 30,
+        "sha": "d54baf8db9aa52c0d828cb6047ea5aec21b8b341",
+        "models": [
+          "template_lantern.json"
+        ],
+        "already_linked": true,
+        "snippet": " ('template_lantern','block',4,'d54baf8db9aa52c0d828cb6047ea5aec21b8b341','direct','two cuboids plus two rotated planes'),"
+      },
+      {
+        "line": 31,
+        "sha": "fb7ebb4d64e33bc0ab18aa568e273987a7c1cc9b",
+        "models": [
+          "template_hanging_lantern.json"
+        ],
+        "already_linked": true,
+        "snippet": " ('template_hanging_lantern','block',4,'fb7ebb4d64e33bc0ab18aa568e273987a7c1cc9b','direct','hanging lantern cuboids/planes'),"
+      },
+      {
+        "line": 32,
+        "sha": "21ed11386517038d77683dcbec4f150e339d84c1",
+        "models": [
+          "template_torch.json"
+        ],
+        "already_linked": true,
+        "snippet": " ('template_torch',None,1,'21ed11386517038d77683dcbec4f150e339d84c1','direct','2x10x2 cuboid'),"
+      },
+      {
+        "line": 33,
+        "sha": "0d536cc45ac2bc311ff1b1fc44651dbc43492c47",
+        "models": [
+          "oak_shelf_unpowered.json"
+        ],
+        "already_linked": true,
+        "snippet": " ('oak_shelf_unpowered','template_shelf_unpowered',1,'0d536cc45ac2bc311ff1b1fc44651dbc43492c47','inherited','one state-dependent shelf face'),"
+      }
+    ],
+    "namedSample": [
+      {
+        "line": 69,
+        "text": "  (n,p,num,sha,kind,repo+'/models/block/'+n+'.json',note))"
+      },
+      {
+        "line": 71,
+        "text": "  ('assets/minecraft/models/block/'+n+'.json',sha,repo+'/models/block/'+n+'.json','model','GitHub_connector_read_2026-11-11'))"
+      },
+      {
+        "line": 119,
+        "text": "  rows.append((src,i,face,json.dumps(uv),tex,rot,cull,repo+'/models/block/'+src+'.json','source_JSON_face_directly_read'))"
+      },
+      {
+        "line": 272,
+        "text": "| 정육면체 | `cube`는 부피 16×16×16, 6면의 `uv` 값을 생략하고 면별 텍스처 변수 사용 | `models/block/cube.json` |"
+      },
+      {
+        "line": 273,
+        "text": "| 계단 | `stairs`는 2개 직육면체, 정면 상·하 UV가 분리되어 서로 다른 범위를 사용 | `models/block/stairs.json` |"
+      },
+      {
+        "line": 274,
+        "text": "| 다락문 | `template_trapdoor_bottom`는 16×3×16, 상면 UV 16×16 범위와 측면 UV 16×3 범위를 별도 적용 | `models/block/template_trapdoor_bottom.json` |"
+      },
+      {
+        "line": 275,
+        "text": "| 선반 | `template_shelf_body`는 3개 요소, 같은 `#all` 텍스처를 15개 면별로 다른 UV 범위에 배치 | `models/block/template_shelf_body.json` |"
+      },
+      {
+        "line": 276,
+        "text": "| 독서대 | `lectern`은 3개 요소, 상단 로컬 회전 −22.5°, 일부 면 UV 회전 90°/180° | `models/block/lectern.json` |"
+      },
+      {
+        "line": 277,
+        "text": "| 사다리 | `ladder`는 Z=15.2의 0-두께 양면, 반대쪽 UV 가로 방향이 뒤집혀 있음 | `models/block/ladder.json` |"
+      },
+      {
+        "line": 278,
+        "text": "| 모루 | `template_anvil`는 상부 요소 `#top`, 측면은 `#body` 사용. 일부 면은 UV 90/270° 회전 | `models/block/template_anvil.json` |"
+      },
+      {
+        "line": 279,
+        "text": "| 화분 | 내부 바닥은 `#dirt`, 외부 테두리는 `#flowerpot`: 재질을 부품/면별 구분 | `models/block/flower_pot.json` |"
+      }
+    ]
+  },
+  {
+    "file": "research/vanilla_models/v7/build_v7.py",
+    "sha": "719ab145ff82af7d3aa39fe09499337af6ffa2ca",
+    "lines": 373,
+    "sha_occurrences": 15,
+    "already_linked_exact": 15,
+    "ambiguous_SHA_groups": 0,
+    "unlinked_candidate": [],
+    "exact": [
+      {
+        "line": 65,
+        "sha": "f7e0246635a353d0e16784ad1445a4c8e6685e2a",
+        "models": [
+          "oak_shelf_unconnected.json"
+        ],
+        "already_linked": true,
+        "snippet": "'oak_shelf_unconnected':('template_shelf_unconnected','f7e0246635a353d0e16784ad1445a4c8e6685e2a'),"
+      },
+      {
+        "line": 66,
+        "sha": "f93de7bab0f31486dc88528dd30f9991d06c1c66",
+        "models": [
+          "oak_shelf_left.json"
+        ],
+        "already_linked": true,
+        "snippet": "'oak_shelf_left':('template_shelf_left','f93de7bab0f31486dc88528dd30f9991d06c1c66'),"
+      },
+      {
+        "line": 67,
+        "sha": "81892d5c8594124365625adfcffe321d4b9403f1",
+        "models": [
+          "oak_shelf_center.json"
+        ],
+        "already_linked": true,
+        "snippet": "'oak_shelf_center':('template_shelf_center','81892d5c8594124365625adfcffe321d4b9403f1'),"
+      },
+      {
+        "line": 69,
+        "sha": "3b82ae61468d0c2c15ea475a55a6e7b0d25864d2",
+        "models": [
+          "template_shelf_unconnected.json"
+        ],
+        "already_linked": true,
+        "snippet": "'template_shelf_unconnected':('','3b82ae61468d0c2c15ea475a55a6e7b0d25864d2'),"
+      },
+      {
+        "line": 71,
+        "sha": "20b1449c2607d2f79c32b10d9a493b6b9cf8238b",
+        "models": [
+          "template_shelf_center.json"
+        ],
+        "already_linked": true,
+        "snippet": "'template_shelf_center':('','20b1449c2607d2f79c32b10d9a493b6b9cf8238b'),"
+      },
+      {
+        "line": 72,
+        "sha": "5e58b7f2c9c4a6ded052b3854a216de89b249201",
+        "models": [
+          "template_shelf_right.json"
+        ],
+        "already_linked": true,
+        "snippet": "'template_shelf_right':('','5e58b7f2c9c4a6ded052b3854a216de89b249201'),"
+      },
+      {
+        "line": 73,
+        "sha": "a9bda72e10095343fb80de2bc4654212a1dc6834",
+        "models": [
+          "chiseled_bookshelf.json"
+        ],
+        "already_linked": true,
+        "snippet": "'chiseled_bookshelf':('','a9bda72e10095343fb80de2bc4654212a1dc6834'),"
+      },
+      {
+        "line": 74,
+        "sha": "85331c01dedeb9d94a1dde20212e93705acdead1",
+        "models": [
+          "chiseled_bookshelf_occupied_slot_top_left.json"
+        ],
+        "already_linked": true,
+        "snippet": "'chiseled_bookshelf_occupied_slot_top_left':('template_chiseled_bookshelf_slot_top_left','85331c01dedeb9d94a1dde20212e93705acdead1'),"
+      },
+      {
+        "line": 75,
+        "sha": "19f44bc16e3f638acc0c79990bd80b4d3a0e8204",
+        "models": [
+          "chiseled_bookshelf_empty_slot_top_mid.json"
+        ],
+        "already_linked": true,
+        "snippet": "'chiseled_bookshelf_empty_slot_top_mid':('template_chiseled_bookshelf_slot_top_mid','19f44bc16e3f638acc0c79990bd80b4d3a0e8204'),"
+      },
+      {
+        "line": 76,
+        "sha": "da9fc59136a95d14a3fbe5eb363564b8fa45bf36",
+        "models": [
+          "template_chiseled_bookshelf_slot_top_left.json"
+        ],
+        "already_linked": true,
+        "snippet": "'template_chiseled_bookshelf_slot_top_left':('','da9fc59136a95d14a3fbe5eb363564b8fa45bf36'),"
+      },
+      {
+        "line": 77,
+        "sha": "25cc8308d67d6223d455f6fca170a936208139fa",
+        "models": [
+          "template_chiseled_bookshelf_slot_top_mid.json"
+        ],
+        "already_linked": true,
+        "snippet": "'template_chiseled_bookshelf_slot_top_mid':('','25cc8308d67d6223d455f6fca170a936208139fa'),"
+      },
+      {
+        "line": 78,
+        "sha": "077f1276e833d2d58f6e86ae590bfd3899717c91",
+        "models": [
+          "template_chiseled_bookshelf_slot_top_right.json"
+        ],
+        "already_linked": true,
+        "snippet": "'template_chiseled_bookshelf_slot_top_right':('','077f1276e833d2d58f6e86ae590bfd3899717c91'),"
+      },
+      {
+        "line": 79,
+        "sha": "f224a1e88c819aa824c4cbe871f2b13a158a15ef",
+        "models": [
+          "template_chiseled_bookshelf_slot_bottom_left.json"
+        ],
+        "already_linked": true,
+        "snippet": "'template_chiseled_bookshelf_slot_bottom_left':('','f224a1e88c819aa824c4cbe871f2b13a158a15ef'),"
+      },
+      {
+        "line": 80,
+        "sha": "a1c54d921e6568eea038e0eac82d6bcaf136eff1",
+        "models": [
+          "template_chiseled_bookshelf_slot_bottom_mid.json"
+        ],
+        "already_linked": true,
+        "snippet": "'template_chiseled_bookshelf_slot_bottom_mid':('','a1c54d921e6568eea038e0eac82d6bcaf136eff1'),"
+      },
+      {
+        "line": 81,
+        "sha": "5acdabdfa5ed0815ad7c0c588f19cea8dd5e8644",
+        "models": [
+          "template_chiseled_bookshelf_slot_bottom_right.json"
+        ],
+        "already_linked": true,
+        "snippet": "'template_chiseled_bookshelf_slot_bottom_right':('','5acdabdfa5ed0815ad7c0c588f19cea8dd5e8644'),"
+      }
+    ],
+    "namedSample": [
+      {
+        "line": 207,
+        "text": "  p=f'assets/minecraft/models/block/{n}.json';url=REPO+f'models/block/{n}.json'"
+      },
+      {
+        "line": 213,
+        "text": "   row=con.execute('SELECT github_blob_sha1 FROM sources WHERE path=?',(f'assets/minecraft/models/block/{n}.json',)).fetchone()"
+      }
+    ]
+  },
+  {
+    "file": "research/vanilla_models/v8/build_v8.py",
+    "sha": "9e03d94ddb1e79fbce1d50c7f084dbc48578ec40",
+    "lines": 318,
+    "sha_occurrences": 17,
+    "already_linked_exact": 17,
+    "ambiguous_SHA_groups": 5,
+    "unlinked_candidate": [],
+    "exact": [
+      {
+        "line": 31,
+        "sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+        "models": [
+          "banner.json",
+          "bed.json",
+          "chest.json",
+          "oak_sign.json",
+          "trapped_chest.json"
+        ],
+        "already_linked": true,
+        "snippet": "('red_bed','SPECIAL','6577c90a27efb34a7099150253c0bf557d75214c','bed','9406a8491ed2532d4878b0a91b16a0e5f8d93d80','',0,'beds','BedBlockEntityRenderer','침대 HEAD/FOOT의 실제 3D 외형은 BER; "
+      },
+      {
+        "line": 32,
+        "sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+        "models": [
+          "banner.json",
+          "bed.json",
+          "chest.json",
+          "oak_sign.json",
+          "trapped_chest.json"
+        ],
+        "already_linked": true,
+        "snippet": "('chest','SPECIAL','f78fa579cec93e6b0ce9ed44d7115bd125f57ee9','chest','9406a8491ed2532d4878b0a91b16a0e5f8d93d80','',0,'chests','ChestBlockEntityRenderer','닫히거나 열리는 뚜껑, 단일/이중 상자 모델은"
+      },
+      {
+        "line": 33,
+        "sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+        "models": [
+          "banner.json",
+          "bed.json",
+          "chest.json",
+          "oak_sign.json",
+          "trapped_chest.json"
+        ],
+        "already_linked": true,
+        "snippet": "('trapped_chest','SPECIAL','fd8d40b1972deddf609b991f851b71a35d5c3798','trapped_chest','9406a8491ed2532d4878b0a91b16a0e5f8d93d80','',0,'chests','ChestBlockEntityRenderer','비슷한 소유의 J"
+      },
+      {
+        "line": 34,
+        "sha": "ae6b33b2d0c399283351c2c97270e21ae4f7c6bb",
+        "models": [
+          "ender_chest.json"
+        ],
+        "already_linked": true,
+        "snippet": "('ender_chest','SPECIAL','8656aed71d3f2e90e6fde221cc0bbba74e823e01','ender_chest','ae6b33b2d0c399283351c2c97270e21ae4f7c6bb','',0,'chests','ChestBlockEntityRenderer','흑요석 파티클 정의와 실"
+      },
+      {
+        "line": 35,
+        "sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+        "models": [
+          "banner.json",
+          "bed.json",
+          "chest.json",
+          "oak_sign.json",
+          "trapped_chest.json"
+        ],
+        "already_linked": true,
+        "snippet": "('oak_sign','SPECIAL','b9f38f4f7f38680ed0656ce1d62f5d076bf24559','oak_sign','9406a8491ed2532d4878b0a91b16a0e5f8d93d80','',0,'signs','SignBlockEntityRenderer','JSON 파티클 정의만 있고 나무 표지"
+      },
+      {
+        "line": 36,
+        "sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+        "models": [
+          "banner.json",
+          "bed.json",
+          "chest.json",
+          "oak_sign.json",
+          "trapped_chest.json"
+        ],
+        "already_linked": true,
+        "snippet": "('oak_wall_sign','SPECIAL','b9f38f4f7f38680ed0656ce1d62f5d076bf24559','oak_sign','9406a8491ed2532d4878b0a91b16a0e5f8d93d80','',0,'signs','SignBlockEntityRenderer','벽 부착 표지판; JSON 모"
+      },
+      {
+        "line": 37,
+        "sha": "97f5acc2ba44bfd146fd1a8cfe1090d139a26074",
+        "models": [
+          "oak_hanging_sign.json"
+        ],
+        "already_linked": true,
+        "snippet": "('oak_hanging_sign','SPECIAL','b2c43dc30565df7450e5d82b9a1613ea1a8f325d','oak_hanging_sign','97f5acc2ba44bfd146fd1a8cfe1090d139a26074','',0,'signs','HangingSignBlockEntityRenderer'"
+      },
+      {
+        "line": 38,
+        "sha": "97f5acc2ba44bfd146fd1a8cfe1090d139a26074",
+        "models": [
+          "oak_hanging_sign.json"
+        ],
+        "already_linked": true,
+        "snippet": "('oak_wall_hanging_sign','SPECIAL','b2c43dc30565df7450e5d82b9a1613ea1a8f325d','oak_hanging_sign','97f5acc2ba44bfd146fd1a8cfe1090d139a26074','',0,'signs','HangingSignBlockEntityRend"
+      },
+      {
+        "line": 39,
+        "sha": "7eb23421c9ccaf37874b279d17361706b2aa713d",
+        "models": [
+          "shulker_box.json"
+        ],
+        "already_linked": true,
+        "snippet": "('shulker_box','SPECIAL','7248d53eae4b7699c076f04feee66d4054121b9a','shulker_box','7eb23421c9ccaf37874b279d17361706b2aa713d','',0,'shulker_boxes','ShulkerBoxBlockEntityRenderer','상"
+      },
+      {
+        "line": 40,
+        "sha": "3a9a58d33499a009e02f6c3d4dd712df0413798a",
+        "models": [
+          "white_shulker_box.json"
+        ],
+        "already_linked": true,
+        "snippet": "('white_shulker_box','SPECIAL','36973a4db98e49bffeb7ce35b3301a8637c3d838','white_shulker_box','3a9a58d33499a009e02f6c3d4dd712df0413798a','',0,'shulker_boxes','ShulkerBoxBlockEntity"
+      },
+      {
+        "line": 41,
+        "sha": "1456e72d8c368d6bacdc16f172dc2771784fa422",
+        "models": [
+          "decorated_pot.json"
+        ],
+        "already_linked": true,
+        "snippet": "('decorated_pot','SPECIAL','2aa0faf7bb6157870c9d09cb29f52ea1adf72f6a','decorated_pot','1456e72d8c368d6bacdc16f172dc2771784fa422','',0,'decorated_pot','DecoratedPotBlockEntityRender"
+      },
+      {
+        "line": 42,
+        "sha": "404ca9a3d28f77362a5597a4b0f0c2deaba6987c",
+        "models": [
+          "enchanting_table.json"
+        ],
+        "already_linked": true,
+        "snippet": "('enchanting_table','HYBRID','85aeab36af37efcca94f64c3b23aa9d5eb6266e0','enchanting_table','404ca9a3d28f77362a5597a4b0f0c2deaba6987c','block/block',1,'blocks','EnchantingTableBlock"
+      },
+      {
+        "line": 43,
+        "sha": "a504fa96bc3c5c729adaaa015d927b8250a1bd63",
+        "models": [
+          "lectern.json"
+        ],
+        "already_linked": true,
+        "snippet": "('lectern','HYBRID','b6ec88be8a3c38277d976d9214502aeb908d2a74','lectern','a504fa96bc3c5c729adaaa015d927b8250a1bd63','block/block',3,'blocks','LecternBlockEntityRenderer','독서대 본체 3요"
+      },
+      {
+        "line": 44,
+        "sha": "4b0f3db311717ef740c50638ea1d252256310180",
+        "models": [
+          "oak_shelf.json"
+        ],
+        "already_linked": true,
+        "snippet": "('oak_shelf','HYBRID','404c901695218478e0bc1df86b4c66538d118f56','oak_shelf','4b0f3db311717ef740c50638ea1d252256310180','minecraft:block/template_shelf_body',3,'blocks','ShelfBlock"
+      },
+      {
+        "line": 45,
+        "sha": "c2abfcbd5859121bf7c901822509b8c642ca9c14",
+        "models": [
+          "bell_floor.json"
+        ],
+        "already_linked": true,
+        "snippet": "('bell','HYBRID','2af4b5dd2f1160d144385efe1df86d4f6f35b680','bell_floor','c2abfcbd5859121bf7c901822509b8c642ca9c14','',3,'blocks','BellBlockEntityRenderer','종의 설치 받침은 JSON, 종 몸체 움직"
+      },
+      {
+        "line": 46,
+        "sha": "cff930084d47d226817f274616d14f4b07c0a9d4",
+        "models": [
+          "barrel.json"
+        ],
+        "already_linked": true,
+        "snippet": "('barrel','JSON_ONLY','3ed4f4061207cfaa7860fbc67a6697d701ca22cb','barrel','cff930084d47d226817f274616d14f4b07c0a9d4','minecraft:block/cube_bottom_top',1,'blocks','','데이터를 저장하는 블록 엔"
+      },
+      {
+        "line": 47,
+        "sha": "a9bda72e10095343fb80de2bc4654212a1dc6834",
+        "models": [
+          "chiseled_bookshelf.json"
+        ],
+        "already_linked": true,
+        "snippet": "('chiseled_bookshelf','JSON_ONLY','0c9b22b91093c4dfe3510a9a6aebe291df491e39','chiseled_bookshelf','a9bda72e10095343fb80de2bc4654212a1dc6834','block/block',1,'blocks','','본체 1요소 + 6"
+      }
+    ],
+    "namedSample": [
+      {
+        "line": 120,
+        "text": "    bsp=f'{P}blockstates/{block}.json';mp=f'{P}models/block/{model}.json'"
+      },
+      {
+        "line": 133,
+        "text": " ['models/block/bed.json','models/block/chest.json','models/block/oak_sign.json','atlases/beds.json','atlases/chests.json','atlases/signs.json'], 'BER 소스 코드를 직접 디컴파일하거나 인"
+      },
+      {
+        "line": 135,
+        "text": " ['models/block/enchanting_table.json','models/block/lectern.json','models/block/oak_shelf.json','models/block/bell_floor.json'], '책·물품의 실제 프레임별 변환을 계산하지 않았다.','A/B'),"
+      },
+      {
+        "line": 137,
+        "text": " ['models/block/barrel.json','models/block/chiseled_bookshelf.json','blockstates/chiseled_bookshelf.json'], '확인된 두 대상에 한정하며 전체 블록의 전수판정이 아니다.','A'),"
+      },
+      {
+        "line": 143,
+        "text": " ['models/block/bed.json','models/block/oak_sign.json','atlases/beds.json','atlases/signs.json'], '26.2 부분은 공식 릴리스 노트에 근거한다. 26.2 실제 JSON 파일은 본 연구에서 열지 않았다.','A/B'),"
+      },
+      {
+        "line": 145,
+        "text": " ['models/block/lectern.json','models/block/oak_shelf.json','atlases/blocks.json'], '이 문장은 연구 방향을 위한 해석으로 최종 제작 규칙이 아니다.','Inference')]"
+      },
+      {
+        "line": 167,
+        "text": " [[b,k,f'{P}blockstates/{b}.json',s,f'{P}models/block/{m}.json',sh,c,at,rd,CLASS_DOCS.get(rd,''),d,BRANCH,link(f'{P}models/block/{m}.json')] for (b,k,s,m,sh,pa,c,at,rd,d)"
+      },
+      {
+        "line": 194,
+        "text": "블록 상태 정의가 모델 JSON을 가리키더라도, `models/block/bed.json`, `models/block/chest.json`, `models/block/oak_sign.json` 등은 `textures.particle`만 있고 `elements`가 없다. 따라서 이 JSON으로 계산된 직육"
+      }
+    ]
+  }
+]

@@ -1,0 +1,1102 @@
+{
+  "kind": "bamboo_shelf_original_multipart_source_and_derived_static_states",
+  "original_asset_type": "blockstate_json",
+  "original_path": "1.21.11/assets/minecraft/blockstates/bamboo_shelf.json",
+  "original_sha": "c92ee3ed74adbe7bf2e3b4c278998ceb1b74e336",
+  "source_rule_count": 24,
+  "source_uvlock_key_presence_count": 0,
+  "source_rules": [
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_unpowered"
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "north"
+          },
+          {
+            "powered": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_unpowered",
+        "y": 90
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "east"
+          },
+          {
+            "powered": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_unpowered",
+        "y": 180
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "south"
+          },
+          {
+            "powered": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_unpowered",
+        "y": 270
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "west"
+          },
+          {
+            "powered": "false"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_unconnected"
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "north"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "unconnected"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_unconnected",
+        "y": 90
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "east"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "unconnected"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_unconnected",
+        "y": 180
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "south"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "unconnected"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_unconnected",
+        "y": 270
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "west"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "unconnected"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_left"
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "north"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "left"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_left",
+        "y": 90
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "east"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "left"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_left",
+        "y": 180
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "south"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "left"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_left",
+        "y": 270
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "west"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "left"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_center"
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "north"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "center"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_center",
+        "y": 90
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "east"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "center"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_center",
+        "y": 180
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "south"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "center"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_center",
+        "y": 270
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "west"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "center"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_right"
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "north"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "right"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_right",
+        "y": 90
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "east"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "right"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_right",
+        "y": 180
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "south"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "right"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "minecraft:block/bamboo_shelf_right",
+        "y": 270
+      },
+      "when": {
+        "AND": [
+          {
+            "facing": "west"
+          },
+          {
+            "powered": "true"
+          },
+          {
+            "side_chain": "right"
+          }
+        ]
+      }
+    }
+  ],
+  "derived_state_combinations": 32,
+  "derived_model_application_count": 64,
+  "derived_states": [
+    {
+      "state": {
+        "facing": "north",
+        "powered": "false",
+        "side_chain": "unconnected"
+      },
+      "matched_rule_indices": [
+        0,
+        4
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf"
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unpowered"
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "north",
+        "powered": "false",
+        "side_chain": "left"
+      },
+      "matched_rule_indices": [
+        0,
+        4
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf"
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unpowered"
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "north",
+        "powered": "false",
+        "side_chain": "center"
+      },
+      "matched_rule_indices": [
+        0,
+        4
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf"
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unpowered"
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "north",
+        "powered": "false",
+        "side_chain": "right"
+      },
+      "matched_rule_indices": [
+        0,
+        4
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf"
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unpowered"
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "north",
+        "powered": "true",
+        "side_chain": "unconnected"
+      },
+      "matched_rule_indices": [
+        0,
+        8
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf"
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unconnected"
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "north",
+        "powered": "true",
+        "side_chain": "left"
+      },
+      "matched_rule_indices": [
+        0,
+        12
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf"
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_left"
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "north",
+        "powered": "true",
+        "side_chain": "center"
+      },
+      "matched_rule_indices": [
+        0,
+        16
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf"
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_center"
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "north",
+        "powered": "true",
+        "side_chain": "right"
+      },
+      "matched_rule_indices": [
+        0,
+        20
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf"
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_right"
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "east",
+        "powered": "false",
+        "side_chain": "unconnected"
+      },
+      "matched_rule_indices": [
+        1,
+        5
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 90
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unpowered",
+          "y": 90
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "east",
+        "powered": "false",
+        "side_chain": "left"
+      },
+      "matched_rule_indices": [
+        1,
+        5
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 90
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unpowered",
+          "y": 90
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "east",
+        "powered": "false",
+        "side_chain": "center"
+      },
+      "matched_rule_indices": [
+        1,
+        5
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 90
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unpowered",
+          "y": 90
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "east",
+        "powered": "false",
+        "side_chain": "right"
+      },
+      "matched_rule_indices": [
+        1,
+        5
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 90
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unpowered",
+          "y": 90
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "east",
+        "powered": "true",
+        "side_chain": "unconnected"
+      },
+      "matched_rule_indices": [
+        1,
+        9
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 90
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unconnected",
+          "y": 90
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "east",
+        "powered": "true",
+        "side_chain": "left"
+      },
+      "matched_rule_indices": [
+        1,
+        13
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 90
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_left",
+          "y": 90
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "east",
+        "powered": "true",
+        "side_chain": "center"
+      },
+      "matched_rule_indices": [
+        1,
+        17
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 90
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_center",
+          "y": 90
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "east",
+        "powered": "true",
+        "side_chain": "right"
+      },
+      "matched_rule_indices": [
+        1,
+        21
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 90
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_right",
+          "y": 90
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "south",
+        "powered": "false",
+        "side_chain": "unconnected"
+      },
+      "matched_rule_indices": [
+        2,
+        6
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 180
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unpowered",
+          "y": 180
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "south",
+        "powered": "false",
+        "side_chain": "left"
+      },
+      "matched_rule_indices": [
+        2,
+        6
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 180
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unpowered",
+          "y": 180
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "south",
+        "powered": "false",
+        "side_chain": "center"
+      },
+      "matched_rule_indices": [
+        2,
+        6
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 180
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unpowered",
+          "y": 180
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "south",
+        "powered": "false",
+        "side_chain": "right"
+      },
+      "matched_rule_indices": [
+        2,
+        6
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 180
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unpowered",
+          "y": 180
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "south",
+        "powered": "true",
+        "side_chain": "unconnected"
+      },
+      "matched_rule_indices": [
+        2,
+        10
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 180
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unconnected",
+          "y": 180
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "south",
+        "powered": "true",
+        "side_chain": "left"
+      },
+      "matched_rule_indices": [
+        2,
+        14
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 180
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_left",
+          "y": 180
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "south",
+        "powered": "true",
+        "side_chain": "center"
+      },
+      "matched_rule_indices": [
+        2,
+        18
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 180
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_center",
+          "y": 180
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "south",
+        "powered": "true",
+        "side_chain": "right"
+      },
+      "matched_rule_indices": [
+        2,
+        22
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 180
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_right",
+          "y": 180
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "west",
+        "powered": "false",
+        "side_chain": "unconnected"
+      },
+      "matched_rule_indices": [
+        3,
+        7
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 270
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unpowered",
+          "y": 270
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "west",
+        "powered": "false",
+        "side_chain": "left"
+      },
+      "matched_rule_indices": [
+        3,
+        7
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 270
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unpowered",
+          "y": 270
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "west",
+        "powered": "false",
+        "side_chain": "center"
+      },
+      "matched_rule_indices": [
+        3,
+        7
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 270
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unpowered",
+          "y": 270
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "west",
+        "powered": "false",
+        "side_chain": "right"
+      },
+      "matched_rule_indices": [
+        3,
+        7
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 270
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unpowered",
+          "y": 270
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "west",
+        "powered": "true",
+        "side_chain": "unconnected"
+      },
+      "matched_rule_indices": [
+        3,
+        11
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 270
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_unconnected",
+          "y": 270
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "west",
+        "powered": "true",
+        "side_chain": "left"
+      },
+      "matched_rule_indices": [
+        3,
+        15
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 270
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_left",
+          "y": 270
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "west",
+        "powered": "true",
+        "side_chain": "center"
+      },
+      "matched_rule_indices": [
+        3,
+        19
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 270
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_center",
+          "y": 270
+        }
+      ],
+      "derived": true
+    },
+    {
+      "state": {
+        "facing": "west",
+        "powered": "true",
+        "side_chain": "right"
+      },
+      "matched_rule_indices": [
+        3,
+        23
+      ],
+      "applies": [
+        {
+          "model": "minecraft:block/bamboo_shelf",
+          "y": 270
+        },
+        {
+          "model": "minecraft:block/bamboo_shelf_right",
+          "y": 270
+        }
+      ],
+      "derived": true
+    }
+  ],
+  "render_engine_authenticated": false,
+  "prior_v38_same_family_template_geometry_reused": true
+}
