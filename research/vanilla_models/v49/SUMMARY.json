@@ -1,0 +1,97 @@
+{
+  "schema": "Minecraft_Furniture_Style_Research/vanilla_models_1-2-A/v49",
+  "research_date_kst": "2026-11-14",
+  "revision": "v49",
+  "base_main_commit": "3dbf1c4b1e5ce27225a0643c9d36687a50ae223a",
+  "game": "Minecraft Java Edition 1.21.11 user-extracted tree",
+  "stage": "1-2-A ongoing; direct source observations supporting 1-2-B,C,D",
+  "P1": {
+    "total_model_source_paths": 544,
+    "v48_typed_path_SHA_linked": 171,
+    "v49_newly_linked_model_paths": 59,
+    "v49_recovered_prior_v47_direct_evidence_model_paths": 6,
+    "v49_new_direct_research_model_paths_excluding_v47_rechecks": 53,
+    "v49_typed_path_SHA_linked_cumulative": 230,
+    "v49_not_linked_in_examined_evidence": 314,
+    "identity_key": [
+      "asset_type",
+      "full_source_path",
+      "git_blob_sha"
+    ],
+    "note": "source path+SHA evidence, not full geometry+UV+PNG+renderer completion"
+  },
+  "historical_provenance": {
+    "v47_potted_child_prior_direct_examples": 6,
+    "v47_potted_child_6_original_sha_and_path_rechecked": 6,
+    "v47_prior_sources_only_now_relinked_in_P1": 6,
+    "old_research_direct_geometry_credit_added": 0,
+    "v38_shelf_geometry_parent_archetypes_reused": 7,
+    "new_independent_shelf_geometry_archetype_credit": 0
+  },
+  "potted": {
+    "original_leaf_model_JSON_paths_reopened": 37,
+    "prior_v47_leaf_source_rechecks": 6,
+    "first_direct_leaf_reviews_v49": 31,
+    "independent_parent_template_P1_new_source_path": 1,
+    "direct_source_geometry_models_newly_examined": 4,
+    "source_self_declared_geometry_leaf_models": 3,
+    "source_reused_parent_models": 4,
+    "source_inherited_geometry_leaf_count": 34,
+    "own_element_declarations_directly_checked_unique": 30,
+    "own_face_declarations_unique": 106,
+    "own_face_declarations_explicit_uv": 100,
+    "own_face_declarations_implicit_uv": 6,
+    "own_source_zero_thickness_elements": 11,
+    "own_source_element_rotations": 6,
+    "effective_face_applications_across_37_leafs": 978,
+    "effective_source_explicitUV_face_applications": 972,
+    "effective_source_implicitUV_face_applications": 6,
+    "resolved_source_texture_slot_face_applications": 978,
+    "unresolved_texture_slot_face_applications": 0,
+    "named_original_world_blockstate_files_checked": 37,
+    "original_single_variant_model_references": 37,
+    "original_png_rgba_decoded": 0,
+    "actual_runtime_renderer_verified": false
+  },
+  "shelf": {
+    "new_source_leaf_paths": 21,
+    "families": [
+      "crimson",
+      "dark_oak",
+      "spruce"
+    ],
+    "leaves_per_family": 7,
+    "reverified_parent_source_templates": 7,
+    "parent_source_elements_declared_reused": 11,
+    "parent_source_faces_declared_reused": 38,
+    "inherited_face_applications_across_21_leaves": 114,
+    "inherited_explicit_uv_face_applications": 114,
+    "unresolved_leaf_source_texture_slots": 0,
+    "original_family_blockstate_files_checked": 3,
+    "original_source_multipart_rule_count": 72,
+    "derived_static_state_combinations": 96,
+    "derived_model_applications": 192,
+    "original_source_uvlock_apply_rules": 0,
+    "original_png_rgba_decoded": 0,
+    "game_runtime_verified": false
+  },
+  "source_vs_derived_note": "Original JSON face declarations, inherited face applications, multipart source rules, and derived model applications have separate denominators.",
+  "overall": {
+    "major_research_subtasks_completed": 1,
+    "major_research_subtasks_total": 5,
+    "stage1_1_approved_150_textures_remains_complete": true,
+    "stage1_2_A_complete": false,
+    "stage1_2_complete": false,
+    "stage1_2_true_completion_pct": null,
+    "actual_minecraft_furniture_models_created": false,
+    "Project_Zomboid_conversion_started": false,
+    "official_compressed_client_jar_authenticated": false,
+    "ingame_renderer_authenticated": false
+  },
+  "limitations": [
+    "Other historical indirect or non-typed source references not exhaustively reconciled",
+    "PNG RGBA texel inspection still pending",
+    "Some original model JSONs require external renderer behavior beyond their own elements",
+    "Source only: variant static checks are not in-game runtime evidence"
+  ]
+}

@@ -1,0 +1,3596 @@
+[
+  {
+    "name": "crimson_shelf",
+    "asset_type": "blockstate_json",
+    "source_path": "1.21.11/assets/minecraft/blockstates/crimson_shelf.json",
+    "source_sha": "33318312bfe0d38aa85a55092c2d33bd8ca55e23",
+    "source_multipart_rules": [
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf"
+        },
+        "when": {
+          "facing": "north"
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf",
+          "y": 90
+        },
+        "when": {
+          "facing": "east"
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf",
+          "y": 180
+        },
+        "when": {
+          "facing": "south"
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf",
+          "y": 270
+        },
+        "when": {
+          "facing": "west"
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_unpowered"
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "north"
+            },
+            {
+              "powered": "false"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_unpowered",
+          "y": 90
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "east"
+            },
+            {
+              "powered": "false"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_unpowered",
+          "y": 180
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "south"
+            },
+            {
+              "powered": "false"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_unpowered",
+          "y": 270
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "west"
+            },
+            {
+              "powered": "false"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_unconnected"
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "north"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "unconnected"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_unconnected",
+          "y": 90
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "east"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "unconnected"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_unconnected",
+          "y": 180
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "south"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "unconnected"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_unconnected",
+          "y": 270
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "west"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "unconnected"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_left"
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "north"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "left"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_left",
+          "y": 90
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "east"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "left"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_left",
+          "y": 180
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "south"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "left"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_left",
+          "y": 270
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "west"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "left"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_center"
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "north"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "center"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_center",
+          "y": 90
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "east"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "center"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_center",
+          "y": 180
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "south"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "center"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_center",
+          "y": 270
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "west"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "center"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_right"
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "north"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "right"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_right",
+          "y": 90
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "east"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "right"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_right",
+          "y": 180
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "south"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "right"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/crimson_shelf_right",
+          "y": 270
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "west"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "right"
+            }
+          ]
+        }
+      }
+    ],
+    "source_rules_count": 24,
+    "derived_states": [
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "false",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          0,
+          4
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf"
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unpowered"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "false",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          0,
+          4
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf"
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unpowered"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "false",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          0,
+          4
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf"
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unpowered"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "false",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          0,
+          4
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf"
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unpowered"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "true",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          0,
+          8
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unconnected"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf"
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unconnected"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "true",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          0,
+          12
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_left"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf"
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_left"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "true",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          0,
+          16
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_center"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf"
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_center"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "true",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          0,
+          20
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_right"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf"
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_right"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "false",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          1,
+          5
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unpowered",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "false",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          1,
+          5
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unpowered",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "false",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          1,
+          5
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unpowered",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "false",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          1,
+          5
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unpowered",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "true",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          1,
+          9
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unconnected"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unconnected",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "true",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          1,
+          13
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_left"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_left",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "true",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          1,
+          17
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_center"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_center",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "true",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          1,
+          21
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_right"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_right",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "false",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          2,
+          6
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unpowered",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "false",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          2,
+          6
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unpowered",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "false",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          2,
+          6
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unpowered",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "false",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          2,
+          6
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unpowered",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "true",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          2,
+          10
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unconnected"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unconnected",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "true",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          2,
+          14
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_left"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_left",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "true",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          2,
+          18
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_center"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_center",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "true",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          2,
+          22
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_right"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_right",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "false",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          3,
+          7
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unpowered",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "false",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          3,
+          7
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unpowered",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "false",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          3,
+          7
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unpowered",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "false",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          3,
+          7
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unpowered",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "true",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          3,
+          11
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_unconnected"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_unconnected",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "true",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          3,
+          15
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_left"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_left",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "true",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          3,
+          19
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_center"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_center",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "true",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          3,
+          23
+        ],
+        "models": [
+          "minecraft:block/crimson_shelf",
+          "minecraft:block/crimson_shelf_right"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/crimson_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/crimson_shelf_right",
+            "y": 270
+          }
+        ]
+      }
+    ],
+    "derived_state_count": 32,
+    "derived_applications": 64,
+    "source_uvlock_rule_count": 0,
+    "fully_reachable_rule_count": 24,
+    "engine_runtime_verified": false
+  },
+  {
+    "name": "dark_oak_shelf",
+    "asset_type": "blockstate_json",
+    "source_path": "1.21.11/assets/minecraft/blockstates/dark_oak_shelf.json",
+    "source_sha": "48f5fbc3e9fc204a268366bd1e21e2e52eef8a2a",
+    "source_multipart_rules": [
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf"
+        },
+        "when": {
+          "facing": "north"
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf",
+          "y": 90
+        },
+        "when": {
+          "facing": "east"
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf",
+          "y": 180
+        },
+        "when": {
+          "facing": "south"
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf",
+          "y": 270
+        },
+        "when": {
+          "facing": "west"
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_unpowered"
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "north"
+            },
+            {
+              "powered": "false"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_unpowered",
+          "y": 90
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "east"
+            },
+            {
+              "powered": "false"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_unpowered",
+          "y": 180
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "south"
+            },
+            {
+              "powered": "false"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_unpowered",
+          "y": 270
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "west"
+            },
+            {
+              "powered": "false"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_unconnected"
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "north"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "unconnected"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_unconnected",
+          "y": 90
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "east"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "unconnected"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_unconnected",
+          "y": 180
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "south"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "unconnected"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_unconnected",
+          "y": 270
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "west"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "unconnected"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_left"
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "north"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "left"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_left",
+          "y": 90
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "east"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "left"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_left",
+          "y": 180
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "south"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "left"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_left",
+          "y": 270
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "west"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "left"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_center"
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "north"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "center"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_center",
+          "y": 90
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "east"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "center"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_center",
+          "y": 180
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "south"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "center"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_center",
+          "y": 270
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "west"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "center"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_right"
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "north"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "right"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_right",
+          "y": 90
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "east"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "right"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_right",
+          "y": 180
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "south"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "right"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/dark_oak_shelf_right",
+          "y": 270
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "west"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "right"
+            }
+          ]
+        }
+      }
+    ],
+    "source_rules_count": 24,
+    "derived_states": [
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "false",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          0,
+          4
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf"
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unpowered"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "false",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          0,
+          4
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf"
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unpowered"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "false",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          0,
+          4
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf"
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unpowered"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "false",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          0,
+          4
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf"
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unpowered"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "true",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          0,
+          8
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unconnected"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf"
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unconnected"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "true",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          0,
+          12
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_left"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf"
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_left"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "true",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          0,
+          16
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_center"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf"
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_center"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "true",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          0,
+          20
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_right"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf"
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_right"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "false",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          1,
+          5
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unpowered",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "false",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          1,
+          5
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unpowered",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "false",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          1,
+          5
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unpowered",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "false",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          1,
+          5
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unpowered",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "true",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          1,
+          9
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unconnected"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unconnected",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "true",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          1,
+          13
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_left"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_left",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "true",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          1,
+          17
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_center"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_center",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "true",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          1,
+          21
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_right"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_right",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "false",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          2,
+          6
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unpowered",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "false",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          2,
+          6
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unpowered",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "false",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          2,
+          6
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unpowered",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "false",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          2,
+          6
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unpowered",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "true",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          2,
+          10
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unconnected"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unconnected",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "true",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          2,
+          14
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_left"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_left",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "true",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          2,
+          18
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_center"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_center",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "true",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          2,
+          22
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_right"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_right",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "false",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          3,
+          7
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unpowered",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "false",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          3,
+          7
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unpowered",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "false",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          3,
+          7
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unpowered",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "false",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          3,
+          7
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unpowered",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "true",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          3,
+          11
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_unconnected"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_unconnected",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "true",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          3,
+          15
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_left"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_left",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "true",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          3,
+          19
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_center"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_center",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "true",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          3,
+          23
+        ],
+        "models": [
+          "minecraft:block/dark_oak_shelf",
+          "minecraft:block/dark_oak_shelf_right"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/dark_oak_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/dark_oak_shelf_right",
+            "y": 270
+          }
+        ]
+      }
+    ],
+    "derived_state_count": 32,
+    "derived_applications": 64,
+    "source_uvlock_rule_count": 0,
+    "fully_reachable_rule_count": 24,
+    "engine_runtime_verified": false
+  },
+  {
+    "name": "spruce_shelf",
+    "asset_type": "blockstate_json",
+    "source_path": "1.21.11/assets/minecraft/blockstates/spruce_shelf.json",
+    "source_sha": "c01c12722083237bbb141746dda3e41046addb45",
+    "source_multipart_rules": [
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf"
+        },
+        "when": {
+          "facing": "north"
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf",
+          "y": 90
+        },
+        "when": {
+          "facing": "east"
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf",
+          "y": 180
+        },
+        "when": {
+          "facing": "south"
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf",
+          "y": 270
+        },
+        "when": {
+          "facing": "west"
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_unpowered"
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "north"
+            },
+            {
+              "powered": "false"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_unpowered",
+          "y": 90
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "east"
+            },
+            {
+              "powered": "false"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_unpowered",
+          "y": 180
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "south"
+            },
+            {
+              "powered": "false"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_unpowered",
+          "y": 270
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "west"
+            },
+            {
+              "powered": "false"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_unconnected"
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "north"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "unconnected"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_unconnected",
+          "y": 90
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "east"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "unconnected"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_unconnected",
+          "y": 180
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "south"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "unconnected"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_unconnected",
+          "y": 270
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "west"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "unconnected"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_left"
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "north"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "left"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_left",
+          "y": 90
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "east"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "left"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_left",
+          "y": 180
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "south"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "left"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_left",
+          "y": 270
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "west"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "left"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_center"
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "north"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "center"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_center",
+          "y": 90
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "east"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "center"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_center",
+          "y": 180
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "south"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "center"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_center",
+          "y": 270
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "west"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "center"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_right"
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "north"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "right"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_right",
+          "y": 90
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "east"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "right"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_right",
+          "y": 180
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "south"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "right"
+            }
+          ]
+        }
+      },
+      {
+        "apply": {
+          "model": "minecraft:block/spruce_shelf_right",
+          "y": 270
+        },
+        "when": {
+          "AND": [
+            {
+              "facing": "west"
+            },
+            {
+              "powered": "true"
+            },
+            {
+              "side_chain": "right"
+            }
+          ]
+        }
+      }
+    ],
+    "source_rules_count": 24,
+    "derived_states": [
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "false",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          0,
+          4
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf"
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unpowered"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "false",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          0,
+          4
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf"
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unpowered"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "false",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          0,
+          4
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf"
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unpowered"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "false",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          0,
+          4
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf"
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unpowered"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "true",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          0,
+          8
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unconnected"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf"
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unconnected"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "true",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          0,
+          12
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_left"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf"
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_left"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "true",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          0,
+          16
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_center"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf"
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_center"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "north",
+          "powered": "true",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          0,
+          20
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_right"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf"
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_right"
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "false",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          1,
+          5
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unpowered",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "false",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          1,
+          5
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unpowered",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "false",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          1,
+          5
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unpowered",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "false",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          1,
+          5
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unpowered",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "true",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          1,
+          9
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unconnected"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unconnected",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "true",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          1,
+          13
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_left"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_left",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "true",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          1,
+          17
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_center"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_center",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "east",
+          "powered": "true",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          1,
+          21
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_right"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 90
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_right",
+            "y": 90
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "false",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          2,
+          6
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unpowered",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "false",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          2,
+          6
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unpowered",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "false",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          2,
+          6
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unpowered",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "false",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          2,
+          6
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unpowered",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "true",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          2,
+          10
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unconnected"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unconnected",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "true",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          2,
+          14
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_left"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_left",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "true",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          2,
+          18
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_center"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_center",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "south",
+          "powered": "true",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          2,
+          22
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_right"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 180
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_right",
+            "y": 180
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "false",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          3,
+          7
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unpowered",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "false",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          3,
+          7
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unpowered",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "false",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          3,
+          7
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unpowered",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "false",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          3,
+          7
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unpowered"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unpowered",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "true",
+          "side_chain": "unconnected"
+        },
+        "rule_indices": [
+          3,
+          11
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_unconnected"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_unconnected",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "true",
+          "side_chain": "left"
+        },
+        "rule_indices": [
+          3,
+          15
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_left"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_left",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "true",
+          "side_chain": "center"
+        },
+        "rule_indices": [
+          3,
+          19
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_center"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_center",
+            "y": 270
+          }
+        ]
+      },
+      {
+        "properties": {
+          "facing": "west",
+          "powered": "true",
+          "side_chain": "right"
+        },
+        "rule_indices": [
+          3,
+          23
+        ],
+        "models": [
+          "minecraft:block/spruce_shelf",
+          "minecraft:block/spruce_shelf_right"
+        ],
+        "applies": [
+          {
+            "model": "minecraft:block/spruce_shelf",
+            "y": 270
+          },
+          {
+            "model": "minecraft:block/spruce_shelf_right",
+            "y": 270
+          }
+        ]
+      }
+    ],
+    "derived_state_count": 32,
+    "derived_applications": 64,
+    "source_uvlock_rule_count": 0,
+    "fully_reachable_rule_count": 24,
+    "engine_runtime_verified": false
+  }
+]

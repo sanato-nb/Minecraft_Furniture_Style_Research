@@ -1,0 +1,755 @@
+[
+  {
+    "name": "template_shelf_body",
+    "source_path": "1.21.11/assets/minecraft/models/block/template_shelf_body.json",
+    "source_sha": "2f258411f5a049fcd96f274e1253fb9acdaa570d",
+    "original_json": {
+      "parent": "block/block",
+      "display": {
+        "gui": {
+          "rotation": [
+            30,
+            225,
+            0
+          ],
+          "translation": [
+            2.5,
+            -1.5,
+            0
+          ],
+          "scale": [
+            0.625,
+            0.625,
+            0.625
+          ]
+        },
+        "fixed": {
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            0,
+            -4
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        }
+      },
+      "textures": {
+        "particle": "#particle"
+      },
+      "elements": [
+        {
+          "name": "shelf_body",
+          "from": [
+            0,
+            0,
+            13
+          ],
+          "to": [
+            16,
+            16,
+            16
+          ],
+          "faces": {
+            "east": {
+              "uv": [
+                8,
+                0,
+                9.5,
+                8
+              ],
+              "texture": "#all",
+              "cullface": "east"
+            },
+            "south": {
+              "uv": [
+                8,
+                0,
+                16,
+                8
+              ],
+              "texture": "#all",
+              "cullface": "south"
+            },
+            "west": {
+              "uv": [
+                14.5,
+                0,
+                16,
+                8
+              ],
+              "texture": "#all",
+              "cullface": "west"
+            },
+            "up": {
+              "uv": [
+                16,
+                5,
+                8,
+                3.5
+              ],
+              "texture": "#all",
+              "cullface": "up"
+            },
+            "down": {
+              "uv": [
+                16,
+                6,
+                8,
+                4.5
+              ],
+              "texture": "#all",
+              "cullface": "down"
+            }
+          }
+        },
+        {
+          "name": "shelf_bottom",
+          "from": [
+            0,
+            0,
+            11
+          ],
+          "to": [
+            16,
+            4,
+            13
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                6,
+                8,
+                8
+              ],
+              "texture": "#all"
+            },
+            "east": {
+              "uv": [
+                1.5,
+                6,
+                2.5,
+                8
+              ],
+              "texture": "#all",
+              "cullface": "east"
+            },
+            "west": {
+              "uv": [
+                5.5,
+                6,
+                6.5,
+                8
+              ],
+              "texture": "#all",
+              "cullface": "west"
+            },
+            "up": {
+              "uv": [
+                8,
+                3.5,
+                16,
+                4.5
+              ],
+              "texture": "#all"
+            },
+            "down": {
+              "uv": [
+                16,
+                4.5,
+                8,
+                3.5
+              ],
+              "texture": "#all",
+              "cullface": "down"
+            }
+          }
+        },
+        {
+          "name": "shelf_top",
+          "from": [
+            0,
+            12,
+            11
+          ],
+          "to": [
+            16,
+            16,
+            13
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                8,
+                2
+              ],
+              "texture": "#all"
+            },
+            "east": {
+              "uv": [
+                1.5,
+                0,
+                2.5,
+                2
+              ],
+              "texture": "#all",
+              "cullface": "east"
+            },
+            "west": {
+              "uv": [
+                5.5,
+                0,
+                6.5,
+                2
+              ],
+              "texture": "#all",
+              "cullface": "west"
+            },
+            "up": {
+              "uv": [
+                16,
+                6,
+                8,
+                5
+              ],
+              "texture": "#all",
+              "cullface": "up"
+            },
+            "down": {
+              "uv": [
+                8,
+                5,
+                16,
+                6
+              ],
+              "texture": "#all"
+            }
+          }
+        }
+      ]
+    },
+    "source_elements": 3,
+    "source_faces": 15
+  },
+  {
+    "name": "template_shelf_center",
+    "source_path": "1.21.11/assets/minecraft/models/block/template_shelf_center.json",
+    "source_sha": "20b1449c2607d2f79c32b10d9a493b6b9cf8238b",
+    "original_json": {
+      "parent": "block/block",
+      "textures": {
+        "particle": "#particle"
+      },
+      "elements": [
+        {
+          "from": [
+            0,
+            4,
+            13
+          ],
+          "to": [
+            16,
+            12,
+            13
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                12,
+                8,
+                16
+              ],
+              "texture": "#all"
+            }
+          }
+        }
+      ]
+    },
+    "source_elements": 1,
+    "source_faces": 1
+  },
+  {
+    "name": "template_shelf_inventory",
+    "source_path": "1.21.11/assets/minecraft/models/block/template_shelf_inventory.json",
+    "source_sha": "da5420ad4a66177f13d9fd52c8f2691410a92b07",
+    "original_json": {
+      "parent": "block/block",
+      "display": {
+        "gui": {
+          "rotation": [
+            30,
+            225,
+            0
+          ],
+          "translation": [
+            2.5,
+            -1.5,
+            0
+          ],
+          "scale": [
+            0.625,
+            0.625,
+            0.625
+          ]
+        },
+        "fixed": {
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "translation": [
+            0,
+            0,
+            -4
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "on_shelf": {
+          "rotation": [
+            0,
+            180,
+            0
+          ],
+          "translation": [
+            0,
+            0,
+            4
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "firstperson_righthand": {
+          "rotation": [
+            0,
+            135,
+            0
+          ],
+          "translation": [
+            0,
+            -2,
+            0
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "thirdperson_righthand": {
+          "rotation": [
+            75,
+            135,
+            0
+          ],
+          "translation": [
+            -3,
+            1,
+            0
+          ],
+          "scale": [
+            0.4,
+            0.4,
+            0.4
+          ]
+        }
+      },
+      "textures": {
+        "particle": "#particle"
+      },
+      "elements": [
+        {
+          "name": "shelf_body",
+          "from": [
+            0,
+            0,
+            13
+          ],
+          "to": [
+            16,
+            16,
+            16
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                2,
+                8,
+                6
+              ],
+              "texture": "#all"
+            },
+            "east": {
+              "uv": [
+                8,
+                0,
+                9.5,
+                8
+              ],
+              "texture": "#all",
+              "cullface": "east"
+            },
+            "south": {
+              "uv": [
+                8,
+                0,
+                16,
+                8
+              ],
+              "texture": "#all",
+              "cullface": "south"
+            },
+            "west": {
+              "uv": [
+                14.5,
+                0,
+                16,
+                8
+              ],
+              "texture": "#all",
+              "cullface": "west"
+            },
+            "up": {
+              "uv": [
+                16,
+                5,
+                8,
+                3.5
+              ],
+              "texture": "#all"
+            },
+            "down": {
+              "uv": [
+                16,
+                6,
+                8,
+                4.5
+              ],
+              "texture": "#all",
+              "cullface": "down"
+            }
+          }
+        },
+        {
+          "name": "shelf_bottom",
+          "from": [
+            0,
+            0,
+            11
+          ],
+          "to": [
+            16,
+            4,
+            13
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                6,
+                8,
+                8
+              ],
+              "texture": "#all"
+            },
+            "east": {
+              "uv": [
+                1.5,
+                6,
+                2.5,
+                8
+              ],
+              "texture": "#all",
+              "cullface": "east"
+            },
+            "south": {
+              "uv": [
+                0,
+                0,
+                8,
+                1
+              ],
+              "texture": "#all",
+              "cullface": "south"
+            },
+            "west": {
+              "uv": [
+                5.5,
+                6,
+                6.5,
+                8
+              ],
+              "texture": "#all",
+              "cullface": "west"
+            },
+            "up": {
+              "uv": [
+                8,
+                3.5,
+                16,
+                4.5
+              ],
+              "texture": "#all"
+            },
+            "down": {
+              "uv": [
+                16,
+                4.5,
+                8,
+                3.5
+              ],
+              "texture": "#all",
+              "cullface": "down"
+            }
+          }
+        },
+        {
+          "name": "shelf_top",
+          "from": [
+            0,
+            12,
+            11
+          ],
+          "to": [
+            16,
+            16,
+            13
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                0,
+                8,
+                2
+              ],
+              "texture": "#all"
+            },
+            "east": {
+              "uv": [
+                1.5,
+                0,
+                2.5,
+                2
+              ],
+              "texture": "#all",
+              "cullface": "east"
+            },
+            "south": {
+              "uv": [
+                0,
+                0,
+                8,
+                1
+              ],
+              "texture": "#all",
+              "cullface": "south"
+            },
+            "west": {
+              "uv": [
+                5.5,
+                0,
+                6.5,
+                2
+              ],
+              "texture": "#all",
+              "cullface": "west"
+            },
+            "up": {
+              "uv": [
+                16,
+                6,
+                8,
+                5
+              ],
+              "texture": "#all",
+              "cullface": "up"
+            },
+            "down": {
+              "uv": [
+                8,
+                5,
+                16,
+                6
+              ],
+              "texture": "#all"
+            }
+          }
+        }
+      ]
+    },
+    "source_elements": 3,
+    "source_faces": 18
+  },
+  {
+    "name": "template_shelf_left",
+    "source_path": "1.21.11/assets/minecraft/models/block/template_shelf_left.json",
+    "source_sha": "ecb099d693d75318303452a96a34d4a6ca4a4e83",
+    "original_json": {
+      "parent": "block/block",
+      "textures": {
+        "particle": "#particle"
+      },
+      "elements": [
+        {
+          "from": [
+            0,
+            4,
+            13
+          ],
+          "to": [
+            16,
+            12,
+            13
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                8,
+                8,
+                12
+              ],
+              "texture": "#all"
+            }
+          }
+        }
+      ]
+    },
+    "source_elements": 1,
+    "source_faces": 1
+  },
+  {
+    "name": "template_shelf_right",
+    "source_path": "1.21.11/assets/minecraft/models/block/template_shelf_right.json",
+    "source_sha": "5e58b7f2c9c4a6ded052b3854a216de89b249201",
+    "original_json": {
+      "parent": "block/block",
+      "textures": {
+        "particle": "#particle"
+      },
+      "elements": [
+        {
+          "from": [
+            0,
+            4,
+            13
+          ],
+          "to": [
+            16,
+            12,
+            13
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                8,
+                8,
+                16,
+                12
+              ],
+              "texture": "#all"
+            }
+          }
+        }
+      ]
+    },
+    "source_elements": 1,
+    "source_faces": 1
+  },
+  {
+    "name": "template_shelf_unconnected",
+    "source_path": "1.21.11/assets/minecraft/models/block/template_shelf_unconnected.json",
+    "source_sha": "3b82ae61468d0c2c15ea475a55a6e7b0d25864d2",
+    "original_json": {
+      "parent": "block/block",
+      "textures": {
+        "particle": "#particle"
+      },
+      "elements": [
+        {
+          "from": [
+            0,
+            4,
+            13
+          ],
+          "to": [
+            16,
+            12,
+            13
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                8,
+                12,
+                16,
+                16
+              ],
+              "texture": "#all"
+            }
+          }
+        }
+      ]
+    },
+    "source_elements": 1,
+    "source_faces": 1
+  },
+  {
+    "name": "template_shelf_unpowered",
+    "source_path": "1.21.11/assets/minecraft/models/block/template_shelf_unpowered.json",
+    "source_sha": "ad5b6a3fc7c2256e2cab8f18a46a82e085511cec",
+    "original_json": {
+      "parent": "block/block",
+      "textures": {
+        "particle": "#particle"
+      },
+      "elements": [
+        {
+          "from": [
+            0,
+            4,
+            13
+          ],
+          "to": [
+            16,
+            12,
+            13
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                2,
+                8,
+                6
+              ],
+              "texture": "#all"
+            }
+          }
+        }
+      ]
+    },
+    "source_elements": 1,
+    "source_faces": 1
+  }
+]
