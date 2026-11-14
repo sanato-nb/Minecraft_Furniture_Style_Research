@@ -1,0 +1,681 @@
+{
+  "schema": "v65_original_historical_CSV_recheck_batch",
+  "batch_start": 48,
+  "batch_size": 12,
+  "original_manifest_blob": "d05c23e7e94d70cfe180bf60c91fb7a95b338b3b",
+  "source_model_index_blob": "c64239207cc8ff2841a8877e74cf5b6b311be812",
+  "entries": [
+    {
+      "path": "research/vanilla_models/v29/04_four_template_pixel_summaries.csv",
+      "original_file_git_blob_sha": "e958db0a00de0fefe9686a5188c80426d26547d8",
+      "source_tree_bytes": 914,
+      "header": [
+        "template",
+        "source_sha",
+        "elements",
+        "declared_faces",
+        "texel_uses",
+        "opaque",
+        "transparent",
+        "distinct_uv_rects",
+        "reverse_uv_faces",
+        "face_direction_counts",
+        "bbox"
+      ],
+      "record_count": 4,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v29/05_oak_planks_independent_sha256_pillow_v4_crosscheck.csv",
+      "original_file_git_blob_sha": "d89830d965a415dc1adde8d217211921ba3b0f3d",
+      "source_tree_bytes": 630,
+      "header": [
+        "asset_path",
+        "direct_fetched_git_blob_sha",
+        "independent_python_pillow_png_verify",
+        "independent_sha1_git_blob_recomputed",
+        "independent_sha256",
+        "v4_recorded_sha256",
+        "sha256_match_v4",
+        "png_file_bytes",
+        "width",
+        "height",
+        "unique_rgba",
+        "all_pixels_opaque",
+        "source_pixels_total",
+        "source_source_version",
+        "official_mojang_jar_verified",
+        "ingame_verified"
+      ],
+      "record_count": 1,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v29/06_eight_element_open_wall_geometry_deltas.csv",
+      "original_file_git_blob_sha": "d56dd019f492c122c4a3642c31f9de44fdae9ace",
+      "source_tree_bytes": 1728,
+      "header": [
+        "element_index",
+        "normal_from",
+        "normal_to",
+        "open_from",
+        "open_to",
+        "wall_from",
+        "wall_to",
+        "wall_open_from",
+        "wall_open_to",
+        "open_equals_normal",
+        "wall_equals_normal",
+        "wall_open_equals_open",
+        "open_delta_from",
+        "open_delta_to",
+        "wall_delta_from",
+        "wall_delta_to",
+        "wall_open_delta_from",
+        "wall_open_delta_to",
+        "wall_delta_consistent_with_open"
+      ],
+      "record_count": 8,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v30/01_lectern_grindstone_9_png_rgba.csv",
+      "original_file_git_blob_sha": "b739b3ce150d795501435200170b7b737c790a65",
+      "source_tree_bytes": 847,
+      "header": [
+        "texture",
+        "sha",
+        "width",
+        "height",
+        "depth",
+        "color_type",
+        "bytes",
+        "pixels",
+        "opaque",
+        "transparent",
+        "partial",
+        "unique_rgba"
+      ],
+      "record_count": 9,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v30/02_lectern_grindstone_42_source_face_uv_pixels.csv",
+      "original_file_git_blob_sha": "e091f21180fe7bf4c6576d5fb79a13dbd8603da9",
+      "source_tree_bytes": 8239,
+      "header": [
+        "model",
+        "source_sha",
+        "element",
+        "side",
+        "element_from",
+        "element_to",
+        "element_rotation",
+        "uv",
+        "uv_reversed",
+        "uv_rotation",
+        "cullface",
+        "slot",
+        "texture",
+        "texture_sha",
+        "texel_uses",
+        "opaque",
+        "transparent",
+        "partial",
+        "unique_rgba_in_uv"
+      ],
+      "record_count": 42,
+      "malformed_rows": 0,
+      "model_matches": [
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/lectern.json",
+          "original_model_git_sha": "a504fa96bc3c5c729adaaa015d927b8250a1bd63",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 16,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 2,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "lectern",
+                "a504fa96bc3c5c729adaaa015d927b8250a1bd63",
+                "0",
+                "north",
+                "[0,0,0]"
+              ]
+            },
+            {
+              "row": 3,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "lectern",
+                "a504fa96bc3c5c729adaaa015d927b8250a1bd63",
+                "0",
+                "east",
+                "[0,0,0]"
+              ]
+            },
+            {
+              "row": 4,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "lectern",
+                "a504fa96bc3c5c729adaaa015d927b8250a1bd63",
+                "0",
+                "south",
+                "[0,0,0]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/grindstone.json",
+          "original_model_git_sha": "cc5e0f1f985fb58e381d8b2dd8c9fc1b8aef1532",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 26,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 18,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "grindstone",
+                "cc5e0f1f985fb58e381d8b2dd8c9fc1b8aef1532",
+                "0",
+                "north",
+                "[12,0,6]"
+              ]
+            },
+            {
+              "row": 19,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "grindstone",
+                "cc5e0f1f985fb58e381d8b2dd8c9fc1b8aef1532",
+                "0",
+                "east",
+                "[12,0,6]"
+              ]
+            },
+            {
+              "row": 20,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "grindstone",
+                "cc5e0f1f985fb58e381d8b2dd8c9fc1b8aef1532",
+                "0",
+                "south",
+                "[12,0,6]"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v30/07_seven_blockstates_all_variants.csv",
+      "original_file_git_blob_sha": "c774ddb1204848f1fc5c498d3bb4da23810d7f11",
+      "source_tree_bytes": 3887,
+      "header": [
+        "block",
+        "source_blob_sha",
+        "source_state_key",
+        "model",
+        "source_x_present",
+        "rotation_x",
+        "source_y_present",
+        "rotation_y",
+        "source_uvlock_present",
+        "source_uvlock_explicit_true"
+      ],
+      "record_count": 30,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v30/09_five_legacy_v4_png_metrics_crosschecks.csv",
+      "original_file_git_blob_sha": "478e5cd8c1c867f9370913f0d9eb87c4189253b3",
+      "source_tree_bytes": 1173,
+      "header": [
+        "texture_id",
+        "v4_csv_sha",
+        "v4_png_bytes",
+        "v30_png_bytes",
+        "file_bytes_match",
+        "v4_visible_pixels",
+        "v30_visible_pixels",
+        "visible_count_match",
+        "v4_total_pixels",
+        "v30_total_pixels",
+        "total_count_match",
+        "v4_width",
+        "v30_width",
+        "v4_height",
+        "v30_height",
+        "v4_sha256_recorded_not_independently_rehashed",
+        "decoder_note"
+      ],
+      "record_count": 5,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v31/01_bookshelf_brewing_59_original_multipart_rules.csv",
+      "original_file_git_blob_sha": "19f48690d243cd5d8d028972cc87cc0f2ba2b31e",
+      "source_tree_bytes": 11848,
+      "header": [
+        "block",
+        "blockstate_sha",
+        "rule_index",
+        "condition_json",
+        "model",
+        "source_rotation_x",
+        "source_rotation_y",
+        "source_uvlock_key_present",
+        "source_uvlock_true",
+        "source_condition_keys"
+      ],
+      "record_count": 59,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v31/02_bookshelf_256_and_brewing_8_combinations.csv",
+      "original_file_git_blob_sha": "74b512fd15cc9db399bed14a27b11eebd626ba82",
+      "source_tree_bytes": 121076,
+      "header": [
+        "block",
+        "source_sha",
+        "facing",
+        "occupancy_bits",
+        "bottle_bits",
+        "selected_count",
+        "base_models",
+        "active_overlays",
+        "rotation_y",
+        "source_uvlock_true_applies",
+        "source_uvlock_key_absent_applies",
+        "model_refs"
+      ],
+      "record_count": 264,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v31/03_six_png_full_rgba_audit.csv",
+      "original_file_git_blob_sha": "6d2f07b19dc3cb5ff9cd5c1fa161e23de6a8dd2e",
+      "source_tree_bytes": 1117,
+      "header": [
+        "texture",
+        "source_path",
+        "git_blob_sha",
+        "width",
+        "height",
+        "bit_depth",
+        "color_type",
+        "bytes",
+        "pixel_total",
+        "opaque",
+        "transparent",
+        "partial",
+        "unique_rgba",
+        "in_v4_150"
+      ],
+      "record_count": 6,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v31/04_bookshelf_17_source_face_material_rgba.csv",
+      "original_file_git_blob_sha": "f0213c1356ca5fb15d3bf9492c8c8694b63be7e6",
+      "source_tree_bytes": 4083,
+      "header": [
+        "model",
+        "model_sha",
+        "element",
+        "local_from",
+        "local_to",
+        "side",
+        "face_uv",
+        "face_uv_rotation",
+        "face_uv_reversed",
+        "face_cull",
+        "source_texture_slot",
+        "derived_leaf_state",
+        "texture",
+        "texture_sha",
+        "texel_uses",
+        "opaque",
+        "transparent",
+        "partial",
+        "unique_rgba_in_uv"
+      ],
+      "record_count": 17,
+      "malformed_rows": 0,
+      "model_matches": [
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf.json",
+          "original_model_git_sha": "a9bda72e10095343fb80de2bc4654212a1dc6834",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 5,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 2,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "chiseled_bookshelf",
+                "a9bda72e10095343fb80de2bc4654212a1dc6834",
+                "0",
+                "[0,0,0]",
+                "[16,16,16]"
+              ]
+            },
+            {
+              "row": 3,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "chiseled_bookshelf",
+                "a9bda72e10095343fb80de2bc4654212a1dc6834",
+                "0",
+                "[0,0,0]",
+                "[16,16,16]"
+              ]
+            },
+            {
+              "row": 4,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "chiseled_bookshelf",
+                "a9bda72e10095343fb80de2bc4654212a1dc6834",
+                "0",
+                "[0,0,0]",
+                "[16,16,16]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_left.json",
+          "original_model_git_sha": "da9fc59136a95d14a3fbe5eb363564b8fa45bf36",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 2,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 7,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "template_chiseled_bookshelf_slot_top_left",
+                "da9fc59136a95d14a3fbe5eb363564b8fa45bf36",
+                "0",
+                "[10,8,0]",
+                "[16,16,0]"
+              ]
+            },
+            {
+              "row": 8,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "template_chiseled_bookshelf_slot_top_left",
+                "da9fc59136a95d14a3fbe5eb363564b8fa45bf36",
+                "0",
+                "[10,8,0]",
+                "[16,16,0]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_mid.json",
+          "original_model_git_sha": "25cc8308d67d6223d455f6fca170a936208139fa",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 2,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 9,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "template_chiseled_bookshelf_slot_top_mid",
+                "25cc8308d67d6223d455f6fca170a936208139fa",
+                "0",
+                "[5,8,0]",
+                "[10,16,0]"
+              ]
+            },
+            {
+              "row": 10,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "template_chiseled_bookshelf_slot_top_mid",
+                "25cc8308d67d6223d455f6fca170a936208139fa",
+                "0",
+                "[5,8,0]",
+                "[10,16,0]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_right.json",
+          "original_model_git_sha": "077f1276e833d2d58f6e86ae590bfd3899717c91",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 2,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 11,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "template_chiseled_bookshelf_slot_top_right",
+                "077f1276e833d2d58f6e86ae590bfd3899717c91",
+                "0",
+                "[0,8,0]",
+                "[5,16,0]"
+              ]
+            },
+            {
+              "row": 12,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "template_chiseled_bookshelf_slot_top_right",
+                "077f1276e833d2d58f6e86ae590bfd3899717c91",
+                "0",
+                "[0,8,0]",
+                "[5,16,0]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_left.json",
+          "original_model_git_sha": "f224a1e88c819aa824c4cbe871f2b13a158a15ef",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 2,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 13,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "template_chiseled_bookshelf_slot_bottom_left",
+                "f224a1e88c819aa824c4cbe871f2b13a158a15ef",
+                "0",
+                "[10,0,0]",
+                "[16,8,0]"
+              ]
+            },
+            {
+              "row": 14,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "template_chiseled_bookshelf_slot_bottom_left",
+                "f224a1e88c819aa824c4cbe871f2b13a158a15ef",
+                "0",
+                "[10,0,0]",
+                "[16,8,0]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_mid.json",
+          "original_model_git_sha": "a1c54d921e6568eea038e0eac82d6bcaf136eff1",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 2,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 15,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "template_chiseled_bookshelf_slot_bottom_mid",
+                "a1c54d921e6568eea038e0eac82d6bcaf136eff1",
+                "0",
+                "[5,0,0]",
+                "[10,8,0]"
+              ]
+            },
+            {
+              "row": 16,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "template_chiseled_bookshelf_slot_bottom_mid",
+                "a1c54d921e6568eea038e0eac82d6bcaf136eff1",
+                "0",
+                "[5,0,0]",
+                "[10,8,0]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_right.json",
+          "original_model_git_sha": "5acdabdfa5ed0815ad7c0c588f19cea8dd5e8644",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 2,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 17,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "template_chiseled_bookshelf_slot_bottom_right",
+                "5acdabdfa5ed0815ad7c0c588f19cea8dd5e8644",
+                "0",
+                "[0,0,0]",
+                "[5,8,0]"
+              ]
+            },
+            {
+              "row": 18,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "template_chiseled_bookshelf_slot_bottom_right",
+                "5acdabdfa5ed0815ad7c0c588f19cea8dd5e8644",
+                "0",
+                "[0,0,0]",
+                "[5,8,0]"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v31/06_brewing_36_face_original_png_rgba.csv",
+      "original_file_git_blob_sha": "aa4817389d7b0632deb4094d62dc6e4b53d92af3",
+      "source_tree_bytes": 6030,
+      "header": [
+        "model",
+        "model_sha",
+        "element",
+        "side",
+        "element_from",
+        "element_to",
+        "zero_thickness",
+        "source_face_uv",
+        "uv_reversed",
+        "uv_rotation",
+        "source_cullface",
+        "slot",
+        "texture",
+        "texture_sha",
+        "texel_uses",
+        "opaque",
+        "transparent",
+        "partial",
+        "unique_rgba_in_uv"
+      ],
+      "record_count": 36,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    }
+  ]
+}

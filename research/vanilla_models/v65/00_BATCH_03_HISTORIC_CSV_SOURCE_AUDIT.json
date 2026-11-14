@@ -1,0 +1,761 @@
+{
+  "schema": "v65_original_historical_CSV_recheck_batch",
+  "batch_start": 24,
+  "batch_size": 12,
+  "original_manifest_blob": "d05c23e7e94d70cfe180bf60c91fb7a95b338b3b",
+  "source_model_index_blob": "c64239207cc8ff2841a8877e74cf5b6b311be812",
+  "entries": [
+    {
+      "path": "research/vanilla_models/v25/05_eight_parent_template_source_audit.csv",
+      "original_file_git_blob_sha": "afa836e1c76f33fff6059ac6d45471ba6495efb7",
+      "source_tree_bytes": 1491,
+      "header": [
+        "template_model",
+        "source_path",
+        "git_blob_sha",
+        "parent",
+        "own_elements",
+        "face_declarations",
+        "flat_elements",
+        "element_rotation_count",
+        "raw_bbox_min",
+        "raw_bbox_max",
+        "face_explicit_uv",
+        "face_rotation",
+        "face_cullface"
+      ],
+      "record_count": 8,
+      "malformed_rows": 0,
+      "model_matches": [
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_lantern.json",
+          "original_model_git_sha": "d54baf8db9aa52c0d828cb6047ea5aec21b8b341",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 8,
+              "tier": "typed_path_SHA",
+              "sha_field": "git_blob_sha",
+              "cells": [
+                "template_lantern",
+                "1.21.11/assets/minecraft/models/block/template_lantern.json",
+                "d54baf8db9aa52c0d828cb6047ea5aec21b8b341",
+                "block/block",
+                "4"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_campfire.json",
+          "original_model_git_sha": "855876661618aaa7f65b7a1172b3c1b269215ca0",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 9,
+              "tier": "typed_path_SHA",
+              "sha_field": "git_blob_sha",
+              "cells": [
+                "template_campfire",
+                "1.21.11/assets/minecraft/models/block/template_campfire.json",
+                "855876661618aaa7f65b7a1172b3c1b269215ca0",
+                "block/block",
+                "7"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v25/07_animation_sprite_metadata.csv",
+      "original_file_git_blob_sha": "8e68fb25e2683465c510cbcc1576253ff2279c5d",
+      "source_tree_bytes": 649,
+      "header": [
+        "png_source_path",
+        "png_sha",
+        "width",
+        "height",
+        "derived_16x16_frame_count",
+        "metadata_source_path",
+        "metadata_sha",
+        "declared_frame_time_ticks",
+        "interpolate_field_present",
+        "interpolate_declared_value",
+        "frames_field_present"
+      ],
+      "record_count": 2,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v25/08_six_uploaded_vs_mirror_blob_crosschecks.csv",
+      "original_file_git_blob_sha": "3bbe097dd35a16c6cc929091e66185bbadf105b6",
+      "source_tree_bytes": 1304,
+      "header": [
+        "path_in_mirror",
+        "mirror_blob_sha",
+        "path_in_user_repo",
+        "user_repo_blob_sha",
+        "exact_blob_sha_equal",
+        "mirror_ref"
+      ],
+      "record_count": 6,
+      "malformed_rows": 0,
+      "model_matches": [
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter.json",
+          "original_model_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+          "by_tier": {
+            "typed_path_SHA": 2,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 2,
+              "tier": "typed_path_SHA",
+              "sha_field": "mirror_blob_sha",
+              "cells": [
+                "assets/minecraft/models/block/composter.json",
+                "9650f777a58fe668b42ad8ad6d57a643121f5202",
+                "1.21.11/assets/minecraft/models/block/composter.json",
+                "9650f777a58fe668b42ad8ad6d57a643121f5202",
+                "true"
+              ]
+            },
+            {
+              "row": 2,
+              "tier": "typed_path_SHA",
+              "sha_field": "user_repo_blob_sha",
+              "cells": [
+                "assets/minecraft/models/block/composter.json",
+                "9650f777a58fe668b42ad8ad6d57a643121f5202",
+                "1.21.11/assets/minecraft/models/block/composter.json",
+                "9650f777a58fe668b42ad8ad6d57a643121f5202",
+                "true"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/stonecutter.json",
+          "original_model_git_sha": "b89f0aaa1647332191fd685fd55633dbc8a879cb",
+          "by_tier": {
+            "typed_path_SHA": 2,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 3,
+              "tier": "typed_path_SHA",
+              "sha_field": "mirror_blob_sha",
+              "cells": [
+                "assets/minecraft/models/block/stonecutter.json",
+                "b89f0aaa1647332191fd685fd55633dbc8a879cb",
+                "1.21.11/assets/minecraft/models/block/stonecutter.json",
+                "b89f0aaa1647332191fd685fd55633dbc8a879cb",
+                "true"
+              ]
+            },
+            {
+              "row": 3,
+              "tier": "typed_path_SHA",
+              "sha_field": "user_repo_blob_sha",
+              "cells": [
+                "assets/minecraft/models/block/stonecutter.json",
+                "b89f0aaa1647332191fd685fd55633dbc8a879cb",
+                "1.21.11/assets/minecraft/models/block/stonecutter.json",
+                "b89f0aaa1647332191fd685fd55633dbc8a879cb",
+                "true"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v26/01_eight_png_full_rgba_pixels.csv",
+      "original_file_git_blob_sha": "dbbbc9c02a4e14f74289772fdcb2e664980ee89f",
+      "source_tree_bytes": 1136,
+      "header": [
+        "texture_source_path",
+        "source_git_blob_sha",
+        "width",
+        "height",
+        "bit_depth",
+        "color_type",
+        "unique_rgba",
+        "opaque_pixels",
+        "transparent_pixels",
+        "partial_alpha_pixels",
+        "total_pixels"
+      ],
+      "record_count": 8,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v26/02_selected_face_frame_original_rgba.csv",
+      "original_file_git_blob_sha": "0a70a1220887040fd69104580abbfc98f11b41fb",
+      "source_tree_bytes": 12289,
+      "header": [
+        "model",
+        "model_sha",
+        "element",
+        "side",
+        "slot",
+        "texture_path",
+        "texture_sha",
+        "uv",
+        "frame",
+        "uv_reversed",
+        "uv_rotation",
+        "element_rotation",
+        "cullface",
+        "pixels",
+        "opaque",
+        "transparent",
+        "partial",
+        "colors",
+        "opaque_colors"
+      ],
+      "record_count": 70,
+      "malformed_rows": 0,
+      "model_matches": [
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/flower_pot.json",
+          "original_model_git_sha": "45c7a75b1e69ce35bf3bc76d794e1a922deccf53",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 20,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "flower_pot",
+                "45c7a75b1e69ce35bf3bc76d794e1a922deccf53",
+                "4",
+                "up",
+                "#dirt"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_lantern.json",
+          "original_model_git_sha": "d54baf8db9aa52c0d828cb6047ea5aec21b8b341",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 45,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 21,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "template_lantern",
+                "d54baf8db9aa52c0d828cb6047ea5aec21b8b341",
+                "0",
+                "down",
+                "#lantern"
+              ]
+            },
+            {
+              "row": 22,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "template_lantern",
+                "d54baf8db9aa52c0d828cb6047ea5aec21b8b341",
+                "0",
+                "down",
+                "#lantern"
+              ]
+            },
+            {
+              "row": 23,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "template_lantern",
+                "d54baf8db9aa52c0d828cb6047ea5aec21b8b341",
+                "0",
+                "down",
+                "#lantern"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/stonecutter.json",
+          "original_model_git_sha": "b89f0aaa1647332191fd685fd55633dbc8a879cb",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 6,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 66,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "stonecutter",
+                "b89f0aaa1647332191fd685fd55633dbc8a879cb",
+                "1",
+                "north",
+                "#saw"
+              ]
+            },
+            {
+              "row": 67,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "stonecutter",
+                "b89f0aaa1647332191fd685fd55633dbc8a879cb",
+                "1",
+                "north",
+                "#saw"
+              ]
+            },
+            {
+              "row": 68,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "stonecutter",
+                "b89f0aaa1647332191fd685fd55633dbc8a879cb",
+                "1",
+                "north",
+                "#saw"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v26/03_eight_png_mirror_blob_crosscheck.csv",
+      "original_file_git_blob_sha": "50640e214b38bcebfee1dbd10d503ac8e855a89e",
+      "source_tree_bytes": 944,
+      "header": [
+        "texture_relative_path",
+        "uploaded_git_blob_sha",
+        "mirror_git_blob_sha",
+        "exact_match"
+      ],
+      "record_count": 8,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v26/04_three_v4_texture_metrics_crosscheck.csv",
+      "original_file_git_blob_sha": "9b8745d0f577c5877e701873f2887df4c390c066",
+      "source_tree_bytes": 712,
+      "header": [
+        "texture_id",
+        "v4_sha256",
+        "v4_file_bytes",
+        "v26_file_bytes",
+        "v4_visible",
+        "v26_visible",
+        "v4_total",
+        "v26_total",
+        "v4_size",
+        "v26_size",
+        "matched_file_bytes",
+        "matched_visible",
+        "matched_total",
+        "matched_dimensions",
+        "v4_csv_git_blob_sha"
+      ],
+      "record_count": 3,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v27/01_oak_shelf_full_png_rgba.csv",
+      "original_file_git_blob_sha": "7b66c2aeb1950859b70c0731219525033c2347b8",
+      "source_tree_bytes": 232,
+      "header": [
+        "path",
+        "git_blob_sha",
+        "width",
+        "height",
+        "bit_depth",
+        "color_type",
+        "rgba_colors",
+        "total_pixels",
+        "opaque",
+        "transparent",
+        "partial_alpha"
+      ],
+      "record_count": 1,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v27/03_oak_shelf_32_combination_rule_evaluation.csv",
+      "original_file_git_blob_sha": "a0eef515a144836a26004077769fa749b37e670f",
+      "source_tree_bytes": 2774,
+      "header": [
+        "facing",
+        "powered",
+        "side_chain",
+        "base",
+        "overlay",
+        "y_rotation",
+        "selected_rule_count"
+      ],
+      "record_count": 32,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v27/04_uv_projection_23_explicit_face_source_crosschecks.csv",
+      "original_file_git_blob_sha": "0818961d78725b5825dc91e14e06df2d72cf0f36",
+      "source_tree_bytes": 3843,
+      "header": [
+        "model",
+        "source_path",
+        "git_blob_sha",
+        "element_index",
+        "side",
+        "from_xyz",
+        "to_xyz",
+        "source_explicit_uv",
+        "projection_candidate_uv",
+        "exact_coordinate_order_match"
+      ],
+      "record_count": 23,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v27/05_composter_five_png_rgba.csv",
+      "original_file_git_blob_sha": "3f05f4664d7d79e7360f5f658f4e471085b457a4",
+      "source_tree_bytes": 563,
+      "header": [
+        "texture",
+        "sha",
+        "width",
+        "height",
+        "bit_depth",
+        "color_type",
+        "total_pixels",
+        "opaque",
+        "transparent",
+        "partial",
+        "unique_rgba",
+        "redecoded_previous_v26"
+      ],
+      "record_count": 5,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v27/06_composter_26_implicit_uv_face_rgba.csv",
+      "original_file_git_blob_sha": "6099d586d74874053ed0ff0c74833a0abd0ab0f4",
+      "source_tree_bytes": 6189,
+      "header": [
+        "kind",
+        "model",
+        "source_sha",
+        "element",
+        "face",
+        "texture",
+        "texture_sha",
+        "uv_source",
+        "uv",
+        "reversed",
+        "cullface",
+        "level",
+        "pixels",
+        "opaque",
+        "transparent",
+        "partial",
+        "colors"
+      ],
+      "record_count": 26,
+      "malformed_rows": 0,
+      "model_matches": [
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter.json",
+          "original_model_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 18,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 2,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "base_composter",
+                "composter",
+                "9650f777a58fe668b42ad8ad6d57a643121f5202",
+                "0",
+                "up"
+              ]
+            },
+            {
+              "row": 3,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "base_composter",
+                "composter",
+                "9650f777a58fe668b42ad8ad6d57a643121f5202",
+                "0",
+                "down"
+              ]
+            },
+            {
+              "row": 4,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "base_composter",
+                "composter",
+                "9650f777a58fe668b42ad8ad6d57a643121f5202",
+                "1",
+                "up"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents1.json",
+          "original_model_git_sha": "fe6c8504a7bd48e198cb9ee47f3bacbcbf7ab511",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 20,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "content_level",
+                "composter_contents1",
+                "fe6c8504a7bd48e198cb9ee47f3bacbcbf7ab511",
+                "0",
+                "up"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents2.json",
+          "original_model_git_sha": "b5cc54c46a4d16494df7eea24d9ea1f43e5105d7",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 21,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "content_level",
+                "composter_contents2",
+                "b5cc54c46a4d16494df7eea24d9ea1f43e5105d7",
+                "0",
+                "up"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents3.json",
+          "original_model_git_sha": "4c3cdc1088b8d308efb7ac3374e1f7c7299bd579",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 22,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "content_level",
+                "composter_contents3",
+                "4c3cdc1088b8d308efb7ac3374e1f7c7299bd579",
+                "0",
+                "up"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents4.json",
+          "original_model_git_sha": "48e0456f5f4bd2fcf1c606ff9cd481438aaf2465",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 23,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "content_level",
+                "composter_contents4",
+                "48e0456f5f4bd2fcf1c606ff9cd481438aaf2465",
+                "0",
+                "up"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents5.json",
+          "original_model_git_sha": "21e4b30357f272d53214a585d587b8184a283b4c",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 24,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "content_level",
+                "composter_contents5",
+                "21e4b30357f272d53214a585d587b8184a283b4c",
+                "0",
+                "up"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents6.json",
+          "original_model_git_sha": "12b655168f0696fc16a1a9bece700b785c950fb7",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 25,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "content_level",
+                "composter_contents6",
+                "12b655168f0696fc16a1a9bece700b785c950fb7",
+                "0",
+                "up"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents7.json",
+          "original_model_git_sha": "b135ad12cd622702881dbef71505ca34ebcab0ed",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 26,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "content_level",
+                "composter_contents7",
+                "b135ad12cd622702881dbef71505ca34ebcab0ed",
+                "0",
+                "up"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents_ready.json",
+          "original_model_git_sha": "63744ccac86702872268cce243d72ca50f237501",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 27,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "content_level",
+                "composter_contents_ready",
+                "63744ccac86702872268cce243d72ca50f237501",
+                "0",
+                "up"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_content_read": true
+    }
+  ]
+}

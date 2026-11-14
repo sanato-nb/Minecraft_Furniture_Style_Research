@@ -1,0 +1,1761 @@
+{
+  "schema": "v65_original_historical_CSV_recheck_batch",
+  "batch_start": 0,
+  "batch_size": 12,
+  "original_manifest_blob": "d05c23e7e94d70cfe180bf60c91fb7a95b338b3b",
+  "source_model_index_blob": "c64239207cc8ff2841a8877e74cf5b6b311be812",
+  "entries": [
+    {
+      "path": "research/vanilla_models/v5/02_모델요소_치수.csv",
+      "original_file_git_blob_sha": "8b4940e5b746b0eeb9075aad1d7788595cc19a96",
+      "source_tree_bytes": 10053,
+      "header": [
+        "model",
+        "element_index",
+        "origin_geometry_model",
+        "from_xyz",
+        "to_xyz",
+        "dimensions_xyz",
+        "local_rotation",
+        "note"
+      ],
+      "record_count": 80,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v5/03_블록상태_16.csv",
+      "original_file_git_blob_sha": "db438cb599cf0c71f0b376eaab4087870ac2d02c",
+      "source_tree_bytes": 3606,
+      "header": [
+        "name",
+        "type",
+        "variant_or_multipart_entry_count",
+        "sample_behavior",
+        "github_blob_sha1",
+        "source_url"
+      ],
+      "record_count": 16,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v5/04_모델및블록상태_근거원장71.csv",
+      "original_file_git_blob_sha": "26bcfe32472dcc9ba87df0099435aab154a8c86c",
+      "source_tree_bytes": 17558,
+      "header": [
+        "path",
+        "github_blob_sha1",
+        "source_url",
+        "source_type",
+        "read_status"
+      ],
+      "record_count": 71,
+      "malformed_rows": 0,
+      "model_matches": [
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/oak_shelf.json",
+          "original_model_git_sha": "4b0f3db311717ef740c50638ea1d252256310180",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 9,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/oak_shelf.json",
+                "4b0f3db311717ef740c50638ea1d252256310180",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/oak_shelf.js",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/bookshelf.json",
+          "original_model_git_sha": "c095a7d7ebf88c0a72dc9131b64e3b4f5963aad8",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 10,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/bookshelf.json",
+                "c095a7d7ebf88c0a72dc9131b64e3b4f5963aad8",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/bookshelf.js",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf_empty_slot_top_left.json",
+          "original_model_git_sha": "2b9817062fbc51325526c1fd4b72cd8aadb06a30",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 11,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/chiseled_bookshelf_empty_slot_top_left.json",
+                "2b9817062fbc51325526c1fd4b72cd8aadb06a30",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/chiseled_boo",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/barrel.json",
+          "original_model_git_sha": "cff930084d47d226817f274616d14f4b07c0a9d4",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 12,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/barrel.json",
+                "cff930084d47d226817f274616d14f4b07c0a9d4",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/barrel.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/crafting_table.json",
+          "original_model_git_sha": "aa056b15efba47ef049e029b560029a6b1e3be84",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 13,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/crafting_table.json",
+                "aa056b15efba47ef049e029b560029a6b1e3be84",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/crafting_tab",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/smithing_table.json",
+          "original_model_git_sha": "f7bcd3e1f5f740089ded6cc3627b8018e8a55c83",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 14,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/smithing_table.json",
+                "f7bcd3e1f5f740089ded6cc3627b8018e8a55c83",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/smithing_tab",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/lectern.json",
+          "original_model_git_sha": "a504fa96bc3c5c729adaaa015d927b8250a1bd63",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 15,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/lectern.json",
+                "a504fa96bc3c5c729adaaa015d927b8250a1bd63",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/lectern.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/anvil.json",
+          "original_model_git_sha": "dc9d2555669a31984f3d0e221f778ca170d7f533",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 16,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/anvil.json",
+                "dc9d2555669a31984f3d0e221f778ca170d7f533",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/anvil.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter.json",
+          "original_model_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 17,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/composter.json",
+                "9650f777a58fe668b42ad8ad6d57a643121f5202",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/composter.js",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/barrel_open.json",
+          "original_model_git_sha": "c7d013e7b442624011ab4a0bef8b4e9ac5570ea9",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 23,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/barrel_open.json",
+                "c7d013e7b442624011ab4a0bef8b4e9ac5570ea9",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/barrel_open.",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/banner.json",
+          "original_model_git_sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 3
+          },
+          "row_samples": [
+            {
+              "row": 26,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/bed.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/bed.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 27,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/chest.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/chest.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 28,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/oak_sign.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/oak_sign.jso",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/bed.json",
+          "original_model_git_sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 2
+          },
+          "row_samples": [
+            {
+              "row": 26,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/bed.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/bed.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 27,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/chest.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/chest.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 28,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/oak_sign.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/oak_sign.jso",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/chest.json",
+          "original_model_git_sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 2
+          },
+          "row_samples": [
+            {
+              "row": 26,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/bed.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/bed.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 27,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/chest.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/chest.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 28,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/oak_sign.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/oak_sign.jso",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/oak_sign.json",
+          "original_model_git_sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 2
+          },
+          "row_samples": [
+            {
+              "row": 26,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/bed.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/bed.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 27,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/chest.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/chest.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 28,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/oak_sign.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/oak_sign.jso",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/trapped_chest.json",
+          "original_model_git_sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 3
+          },
+          "row_samples": [
+            {
+              "row": 26,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/bed.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/bed.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 27,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/chest.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/chest.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 28,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/oak_sign.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/oak_sign.jso",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/flower_pot.json",
+          "original_model_git_sha": "45c7a75b1e69ce35bf3bc76d794e1a922deccf53",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 29,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/flower_pot.json",
+                "45c7a75b1e69ce35bf3bc76d794e1a922deccf53",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/flower_pot.j",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_shelf_body.json",
+          "original_model_git_sha": "2f258411f5a049fcd96f274e1253fb9acdaa570d",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 41,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/template_shelf_body.json",
+                "2f258411f5a049fcd96f274e1253fb9acdaa570d",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/template_she",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_left.json",
+          "original_model_git_sha": "da9fc59136a95d14a3fbe5eb363564b8fa45bf36",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 45,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_left.json",
+                "da9fc59136a95d14a3fbe5eb363564b8fa45bf36",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/template_chi",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_anvil.json",
+          "original_model_git_sha": "47a37763cc372fa5ad9f0f43719e246d6a5b16df",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 46,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/template_anvil.json",
+                "47a37763cc372fa5ad9f0f43719e246d6a5b16df",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/template_anv",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_shelf_unpowered.json",
+          "original_model_git_sha": "ad5b6a3fc7c2256e2cab8f18a46a82e085511cec",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 56,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/template_shelf_unpowered.json",
+                "ad5b6a3fc7c2256e2cab8f18a46a82e085511cec",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/template_she",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v5/05_v4계승_150종_픽셀측정.csv",
+      "original_file_git_blob_sha": "a4a38532310867d08cb36a2a123f9ddbde07e129",
+      "source_tree_bytes": 78675,
+      "header": [
+        "texture_id",
+        "family",
+        "edition",
+        "game_version",
+        "source_branch",
+        "source_path",
+        "source_url",
+        "sha256",
+        "width",
+        "height",
+        "pixels_total",
+        "visible_pixels",
+        "visible_pct",
+        "fully_opaque_pct",
+        "mean_alpha",
+        "unique_rgb_visible",
+        "dominant_rgb",
+        "dominant_pct_visible",
+        "median_rgb",
+        "mean_luma",
+        "luma_std",
+        "mean_saturation",
+        "adjacent_horizontal_delta",
+        "adjacent_vertical_delta",
+        "direction_ratio_vertical_over_horizontal",
+        "left_right_seam_delta",
+        "top_bottom_seam_delta",
+        "shannon_entropy_colors_bits",
+        "png_bytes",
+        "evidence_type",
+        "verification"
+      ],
+      "record_count": 150,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v6/02_v6_신규블록상태7개.csv",
+      "original_file_git_blob_sha": "5eec1740dc3eb8203c6f4b6433e228935849083e",
+      "source_tree_bytes": 1256,
+      "header": [
+        "name",
+        "state_mode",
+        "entry_count",
+        "sha1",
+        "source_url"
+      ],
+      "record_count": 7,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v6/03_v6_UV면별_실측.csv",
+      "original_file_git_blob_sha": "d9bde4bf42f9bdc01149eb1b2e5a3214938cfe9c",
+      "source_tree_bytes": 17598,
+      "header": [
+        "geometry_model",
+        "element_index",
+        "face",
+        "uv_json",
+        "texture_variable",
+        "face_rotation",
+        "cullface",
+        "source_url",
+        "verification"
+      ],
+      "record_count": 90,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v6/04_v6_UV모델별_요약.csv",
+      "original_file_git_blob_sha": "a293ca4b8915433e5d88f26587a7f3b5e09a80e4",
+      "source_tree_bytes": 432,
+      "header": [
+        "geometry_model",
+        "faces_recorded",
+        "elements_covered",
+        "implicit_uv_faces",
+        "texture_variables_used",
+        "rotated_face_uvs",
+        "culled_faces"
+      ],
+      "record_count": 12,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v6/05_v6_블록상태_실제예시.csv",
+      "original_file_git_blob_sha": "9c6a1754a6b0dc7cef3fe9f2c0ed49c583de0dc8",
+      "source_tree_bytes": 6073,
+      "header": [
+        "block",
+        "state_key",
+        "selected_model",
+        "rotation_x",
+        "rotation_y",
+        "uvlock",
+        "selection_kind",
+        "condition",
+        "source_url"
+      ],
+      "record_count": 34,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v6/06_v6_검증보류항목.csv",
+      "original_file_git_blob_sha": "fc3a88ec18e70cc46eb4800d8e59c44046853d2b",
+      "source_tree_bytes": 1207,
+      "header": [
+        "issue_id",
+        "subject",
+        "status",
+        "notes"
+      ],
+      "record_count": 9,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v6/08_v6_선반32px_UV픽셀대응.csv",
+      "original_file_git_blob_sha": "4240187b612902622abc4a526c1a55e9cd75bd88",
+      "source_tree_bytes": 638,
+      "header": [
+        "element",
+        "face",
+        "u0_uv",
+        "v0_uv",
+        "u1_uv",
+        "v1_uv",
+        "u0_pngpx",
+        "v0_pngpx",
+        "u1_pngpx",
+        "v1_pngpx",
+        "texture_variable"
+      ],
+      "record_count": 15,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v6/10_v6_누적_출처원장91.csv",
+      "original_file_git_blob_sha": "41bd7e2ea25e754ce2a32949c2b2c7d22a9a2ebc",
+      "source_tree_bytes": 22413,
+      "header": [
+        "path",
+        "github_blob_sha1",
+        "source_url",
+        "source_type",
+        "read_status"
+      ],
+      "record_count": 91,
+      "malformed_rows": 0,
+      "model_matches": [
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/anvil.json",
+          "original_model_git_sha": "dc9d2555669a31984f3d0e221f778ca170d7f533",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 25,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/anvil.json",
+                "dc9d2555669a31984f3d0e221f778ca170d7f533",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/anvil.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/barrel.json",
+          "original_model_git_sha": "cff930084d47d226817f274616d14f4b07c0a9d4",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 26,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/barrel.json",
+                "cff930084d47d226817f274616d14f4b07c0a9d4",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/barrel.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/barrel_open.json",
+          "original_model_git_sha": "c7d013e7b442624011ab4a0bef8b4e9ac5570ea9",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 27,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/barrel_open.json",
+                "c7d013e7b442624011ab4a0bef8b4e9ac5570ea9",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/barrel_open.",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/banner.json",
+          "original_model_git_sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 3
+          },
+          "row_samples": [
+            {
+              "row": 28,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/bed.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/bed.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 34,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/chest.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/chest.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 63,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/oak_sign.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/oak_sign.jso",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/bed.json",
+          "original_model_git_sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 2
+          },
+          "row_samples": [
+            {
+              "row": 28,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/bed.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/bed.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 34,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/chest.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/chest.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 63,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/oak_sign.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/oak_sign.jso",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/chest.json",
+          "original_model_git_sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 2
+          },
+          "row_samples": [
+            {
+              "row": 28,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/bed.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/bed.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 34,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/chest.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/chest.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 63,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/oak_sign.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/oak_sign.jso",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/oak_sign.json",
+          "original_model_git_sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 2
+          },
+          "row_samples": [
+            {
+              "row": 28,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/bed.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/bed.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 34,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/chest.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/chest.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 63,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/oak_sign.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/oak_sign.jso",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/trapped_chest.json",
+          "original_model_git_sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 3
+          },
+          "row_samples": [
+            {
+              "row": 28,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/bed.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/bed.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 34,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/chest.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/chest.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            },
+            {
+              "row": 63,
+              "tier": "SHA_only_unresolved",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/oak_sign.json",
+                "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/oak_sign.jso",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/bookshelf.json",
+          "original_model_git_sha": "c095a7d7ebf88c0a72dc9131b64e3b4f5963aad8",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 30,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/bookshelf.json",
+                "c095a7d7ebf88c0a72dc9131b64e3b4f5963aad8",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/bookshelf.js",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+          "original_model_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 33,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/cauldron.json",
+                "788da3e1449187f15d820c0172f33b80f39620ca",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/cauldron.jso",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf_empty_slot_top_left.json",
+          "original_model_git_sha": "2b9817062fbc51325526c1fd4b72cd8aadb06a30",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 35,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/chiseled_bookshelf_empty_slot_top_left.json",
+                "2b9817062fbc51325526c1fd4b72cd8aadb06a30",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/chiseled_boo",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter.json",
+          "original_model_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 36,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/composter.json",
+                "9650f777a58fe668b42ad8ad6d57a643121f5202",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/composter.js",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/crafting_table.json",
+          "original_model_git_sha": "aa056b15efba47ef049e029b560029a6b1e3be84",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 37,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/crafting_table.json",
+                "aa056b15efba47ef049e029b560029a6b1e3be84",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/crafting_tab",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/end_rod.json",
+          "original_model_git_sha": "aeb57d0b7929e2df4e2c2b47dc0ce571fd53de97",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 43,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/end_rod.json",
+                "aeb57d0b7929e2df4e2c2b47dc0ce571fd53de97",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/end_rod.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/flower_pot.json",
+          "original_model_git_sha": "45c7a75b1e69ce35bf3bc76d794e1a922deccf53",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 46,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/flower_pot.json",
+                "45c7a75b1e69ce35bf3bc76d794e1a922deccf53",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/flower_pot.j",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/grindstone.json",
+          "original_model_git_sha": "cc5e0f1f985fb58e381d8b2dd8c9fc1b8aef1532",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 47,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/grindstone.json",
+                "cc5e0f1f985fb58e381d8b2dd8c9fc1b8aef1532",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/grindstone.j",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+          "original_model_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 48,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/hopper.json",
+                "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/hopper.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+          "original_model_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 49,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/hopper_side.json",
+                "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/hopper_side.",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/lantern.json",
+          "original_model_git_sha": "12970adc81a3bd51666060e8312b7ef4cf476930",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 52,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/lantern.json",
+                "12970adc81a3bd51666060e8312b7ef4cf476930",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/lantern.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/lantern_hanging.json",
+          "original_model_git_sha": "d047dcd004fa2d3bb374ae2c7f490587456b42b1",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 53,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/lantern_hanging.json",
+                "d047dcd004fa2d3bb374ae2c7f490587456b42b1",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/lantern_hang",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/lectern.json",
+          "original_model_git_sha": "a504fa96bc3c5c729adaaa015d927b8250a1bd63",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 54,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/lectern.json",
+                "a504fa96bc3c5c729adaaa015d927b8250a1bd63",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/lectern.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/oak_shelf.json",
+          "original_model_git_sha": "4b0f3db311717ef740c50638ea1d252256310180",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 61,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/oak_shelf.json",
+                "4b0f3db311717ef740c50638ea1d252256310180",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/oak_shelf.js",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/oak_shelf_unpowered.json",
+          "original_model_git_sha": "0d536cc45ac2bc311ff1b1fc44651dbc43492c47",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 62,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/oak_shelf_unpowered.json",
+                "0d536cc45ac2bc311ff1b1fc44651dbc43492c47",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/oak_shelf_un",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/smithing_table.json",
+          "original_model_git_sha": "f7bcd3e1f5f740089ded6cc3627b8018e8a55c83",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 77,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/smithing_table.json",
+                "f7bcd3e1f5f740089ded6cc3627b8018e8a55c83",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/smithing_tab",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/stonecutter.json",
+          "original_model_git_sha": "b89f0aaa1647332191fd685fd55633dbc8a879cb",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 80,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/stonecutter.json",
+                "b89f0aaa1647332191fd685fd55633dbc8a879cb",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/stonecutter.",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_anvil.json",
+          "original_model_git_sha": "47a37763cc372fa5ad9f0f43719e246d6a5b16df",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 81,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/template_anvil.json",
+                "47a37763cc372fa5ad9f0f43719e246d6a5b16df",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/template_anv",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_left.json",
+          "original_model_git_sha": "da9fc59136a95d14a3fbe5eb363564b8fa45bf36",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 82,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_left.json",
+                "da9fc59136a95d14a3fbe5eb363564b8fa45bf36",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/template_chi",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_hanging_lantern.json",
+          "original_model_git_sha": "fb7ebb4d64e33bc0ab18aa568e273987a7c1cc9b",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 83,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/template_hanging_lantern.json",
+                "fb7ebb4d64e33bc0ab18aa568e273987a7c1cc9b",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/template_han",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_lantern.json",
+          "original_model_git_sha": "d54baf8db9aa52c0d828cb6047ea5aec21b8b341",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 84,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/template_lantern.json",
+                "d54baf8db9aa52c0d828cb6047ea5aec21b8b341",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/template_lan",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_shelf_body.json",
+          "original_model_git_sha": "2f258411f5a049fcd96f274e1253fb9acdaa570d",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 85,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/template_shelf_body.json",
+                "2f258411f5a049fcd96f274e1253fb9acdaa570d",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/template_she",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_shelf_unpowered.json",
+          "original_model_git_sha": "ad5b6a3fc7c2256e2cab8f18a46a82e085511cec",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 86,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/template_shelf_unpowered.json",
+                "ad5b6a3fc7c2256e2cab8f18a46a82e085511cec",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/template_she",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_torch.json",
+          "original_model_git_sha": "21ed11386517038d77683dcbec4f150e339d84c1",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 87,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/template_torch.json",
+                "21ed11386517038d77683dcbec4f150e339d84c1",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/template_tor",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/torch.json",
+          "original_model_git_sha": "7c6241d04d44dbaffcc87592470cbff2f82c0c8c",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 92,
+              "tier": "typed_path_SHA",
+              "sha_field": "github_blob_sha1",
+              "cells": [
+                "assets/minecraft/models/block/torch.json",
+                "7c6241d04d44dbaffcc87592470cbff2f82c0c8c",
+                "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/models/block/torch.json",
+                "model",
+                "GitHub_connector_read_2026-11-11"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v6/11_v6_누적_모델목록68.csv",
+      "original_file_git_blob_sha": "35f63fc7952277c1ec0d5304de97df7f77ca178d",
+      "source_tree_bytes": 11726,
+      "header": [
+        "model_name",
+        "parent",
+        "element_count",
+        "evidence_kind",
+        "source_url",
+        "batch"
+      ],
+      "record_count": 68,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    }
+  ]
+}

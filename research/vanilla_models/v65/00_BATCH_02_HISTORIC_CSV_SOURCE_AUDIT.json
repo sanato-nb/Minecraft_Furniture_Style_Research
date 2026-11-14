@@ -1,0 +1,457 @@
+{
+  "schema": "v65_original_historical_CSV_recheck_batch",
+  "batch_start": 12,
+  "batch_size": 12,
+  "original_manifest_blob": "d05c23e7e94d70cfe180bf60c91fb7a95b338b3b",
+  "source_model_index_blob": "c64239207cc8ff2841a8877e74cf5b6b311be812",
+  "entries": [
+    {
+      "path": "research/vanilla_models/v6/12_v6_누적_상태목록23.csv",
+      "original_file_git_blob_sha": "fde614653ccfd9c34cee38ad8e7efa54d14aa902",
+      "source_tree_bytes": 3200,
+      "header": [
+        "name",
+        "state_mode",
+        "entry_count",
+        "source_url",
+        "batch"
+      ],
+      "record_count": 23,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v7/01_v7_상태별_최종조립_21사례.csv",
+      "original_file_git_blob_sha": "dd4ef1bf4a926f76358d8545e8b84fe03c014e05",
+      "source_tree_bytes": 3294,
+      "header": [
+        "block",
+        "case_id",
+        "props_json",
+        "selection_kind",
+        "model_parts",
+        "geometry_elements",
+        "zero_thickness_elements",
+        "bound_min",
+        "bound_max"
+      ],
+      "record_count": 21,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v7/02_v7_선택모델_부품별.csv",
+      "original_file_git_blob_sha": "94758b48dd189ff469db7d2767046d120ef2311d",
+      "source_tree_bytes": 5042,
+      "header": [
+        "block",
+        "case_id",
+        "part_order",
+        "model",
+        "source_rule_index",
+        "x_rot",
+        "y_rot",
+        "uvlock",
+        "element_count",
+        "bound_min",
+        "bound_max"
+      ],
+      "record_count": 53,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v7/03_v7_회전요소_좌표.csv",
+      "original_file_git_blob_sha": "cd4888e61b17bfaa778d3b05f556e91f85a87bf4",
+      "source_tree_bytes": 10107,
+      "header": [
+        "block",
+        "case_id",
+        "part_order",
+        "element_index",
+        "model",
+        "source_from",
+        "source_to",
+        "rotated_from",
+        "rotated_to",
+        "zero_thickness"
+      ],
+      "record_count": 93,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v7/05_v7_모델별_구조정의.csv",
+      "original_file_git_blob_sha": "3c71df20695070accbbdfaa0e220ef4e5e2378ea",
+      "source_tree_bytes": 6885,
+      "header": [
+        "model",
+        "parent_template",
+        "sha1",
+        "elements",
+        "boxes_json",
+        "note"
+      ],
+      "record_count": 39,
+      "malformed_rows": 0,
+      "model_matches": [
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf.json",
+          "original_model_git_sha": "a9bda72e10095343fb80de2bc4654212a1dc6834",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 2,
+              "tier": "model_name_SHA",
+              "sha_field": "sha1",
+              "cells": [
+                "chiseled_bookshelf",
+                "",
+                "a9bda72e10095343fb80de2bc4654212a1dc6834",
+                "1",
+                "[[[0,0,0],[16,16,16]]]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf_empty_slot_top_left.json",
+          "original_model_git_sha": "2b9817062fbc51325526c1fd4b72cd8aadb06a30",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 6,
+              "tier": "model_name_SHA",
+              "sha_field": "sha1",
+              "cells": [
+                "chiseled_bookshelf_empty_slot_top_left",
+                "",
+                "2b9817062fbc51325526c1fd4b72cd8aadb06a30",
+                "1",
+                "[[[10,8,0],[16,16,0]]]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf_empty_slot_top_mid.json",
+          "original_model_git_sha": "19f44bc16e3f638acc0c79990bd80b4d3a0e8204",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 7,
+              "tier": "model_name_SHA",
+              "sha_field": "sha1",
+              "cells": [
+                "chiseled_bookshelf_empty_slot_top_mid",
+                "template_chiseled_bookshelf_slot_top_mid",
+                "19f44bc16e3f638acc0c79990bd80b4d3a0e8204",
+                "1",
+                "[[[5,8,0],[10,16,0]]]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf_occupied_slot_top_left.json",
+          "original_model_git_sha": "85331c01dedeb9d94a1dde20212e93705acdead1",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 12,
+              "tier": "model_name_SHA",
+              "sha_field": "sha1",
+              "cells": [
+                "chiseled_bookshelf_occupied_slot_top_left",
+                "template_chiseled_bookshelf_slot_top_left",
+                "85331c01dedeb9d94a1dde20212e93705acdead1",
+                "1",
+                "[[[10,8,0],[16,16,0]]]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/oak_shelf.json",
+          "original_model_git_sha": "4b0f3db311717ef740c50638ea1d252256310180",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 33,
+              "tier": "model_name_SHA",
+              "sha_field": "sha1",
+              "cells": [
+                "oak_shelf",
+                "",
+                "4b0f3db311717ef740c50638ea1d252256310180",
+                "3",
+                "[[[0,0,13],[16,16,16]],[[0,0,11],[16,4,13]],[[0,12,11],[16,16,13]]]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/oak_shelf_center.json",
+          "original_model_git_sha": "81892d5c8594124365625adfcffe321d4b9403f1",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 34,
+              "tier": "model_name_SHA",
+              "sha_field": "sha1",
+              "cells": [
+                "oak_shelf_center",
+                "template_shelf_center",
+                "81892d5c8594124365625adfcffe321d4b9403f1",
+                "1",
+                "[[[0,4,13],[16,12,13]]]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/oak_shelf_left.json",
+          "original_model_git_sha": "f93de7bab0f31486dc88528dd30f9991d06c1c66",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 35,
+              "tier": "model_name_SHA",
+              "sha_field": "sha1",
+              "cells": [
+                "oak_shelf_left",
+                "template_shelf_left",
+                "f93de7bab0f31486dc88528dd30f9991d06c1c66",
+                "1",
+                "[[[0,4,13],[16,12,13]]]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/oak_shelf_unconnected.json",
+          "original_model_git_sha": "f7e0246635a353d0e16784ad1445a4c8e6685e2a",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 37,
+              "tier": "model_name_SHA",
+              "sha_field": "sha1",
+              "cells": [
+                "oak_shelf_unconnected",
+                "template_shelf_unconnected",
+                "f7e0246635a353d0e16784ad1445a4c8e6685e2a",
+                "1",
+                "[[[0,4,13],[16,12,13]]]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/oak_shelf_unpowered.json",
+          "original_model_git_sha": "0d536cc45ac2bc311ff1b1fc44651dbc43492c47",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 38,
+              "tier": "model_name_SHA",
+              "sha_field": "sha1",
+              "cells": [
+                "oak_shelf_unpowered",
+                "",
+                "0d536cc45ac2bc311ff1b1fc44651dbc43492c47",
+                "1",
+                "[[[0,4,13],[16,12,13]]]"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v8/02_v8_19PNG_해상도_근거.csv",
+      "original_file_git_blob_sha": "4fe696d5e2783f9198bde3767e214b5ba6c96ac7",
+      "source_tree_bytes": 5402,
+      "header": [
+        "path",
+        "width",
+        "height",
+        "file_bytes",
+        "bit_depth",
+        "png_color_type",
+        "git_blob_sha1",
+        "url",
+        "note"
+      ],
+      "record_count": 19,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v8/03_v8_6아틀라스_정의.csv",
+      "original_file_git_blob_sha": "c95aee5423c772fc833be48057c7f2298ef31f18",
+      "source_tree_bytes": 1407,
+      "header": [
+        "name",
+        "path",
+        "git_blob_sha1",
+        "source_prefix",
+        "source_dir",
+        "source_url"
+      ],
+      "record_count": 6,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v8/04_v8_17모델_유형요약.csv",
+      "original_file_git_blob_sha": "15ee7201ae3b59aecc34dbb1b289d7cdb47cc6fa",
+      "source_tree_bytes": 274,
+      "header": [
+        "mode",
+        "count",
+        "block_names"
+      ],
+      "record_count": 3,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v9/01_특수모델_부품요약.csv",
+      "original_file_git_blob_sha": "a28b9b6ee92fc251d39ce969bdadbb79983f5421",
+      "source_tree_bytes": 3303,
+      "header": [
+        "model_id",
+        "layer",
+        "cuboids",
+        "flat_elements",
+        "hierarchy_parts_including_root",
+        "tex_width",
+        "tex_height",
+        "render_type",
+        "part_names",
+        "distinct_cube_sizes",
+        "transform_ops",
+        "source_repo_git_blob_sha1",
+        "source_path"
+      ],
+      "record_count": 19,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v9/02_애니메이션_클립_실측.csv",
+      "original_file_git_blob_sha": "ba779a6c20a02a2dd755945be95c76712b6754e0",
+      "source_tree_bytes": 2187,
+      "header": [
+        "model_id",
+        "clip",
+        "length_seconds",
+        "loop",
+        "affected_bones",
+        "channels",
+        "sampled_keyframes",
+        "source_git_blob_sha1",
+        "source_path"
+      ],
+      "record_count": 15,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v25/02_eight_blockstates_direct_audit.csv",
+      "original_file_git_blob_sha": "d6e310bb8a09f41526f1fddf361802627a3fffcd",
+      "source_tree_bytes": 2042,
+      "header": [
+        "block_id",
+        "source_path",
+        "git_blob_sha",
+        "variant_key_count",
+        "multipart_rule_count",
+        "distinct_model_paths",
+        "model_paths_pipe",
+        "uvlock_true_records",
+        "x_rotation_field_count",
+        "y_rotation_field_count"
+      ],
+      "record_count": 8,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v25/04_eight_png_source_header_audit.csv",
+      "original_file_git_blob_sha": "3b3595f2539d9aa5f08dd9c2c5c66eee960b4497",
+      "source_tree_bytes": 1022,
+      "header": [
+        "texture_path",
+        "git_blob_sha",
+        "png_file_bytes",
+        "width_px",
+        "height_px",
+        "bit_depth",
+        "color_type",
+        "png_header_valid"
+      ],
+      "record_count": 8,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    }
+  ]
+}

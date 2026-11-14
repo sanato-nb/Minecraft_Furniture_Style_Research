@@ -1,0 +1,62 @@
+{
+  "schema": "v65_historical_113_CSV_source_audit_aggregate",
+  "source_git_main_at_recheck": "1cb3c57f94509b4fd57f686869963bc202618ee9",
+  "new_CSV_files_opened": 113,
+  "original_CSV_data_rows_read": 10946,
+  "original_CSV_record_width_mismatches": 0,
+  "files_with_model_SHA_cell_match": 33,
+  "files_without_model_SHA_cell_match": 80,
+  "inventory_files_excluded_from_new_historical_noninventory_links": [
+    "research/vanilla_models/v34/01_inventory_2390_block_model_paths_git_shas.csv",
+    "research/vanilla_models/v34/10_all_2390_future_review_queue_filename_categories.csv",
+    "research/vanilla_models/v36/01_p1_544_historical_sha_evidence_crosswalk.csv"
+  ],
+  "new_noninventory_verified_model_path_SHA_witness_pairs": 230,
+  "new_noninventory_unique_model_paths": 88,
+  "new_noninventory_models_not_in_v63_prior_historical_crosswalk": [
+    "1.21.11/assets/minecraft/models/block/template_shelf_inventory.json"
+  ],
+  "v63_prior_historical_crosswalk_rows": 179,
+  "source_SHA_collision_groups": 2,
+  "source_blob_SHA_distinct": 539,
+  "model_paths": 544,
+  "identical_sha_collision_groups": [
+    {
+      "sha": "00c837bfb2e49f00dff93ac37be1b3d17f9f9369",
+      "paths": [
+        "1.21.11/assets/minecraft/models/block/bamboo_hanging_sign.json",
+        "1.21.11/assets/minecraft/models/block/bamboo_sign.json"
+      ]
+    },
+    {
+      "sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+      "paths": [
+        "1.21.11/assets/minecraft/models/block/banner.json",
+        "1.21.11/assets/minecraft/models/block/bed.json",
+        "1.21.11/assets/minecraft/models/block/chest.json",
+        "1.21.11/assets/minecraft/models/block/oak_sign.json",
+        "1.21.11/assets/minecraft/models/block/trapped_chest.json"
+      ]
+    }
+  ],
+  "evidence_file_batch_blobs": [
+    "067bd12b61561327738c5ef8b053e6fe03f561c9",
+    "50ba701867a034cdf58ec6e40fdfb2bf3110f98c",
+    "829313dbe2af204acae06729187a6cb0ef2df3f0",
+    "5e9a8b8e1ceacc65a9236eb54c3f14056a7e8916",
+    "ed28b496236121a63ac7d94d1e8cab0b8095206a",
+    "2b6316593537ccb11c291635cf0737c0d2d355c2",
+    "379507eeabefa7439de9ea1b537853ad33d1e70e",
+    "d39d871bd6e47d8f9f76d349ac000c5fe07e1d03",
+    "2392876fe8cc431ca6091e0ff2cf25f21bc9ac79",
+    "1d9fe6d117e1973335e85b0c546c765b0aea63eb"
+  ],
+  "model_source_witnesses_csv": "research/vanilla_models/v65/01_V65_NON_INVENTORY_ORIGINAL_SOURCE_SHA_WITNESSES_230.csv",
+  "notes": [
+    "All 113 CSV original files opened, Git blob SHA checked against original tree and CSV parsed",
+    "230 historical model/file links exclude three previously known full model-list inventories; no new original model JSON direct read this round",
+    "Source identity path/SHA row and historical CSV contents are not synonymous with full geometry/UV/PNG/runtime certification",
+    "110 SHA-only candidate row-links retained in batch files separately as ambiguous path/model identification, not counted as strong",
+    "Two original JSON blob SHAs are shared by multiple different source model paths; never join by SHA alone"
+  ]
+}

@@ -1,0 +1,3000 @@
+{
+  "schema": "v65_original_SQLite4_static_file_structure_and_btree_audit",
+  "source_head": "1cb3c57f94509b4fd57f686869963bc202618ee9",
+  "db_files": [
+    {
+      "path": "research/vanilla_models/v5/MC_Furniture_Style_Stage1_Research_v5.sqlite",
+      "git_blob_sha": "4b75d6fdc6dc7d37a8ba81a6c63891d886c801b2",
+      "file_bytes": 147456,
+      "header": {
+        "page_size": 4096,
+        "reported_page_count": 36,
+        "free_pages": 0,
+        "schema_cookie": 5,
+        "user_version": 0,
+        "text_encoding": 1,
+        "file_write_version": 1,
+        "file_read_version": 1
+      },
+      "sqlite_master_record_count": 10,
+      "schema_entries": [
+        {
+          "rowid": 1,
+          "type": "table",
+          "name": "sources",
+          "tbl_name": "sources",
+          "rootpage": 2,
+          "sql": "CREATE TABLE sources (path TEXT PRIMARY KEY, github_blob_sha1 TEXT, source_url TEXT, source_type TEXT, read_status TEXT)"
+        },
+        {
+          "rowid": 2,
+          "type": "index",
+          "name": "sqlite_autoindex_sources_1",
+          "tbl_name": "sources",
+          "rootpage": 3,
+          "sql": null
+        },
+        {
+          "rowid": 3,
+          "type": "table",
+          "name": "models",
+          "tbl_name": "models",
+          "rootpage": 4,
+          "sql": "CREATE TABLE models (name TEXT PRIMARY KEY, kind TEXT, parent TEXT, parent_chain TEXT, element_count INTEGER, box_min_xyz TEXT, box_max_xyz TEXT, rotation_observed INTEGER, texture_variables TEXT, geometry_status TEXT, github_blob_sha1 TEXT, source_url TEXT)"
+        },
+        {
+          "rowid": 4,
+          "type": "index",
+          "name": "sqlite_autoindex_models_1",
+          "tbl_name": "models",
+          "rootpage": 5,
+          "sql": null
+        },
+        {
+          "rowid": 5,
+          "type": "table",
+          "name": "elements",
+          "tbl_name": "elements",
+          "rootpage": 6,
+          "sql": "CREATE TABLE elements (model TEXT, element_index INTEGER, origin_geometry_model TEXT, from_xyz TEXT, to_xyz TEXT, dimensions_xyz TEXT, local_rotation TEXT, note TEXT, PRIMARY KEY (model,element_index), FOREIGN KEY(model) REFERENCES models(name))"
+        },
+        {
+          "rowid": 6,
+          "type": "index",
+          "name": "sqlite_autoindex_elements_1",
+          "tbl_name": "elements",
+          "rootpage": 7,
+          "sql": null
+        },
+        {
+          "rowid": 7,
+          "type": "table",
+          "name": "blockstates",
+          "tbl_name": "blockstates",
+          "rootpage": 8,
+          "sql": "CREATE TABLE blockstates (name TEXT PRIMARY KEY, type TEXT, variant_or_multipart_entry_count INTEGER, sample_behavior TEXT, github_blob_sha1 TEXT, source_url TEXT)"
+        },
+        {
+          "rowid": 8,
+          "type": "index",
+          "name": "sqlite_autoindex_blockstates_1",
+          "tbl_name": "blockstates",
+          "rootpage": 9,
+          "sql": null
+        },
+        {
+          "rowid": 9,
+          "type": "table",
+          "name": "texture_stats_v4",
+          "tbl_name": "texture_stats_v4",
+          "rootpage": 10,
+          "sql": "CREATE TABLE texture_stats_v4 (texture_id TEXT PRIMARY KEY, family TEXT, source_url TEXT, sha256 TEXT, width INTEGER, height INTEGER, unique_rgb_visible INTEGER, mean_luma REAL, luma_std REAL, verification TEXT)"
+        },
+        {
+          "rowid": 10,
+          "type": "index",
+          "name": "sqlite_autoindex_texture_stats_v4_1",
+          "tbl_name": "texture_stats_v4",
+          "rootpage": 11,
+          "sql": null
+        }
+      ],
+      "table_contents": [
+        {
+          "rowid": 1,
+          "type": "table",
+          "name": "sources",
+          "tbl_name": "sources",
+          "rootpage": 2,
+          "sql": "CREATE TABLE sources (path TEXT PRIMARY KEY, github_blob_sha1 TEXT, source_url TEXT, source_type TEXT, read_status TEXT)",
+          "btree": {
+            "rows": 71,
+            "leaf_pages": 5,
+            "interior_pages": 1,
+            "visited_pages": 6,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "assets/minecraft/models/block/oak_planks.json",
+                  "3a21a3f2e75848ac905b6819ceeb40d1dbb3b39c",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model",
+                  "model",
+                  "GitHub_connector_read_2026-11-11"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "assets/minecraft/models/block/oak_slab.json",
+                  "f11ff8bad0b9faa4b6d1ef65c9a75ff2681a162a",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model",
+                  "model",
+                  "GitHub_connector_read_2026-11-11"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 3,
+          "type": "table",
+          "name": "models",
+          "tbl_name": "models",
+          "rootpage": 4,
+          "sql": "CREATE TABLE models (name TEXT PRIMARY KEY, kind TEXT, parent TEXT, parent_chain TEXT, element_count INTEGER, box_min_xyz TEXT, box_max_xyz TEXT, rotation_observed INTEGER, texture_variables TEXT, geometry_status TEXT, github_blob_sha1 TEXT, source_url TEXT)",
+          "btree": {
+            "rows": 55,
+            "leaf_pages": 5,
+            "interior_pages": 1,
+            "visited_pages": 6,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_planks",
+                  "named",
+                  "cube_all",
+                  "oak_planks > cube_all > cube",
+                  1,
+                  "[0, 0, 0]",
+                  "[16, 16, 16]",
+                  0
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_slab",
+                  "named",
+                  "slab",
+                  "oak_slab > slab",
+                  1,
+                  "[0, 0, 0]",
+                  "[16, 8, 16]",
+                  0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 5,
+          "type": "table",
+          "name": "elements",
+          "tbl_name": "elements",
+          "rootpage": 6,
+          "sql": "CREATE TABLE elements (model TEXT, element_index INTEGER, origin_geometry_model TEXT, from_xyz TEXT, to_xyz TEXT, dimensions_xyz TEXT, local_rotation TEXT, note TEXT, PRIMARY KEY (model,element_index), FOREIGN KEY(model) REFERENCES models(name))",
+          "btree": {
+            "rows": 80,
+            "leaf_pages": 3,
+            "interior_pages": 1,
+            "visited_pages": 4,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_planks",
+                  0,
+                  "cube",
+                  "[0, 0, 0]",
+                  "[16, 16, 16]",
+                  "[16, 16, 16]",
+                  "{}",
+                  "Unrotated element dimensions; not collision shape"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_slab",
+                  0,
+                  "slab",
+                  "[0, 0, 0]",
+                  "[16, 8, 16]",
+                  "[16, 8, 16]",
+                  "{}",
+                  "Unrotated element dimensions; not collision shape"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 7,
+          "type": "table",
+          "name": "blockstates",
+          "tbl_name": "blockstates",
+          "rootpage": 8,
+          "sql": "CREATE TABLE blockstates (name TEXT PRIMARY KEY, type TEXT, variant_or_multipart_entry_count INTEGER, sample_behavior TEXT, github_blob_sha1 TEXT, source_url TEXT)",
+          "btree": {
+            "rows": 16,
+            "leaf_pages": 1,
+            "interior_pages": 0,
+            "visited_pages": 1,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_planks",
+                  "variants",
+                  1,
+                  "\"\": oak_planks",
+                  "02780929635818fd6254fdab86ea7e97a6440331",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/block"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_slab",
+                  "variants",
+                  3,
+                  "type=bottom/double/top; double -> oak_planks",
+                  "c503f74caa7dff5713280041366e628f9a7f8449",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/block"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 9,
+          "type": "table",
+          "name": "texture_stats_v4",
+          "tbl_name": "texture_stats_v4",
+          "rootpage": 10,
+          "sql": "CREATE TABLE texture_stats_v4 (texture_id TEXT PRIMARY KEY, family TEXT, source_url TEXT, sha256 TEXT, width INTEGER, height INTEGER, unique_rgb_visible INTEGER, mean_luma REAL, luma_std REAL, verification TEXT)",
+          "btree": {
+            "rows": 150,
+            "leaf_pages": 12,
+            "interior_pages": 1,
+            "visited_pages": 13,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_planks",
+                  "ëª©ì¬Â·ìëª©",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/textu",
+                  "65665943ef9c8bcf63fc67d2083ed0c50243f724106d0e4bb1abea5d921b16d3",
+                  16,
+                  16,
+                  7,
+                  "real value omitted"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "spruce_planks",
+                  "ëª©ì¬Â·ìëª©",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/textu",
+                  "a1e4cd5b1eb20bc03e8d1f3fdae59034363c3b2dde7f505694e4323222e00e21",
+                  16,
+                  16,
+                  7,
+                  "real value omitted"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "limitations": [
+        "SQLite B-tree root traversal and leaf-cell counts, not SQLite PRAGMA integrity_check",
+        "Metadata/SQLite row-count static recheck, not re-verification of model geometry and UV",
+        "Master record text read is byte-preserving ASCII where applicable; no full sqlite SQL engine was used"
+      ]
+    },
+    {
+      "path": "research/vanilla_models/v6/MC_Furniture_Style_Stage1_Research_v6.sqlite",
+      "git_blob_sha": "990434e0db8a990665aac6a5d0261b9ade6e4c6b",
+      "file_bytes": 237568,
+      "header": {
+        "page_size": 4096,
+        "reported_page_count": 58,
+        "free_pages": 0,
+        "schema_cookie": 13,
+        "user_version": 0,
+        "text_encoding": 1,
+        "file_write_version": 1,
+        "file_read_version": 1
+      },
+      "sqlite_master_record_count": 23,
+      "schema_entries": [
+        {
+          "rowid": 1,
+          "type": "table",
+          "name": "sources",
+          "tbl_name": "sources",
+          "rootpage": 2,
+          "sql": "CREATE TABLE sources (path TEXT PRIMARY KEY, github_blob_sha1 TEXT, source_url TEXT, source_type TEXT, read_status TEXT)"
+        },
+        {
+          "rowid": 2,
+          "type": "index",
+          "name": "sqlite_autoindex_sources_1",
+          "tbl_name": "sources",
+          "rootpage": 3,
+          "sql": null
+        },
+        {
+          "rowid": 3,
+          "type": "table",
+          "name": "models",
+          "tbl_name": "models",
+          "rootpage": 4,
+          "sql": "CREATE TABLE models (name TEXT PRIMARY KEY, kind TEXT, parent TEXT, parent_chain TEXT, element_count INTEGER, box_min_xyz TEXT, box_max_xyz TEXT, rotation_observed INTEGER, texture_variables TEXT, geometry_status TEXT, github_blob_sha1 TEXT, source_url TEXT)"
+        },
+        {
+          "rowid": 4,
+          "type": "index",
+          "name": "sqlite_autoindex_models_1",
+          "tbl_name": "models",
+          "rootpage": 5,
+          "sql": null
+        },
+        {
+          "rowid": 5,
+          "type": "table",
+          "name": "elements",
+          "tbl_name": "elements",
+          "rootpage": 6,
+          "sql": "CREATE TABLE elements (model TEXT, element_index INTEGER, origin_geometry_model TEXT, from_xyz TEXT, to_xyz TEXT, dimensions_xyz TEXT, local_rotation TEXT, note TEXT, PRIMARY KEY (model,element_index), FOREIGN KEY(model) REFERENCES models(name))"
+        },
+        {
+          "rowid": 6,
+          "type": "index",
+          "name": "sqlite_autoindex_elements_1",
+          "tbl_name": "elements",
+          "rootpage": 7,
+          "sql": null
+        },
+        {
+          "rowid": 7,
+          "type": "table",
+          "name": "blockstates",
+          "tbl_name": "blockstates",
+          "rootpage": 8,
+          "sql": "CREATE TABLE blockstates (name TEXT PRIMARY KEY, type TEXT, variant_or_multipart_entry_count INTEGER, sample_behavior TEXT, github_blob_sha1 TEXT, source_url TEXT)"
+        },
+        {
+          "rowid": 8,
+          "type": "index",
+          "name": "sqlite_autoindex_blockstates_1",
+          "tbl_name": "blockstates",
+          "rootpage": 9,
+          "sql": null
+        },
+        {
+          "rowid": 9,
+          "type": "table",
+          "name": "texture_stats_v4",
+          "tbl_name": "texture_stats_v4",
+          "rootpage": 10,
+          "sql": "CREATE TABLE texture_stats_v4 (texture_id TEXT PRIMARY KEY, family TEXT, source_url TEXT, sha256 TEXT, width INTEGER, height INTEGER, unique_rgb_visible INTEGER, mean_luma REAL, luma_std REAL, verification TEXT)"
+        },
+        {
+          "rowid": 10,
+          "type": "index",
+          "name": "sqlite_autoindex_texture_stats_v4_1",
+          "tbl_name": "texture_stats_v4",
+          "rootpage": 11,
+          "sql": null
+        },
+        {
+          "rowid": 11,
+          "type": "table",
+          "name": "model_additions_v6",
+          "tbl_name": "model_additions_v6",
+          "rootpage": 37,
+          "sql": "CREATE TABLE model_additions_v6 (\n name TEXT PRIMARY KEY,parent TEXT,element_count INTEGER,sha1 TEXT,geometry_kind TEXT,source_url TEXT,evidence_note TEXT\n)"
+        },
+        {
+          "rowid": 12,
+          "type": "index",
+          "name": "sqlite_autoindex_model_additions_v6_1",
+          "tbl_name": "model_additions_v6",
+          "rootpage": 38,
+          "sql": null
+        },
+        {
+          "rowid": 13,
+          "type": "table",
+          "name": "state_additions_v6",
+          "tbl_name": "state_additions_v6",
+          "rootpage": 39,
+          "sql": "CREATE TABLE state_additions_v6 (\n name TEXT PRIMARY KEY,state_mode TEXT,entry_count INTEGER,sha1 TEXT,source_url TEXT\n)"
+        },
+        {
+          "rowid": 14,
+          "type": "index",
+          "name": "sqlite_autoindex_state_additions_v6_1",
+          "tbl_name": "state_additions_v6",
+          "rootpage": 40,
+          "sql": null
+        },
+        {
+          "rowid": 15,
+          "type": "table",
+          "name": "uv_faces_v6",
+          "tbl_name": "uv_faces_v6",
+          "rootpage": 41,
+          "sql": "CREATE TABLE uv_faces_v6 (\n source_geometry_model TEXT NOT NULL,element_index INTEGER NOT NULL,face TEXT NOT NULL,\n uv_json TEXT,texture_variable TEXT NOT NULL,face_rotation INTEGER NOT NULL DEFAULT 0,\n cullface TEXT,source_url TEXT NOT NULL,verification TEXT NOT NULL,\n PRIMARY KEY(source_geometry_model,element_index,face)\n)"
+        },
+        {
+          "rowid": 16,
+          "type": "index",
+          "name": "sqlite_autoindex_uv_faces_v6_1",
+          "tbl_name": "uv_faces_v6",
+          "rootpage": 42,
+          "sql": null
+        },
+        {
+          "rowid": 17,
+          "type": "table",
+          "name": "state_examples_v6",
+          "tbl_name": "state_examples_v6",
+          "rootpage": 43,
+          "sql": "CREATE TABLE state_examples_v6 (\n block TEXT NOT NULL,state_key TEXT NOT NULL,selected_model TEXT NOT NULL,\n rotation_x INTEGER, rotation_y INTEGER, uvlock INTEGER, selection_kind TEXT NOT NULL,\n condition TEXT,source_url TEXT NOT NULL,\n PRIMARY KEY(block,state_key,selected_model,selection_kind)\n)"
+        },
+        {
+          "rowid": 18,
+          "type": "index",
+          "name": "sqlite_autoindex_state_examples_v6_1",
+          "tbl_name": "state_examples_v6",
+          "rootpage": 44,
+          "sql": null
+        },
+        {
+          "rowid": 19,
+          "type": "table",
+          "name": "research_issues_v6",
+          "tbl_name": "research_issues_v6",
+          "rootpage": 45,
+          "sql": "CREATE TABLE research_issues_v6 (\n issue_id TEXT PRIMARY KEY, subject TEXT, status TEXT, notes TEXT\n)"
+        },
+        {
+          "rowid": 20,
+          "type": "index",
+          "name": "sqlite_autoindex_research_issues_v6_1",
+          "tbl_name": "research_issues_v6",
+          "rootpage": 46,
+          "sql": null
+        },
+        {
+          "rowid": 21,
+          "type": "view",
+          "name": "uv_audited_face_summary_v6",
+          "tbl_name": "uv_audited_face_summary_v6",
+          "rootpage": 0,
+          "sql": "CREATE VIEW uv_audited_face_summary_v6 AS\n SELECT source_geometry_model, count(*) AS faces_recorded,\n count(DISTINCT element_index) AS elements_covered,\n sum(CASE WHEN uv_json='null' THEN 1 ELSE 0 END) AS implicit_uv_faces,\n count(DISTINCT texture_variable) AS texture_variables_used,\n sum(CASE WHEN face_rotation<>0 THEN 1 ELSE 0 END) AS rotated_face_uvs,\n sum(CASE WHEN cullface IS NOT NULL THEN 1 ELSE 0 END) AS culled_faces\n FROM uv_faces_v6 GROUP BY source_geometry_model"
+        },
+        {
+          "rowid": 22,
+          "type": "view",
+          "name": "all_model_inventory_v6",
+          "tbl_name": "all_model_inventory_v6",
+          "rootpage": 0,
+          "sql": "CREATE VIEW all_model_inventory_v6 AS\n SELECT name,parent,element_count,geometry_status AS evidence_kind,source_url,'v5' AS batch\n FROM models UNION ALL SELECT name,parent,element_count,geometry_kind AS evidence_kind,source_url,'v6' AS batch\n FROM model_additions_v6"
+        },
+        {
+          "rowid": 23,
+          "type": "view",
+          "name": "all_blockstate_inventory_v6",
+          "tbl_name": "all_blockstate_inventory_v6",
+          "rootpage": 0,
+          "sql": "CREATE VIEW all_blockstate_inventory_v6 AS\n SELECT name,type AS state_mode,variant_or_multipart_entry_count AS entry_count,source_url,'v5' AS batch\n FROM blockstates UNION ALL SELECT name,state_mode,entry_count,source_url,'v6' AS batch\n FROM state_additions_v6"
+        }
+      ],
+      "table_contents": [
+        {
+          "rowid": 1,
+          "type": "table",
+          "name": "sources",
+          "tbl_name": "sources",
+          "rootpage": 2,
+          "sql": "CREATE TABLE sources (path TEXT PRIMARY KEY, github_blob_sha1 TEXT, source_url TEXT, source_type TEXT, read_status TEXT)",
+          "btree": {
+            "rows": 91,
+            "leaf_pages": 6,
+            "interior_pages": 1,
+            "visited_pages": 7,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "assets/minecraft/models/block/oak_planks.json",
+                  "3a21a3f2e75848ac905b6819ceeb40d1dbb3b39c",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model",
+                  "model",
+                  "GitHub_connector_read_2026-11-11"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "assets/minecraft/models/block/oak_slab.json",
+                  "f11ff8bad0b9faa4b6d1ef65c9a75ff2681a162a",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model",
+                  "model",
+                  "GitHub_connector_read_2026-11-11"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 3,
+          "type": "table",
+          "name": "models",
+          "tbl_name": "models",
+          "rootpage": 4,
+          "sql": "CREATE TABLE models (name TEXT PRIMARY KEY, kind TEXT, parent TEXT, parent_chain TEXT, element_count INTEGER, box_min_xyz TEXT, box_max_xyz TEXT, rotation_observed INTEGER, texture_variables TEXT, geometry_status TEXT, github_blob_sha1 TEXT, source_url TEXT)",
+          "btree": {
+            "rows": 55,
+            "leaf_pages": 5,
+            "interior_pages": 1,
+            "visited_pages": 6,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_planks",
+                  "named",
+                  "cube_all",
+                  "oak_planks > cube_all > cube",
+                  1,
+                  "[0, 0, 0]",
+                  "[16, 16, 16]",
+                  0
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_slab",
+                  "named",
+                  "slab",
+                  "oak_slab > slab",
+                  1,
+                  "[0, 0, 0]",
+                  "[16, 8, 16]",
+                  0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 5,
+          "type": "table",
+          "name": "elements",
+          "tbl_name": "elements",
+          "rootpage": 6,
+          "sql": "CREATE TABLE elements (model TEXT, element_index INTEGER, origin_geometry_model TEXT, from_xyz TEXT, to_xyz TEXT, dimensions_xyz TEXT, local_rotation TEXT, note TEXT, PRIMARY KEY (model,element_index), FOREIGN KEY(model) REFERENCES models(name))",
+          "btree": {
+            "rows": 80,
+            "leaf_pages": 3,
+            "interior_pages": 1,
+            "visited_pages": 4,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_planks",
+                  0,
+                  "cube",
+                  "[0, 0, 0]",
+                  "[16, 16, 16]",
+                  "[16, 16, 16]",
+                  "{}",
+                  "Unrotated element dimensions; not collision shape"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_slab",
+                  0,
+                  "slab",
+                  "[0, 0, 0]",
+                  "[16, 8, 16]",
+                  "[16, 8, 16]",
+                  "{}",
+                  "Unrotated element dimensions; not collision shape"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 7,
+          "type": "table",
+          "name": "blockstates",
+          "tbl_name": "blockstates",
+          "rootpage": 8,
+          "sql": "CREATE TABLE blockstates (name TEXT PRIMARY KEY, type TEXT, variant_or_multipart_entry_count INTEGER, sample_behavior TEXT, github_blob_sha1 TEXT, source_url TEXT)",
+          "btree": {
+            "rows": 16,
+            "leaf_pages": 1,
+            "interior_pages": 0,
+            "visited_pages": 1,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_planks",
+                  "variants",
+                  1,
+                  "\"\": oak_planks",
+                  "02780929635818fd6254fdab86ea7e97a6440331",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/block"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_slab",
+                  "variants",
+                  3,
+                  "type=bottom/double/top; double -> oak_planks",
+                  "c503f74caa7dff5713280041366e628f9a7f8449",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/block"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 9,
+          "type": "table",
+          "name": "texture_stats_v4",
+          "tbl_name": "texture_stats_v4",
+          "rootpage": 10,
+          "sql": "CREATE TABLE texture_stats_v4 (texture_id TEXT PRIMARY KEY, family TEXT, source_url TEXT, sha256 TEXT, width INTEGER, height INTEGER, unique_rgb_visible INTEGER, mean_luma REAL, luma_std REAL, verification TEXT)",
+          "btree": {
+            "rows": 150,
+            "leaf_pages": 12,
+            "interior_pages": 1,
+            "visited_pages": 13,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_planks",
+                  "ëª©ì¬Â·ìëª©",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/textu",
+                  "65665943ef9c8bcf63fc67d2083ed0c50243f724106d0e4bb1abea5d921b16d3",
+                  16,
+                  16,
+                  7,
+                  "real value omitted"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "spruce_planks",
+                  "ëª©ì¬Â·ìëª©",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/textu",
+                  "a1e4cd5b1eb20bc03e8d1f3fdae59034363c3b2dde7f505694e4323222e00e21",
+                  16,
+                  16,
+                  7,
+                  "real value omitted"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 11,
+          "type": "table",
+          "name": "model_additions_v6",
+          "tbl_name": "model_additions_v6",
+          "rootpage": 37,
+          "sql": "CREATE TABLE model_additions_v6 (\n name TEXT PRIMARY KEY,parent TEXT,element_count INTEGER,sha1 TEXT,geometry_kind TEXT,source_url TEXT,evidence_note TEXT\n)",
+          "btree": {
+            "rows": 13,
+            "leaf_pages": 1,
+            "interior_pages": 0,
+            "visited_pages": 1,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "cauldron",
+                  null,
+                  13,
+                  "788da3e1449187f15d820c0172f33b80f39620ca",
+                  "direct",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model",
+                  "empty vessel with side walls, bottom and feet"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "grindstone",
+                  "block",
+                  5,
+                  "cc5e0f1f985fb58e381d8b2dd8c9fc1b8aef1532",
+                  "direct",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model",
+                  "stone body and two paired supports"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 13,
+          "type": "table",
+          "name": "state_additions_v6",
+          "tbl_name": "state_additions_v6",
+          "rootpage": 39,
+          "sql": "CREATE TABLE state_additions_v6 (\n name TEXT PRIMARY KEY,state_mode TEXT,entry_count INTEGER,sha1 TEXT,source_url TEXT\n)",
+          "btree": {
+            "rows": 7,
+            "leaf_pages": 1,
+            "interior_pages": 0,
+            "visited_pages": 1,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "cauldron",
+                  "variants",
+                  1,
+                  "9908cf5d4d631592e48fd436d4b90b3447fe3976",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/block"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "grindstone",
+                  "variants",
+                  12,
+                  "244481d0a87030158eccc80a2b6d37df6a8671b4",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/block"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 15,
+          "type": "table",
+          "name": "uv_faces_v6",
+          "tbl_name": "uv_faces_v6",
+          "rootpage": 41,
+          "sql": "CREATE TABLE uv_faces_v6 (\n source_geometry_model TEXT NOT NULL,element_index INTEGER NOT NULL,face TEXT NOT NULL,\n uv_json TEXT,texture_variable TEXT NOT NULL,face_rotation INTEGER NOT NULL DEFAULT 0,\n cullface TEXT,source_url TEXT NOT NULL,verification TEXT NOT NULL,\n PRIMARY KEY(source_geometry_model,element_index,face)\n)",
+          "btree": {
+            "rows": 90,
+            "leaf_pages": 5,
+            "interior_pages": 1,
+            "visited_pages": 6,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "cube",
+                  0,
+                  "down",
+                  "null",
+                  "#down",
+                  0,
+                  "down",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "cube",
+                  0,
+                  "up",
+                  "null",
+                  "#up",
+                  0,
+                  "up",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 17,
+          "type": "table",
+          "name": "state_examples_v6",
+          "tbl_name": "state_examples_v6",
+          "rootpage": 43,
+          "sql": "CREATE TABLE state_examples_v6 (\n block TEXT NOT NULL,state_key TEXT NOT NULL,selected_model TEXT NOT NULL,\n rotation_x INTEGER, rotation_y INTEGER, uvlock INTEGER, selection_kind TEXT NOT NULL,\n condition TEXT,source_url TEXT NOT NULL,\n PRIMARY KEY(block,state_key,selected_model,selection_kind)\n)",
+          "btree": {
+            "rows": 34,
+            "leaf_pages": 2,
+            "interior_pages": 1,
+            "visited_pages": 3,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_stairs",
+                  "facing=east,half=bottom,shape=inner_left",
+                  "oak_stairs_inner",
+                  0,
+                  270,
+                  1,
+                  "variants",
+                  null
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_stairs",
+                  "facing=east,half=bottom,shape=inner_right",
+                  "oak_stairs_inner",
+                  0,
+                  0,
+                  0,
+                  "variants",
+                  null
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 19,
+          "type": "table",
+          "name": "research_issues_v6",
+          "tbl_name": "research_issues_v6",
+          "rootpage": 45,
+          "sql": "CREATE TABLE research_issues_v6 (\n issue_id TEXT PRIMARY KEY, subject TEXT, status TEXT, notes TEXT\n)",
+          "btree": {
+            "rows": 9,
+            "leaf_pages": 1,
+            "interior_pages": 0,
+            "visited_pages": 1,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "I01",
+                  "ë°ëë¼ íì¤ì² ê³µì client.jar 150ê±´ í´ì ëì¡°",
+                  "pending",
+                  "ê³µì/ë¡ì»¬ client.jar ë¯¸ì ê³µ. ë¹ê³µì 1.21.11 ë¯¸ë¬ë§ íì¸ë¨"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "I02",
+                  "ì¸ê²ì ë ë ê²ì",
+                  "pending",
+                  "ì¤ì  Java í´ë¼ì´ì¸í¸/ë ë ì¤í¬ë¦°ì·ì íµí ì¡ì ëì¡° ìì"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "limitations": [
+        "SQLite B-tree root traversal and leaf-cell counts, not SQLite PRAGMA integrity_check",
+        "Metadata/SQLite row-count static recheck, not re-verification of model geometry and UV",
+        "Master record text read is byte-preserving ASCII where applicable; no full sqlite SQL engine was used"
+      ]
+    },
+    {
+      "path": "research/vanilla_models/v7/MC_Furniture_Style_Stage1_Research_v7.sqlite",
+      "git_blob_sha": "f8a9c81019e8d1fd6d82a6783f31ca8a68c47ddb",
+      "file_bytes": 364544,
+      "header": {
+        "page_size": 4096,
+        "reported_page_count": 89,
+        "free_pages": 0,
+        "schema_cookie": 7,
+        "user_version": 0,
+        "text_encoding": 1,
+        "file_write_version": 1,
+        "file_read_version": 1
+      },
+      "sqlite_master_record_count": 35,
+      "schema_entries": [
+        {
+          "rowid": 1,
+          "type": "table",
+          "name": "sources",
+          "tbl_name": "sources",
+          "rootpage": 2,
+          "sql": "CREATE TABLE sources (path TEXT PRIMARY KEY, github_blob_sha1 TEXT, source_url TEXT, source_type TEXT, read_status TEXT)"
+        },
+        {
+          "rowid": 2,
+          "type": "index",
+          "name": "sqlite_autoindex_sources_1",
+          "tbl_name": "sources",
+          "rootpage": 3,
+          "sql": null
+        },
+        {
+          "rowid": 3,
+          "type": "table",
+          "name": "models",
+          "tbl_name": "models",
+          "rootpage": 4,
+          "sql": "CREATE TABLE models (name TEXT PRIMARY KEY, kind TEXT, parent TEXT, parent_chain TEXT, element_count INTEGER, box_min_xyz TEXT, box_max_xyz TEXT, rotation_observed INTEGER, texture_variables TEXT, geometry_status TEXT, github_blob_sha1 TEXT, source_url TEXT)"
+        },
+        {
+          "rowid": 4,
+          "type": "index",
+          "name": "sqlite_autoindex_models_1",
+          "tbl_name": "models",
+          "rootpage": 5,
+          "sql": null
+        },
+        {
+          "rowid": 5,
+          "type": "table",
+          "name": "elements",
+          "tbl_name": "elements",
+          "rootpage": 6,
+          "sql": "CREATE TABLE elements (model TEXT, element_index INTEGER, origin_geometry_model TEXT, from_xyz TEXT, to_xyz TEXT, dimensions_xyz TEXT, local_rotation TEXT, note TEXT, PRIMARY KEY (model,element_index), FOREIGN KEY(model) REFERENCES models(name))"
+        },
+        {
+          "rowid": 6,
+          "type": "index",
+          "name": "sqlite_autoindex_elements_1",
+          "tbl_name": "elements",
+          "rootpage": 7,
+          "sql": null
+        },
+        {
+          "rowid": 7,
+          "type": "table",
+          "name": "blockstates",
+          "tbl_name": "blockstates",
+          "rootpage": 8,
+          "sql": "CREATE TABLE blockstates (name TEXT PRIMARY KEY, type TEXT, variant_or_multipart_entry_count INTEGER, sample_behavior TEXT, github_blob_sha1 TEXT, source_url TEXT)"
+        },
+        {
+          "rowid": 8,
+          "type": "index",
+          "name": "sqlite_autoindex_blockstates_1",
+          "tbl_name": "blockstates",
+          "rootpage": 9,
+          "sql": null
+        },
+        {
+          "rowid": 9,
+          "type": "table",
+          "name": "texture_stats_v4",
+          "tbl_name": "texture_stats_v4",
+          "rootpage": 10,
+          "sql": "CREATE TABLE texture_stats_v4 (texture_id TEXT PRIMARY KEY, family TEXT, source_url TEXT, sha256 TEXT, width INTEGER, height INTEGER, unique_rgb_visible INTEGER, mean_luma REAL, luma_std REAL, verification TEXT)"
+        },
+        {
+          "rowid": 10,
+          "type": "index",
+          "name": "sqlite_autoindex_texture_stats_v4_1",
+          "tbl_name": "texture_stats_v4",
+          "rootpage": 11,
+          "sql": null
+        },
+        {
+          "rowid": 11,
+          "type": "table",
+          "name": "model_additions_v6",
+          "tbl_name": "model_additions_v6",
+          "rootpage": 37,
+          "sql": "CREATE TABLE model_additions_v6 (\n name TEXT PRIMARY KEY,parent TEXT,element_count INTEGER,sha1 TEXT,geometry_kind TEXT,source_url TEXT,evidence_note TEXT\n)"
+        },
+        {
+          "rowid": 12,
+          "type": "index",
+          "name": "sqlite_autoindex_model_additions_v6_1",
+          "tbl_name": "model_additions_v6",
+          "rootpage": 38,
+          "sql": null
+        },
+        {
+          "rowid": 13,
+          "type": "table",
+          "name": "state_additions_v6",
+          "tbl_name": "state_additions_v6",
+          "rootpage": 39,
+          "sql": "CREATE TABLE state_additions_v6 (\n name TEXT PRIMARY KEY,state_mode TEXT,entry_count INTEGER,sha1 TEXT,source_url TEXT\n)"
+        },
+        {
+          "rowid": 14,
+          "type": "index",
+          "name": "sqlite_autoindex_state_additions_v6_1",
+          "tbl_name": "state_additions_v6",
+          "rootpage": 40,
+          "sql": null
+        },
+        {
+          "rowid": 15,
+          "type": "table",
+          "name": "uv_faces_v6",
+          "tbl_name": "uv_faces_v6",
+          "rootpage": 41,
+          "sql": "CREATE TABLE uv_faces_v6 (\n source_geometry_model TEXT NOT NULL,element_index INTEGER NOT NULL,face TEXT NOT NULL,\n uv_json TEXT,texture_variable TEXT NOT NULL,face_rotation INTEGER NOT NULL DEFAULT 0,\n cullface TEXT,source_url TEXT NOT NULL,verification TEXT NOT NULL,\n PRIMARY KEY(source_geometry_model,element_index,face)\n)"
+        },
+        {
+          "rowid": 16,
+          "type": "index",
+          "name": "sqlite_autoindex_uv_faces_v6_1",
+          "tbl_name": "uv_faces_v6",
+          "rootpage": 42,
+          "sql": null
+        },
+        {
+          "rowid": 17,
+          "type": "table",
+          "name": "state_examples_v6",
+          "tbl_name": "state_examples_v6",
+          "rootpage": 43,
+          "sql": "CREATE TABLE state_examples_v6 (\n block TEXT NOT NULL,state_key TEXT NOT NULL,selected_model TEXT NOT NULL,\n rotation_x INTEGER, rotation_y INTEGER, uvlock INTEGER, selection_kind TEXT NOT NULL,\n condition TEXT,source_url TEXT NOT NULL,\n PRIMARY KEY(block,state_key,selected_model,selection_kind)\n)"
+        },
+        {
+          "rowid": 18,
+          "type": "index",
+          "name": "sqlite_autoindex_state_examples_v6_1",
+          "tbl_name": "state_examples_v6",
+          "rootpage": 44,
+          "sql": null
+        },
+        {
+          "rowid": 19,
+          "type": "table",
+          "name": "research_issues_v6",
+          "tbl_name": "research_issues_v6",
+          "rootpage": 45,
+          "sql": "CREATE TABLE research_issues_v6 (\n issue_id TEXT PRIMARY KEY, subject TEXT, status TEXT, notes TEXT\n)"
+        },
+        {
+          "rowid": 20,
+          "type": "index",
+          "name": "sqlite_autoindex_research_issues_v6_1",
+          "tbl_name": "research_issues_v6",
+          "rootpage": 46,
+          "sql": null
+        },
+        {
+          "rowid": 21,
+          "type": "view",
+          "name": "uv_audited_face_summary_v6",
+          "tbl_name": "uv_audited_face_summary_v6",
+          "rootpage": 0,
+          "sql": "CREATE VIEW uv_audited_face_summary_v6 AS\n SELECT source_geometry_model, count(*) AS faces_recorded,\n count(DISTINCT element_index) AS elements_covered,\n sum(CASE WHEN uv_json='null' THEN 1 ELSE 0 END) AS implicit_uv_faces,\n count(DISTINCT texture_variable) AS texture_variables_used,\n sum(CASE WHEN face_rotation<>0 THEN 1 ELSE 0 END) AS rotated_face_uvs,\n sum(CASE WHEN cullface IS NOT NULL THEN 1 ELSE 0 END) AS culled_faces\n FROM uv_faces_v6 GROUP BY source_geometry_model"
+        },
+        {
+          "rowid": 22,
+          "type": "view",
+          "name": "all_model_inventory_v6",
+          "tbl_name": "all_model_inventory_v6",
+          "rootpage": 0,
+          "sql": "CREATE VIEW all_model_inventory_v6 AS\n SELECT name,parent,element_count,geometry_status AS evidence_kind,source_url,'v5' AS batch\n FROM models UNION ALL SELECT name,parent,element_count,geometry_kind AS evidence_kind,source_url,'v6' AS batch\n FROM model_additions_v6"
+        },
+        {
+          "rowid": 23,
+          "type": "view",
+          "name": "all_blockstate_inventory_v6",
+          "tbl_name": "all_blockstate_inventory_v6",
+          "rootpage": 0,
+          "sql": "CREATE VIEW all_blockstate_inventory_v6 AS\n SELECT name,type AS state_mode,variant_or_multipart_entry_count AS entry_count,source_url,'v5' AS batch\n FROM blockstates UNION ALL SELECT name,state_mode,entry_count,source_url,'v6' AS batch\n FROM state_additions_v6"
+        },
+        {
+          "rowid": 24,
+          "type": "table",
+          "name": "connected_sources_v7",
+          "tbl_name": "connected_sources_v7",
+          "rootpage": 59,
+          "sql": "CREATE TABLE connected_sources_v7 (path TEXT PRIMARY KEY, git_blob_sha1 TEXT NOT NULL, version TEXT, validation TEXT, url TEXT)"
+        },
+        {
+          "rowid": 25,
+          "type": "index",
+          "name": "sqlite_autoindex_connected_sources_v7_1",
+          "tbl_name": "connected_sources_v7",
+          "rootpage": 60,
+          "sql": null
+        },
+        {
+          "rowid": 26,
+          "type": "table",
+          "name": "connected_geometry_v7",
+          "tbl_name": "connected_geometry_v7",
+          "rootpage": 61,
+          "sql": "CREATE TABLE connected_geometry_v7 (model TEXT PRIMARY KEY, parent_template TEXT, source_sha1 TEXT, primitive_count INTEGER, primitive_boxes_json TEXT, observation TEXT)"
+        },
+        {
+          "rowid": 27,
+          "type": "index",
+          "name": "sqlite_autoindex_connected_geometry_v7_1",
+          "tbl_name": "connected_geometry_v7",
+          "rootpage": 62,
+          "sql": null
+        },
+        {
+          "rowid": 28,
+          "type": "table",
+          "name": "assembly_cases_v7",
+          "tbl_name": "assembly_cases_v7",
+          "rootpage": 63,
+          "sql": "CREATE TABLE assembly_cases_v7 (block TEXT, case_id TEXT, props_json TEXT, source_blockstate_sha1 TEXT, selection_kind TEXT, applied_model_count INTEGER, primitive_count INTEGER, zero_thickness_primitive_count INTEGER, bounds_from_json TEXT, bounds_to_json TEXT, method TEXT, PRIMARY KEY(block,case_id))"
+        },
+        {
+          "rowid": 29,
+          "type": "index",
+          "name": "sqlite_autoindex_assembly_cases_v7_1",
+          "tbl_name": "assembly_cases_v7",
+          "rootpage": 64,
+          "sql": null
+        },
+        {
+          "rowid": 30,
+          "type": "table",
+          "name": "assembly_parts_v7",
+          "tbl_name": "assembly_parts_v7",
+          "rootpage": 65,
+          "sql": "CREATE TABLE assembly_parts_v7 (block TEXT, case_id TEXT, part_ordinal INTEGER, selected_model TEXT, source_rule_ordinal TEXT, x_rotation INTEGER, y_rotation INTEGER, uvlock INTEGER, primitive_count INTEGER, from_rotated_json TEXT, to_rotated_json TEXT, PRIMARY KEY(block,case_id,part_ordinal))"
+        },
+        {
+          "rowid": 31,
+          "type": "index",
+          "name": "sqlite_autoindex_assembly_parts_v7_1",
+          "tbl_name": "assembly_parts_v7",
+          "rootpage": 66,
+          "sql": null
+        },
+        {
+          "rowid": 32,
+          "type": "table",
+          "name": "assembly_primitives_v7",
+          "tbl_name": "assembly_primitives_v7",
+          "rootpage": 67,
+          "sql": "CREATE TABLE assembly_primitives_v7 (block TEXT, case_id TEXT, part_ordinal INTEGER, primitive_ordinal INTEGER, model TEXT, unrotated_from_json TEXT, unrotated_to_json TEXT, rotated_from_json TEXT, rotated_to_json TEXT, zero_thickness INTEGER, PRIMARY KEY(block,case_id,part_ordinal,primitive_ordinal))"
+        },
+        {
+          "rowid": 33,
+          "type": "index",
+          "name": "sqlite_autoindex_assembly_primitives_v7_1",
+          "tbl_name": "assembly_primitives_v7",
+          "rootpage": 68,
+          "sql": null
+        },
+        {
+          "rowid": 34,
+          "type": "table",
+          "name": "research_limits_v7",
+          "tbl_name": "research_limits_v7",
+          "rootpage": 69,
+          "sql": "CREATE TABLE research_limits_v7 (issue TEXT PRIMARY KEY, detail TEXT, status TEXT)"
+        },
+        {
+          "rowid": 35,
+          "type": "index",
+          "name": "sqlite_autoindex_research_limits_v7_1",
+          "tbl_name": "research_limits_v7",
+          "rootpage": 70,
+          "sql": null
+        }
+      ],
+      "table_contents": [
+        {
+          "rowid": 1,
+          "type": "table",
+          "name": "sources",
+          "tbl_name": "sources",
+          "rootpage": 2,
+          "sql": "CREATE TABLE sources (path TEXT PRIMARY KEY, github_blob_sha1 TEXT, source_url TEXT, source_type TEXT, read_status TEXT)",
+          "btree": {
+            "rows": 148,
+            "leaf_pages": 10,
+            "interior_pages": 1,
+            "visited_pages": 11,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "assets/minecraft/models/block/oak_planks.json",
+                  "3a21a3f2e75848ac905b6819ceeb40d1dbb3b39c",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model",
+                  "model",
+                  "GitHub_connector_read_2026-11-11"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "assets/minecraft/models/block/oak_slab.json",
+                  "f11ff8bad0b9faa4b6d1ef65c9a75ff2681a162a",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model",
+                  "model",
+                  "GitHub_connector_read_2026-11-11"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 3,
+          "type": "table",
+          "name": "models",
+          "tbl_name": "models",
+          "rootpage": 4,
+          "sql": "CREATE TABLE models (name TEXT PRIMARY KEY, kind TEXT, parent TEXT, parent_chain TEXT, element_count INTEGER, box_min_xyz TEXT, box_max_xyz TEXT, rotation_observed INTEGER, texture_variables TEXT, geometry_status TEXT, github_blob_sha1 TEXT, source_url TEXT)",
+          "btree": {
+            "rows": 55,
+            "leaf_pages": 5,
+            "interior_pages": 1,
+            "visited_pages": 6,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_planks",
+                  "named",
+                  "cube_all",
+                  "oak_planks > cube_all > cube",
+                  1,
+                  "[0, 0, 0]",
+                  "[16, 16, 16]",
+                  0
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_slab",
+                  "named",
+                  "slab",
+                  "oak_slab > slab",
+                  1,
+                  "[0, 0, 0]",
+                  "[16, 8, 16]",
+                  0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 5,
+          "type": "table",
+          "name": "elements",
+          "tbl_name": "elements",
+          "rootpage": 6,
+          "sql": "CREATE TABLE elements (model TEXT, element_index INTEGER, origin_geometry_model TEXT, from_xyz TEXT, to_xyz TEXT, dimensions_xyz TEXT, local_rotation TEXT, note TEXT, PRIMARY KEY (model,element_index), FOREIGN KEY(model) REFERENCES models(name))",
+          "btree": {
+            "rows": 80,
+            "leaf_pages": 3,
+            "interior_pages": 1,
+            "visited_pages": 4,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_planks",
+                  0,
+                  "cube",
+                  "[0, 0, 0]",
+                  "[16, 16, 16]",
+                  "[16, 16, 16]",
+                  "{}",
+                  "Unrotated element dimensions; not collision shape"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_slab",
+                  0,
+                  "slab",
+                  "[0, 0, 0]",
+                  "[16, 8, 16]",
+                  "[16, 8, 16]",
+                  "{}",
+                  "Unrotated element dimensions; not collision shape"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 7,
+          "type": "table",
+          "name": "blockstates",
+          "tbl_name": "blockstates",
+          "rootpage": 8,
+          "sql": "CREATE TABLE blockstates (name TEXT PRIMARY KEY, type TEXT, variant_or_multipart_entry_count INTEGER, sample_behavior TEXT, github_blob_sha1 TEXT, source_url TEXT)",
+          "btree": {
+            "rows": 16,
+            "leaf_pages": 1,
+            "interior_pages": 0,
+            "visited_pages": 1,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_planks",
+                  "variants",
+                  1,
+                  "\"\": oak_planks",
+                  "02780929635818fd6254fdab86ea7e97a6440331",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/block"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_slab",
+                  "variants",
+                  3,
+                  "type=bottom/double/top; double -> oak_planks",
+                  "c503f74caa7dff5713280041366e628f9a7f8449",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/block"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 9,
+          "type": "table",
+          "name": "texture_stats_v4",
+          "tbl_name": "texture_stats_v4",
+          "rootpage": 10,
+          "sql": "CREATE TABLE texture_stats_v4 (texture_id TEXT PRIMARY KEY, family TEXT, source_url TEXT, sha256 TEXT, width INTEGER, height INTEGER, unique_rgb_visible INTEGER, mean_luma REAL, luma_std REAL, verification TEXT)",
+          "btree": {
+            "rows": 150,
+            "leaf_pages": 12,
+            "interior_pages": 1,
+            "visited_pages": 13,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_planks",
+                  "ëª©ì¬Â·ìëª©",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/textu",
+                  "65665943ef9c8bcf63fc67d2083ed0c50243f724106d0e4bb1abea5d921b16d3",
+                  16,
+                  16,
+                  7,
+                  "real value omitted"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "spruce_planks",
+                  "ëª©ì¬Â·ìëª©",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/textu",
+                  "a1e4cd5b1eb20bc03e8d1f3fdae59034363c3b2dde7f505694e4323222e00e21",
+                  16,
+                  16,
+                  7,
+                  "real value omitted"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 11,
+          "type": "table",
+          "name": "model_additions_v6",
+          "tbl_name": "model_additions_v6",
+          "rootpage": 37,
+          "sql": "CREATE TABLE model_additions_v6 (\n name TEXT PRIMARY KEY,parent TEXT,element_count INTEGER,sha1 TEXT,geometry_kind TEXT,source_url TEXT,evidence_note TEXT\n)",
+          "btree": {
+            "rows": 13,
+            "leaf_pages": 1,
+            "interior_pages": 0,
+            "visited_pages": 1,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "cauldron",
+                  null,
+                  13,
+                  "788da3e1449187f15d820c0172f33b80f39620ca",
+                  "direct",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model",
+                  "empty vessel with side walls, bottom and feet"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "grindstone",
+                  "block",
+                  5,
+                  "cc5e0f1f985fb58e381d8b2dd8c9fc1b8aef1532",
+                  "direct",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model",
+                  "stone body and two paired supports"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 13,
+          "type": "table",
+          "name": "state_additions_v6",
+          "tbl_name": "state_additions_v6",
+          "rootpage": 39,
+          "sql": "CREATE TABLE state_additions_v6 (\n name TEXT PRIMARY KEY,state_mode TEXT,entry_count INTEGER,sha1 TEXT,source_url TEXT\n)",
+          "btree": {
+            "rows": 7,
+            "leaf_pages": 1,
+            "interior_pages": 0,
+            "visited_pages": 1,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "cauldron",
+                  "variants",
+                  1,
+                  "9908cf5d4d631592e48fd436d4b90b3447fe3976",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/block"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "grindstone",
+                  "variants",
+                  12,
+                  "244481d0a87030158eccc80a2b6d37df6a8671b4",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/block"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 15,
+          "type": "table",
+          "name": "uv_faces_v6",
+          "tbl_name": "uv_faces_v6",
+          "rootpage": 41,
+          "sql": "CREATE TABLE uv_faces_v6 (\n source_geometry_model TEXT NOT NULL,element_index INTEGER NOT NULL,face TEXT NOT NULL,\n uv_json TEXT,texture_variable TEXT NOT NULL,face_rotation INTEGER NOT NULL DEFAULT 0,\n cullface TEXT,source_url TEXT NOT NULL,verification TEXT NOT NULL,\n PRIMARY KEY(source_geometry_model,element_index,face)\n)",
+          "btree": {
+            "rows": 90,
+            "leaf_pages": 5,
+            "interior_pages": 1,
+            "visited_pages": 6,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "cube",
+                  0,
+                  "down",
+                  "null",
+                  "#down",
+                  0,
+                  "down",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "cube",
+                  0,
+                  "up",
+                  "null",
+                  "#up",
+                  0,
+                  "up",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 17,
+          "type": "table",
+          "name": "state_examples_v6",
+          "tbl_name": "state_examples_v6",
+          "rootpage": 43,
+          "sql": "CREATE TABLE state_examples_v6 (\n block TEXT NOT NULL,state_key TEXT NOT NULL,selected_model TEXT NOT NULL,\n rotation_x INTEGER, rotation_y INTEGER, uvlock INTEGER, selection_kind TEXT NOT NULL,\n condition TEXT,source_url TEXT NOT NULL,\n PRIMARY KEY(block,state_key,selected_model,selection_kind)\n)",
+          "btree": {
+            "rows": 34,
+            "leaf_pages": 2,
+            "interior_pages": 1,
+            "visited_pages": 3,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_stairs",
+                  "facing=east,half=bottom,shape=inner_left",
+                  "oak_stairs_inner",
+                  0,
+                  270,
+                  1,
+                  "variants",
+                  null
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_stairs",
+                  "facing=east,half=bottom,shape=inner_right",
+                  "oak_stairs_inner",
+                  0,
+                  0,
+                  0,
+                  "variants",
+                  null
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 19,
+          "type": "table",
+          "name": "research_issues_v6",
+          "tbl_name": "research_issues_v6",
+          "rootpage": 45,
+          "sql": "CREATE TABLE research_issues_v6 (\n issue_id TEXT PRIMARY KEY, subject TEXT, status TEXT, notes TEXT\n)",
+          "btree": {
+            "rows": 9,
+            "leaf_pages": 1,
+            "interior_pages": 0,
+            "visited_pages": 1,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "I01",
+                  "ë°ëë¼ íì¤ì² ê³µì client.jar 150ê±´ í´ì ëì¡°",
+                  "pending",
+                  "ê³µì/ë¡ì»¬ client.jar ë¯¸ì ê³µ. ë¹ê³µì 1.21.11 ë¯¸ë¬ë§ íì¸ë¨"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "I02",
+                  "ì¸ê²ì ë ë ê²ì",
+                  "pending",
+                  "ì¤ì  Java í´ë¼ì´ì¸í¸/ë ë ì¤í¬ë¦°ì·ì íµí ì¡ì ëì¡° ìì"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 24,
+          "type": "table",
+          "name": "connected_sources_v7",
+          "tbl_name": "connected_sources_v7",
+          "rootpage": 59,
+          "sql": "CREATE TABLE connected_sources_v7 (path TEXT PRIMARY KEY, git_blob_sha1 TEXT NOT NULL, version TEXT, validation TEXT, url TEXT)",
+          "btree": {
+            "rows": 61,
+            "leaf_pages": 5,
+            "interior_pages": 1,
+            "visited_pages": 6,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "assets/minecraft/blockstates/oak_fence.json",
+                  "394851e1883d0bda305aa0b47b04b0e04716200a",
+                  "java_1.21.11",
+                  "GitHub_connector_JSON_read",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/block"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "assets/minecraft/blockstates/cobblestone_wall.json",
+                  "ea2f67611565e206b85127251000594a4961101c",
+                  "java_1.21.11",
+                  "GitHub_connector_JSON_read",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/block"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 26,
+          "type": "table",
+          "name": "connected_geometry_v7",
+          "tbl_name": "connected_geometry_v7",
+          "rootpage": 61,
+          "sql": "CREATE TABLE connected_geometry_v7 (model TEXT PRIMARY KEY, parent_template TEXT, source_sha1 TEXT, primitive_count INTEGER, primitive_boxes_json TEXT, observation TEXT)",
+          "btree": {
+            "rows": 39,
+            "leaf_pages": 2,
+            "interior_pages": 1,
+            "visited_pages": 3,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_fence_post",
+                  "",
+                  "e05dc4ae309d60b31488d6fb9d3793bf495c92f5",
+                  1,
+                  "[[[6,0,6],[10,16,10]]]",
+                  "direct_or_parent_inherited_geometry; zero-thickness allowed"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_fence_side",
+                  "",
+                  "fe4ed99e0deb7af04f3494469d0b65a753e5a80e",
+                  2,
+                  "[[[7,12,0],[9,15,9]],[[7,6,0],[9,9,9]]]",
+                  "direct_or_parent_inherited_geometry; zero-thickness allowed"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 28,
+          "type": "table",
+          "name": "assembly_cases_v7",
+          "tbl_name": "assembly_cases_v7",
+          "rootpage": 63,
+          "sql": "CREATE TABLE assembly_cases_v7 (block TEXT, case_id TEXT, props_json TEXT, source_blockstate_sha1 TEXT, selection_kind TEXT, applied_model_count INTEGER, primitive_count INTEGER, zero_thickness_primitive_count INTEGER, bounds_from_json TEXT, bounds_to_json TEXT, method TEXT, PRIMARY KEY(block,case_id))",
+          "btree": {
+            "rows": 21,
+            "leaf_pages": 2,
+            "interior_pages": 1,
+            "visited_pages": 3,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_fence",
+                  "isolated",
+                  "{\"east\":false,\"north\":false,\"south\":false,\"west\":false}",
+                  "394851e1883d0bda305aa0b47b04b0e04716200a",
+                  "multipart",
+                  1,
+                  1,
+                  0
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_fence",
+                  "east",
+                  "{\"east\":true,\"north\":false,\"south\":false,\"west\":false}",
+                  "394851e1883d0bda305aa0b47b04b0e04716200a",
+                  "multipart",
+                  2,
+                  3,
+                  0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 30,
+          "type": "table",
+          "name": "assembly_parts_v7",
+          "tbl_name": "assembly_parts_v7",
+          "rootpage": 65,
+          "sql": "CREATE TABLE assembly_parts_v7 (block TEXT, case_id TEXT, part_ordinal INTEGER, selected_model TEXT, source_rule_ordinal TEXT, x_rotation INTEGER, y_rotation INTEGER, uvlock INTEGER, primitive_count INTEGER, from_rotated_json TEXT, to_rotated_json TEXT, PRIMARY KEY(block,case_id,part_ordinal))",
+          "btree": {
+            "rows": 53,
+            "leaf_pages": 2,
+            "interior_pages": 1,
+            "visited_pages": 3,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_fence",
+                  "isolated",
+                  0,
+                  "oak_fence_post",
+                  "0",
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_fence",
+                  "east",
+                  0,
+                  "oak_fence_post",
+                  "0",
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 32,
+          "type": "table",
+          "name": "assembly_primitives_v7",
+          "tbl_name": "assembly_primitives_v7",
+          "rootpage": 67,
+          "sql": "CREATE TABLE assembly_primitives_v7 (block TEXT, case_id TEXT, part_ordinal INTEGER, primitive_ordinal INTEGER, model TEXT, unrotated_from_json TEXT, unrotated_to_json TEXT, rotated_from_json TEXT, rotated_to_json TEXT, zero_thickness INTEGER, PRIMARY KEY(block,case_id,part_ordinal,primitive_ordinal))",
+          "btree": {
+            "rows": 93,
+            "leaf_pages": 3,
+            "interior_pages": 1,
+            "visited_pages": 4,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_fence",
+                  "isolated",
+                  0,
+                  0,
+                  "oak_fence_post",
+                  "[6,0,6]",
+                  "[10,16,10]",
+                  "[6.0,0.0,6.0]"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_fence",
+                  "east",
+                  0,
+                  0,
+                  "oak_fence_post",
+                  "[6,0,6]",
+                  "[10,16,10]",
+                  "[6.0,0.0,6.0]"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 34,
+          "type": "table",
+          "name": "research_limits_v7",
+          "tbl_name": "research_limits_v7",
+          "rootpage": 69,
+          "sql": "CREATE TABLE research_limits_v7 (issue TEXT PRIMARY KEY, detail TEXT, status TEXT)",
+          "btree": {
+            "rows": 6,
+            "leaf_pages": 1,
+            "interior_pages": 0,
+            "visited_pages": 1,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "L01",
+                  "ê³µì Mojang client.jarì JSON/PNG ë°ì´í¸ ëì¡° ë¯¸ìí: íì¬ ë¹ê³µì GitHub ì",
+                  "OPEN"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "L02",
+                  "ì íí ìí 21ê° ì¡°ê±´ íê°ì´ë©° ëª¨ë  ê°ë¥í ì¡°í©ì ê²ì ì¤ ë°íì",
+                  "OPEN"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "limitations": [
+        "SQLite B-tree root traversal and leaf-cell counts, not SQLite PRAGMA integrity_check",
+        "Metadata/SQLite row-count static recheck, not re-verification of model geometry and UV",
+        "Master record text read is byte-preserving ASCII where applicable; no full sqlite SQL engine was used"
+      ]
+    },
+    {
+      "path": "research/vanilla_models/v8/MC_Furniture_Style_Stage1_Research_v8.sqlite",
+      "git_blob_sha": "79395712dae3ffee5e1ac668f7d1e583358f8578",
+      "file_bytes": 413696,
+      "header": {
+        "page_size": 4096,
+        "reported_page_count": 101,
+        "free_pages": 0,
+        "schema_cookie": 11,
+        "user_version": 0,
+        "text_encoding": 1,
+        "file_write_version": 1,
+        "file_read_version": 1
+      },
+      "sqlite_master_record_count": 43,
+      "schema_entries": [
+        {
+          "rowid": 1,
+          "type": "table",
+          "name": "sources",
+          "tbl_name": "sources",
+          "rootpage": 2,
+          "sql": "CREATE TABLE sources (path TEXT PRIMARY KEY, github_blob_sha1 TEXT, source_url TEXT, source_type TEXT, read_status TEXT)"
+        },
+        {
+          "rowid": 2,
+          "type": "index",
+          "name": "sqlite_autoindex_sources_1",
+          "tbl_name": "sources",
+          "rootpage": 3,
+          "sql": null
+        },
+        {
+          "rowid": 3,
+          "type": "table",
+          "name": "models",
+          "tbl_name": "models",
+          "rootpage": 4,
+          "sql": "CREATE TABLE models (name TEXT PRIMARY KEY, kind TEXT, parent TEXT, parent_chain TEXT, element_count INTEGER, box_min_xyz TEXT, box_max_xyz TEXT, rotation_observed INTEGER, texture_variables TEXT, geometry_status TEXT, github_blob_sha1 TEXT, source_url TEXT)"
+        },
+        {
+          "rowid": 4,
+          "type": "index",
+          "name": "sqlite_autoindex_models_1",
+          "tbl_name": "models",
+          "rootpage": 5,
+          "sql": null
+        },
+        {
+          "rowid": 5,
+          "type": "table",
+          "name": "elements",
+          "tbl_name": "elements",
+          "rootpage": 6,
+          "sql": "CREATE TABLE elements (model TEXT, element_index INTEGER, origin_geometry_model TEXT, from_xyz TEXT, to_xyz TEXT, dimensions_xyz TEXT, local_rotation TEXT, note TEXT, PRIMARY KEY (model,element_index), FOREIGN KEY(model) REFERENCES models(name))"
+        },
+        {
+          "rowid": 6,
+          "type": "index",
+          "name": "sqlite_autoindex_elements_1",
+          "tbl_name": "elements",
+          "rootpage": 7,
+          "sql": null
+        },
+        {
+          "rowid": 7,
+          "type": "table",
+          "name": "blockstates",
+          "tbl_name": "blockstates",
+          "rootpage": 8,
+          "sql": "CREATE TABLE blockstates (name TEXT PRIMARY KEY, type TEXT, variant_or_multipart_entry_count INTEGER, sample_behavior TEXT, github_blob_sha1 TEXT, source_url TEXT)"
+        },
+        {
+          "rowid": 8,
+          "type": "index",
+          "name": "sqlite_autoindex_blockstates_1",
+          "tbl_name": "blockstates",
+          "rootpage": 9,
+          "sql": null
+        },
+        {
+          "rowid": 9,
+          "type": "table",
+          "name": "texture_stats_v4",
+          "tbl_name": "texture_stats_v4",
+          "rootpage": 10,
+          "sql": "CREATE TABLE texture_stats_v4 (texture_id TEXT PRIMARY KEY, family TEXT, source_url TEXT, sha256 TEXT, width INTEGER, height INTEGER, unique_rgb_visible INTEGER, mean_luma REAL, luma_std REAL, verification TEXT)"
+        },
+        {
+          "rowid": 10,
+          "type": "index",
+          "name": "sqlite_autoindex_texture_stats_v4_1",
+          "tbl_name": "texture_stats_v4",
+          "rootpage": 11,
+          "sql": null
+        },
+        {
+          "rowid": 11,
+          "type": "table",
+          "name": "model_additions_v6",
+          "tbl_name": "model_additions_v6",
+          "rootpage": 37,
+          "sql": "CREATE TABLE model_additions_v6 (\n name TEXT PRIMARY KEY,parent TEXT,element_count INTEGER,sha1 TEXT,geometry_kind TEXT,source_url TEXT,evidence_note TEXT\n)"
+        },
+        {
+          "rowid": 12,
+          "type": "index",
+          "name": "sqlite_autoindex_model_additions_v6_1",
+          "tbl_name": "model_additions_v6",
+          "rootpage": 38,
+          "sql": null
+        },
+        {
+          "rowid": 13,
+          "type": "table",
+          "name": "state_additions_v6",
+          "tbl_name": "state_additions_v6",
+          "rootpage": 39,
+          "sql": "CREATE TABLE state_additions_v6 (\n name TEXT PRIMARY KEY,state_mode TEXT,entry_count INTEGER,sha1 TEXT,source_url TEXT\n)"
+        },
+        {
+          "rowid": 14,
+          "type": "index",
+          "name": "sqlite_autoindex_state_additions_v6_1",
+          "tbl_name": "state_additions_v6",
+          "rootpage": 40,
+          "sql": null
+        },
+        {
+          "rowid": 15,
+          "type": "table",
+          "name": "uv_faces_v6",
+          "tbl_name": "uv_faces_v6",
+          "rootpage": 41,
+          "sql": "CREATE TABLE uv_faces_v6 (\n source_geometry_model TEXT NOT NULL,element_index INTEGER NOT NULL,face TEXT NOT NULL,\n uv_json TEXT,texture_variable TEXT NOT NULL,face_rotation INTEGER NOT NULL DEFAULT 0,\n cullface TEXT,source_url TEXT NOT NULL,verification TEXT NOT NULL,\n PRIMARY KEY(source_geometry_model,element_index,face)\n)"
+        },
+        {
+          "rowid": 16,
+          "type": "index",
+          "name": "sqlite_autoindex_uv_faces_v6_1",
+          "tbl_name": "uv_faces_v6",
+          "rootpage": 42,
+          "sql": null
+        },
+        {
+          "rowid": 17,
+          "type": "table",
+          "name": "state_examples_v6",
+          "tbl_name": "state_examples_v6",
+          "rootpage": 43,
+          "sql": "CREATE TABLE state_examples_v6 (\n block TEXT NOT NULL,state_key TEXT NOT NULL,selected_model TEXT NOT NULL,\n rotation_x INTEGER, rotation_y INTEGER, uvlock INTEGER, selection_kind TEXT NOT NULL,\n condition TEXT,source_url TEXT NOT NULL,\n PRIMARY KEY(block,state_key,selected_model,selection_kind)\n)"
+        },
+        {
+          "rowid": 18,
+          "type": "index",
+          "name": "sqlite_autoindex_state_examples_v6_1",
+          "tbl_name": "state_examples_v6",
+          "rootpage": 44,
+          "sql": null
+        },
+        {
+          "rowid": 19,
+          "type": "table",
+          "name": "research_issues_v6",
+          "tbl_name": "research_issues_v6",
+          "rootpage": 45,
+          "sql": "CREATE TABLE research_issues_v6 (\n issue_id TEXT PRIMARY KEY, subject TEXT, status TEXT, notes TEXT\n)"
+        },
+        {
+          "rowid": 20,
+          "type": "index",
+          "name": "sqlite_autoindex_research_issues_v6_1",
+          "tbl_name": "research_issues_v6",
+          "rootpage": 46,
+          "sql": null
+        },
+        {
+          "rowid": 21,
+          "type": "view",
+          "name": "uv_audited_face_summary_v6",
+          "tbl_name": "uv_audited_face_summary_v6",
+          "rootpage": 0,
+          "sql": "CREATE VIEW uv_audited_face_summary_v6 AS\n SELECT source_geometry_model, count(*) AS faces_recorded,\n count(DISTINCT element_index) AS elements_covered,\n sum(CASE WHEN uv_json='null' THEN 1 ELSE 0 END) AS implicit_uv_faces,\n count(DISTINCT texture_variable) AS texture_variables_used,\n sum(CASE WHEN face_rotation<>0 THEN 1 ELSE 0 END) AS rotated_face_uvs,\n sum(CASE WHEN cullface IS NOT NULL THEN 1 ELSE 0 END) AS culled_faces\n FROM uv_faces_v6 GROUP BY source_geometry_model"
+        },
+        {
+          "rowid": 22,
+          "type": "view",
+          "name": "all_model_inventory_v6",
+          "tbl_name": "all_model_inventory_v6",
+          "rootpage": 0,
+          "sql": "CREATE VIEW all_model_inventory_v6 AS\n SELECT name,parent,element_count,geometry_status AS evidence_kind,source_url,'v5' AS batch\n FROM models UNION ALL SELECT name,parent,element_count,geometry_kind AS evidence_kind,source_url,'v6' AS batch\n FROM model_additions_v6"
+        },
+        {
+          "rowid": 23,
+          "type": "view",
+          "name": "all_blockstate_inventory_v6",
+          "tbl_name": "all_blockstate_inventory_v6",
+          "rootpage": 0,
+          "sql": "CREATE VIEW all_blockstate_inventory_v6 AS\n SELECT name,type AS state_mode,variant_or_multipart_entry_count AS entry_count,source_url,'v5' AS batch\n FROM blockstates UNION ALL SELECT name,state_mode,entry_count,source_url,'v6' AS batch\n FROM state_additions_v6"
+        },
+        {
+          "rowid": 24,
+          "type": "table",
+          "name": "connected_sources_v7",
+          "tbl_name": "connected_sources_v7",
+          "rootpage": 59,
+          "sql": "CREATE TABLE connected_sources_v7 (path TEXT PRIMARY KEY, git_blob_sha1 TEXT NOT NULL, version TEXT, validation TEXT, url TEXT)"
+        },
+        {
+          "rowid": 25,
+          "type": "index",
+          "name": "sqlite_autoindex_connected_sources_v7_1",
+          "tbl_name": "connected_sources_v7",
+          "rootpage": 60,
+          "sql": null
+        },
+        {
+          "rowid": 26,
+          "type": "table",
+          "name": "connected_geometry_v7",
+          "tbl_name": "connected_geometry_v7",
+          "rootpage": 61,
+          "sql": "CREATE TABLE connected_geometry_v7 (model TEXT PRIMARY KEY, parent_template TEXT, source_sha1 TEXT, primitive_count INTEGER, primitive_boxes_json TEXT, observation TEXT)"
+        },
+        {
+          "rowid": 27,
+          "type": "index",
+          "name": "sqlite_autoindex_connected_geometry_v7_1",
+          "tbl_name": "connected_geometry_v7",
+          "rootpage": 62,
+          "sql": null
+        },
+        {
+          "rowid": 28,
+          "type": "table",
+          "name": "assembly_cases_v7",
+          "tbl_name": "assembly_cases_v7",
+          "rootpage": 63,
+          "sql": "CREATE TABLE assembly_cases_v7 (block TEXT, case_id TEXT, props_json TEXT, source_blockstate_sha1 TEXT, selection_kind TEXT, applied_model_count INTEGER, primitive_count INTEGER, zero_thickness_primitive_count INTEGER, bounds_from_json TEXT, bounds_to_json TEXT, method TEXT, PRIMARY KEY(block,case_id))"
+        },
+        {
+          "rowid": 29,
+          "type": "index",
+          "name": "sqlite_autoindex_assembly_cases_v7_1",
+          "tbl_name": "assembly_cases_v7",
+          "rootpage": 64,
+          "sql": null
+        },
+        {
+          "rowid": 30,
+          "type": "table",
+          "name": "assembly_parts_v7",
+          "tbl_name": "assembly_parts_v7",
+          "rootpage": 65,
+          "sql": "CREATE TABLE assembly_parts_v7 (block TEXT, case_id TEXT, part_ordinal INTEGER, selected_model TEXT, source_rule_ordinal TEXT, x_rotation INTEGER, y_rotation INTEGER, uvlock INTEGER, primitive_count INTEGER, from_rotated_json TEXT, to_rotated_json TEXT, PRIMARY KEY(block,case_id,part_ordinal))"
+        },
+        {
+          "rowid": 31,
+          "type": "index",
+          "name": "sqlite_autoindex_assembly_parts_v7_1",
+          "tbl_name": "assembly_parts_v7",
+          "rootpage": 66,
+          "sql": null
+        },
+        {
+          "rowid": 32,
+          "type": "table",
+          "name": "assembly_primitives_v7",
+          "tbl_name": "assembly_primitives_v7",
+          "rootpage": 67,
+          "sql": "CREATE TABLE assembly_primitives_v7 (block TEXT, case_id TEXT, part_ordinal INTEGER, primitive_ordinal INTEGER, model TEXT, unrotated_from_json TEXT, unrotated_to_json TEXT, rotated_from_json TEXT, rotated_to_json TEXT, zero_thickness INTEGER, PRIMARY KEY(block,case_id,part_ordinal,primitive_ordinal))"
+        },
+        {
+          "rowid": 33,
+          "type": "index",
+          "name": "sqlite_autoindex_assembly_primitives_v7_1",
+          "tbl_name": "assembly_primitives_v7",
+          "rootpage": 68,
+          "sql": null
+        },
+        {
+          "rowid": 34,
+          "type": "table",
+          "name": "research_limits_v7",
+          "tbl_name": "research_limits_v7",
+          "rootpage": 69,
+          "sql": "CREATE TABLE research_limits_v7 (issue TEXT PRIMARY KEY, detail TEXT, status TEXT)"
+        },
+        {
+          "rowid": 35,
+          "type": "index",
+          "name": "sqlite_autoindex_research_limits_v7_1",
+          "tbl_name": "research_limits_v7",
+          "rootpage": 70,
+          "sql": null
+        },
+        {
+          "rowid": 36,
+          "type": "table",
+          "name": "special_block_evidence_v8",
+          "tbl_name": "special_block_evidence_v8",
+          "rootpage": 90,
+          "sql": "CREATE TABLE special_block_evidence_v8 (\n block TEXT PRIMARY KEY, rendering_class TEXT NOT NULL,\n blockstate_path TEXT NOT NULL, blockstate_blob_sha1 TEXT NOT NULL,\n model_name TEXT NOT NULL, model_path TEXT NOT NULL, model_blob_sha1 TEXT NOT NULL,\n parent TEXT, base_primitive_count INTEGER NOT NULL,\n texture_atlas TEXT, renderer_class TEXT, renderer_reference_url TEXT,\n description_ko TEXT NOT NULL, evidence_grade TEXT NOT NULL,\n version TEXT NOT NULL\n)"
+        },
+        {
+          "rowid": 37,
+          "type": "index",
+          "name": "sqlite_autoindex_special_block_evidence_v8_1",
+          "tbl_name": "special_block_evidence_v8",
+          "rootpage": 91,
+          "sql": null
+        },
+        {
+          "rowid": 38,
+          "type": "table",
+          "name": "texture_atlases_v8",
+          "tbl_name": "texture_atlases_v8",
+          "rootpage": 92,
+          "sql": "CREATE TABLE texture_atlases_v8 (\n atlas TEXT PRIMARY KEY, atlas_json_path TEXT NOT NULL, git_blob_sha1 TEXT NOT NULL,\n directory_prefix TEXT NOT NULL, source_directory TEXT NOT NULL,\n version TEXT NOT NULL\n)"
+        },
+        {
+          "rowid": 39,
+          "type": "index",
+          "name": "sqlite_autoindex_texture_atlases_v8_1",
+          "tbl_name": "texture_atlases_v8",
+          "rootpage": 93,
+          "sql": null
+        },
+        {
+          "rowid": 40,
+          "type": "table",
+          "name": "special_texture_metadata_v8",
+          "tbl_name": "special_texture_metadata_v8",
+          "rootpage": 94,
+          "sql": "CREATE TABLE special_texture_metadata_v8 (\n texture_path TEXT PRIMARY KEY, git_blob_sha1 TEXT NOT NULL,\n width INTEGER NOT NULL, height INTEGER NOT NULL, file_bytes INTEGER NOT NULL,\n png_bit_depth INTEGER NOT NULL, png_color_type INTEGER NOT NULL,\n png_signature_checked INTEGER NOT NULL, version TEXT NOT NULL\n)"
+        },
+        {
+          "rowid": 41,
+          "type": "index",
+          "name": "sqlite_autoindex_special_texture_metadata_v8_1",
+          "tbl_name": "special_texture_metadata_v8",
+          "rootpage": 95,
+          "sql": null
+        },
+        {
+          "rowid": 42,
+          "type": "table",
+          "name": "rendering_conclusions_v8",
+          "tbl_name": "rendering_conclusions_v8",
+          "rootpage": 96,
+          "sql": "CREATE TABLE rendering_conclusions_v8 (\n finding_id TEXT PRIMARY KEY, theme TEXT NOT NULL, finding_ko TEXT NOT NULL,\n evidence_paths_json TEXT NOT NULL, limitations_ko TEXT NOT NULL, grade TEXT NOT NULL\n)"
+        },
+        {
+          "rowid": 43,
+          "type": "index",
+          "name": "sqlite_autoindex_rendering_conclusions_v8_1",
+          "tbl_name": "rendering_conclusions_v8",
+          "rootpage": 97,
+          "sql": null
+        }
+      ],
+      "table_contents": [
+        {
+          "rowid": 1,
+          "type": "table",
+          "name": "sources",
+          "tbl_name": "sources",
+          "rootpage": 2,
+          "sql": "CREATE TABLE sources (path TEXT PRIMARY KEY, github_blob_sha1 TEXT, source_url TEXT, source_type TEXT, read_status TEXT)",
+          "btree": {
+            "rows": 148,
+            "leaf_pages": 10,
+            "interior_pages": 1,
+            "visited_pages": 11,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "assets/minecraft/models/block/oak_planks.json",
+                  "3a21a3f2e75848ac905b6819ceeb40d1dbb3b39c",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model",
+                  "model",
+                  "GitHub_connector_read_2026-11-11"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "assets/minecraft/models/block/oak_slab.json",
+                  "f11ff8bad0b9faa4b6d1ef65c9a75ff2681a162a",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model",
+                  "model",
+                  "GitHub_connector_read_2026-11-11"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 3,
+          "type": "table",
+          "name": "models",
+          "tbl_name": "models",
+          "rootpage": 4,
+          "sql": "CREATE TABLE models (name TEXT PRIMARY KEY, kind TEXT, parent TEXT, parent_chain TEXT, element_count INTEGER, box_min_xyz TEXT, box_max_xyz TEXT, rotation_observed INTEGER, texture_variables TEXT, geometry_status TEXT, github_blob_sha1 TEXT, source_url TEXT)",
+          "btree": {
+            "rows": 55,
+            "leaf_pages": 5,
+            "interior_pages": 1,
+            "visited_pages": 6,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_planks",
+                  "named",
+                  "cube_all",
+                  "oak_planks > cube_all > cube",
+                  1,
+                  "[0, 0, 0]",
+                  "[16, 16, 16]",
+                  0
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_slab",
+                  "named",
+                  "slab",
+                  "oak_slab > slab",
+                  1,
+                  "[0, 0, 0]",
+                  "[16, 8, 16]",
+                  0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 5,
+          "type": "table",
+          "name": "elements",
+          "tbl_name": "elements",
+          "rootpage": 6,
+          "sql": "CREATE TABLE elements (model TEXT, element_index INTEGER, origin_geometry_model TEXT, from_xyz TEXT, to_xyz TEXT, dimensions_xyz TEXT, local_rotation TEXT, note TEXT, PRIMARY KEY (model,element_index), FOREIGN KEY(model) REFERENCES models(name))",
+          "btree": {
+            "rows": 80,
+            "leaf_pages": 3,
+            "interior_pages": 1,
+            "visited_pages": 4,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_planks",
+                  0,
+                  "cube",
+                  "[0, 0, 0]",
+                  "[16, 16, 16]",
+                  "[16, 16, 16]",
+                  "{}",
+                  "Unrotated element dimensions; not collision shape"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_slab",
+                  0,
+                  "slab",
+                  "[0, 0, 0]",
+                  "[16, 8, 16]",
+                  "[16, 8, 16]",
+                  "{}",
+                  "Unrotated element dimensions; not collision shape"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 7,
+          "type": "table",
+          "name": "blockstates",
+          "tbl_name": "blockstates",
+          "rootpage": 8,
+          "sql": "CREATE TABLE blockstates (name TEXT PRIMARY KEY, type TEXT, variant_or_multipart_entry_count INTEGER, sample_behavior TEXT, github_blob_sha1 TEXT, source_url TEXT)",
+          "btree": {
+            "rows": 16,
+            "leaf_pages": 1,
+            "interior_pages": 0,
+            "visited_pages": 1,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_planks",
+                  "variants",
+                  1,
+                  "\"\": oak_planks",
+                  "02780929635818fd6254fdab86ea7e97a6440331",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/block"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_slab",
+                  "variants",
+                  3,
+                  "type=bottom/double/top; double -> oak_planks",
+                  "c503f74caa7dff5713280041366e628f9a7f8449",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/block"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 9,
+          "type": "table",
+          "name": "texture_stats_v4",
+          "tbl_name": "texture_stats_v4",
+          "rootpage": 10,
+          "sql": "CREATE TABLE texture_stats_v4 (texture_id TEXT PRIMARY KEY, family TEXT, source_url TEXT, sha256 TEXT, width INTEGER, height INTEGER, unique_rgb_visible INTEGER, mean_luma REAL, luma_std REAL, verification TEXT)",
+          "btree": {
+            "rows": 150,
+            "leaf_pages": 12,
+            "interior_pages": 1,
+            "visited_pages": 13,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_planks",
+                  "ëª©ì¬Â·ìëª©",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/textu",
+                  "65665943ef9c8bcf63fc67d2083ed0c50243f724106d0e4bb1abea5d921b16d3",
+                  16,
+                  16,
+                  7,
+                  "real value omitted"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "spruce_planks",
+                  "ëª©ì¬Â·ìëª©",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/textu",
+                  "a1e4cd5b1eb20bc03e8d1f3fdae59034363c3b2dde7f505694e4323222e00e21",
+                  16,
+                  16,
+                  7,
+                  "real value omitted"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 11,
+          "type": "table",
+          "name": "model_additions_v6",
+          "tbl_name": "model_additions_v6",
+          "rootpage": 37,
+          "sql": "CREATE TABLE model_additions_v6 (\n name TEXT PRIMARY KEY,parent TEXT,element_count INTEGER,sha1 TEXT,geometry_kind TEXT,source_url TEXT,evidence_note TEXT\n)",
+          "btree": {
+            "rows": 13,
+            "leaf_pages": 1,
+            "interior_pages": 0,
+            "visited_pages": 1,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "cauldron",
+                  null,
+                  13,
+                  "788da3e1449187f15d820c0172f33b80f39620ca",
+                  "direct",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model",
+                  "empty vessel with side walls, bottom and feet"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "grindstone",
+                  "block",
+                  5,
+                  "cc5e0f1f985fb58e381d8b2dd8c9fc1b8aef1532",
+                  "direct",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model",
+                  "stone body and two paired supports"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 13,
+          "type": "table",
+          "name": "state_additions_v6",
+          "tbl_name": "state_additions_v6",
+          "rootpage": 39,
+          "sql": "CREATE TABLE state_additions_v6 (\n name TEXT PRIMARY KEY,state_mode TEXT,entry_count INTEGER,sha1 TEXT,source_url TEXT\n)",
+          "btree": {
+            "rows": 7,
+            "leaf_pages": 1,
+            "interior_pages": 0,
+            "visited_pages": 1,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "cauldron",
+                  "variants",
+                  1,
+                  "9908cf5d4d631592e48fd436d4b90b3447fe3976",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/block"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "grindstone",
+                  "variants",
+                  12,
+                  "244481d0a87030158eccc80a2b6d37df6a8671b4",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/block"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 15,
+          "type": "table",
+          "name": "uv_faces_v6",
+          "tbl_name": "uv_faces_v6",
+          "rootpage": 41,
+          "sql": "CREATE TABLE uv_faces_v6 (\n source_geometry_model TEXT NOT NULL,element_index INTEGER NOT NULL,face TEXT NOT NULL,\n uv_json TEXT,texture_variable TEXT NOT NULL,face_rotation INTEGER NOT NULL DEFAULT 0,\n cullface TEXT,source_url TEXT NOT NULL,verification TEXT NOT NULL,\n PRIMARY KEY(source_geometry_model,element_index,face)\n)",
+          "btree": {
+            "rows": 90,
+            "leaf_pages": 5,
+            "interior_pages": 1,
+            "visited_pages": 6,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "cube",
+                  0,
+                  "down",
+                  "null",
+                  "#down",
+                  0,
+                  "down",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "cube",
+                  0,
+                  "up",
+                  "null",
+                  "#up",
+                  0,
+                  "up",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/model"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 17,
+          "type": "table",
+          "name": "state_examples_v6",
+          "tbl_name": "state_examples_v6",
+          "rootpage": 43,
+          "sql": "CREATE TABLE state_examples_v6 (\n block TEXT NOT NULL,state_key TEXT NOT NULL,selected_model TEXT NOT NULL,\n rotation_x INTEGER, rotation_y INTEGER, uvlock INTEGER, selection_kind TEXT NOT NULL,\n condition TEXT,source_url TEXT NOT NULL,\n PRIMARY KEY(block,state_key,selected_model,selection_kind)\n)",
+          "btree": {
+            "rows": 34,
+            "leaf_pages": 2,
+            "interior_pages": 1,
+            "visited_pages": 3,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_stairs",
+                  "facing=east,half=bottom,shape=inner_left",
+                  "oak_stairs_inner",
+                  0,
+                  270,
+                  1,
+                  "variants",
+                  null
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_stairs",
+                  "facing=east,half=bottom,shape=inner_right",
+                  "oak_stairs_inner",
+                  0,
+                  0,
+                  0,
+                  "variants",
+                  null
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 19,
+          "type": "table",
+          "name": "research_issues_v6",
+          "tbl_name": "research_issues_v6",
+          "rootpage": 45,
+          "sql": "CREATE TABLE research_issues_v6 (\n issue_id TEXT PRIMARY KEY, subject TEXT, status TEXT, notes TEXT\n)",
+          "btree": {
+            "rows": 9,
+            "leaf_pages": 1,
+            "interior_pages": 0,
+            "visited_pages": 1,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "I01",
+                  "ë°ëë¼ íì¤ì² ê³µì client.jar 150ê±´ í´ì ëì¡°",
+                  "pending",
+                  "ê³µì/ë¡ì»¬ client.jar ë¯¸ì ê³µ. ë¹ê³µì 1.21.11 ë¯¸ë¬ë§ íì¸ë¨"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "I02",
+                  "ì¸ê²ì ë ë ê²ì",
+                  "pending",
+                  "ì¤ì  Java í´ë¼ì´ì¸í¸/ë ë ì¤í¬ë¦°ì·ì íµí ì¡ì ëì¡° ìì"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 24,
+          "type": "table",
+          "name": "connected_sources_v7",
+          "tbl_name": "connected_sources_v7",
+          "rootpage": 59,
+          "sql": "CREATE TABLE connected_sources_v7 (path TEXT PRIMARY KEY, git_blob_sha1 TEXT NOT NULL, version TEXT, validation TEXT, url TEXT)",
+          "btree": {
+            "rows": 61,
+            "leaf_pages": 5,
+            "interior_pages": 1,
+            "visited_pages": 6,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "assets/minecraft/blockstates/oak_fence.json",
+                  "394851e1883d0bda305aa0b47b04b0e04716200a",
+                  "java_1.21.11",
+                  "GitHub_connector_JSON_read",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/block"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "assets/minecraft/blockstates/cobblestone_wall.json",
+                  "ea2f67611565e206b85127251000594a4961101c",
+                  "java_1.21.11",
+                  "GitHub_connector_JSON_read",
+                  "https://github.com/InventivetalentDev/minecraft-assets/blob/1.21.11/assets/minecraft/block"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 26,
+          "type": "table",
+          "name": "connected_geometry_v7",
+          "tbl_name": "connected_geometry_v7",
+          "rootpage": 61,
+          "sql": "CREATE TABLE connected_geometry_v7 (model TEXT PRIMARY KEY, parent_template TEXT, source_sha1 TEXT, primitive_count INTEGER, primitive_boxes_json TEXT, observation TEXT)",
+          "btree": {
+            "rows": 39,
+            "leaf_pages": 2,
+            "interior_pages": 1,
+            "visited_pages": 3,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_fence_post",
+                  "",
+                  "e05dc4ae309d60b31488d6fb9d3793bf495c92f5",
+                  1,
+                  "[[[6,0,6],[10,16,10]]]",
+                  "direct_or_parent_inherited_geometry; zero-thickness allowed"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_fence_side",
+                  "",
+                  "fe4ed99e0deb7af04f3494469d0b65a753e5a80e",
+                  2,
+                  "[[[7,12,0],[9,15,9]],[[7,6,0],[9,9,9]]]",
+                  "direct_or_parent_inherited_geometry; zero-thickness allowed"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 28,
+          "type": "table",
+          "name": "assembly_cases_v7",
+          "tbl_name": "assembly_cases_v7",
+          "rootpage": 63,
+          "sql": "CREATE TABLE assembly_cases_v7 (block TEXT, case_id TEXT, props_json TEXT, source_blockstate_sha1 TEXT, selection_kind TEXT, applied_model_count INTEGER, primitive_count INTEGER, zero_thickness_primitive_count INTEGER, bounds_from_json TEXT, bounds_to_json TEXT, method TEXT, PRIMARY KEY(block,case_id))",
+          "btree": {
+            "rows": 21,
+            "leaf_pages": 2,
+            "interior_pages": 1,
+            "visited_pages": 3,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_fence",
+                  "isolated",
+                  "{\"east\":false,\"north\":false,\"south\":false,\"west\":false}",
+                  "394851e1883d0bda305aa0b47b04b0e04716200a",
+                  "multipart",
+                  1,
+                  1,
+                  0
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_fence",
+                  "east",
+                  "{\"east\":true,\"north\":false,\"south\":false,\"west\":false}",
+                  "394851e1883d0bda305aa0b47b04b0e04716200a",
+                  "multipart",
+                  2,
+                  3,
+                  0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 30,
+          "type": "table",
+          "name": "assembly_parts_v7",
+          "tbl_name": "assembly_parts_v7",
+          "rootpage": 65,
+          "sql": "CREATE TABLE assembly_parts_v7 (block TEXT, case_id TEXT, part_ordinal INTEGER, selected_model TEXT, source_rule_ordinal TEXT, x_rotation INTEGER, y_rotation INTEGER, uvlock INTEGER, primitive_count INTEGER, from_rotated_json TEXT, to_rotated_json TEXT, PRIMARY KEY(block,case_id,part_ordinal))",
+          "btree": {
+            "rows": 53,
+            "leaf_pages": 2,
+            "interior_pages": 1,
+            "visited_pages": 3,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_fence",
+                  "isolated",
+                  0,
+                  "oak_fence_post",
+                  "0",
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_fence",
+                  "east",
+                  0,
+                  "oak_fence_post",
+                  "0",
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 32,
+          "type": "table",
+          "name": "assembly_primitives_v7",
+          "tbl_name": "assembly_primitives_v7",
+          "rootpage": 67,
+          "sql": "CREATE TABLE assembly_primitives_v7 (block TEXT, case_id TEXT, part_ordinal INTEGER, primitive_ordinal INTEGER, model TEXT, unrotated_from_json TEXT, unrotated_to_json TEXT, rotated_from_json TEXT, rotated_to_json TEXT, zero_thickness INTEGER, PRIMARY KEY(block,case_id,part_ordinal,primitive_ordinal))",
+          "btree": {
+            "rows": 93,
+            "leaf_pages": 3,
+            "interior_pages": 1,
+            "visited_pages": 4,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "oak_fence",
+                  "isolated",
+                  0,
+                  0,
+                  "oak_fence_post",
+                  "[6,0,6]",
+                  "[10,16,10]",
+                  "[6.0,0.0,6.0]"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "oak_fence",
+                  "east",
+                  0,
+                  0,
+                  "oak_fence_post",
+                  "[6,0,6]",
+                  "[10,16,10]",
+                  "[6.0,0.0,6.0]"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 34,
+          "type": "table",
+          "name": "research_limits_v7",
+          "tbl_name": "research_limits_v7",
+          "rootpage": 69,
+          "sql": "CREATE TABLE research_limits_v7 (issue TEXT PRIMARY KEY, detail TEXT, status TEXT)",
+          "btree": {
+            "rows": 6,
+            "leaf_pages": 1,
+            "interior_pages": 0,
+            "visited_pages": 1,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "L01",
+                  "ê³µì Mojang client.jarì JSON/PNG ë°ì´í¸ ëì¡° ë¯¸ìí: íì¬ ë¹ê³µì GitHub ì",
+                  "OPEN"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "L02",
+                  "ì íí ìí 21ê° ì¡°ê±´ íê°ì´ë©° ëª¨ë  ê°ë¥í ì¡°í©ì ê²ì ì¤ ë°íì",
+                  "OPEN"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 36,
+          "type": "table",
+          "name": "special_block_evidence_v8",
+          "tbl_name": "special_block_evidence_v8",
+          "rootpage": 90,
+          "sql": "CREATE TABLE special_block_evidence_v8 (\n block TEXT PRIMARY KEY, rendering_class TEXT NOT NULL,\n blockstate_path TEXT NOT NULL, blockstate_blob_sha1 TEXT NOT NULL,\n model_name TEXT NOT NULL, model_path TEXT NOT NULL, model_blob_sha1 TEXT NOT NULL,\n parent TEXT, base_primitive_count INTEGER NOT NULL,\n texture_atlas TEXT, renderer_class TEXT, renderer_reference_url TEXT,\n description_ko TEXT NOT NULL, evidence_grade TEXT NOT NULL,\n version TEXT NOT NULL\n)",
+          "btree": {
+            "rows": 17,
+            "leaf_pages": 3,
+            "interior_pages": 1,
+            "visited_pages": 4,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "red_bed",
+                  "SPECIAL",
+                  "assets/minecraft/blockstates/red_bed.json",
+                  "6577c90a27efb34a7099150253c0bf557d75214c",
+                  "bed",
+                  "assets/minecraft/models/block/bed.json",
+                  "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                  ""
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "chest",
+                  "SPECIAL",
+                  "assets/minecraft/blockstates/chest.json",
+                  "f78fa579cec93e6b0ce9ed44d7115bd125f57ee9",
+                  "chest",
+                  "assets/minecraft/models/block/chest.json",
+                  "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+                  ""
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 38,
+          "type": "table",
+          "name": "texture_atlases_v8",
+          "tbl_name": "texture_atlases_v8",
+          "rootpage": 92,
+          "sql": "CREATE TABLE texture_atlases_v8 (\n atlas TEXT PRIMARY KEY, atlas_json_path TEXT NOT NULL, git_blob_sha1 TEXT NOT NULL,\n directory_prefix TEXT NOT NULL, source_directory TEXT NOT NULL,\n version TEXT NOT NULL\n)",
+          "btree": {
+            "rows": 6,
+            "leaf_pages": 1,
+            "interior_pages": 0,
+            "visited_pages": 1,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "beds",
+                  "assets/minecraft/atlases/beds.json",
+                  "d2e798a5e469c9b26e4e681c8062aec11fc848ea",
+                  "entity/bed/",
+                  "entity/bed",
+                  "1.21.11"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "chests",
+                  "assets/minecraft/atlases/chests.json",
+                  "81a68b1cae693407b865d9c248870f7da3f54fb9",
+                  "entity/chest/",
+                  "entity/chest",
+                  "1.21.11"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 40,
+          "type": "table",
+          "name": "special_texture_metadata_v8",
+          "tbl_name": "special_texture_metadata_v8",
+          "rootpage": 94,
+          "sql": "CREATE TABLE special_texture_metadata_v8 (\n texture_path TEXT PRIMARY KEY, git_blob_sha1 TEXT NOT NULL,\n width INTEGER NOT NULL, height INTEGER NOT NULL, file_bytes INTEGER NOT NULL,\n png_bit_depth INTEGER NOT NULL, png_color_type INTEGER NOT NULL,\n png_signature_checked INTEGER NOT NULL, version TEXT NOT NULL\n)",
+          "btree": {
+            "rows": 19,
+            "leaf_pages": 1,
+            "interior_pages": 0,
+            "visited_pages": 1,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "assets/minecraft/textures/entity/bed/red.png",
+                  "8ff0fb22f4a2b5e8a8593d227914576391aa0441",
+                  64,
+                  64,
+                  783,
+                  8,
+                  3,
+                  1
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "assets/minecraft/textures/entity/bed/white.png",
+                  "4b8e15c353428959a8e65a2e6b6f495e86708569",
+                  64,
+                  64,
+                  788,
+                  8,
+                  3,
+                  1
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "rowid": 42,
+          "type": "table",
+          "name": "rendering_conclusions_v8",
+          "tbl_name": "rendering_conclusions_v8",
+          "rootpage": 96,
+          "sql": "CREATE TABLE rendering_conclusions_v8 (\n finding_id TEXT PRIMARY KEY, theme TEXT NOT NULL, finding_ko TEXT NOT NULL,\n evidence_paths_json TEXT NOT NULL, limitations_ko TEXT NOT NULL, grade TEXT NOT NULL\n)",
+          "btree": {
+            "rows": 7,
+            "leaf_pages": 1,
+            "interior_pages": 0,
+            "visited_pages": 1,
+            "samples": [
+              {
+                "rowid": 1,
+                "first_values": [
+                  "F01",
+                  "SPECIAL",
+                  "ë¹ ë¸ë¡ ëª¨ë¸ JSONì ë ëë§ ëª¨ë¸ ë¶ì¬ì ì¦ê±°ê° ìëë¤. ì¹¨ë/ìì/í",
+                  "[\"assets/minecraft/models/block/bed.json\", \"assets/minecraft/models/block/chest.json\", \"as",
+                  "BER ìì¤ ì½ëë¥¼ ì§ì  ëì»´íì¼íê±°ë ì¸ê²ì íë©´ì ë¹êµíì§ ììë",
+                  "A/B"
+                ]
+              },
+              {
+                "rowid": 2,
+                "first_values": [
+                  "F02",
+                  "HYBRID",
+                  "ë§ë² ë¶ì¬ë/ëìë/ì ë°/ì¢ì ì ì  ë³¸ì²´ì ë³ë ë ë ë´ì©ì´ ê³µì¡´í",
+                  "[\"assets/minecraft/models/block/enchanting_table.json\", \"assets/minecraft/models/block/lec",
+                  "ì±Â·ë¬¼íì ì¤ì  íë ìë³ ë³íì ê³ì°íì§ ììë¤.",
+                  "A/B"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "limitations": [
+        "SQLite B-tree root traversal and leaf-cell counts, not SQLite PRAGMA integrity_check",
+        "Metadata/SQLite row-count static recheck, not re-verification of model geometry and UV",
+        "Master record text read is byte-preserving ASCII where applicable; no full sqlite SQL engine was used"
+      ]
+    }
+  ]
+}

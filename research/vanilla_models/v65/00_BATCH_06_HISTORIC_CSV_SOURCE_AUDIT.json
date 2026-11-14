@@ -1,0 +1,1560 @@
+{
+  "schema": "v65_original_historical_CSV_recheck_batch",
+  "batch_start": 60,
+  "batch_size": 12,
+  "original_manifest_blob": "d05c23e7e94d70cfe180bf60c91fb7a95b338b3b",
+  "source_model_index_blob": "c64239207cc8ff2841a8877e74cf5b6b311be812",
+  "entries": [
+    {
+      "path": "research/vanilla_models/v31/09_two_campfire_16_variants_source.csv",
+      "original_file_git_blob_sha": "2cf3123dcf92619db4022cfd07b7288eb58ca0b5",
+      "source_tree_bytes": 2123,
+      "header": [
+        "block",
+        "source_sha",
+        "state_key",
+        "model",
+        "rotation_y",
+        "source_rotation_y_key_present",
+        "source_uvlock_true",
+        "source_uvlock_key_present"
+      ],
+      "record_count": 16,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v31/10_two_v4_shelf_png_metrics_crosscheck.csv",
+      "original_file_git_blob_sha": "4a2957ddd1dc301dc0ec82a06688dedf62b7fe34",
+      "source_tree_bytes": 685,
+      "header": [
+        "texture",
+        "v4_source_csv_git_sha",
+        "asset_git_sha_current",
+        "v4_png_bytes",
+        "v31_png_bytes",
+        "bytes_match",
+        "v4_width",
+        "v31_width",
+        "v4_height",
+        "v31_height",
+        "v4_total_pixels",
+        "v31_total_pixels",
+        "v4_visible_pixels",
+        "v31_visible_pixels",
+        "visible_match",
+        "legacy_v4_sha256_recorded_only"
+      ],
+      "record_count": 2,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v32/02_42_inherited_cube_face_texture_bindings.csv",
+      "original_file_git_blob_sha": "7390808c52904daad17871d0cce5969cab81ac12",
+      "source_tree_bytes": 8949,
+      "header": [
+        "leaf",
+        "leaf_git_sha",
+        "face_side",
+        "ancestor_cube_sha",
+        "source_face_uv_declared",
+        "uv_derivation",
+        "computed_uv_rect",
+        "texture_binding_slot",
+        "resolved_texture_path",
+        "source_cullface"
+      ],
+      "record_count": 42,
+      "malformed_rows": 0,
+      "model_matches": [
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/barrel.json",
+          "original_model_git_sha": "cff930084d47d226817f274616d14f4b07c0a9d4",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 6,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 2,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "barrel",
+                "cff930084d47d226817f274616d14f4b07c0a9d4",
+                "down",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 3,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "barrel",
+                "cff930084d47d226817f274616d14f4b07c0a9d4",
+                "up",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 4,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "barrel",
+                "cff930084d47d226817f274616d14f4b07c0a9d4",
+                "north",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/barrel_open.json",
+          "original_model_git_sha": "c7d013e7b442624011ab4a0bef8b4e9ac5570ea9",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 6,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 8,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "barrel_open",
+                "c7d013e7b442624011ab4a0bef8b4e9ac5570ea9",
+                "down",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 9,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "barrel_open",
+                "c7d013e7b442624011ab4a0bef8b4e9ac5570ea9",
+                "up",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 10,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "barrel_open",
+                "c7d013e7b442624011ab4a0bef8b4e9ac5570ea9",
+                "north",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/loom.json",
+          "original_model_git_sha": "66f7792d3addb454db7c6b83d976a2b2f0eeb921",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 6,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 14,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "loom",
+                "66f7792d3addb454db7c6b83d976a2b2f0eeb921",
+                "down",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 15,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "loom",
+                "66f7792d3addb454db7c6b83d976a2b2f0eeb921",
+                "up",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 16,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "loom",
+                "66f7792d3addb454db7c6b83d976a2b2f0eeb921",
+                "north",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/cartography_table.json",
+          "original_model_git_sha": "770c10613ce3b580800df5bf9edd14063dd58342",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 6,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 20,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "cartography_table",
+                "770c10613ce3b580800df5bf9edd14063dd58342",
+                "down",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 21,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "cartography_table",
+                "770c10613ce3b580800df5bf9edd14063dd58342",
+                "up",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 22,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "cartography_table",
+                "770c10613ce3b580800df5bf9edd14063dd58342",
+                "north",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/fletching_table.json",
+          "original_model_git_sha": "7921725c41f36bd2272c8b8608054b5a75a7ffd6",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 6,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 26,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "fletching_table",
+                "7921725c41f36bd2272c8b8608054b5a75a7ffd6",
+                "down",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 27,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "fletching_table",
+                "7921725c41f36bd2272c8b8608054b5a75a7ffd6",
+                "up",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 28,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "fletching_table",
+                "7921725c41f36bd2272c8b8608054b5a75a7ffd6",
+                "north",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/smithing_table.json",
+          "original_model_git_sha": "f7bcd3e1f5f740089ded6cc3627b8018e8a55c83",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 6,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 32,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "smithing_table",
+                "f7bcd3e1f5f740089ded6cc3627b8018e8a55c83",
+                "down",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 33,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "smithing_table",
+                "f7bcd3e1f5f740089ded6cc3627b8018e8a55c83",
+                "up",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 34,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "smithing_table",
+                "f7bcd3e1f5f740089ded6cc3627b8018e8a55c83",
+                "north",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/crafting_table.json",
+          "original_model_git_sha": "aa056b15efba47ef049e029b560029a6b1e3be84",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 6,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 38,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "crafting_table",
+                "aa056b15efba47ef049e029b560029a6b1e3be84",
+                "down",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 39,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "crafting_table",
+                "aa056b15efba47ef049e029b560029a6b1e3be84",
+                "up",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 40,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "crafting_table",
+                "aa056b15efba47ef049e029b560029a6b1e3be84",
+                "north",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v32/03_png_12_full_rgba_metrics.csv",
+      "original_file_git_blob_sha": "a96f7c90738bd563d5722ce72e61d7a0c3bda99d",
+      "source_tree_bytes": 1528,
+      "header": [
+        "texture",
+        "texture_sha",
+        "file_bytes",
+        "width",
+        "height",
+        "bit_depth",
+        "color_type",
+        "total_pixels",
+        "opaque_pixels",
+        "transparent_pixels",
+        "partial_alpha_pixels",
+        "unique_rgba",
+        "mean_rgb_opaque"
+      ],
+      "record_count": 12,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v32/04_png_13_full_rgba_metrics.csv",
+      "original_file_git_blob_sha": "f1758b06b38fa7eb78fcccb88e04c3f82d2835a7",
+      "source_tree_bytes": 1611,
+      "header": [
+        "texture",
+        "texture_sha",
+        "file_bytes",
+        "width",
+        "height",
+        "bit_depth",
+        "color_type",
+        "total_pixels",
+        "opaque_pixels",
+        "transparent_pixels",
+        "partial_alpha_pixels",
+        "unique_rgba",
+        "mean_rgb_opaque"
+      ],
+      "record_count": 13,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v32/05_42_inherited_faces_png_full_rgba_evidence.csv",
+      "original_file_git_blob_sha": "a2db0fabaf0bd8bf2e49af245d30b64d55e50042",
+      "source_tree_bytes": 12704,
+      "header": [
+        "leaf",
+        "leaf_git_sha",
+        "face_side",
+        "ancestor_cube_sha",
+        "source_face_uv_declared",
+        "uv_derivation",
+        "computed_uv_rect",
+        "texture_binding_slot",
+        "resolved_texture_path",
+        "source_cullface",
+        "resolved_texture_git_sha",
+        "png_total_pixels",
+        "source_png_unique_rgba",
+        "implied_uv_texel_uses",
+        "opaque_texel_uses",
+        "transparent_texel_uses",
+        "partial_texel_uses",
+        "mean_rgb_opaque"
+      ],
+      "record_count": 42,
+      "malformed_rows": 0,
+      "model_matches": [
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/barrel.json",
+          "original_model_git_sha": "cff930084d47d226817f274616d14f4b07c0a9d4",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 6,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 2,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "barrel",
+                "cff930084d47d226817f274616d14f4b07c0a9d4",
+                "down",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 3,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "barrel",
+                "cff930084d47d226817f274616d14f4b07c0a9d4",
+                "up",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 4,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "barrel",
+                "cff930084d47d226817f274616d14f4b07c0a9d4",
+                "north",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/barrel_open.json",
+          "original_model_git_sha": "c7d013e7b442624011ab4a0bef8b4e9ac5570ea9",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 6,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 8,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "barrel_open",
+                "c7d013e7b442624011ab4a0bef8b4e9ac5570ea9",
+                "down",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 9,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "barrel_open",
+                "c7d013e7b442624011ab4a0bef8b4e9ac5570ea9",
+                "up",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 10,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "barrel_open",
+                "c7d013e7b442624011ab4a0bef8b4e9ac5570ea9",
+                "north",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/loom.json",
+          "original_model_git_sha": "66f7792d3addb454db7c6b83d976a2b2f0eeb921",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 6,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 14,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "loom",
+                "66f7792d3addb454db7c6b83d976a2b2f0eeb921",
+                "down",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 15,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "loom",
+                "66f7792d3addb454db7c6b83d976a2b2f0eeb921",
+                "up",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 16,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "loom",
+                "66f7792d3addb454db7c6b83d976a2b2f0eeb921",
+                "north",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/cartography_table.json",
+          "original_model_git_sha": "770c10613ce3b580800df5bf9edd14063dd58342",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 6,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 20,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "cartography_table",
+                "770c10613ce3b580800df5bf9edd14063dd58342",
+                "down",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 21,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "cartography_table",
+                "770c10613ce3b580800df5bf9edd14063dd58342",
+                "up",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 22,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "cartography_table",
+                "770c10613ce3b580800df5bf9edd14063dd58342",
+                "north",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/fletching_table.json",
+          "original_model_git_sha": "7921725c41f36bd2272c8b8608054b5a75a7ffd6",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 6,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 26,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "fletching_table",
+                "7921725c41f36bd2272c8b8608054b5a75a7ffd6",
+                "down",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 27,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "fletching_table",
+                "7921725c41f36bd2272c8b8608054b5a75a7ffd6",
+                "up",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 28,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "fletching_table",
+                "7921725c41f36bd2272c8b8608054b5a75a7ffd6",
+                "north",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/smithing_table.json",
+          "original_model_git_sha": "f7bcd3e1f5f740089ded6cc3627b8018e8a55c83",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 6,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 32,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "smithing_table",
+                "f7bcd3e1f5f740089ded6cc3627b8018e8a55c83",
+                "down",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 33,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "smithing_table",
+                "f7bcd3e1f5f740089ded6cc3627b8018e8a55c83",
+                "up",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 34,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "smithing_table",
+                "f7bcd3e1f5f740089ded6cc3627b8018e8a55c83",
+                "north",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/crafting_table.json",
+          "original_model_git_sha": "aa056b15efba47ef049e029b560029a6b1e3be84",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 6,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 38,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "crafting_table",
+                "aa056b15efba47ef049e029b560029a6b1e3be84",
+                "down",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 39,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "crafting_table",
+                "aa056b15efba47ef049e029b560029a6b1e3be84",
+                "up",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            },
+            {
+              "row": 40,
+              "tier": "model_name_SHA",
+              "sha_field": "leaf_git_sha",
+              "cells": [
+                "crafting_table",
+                "aa056b15efba47ef049e029b560029a6b1e3be84",
+                "north",
+                "1b9780b479aee527f79bde950656b82f1524128b",
+                "false"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v32/06_v4_overlap_png_byte_pixel_crosscheck.csv",
+      "original_file_git_blob_sha": "a524ad8c2f4020a6f1dff1b0eca5dfada643ca5a",
+      "source_tree_bytes": 1994,
+      "header": [
+        "texture",
+        "png_sha",
+        "png_bytes",
+        "v4_bytes",
+        "bytes_match",
+        "width_match",
+        "height_match",
+        "visible_match",
+        "all_pixels_match",
+        "v4_sha256_recorded_not_rehashed"
+      ],
+      "record_count": 12,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v32/07_six_blocks_20_static_state_variants.csv",
+      "original_file_git_blob_sha": "89c39d0b261356ad7e1db01fedb6171f69476f16",
+      "source_tree_bytes": 2852,
+      "header": [
+        "block",
+        "source_blockstate_sha",
+        "raw_state_key",
+        "facing",
+        "open",
+        "model",
+        "source_rotation_x_key",
+        "rotation_x",
+        "source_rotation_y_key",
+        "rotation_y",
+        "uvlock_key",
+        "uvlock_explicit_true",
+        "static_only"
+      ],
+      "record_count": 20,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v32/08_barrel_two_top_png_pillow_sha256.csv",
+      "original_file_git_blob_sha": "5e672165480859aa19778c38af44ff9a7b0fbf77",
+      "source_tree_bytes": 383,
+      "header": [
+        "texture",
+        "source_git_blob_sha",
+        "source_bytes",
+        "width",
+        "height",
+        "unique_rgba",
+        "sha256_recomputed",
+        "independent_Pillow_verify"
+      ],
+      "record_count": 2,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v33/02_twelve_model_148_inferred_uv_faces.csv",
+      "original_file_git_blob_sha": "e80591d98edacf2794ad8ebf37976ab6666843f0",
+      "source_tree_bytes": 29260,
+      "header": [
+        "model",
+        "source_sha",
+        "element_index",
+        "element_from",
+        "element_to",
+        "face_dir",
+        "texture_slot",
+        "resolved_texture",
+        "source_explicit_uv_present",
+        "derived_geometric_uv",
+        "uv_derivation_if_missing",
+        "uv_area_texels",
+        "cullface",
+        "source_uv_rotation",
+        "source_face_tint"
+      ],
+      "record_count": 148,
+      "malformed_rows": 0,
+      "model_matches": [
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+          "original_model_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 58,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 2,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "cauldron",
+                "788da3e1449187f15d820c0172f33b80f39620ca",
+                "0",
+                "[0,3,0]",
+                "[2,16,16]"
+              ]
+            },
+            {
+              "row": 3,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "cauldron",
+                "788da3e1449187f15d820c0172f33b80f39620ca",
+                "0",
+                "[0,3,0]",
+                "[2,16,16]"
+              ]
+            },
+            {
+              "row": 4,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "cauldron",
+                "788da3e1449187f15d820c0172f33b80f39620ca",
+                "0",
+                "[0,3,0]",
+                "[2,16,16]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+          "original_model_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 32,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 60,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "hopper",
+                "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+                "0",
+                "[0,10,0]",
+                "[16,11,16]"
+              ]
+            },
+            {
+              "row": 61,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "hopper",
+                "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+                "0",
+                "[0,10,0]",
+                "[16,11,16]"
+              ]
+            },
+            {
+              "row": 62,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "hopper",
+                "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+                "0",
+                "[0,10,0]",
+                "[16,11,16]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+          "original_model_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 32,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 92,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "hopper_side",
+                "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+                "0",
+                "[0,10,0]",
+                "[16,11,16]"
+              ]
+            },
+            {
+              "row": 93,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "hopper_side",
+                "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+                "0",
+                "[0,10,0]",
+                "[16,11,16]"
+              ]
+            },
+            {
+              "row": 94,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "hopper_side",
+                "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+                "0",
+                "[0,10,0]",
+                "[16,11,16]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter.json",
+          "original_model_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 18,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 124,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "composter",
+                "9650f777a58fe668b42ad8ad6d57a643121f5202",
+                "0",
+                "[0,0,0]",
+                "[16,2,16]"
+              ]
+            },
+            {
+              "row": 125,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "composter",
+                "9650f777a58fe668b42ad8ad6d57a643121f5202",
+                "0",
+                "[0,0,0]",
+                "[16,2,16]"
+              ]
+            },
+            {
+              "row": 126,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "composter",
+                "9650f777a58fe668b42ad8ad6d57a643121f5202",
+                "1",
+                "[0,0,0]",
+                "[2,16,16]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents1.json",
+          "original_model_git_sha": "fe6c8504a7bd48e198cb9ee47f3bacbcbf7ab511",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 142,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "composter_contents1",
+                "fe6c8504a7bd48e198cb9ee47f3bacbcbf7ab511",
+                "0",
+                "[2,0,2]",
+                "[14,3,14]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents2.json",
+          "original_model_git_sha": "b5cc54c46a4d16494df7eea24d9ea1f43e5105d7",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 143,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "composter_contents2",
+                "b5cc54c46a4d16494df7eea24d9ea1f43e5105d7",
+                "0",
+                "[2,0,2]",
+                "[14,5,14]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents3.json",
+          "original_model_git_sha": "4c3cdc1088b8d308efb7ac3374e1f7c7299bd579",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 144,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "composter_contents3",
+                "4c3cdc1088b8d308efb7ac3374e1f7c7299bd579",
+                "0",
+                "[2,0,2]",
+                "[14,7,14]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents4.json",
+          "original_model_git_sha": "48e0456f5f4bd2fcf1c606ff9cd481438aaf2465",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 145,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "composter_contents4",
+                "48e0456f5f4bd2fcf1c606ff9cd481438aaf2465",
+                "0",
+                "[2,0,2]",
+                "[14,9,14]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents5.json",
+          "original_model_git_sha": "21e4b30357f272d53214a585d587b8184a283b4c",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 146,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "composter_contents5",
+                "21e4b30357f272d53214a585d587b8184a283b4c",
+                "0",
+                "[2,0,2]",
+                "[14,11,14]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents6.json",
+          "original_model_git_sha": "12b655168f0696fc16a1a9bece700b785c950fb7",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 147,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "composter_contents6",
+                "12b655168f0696fc16a1a9bece700b785c950fb7",
+                "0",
+                "[2,0,2]",
+                "[14,13,14]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents7.json",
+          "original_model_git_sha": "b135ad12cd622702881dbef71505ca34ebcab0ed",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 148,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "composter_contents7",
+                "b135ad12cd622702881dbef71505ca34ebcab0ed",
+                "0",
+                "[2,0,2]",
+                "[14,15,14]"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents_ready.json",
+          "original_model_git_sha": "63744ccac86702872268cce243d72ca50f237501",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 149,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "composter_contents_ready",
+                "63744ccac86702872268cce243d72ca50f237501",
+                "0",
+                "[2,0,2]",
+                "[14,15,14]"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v33/03_composter_0_to_8_static_level_models.csv",
+      "original_file_git_blob_sha": "5a7ebf6c50b876a70eae27f4d68efaae5a5447d5",
+      "source_tree_bytes": 870,
+      "header": [
+        "level",
+        "model",
+        "overlaid",
+        "y_surface",
+        "texture",
+        "source_sha"
+      ],
+      "record_count": 9,
+      "malformed_rows": 0,
+      "model_matches": [
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter.json",
+          "original_model_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 2,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "0",
+                "composter",
+                "false",
+                "",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents1.json",
+          "original_model_git_sha": "fe6c8504a7bd48e198cb9ee47f3bacbcbf7ab511",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 3,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "1",
+                "composter_contents1",
+                "true",
+                "3",
+                "block/composter_compost"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents2.json",
+          "original_model_git_sha": "b5cc54c46a4d16494df7eea24d9ea1f43e5105d7",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 4,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "2",
+                "composter_contents2",
+                "true",
+                "5",
+                "block/composter_compost"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents3.json",
+          "original_model_git_sha": "4c3cdc1088b8d308efb7ac3374e1f7c7299bd579",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 5,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "3",
+                "composter_contents3",
+                "true",
+                "7",
+                "block/composter_compost"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents4.json",
+          "original_model_git_sha": "48e0456f5f4bd2fcf1c606ff9cd481438aaf2465",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 6,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "4",
+                "composter_contents4",
+                "true",
+                "9",
+                "block/composter_compost"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents5.json",
+          "original_model_git_sha": "21e4b30357f272d53214a585d587b8184a283b4c",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 7,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "5",
+                "composter_contents5",
+                "true",
+                "11",
+                "block/composter_compost"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents6.json",
+          "original_model_git_sha": "12b655168f0696fc16a1a9bece700b785c950fb7",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 8,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "6",
+                "composter_contents6",
+                "true",
+                "13",
+                "block/composter_compost"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents7.json",
+          "original_model_git_sha": "b135ad12cd622702881dbef71505ca34ebcab0ed",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 9,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "7",
+                "composter_contents7",
+                "true",
+                "15",
+                "block/composter_compost"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/composter_contents_ready.json",
+          "original_model_git_sha": "63744ccac86702872268cce243d72ca50f237501",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 10,
+              "tier": "model_name_SHA",
+              "sha_field": "source_sha",
+              "cells": [
+                "8",
+                "composter_contents_ready",
+                "true",
+                "15",
+                "block/composter_ready"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v33/04_cauldron_hopper_7_png_rgba.csv",
+      "original_file_git_blob_sha": "ef35be31af42b3dd9974e1e216d374fec4b9fa2d",
+      "source_tree_bytes": 1137,
+      "header": [
+        "texture",
+        "source_path",
+        "source_sha",
+        "bytes",
+        "width",
+        "height",
+        "depth",
+        "color_type",
+        "full_pixels",
+        "opaque_pixels",
+        "transparent_pixels",
+        "partial_alpha_pixels",
+        "unique_rgba"
+      ],
+      "record_count": 7,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    }
+  ]
+}

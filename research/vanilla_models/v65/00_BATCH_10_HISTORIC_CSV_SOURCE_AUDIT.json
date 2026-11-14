@@ -1,0 +1,787 @@
+{
+  "schema": "v65_original_historical_CSV_recheck_batch",
+  "batch_start": 108,
+  "batch_size": 5,
+  "original_manifest_blob": "d05c23e7e94d70cfe180bf60c91fb7a95b338b3b",
+  "source_model_index_blob": "c64239207cc8ff2841a8877e74cf5b6b311be812",
+  "entries": [
+    {
+      "path": "research/vanilla_models/v38/05_oak_shelf_2_original_png_pillow_rgba_crc_sha.csv",
+      "original_file_git_blob_sha": "1bcfdf0079352b1247101b56431f249c5b2fb4fb",
+      "source_tree_bytes": 778,
+      "header": [
+        "png_name",
+        "path",
+        "git_blob_sha",
+        "v34_sha_equal",
+        "png_bytes",
+        "width",
+        "height",
+        "source_png_mode",
+        "source_RGBA_pixels",
+        "opaque_pixels",
+        "alpha_zero_pixels",
+        "partial_alpha_pixels",
+        "unique_rgba_colors",
+        "png_chunks",
+        "png_chunk_crc32_verified_all",
+        "zlib_idat_decompress_success",
+        "full_rgba_loaded_by_Pillow",
+        "role"
+      ],
+      "record_count": 2,
+      "malformed_rows": 0,
+      "model_matches": [],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v38/06_oak_shelf_38_face_original_png_uv_rgba_regions.csv",
+      "original_file_git_blob_sha": "1005f80da713ff46066ecfba632b1d2cc19180ef",
+      "source_tree_bytes": 12866,
+      "header": [
+        "leaf_name",
+        "parent_template",
+        "parent_git_sha",
+        "element_index",
+        "face",
+        "source_explicit_uv",
+        "texture_source_path",
+        "texture_git_blob_sha",
+        "source_texture_resolution",
+        "uv_normalized_reference_resolution",
+        "original_png_pixels_per_uv_unit",
+        "uv_rectangle_pixel_bounds",
+        "sampled_pixel_uses",
+        "opaque_uses",
+        "transparent_uses",
+        "partial_alpha_uses",
+        "unique_rgba_colors",
+        "mean_red",
+        "mean_green",
+        "mean_blue",
+        "source_uv_reversed_x",
+        "source_uv_reversed_y",
+        "source_cullface",
+        "actual_png_rgba_sampled_with_pillow",
+        "render_engine_uv_and_lighting_verified"
+      ],
+      "record_count": 38,
+      "malformed_rows": 0,
+      "model_matches": [
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_shelf_body.json",
+          "original_model_git_sha": "2f258411f5a049fcd96f274e1253fb9acdaa570d",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 15,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 2,
+              "tier": "model_name_SHA",
+              "sha_field": "parent_git_sha",
+              "cells": [
+                "oak_shelf",
+                "template_shelf_body",
+                "2f258411f5a049fcd96f274e1253fb9acdaa570d",
+                "0",
+                "east"
+              ]
+            },
+            {
+              "row": 3,
+              "tier": "model_name_SHA",
+              "sha_field": "parent_git_sha",
+              "cells": [
+                "oak_shelf",
+                "template_shelf_body",
+                "2f258411f5a049fcd96f274e1253fb9acdaa570d",
+                "0",
+                "south"
+              ]
+            },
+            {
+              "row": 4,
+              "tier": "model_name_SHA",
+              "sha_field": "parent_git_sha",
+              "cells": [
+                "oak_shelf",
+                "template_shelf_body",
+                "2f258411f5a049fcd96f274e1253fb9acdaa570d",
+                "0",
+                "west"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_shelf_center.json",
+          "original_model_git_sha": "20b1449c2607d2f79c32b10d9a493b6b9cf8238b",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 17,
+              "tier": "model_name_SHA",
+              "sha_field": "parent_git_sha",
+              "cells": [
+                "oak_shelf_center",
+                "template_shelf_center",
+                "20b1449c2607d2f79c32b10d9a493b6b9cf8238b",
+                "0",
+                "north"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_shelf_inventory.json",
+          "original_model_git_sha": "da5420ad4a66177f13d9fd52c8f2691410a92b07",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 18,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 18,
+              "tier": "model_name_SHA",
+              "sha_field": "parent_git_sha",
+              "cells": [
+                "oak_shelf_inventory",
+                "template_shelf_inventory",
+                "da5420ad4a66177f13d9fd52c8f2691410a92b07",
+                "0",
+                "north"
+              ]
+            },
+            {
+              "row": 19,
+              "tier": "model_name_SHA",
+              "sha_field": "parent_git_sha",
+              "cells": [
+                "oak_shelf_inventory",
+                "template_shelf_inventory",
+                "da5420ad4a66177f13d9fd52c8f2691410a92b07",
+                "0",
+                "east"
+              ]
+            },
+            {
+              "row": 20,
+              "tier": "model_name_SHA",
+              "sha_field": "parent_git_sha",
+              "cells": [
+                "oak_shelf_inventory",
+                "template_shelf_inventory",
+                "da5420ad4a66177f13d9fd52c8f2691410a92b07",
+                "0",
+                "south"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_shelf_left.json",
+          "original_model_git_sha": "ecb099d693d75318303452a96a34d4a6ca4a4e83",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 36,
+              "tier": "model_name_SHA",
+              "sha_field": "parent_git_sha",
+              "cells": [
+                "oak_shelf_left",
+                "template_shelf_left",
+                "ecb099d693d75318303452a96a34d4a6ca4a4e83",
+                "0",
+                "north"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_shelf_right.json",
+          "original_model_git_sha": "5e58b7f2c9c4a6ded052b3854a216de89b249201",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 37,
+              "tier": "model_name_SHA",
+              "sha_field": "parent_git_sha",
+              "cells": [
+                "oak_shelf_right",
+                "template_shelf_right",
+                "5e58b7f2c9c4a6ded052b3854a216de89b249201",
+                "0",
+                "north"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_shelf_unconnected.json",
+          "original_model_git_sha": "3b82ae61468d0c2c15ea475a55a6e7b0d25864d2",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 38,
+              "tier": "model_name_SHA",
+              "sha_field": "parent_git_sha",
+              "cells": [
+                "oak_shelf_unconnected",
+                "template_shelf_unconnected",
+                "3b82ae61468d0c2c15ea475a55a6e7b0d25864d2",
+                "0",
+                "north"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/template_shelf_unpowered.json",
+          "original_model_git_sha": "ad5b6a3fc7c2256e2cab8f18a46a82e085511cec",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 1,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 39,
+              "tier": "model_name_SHA",
+              "sha_field": "parent_git_sha",
+              "cells": [
+                "oak_shelf_unpowered",
+                "template_shelf_unpowered",
+                "ad5b6a3fc7c2256e2cab8f18a46a82e085511cec",
+                "0",
+                "north"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v43/02_crafter_48_original_variant_rules.csv",
+      "original_file_git_blob_sha": "b72ce77ba74b158fa8542ae724563906e32930e1",
+      "source_tree_bytes": 9932,
+      "header": [
+        "source_key",
+        "source_sha",
+        "orientation",
+        "crafting",
+        "triggered",
+        "model",
+        "model_sha",
+        "x_key",
+        "y_key",
+        "uvlock_key"
+      ],
+      "record_count": 48,
+      "malformed_rows": 0,
+      "model_matches": [
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/crafter.json",
+          "original_model_git_sha": "71e56849d618ed5193bb9d754aa61acf3d5b47d1",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 12,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 2,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafting=false,orientation=down_east,triggered=false",
+                "2de2b178a8988ffcb25aa40fc5866aed908519cf",
+                "down_east",
+                "false",
+                "false"
+              ]
+            },
+            {
+              "row": 4,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafting=false,orientation=down_north,triggered=false",
+                "2de2b178a8988ffcb25aa40fc5866aed908519cf",
+                "down_north",
+                "false",
+                "false"
+              ]
+            },
+            {
+              "row": 6,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafting=false,orientation=down_south,triggered=false",
+                "2de2b178a8988ffcb25aa40fc5866aed908519cf",
+                "down_south",
+                "false",
+                "false"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/crafter_triggered.json",
+          "original_model_git_sha": "3a66caf4a01db4439e5e009c520d6d280e1c4d77",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 12,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 3,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafting=false,orientation=down_east,triggered=true",
+                "2de2b178a8988ffcb25aa40fc5866aed908519cf",
+                "down_east",
+                "false",
+                "true"
+              ]
+            },
+            {
+              "row": 5,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafting=false,orientation=down_north,triggered=true",
+                "2de2b178a8988ffcb25aa40fc5866aed908519cf",
+                "down_north",
+                "false",
+                "true"
+              ]
+            },
+            {
+              "row": 7,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafting=false,orientation=down_south,triggered=true",
+                "2de2b178a8988ffcb25aa40fc5866aed908519cf",
+                "down_south",
+                "false",
+                "true"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/crafter_crafting.json",
+          "original_model_git_sha": "134a00dc05692030a10a1a6045b917846a66f8b2",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 12,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 26,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafting=true,orientation=down_east,triggered=false",
+                "2de2b178a8988ffcb25aa40fc5866aed908519cf",
+                "down_east",
+                "true",
+                "false"
+              ]
+            },
+            {
+              "row": 28,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafting=true,orientation=down_north,triggered=false",
+                "2de2b178a8988ffcb25aa40fc5866aed908519cf",
+                "down_north",
+                "true",
+                "false"
+              ]
+            },
+            {
+              "row": 30,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafting=true,orientation=down_south,triggered=false",
+                "2de2b178a8988ffcb25aa40fc5866aed908519cf",
+                "down_south",
+                "true",
+                "false"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/crafter_crafting_triggered.json",
+          "original_model_git_sha": "86e293ab054d5d709728bdc2fa6168e9fa5f6551",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 12,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 27,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafting=true,orientation=down_east,triggered=true",
+                "2de2b178a8988ffcb25aa40fc5866aed908519cf",
+                "down_east",
+                "true",
+                "true"
+              ]
+            },
+            {
+              "row": 29,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafting=true,orientation=down_north,triggered=true",
+                "2de2b178a8988ffcb25aa40fc5866aed908519cf",
+                "down_north",
+                "true",
+                "true"
+              ]
+            },
+            {
+              "row": 31,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafting=true,orientation=down_south,triggered=true",
+                "2de2b178a8988ffcb25aa40fc5866aed908519cf",
+                "down_south",
+                "true",
+                "true"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v43/03_crafter_24_inherited_face_texture_bindings.csv",
+      "original_file_git_blob_sha": "15e2e43b755de2cfbfb17f16f4e9eda874cbdc46",
+      "source_tree_bytes": 4280,
+      "header": [
+        "model",
+        "model_sha",
+        "parent_chain",
+        "face",
+        "declared_source_geometry_model",
+        "uv_json",
+        "uv_rotation_key",
+        "cullface_key",
+        "source_texture_slot",
+        "resolved_texture_path",
+        "png_pixel_measurement_new"
+      ],
+      "record_count": 24,
+      "malformed_rows": 0,
+      "model_matches": [
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/crafter.json",
+          "original_model_git_sha": "71e56849d618ed5193bb9d754aa61acf3d5b47d1",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 6,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 2,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafter",
+                "71e56849d618ed5193bb9d754aa61acf3d5b47d1",
+                "crafter",
+                "down",
+                "crafter"
+              ]
+            },
+            {
+              "row": 3,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafter",
+                "71e56849d618ed5193bb9d754aa61acf3d5b47d1",
+                "crafter",
+                "up",
+                "crafter"
+              ]
+            },
+            {
+              "row": 4,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafter",
+                "71e56849d618ed5193bb9d754aa61acf3d5b47d1",
+                "crafter",
+                "north",
+                "crafter"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/crafter_triggered.json",
+          "original_model_git_sha": "3a66caf4a01db4439e5e009c520d6d280e1c4d77",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 6,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 8,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafter_triggered",
+                "3a66caf4a01db4439e5e009c520d6d280e1c4d77",
+                "crafter>crafter_triggered",
+                "down",
+                "crafter"
+              ]
+            },
+            {
+              "row": 9,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafter_triggered",
+                "3a66caf4a01db4439e5e009c520d6d280e1c4d77",
+                "crafter>crafter_triggered",
+                "up",
+                "crafter"
+              ]
+            },
+            {
+              "row": 10,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafter_triggered",
+                "3a66caf4a01db4439e5e009c520d6d280e1c4d77",
+                "crafter>crafter_triggered",
+                "north",
+                "crafter"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/crafter_crafting.json",
+          "original_model_git_sha": "134a00dc05692030a10a1a6045b917846a66f8b2",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 6,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 14,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafter_crafting",
+                "134a00dc05692030a10a1a6045b917846a66f8b2",
+                "crafter>crafter_triggered>crafter_crafting",
+                "down",
+                "crafter"
+              ]
+            },
+            {
+              "row": 15,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafter_crafting",
+                "134a00dc05692030a10a1a6045b917846a66f8b2",
+                "crafter>crafter_triggered>crafter_crafting",
+                "up",
+                "crafter"
+              ]
+            },
+            {
+              "row": 16,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafter_crafting",
+                "134a00dc05692030a10a1a6045b917846a66f8b2",
+                "crafter>crafter_triggered>crafter_crafting",
+                "north",
+                "crafter"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/crafter_crafting_triggered.json",
+          "original_model_git_sha": "86e293ab054d5d709728bdc2fa6168e9fa5f6551",
+          "by_tier": {
+            "typed_path_SHA": 0,
+            "model_name_SHA": 6,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 20,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafter_crafting_triggered",
+                "86e293ab054d5d709728bdc2fa6168e9fa5f6551",
+                "crafter>crafter_triggered>crafter_crafting>crafter_crafting_triggered",
+                "down",
+                "crafter"
+              ]
+            },
+            {
+              "row": 21,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafter_crafting_triggered",
+                "86e293ab054d5d709728bdc2fa6168e9fa5f6551",
+                "crafter>crafter_triggered>crafter_crafting>crafter_crafting_triggered",
+                "up",
+                "crafter"
+              ]
+            },
+            {
+              "row": 22,
+              "tier": "model_name_SHA",
+              "sha_field": "model_sha",
+              "cells": [
+                "crafter_crafting_triggered",
+                "86e293ab054d5d709728bdc2fa6168e9fa5f6551",
+                "crafter>crafter_triggered>crafter_crafting>crafter_crafting_triggered",
+                "north",
+                "crafter"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_content_read": true
+    },
+    {
+      "path": "research/vanilla_models/v43/04_v36_sha_conflict_path_type_audit.csv",
+      "original_file_git_blob_sha": "a3edce94a89b05f57b1e1af1c6197ca9932969bd",
+      "source_tree_bytes": 638,
+      "header": [
+        "model",
+        "v36_conflicting_sha",
+        "actual_v7_source_path",
+        "original_model_sha",
+        "original_model_path",
+        "v7_same_model_sha_matched",
+        "finding"
+      ],
+      "record_count": 2,
+      "malformed_rows": 0,
+      "model_matches": [
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf.json",
+          "original_model_git_sha": "a9bda72e10095343fb80de2bc4654212a1dc6834",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 2,
+              "tier": "typed_path_SHA",
+              "sha_field": "original_model_sha",
+              "cells": [
+                "chiseled_bookshelf",
+                "0c9b22b91093c4dfe3510a9a6aebe291df491e39",
+                "assets/minecraft/blockstates/chiseled_bookshelf.json",
+                "a9bda72e10095343fb80de2bc4654212a1dc6834",
+                "assets/minecraft/models/block/chiseled_bookshelf.json"
+              ]
+            }
+          ]
+        },
+        {
+          "asset_type": "block_model_json",
+          "model_path": "1.21.11/assets/minecraft/models/block/oak_shelf.json",
+          "original_model_git_sha": "4b0f3db311717ef740c50638ea1d252256310180",
+          "by_tier": {
+            "typed_path_SHA": 1,
+            "model_name_SHA": 0,
+            "SHA_only_unresolved": 0
+          },
+          "row_samples": [
+            {
+              "row": 3,
+              "tier": "typed_path_SHA",
+              "sha_field": "original_model_sha",
+              "cells": [
+                "oak_shelf",
+                "404c901695218478e0bc1df86b4c66538d118f56",
+                "assets/minecraft/blockstates/oak_shelf.json",
+                "4b0f3db311717ef740c50638ea1d252256310180",
+                "assets/minecraft/models/block/oak_shelf.json"
+              ]
+            }
+          ]
+        }
+      ],
+      "source_content_read": true
+    }
+  ]
+}
