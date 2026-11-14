@@ -1,5 +1,8 @@
 # 1-2 새 채팅 인수인계·시작 프롬프트 (v43 이후)
 
+> **최신 v52 (2026-11-14):** [v52 직접 원본 연구](../../research/vanilla_models/v52/REPORT.md) · [P1 전체 544행 원장](../../research/vanilla_models/v52/01_P1_544_EVIDENCE_LEDGER.csv) · [v52 다음 채팅 인수인계](../../research/vanilla_models/v52/NEXT_CHAT_HANDOFF.md). v51 **335 → v52 369개** 모델 경로+SHA 연결(신규34, 미연결175). 신규 자체23요소/60면(모두 원본 명시 UV), 상속 적용394면(원본 명시376·암시18), blockstates9/variants43/배열 선택지103, 원본 PNG 4종 실제 RGBA1024픽셀 Git blob SHA 검증. **1-2-A/1-2 미완료·완료율 미산정; 1-1 승인150/150·상위1/5 유지.** 아래 v51 이하 '현행' 표시는 역사적 기록.
+
+
 > **현행 v51 · 2026-11-14:** [1-2-A 원본 근거 보고서](../../research/vanilla_models/v51/REPORT.md) · [544개 P1 최신 검증 원장](../../research/vanilla_models/v51/01_P1_544_EVIDENCE_LEDGER.csv) · [다음 채팅 인수인계](../../research/vanilla_models/v51/NEXT_CHAT_HANDOFF.md). v50 **281 → v51 335개 P1 모델 경로+SHA 직접 근거 연결**, 검사 근거에서 미연결 **209개**(미연구 확정 아님). 신규 원본 P1 JSON **54경로** (선반28, 이끼카펫5+carpet 부모1, 가마솥10, 조명10). 원본 고유 요소44/면185(명시UV8·암시UV177), 상속 적용면826(명시 출처176·암시 출처650). 원본 blockstates15 파일·variants21·multipart110 규칙, 선반 정적128조합/256모델 적용. 가마솥 템플릿 3종 177면은 원본 UV키 부재. PNG 바이너리 읽기에서 UTF-8 오류, 실제 RGBA 픽셀0·엔진 렌더0 검증. **1-2-A·1-2 미완료 및 완료율 미산정. 1-1 v42 승인150/150, 상위 5과제 1/5 완료 유지**. 아래 이전 v50 '현행'은 과거 기록.
 
 

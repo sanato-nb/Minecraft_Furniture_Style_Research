@@ -1,5 +1,8 @@
 # 인수인계 · Minecraft Furniture Style Research
 
+> **최신 v52 (2026-11-14):** [v52 직접 원본 연구](research/vanilla_models/v52/REPORT.md) · [P1 전체 544행 원장](research/vanilla_models/v52/01_P1_544_EVIDENCE_LEDGER.csv) · [v52 다음 채팅 인수인계](research/vanilla_models/v52/NEXT_CHAT_HANDOFF.md). v51 **335 → v52 369개** 모델 경로+SHA 연결(신규34, 미연결175). 신규 자체23요소/60면(모두 원본 명시 UV), 상속 적용394면(원본 명시376·암시18), blockstates9/variants43/배열 선택지103, 원본 PNG 4종 실제 RGBA1024픽셀 Git blob SHA 검증. **1-2-A/1-2 미완료·완료율 미산정; 1-1 승인150/150·상위1/5 유지.** 아래 v51 이하 '현행' 표시는 역사적 기록.
+
+
 > **현행 v51 (2026-11-14):** [1-2-A 신규 54모델 원본 조사 보고서](research/vanilla_models/v51/REPORT.md) · [P1 544모델 최신 원장](research/vanilla_models/v51/01_P1_544_EVIDENCE_LEDGER.csv) · [다음 채팅 인수인계](research/vanilla_models/v51/NEXT_CHAT_HANDOFF.md). **v50 281 → v51 335개 모델 path+SHA 근거 연결**, 조사된 근거에서 **209개 미연결**(미연구 확정 아님). 본 회차 신규 직접 원본 모델 54경로: 선반28·이끼카펫5+carpet 부모1·가마솥10·발광10. 원본 자체 44요소/185면(명시 UV8·암시 UV177), 모델에 적용된 상속면826건(명시 출처176·암시 출처650). 15개 원본 blockstate 변형21/multipart110, 선반 정적 파생128조합·256모델 적용. 11개의 템플릿 단독 텍스처 슬롯은 leaf 검증 전 보류. 원본 PNG 바이너리 직접 읽기 UTF-8 오류 → **새 RGBA 픽셀검사0, 런타임검사0**. **1-2-A·1-2 미완료, 1-2 완료율 미산정. 1-1 승인 텍스처150/150 및 상위 1/5과제 완료 유지.** 아래 이전 v50 '최신' 표시는 역사적 스냅샷.
 
 
