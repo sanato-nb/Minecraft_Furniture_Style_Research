@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-15",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v63",
+  "current_checkpoint": "v64",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -83,7 +83,7 @@
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v63_v5_v43_history_21dirs_194_Git_tree_file_SHA_inventory_24_CSV_contents_reopened_not_full_corpus_4_anvil_models_3_leaf_v30_original_modelSHA_links_63_inherited_explicitUV_face_refs_3_blockstates12_variants_4_PNG_IHDR_544x325_old310_cols_preserved",
+      "status": "v64_legacy_history_194_file_population_30MD_19JSON_4PY_real_original_SHA_content_reopened_this_round53_selected_cumulative77_remaining117_CSV113_SQLite4_v30_prior_anvil3_direct_claim_corrob_P1_544x330_prior325_preserved_1_2_A_incomplete",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -625,7 +625,24 @@
       "v63_ledger_columns": 325,
       "v63_old_v62_ledger_data_cells_preserved": 168640,
       "v63_complete": false,
-      "v63_actual_completion_percent": null
+      "v63_actual_completion_percent": null,
+      "v64_historical_MD_source_content_SHA_reopened": 30,
+      "v64_historical_JSON_source_content_SHA_parsed": 19,
+      "v64_historical_Python_builder_source_SHA_reopened": 4,
+      "v64_historical_files_newly_reopened": 53,
+      "v64_historical_original_content_reopened_selected_cumulative": 77,
+      "v64_historical_content_not_reopened_in_selected_audit": 117,
+      "v64_historical_remaining_CSV": 113,
+      "v64_historical_remaining_SQLite": 4,
+      "v64_v30_prior_original_anvil_three_leaf_direct_claim_reopened": true,
+      "v64_direct_model_JSON_new_source_reads": 0,
+      "v64_P1_original_JSON_direct_model_review_flags_unique": 516,
+      "v64_P1_historical_only_model_source_SHA_28": 28,
+      "v64_P1_ledger_columns": 330,
+      "v64_previous_P1_325_cols_data_cells_preserved": 176800,
+      "v64_full_historical_semantics_audit_completed": false,
+      "v64_stage_1_2_A_complete": false,
+      "v64_actual_completion_percent": null
     },
     {
       "id": "03",
@@ -962,14 +979,14 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "Start from actual main HEAD; read v63 REPORT, SUMMARY, ledger 544x325, VALIDATION_POST_RESEARCH_COMMIT.json and handoff.",
-    "History research/vanilla_models v5-v43 existing GitHub dirs21/files194 SHA inventory: selected original CSV content reopened 24 in v62-v63; remaining170 only Git tree list within selected audit, not proof never previously researched.",
-    "Historical v30/08 source rows of anvil/chipped_anvil/damaged_anvil all exact model SHA match current P1; three leaf models share template_anvil original 4 elements/21 source explicit UV faces, applied leaf 63 faces; top texture differs; blockstate 3 files/12 cases; PNG 4 paths SHA+IHDR only.",
-    "v63 P1 544x325, previous 310 columns and 544 rows 168640 data cells preserved; source review 544x30, previous24 cols 13056 cells preserved. Direct JSON review flags unique 516; history SHA only28; 516 not completion percentage.",
-    "Continue full historical semantic audit especially 30 Markdown, 19 JSON, 4 SQLite, 4 scripts (original v47 DB audit partially reusable) and older 137 CSV except 24 selected. No blanket semantic completion.",
-    "v62 history file metadata typo six links remains corrected in separate erratum; preserve original v44 file and old evidence.",
-    "Original source P1 path SHA 544/544 already identified, not newly discovered identity. Avoid re-counting repeated prior cohort results; 1-2-A not complete, current true completion pct null.",
-    "Top 1/5 finished with 1-1 approval150/150; no furniture model production or Project Zomboid conversion; commit fast-forward with lease and GitHub readback validation."
+    "Read live main head and v64 REPORT/SUMMARY/P1 544x330/validation/handoff; keep history provenance exact SHA.",
+    "History source files v5-v43 194; selected 24 CSV + v64 30 MD +19 JSON +4 Python =77 source contents reopened. Remaining selected scope 113 CSV +4 SQLite (prior v47 SQLite work exists); source-file content opened is not all historical model semantic claims re-audited.",
+    "v64 MD/JSON 49 Git blob SHA and content checked, JSON19 parsed, Python4 source read but not executed. Preserve batch evidence files and original history inventory 194x17 old 11 columns preserved.",
+    "v30 original MD report source SHA 1c843f013ba7dd2575356a77c3dd6e6315ca7b66 line9 explicitly states prior direct original JSON read of anvil/chipped_anvil/damaged_anvil. v63 'new direct' reflects rechecking and recovery in selected ledger not historical first study.",
+    "P1 544x330, old v63 325 cols x544 data cells 176800 preserved. Model source review 544x33 previous30 cols x544 cells 16320 preserved. v35-v63 model direct JSON-review unique 516, history source SHA-only28, no new original model JSON read v64.",
+    "Continue auditing 113 original historic CSV contents against current P1 path/type/SHA without double counting; reconcile prior v47 four SQLite DB prior report and SQLite actual source if needed; use asset_type+full_source_path+git_blob_sha typed key.",
+    "Top-level 1/5 completed (1-1 approved150/150). 1-2-A and 1-2 unfinished, real completion percent unknown, no furniture model building or Zomboid map conversion.",
+    "No source model original full semantic completion, implicit UV/authentic renderer/official client JAR claims; remote GitHub postcommit SHA/CSV readback and separate validation commit required."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -3607,7 +3624,7 @@
       "handoff": "research/vanilla_models/v56/NEXT_CHAT_HANDOFF.md"
     }
   },
-  "latest_vanilla_model_research": "research/vanilla_models/v63/REPORT.md",
+  "latest_vanilla_model_research": "research/vanilla_models/v64/REPORT.md",
   "v58": {
     "checkpoint": "research/vanilla_models/v58/REPORT.md",
     "ledger": "research/vanilla_models/v58/07_P1_544_EVIDENCE_LEDGER.csv",
@@ -3718,5 +3735,33 @@
     "all_old_history_content_exhaustively_audited": false,
     "stage_1_2_A_complete": false,
     "actual_completion_pct": null
+  },
+  "v64": {
+    "checkpoint": "research/vanilla_models/v64/REPORT.md",
+    "summary": "research/vanilla_models/v64/SUMMARY.json",
+    "ledger": "research/vanilla_models/v64/07_P1_544_EVIDENCE_LEDGER.csv",
+    "source_review": "research/vanilla_models/v64/04_SOURCE_REVIEW_LEDGER_544.csv",
+    "historical_194_file_audit": "research/vanilla_models/v64/00_HISTORY_194_FILE_AUDIT_LEDGER.csv",
+    "MD_JSON49_review": "research/vanilla_models/v64/01_MD_JSON_49_SOURCE_REVIEW_LEDGER.csv",
+    "v30_anvil_prior_report_proof": "research/vanilla_models/v64/02_V30_ANVIL_PRIOR_REPORT_CORROBORATION.json",
+    "handoff": "research/vanilla_models/v64/NEXT_CHAT_HANDOFF.md",
+    "history_files_total": 194,
+    "old_selected_CSV_content_reopened": 24,
+    "this_MD": 30,
+    "this_JSON": 19,
+    "this_Python": 4,
+    "this_sources_newly_read": 53,
+    "selected_history_original_contents_cumulative": 77,
+    "selected_remaining_unread": 117,
+    "remaining_CSV": 113,
+    "remaining_SQLite": 4,
+    "P1_rows": 544,
+    "P1_columns": 330,
+    "old_325_cols_preserved": true,
+    "direct_JSON_review_flag_models_unchanged": 516,
+    "v30_historical_report_prior_leaf_read_statement": true,
+    "full_prior_historical_semantic_audit_completed": false,
+    "stage_1_2_A_complete": false,
+    "actual_completion_percent": null
   }
 }

@@ -1,0 +1,56 @@
+{
+  "schema": "v64_v30_report_prior_original_leaf_read_corrob",
+  "original_report_path": "research/vanilla_models/v30/00_v30_바닐라5모델_91면UV_18PNG_RGBA_투명도정정보고서.md",
+  "original_report_Git_SHA": "1c843f013ba7dd2575356a77c3dd6e6315ca7b66",
+  "source_text_sections": [
+    {
+      "line": 9,
+      "text": "**독서대 `lectern`**, **숫돌 `grindstone`**, **화분 `flower_pot`**, **마법 부여대 `enchanting_table`**, **모루 원형 `template_anvil`**의 **5개 source JSON 모델**을 직접 읽고, 각 모델의 `elements[].faces.*.uv`와 재질 슬롯을 실제 원본 PNG의 **16×16 RGBA 픽셀**에 연결했다. 같은 버전의 leaf 모루 **3개** (`anvil`, `chipped_anvil`, `damaged_anvil`)도 원본 JSON으로 부모·top override를 확인했다."
+    },
+    {
+      "line": 20,
+      "text": "- **93개 면×재질 레코드** 중 **원본 JSON 고유 면 선언은 91개**이다. 모루의 source `up/#top` 한 면을 정상·금감·파손 모루 leaf 텍스처 **3종**에 매핑했으므로 **추가 재질 버전 2행**이 존재한다. 3개 모루를 각기 21개 신규 source face로 세지 않았다."
+    },
+    {
+      "line": 65,
+      "text": "- `anvil`, `chipped_anvil`, `damaged_anvil`은 각각 **자체 요소 0개**, 부모 `template_anvil`을 공유하며 **`#top` PNG만 상태별로 바꾼다**. 하나의 source top face `UV=[3,0,13,16]`에 세 PNG의 **160개씩 실제 불투명 픽셀**을 비교했다. source PNG 전체에는 `anvil_top`의 경우 **96개 투명 픽셀**이 있는데 해당 UV 바깥에 있다."
+    },
+    {
+      "line": 85,
+      "text": "- **미검증:** 실제 게임의 기하 회전·`uvlock` 구현·조명·컬링·책 애니메이션/상호작용, 원본 업로드 자료의 Mojang 정식 client.jar 일치, 게임 내 스크린샷 픽셀 비교."
+    }
+  ],
+  "historical_original_JSON_read_claim_reappears_in_v30": true,
+  "old_v30_three_leaf_original_SHA_model_rows_rechecked_by_v63": true,
+  "new_original_model_JSON_read_v64": 0,
+  "source_recovery_corrective_note": "The v63 two models were newly recovered as documentary provenance in selected crosswalk and directly rechecked in v63; v30 had already reported direct JSON reads. Do not claim first-ever analysis.",
+  "leafs": [
+    {
+      "model": "anvil",
+      "original_model_path": "1.21.11/assets/minecraft/models/block/anvil.json",
+      "original_model_SHA": "dc9d2555669a31984f3d0e221f778ca170d7f533",
+      "old_v30_08_original_CSV": "research/vanilla_models/v30/08_anvil_three_leaf_top_texture_overrides.csv",
+      "old_v30_08_original_CSV_SHA": "180e15b298723241683daa84dc9477351ee9154c",
+      "prior_v30_report_original_JSON_read_claim_line": 9,
+      "v63_original_model_JSON_exact_SHA_recheck": true
+    },
+    {
+      "model": "chipped_anvil",
+      "original_model_path": "1.21.11/assets/minecraft/models/block/chipped_anvil.json",
+      "original_model_SHA": "57719879c0a40ef4fbd2a220fb03d4fe8f6ce361",
+      "old_v30_08_original_CSV": "research/vanilla_models/v30/08_anvil_three_leaf_top_texture_overrides.csv",
+      "old_v30_08_original_CSV_SHA": "180e15b298723241683daa84dc9477351ee9154c",
+      "prior_v30_report_original_JSON_read_claim_line": 9,
+      "v63_original_model_JSON_exact_SHA_recheck": true
+    },
+    {
+      "model": "damaged_anvil",
+      "original_model_path": "1.21.11/assets/minecraft/models/block/damaged_anvil.json",
+      "original_model_SHA": "33ea477ba4400582e4ed1aea01ac02e9950d8d85",
+      "old_v30_08_original_CSV": "research/vanilla_models/v30/08_anvil_three_leaf_top_texture_overrides.csv",
+      "old_v30_08_original_CSV_SHA": "180e15b298723241683daa84dc9477351ee9154c",
+      "prior_v30_report_original_JSON_read_claim_line": 9,
+      "v63_original_model_JSON_exact_SHA_recheck": true
+    }
+  ]
+}

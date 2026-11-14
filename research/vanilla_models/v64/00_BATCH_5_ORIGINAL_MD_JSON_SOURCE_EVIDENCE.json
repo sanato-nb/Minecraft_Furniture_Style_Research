@@ -1,0 +1,1220 @@
+{
+  "schema": "v64_original_historical_MD_JSON_direct_content_review_batch",
+  "batch_index": 5,
+  "total_batches": 6,
+  "count": 9,
+  "original_documents": [
+    {
+      "path": "research/vanilla_models/v33/00_v33_가마솥호퍼퇴비통_148면_암시UV_PNG정적분석.md",
+      "git_blob_sha": "fd048d9bf02c56280a52b72730fb401ec6d63b83",
+      "size": 11676,
+      "extension": "md",
+      "lines": 112,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 1,
+      "sha40_values": [
+        "2ce9dc9af33f15cf2b2e9bfae6210f0c991af6a0"
+      ],
+      "selected_supporting_lines": [
+        {
+          "line": 3,
+          "text": "> 2026-11-13 KST · 프로젝트 우선순위 바닐라 01/02 **정적 형상·재질·UV·blockstate**. 사용자 지시로 **애니메이션 분석은 계속 보류**. 실제 1.21.11 Minecraft 클라이언트의 인게임 화면·공식 배포 `client.jar` 대조 **미검증**."
+        },
+        {
+          "line": 5,
+          "text": "## 1. 실제 소스 분석 범위와 고유 단위"
+        },
+        {
+          "line": 7,
+          "text": "사용자 GitHub 저장소 `1.21.11/assets/minecraft/`에서 **모델 JSON 12파일**(`cauldron`, `hopper`, `hopper_side`, `composter`, `composter_contents1–7`, `composter_contents_ready`)과 3개 blockstate JSON, 관련 **PNG 경로12개**의 원본 바이트를 직접 읽었다. PNG를 직접 해독해 원본 이미지 픽셀을 얻은 다음, 모델 `elements[].faces`의 재질 매핑을 따라 **요소·면별 UV 영역 픽셀**을 계산했다. PNG 게임 원본 파일 자체는 복제·재배포하지 않고 분석"
+        },
+        {
+          "line": 9,
+          "text": "| 원본 모델 유형 | JSON 파일 | 요소 선언 | 원본 face 선언 | 요소 좌표에서 추론한 UV 텍셀 사용 |"
+        },
+        {
+          "line": 18,
+          "text": "- 위 **148면**은 각 소스 모델 JSON에서 직접 세어 합산한 선언면 수다. 동시에 한 게임 상태에서 148면이 전부 표시되는 것은 아니다. 예를 들어 아래쪽/측면 호퍼는 별개 모델 선택이고, 퇴비통 내용물 모델은 상태별로 하나만 더해진다."
+        },
+        {
+          "line": 19,
+          "text": "- 이들 원본 모델의 `faces.*.uv`는 **148면 모두 생략**되어 있다. 아래 픽셀-면 검사는 **기하 좌표·면 방향에서 유도한 UV 사각형**을 사용하는 추론 단계다. `explicit UV 148` 또는 `공식 런타임 UV 148 검증`으로 기록하면 안 된다."
+        },
+        {
+          "line": 20,
+          "text": "- 가마솥·퇴비통 본체 원본 선언 구조는 과거 v25 등의 모델 JSON 연구와 겹칠 수 있으며, v33의 직접적 신규 성과는 **속 빈 모델들의 암시적 UV 영역을 PNG 원본 픽셀에 새로 연결**하고 **정적 상태별 원시 형상 변경**을 검증한 것이다."
+        },
+        {
+          "line": 21,
+          "text": "- [01 40요소 기하 좌표·개별 face 수](01_twelve_model_40_elements_geometry.csv) · [02 148 source face 재질/암시 UV 유도](02_twelve_model_148_inferred_uv_faces.csv)."
+        },
+        {
+          "line": 27,
+          "text": "- `cauldron` source는 **13개 elements/58 face 선언**. 기본 벽(좌우/앞뒤), 바닥 내부, 아래쪽 발받침/지지 요소를 나누어 속이 빈 느낌을 만든다."
+        },
+        {
+          "line": 28,
+          "text": "- 원본 `cauldron_top.png`은 전체 **156불투명/100투명**, `cauldron_bottom.png`은 **84불투명/172투명**이다. 그런데 실제 `cauldron` 선언면에서 유도한 UV 사각형들에 포함되는 픽셀은 **2,336 텍셀 참조 모두 불투명**이었다. 게임 렌더가 자동으로 투명한 부분을 채운다는 뜻이 아니라, 모델 면별로 필요한 PNG 부분만 사용하는 **좌표·재질 선택의 결과**다."
+        },
+        {
+          "line": 29,
+          "text": "- 원본 `cullface` 유무도 면마다 다르다. `cullface`는 원본 JSON 속성이지 실제 렌더에서 해당 면이 숨겨졌음을 직접 관측한 결과가 아니다."
+        },
+        {
+          "line": 34,
+          "text": "- 아래쪽 출구(요소 인덱스6)의 `from=[6,0,6]`, `to=[10,4,10]`; 측면 출구는 `from=[6,4,0]`, `to=[10,8,4]`. **하단 배출구를 측면 배출구로 배치하는 기하 변경**이 근거가 되는 사례다."
+        },
+        {
+          "line": 35,
+          "text": "- 원본 `blockstates/hopper.json`에는 5개 상태(`facing=down/east/north/south/west`). 아래는 `hopper` 기본 원형, 옆4방향은 `hopper_side` 원형을 `y=0/90/180/270` 회전하여 선택한다."
+        },
+        {
+          "line": 41,
+          "text": "- `blockstates/composter.json`은 **9개 multipart 원본 규칙**이다. `level=0`에는 본체 1개, **`level=1..8`에는 항상 본체와 해당 내용물 모델의 2개**를 선택한다. 실제로 조건을 **9/9 수준**에 대해 평가하여 선택 중복·누락을 검사했다."
+        },
+        {
+          "line": 44,
+          "text": "- 이전 v26에 검사했던 `composter_top` PNG의 불투명112/투명144는 v33 재측정과 **일치**한다. [03 퇴비통 내용물 0–8 고정상태·높이·텍스처](03_composter_0_to_8_static_level_models.csv) · [09 9상태 원본 multipart 선택 계산](09_composter_9_static_state_model_selection.csv)."
+        },
+        {
+          "line": 46,
+          "text": "## 3. 12 원본 PNG 전체 RGBA 검증"
+        },
+        {
+          "line": 48,
+          "text": "| 원본 PNG | 전체 픽셀 | 불투명 | 완전투명 |"
+        },
+        {
+          "line": 64,
+          "text": "- **부분 투명 알파는 0**. PNG 색상형식은 2/4/8비트 팔레트와 8비트 RGBA를 포함한다. 인덱스 팔레트 투명 `tRNS`와 RGBA alpha를 직접 해독하여 분류했다."
+        },
+        {
+          "line": 65,
+          "text": "- **`cauldron_inner.png`과 `hopper_inside.png`는 이름·경로가 다르지만 실제 Git blob SHA `2ce9dc9af33f15cf2b2e9bfae6210f0c991af6a0`로 동일한 파일 바이트**다. 그러므로 **12 PNG 경로 / 실제 구별되는 원본 파일 바이트 11개**다."
+        },
+        {
+          "line": 66,
+          "text": "- 기존 v4에 선정된 150 PNG 표본과 이번 12경로는 **0경로 중복**. 그러나 v26에서 `composter_top`은 이미 디코딩했으므로 프로젝트에서 처음 보는 새 PNG 경로 **12개**라고 주장하지 않는다. [10 기존 v4/v26 중복 범위·동일 SHA 감사](10_twelve_png_v4_v26_prior_evidence_audit.csv)."
+        },
+        {
+          "line": 67,
+          "text": "- 네 원본 PNG (`cauldron_bottom`, `hopper_top`, `composter_bottom`, `composter_ready`)는 이번에 **독립 Python/Pillow `verify()` + RGBA 전체 화소 집계 + SHA-256**으로 다시 검사했고, 자체 JS 디코더의 픽셀/알파 분류 결과와 **4/4 일치**했다. 나머지 8개는 독립 Pillow까지 검증했다고 주장하지 않는다. [11 독립 Pillow 4 PNG 검증](11_four_png_independent_pillow_sha256_crosschecks.csv)."
+        },
+        {
+          "line": 68,
+          "text": "- [04 가마솥/호퍼 PNG 7경로 직접 픽셀](04_cauldron_hopper_7_png_rgba.csv) · [06 퇴비통 PNG 5경로 직접 픽셀](06_composter_5_png_full_rgba.csv)."
+        },
+        {
+          "line": 70,
+          "text": "## 4. 암시적 UV 추론과 실제 원본 PNG 화소의 경계"
+        },
+        {
+          "line": 85,
+          "text": "- **원본 파일에 작성된 UV는 148면 모두 없음**. 위 유도식은 공개 모델 문서의 자동 UV 설명과 좌표 관례를 적용한 **정적 분석 코드**로, 1.21.11 공식 게임의 UV 계산 함수를 역컴파일·실행해 검증한 것이 아니다. 정확한 텍스처 좌표 순서·반전·광원/면 컬링은 클라이언트 소스 또는 실제 게임에서 별도 확인해야 한다."
+        },
+        {
+          "line": 86,
+          "text": "- 참고 문서: [Fabric 1.21.11 block models](https://github.com/FabricMC/fabric-docs/blob/main/versions/1.21.11/develop/blocks/block-models.md), [Minecraft Wiki Block model](https://minecraft.wiki/w/Block_models). 이 외부 설명은 **원본 사용자 GitHub 자료와 다른 종류의 문서 근거**다."
+        },
+        {
+          "line": 88,
+          "text": "| 원본 모델 그룹 | 면별 추론 UV 사각형에 실제 포함된 텍셀 사용 | 불투명 | 완전투명 |"
+        },
+        {
+          "line": 97,
+          "text": "이 값은 **원본 PNG에서 실제로 복호한 픽셀을 추론 UV 사각형으로 조회하여 합산**한 사용 횟수다. 중복 텍셀 사용 포함, 상태별 서로 다른 모델의 면을 합친 값이며 9,280개의 서로 다른 픽셀·GPU 화면 픽셀·실제 모든 면의 가시성은 뜻하지 않는다."
+        },
+        {
+          "line": 99,
+          "text": "- [05 가마솥/호퍼 122면별 UV 추론·실제 PNG RGBA](05_cauldron_hopper_122_faces_derived_uv_png_pixels.csv)"
+        },
+        {
+          "line": 100,
+          "text": "- [07 퇴비통 26면별 UV 추론·실제 PNG RGBA](07_composter_26_faces_derived_uv_png_pixels.csv)"
+        },
+        {
+          "line": 102,
+          "text": "## 5. 정적 blockstate 원본 15규칙과 검증 한계"
+        },
+        {
+          "line": 104,
+          "text": "- `cauldron` **1 variant**, `hopper` **5 variants**, `composter` **9 multipart 규칙**, 합 **15 원본 블록상태 선택 규칙**. 퇴비통은 원본 조건을 0–8 **9 입력 값**에 대해 독립 평가했다. `uvlock` 키는 이 15 규칙에 **모두 미기재**. 명시적인 `uvlock:false`와는 구분한다."
+        },
+        {
+          "line": 105,
+          "text": "- [08 세 블록 상태 15 원본 선택 규칙](08_three_blocks_15_source_static_state_rules.csv) · [09 퇴비통 9 수준 정적 모델 조합](09_composter_9_static_state_model_selection.csv)."
+        },
+        {
+          "line": 107,
+          "text": "**근거 등급:** 실제 JSON 요소·면·재질·원본 12 PNG 전체 RGBA·네 PNG Pillow 교차검증은 **입력 소스에 대한 직접 실측**. UV의 면 방향별 정확한 직사각형/로더의 회전·조명·컬링은 **실행 검증되지 않은 유도 추론**. 퇴비통 조건 선택은 source JSON을 해석한 **정적 평가**, 인게임 UI/게임 상태 재현이 아니다."
+        },
+        {
+          "line": 109,
+          "text": "**미완료/보류:** 공식 Mojang Minecraft Java Edition 1.21.11 `client.jar`의 독립 출처·해시 대조 미완료. 실제 게임 정적 모델 스크린샷/면별 UV 방향/조명 검증 미완료. **애니메이션은 사용자 지시에 따라 명시적 재개 전까지 보류**, 과거 연구 자료 보존. 모드 v24 지표·최종 05 비교 작업 변경 없음, **상위 1단계 최종 완료 0/5**."
+        },
+        {
+          "line": 111,
+          "text": "**다음 추천 연구:** ① 실제 게임 로더의 자동 UV 수학·면 컬링/명암 결과를 공식 파일과 대조 ② 다른 정적 복합 가구형 블록을 실제 좌표·PNG로 조사 ③ 바닐라 전체 모델 모집단 정리 및 확인된 정적 모델 커버리지의 정량화."
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v33/v33_hollow_static_model_uv_png_summary.json",
+      "git_blob_sha": "5f04d0ee48ffa996c9f06f65907b102dce3a7ea8",
+      "size": 3318,
+      "extension": "json",
+      "lines": 115,
+      "json_keys": [
+        "checkpoint",
+        "date_kst",
+        "priority",
+        "animation_status",
+        "model_json_count",
+        "models",
+        "source_3d_element_declarations",
+        "source_face_declarations",
+        "source_explicit_uv_faces",
+        "geometrically_inferred_uv_faces",
+        "derived_uv_texel_uses",
+        "derived_uv_texels_rgba_opaque",
+        "derived_uv_texels_rgba_transparent",
+        "source_png_paths",
+        "distinct_png_blob_sha_count",
+        "source_png_total_pixels",
+        "source_png_opaque_pixels",
+        "source_png_transparent_pixels",
+        "source_png_partial_alpha_pixels",
+        "png_sha_shared_by_two_paths",
+        "v4_150_selected_overlap_paths",
+        "previous_v26_already_decoded_png",
+        "independent_pillow_verified_pngs",
+        "independent_pillow_verification_count",
+        "source_model_stats",
+        "hopper_down_to_side_geometry_change_elements",
+        "hopper_common_same_elements",
+        "composter_level0_to_8_checked",
+        "composter_content_top_heights",
+        "composter_level7_8_same_height_different_material",
+        "source_blockstates",
+        "source_state_rules_total",
+        "source_cauldron_variants",
+        "source_hopper_variants",
+        "source_composter_multipart_rules",
+        "source_uvlock_key_missing_rules",
+        "official_mojang_jar_verified",
+        "actual_game_derived_uv_orientation_verified",
+        "in_game_static_render_verified",
+        "prior_mod_v24_metrics_unchanged",
+        "stage1_completed_substeps",
+        "stage1_total_substeps",
+        "outputs"
+      ],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 1,
+      "sha40_values": [
+        "2ce9dc9af33f15cf2b2e9bfae6210f0c991af6a0"
+      ],
+      "selected_supporting_lines": [
+        {
+          "line": 21,
+          "text": "  \"source_3d_element_declarations\": 40,"
+        },
+        {
+          "line": 22,
+          "text": "  \"source_face_declarations\": 148,"
+        },
+        {
+          "line": 23,
+          "text": "  \"source_explicit_uv_faces\": 0,"
+        },
+        {
+          "line": 28,
+          "text": "  \"source_png_paths\": 12,"
+        },
+        {
+          "line": 29,
+          "text": "  \"distinct_png_blob_sha_count\": 11,"
+        },
+        {
+          "line": 30,
+          "text": "  \"source_png_total_pixels\": 3072,"
+        },
+        {
+          "line": 31,
+          "text": "  \"source_png_opaque_pixels\": 2332,"
+        },
+        {
+          "line": 32,
+          "text": "  \"source_png_transparent_pixels\": 740,"
+        },
+        {
+          "line": 33,
+          "text": "  \"source_png_partial_alpha_pixels\": 0,"
+        },
+        {
+          "line": 34,
+          "text": "  \"png_sha_shared_by_two_paths\": {"
+        },
+        {
+          "line": 47,
+          "text": "  \"source_model_stats\": {"
+        },
+        {
+          "line": 89,
+          "text": "  \"source_blockstates\": 3,"
+        },
+        {
+          "line": 90,
+          "text": "  \"source_state_rules_total\": 15,"
+        },
+        {
+          "line": 91,
+          "text": "  \"source_cauldron_variants\": 1,"
+        },
+        {
+          "line": 92,
+          "text": "  \"source_hopper_variants\": 5,"
+        },
+        {
+          "line": 93,
+          "text": "  \"source_composter_multipart_rules\": 9,"
+        },
+        {
+          "line": 94,
+          "text": "  \"source_uvlock_key_missing_rules\": 15,"
+        },
+        {
+          "line": 109,
+          "text": "    \"08_three_blocks_15_source_static_state_rules.csv\","
+        },
+        {
+          "line": 112,
+          "text": "    \"11_four_png_independent_pillow_sha256_crosschecks.csv\""
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v34/00_v34_바닐라2390모델_정적랜턴촛불_153면UV_전체목록.md",
+      "git_blob_sha": "b346642e151d6e10a5b6d831982c629f3c0262cf",
+      "size": 11824,
+      "extension": "md",
+      "lines": 102,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 3,
+      "sha40_values": [
+        "57eb7fbc4d0af0e931a04de94b4b6a766242d36e",
+        "7a36f7d757e62aa61ee61aebcd8d5689bc462a8d",
+        "9a7172896d4a28b405b990733d51b77dcb50930c"
+      ],
+      "selected_supporting_lines": [
+        {
+          "line": 3,
+          "text": "**작성:** 2026-11-13 (Asia/Seoul) · **연구 우선순위:** 정적 바닐라 모델 구조·명시 UV·PNG 실제 픽셀·블록상태·소스 출처. **사용자 요청으로 애니메이션 분석 보류 유지.**"
+        },
+        {
+          "line": 5,
+          "text": "> 검증 대상 소스는 사용자 GitHub 리포지토리의 `1.21.11/assets/minecraft/`이다. 이 저장소에 존재한다는 사실은 **Mojang이 배포한 공식 Java 1.21.11 `client.jar`의 바이트 출처/정품 무결성 증거가 아니다**. 실제 인게임 3D 모델, 조명, UV 회전, 컬링도 아직 검증되지 않았다. 게임 PNG/JSON 원본은 이번 연구 결과에 재업로드하지 않았으며 Git blob SHA·구조·파생 픽셀 측정만 공개한다."
+        },
+        {
+          "line": 7,
+          "text": "## 1. 전체 원본 파일 모집단의 근거 확보 — 최초로 객관적 파일 단위 분모 수립"
+        },
+        {
+          "line": 9,
+          "text": "GitHub Git Trees REST API로 사용자 리포지토리의 `main` 원본 경로 아래 트리를 **해당 Git tree SHA로 고정하고 전체 엔트리를 열람**하여 아래 원본 파일 목록을 확인했다. 트리 결과의 `truncated=false`를 확인했고, 각 파일 경로/원본 blob SHA를 **원본 내용 재배포 없이** CSV로 보존했다."
+        },
+        {
+          "line": 11,
+          "text": "| 원본 경로 | JSON/PNG 경로 개수 | 고유 Git blob SHA | Git tree SHA |"
+        },
+        {
+          "line": 13,
+          "text": "| `models/block/*.json` | **2,390** | **2,374** | `57eb7fbc4d0af0e931a04de94b4b6a766242d36e` |"
+        },
+        {
+          "line": 14,
+          "text": "| `blockstates/*.json` | **1,168** | **1,015** | `7a36f7d757e62aa61ee61aebcd8d5689bc462a8d` |"
+        },
+        {
+          "line": 16,
+          "text": "| **상기 세 원본 파일 범주 합계** | **4,669 경로** | *(범주 간 중복 SHA는 미공제)* | |"
+        },
+        {
+          "line": 18,
+          "text": "- [01 블록 모델 JSON **2,390개 전체 경로+SHA**](01_inventory_2390_block_model_paths_git_shas.csv)"
+        },
+        {
+          "line": 19,
+          "text": "- [02 블록 상태 JSON **1,168개 전체 경로+SHA**](02_inventory_1168_blockstate_paths_git_shas.csv)"
+        },
+        {
+          "line": 20,
+          "text": "- [03 블록 PNG **1,111개 전체 경로+SHA**](03_inventory_1111_block_texture_png_paths_git_shas.csv)"
+        },
+        {
+          "line": 22,
+          "text": "- 별도로 `models/item` 디렉터리에는 원본 **1,283 JSON 경로**가 있으며, 이는 위 블록 모델 **2,390**과 별도 목록이다. `textures/block`의 `.png.mcmeta`는 **99개 경로가 존재**하지만 사용자가 애니메이션을 보류했으므로 프레임/메타데이터 내용은 읽거나 연구하지 않았다. 위 PNG 1,111은 PNG 파일 경로 전체의 센서스이며 그 안에 애니메이션으로 쓰일 수 있는 텍스처가 포함돼 있어도 이번에 프레임을 검사했다는 의미가 아니다."
+        },
+        {
+          "line": 23,
+          "text": "- **모집단 확정(전체 파일 경로 기준)과 가구 정체가 확인된 개별 모델 수/정적 기하 원형의 완전검증 수는 별개**다. 따라서 아직 바닐라 정적 가구 모델링 **완료율 퍼센트는 계산하지 않는다**. 이후에는 전체 파일 인벤토리에서 실제 가구 후보를 원본 JSON으로 재검토해 유한한 검증 대상 부분집합을 만들 필요가 있다."
+        },
+        {
+          "line": 27,
+          "text": "원본 `template_lantern.json`, `template_hanging_lantern.json`와 4 leaf(`lantern`, `lantern_hanging`, `soul_lantern`, `soul_lantern_hanging`)의 부모·텍스처 할당을 직접 읽었다."
+        },
+        {
+          "line": 29,
+          "text": "| 종류 | 요소 | 원본 명시 UV 면 | 0두께 교차 평면 | 요소 내부 +45° 회전 |"
+        },
+        {
+          "line": 37,
+          "text": "- 원본 UV 31면의 좌표 범위·역순 선언·면별 컬링 표시는 전부 기록했다. 그러나 원본 `lantern.png`, `soul_lantern.png` 헤더가 **16×48**이며, 사용자 지시에 따라 이 PNG의 **프레임·실제 화소 디코딩/face→PNG 화소 대조는 v34에서 실시하지 않았다**. 31면을 PNG 화소 검증 완료로 합산하지 않는다."
+        },
+        {
+          "line": 38,
+          "text": "- [04 8개 원형/42요소](04_eight_source_models_42_geometry_elements.csv) · [05 153개 명시 UV면(랜턴 31면은 PNG 미검사로 표시)](05_eight_source_models_153_explicit_uv_faces_static_alpha.csv) · [08 열 개 leaf 부모/텍스처 바인딩](08_ten_leaf_parent_and_texture_bindings.csv) · [09 두 랜턴 모델 4요소 1:1 좌표 차이](09_lantern_standing_hanging_four_element_deltas.csv)."
+        },
+        {
+          "line": 42,
+          "text": "`template_candle`/`template_two_candles`/`template_three_candles`/`template_four_candles` 실제 원본 JSON을 분석했다. 이번 화소 대조는 `candle_one_candle` 등 **꺼진 상태의 기본 `candle.png` 정적 재질만** 사용한다."
+        },
+        {
+          "line": 44,
+          "text": "| 배치 촛불 개수 | 3D 요소 | 명시 UV 원본 면 | 0두께 평면 | 회전된 평면 |"
+        },
+        {
+          "line": 52,
+          "text": "- 각 촛불 구조는 **입체 몸체 1요소 + 서로 교차하는 0두께 평면 2요소**의 반복 조합이다. 교차 평면은 원본 JSON `rotation.angle=+45°/-45°`, `axis=y`로 선언된 정적 형상이다."
+        },
+        {
+          "line": 53,
+          "text": "- 4개 템플릿에 기록된 원본 명시 UV **100면**의 픽셀 영역을 원본 `candle.png` RGBA에 연결했다. **520 texel-uses가 모두 불투명**했다. PNG 전체 256픽셀은 **불투명 21·완전투명 235**이므로, 전체 이미지의 투명 배경과 실제 모델 UV에 선택된 부분이 크게 다르다."
+        },
+        {
+          "line": 54,
+          "text": "- 이 결과는 **촛불 개수별 정적 모형을 비교**한 것이며 **불꽃 애니메이션·켜짐 동작·프레임별 텍스처**를 조사한 것이 아니다. `blockstates/candle.json`의 `candles=1..4 × lit=false/true` 8개의 원본 모델 **선택 규칙만 목록화**했고 lit 재질의 픽셀은 새로 검사하지 않았다."
+        },
+        {
+          "line": 58,
+          "text": "- `end_rod.json`은 **2요소/11명시 UV면**, `template_lightning_rod.json`도 **2요소/11명시 UV면**이다. `end_rod.png`·`lightning_rod.png` 원본 16×16 PNG의 각 명시 UV 사각형에 실제 RGBA 픽셀을 대조했다."
+        },
+        {
+          "line": 59,
+          "text": "- 엔드 막대: **172 texel-uses 모두 불투명**. 원본 PNG 전체는 불투명58/투명198."
+        },
+        {
+          "line": 60,
+          "text": "- 피뢰침: **196 texel-uses 모두 불투명**. 원본 PNG 전체는 불투명40/투명216."
+        },
+        {
+          "line": 62,
+          "text": "- [07 다섯 블록의 30 정적 상태 원본 선택표](07_five_blocks_30_static_source_variants.csv)."
+        },
+        {
+          "line": 66,
+          "text": "Python/Pillow를 이용해 GitHub에서 실제 Base64로 읽은 원본 PNG 3개 각각에 대해 **PNG 파일 `verify()`, 16×16 전체 RGBA 디코딩, SHA-256 독립 계산, Git blob SHA-1 원본 경로 SHA와 일치 여부**를 직접 검사했다."
+        },
+        {
+          "line": 68,
+          "text": "| PNG | 원본 전체 픽셀 | 불투명 | 완전투명 | 16×16 명시 UV 선택 텍셀 사용 |"
+        },
+        {
+          "line": 75,
+          "text": "- Pillow가 복원한 **각 PNG의 16행×16열 불투명 픽셀 위치**를 행별 16비트 마스크로 기록했다. 원본 모델 UV 사각형의 각 좌표를 이 마스크에 직접 교차해 **122개 원본 명시 UV 면/888 texel-uses 모두 불투명**을 대조했다. **나머지 랜턴 31면은 PNG 미대조**다."
+        },
+        {
+          "line": 76,
+          "text": "- 모든 8개 기하 원형의 **원본 face 선언 153면에 명시 UV가 존재**, 그 중 **역방향 UV 선언 18면**, 면적 0인 UV 0면, 요소 원시 좌표의 0두께 평면 **24요소**. 8개 원형은 **42요소·153면**, 이 중 122면만 실제 PNG 샘플 대조했다. 불투명/투명 119/649는 **세 PNG 원본의 고유 화소**, 888은 **면별 중복 사용을 포함한 텍셀 참조**이므로 서로 비교하거나 합산해서 게임의 화면 픽셀 수라고 주장하면 안 된다."
+        },
+        {
+          "line": 77,
+          "text": "- [06 Pillow 독립 원본 SHA/실제 PNG 전체 픽셀/16행 알파 마스크](06_three_static_png_pillow_sha256_alpha_masks.csv)."
+        },
+        {
+          "line": 78,
+          "text": "- 기존 v4의 **150개 선정 텍스처 경로와 이번 3개 PNG 경로의 직접 중복은 0**. 같은 파일을 다른 체크포인트에서 조사했을 가능성과 별개다."
+        },
+        {
+          "line": 80,
+          "text": "## 6. source 블록상태 5 JSON의 30 정적 선언 규칙"
+        },
+        {
+          "line": 82,
+          "text": "| 원본 blockstate | 선택 규칙 개수 | 구분 |"
+        },
+        {
+          "line": 89,
+          "text": "| **합계** | **30** | 모든 원본 JSON variants 기록 |"
+        },
+        {
+          "line": 91,
+          "text": "원본 30규칙에서 `x` 회전 비0 **15규칙**, `y` 회전 비0 **9규칙**, `uvlock` 키 미기재 **30규칙**. 이는 속성이 source JSON에 없다는 뜻이며 모든 경우에 게임 로더가 `false`를 부여했거나 실제 회전 후 UV가 정렬된다는 것을 독립 검증한 것은 아니다. `lit`, `powered`는 정적인 **상태 선택 값**만 열람했고 애니메이션 프레임, 동작, 시간별 변화는 연구하지 않았다."
+        },
+        {
+          "line": 93,
+          "text": "## 7. 명확한 검증 경계와 다음 실제 연구"
+        },
+        {
+          "line": 95,
+          "text": "**사용자 소스 직접 읽기:** 8원형 JSON의 42요소·153면 전체 선언 UV·정적 회전, 10 leaf JSON의 부모/재질 바인딩, 5 blockstate JSON의 30원본 variants, Git tree 전체 모델/상태/블록 PNG 파일 SHA 인벤토리. **독립 픽셀 검증:** PNG 3개 768 RGBA 픽셀 및 그 중 122 face×PNG 사각형의 중복 텍셀 사용 888회."
+        },
+        {
+          "line": 99,
+          "text": "**미검증:** 공식 Mojang 1.21.11 `client.jar` 바이트 독립 인증; 엔진 내부 UV winding·`uvlock`/광원·면 컬링; 인게임 정적 모델 화면 대조; 전체 2,390 JSON 중 가구에 실제 해당하는 검증 대상의 선정과 완료율. 기존 v24 모드/05 비교 수치는 변경하지 않았고, Stage 1 최종 완료 **0/5**를 유지한다."
+        },
+        {
+          "line": 101,
+          "text": "**다음 우선 작업:** 전체 원본 모델 파일 인벤토리 기반의 **가구형 정적 모델 검수 대상 정의**, 인게임과 로더 수학의 정적 UV 교차확인, 새로운 복합 가구 정적 부품 모델 확대. 원본 게임 파일 재배포 권한은 별도 점검."
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v34/v34_static_census_and_explicit_uv_summary.json",
+      "git_blob_sha": "39a49dcb9640e72bc203061ee0acd1d561a07c96",
+      "size": 3387,
+      "extension": "json",
+      "lines": 107,
+      "json_keys": [
+        "checkpoint",
+        "date_kst",
+        "scope",
+        "animation_status",
+        "report",
+        "source_tree_inventory",
+        "source_geometry_templates_count",
+        "source_geometry_elements",
+        "source_face_declarations",
+        "source_faces_with_explicit_uv",
+        "source_face_uv_reversed",
+        "source_face_uv_zero_area",
+        "source_geometry_flat_elements",
+        "source_geometry_rotated_elements",
+        "source_geometry_details",
+        "source_faces_pixel_checked",
+        "source_faces_pixel_deferred_lantern",
+        "pillow_verified_static_png_count",
+        "pillow_verified_original_rgba_pixels",
+        "pillow_source_png_opaque",
+        "pillow_source_png_transparent",
+        "pillow_source_png_partial_alpha",
+        "source_face_pixel_uses_with_repetitions",
+        "source_face_pixel_opaque_uses",
+        "source_face_pixel_transparent_uses",
+        "source_lantern_normal_and_soul_png_pixel_analysis_deferred",
+        "original_blockstate_json_read",
+        "original_blockstate_variant_rows",
+        "source_nonzero_x_rotation_state_rows",
+        "source_nonzero_y_rotation_state_rows",
+        "source_uvlock_absent_state_rows",
+        "ten_leaf_parent_and_texture_records",
+        "mojang_official_jar_verified",
+        "actual_game_render_verified",
+        "models_all_assets_inventory_completed",
+        "vanilla_furniture_subset_denominator_defined",
+        "vanilla_model_completion_percent",
+        "mod_v24_unchanged",
+        "stage1_final_completed_substeps",
+        "stage1_total_substeps",
+        "outputs"
+      ],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 3,
+      "sha40_values": [
+        "57eb7fbc4d0af0e931a04de94b4b6a766242d36e",
+        "7a36f7d757e62aa61ee61aebcd8d5689bc462a8d",
+        "9a7172896d4a28b405b990733d51b77dcb50930c"
+      ],
+      "selected_supporting_lines": [
+        {
+          "line": 7,
+          "text": "  \"source_tree_inventory\": {"
+        },
+        {
+          "line": 9,
+          "text": "      \"sha\": \"57eb7fbc4d0af0e931a04de94b4b6a766242d36e\","
+        },
+        {
+          "line": 11,
+          "text": "      \"unique_blob_sha\": 2374"
+        },
+        {
+          "line": 14,
+          "text": "      \"sha\": \"7a36f7d757e62aa61ee61aebcd8d5689bc462a8d\","
+        },
+        {
+          "line": 16,
+          "text": "      \"unique_blob_sha\": 1015"
+        },
+        {
+          "line": 19,
+          "text": "      \"sha\": \"9a7172896d4a28b405b990733d51b77dcb50930c\","
+        },
+        {
+          "line": 21,
+          "text": "      \"unique_blob_sha\": 1100"
+        },
+        {
+          "line": 26,
+          "text": "  \"source_geometry_templates_count\": 8,"
+        },
+        {
+          "line": 27,
+          "text": "  \"source_geometry_elements\": 42,"
+        },
+        {
+          "line": 28,
+          "text": "  \"source_face_declarations\": 153,"
+        },
+        {
+          "line": 29,
+          "text": "  \"source_faces_with_explicit_uv\": 153,"
+        },
+        {
+          "line": 30,
+          "text": "  \"source_face_uv_reversed\": 18,"
+        },
+        {
+          "line": 31,
+          "text": "  \"source_face_uv_zero_area\": 0,"
+        },
+        {
+          "line": 32,
+          "text": "  \"source_geometry_flat_elements\": 24,"
+        },
+        {
+          "line": 33,
+          "text": "  \"source_geometry_rotated_elements\": 24,"
+        },
+        {
+          "line": 34,
+          "text": "  \"source_geometry_details\": {"
+        },
+        {
+          "line": 70,
+          "text": "  \"source_faces_pixel_checked\": 122,"
+        },
+        {
+          "line": 71,
+          "text": "  \"source_faces_pixel_deferred_lantern\": 31,"
+        },
+        {
+          "line": 74,
+          "text": "  \"pillow_source_png_opaque\": 119,"
+        },
+        {
+          "line": 75,
+          "text": "  \"pillow_source_png_transparent\": 649,"
+        },
+        {
+          "line": 76,
+          "text": "  \"pillow_source_png_partial_alpha\": 0,"
+        },
+        {
+          "line": 77,
+          "text": "  \"source_face_pixel_uses_with_repetitions\": 888,"
+        },
+        {
+          "line": 78,
+          "text": "  \"source_face_pixel_opaque_uses\": 888,"
+        },
+        {
+          "line": 79,
+          "text": "  \"source_face_pixel_transparent_uses\": 0,"
+        },
+        {
+          "line": 80,
+          "text": "  \"source_lantern_normal_and_soul_png_pixel_analysis_deferred\": true,"
+        },
+        {
+          "line": 83,
+          "text": "  \"source_nonzero_x_rotation_state_rows\": 15,"
+        },
+        {
+          "line": 84,
+          "text": "  \"source_nonzero_y_rotation_state_rows\": 9,"
+        },
+        {
+          "line": 85,
+          "text": "  \"source_uvlock_absent_state_rows\": 30,"
+        },
+        {
+          "line": 96,
+          "text": "    \"01_inventory_2390_block_model_paths_git_shas.csv\","
+        },
+        {
+          "line": 97,
+          "text": "    \"02_inventory_1168_blockstate_paths_git_shas.csv\","
+        },
+        {
+          "line": 98,
+          "text": "    \"03_inventory_1111_block_texture_png_paths_git_shas.csv\","
+        },
+        {
+          "line": 99,
+          "text": "    \"04_eight_source_models_42_geometry_elements.csv\","
+        },
+        {
+          "line": 100,
+          "text": "    \"05_eight_source_models_153_explicit_uv_faces_static_alpha.csv\","
+        },
+        {
+          "line": 101,
+          "text": "    \"06_three_static_png_pillow_sha256_alpha_masks.csv\","
+        },
+        {
+          "line": 102,
+          "text": "    \"07_five_blocks_30_static_source_variants.csv\","
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v35/00_v35_P1_종케이크벌통벌집_15모델_71상태_16PNG_분석보고서.md",
+      "git_blob_sha": "d30adef1e1179b4eca6b2ec991fee2706192b407",
+      "size": 9900,
+      "extension": "md",
+      "lines": 51,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 1,
+          "text": "# v35 — P1 정적 가구형 원본 검수: 종·케이크·벌통·벌집 15모델 / 71상태 / 16 PNG 전체 RGBA"
+        },
+        {
+          "line": 3,
+          "text": "> 2026-11-13 KST · v34 2,390개 블록 모델 전체 목록 중 **P1 544개 후보**에서 **15개를 이번 회차 실제 원본 JSON·관련 PNG까지 조사**했다. 사용자가 명시한 **애니메이션 분석 보류**를 계속 지켰다. [P1 544개 원본 SHA별 원장](12_p1_544_static_source_review_ledger.csv)은 v35 회차 조사 여부만 기록하며, v5–v34 과거 분석 완료 여부는 아직 전수 대조하지 않았다. **15/544는 이번 회차 소스 확인 범위이지 전체 분석 완료율이 아니다.**"
+        },
+        {
+          "line": 7,
+          "text": "- **사용자 저장소** `1.21.11/assets/minecraft/models/block` 실제 leaf 모델 JSON **15개**(종4·케이크7·벌통/벌집4)와 공용 부모 `orientable_with_bottom` 및 `cube` 모델 JSON **2개**를 원본 Git blob SHA 기준으로 조사. 조사한 leaf 15개는 v34 P1 544원장에 포함되어 있으며 **15/15 Git SHA 일치**를 재확인했다."
+        },
+        {
+          "line": 8,
+          "text": "- 관련 **블록상태 JSON 4개**, 원본 `variants` **71행**(종16/케이크7/벌통24/벌집24)을 그대로 파싱. 원본 71행 전부 `uvlock` 속성 미기재 — **명시적인 false 71건이 아니다**. 회전·상태 선택은 source JSON의 고정 규칙을 읽은 결과이며 게임 런타임 입증은 아니다."
+        },
+        {
+          "line": 9,
+          "text": "- 관련 PNG **16경로×16×16 = 원본 4,096 RGBA 픽셀** 직접 Base64→PNG inflate/필터/PLTE/`tRNS` 처리 후 해독. **불투명3,496 / 완전투명600 / 부분 알파0**. 이 16경로에는 **종의 particle 전용 `bell_bottom` PNG가 포함**되며 실제 JSON `elements[].faces`의 UV 실화소 샘플에는 포함하지 않는다."
+        },
+        {
+          "line": 10,
+          "text": "- 이번 원본 소스 **고유 직접 선언 면 75면(종33/케이크42)**과 부모 `cube` **6원본 선언 면**을 확인. 벌통/벌집 네 leaf에서 공통 부모6면을 각각 적용하는 **24개 face×material 사용 기록**을 별도로 조사했다. 따라서 **소스 원본 face 선언 81면**(종33+케이크42+공통 cube6)과 **면별 재질 적용 99행**(종33+케이크42+벌 leaf 적용24)을 혼동하지 않는다."
+        },
+        {
+          "line": 11,
+          "text": "- 전체 99 face×material의 원본 PNG 직사각형 조회 **10,900 texel-uses / 선택 영역의 알파255 10,900회 / 완전투명0회**. 직접 source explicit UV는 **종33면**; 케이크42면과 벌 leaf24면은 **기하·공통 cube에서 유도한 암시 UV**로 실사용 정확한 게임 엔진 좌표·winding·회전을 확인하기 전까지 `추론`으로 기록한다. 10,900회는 10,900종 고유 픽셀이나 화면 출력 픽셀을 뜻하지 않는다."
+        },
+        {
+          "line": 12,
+          "text": "- [종·케이크 원본11 leaf JSON/각기 다른 face 선언](01_bell_cake_eleven_source_models.csv) · [13 source elements/좌표](02_bell_cake_thirteen_source_elements.csv) · [직접 선언된 원본75면](03_bell_cake_75_source_declared_faces.csv) · [4 blockstates의 71 variants](04_four_static_blockstates_71_variants.csv) · [벌 leaf4+원형2 JSON](05_bee_four_leaf_two_parent_source_au"
+        },
+        {
+          "line": 16,
+          "text": "| 설치 상태(`attachment`) | 모델 | 원본 기하 요소 | 직접 선언 UV 면 |"
+        },
+        {
+          "line": 22,
+          "text": "| **서로 다른 4 원본 합계** | | **6** | **33** |"
+        },
+        {
+          "line": 24,
+          "text": "- `blockstates/bell.json`은 설치 방식4 × 방향4 = **16원본 선택 규칙**을 사용하며 source `y` 회전으로 지지대를 위치시킨다. **실제 종 본체의 완전한 3D 메시가 이 네 block model JSON에 포함되어 있다고 주장하지 않는다**. JSON은 종 지지대·결합부 구조의 데이터이고, **별도 block-entity/special renderer와 종 본체 geometry는 공식 client.jar에서 독립 검증 필요**."
+        },
+        {
+          "line": 25,
+          "text": "- 네 JSON 모델의 33 source 명시 UV 면은 `dark_oak_planks`와 `stone` 원본 PNG를 참조했고 **총 724 texel-uses 전부 불투명**했다. `bell_bottom`은 `particle` 슬롯으로 선언되지만 모델의 33개 `faces[].texture` 슬롯에서 사용되지 않는다. 16×16 원본 `bell_bottom`의 **64불투명/192투명**은 PNG 자체 특성이지 종 지지대의 투명 UV면 수가 아니다."
+        },
+        {
+          "line": 26,
+          "text": "- 실제 인게임 종 본체 형태·애니메이션·메시·충돌체 분석은 범위 밖 또는 미검증. [7 PNG의 전 RGBA](07_bell_cake_seven_png_rgba_full.csv) · [종33/케이크42면 UV 사각형·RGBA 실측](08_bell_cake_75_faces_png_uv_sampling.csv)."
+        },
+        {
+          "line": 30,
+          "text": "- `blockstates/cake.json`의 `bites=0..6` **7개 source variants**는 `cake` 및 `cake_slice1..6` 각 **1요소·6면**의 독립된 원본 7 JSON 모델을 선택한다."
+        },
+        {
+          "line": 32,
+          "text": "- 7×6 = **42 원본 선언면은 전부 UV 키 생략**. source `from/to`와 면 방향에 따른 공개 모델 규칙의 자동 UV 기하식으로 **42면의 선택 직사각형을 계산**해 실제 원본 PNG를 샘플링했다. 결과 **4,032 texel-uses 모두 불투명**. 원본 `cake_bottom`·`cake_top`은 각각 **196불투명/60투명**, `cake_side`·`cake_inner`는 각각 **112불투명/144투명**. 투명 영역은 PNG에는 존재하지만 소스 모델의 유도 UV 영역에 선택된 픽셀은 모두 불투명했다."
+        },
+        {
+          "line": 33,
+          "text": "- 실제 게임 UV 방향·texture orientation·면 winding 및 컬링은 **미검증**, 기하식 자동 UV는 추론 단계. 케이크의 먹는 모션·상태 변화 과정을 연구한 것이 아니다."
+        },
+        {
+          "line": 37,
+          "text": "- `beehive_empty`, `beehive_honey`, `bee_nest_empty`, `bee_nest_honey` **4 leaf 모두 원본 `elements` 0개**, `orientable_with_bottom → cube`의 공통 **1 요소·6 원본 선언면**을 상속하고 PNG 슬롯만 달리 바인딩한다."
+        },
+        {
+          "line": 38,
+          "text": "- `blockstates/beehive.json`와 `bee_nest.json`은 각각 **4 facing × honey_level 0..5 = 24행**, 합 **48 source variants**. 두 블록 모두 honey_level **0~4면 empty**, **5면 honey** 모델을 사용하며, 원본 방향 회전은 `y` 값으로 지정되어 있다."
+        },
+        {
+          "line": 39,
+          "text": "- 공유 정육면체 원형의 **6면 × 4 leaf = 24 face×material 적용 기록**을 원본 PNG **9경로(2,304픽셀, 모두 불투명)**에 연결했다. 완전한 16×16 정육면체 면으로부터 **full-face UV를 추론**해 **6,144 texel-uses 모두 불투명**으로 계산했다. **새로운 독립 원본 기하 선언 24면이 아니다**."
+        },
+        {
+          "line": 40,
+          "text": "- 전면 PNG 두 쌍을 직접 같은 픽셀 좌표별 RGBA 값으로 비교: `beehive_front` ↔ `beehive_front_honey`는 **256 중 24픽셀 다름/232 동일**; `bee_nest_front` ↔ `bee_nest_front_honey`는 **256 중 25픽셀 다름/231 동일**, 모든 대응 위치에서 alpha 값 변화 **0**. 소스 geometry가 아니라 앞면 PNG 재질만 변경되는 **정적 모델 상태의 원본 증거**다."
+        },
+        {
+          "line": 43,
+          "text": "## 5. 실제 소스 검증과 중복·진행률 기준"
+        },
+        {
+          "line": 45,
+          "text": "- v34의 파일명 기반 P1 544 후보 중 **이번 v35 회차에서 15 leaf JSON/Git SHA 직접 대조 및 관련 16PNG 읽기**. [P1 전체 544 원장](12_p1_544_static_source_review_ledger.csv)의 **529개는 이번 회차에서 확인하지 않음**이며 *과거까지 포함한 미분석 529개*로 읽어서는 안 된다. 15개 소스 SHA가 v34 P1 큐와 **15/15 일치**했고 파일명 기준 분류는 여전히 휴리스틱이다."
+        },
+        {
+          "line": 46,
+          "text": "- 기존 v4 **선정 150종 PNG과 16경로 직접 중복 0**, [원본 v4 교차검사](13_sixteen_png_v4_150_overlap_crosscheck.csv). 이것은 과거 모든 v5–v34 PNG 조사를 확인했다는 뜻이 아니다."
+        },
+        {
+          "line": 47,
+          "text": "- 위 PNG 중 **6파일**(`cake_top`, `cake_side`, `beehive_front`, `beehive_front_honey`, `bee_nest_front`, `bee_nest_front_honey`)은 별도 Python/Pillow의 `verify()`, 전 RGBA 분류 및 독립 SHA-256 해시로 재확인해 JSON/JS 원본 PNG 디코더의 픽셀 통계 및 front 24/25픽셀 차이와 일치. [독립 Pillow 6 PNG 검사](14_six_png_independent_pillow_sha256_rgba.csv). 나머지 10 PNG는 Pillow로 독립 검사하지 않았다."
+        },
+        {
+          "line": 48,
+          "text": "- 이전 v34 전체 **2,390개 block model JSON / P1 544개** 모집단 자체는 변경되지 않았다. 본 단계가 요구하는 **공식 Mojang 1.21.11 client.jar 독립 획득·해시/원본 인증, 실제 인게임 정적 UV·광원·컬링·종 본체 특수 renderer 검증**은 미완료. 그러므로 최종 완료 판정 **0/5**, 전체 완료 퍼센트 **미산출**."
+        },
+        {
+          "line": 49,
+          "text": "- 사용자 명시 지시에 따른 **애니메이션 분석 보류 계속 적용**. 종 흔들림·케이크 섭취 연출·벌 출입 동작 등 시간에 따라 달라지는 정보는 다루지 않았고 `bites/honey_level`의 정적 state 규칙과 원본 PNG만 조사했다."
+        },
+        {
+          "line": 50,
+          "text": "- **후속:** P1 나머지 529개 중 과거 연구에서 이미 조사한 모델을 v5–v34 증거와 대조하여 **과거 조사 포함 검증 등급**을 재정립, P1 실제 가구 원형별 중복/상속을 줄여 정적 후속 검증, 공식 게임의 블록 모델 로더/종 본체 분리 렌더 경계 확인. 가구 모드 v24 기록 및 2단계 모델링 스타일 가이드 계획은 그대로 보존한다."
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v35/v35_p1_bell_cake_bee_summary.json",
+      "git_blob_sha": "b388c84dba5d003a53309874fb028593751f6246",
+      "size": 3385,
+      "extension": "json",
+      "lines": 101,
+      "json_keys": [
+        "checkpoint",
+        "date_kst",
+        "priority",
+        "animation_status",
+        "report",
+        "v34_p1_filename_based_candidate_count",
+        "v35_p1_leaf_models_verified",
+        "v35_p1_other_files_not_checked_in_this_turn",
+        "verified_source_sha_agrees_with_v34_queue",
+        "prior_v5_to_v34_full_coverage_reconciliation_completed",
+        "leaf_models_bell",
+        "leaf_models_cake",
+        "leaf_models_bees",
+        "shared_bee_parent_models_read",
+        "total_source_model_json_read",
+        "source_blockstate_json_read",
+        "source_state_variant_rows",
+        "states_by_block",
+        "uvlock_key_absent_source_rules",
+        "bell_own_elements",
+        "bell_source_declared_faces",
+        "bell_source_declared_explicit_uv_faces",
+        "cake_own_elements",
+        "cake_source_declared_faces",
+        "cake_source_implicit_uv_faces",
+        "bee_parent_cube_unique_source_declared_faces",
+        "bee_parent_cube_own_elements",
+        "bee_leaf_source_own_element_count",
+        "bee_leaf_face_material_applications",
+        "total_unique_source_declared_faces",
+        "total_face_material_sampling_rows",
+        "source_png_paths",
+        "source_png_full_rgba_pixels",
+        "source_png_opaque",
+        "source_png_transparent",
+        "source_png_partial",
+        "bell_particle_texture_png_excluded_from_face_uv_samples",
+        "sampled_texel_uses",
+        "bell_source_body_special_renderer_independently_verified",
+        "cake_from_x_min_by_bites",
+        "cake_body_x_width_by_bites",
+        "beehive_source_honey_threshold",
+        "bee_nest_source_honey_threshold",
+        "bee_honey_front_changed_rgba_pixel_count",
+        "bee_nest_honey_front_changed_rgba_pixel_count",
+        "pillow_independent_png_verified",
+        "v4_150_sample_overlap_png_paths",
+        "all_other_prior_png_overlap_not_audited",
+        "official_mojang_client_jar_verified",
+        "actual_game_renderer_implicit_uv_orientation_verified",
+        "actual_ingame_static_render_verified",
+        "mod_v24_unchanged",
+        "stage1_final_completed_substeps",
+        "stage1_total_substeps",
+        "outputs"
+      ],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 4,
+          "text": "  \"priority\": \"P1_static_vanilla_structural_source_audit\","
+        },
+        {
+          "line": 10,
+          "text": "  \"verified_source_sha_agrees_with_v34_queue\": \"15/15\","
+        },
+        {
+          "line": 15,
+          "text": "  \"shared_bee_parent_models_read\": 2,"
+        },
+        {
+          "line": 16,
+          "text": "  \"total_source_model_json_read\": 17,"
+        },
+        {
+          "line": 17,
+          "text": "  \"source_blockstate_json_read\": 4,"
+        },
+        {
+          "line": 18,
+          "text": "  \"source_state_variant_rows\": 71,"
+        },
+        {
+          "line": 25,
+          "text": "  \"uvlock_key_absent_source_rules\": 71,"
+        },
+        {
+          "line": 27,
+          "text": "  \"bell_source_declared_faces\": 33,"
+        },
+        {
+          "line": 28,
+          "text": "  \"bell_source_declared_explicit_uv_faces\": 33,"
+        },
+        {
+          "line": 30,
+          "text": "  \"cake_source_declared_faces\": 42,"
+        },
+        {
+          "line": 31,
+          "text": "  \"cake_source_implicit_uv_faces\": 42,"
+        },
+        {
+          "line": 32,
+          "text": "  \"bee_parent_cube_unique_source_declared_faces\": 6,"
+        },
+        {
+          "line": 34,
+          "text": "  \"bee_leaf_source_own_element_count\": 0,"
+        },
+        {
+          "line": 36,
+          "text": "  \"total_unique_source_declared_faces\": 81,"
+        },
+        {
+          "line": 38,
+          "text": "  \"source_png_paths\": 16,"
+        },
+        {
+          "line": 39,
+          "text": "  \"source_png_full_rgba_pixels\": 4096,"
+        },
+        {
+          "line": 40,
+          "text": "  \"source_png_opaque\": 3496,"
+        },
+        {
+          "line": 41,
+          "text": "  \"source_png_transparent\": 600,"
+        },
+        {
+          "line": 42,
+          "text": "  \"source_png_partial\": 0,"
+        },
+        {
+          "line": 52,
+          "text": "  \"bell_source_body_special_renderer_independently_verified\": false,"
+        },
+        {
+          "line": 71,
+          "text": "  \"beehive_source_honey_threshold\": 5,"
+        },
+        {
+          "line": 72,
+          "text": "  \"bee_nest_source_honey_threshold\": 5,"
+        },
+        {
+          "line": 85,
+          "text": "    \"01_bell_cake_eleven_source_models.csv\","
+        },
+        {
+          "line": 86,
+          "text": "    \"02_bell_cake_thirteen_source_elements.csv\","
+        },
+        {
+          "line": 87,
+          "text": "    \"03_bell_cake_75_source_declared_faces.csv\","
+        },
+        {
+          "line": 89,
+          "text": "    \"05_bee_four_leaf_two_parent_source_audit.csv\","
+        },
+        {
+          "line": 90,
+          "text": "    \"06_bee_shared_parent_templates.csv\","
+        },
+        {
+          "line": 96,
+          "text": "    \"12_p1_544_static_source_review_ledger.csv\","
+        },
+        {
+          "line": 98,
+          "text": "    \"14_six_png_independent_pillow_sha256_rgba.csv\""
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v36/00_v36_P1_544과거SHA대조_화로용광로훈연기6모델_24상태_정적분석.md",
+      "git_blob_sha": "9da27ad770a74b6e3e8e7a9f5ebe70310a83e230",
+      "size": 4605,
+      "extension": "md",
+      "lines": 38,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 1,
+          "text": "# v36 — P1 역사적 SHA 대조 및 화로·용광로·훈연기 정적 원본 실측"
+        },
+        {
+          "line": 7,
+          "text": "- [P1 544개 v5~v34 선택 근거 SHA 교차 대조표](01_p1_544_historical_sha_evidence_crosswalk.csv): **v35 직접 원본 확인 15개**, v5~v34의 선정된 근거 CSV 18개에 정확한 SHA가 남아 있는 **83개**(그중 v25~v34 기록 62, v5~v8 기록 21), 이 18개 CSV에서 직접 매칭되지 않은 **446개**."
+        },
+        {
+          "line": 9,
+          "text": "- 역사 자료에 두 이름의 충돌하는 SHA 기록이 존재: chiseled_bookshelf, oak_shelf. 두 이름 모두 다른 자료에서 현재 목록과 맞는 SHA 기록도 존재한다. 충돌은 v7 CSV 검토 과제로 표시하고 이 자료로 원본 오류를 확정하지 않음."
+        },
+        {
+          "line": 12,
+          "text": "## 2. v36 신규 원본 직접 확인: 정적 화로/용광로/훈연기"
+        },
+        {
+          "line": 14,
+          "text": "- 원본: 사용자 GitHub 1.21.11/assets/minecraft/models/block 의 **6 leaf JSON 직접 조회**, v35 P1 후보 SHA와 **6/6 동일**. 관련 3개 부모 JSON 및 3개 blockstates JSON도 직접 읽음."
+        },
+        {
+          "line": 18,
+          "text": "- 부모 cube는 **1개 요소 [0,0,0]→[16,16,16], 원본 선언 6면**. leaf 6개는 이 공통 구조를 반복 적용하여 **36개 face×material 기록**을 만든다. 고유 원본 기하 선언면이 36개라는 의미는 아님."
+        },
+        {
+          "line": 19,
+          "text": "- cube 원본 면의 UV 좌표는 모두 미기재. 36면에 기록한 전체면 [0,0,16,16]은 **기하 기반 암시 UV 추론**이며 공식 로더의 정확한 면 회전·winding 검증이 아님."
+        },
+        {
+          "line": 20,
+          "text": "- 원본 JSON의 texture slot을 끝까지 상속 추적한 결과 **13개 서로 다른 텍스처 경로**를 식별했지만, **13개 PNG 원본 바이트·RGBA 픽셀을 새로 디코딩하지는 않음**. 따라서 투명·불투명 텍셀 수와 렌더 색상은 미확정."
+        },
+        {
+          "line": 23,
+          "text": "[6개 leaf SHA·부모 원장](02_six_furnace_smoker_static_leaf_geometry_sha.csv) · [36면 재질 바인딩](03_six_leaf_36_inherited_faces_material_bindings.csv)"
+        },
+        {
+          "line": 25,
+          "text": "## 3. 원본 blockstate JSON 세 개 / 총 24 variants"
+        },
+        {
+          "line": 27,
+          "text": "- furnace, blast_furnace, smoker 상태 원본 JSON을 각각 직접 확인. 방향 4개(north/east/south/west) × lit 2개 = 블록마다 8개, **합계 24개의 원본 source variants**."
+        },
+        {
+          "line": 28,
+          "text": "- 원본 상태 y 속성은 east=90, south=180, west=270이며 north는 미기재. 모든 24 variants에서 x·uvlock도 미기재. 키 부재를 explicit false/0과 혼동하지 않음."
+        },
+        {
+          "line": 29,
+          "text": "- [24개 원본 상태 및 SHA](04_three_blockstates_24_static_variants.csv). 실제 게임 렌더/UVlock 효과는 확인하지 않음."
+        },
+        {
+          "line": 33,
+          "text": "- **v35 15 + v36 신규 6 = 21개 P1 leaf를 두 회차에서 직접 SHA·JSON 확인**. 이는 조사한 회차의 직접 원본 검수 수이며, P1 완료율이나 전체 학습 진도가 아님. 이전 기록 83개는 별도 역사적 근거 등급."
+        },
+        {
+          "line": 34,
+          "text": "- v35 원본 PNG16경로/4,096픽셀과 v24 모드 자료는 변경하지 않았음. v36 신규 PNG 화소 0개, 새 텍셀 샘플링 0회."
+        },
+        {
+          "line": 35,
+          "text": "- 공식 Mojang 1.21.11 client.jar 독립 해시/출처, 실제 인게임 정적 UV·컬링·광원, 종의 특수 본체 renderer는 **미검증**."
+        },
+        {
+          "line": 36,
+          "text": "- v5~v34 전체 보고서/원본 측정 레코드의 완전한 모델별 교차 대조 및 PNG 13개 원본 화소, 공식 클라이언트 검증은 다음 과제."
+        },
+        {
+          "line": 37,
+          "text": "- **애니메이션은 명시적 재개 전까지 보류**. 기존 기록 삭제/수정 없음. 상위 1단계 세부 다섯 과제의 확정 완료 **0/5**. P1·전체 프로젝트 완료 퍼센트 산출 금지. 좀보이드 변환·실제 가구 제작은 수행하지 않음."
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v37/00_v37_화로용광로훈연기_정적11PNG_34면실화소_분석보고서.md",
+      "git_blob_sha": "334cd59e8d0ab4a61614a2b1e59438c24564ec8c",
+      "size": 3686,
+      "extension": "md",
+      "lines": 30,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 1,
+          "text": "# v37 — 화로·용광로·훈연기 정적 PNG 11종 전 화소·34면 UV 참조 실제 RGBA 검증"
+        },
+        {
+          "line": 3,
+          "text": "> 2026-11-13 KST. v36의 6개 정적 모델/36개 재질 적용 면에서 실제 원본 PNG 화소 검증을 확장. **사용자 지시에 따라 애니메이션 프레임은 분석하지 않았음.**"
+        },
+        {
+          "line": 7,
+          "text": "- 사용자 연구 저장소의 Minecraft 1.21.11 리소스에서 **정적 텍스처 11 PNG 원본의 바이너리(Base64) 직접 조회 및 전 화소 디코딩**. GitHub blob SHA를 기존 v34 1,111 PNG 목록과 **11/11 교차 확인**."
+        },
+        {
+          "line": 8,
+          "text": "- v36에서 식별된 고유 텍스처 경로 13종 중 **정적 11종만 원본 전체 RGBA 검사**. `blast_furnace_front_on`(원본 16×32)과 `smoker_front_on`(원본 16×48)은 다중 프레임 텍스처이므로 **PNG 픽셀/프레임 시퀀스·키프레임·색상 변화 모두 분석 보류**. 두 경로의 원본 블록 모델 선택·재질 슬롯은 v36에 이미 존재하는 정적 소스 기록만 보존."
+        },
+        {
+          "line": 10,
+          "text": "- 11 PNG 모두 16×16 정적 소스. 원본 **11×256 = 2,816 RGBA 픽셀**(불투명 2,816, 완전투명 0, 반투명 0)."
+        },
+        {
+          "line": 12,
+          "text": "## 원본 면×재질 연결 및 UV 주의사항"
+        },
+        {
+          "line": 14,
+          "text": "- v36 [6 leaf 36면 상속 경로](../v36/03_six_leaf_36_inherited_faces_material_bindings.csv)를 실제 PNG SHA 및 각 픽셀과 결합. **총 36 face×material 중 정적 34개 면 이미지 확인**, 나머지 **2면은 다중 프레임 텍스처라 보류**."
+        },
+        {
+          "line": 15,
+          "text": "- 정적 34개 면은 공통 source `cube`의 전체 16×16면에 매핑한 **추론된 암시 UV**라서, **8,704 texel-uses**(불투명 8,704, 완전투명 0, 반투명 0)는 유도 UV 사각형으로 원본 화소를 참조한 **중복 포함 원시 사용 횟수**. Minecraft 런타임 winding/UV lock/실제 화면에 이 값이 그대로 적용됨을 검증한 것은 아님."
+        },
+        {
+          "line": 18,
+          "text": "## 화로 정면의 lit false/true 텍스처 직접 비교"
+        },
+        {
+          "line": 20,
+          "text": "- 원본 `furnace_front.png`와 `furnace_front_on.png`의 동일한 16×16 위치별 픽셀을 대조: **RGBA 차이 36/256 픽셀, RGB 차이 36/256, 알파 차이 0/256**."
+        },
+        {
+          "line": 21,
+          "text": "- 변경 영역의 원본 픽셀 bounding rectangle (x 최소, y 최소, x 최대, y 최대): **3, 11, 12, 15**. 이것은 **고정된 두 텍스처의 공간별 차이**이며 애니메이션/점화 움직임/실제 화면 재생 분석이 아님."
+        },
+        {
+          "line": 25,
+          "text": "- [11 PNG 원본 SHA·CRC·Adler·RGBA 통계](01_eleven_static_png_original_rgba_crc_adler.csv)"
+        },
+        {
+          "line": 27,
+          "text": "- [기계 판독용 요약 JSON](v37_static_furnaces_png_pixels_summary.json)"
+        },
+        {
+          "line": 28,
+          "text": "- **미완료:** 독립 Pillow 재계산, 공식 Mojang 1.21.11 client.jar/실제 인게임 정적 UV·컬링·광원 및 애니메이션과 무관한 나머지 P1 후보 직접 JSON/PNG 검증."
+        },
+        {
+          "line": 29,
+          "text": "- 원본 PNG/JSON/JAR을 이번 연구 출력으로 재배포하지 않고 파생 SHA/픽셀 통계만 업로드. 기존 v24 모드 누계, v35~v36 연구 파일 보존. 애니메이션 분석 보류. **상위 세부 연구 최종 완료 0/5, P1/전체 연구 완료율 미계산**."
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v37/v37_static_furnaces_png_pixels_summary.json",
+      "git_blob_sha": "ee56ca085e7041ef0c20636d0c100aac9615620f",
+      "size": 1064,
+      "extension": "json",
+      "lines": 45,
+      "json_keys": [
+        "checkpoint",
+        "source",
+        "sha_crosschecked_v34_11_of_11",
+        "animation_analysis_deferred",
+        "animation_texture_excluded",
+        "source_static_pngs_checked",
+        "source_pixels",
+        "opaque",
+        "transparent",
+        "partial",
+        "source_face_material_static_rgba_sampled",
+        "source_face_material_deferred",
+        "source_face_material_full",
+        "face_texel_uses",
+        "face_opaque_uses",
+        "face_transparent_uses",
+        "face_partial_uses",
+        "static_front_changed_rgba_pixels",
+        "static_front_changed_rgb_pixels",
+        "static_front_changed_alpha_pixels",
+        "static_front_difference_bbox",
+        "verified_png_names"
+      ],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 3,
+          "text": "  \"source\": \"user GitHub 1.21.11 asset repository\","
+        },
+        {
+          "line": 4,
+          "text": "  \"sha_crosschecked_v34_11_of_11\": true,"
+        },
+        {
+          "line": 10,
+          "text": "  \"source_static_pngs_checked\": 11,"
+        },
+        {
+          "line": 11,
+          "text": "  \"source_pixels\": 2816,"
+        },
+        {
+          "line": 15,
+          "text": "  \"source_face_material_static_rgba_sampled\": 34,"
+        },
+        {
+          "line": 16,
+          "text": "  \"source_face_material_deferred\": 2,"
+        },
+        {
+          "line": 17,
+          "text": "  \"source_face_material_full\": 36,"
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    }
+  ]
+}

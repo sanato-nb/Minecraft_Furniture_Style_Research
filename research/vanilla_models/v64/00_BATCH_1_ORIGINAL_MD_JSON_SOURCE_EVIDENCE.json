@@ -1,0 +1,483 @@
+{
+  "schema": "v64_original_historical_MD_JSON_direct_content_review_batch",
+  "batch_index": 1,
+  "total_batches": 6,
+  "count": 9,
+  "original_documents": [
+    {
+      "path": "research/vanilla_models/v5/00_v5_3D_구조분석_보고서.md",
+      "git_blob_sha": "8766ef6e5aabf9d9fc88a852ddf4ee6efaf5aae5",
+      "size": "9220",
+      "extension": "md",
+      "lines": 110,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 4,
+          "text": "- 연구 원칙: 바닐라 → 가구 모드 → 공통 스타일 연구. **실제 좀보이드 가구 제작은 이 단계에서 제외**"
+        },
+        {
+          "line": 5,
+          "text": "- 원본 경로: [`InventivetalentDev/minecraft-assets` 1.21.11](https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11/assets/minecraft), *비공식 게임 에셋 추출 미러*"
+        },
+        {
+          "line": 6,
+          "text": "- 검증 근거: 연결된 GitHub의 개별 원본 모델 JSON과 블록 상태 JSON을 직접 읽어, 파일별 SHA-1(Git Blob SHA)을 기록한 파생 구조 데이터. 아래 수치는 설계 권장값이 아니라 **원본 관찰 수치**다."
+        },
+        {
+          "line": 10,
+          "text": "| 항목 | 실측·근거 상태 | 남은 검증 |"
+        },
+        {
+          "line": 12,
+          "text": "| 01 바닐라 재질·텍스처 | **150/150 경로** 기존 v4 계승, 표본 측정 목표 100% | 공식 client.jar의 150건 해시 대조 0/150, 인게임 렌더 0/150 |"
+        },
+        {
+          "line": 13,
+          "text": "| 02 바닐라 3D 모델 구조 | **이름 있는 모델 32개 + 부모/템플릿 23개 = 실제 JSON 55개 확인**, 블록 상태 JSON 16개 확인 | 완전한 전체 모델 목록·실제 렌더링·충돌 형태·아이템/엔티티 렌더링 연구 |"
+        },
+        {
+          "line": 15,
+          "text": "| 04 가구 모드 텍스처·UV | 미착수 | 모드별 텍스처 원본 분석 |"
+        },
+        {
+          "line": 16,
+          "text": "| 05 바닐라/모드 비교 | 미착수 | 전 단계 근거 필요 |"
+        },
+        {
+          "line": 22,
+          "text": "> 외접 크기는 요소의 **로컬 회전을 적용하기 전**의 축 정렬 범위다. 특히 독서대의 실제 기울어진 상판 범위와 물리 충돌 범위는 이 표의 치수와 다를 수 있다."
+        },
+        {
+          "line": 41,
+          "text": "### 2.1 바닐라 모델에서 직접 확인한 3가지 구조 방식"
+        },
+        {
+          "line": 63,
+          "text": "- `oak_stairs`: `facing`·`half`·`shape`의 조합으로 **40개 `variants` 키**를 정의하며 일반/안쪽/바깥쪽 모델 및 회전을 쓴다."
+        },
+        {
+          "line": 73,
+          "text": "- 모델 JSON의 `from`/`to`는 기하구조, `faces[].uv`와 `textures`는 실제 픽셀이 어디에 표시되는지 정의한다."
+        },
+        {
+          "line": 76,
+          "text": "- 오브젝트가 `elements: []`처럼 기하 구조를 직접 제공하지 않고 부모를 가진 경우, **부모 템플릿까지 추적하지 않으면 실제 요소 수가 0개라고 잘못 읽는다**."
+        },
+        {
+          "line": 78,
+          "text": "## 4. 주의할 예외와 미확정 사항"
+        },
+        {
+          "line": 80,
+          "text": "**특수 렌더 구조:** 실제로 확인한 `block/bed`, `block/chest`, `block/oak_sign` 모델 JSON에는 `elements`가 없고 파티클 텍스처 참조만 있다. 따라서 일반 블록 모델 요소 수로 침대·상자·표지판의 **실제 게임 속 3D 형상**을 측정할 수 없다. 이들 객체의 렌더링 파이프라인과 실제 크기는 현재 *미검증*으로 보존한다."
+        },
+        {
+          "line": 86,
+          "text": "**원본 공식 검증:** 비공식 GitHub 미러에서 실제 JSON을 읽은 단계이며 사용자 로컬의 정품 Mojang `client.jar`와의 바이트·해시 대조를 수행하지 않았다. 게임 플레이 및 화면 관찰도 수행하지 않았다."
+        },
+        {
+          "line": 92,
+          "text": "- 저작권·라이선스가 확인되지 않은 Minecraft 모델 JSON·텍스처 PNG 원본은 배포 ZIP에 넣지 않았다."
+        },
+        {
+          "line": 96,
+          "text": "1. **02 계속:** 계단/울타리/문/선반을 대상으로 부모 상속뿐 아니라 면별 UV·회전·블록 상태에 따른 완성 조합을 복원해 실제 외관 차이를 검증한다."
+        },
+        {
+          "line": 98,
+          "text": "3. **01의 보류:** 사용자의 정품 1.21.11 `client.jar`가 확보되면 150개 텍스처 SHA를 비교하고 게임 내 렌더를 따로 검증한다. 이 보류가 02에서 원본 JSON의 분석을 진행할 수 없다는 뜻은 아니다."
+        },
+        {
+          "line": 99,
+          "text": "4. 02 구조 분석 근거가 늘어나면 03의 가구 모드 실제 모델 연구로 넘어간다."
+        },
+        {
+          "line": 101,
+          "text": "## 7. 출처 및 재현"
+        },
+        {
+          "line": 103,
+          "text": "- [모델 원본 인덱스](https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11/assets/minecraft/models/block)"
+        },
+        {
+          "line": 104,
+          "text": "- [블록 상태 원본 인덱스](https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11/assets/minecraft/blockstates)"
+        },
+        {
+          "line": 105,
+          "text": "- 개별 71개 JSON 경로와 Git Blob SHA-1은 `04_모델및블록상태_근거원장71.csv`에 기록했다."
+        },
+        {
+          "line": 106,
+          "text": "- 개별 모델의 부모 경로·실측 요소 치수·원본 참조가 `01_대표모델_구조55.csv`, `02_모델요소_치수.csv`에 있다."
+        },
+        {
+          "line": 109,
+          "text": "**검증 상태:** JSON 구조 표본 판독 완료 / 공식 게임 파일 SHA·인게임 렌더 보류 / 2단계 규칙서 미작성."
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v5/06_학습_진행도_v5.md",
+      "git_blob_sha": "0baa47303c7b0313ff259bc847d5b6af7aea8a4b",
+      "size": "1081",
+      "extension": "md",
+      "lines": 14,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 3,
+          "text": "| 세부 작업 | 진행 상태 | 확인된 정량 근거 | 미완료 이유 |"
+        },
+        {
+          "line": 5,
+          "text": "| 01. 바닐라 재질·텍스처 | 표본 목표 100%, 검증 보류 | 150/150 경로 | 공식 client.jar 0/150, 인게임 0/150 |"
+        },
+        {
+          "line": 6,
+          "text": "| 02. 바닐라 3D 구조 | **진행 중** | 이름 있는 블록 모델 32개, 부모/템플릿 23개, 블록 상태 16개 → JSON 파일 71개 직접 열람 | UV 전체, 완성 상태별 합성, 특수 렌더·게임 검증 미완료 |"
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v5/07_검증_상태.json",
+      "git_blob_sha": "17ad9ba499030f540b918dadc4e486b7e04451be",
+      "size": "708",
+      "extension": "json",
+      "lines": 25,
+      "json_keys": [
+        "version",
+        "date",
+        "edition",
+        "prior_textures",
+        "prior_textures_original_refetched",
+        "new_named_models",
+        "new_parent_templates",
+        "new_blockstates",
+        "total_source_json_read",
+        "derived_element_rows",
+        "official_jar_textures_compared",
+        "in_game_render_verified",
+        "five_subtasks_finished",
+        "five_subtasks_in_progress",
+        "sqlite_integrity",
+        "tables",
+        "note"
+      ],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 10,
+          "text": "  \"total_source_json_read\": 71,"
+        },
+        {
+          "line": 18,
+          "text": "    \"sources\": 71,"
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v5/README.md",
+      "git_blob_sha": "36eceb0bf599e1700c55b29c6cb0a0ed847e662c",
+      "size": "622",
+      "extension": "md",
+      "lines": 9,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 3,
+          "text": "- 기존 150종 텍스처 통계 CSV 유지; 새로 실제 모델 JSON 55개/블록 상태 JSON 16개 분석."
+        },
+        {
+          "line": 4,
+          "text": "- 원본 Minecraft 3D 모델 JSON/PNG는 포함되지 않음. 파생 통계, 출처, 기록만 수록."
+        },
+        {
+          "line": 8,
+          "text": "- `build_v5.py`는 추출한 요약 데이터를 재집계하기 위한 코드. 원본 JSON을 재수집하지 않으며 라이브 Github API 접근 기능은 없음."
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v6/00_v6_UV상태별_확장분석보고서.md",
+      "git_blob_sha": "0376c6ac877374b2bc1b8b9c1c245a1218be6891",
+      "size": "6978",
+      "extension": "md",
+      "lines": 89,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 4,
+          "text": "- 원본: [InventivetalentDev/minecraft-assets 1.21.11](https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11/assets/minecraft), 비공식 추출 에셋"
+        },
+        {
+          "line": 6,
+          "text": "- 데이터 상태: 연결된 GitHub에서 JSON을 직접 읽은 파생 수치. **공식 Mojang client.jar 해시 검증과 실제 게임 화면 검증은 미완료**."
+        },
+        {
+          "line": 10,
+          "text": "| 근거 유형 | v5 | 이번 신규 | v6 누적 |"
+        },
+        {
+          "line": 12,
+          "text": "| 실제 열람한 모델 JSON | 55 | 13 | 68 |"
+        },
+        {
+          "line": 13,
+          "text": "| 실제 열람한 블록 상태 JSON | 16 | 7 | 23 |"
+        },
+        {
+          "line": 14,
+          "text": "| 원본 경로·SHA 원장 총계 | 71 | 20 | 91 |"
+        },
+        {
+          "line": 19,
+          "text": "## 2. 3D와 UV의 역할 분리 — 원본에서 관찰한 사례"
+        },
+        {
+          "line": 21,
+          "text": "| 구조 | 원본에서 확인한 사실 | 관련 파일 |"
+        },
+        {
+          "line": 23,
+          "text": "| 정육면체 | `cube`는 부피 16×16×16, 6면의 `uv` 값을 생략하고 면별 텍스처 변수 사용 | `models/block/cube.json` |"
+        },
+        {
+          "line": 24,
+          "text": "| 계단 | `stairs`는 2개 직육면체, 정면 상·하 UV가 분리되어 서로 다른 범위를 사용 | `models/block/stairs.json` |"
+        },
+        {
+          "line": 25,
+          "text": "| 다락문 | `template_trapdoor_bottom`는 16×3×16, 상면 UV 16×16 범위와 측면 UV 16×3 범위를 별도 적용 | `models/block/template_trapdoor_bottom.json` |"
+        },
+        {
+          "line": 26,
+          "text": "| 선반 | `template_shelf_body`는 3개 요소, 같은 `#all` 텍스처를 15개 면별로 다른 UV 범위에 배치 | `models/block/template_shelf_body.json` |"
+        },
+        {
+          "line": 27,
+          "text": "| 독서대 | `lectern`은 3개 요소, 상단 로컬 회전 −22.5°, 일부 면 UV 회전 90°/180° | `models/block/lectern.json` |"
+        },
+        {
+          "line": 28,
+          "text": "| 사다리 | `ladder`는 Z=15.2의 0-두께 양면, 반대쪽 UV 가로 방향이 뒤집혀 있음 | `models/block/ladder.json` |"
+        },
+        {
+          "line": 29,
+          "text": "| 모루 | `template_anvil`는 상부 요소 `#top`, 측면은 `#body` 사용. 일부 면은 UV 90/270° 회전 | `models/block/template_anvil.json` |"
+        },
+        {
+          "line": 30,
+          "text": "| 화분 | 내부 바닥은 `#dirt`, 외부 테두리는 `#flowerpot`: 재질을 부품/면별 구분 | `models/block/flower_pot.json` |"
+        },
+        {
+          "line": 34,
+          "text": "### 2.1 실제 32×32 PNG와 UV 좌표"
+        },
+        {
+          "line": 42,
+          "text": "`08_v6_선반32px_UV픽셀대응.csv`에 선반 15면의 좌표를 추적했다. 좌표만으로 실제 게임 광원·색감·투명 렌더를 검증했다고 주장하지 않는다."
+        },
+        {
+          "line": 55,
+          "text": "이 수치는 모델 JSON의 개별 `elements` 요소 개수이며, 일반화된 권장 큐브 개수가 아니다. 형태가 빈 원통처럼 보여도 실제로는 직육면체 벽을 나눠 놓을 수 있다."
+        },
+        {
+          "line": 59,
+          "text": "`blockstates`에는 단일 모델 `variants`와 여러 부품을 조건에 따라 겹쳐 쓰는 `multipart`가 존재한다. 이를 구분한 실측 예시는 `05_v6_블록상태_실제예시.csv`에 34건 포함한다."
+        },
+        {
+          "line": 63,
+          "text": "| 계단 | `facing=east,half=bottom,shape=inner_left` | `oak_stairs_inner` + Y축 270°, `uvlock=true` |"
+        },
+        {
+          "line": 72,
+          "text": "## 5. 연구를 완료로 처리하지 않은 근거"
+        },
+        {
+          "line": 74,
+          "text": "- **01 텍스처:** 150/150 표본 실측 완료. 공식 게임 `client.jar`와 해시 대조 **0/150**, 인게임 화면 직접 검증 **미실시**."
+        },
+        {
+          "line": 83,
+          "text": "1. 대상 블록 상태에서 조건부 `multipart`를 실제로 평가해 최종 구성 요소 목록 만들기."
+        },
+        {
+          "line": 85,
+          "text": "3. 남은 대표 형태(벽, 연속형 블록, 투명 블록, 특수 렌더)의 원본 조사 확대."
+        },
+        {
+          "line": 88,
+          "text": "**증거 파일:** `01~06 CSV`, `08 선반 UV-픽셀 대응 CSV`, `MC_Furniture_Style_Stage1_Research_v6.sqlite`, `07 검증및진행현황.json`. **게임 원본 에셋은 이 패키지에 포함하지 않음.**"
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v6/07_v6_검증및진행현황.json",
+      "git_blob_sha": "c01a88095114f5184815017101df6006f4930257",
+      "size": "1256",
+      "extension": "json",
+      "lines": 39,
+      "json_keys": [
+        "project",
+        "edition",
+        "research_scope",
+        "counts",
+        "percent",
+        "statuses",
+        "evidence_source",
+        "independent_official_client_jar_verified",
+        "ingame_screen_verified",
+        "no_original_game_assets_bundled"
+      ],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 6,
+          "text": "    \"previous_v5_sources\": 71,"
+        },
+        {
+          "line": 7,
+          "text": "    \"v6_new_model_sources\": 13,"
+        },
+        {
+          "line": 8,
+          "text": "    \"v6_new_state_sources\": 7,"
+        },
+        {
+          "line": 9,
+          "text": "    \"cumulative_source_files\": 91,"
+        },
+        {
+          "line": 35,
+          "text": "  \"evidence_source\": \"GitHub connector direct read of public nonofficial extracted assets at tag 1.21.11\","
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v6/09_v6_학습_진행도.md",
+      "git_blob_sha": "a85c38c8db08935e21ef31644328f043a721f432",
+      "size": "899",
+      "extension": "md",
+      "lines": 14,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 3,
+          "text": "| 세부 단계 | 상태 | 근거 수치 | 남은 작업 |"
+        },
+        {
+          "line": 5,
+          "text": "| 01 바닐라 재질·텍스처 | 표본 목표 달성 / 최종 검증 보류 | 150/150 텍스처 기록 (100% 표본) | 공식 JAR 대조 0/150, 인게임 확인 |"
+        },
+        {
+          "line": 13,
+          "text": "참고: 02의 파일/UV 면 개수는 **분석된 근거 개수**이지 02의 전체 작업 중 퍼센트가 아니다. 01 표본 100%는 공식 및 인게임 검증 완료를 뜻하지 않는다."
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v6/README.md",
+      "git_blob_sha": "85bdcc08389af13dcaa71d2b7aed613c83331a7b",
+      "size": "561",
+      "extension": "md",
+      "lines": 12,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v7/00_v7_연결형_조립분석_보고서.md",
+      "git_blob_sha": "2635a69102e6df54466c212676db71f8cd440b90",
+      "size": "5334",
+      "extension": "md",
+      "lines": 61,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 6,
+          "text": "- 이번 조사에서 직접 확인한 근거 메타데이터: **61개 원본 경로/해시 기록**. v6와 중복 포함."
+        },
+        {
+          "line": 24,
+          "text": "**주의:** 적용 모델 수와 직육면체 수는 다르다. 예를 들어 철창의 모델은 하나가 2~4개의 평면으로 이루어져 있고, 끌로 조각한 책장은 앞면에 겹쳐지는 슬롯 표시가 포함된다. 기하 요소 수는 실제 게임의 픽셀 수나 면 삼각형 개수와 다르다."
+        },
+        {
+          "line": 26,
+          "text": "## 2. 실제 조건부 조립에서 확인한 특징"
+        },
+        {
+          "line": 31,
+          "text": "4. **유리판**: `post` 외에 연결 방향의 `side` 또는 끊긴 방향의 `noside`를 적용한다. 모델 선택 5개가 동일해도 실제 가시 면은 다르다."
+        },
+        {
+          "line": 45,
+          "text": "- 21개 상태 사례의 모델 선택/회전은 GitHub 원본 조건을 읽어 별도로 평가한 결과와 대조하고, 코드에서 선택 모델 수·대표 선택 모델 순서를 검증."
+        },
+        {
+          "line": 46,
+          "text": "- 기존 v6를 SQLite 백업한 뒤 신규 테이블 추가: 원본과 구버전 표를 덮어쓰지 않음."
+        },
+        {
+          "line": 48,
+          "text": "- **미완료:** Mojang 공식 `client.jar`와 직접 SHA 비교, 실제 게임에서 조명·UVlock·상태 렌더 검증, 모델 카탈로그 전체 전수 확인, 특수 렌더 대상, 가구 모드 분석."
+        },
+        {
+          "line": 52,
+          "text": "- 대표 블록의 방향별 면 텍스처 UV 회전 규칙 심화, `uvlock`/Face-UV를 인게임 화면과 대조할 수 있는 검수 사례 축적"
+        },
+        {
+          "line": 58,
+          "text": "`01` 상태별 조립 CSV, `02` 선택 모델 CSV, `03` 회전 후 요소 CSV, `04` 근거 경로 CSV, `05` 모델 구조 CSV, `06` 검증 JSON, 누적 SQLite, v7 재현 스크립트."
+        },
+        {
+          "line": 60,
+          "text": "**저작권 유의:** 원본 게임 JSON이나 PNG 파일 자체를 번들에 포함하지 않는다. 출처와 측정 수치만 보존."
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    }
+  ]
+}

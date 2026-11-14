@@ -1,0 +1,1094 @@
+{
+  "schema": "v64_existing_4_Database_builder_Python_sources_SHA_review",
+  "files": [
+    {
+      "path": "research/vanilla_models/v5/build_v5.py",
+      "sha": "d8dc16688d88de8628eb9c14dccefb80cf5754c8",
+      "source_bytes": 28943,
+      "source_lines": 322,
+      "DB_related_source_lines": [
+        {
+          "line": 7,
+          "text": "import json, csv, sqlite3, hashlib, shutil, zipfile, os"
+        },
+        {
+          "line": 12,
+          "text": "BASE=Path('/mnt/data/MC_vanilla_models_study_05')"
+        },
+        {
+          "line": 19,
+          "text": "def add(name,parent=None,boxes=None,sha='',kind='named',textures=None,rotation=None):"
+        },
+        {
+          "line": 21,
+          "text": "    A[name]={'name':name,'parent':parent,'boxes':boxes,'sha':sha,'kind':kind,'textures':textures or {},'rotation':rotation or {}}"
+        },
+        {
+          "line": 24,
+          "text": "add('oak_planks','cube_all',sha='3a21a3f2e75848ac905b6819ceeb40d1dbb3b39c',textures={'all':'oak_planks'})"
+        },
+        {
+          "line": 25,
+          "text": "add('oak_slab','slab',sha='f11ff8bad0b9faa4b6d1ef65c9a75ff2681a162a',textures={'top':'oak_planks','bottom':'oak_planks','side':'oak_planks'})"
+        },
+        {
+          "line": 26,
+          "text": "add('oak_stairs','stairs',sha='d959a5f2894e4fd0821d06b36c049aaa30c129ef',textures={'top':'oak_planks','bottom':'oak_planks','side':'oak_planks'})"
+        },
+        {
+          "line": 27,
+          "text": "add('oak_fence_post','fence_post',sha='e05dc4ae309d60b31488d6fb9d3793bf495c92f5',textures={'texture':'oak_planks'})"
+        },
+        {
+          "line": 28,
+          "text": "add('oak_fence_side','fence_side',sha='fe4ed99e0deb7af04f3494469d0b65a753e5a80e',textures={'texture':'oak_planks'})"
+        },
+        {
+          "line": 29,
+          "text": "add('oak_trapdoor_bottom','template_trapdoor_bottom',sha='a4dcb639f352a8a966d78bcdb487db1e30d5ed0d',textures={'texture':'oak_trapdoor'})"
+        },
+        {
+          "line": 30,
+          "text": "add('oak_door_bottom_left','door_bottom_left',sha='9cd5e6b232790ba57f98bea60b608ad2b87a8a2c',textures={'bottom':'oak_door_bottom','top':'oak_door_top'})"
+        },
+        {
+          "line": 31,
+          "text": "add('oak_shelf','template_shelf_body',sha='4b0f3db311717ef740c50638ea1d252256310180',textures={'all':'oak_shelf','particle':'stripped_oak_log'})"
+        },
+        {
+          "line": 32,
+          "text": "add('bookshelf','cube_column',sha='c095a7d7ebf88c0a72dc9131b64e3b4f5963aad8',textures={'end':'oak_planks','side':'bookshelf'})"
+        },
+        {
+          "line": 33,
+          "text": "add('chiseled_bookshelf_empty_slot_top_left','template_chiseled_bookshelf_slot_top_left',sha='2b9817062fbc51325526c1fd4b72cd8aadb06a30',textures={'texture':'chiseled_bookshelf_empty'})"
+        },
+        {
+          "line": 34,
+          "text": "add('barrel','cube_bottom_top',sha='cff930084d47d226817f274616d14f4b07c0a9d4',textures={'bottom':'barrel_bottom','side':'barrel_side','top':'barrel_top'})"
+        },
+        {
+          "line": 35,
+          "text": "add('crafting_table','cube',sha='aa056b15efba47ef049e029b560029a6b1e3be84',textures={'down':'oak_planks','north':'crafting_table_front','up':'crafting_table_top','others':'crafting_table_side'})"
+        },
+        {
+          "line": 36,
+          "text": "add('smithing_table','cube',sha='f7bcd3e1f5f740089ded6cc3627b8018e8a55c83',textures={'down':'smithing_table_bottom','north':'smithing_table_front','up':'smithing_table_top','others':'smithing_table_side'})"
+        },
+        {
+          "line": 37,
+          "text": "add('lectern','block',boxes=[([0,0,0],[16,2,16]),([4,2,4],[12,15,12]),([0.0125,12,3],[15.9875,16,16])],sha='a504fa96bc3c5c729adaaa015d927b8250a1bd63',textures={'base':'lectern_base','front':'lectern_front','sides':'lectern_sides','top':'lectern_top','bottom':'oak_planks'},rotation={'2':{'axis':'x','"
+        },
+        {
+          "line": 38,
+          "text": "add('anvil','template_anvil',sha='dc9d2555669a31984f3d0e221f778ca170d7f533',textures={'top':'anvil_top'})"
+        },
+        {
+          "line": 39,
+          "text": "add('composter','block',boxes=[([0,0,0],[16,2,16]),([0,0,0],[2,16,16]),([14,0,0],[16,16,16]),([2,0,0],[14,16,2]),([2,0,14],[14,16,16])],sha='9650f777a58fe668b42ad8ad6d57a643121f5202',textures={'side':'composter_side','bottom':'composter_bottom','top':'composter_top'})"
+        },
+        {
+          "line": 40,
+          "text": "add('oak_stairs_inner','inner_stairs',sha='2850cc5807525b601911009a3f7b458ac9069cfe')"
+        },
+        {
+          "line": 41,
+          "text": "add('oak_stairs_outer','outer_stairs',sha='78644acd4c29f06771661f1dfe668c41237a6196')"
+        },
+        {
+          "line": 42,
+          "text": "add('oak_slab_top','slab_top',sha='d7adec0ee079a22a08bdd9adf0d982a4978b82b2')"
+        },
+        {
+          "line": 43,
+          "text": "add('oak_trapdoor_open','template_trapdoor_open',sha='e8b0bb3b205bdfde6b611cf9ecb45039294bf840')"
+        },
+        {
+          "line": 44,
+          "text": "add('oak_trapdoor_top','template_trapdoor_top',sha='34322d68e4b4e28539684a36205ee69535527950')"
+        },
+        {
+          "line": 45,
+          "text": "add('barrel_open','cube_bottom_top',sha='c7d013e7b442624011ab4a0bef8b4e9ac5570ea9',textures={'top':'barrel_top_open'})"
+        },
+        {
+          "line": 46,
+          "text": "add('stone_button','button',sha='42d1cc4d82c32212a3210a5abb68aa9ace225152',textures={'texture':'stone'})"
+        },
+        {
+          "line": 47,
+          "text": "add('ladder',None,boxes=[([0,0,15.2],[16,16,15.2])],sha='1b975e4d8d0d5d8b763d7065e9b451d8fa437bb9',textures={'texture':'ladder'})"
+        },
+        {
+          "line": 49,
+          "text": "    add(n,None,sha='9406a8491ed2532d4878b0a91b16a0e5f8d93d80',textures={'particle':'oak_planks'})"
+        },
+        {
+          "line": 50,
+          "text": "add('flower_pot',None,boxes=[([5,0,5],[6,6,11]),([10,0,5],[11,6,11]),([6,0,5],[10,6,6]),([6,0,10],[10,6,11]),([6,0,6],[10,4,10])],sha='45c7a75b1e69ce35bf3bc76d794e1a922deccf53',textures={'flowerpot':'flower_pot','dirt':'dirt'})"
+        },
+        {
+          "line": 51,
+          "text": "add('button',None,boxes=[([5,0,6],[11,2,10])],sha='b3dc8a56eefa7de473cbde2afc6523f94f34e068')"
+        },
+        {
+          "line": 52,
+          "text": "add('button_pressed',None,boxes=[([5,0,6],[11,1.02,10])],sha='a4da58f6a3afbf515136901b03ef5690e351932c')"
+        },
+        {
+          "line": 53,
+          "text": "add('oak_pressure_plate','pressure_plate_up',sha='3fb5dd7c91d1c9de7e7938c5db23282a22840421')"
+        },
+        {
+          "line": 54,
+          "text": "add('oak_pressure_plate_down','pressure_plate_down',sha='06c4db73235c56a16e2a2898ebdcd57e4f2be44a')"
+        },
+        {
+          "line": 57,
+          "text": "def tmpl(n,p=None,b=None,sha='',r=None):add(n,p,b,sha,kind='template',rotation=r)"
+        },
+        {
+          "line": 58,
+          "text": "tmpl('cube_all','cube',sha='fa2f9e776173224b2b523b8b537c695b921267f6')"
+        },
+        {
+          "line": 59,
+          "text": "tmpl('slab','block',[([0,0,0],[16,8,16])],sha='1eadc701d915521e782c1f8af4393a57732d4af2')"
+        },
+        {
+          "line": 60,
+          "text": "tmpl('stairs','block',[([0,0,0],[16,8,16]),([8,8,0],[16,16,16])],sha='986ce9c6ee85c488fcce0ef924eec6ed118e5f09')"
+        },
+        {
+          "line": 61,
+          "text": "tmpl('fence_post',None,[([6,0,6],[10,16,10])],sha='4f6a7438647518cf3c2aada17462be1260dd86d2')"
+        },
+        {
+          "line": 62,
+          "text": "tmpl('fence_side',None,[([7,12,0],[9,15,9]),([7,6,0],[9,9,9])],sha='7145349ba783848e35d4786db6bed22b77ff5e51')"
+        },
+        {
+          "line": 63,
+          "text": "tmpl('template_trapdoor_bottom','thin_block',[([0,0,0],[16,3,16])],sha='2b6c8daa974d26356b18f037b7fc16a237699136')"
+        },
+        {
+          "line": 64,
+          "text": "tmpl('door_bottom_left',None,[([0,0,0],[3,16,16])],sha='5eef3f89cbe3e1fff5bfbaacc65e34f5fa5776a1')"
+        },
+        {
+          "line": 65,
+          "text": "tmpl('template_shelf_body','block',[([0,0,13],[16,16,16]),([0,0,11],[16,4,13]),([0,12,11],[16,16,13])],sha='2f258411f5a049fcd96f274e1253fb9acdaa570d')"
+        },
+        {
+          "line": 66,
+          "text": "tmpl('cube','block',[([0,0,0],[16,16,16])],sha='1b9780b479aee527f79bde950656b82f1524128b')"
+        },
+        {
+          "line": 67,
+          "text": "tmpl('cube_column','cube',sha='358b9847efe8bb17811ef48eedd219d8c9b51499')"
+        },
+        {
+          "line": 68,
+          "text": "tmpl('cube_bottom_top','cube',sha='4c610597880f4593c7b6e62d7da0feb95dac5b8f')"
+        },
+        {
+          "line": 69,
+          "text": "tmpl('template_chiseled_bookshelf_slot_top_left',None,[([10,8,0],[16,16,0])],sha='da9fc59136a95d14a3fbe5eb363564b8fa45bf36')"
+        },
+        {
+          "line": 70,
+          "text": "tmpl('template_anvil','block',[([2,0,2],[14,4,14]),([4,4,3],[12,5,13]),([6,5,4],[10,10,12]),([3,10,0],[13,16,16])],sha='47a37763cc372fa5ad9f0f43719e246d6a5b16df')"
+        },
+        {
+          "line": 71,
+          "text": "tmpl('thin_block','block',sha='1adb58ab77ba14878221c894e8bef09921e1844f')"
+        },
+        {
+          "line": 72,
+          "text": "tmpl('block',None,sha='f9c72559950abcb186b8e3959e135c0f2d542bdf')"
+        },
+        {
+          "line": 73,
+          "text": "tmpl('inner_stairs',None,[([0,0,0],[16,8,16]),([8,8,0],[16,16,16]),([0,8,8],[8,16,16])],sha='364eff63e057a4abbb74d80f7d5297beba61f751')"
+        },
+        {
+          "line": 74,
+          "text": "tmpl('outer_stairs',None,[([0,0,0],[16,8,16]),([8,8,8],[16,16,16])],sha='03bbe420026b24edee44cab63ede4927933fbc55')"
+        },
+        {
+          "line": 75,
+          "text": "tmpl('slab_top',None,[([0,8,0],[16,16,16])],sha='e21eb9329d4f40244079424a14aa694a0577114e')"
+        },
+        {
+          "line": 76,
+          "text": "tmpl('template_trapdoor_open',None,[([0,0,13],[16,16,16])],sha='b301619c260a8ae7d03e85bfe2bc2bc0c90de835')"
+        },
+        {
+          "line": 77,
+          "text": "tmpl('template_trapdoor_top',None,[([0,13,0],[16,16,16])],sha='036aeb7b92c6ee94a9ccdcc7b54bb11ecf796532')"
+        },
+        {
+          "line": 78,
+          "text": "tmpl('pressure_plate_up','thin_block',[([1,0,1],[15,1,15])],sha='689fbe4f968231325862003e5730c845592250fb')"
+        },
+        {
+          "line": 79,
+          "text": "tmpl('pressure_plate_down',None,[([1,0,1],[15,.5,15])],sha='db6e6ba6c1b8dc4de78806dfbea2956d7f3978ad')"
+        },
+        {
+          "line": 80,
+          "text": "tmpl('template_shelf_unpowered','block',[([0,4,13],[16,12,13])],sha='ad5b6a3fc7c2256e2cab8f18a46a82e085511cec')"
+        },
+        {
+          "line": 84,
+          "text": "def blockstate(n,mode,entries,sha,example):B[n]=dict(name=n,mode=mode,entries=entries,sha=sha,example=example)"
+        },
+        {
+          "line": 87,
+          "text": "blockstate('oak_stairs','variants',40,'c20e7ef6c86dd57238f39cd51fc6b0c5bcc5b079','facing × half × shape; straight/inner/outer models; rotations/uvlock')"
+        },
+        {
+          "line": 93,
+          "text": "blockstate('red_bed','variants',1,'6577c90a27efb34a7099150253c0bf557d75214c','\"\": model block/bed (no elements)')"
+        },
+        {
+          "line": 94,
+          "text": "blockstate('chest','variants',1,'f78fa579cec93e6b0ce9ed44d7115bd125f57ee9','\"\": model block/chest (no elements)')"
+        },
+        {
+          "line": 95,
+          "text": "blockstate('oak_sign','variants',1,'b9f38f4f7f38680ed0656ce1d62f5d076bf24559','\"\": model block/oak_sign (no elements)')"
+        },
+        {
+          "line": 127,
+          "text": "models=[]; elements=[]; sources=[]"
+        },
+        {
+          "line": 132,
+          "text": "    url=f'{GITHUB}/models/block/{n}.json'"
+        },
+        {
+          "line": 133,
+          "text": "    models.append(dict(name=n,kind=v['kind'],parent=v['parent'] or '',parent_chain=' > '.join(chain),element_count=len(bx) if bx is not None else '',box_min_xyz=json.dumps(bb[:3]) if bb else '',box_max_xyz=json.dumps(bb[3:]) if bb else '',rotation_observed=int(bool(v['rotation'] or r)),texture_varia"
+        },
+        {
+          "line": 134,
+          "text": "    sources.append(dict(path=f'assets/minecraft/models/block/{n}.json',github_blob_sha1=v['sha'],source_url=url,source_type='model',read_status='GitHub_connector_read_2026-11-11'))"
+        },
+        {
+          "line": 137,
+          "text": "        elements.append(dict(model=n,element_index=k,origin_geometry_model=chain[-1],from_xyz=json.dumps(lo),to_xyz=json.dumps(hi),dimensions_xyz=json.dumps(dims),local_rotation=json.dumps((v['rotation'] or r).get(str(k),{})),note='Unrotated element dimensions; not collision shape'))"
+        },
+        {
+          "line": 139,
+          "text": "    sources.append(dict(path=f'assets/minecraft/blockstates/{n}.json',github_blob_sha1=v['sha'],source_url=f'{GITHUB}/blockstates/{n}.json',source_type='blockstate',read_status='GitHub_connector_read_2026-11-11'))"
+        },
+        {
+          "line": 140,
+          "text": "blockstates=[dict(name=v['name'],type=v['mode'],variant_or_multipart_entry_count=v['entries'],sample_behavior=v['example'],github_blob_sha1=v['sha'],source_url=f'{GITHUB}/blockstates/{n}.json') for n,v in B.items()]"
+        },
+        {
+          "line": 141,
+          "text": "assert len(sources)==71 and len(models)==55"
+        },
+        {
+          "line": 142,
+          "text": "assert next(z for z in models if z['name']=='oak_shelf')['element_count']==3"
+        },
+        {
+          "line": 143,
+          "text": "assert next(z for z in models if z['name']=='lectern')['element_count']==3"
+        },
+        {
+          "line": 144,
+          "text": "assert next(z for z in models if z['name']=='anvil')['element_count']==4"
+        },
+        {
+          "line": 145,
+          "text": "assert next(z for z in models if z['name']=='flower_pot')['element_count']==5"
+        },
+        {
+          "line": 146,
+          "text": "assert next(z for z in models if z['name']=='oak_stairs_inner')['element_count']==3"
+        },
+        {
+          "line": 147,
+          "text": "assert next(z for z in models if z['name']=='chest')['geometry_status'].startswith('JSON_particle')"
+        },
+        {
+          "line": 149,
+          "text": "write_csv('01_대표모델_구조55.csv',models,list(models[0]))"
+        },
+        {
+          "line": 150,
+          "text": "write_csv('02_모델요소_치수.csv',elements,list(elements[0]))"
+        },
+        {
+          "line": 152,
+          "text": "write_csv('04_모델및블록상태_근거원장71.csv',sources,list(sources[0]))"
+        },
+        {
+          "line": 160,
+          "text": "db_path=OUT/'MC_Furniture_Style_Stage1_Research_v5.sqlite'"
+        },
+        {
+          "line": 162,
+          "text": "conn=sqlite3.connect(db_path)"
+        },
+        {
+          "line": 164,
+          "text": "conn.execute('CREATE TABLE sources (path TEXT PRIMARY KEY, github_blob_sha1 TEXT, source_url TEXT, source_type TEXT, read_status TEXT)')"
+        },
+        {
+          "line": 165,
+          "text": "conn.execute('CREATE TABLE models (name TEXT PRIMARY KEY, kind TEXT, parent TEXT, parent_chain TEXT, element_count INTEGER, box_min_xyz TEXT, box_max_xyz TEXT, rotation_observed INTEGER, texture_variables TEXT, geometry_status TEXT, github_blob_sha1 TEXT, source_url TEXT)')"
+        },
+        {
+          "line": 166,
+          "text": "conn.execute('CREATE TABLE elements (model TEXT, element_index INTEGER, origin_geometry_model TEXT, from_xyz TEXT, to_xyz TEXT, dimensions_xyz TEXT, local_rotation TEXT, note TEXT, PRIMARY KEY (model,element_index), FOREIGN KEY(model) REFERENCES models(name))')"
+        },
+        {
+          "line": 167,
+          "text": "conn.execute('CREATE TABLE blockstates (name TEXT PRIMARY KEY, type TEXT, variant_or_multipart_entry_count INTEGER, sample_behavior TEXT, github_blob_sha1 TEXT, source_url TEXT)')"
+        },
+        {
+          "line": 168,
+          "text": "conn.execute('CREATE TABLE texture_stats_v4 (texture_id TEXT PRIMARY KEY, family TEXT, source_url TEXT, sha256 TEXT, width INTEGER, height INTEGER, unique_rgb_visible INTEGER, mean_luma REAL, luma_std REAL, verification TEXT)')"
+        },
+        {
+          "line": 169,
+          "text": "conn.executemany('INSERT INTO sources VALUES (?,?,?,?,?)',[[r[k] for k in sources[0]] for r in sources])"
+        },
+        {
+          "line": 170,
+          "text": "for m in models:"
+        },
+        {
+          "line": 171,
+          "text": "    vals=[m[k] if m[k]!='' else None for k in list(models[0])]"
+        }
+      ],
+      "source_full_content_read": true,
+      "script_executed_this_round": false,
+      "DB_binary_reparsed_this_round": false
+    },
+    {
+      "path": "research/vanilla_models/v6/build_v6.py",
+      "sha": "821fca1331ad0f175f7809ba64be07780e5d7380",
+      "source_bytes": 30364,
+      "source_lines": 387,
+      "DB_related_source_lines": [
+        {
+          "line": 9,
+          "text": "import csv, json, sqlite3, shutil, zipfile, hashlib, math, pathlib, collections, datetime"
+        },
+        {
+          "line": 10,
+          "text": "ROOT=pathlib.Path('/mnt/data/MC_vanilla_models_study_06')"
+        },
+        {
+          "line": 12,
+          "text": "PRIOR=pathlib.Path('/mnt/data/MC_vanilla_models_study_05/results/MC_Furniture_Style_Stage1_Research_v5.sqlite')"
+        },
+        {
+          "line": 13,
+          "text": "DB=OUT/'MC_Furniture_Style_Stage1_Research_v6.sqlite'"
+        },
+        {
+          "line": 15,
+          "text": "conn=sqlite3.connect(DB)"
+        },
+        {
+          "line": 20,
+          "text": "models_new=["
+        },
+        {
+          "line": 45,
+          "text": "CREATE TABLE IF NOT EXISTS model_additions_v6 ("
+        },
+        {
+          "line": 46,
+          "text": " name TEXT PRIMARY KEY,parent TEXT,element_count INTEGER,sha1 TEXT,geometry_kind TEXT,source_url TEXT,evidence_note TEXT"
+        },
+        {
+          "line": 48,
+          "text": "CREATE TABLE IF NOT EXISTS state_additions_v6 ("
+        },
+        {
+          "line": 49,
+          "text": " name TEXT PRIMARY KEY,state_mode TEXT,entry_count INTEGER,sha1 TEXT,source_url TEXT"
+        },
+        {
+          "line": 51,
+          "text": "CREATE TABLE IF NOT EXISTS uv_faces_v6 ("
+        },
+        {
+          "line": 57,
+          "text": "CREATE TABLE IF NOT EXISTS state_examples_v6 ("
+        },
+        {
+          "line": 63,
+          "text": "CREATE TABLE IF NOT EXISTS research_issues_v6 ("
+        },
+        {
+          "line": 67,
+          "text": "for n,p,num,sha,kind,note in models_new:"
+        },
+        {
+          "line": 69,
+          "text": "  (n,p,num,sha,kind,repo+'/models/block/'+n+'.json',note))"
+        },
+        {
+          "line": 70,
+          "text": " conn.execute('INSERT OR REPLACE INTO sources (path,github_blob_sha1,source_url,source_type,read_status) VALUES(?,?,?,?,?)',"
+        },
+        {
+          "line": 71,
+          "text": "  ('assets/minecraft/models/block/'+n+'.json',sha,repo+'/models/block/'+n+'.json','model','GitHub_connector_read_2026-11-11'))"
+        },
+        {
+          "line": 72,
+          "text": "for n,mode,count,sha in states_new:"
+        },
+        {
+          "line": 74,
+          "text": "  (n,mode,count,sha,repo+'/blockstates/'+n+'.json'))"
+        },
+        {
+          "line": 75,
+          "text": " conn.execute('INSERT OR REPLACE INTO sources (path,github_blob_sha1,source_url,source_type,read_status) VALUES(?,?,?,?,?)',"
+        },
+        {
+          "line": 76,
+          "text": "  ('assets/minecraft/blockstates/'+n+'.json',sha,repo+'/blockstates/'+n+'.json','blockstate','GitHub_connector_read_2026-11-11'))"
+        },
+        {
+          "line": 107,
+          "text": "source_sha={row[0].split('/')[-1][:-5]:row[1] for row in conn.execute(\"SELECT path,github_blob_sha1 FROM sources WHERE source_type='model'\")}"
+        },
+        {
+          "line": 108,
+          "text": "model_counts={row[0]:row[1] for row in conn.execute('SELECT name,element_count FROM models')}"
+        },
+        {
+          "line": 109,
+          "text": "model_counts.update({n:num for n,p,num,sha,kind,note in models_new})"
+        },
+        {
+          "line": 112,
+          "text": " assert src in source_sha and source_sha[src],src"
+        },
+        {
+          "line": 119,
+          "text": "  rows.append((src,i,face,json.dumps(uv),tex,rot,cull,repo+'/models/block/'+src+'.json','source_JSON_face_directly_read'))"
+        },
+        {
+          "line": 127,
+          "text": "ex('oak_stairs','facing=east,half=bottom,shape=inner_left','oak_stairs_inner',0,270,True)"
+        },
+        {
+          "line": 128,
+          "text": "ex('oak_stairs','facing=east,half=bottom,shape=inner_right','oak_stairs_inner')"
+        },
+        {
+          "line": 129,
+          "text": "ex('oak_stairs','facing=east,half=bottom,shape=outer_left','oak_stairs_outer',0,270,True)"
+        },
+        {
+          "line": 130,
+          "text": "ex('oak_stairs','facing=east,half=bottom,shape=outer_right','oak_stairs_outer')"
+        },
+        {
+          "line": 168,
+          "text": " count(DISTINCT element_index) AS elements_covered,"
+        },
+        {
+          "line": 176,
+          "text": " FROM models UNION ALL SELECT name,parent,element_count,geometry_kind AS evidence_kind,source_url,'v6' AS batch"
+        },
+        {
+          "line": 187,
+          "text": "writecsv('01_v6_신규모델13개.csv',['name','parent','element_count','sha1','geometry_kind','source_url','evidence_note'],list(conn.execute('SELECT * FROM model_additions_v6 ORDER BY name')))"
+        },
+        {
+          "line": 188,
+          "text": "writecsv('02_v6_신규블록상태7개.csv',['name','state_mode','entry_count','sha1','source_url'],list(conn.execute('SELECT * FROM state_additions_v6 ORDER BY name')))"
+        },
+        {
+          "line": 190,
+          "text": "writecsv('04_v6_UV모델별_요약.csv',['geometry_model','faces_recorded','elements_covered','implicit_uv_faces','texture_variables_used','rotated_face_uvs','culled_faces'],list(conn.execute('SELECT * FROM uv_audited_face_summary_v6 ORDER BY source_geometry_model')))"
+        },
+        {
+          "line": 193,
+          "text": "writecsv('10_v6_누적_출처원장91.csv',['path','github_blob_sha1','source_url','source_type','read_status'],list(conn.execute('SELECT * FROM sources ORDER BY source_type,path')))"
+        },
+        {
+          "line": 197,
+          "text": " 'previous_v5_sources':71,"
+        },
+        {
+          "line": 198,
+          "text": " 'v6_new_model_sources':len(models_new),"
+        },
+        {
+          "line": 199,
+          "text": " 'v6_new_state_sources':len(states_new),"
+        },
+        {
+          "line": 200,
+          "text": " 'cumulative_source_files':conn.execute('SELECT count(*) FROM sources').fetchone()[0],"
+        },
+        {
+          "line": 202,
+          "text": " 'v6_new_model_files':len(models_new),"
+        },
+        {
+          "line": 203,
+          "text": " 'cumulative_model_files':55+len(models_new),"
+        },
+        {
+          "line": 209,
+          "text": " 'uv_elements_covered':conn.execute('SELECT count(DISTINCT source_geometry_model||\":\"||element_index) FROM uv_faces_v6').fetchone()[0],"
+        },
+        {
+          "line": 212,
+          "text": " 'v5_geometry_element_rows':conn.execute('SELECT count(*) FROM elements').fetchone()[0]"
+        },
+        {
+          "line": 214,
+          "text": "assert counts['cumulative_source_files']==71+len(models_new)+len(states_new),counts"
+        },
+        {
+          "line": 216,
+          "text": "assert counts['cumulative_model_files']==55+len(models_new)"
+        },
+        {
+          "line": 261,
+          "text": "| 실제 열람한 모델 JSON | 55 | {len(models_new)} | {55+len(models_new)} |"
+        },
+        {
+          "line": 263,
+          "text": "| 원본 경로·SHA 원장 총계 | 71 | {len(models_new)+len(states_new)} | {counts['cumulative_source_files']} |"
+        },
+        {
+          "line": 266,
+          "text": "이번 추가 결과는 UV 좌표를 **{counts['uv_sample_geometry_files']}개 기하구조 모델의 {counts['uv_elements_covered']}개 요소, {counts['uv_sample_faces']}개 면**에서 추출했고, **{counts['state_examples']}개의 상태 적용 예시**를 별도 기록했다. UV는 바닐라 전체 면 전수조사가 아니고 표본이다."
+        },
+        {
+          "line": 272,
+          "text": "| 정육면체 | `cube`는 부피 16×16×16, 6면의 `uv` 값을 생략하고 면별 텍스처 변수 사용 | `models/block/cube.json` |"
+        },
+        {
+          "line": 273,
+          "text": "| 계단 | `stairs`는 2개 직육면체, 정면 상·하 UV가 분리되어 서로 다른 범위를 사용 | `models/block/stairs.json` |"
+        },
+        {
+          "line": 274,
+          "text": "| 다락문 | `template_trapdoor_bottom`는 16×3×16, 상면 UV 16×16 범위와 측면 UV 16×3 범위를 별도 적용 | `models/block/template_trapdoor_bottom.json` |"
+        },
+        {
+          "line": 275,
+          "text": "| 선반 | `template_shelf_body`는 3개 요소, 같은 `#all` 텍스처를 15개 면별로 다른 UV 범위에 배치 | `models/block/template_shelf_body.json` |"
+        },
+        {
+          "line": 276,
+          "text": "| 독서대 | `lectern`은 3개 요소, 상단 로컬 회전 −22.5°, 일부 면 UV 회전 90°/180° | `models/block/lectern.json` |"
+        },
+        {
+          "line": 277,
+          "text": "| 사다리 | `ladder`는 Z=15.2의 0-두께 양면, 반대쪽 UV 가로 방향이 뒤집혀 있음 | `models/block/ladder.json` |"
+        },
+        {
+          "line": 278,
+          "text": "| 모루 | `template_anvil`는 상부 요소 `#top`, 측면은 `#body` 사용. 일부 면은 UV 90/270° 회전 | `models/block/template_anvil.json` |"
+        },
+        {
+          "line": 279,
+          "text": "| 화분 | 내부 바닥은 `#dirt`, 외부 테두리는 `#flowerpot`: 재질을 부품/면별 구분 | `models/block/flower_pot.json` |"
+        },
+        {
+          "line": 304,
+          "text": "이 수치는 모델 JSON의 개별 `elements` 요소 개수이며, 일반화된 권장 큐브 개수가 아니다. 형태가 빈 원통처럼 보여도 실제로는 직육면체 벽을 나눠 놓을 수 있다."
+        },
+        {
+          "line": 312,
+          "text": "| 계단 | `facing=east,half=bottom,shape=inner_left` | `oak_stairs_inner` + Y축 270°, `uvlock=true` |"
+        },
+        {
+          "line": 337,
+          "text": "**증거 파일:** `01~06 CSV`, `08 선반 UV-픽셀 대응 CSV`, `MC_Furniture_Style_Stage1_Research_v6.sqlite`, `07 검증및진행현황.json`. **게임 원본 에셋은 이 패키지에 포함하지 않음.**"
+        },
+        {
+          "line": 359,
+          "text": "Data-only research pack for Minecraft Java 1.21.11. Prior v5 SQLite carried over."
+        },
+        {
+          "line": 361,
+          "text": "recorded in SQLite and CSV. The companion build_v6.py can rebuild from v5 database."
+        },
+        {
+          "line": 363,
+          "text": "Major files: 00 report; 01/02 new models/states; 03/04 UV sample; 05 state"
+        },
+        {
+          "line": 365,
+          "text": "09 MD progress; SQLite DB."
+        },
+        {
+          "line": 372,
+          "text": "with sqlite3.connect(DB) as con:"
+        },
+        {
+          "line": 374,
+          "text": " assert con.execute('SELECT count(*) FROM sources').fetchone()[0]==counts['cumulative_source_files']"
+        },
+        {
+          "line": 384,
+          "text": "  if p.is_file():z.write(p,arcname='MC_vanilla_models_study_06/results/'+p.name)"
+        }
+      ],
+      "source_full_content_read": true,
+      "script_executed_this_round": false,
+      "DB_binary_reparsed_this_round": false
+    },
+    {
+      "path": "research/vanilla_models/v7/build_v7.py",
+      "sha": "719ab145ff82af7d3aa39fe09499337af6ffa2ca",
+      "source_bytes": 32346,
+      "source_lines": 373,
+      "DB_related_source_lines": [
+        {
+          "line": 3,
+          "text": "Inputs: previously verified v6 SQLite + source observations recorded from the GitHub"
+        },
+        {
+          "line": 9,
+          "text": "import sqlite3, json, csv, math, shutil, zipfile, hashlib"
+        },
+        {
+          "line": 12,
+          "text": "OUT=BASE/'MC_vanilla_models_study_07'/'results'; OUT.mkdir(parents=True,exist_ok=True)"
+        },
+        {
+          "line": 13,
+          "text": "DB=OUT/'MC_Furniture_Style_Stage1_Research_v7.sqlite'"
+        },
+        {
+          "line": 14,
+          "text": "V6=BASE/'MC_vanilla_models_study_06'/'results'/'MC_Furniture_Style_Stage1_Research_v6.sqlite'"
+        },
+        {
+          "line": 16,
+          "text": "with sqlite3.connect(V6) as old, sqlite3.connect(DB) as new: old.backup(new)"
+        },
+        {
+          "line": 27,
+          "text": "# Named models and parent template evidence (git blob SHA-1 from connector metadata)."
+        },
+        {
+          "line": 163,
+          "text": "'oak_stairs':[('straight_north',dict(facing='north',half='bottom',shape='straight')),('inner_east',dict(facing='east',half='bottom',shape='inner_left'))],"
+        },
+        {
+          "line": 193,
+          "text": "with sqlite3.connect(DB) as con:"
+        },
+        {
+          "line": 195,
+          "text": " CREATE TABLE IF NOT EXISTS connected_sources_v7 (path TEXT PRIMARY KEY, git_blob_sha1 TEXT NOT NULL, version TEXT, validation TEXT, url TEXT);"
+        },
+        {
+          "line": 196,
+          "text": " CREATE TABLE IF NOT EXISTS connected_geometry_v7 (model TEXT PRIMARY KEY, parent_template TEXT, source_sha1 TEXT, primitive_count INTEGER, primitive_boxes_json TEXT, observation TEXT);"
+        },
+        {
+          "line": 197,
+          "text": " CREATE TABLE IF NOT EXISTS assembly_cases_v7 (block TEXT, case_id TEXT, props_json TEXT, source_blockstate_sha1 TEXT, selection_kind TEXT, applied_model_count INTEGER, primitive_count INTEGER, zero_thickness_primitive_count INTEGER, bounds_from_json TEXT, bounds_to_json TEXT, method TEXT, PRIMARY K"
+        },
+        {
+          "line": 198,
+          "text": " CREATE TABLE IF NOT EXISTS assembly_parts_v7 (block TEXT, case_id TEXT, part_ordinal INTEGER, selected_model TEXT, source_rule_ordinal TEXT, x_rotation INTEGER, y_rotation INTEGER, uvlock INTEGER, primitive_count INTEGER, from_rotated_json TEXT, to_rotated_json TEXT, PRIMARY KEY(block,case_id,part_"
+        },
+        {
+          "line": 199,
+          "text": " CREATE TABLE IF NOT EXISTS assembly_primitives_v7 (block TEXT, case_id TEXT, part_ordinal INTEGER, primitive_ordinal INTEGER, model TEXT, unrotated_from_json TEXT, unrotated_to_json TEXT, rotated_from_json TEXT, rotated_to_json TEXT, zero_thickness INTEGER, PRIMARY KEY(block,case_id,part_ordinal,pr"
+        },
+        {
+          "line": 200,
+          "text": " CREATE TABLE IF NOT EXISTS research_limits_v7 (issue TEXT PRIMARY KEY, detail TEXT, status TEXT);"
+        },
+        {
+          "line": 202,
+          "text": " for b,sha in SOURCE_STATES.items():"
+        },
+        {
+          "line": 204,
+          "text": "  con.execute('INSERT OR REPLACE INTO connected_sources_v7 VALUES (?,?,?,?,?)',(p,sha,'java_1.21.11','GitHub_connector_JSON_read',url))"
+        },
+        {
+          "line": 205,
+          "text": "  con.execute('INSERT OR REPLACE INTO sources VALUES (?,?,?,?,?)',(p,sha,url,'blockstate','GitHub_connector_read_2026-11-12'))"
+        },
+        {
+          "line": 206,
+          "text": " for n,(parent,sha) in MODEL_EVIDENCE.items():"
+        },
+        {
+          "line": 207,
+          "text": "  p=f'assets/minecraft/models/block/{n}.json';url=REPO+f'models/block/{n}.json'"
+        },
+        {
+          "line": 208,
+          "text": "  con.execute('INSERT OR REPLACE INTO connected_sources_v7 VALUES (?,?,?,?,?)',(p,sha,'java_1.21.11','GitHub_connector_JSON_read',url))"
+        },
+        {
+          "line": 209,
+          "text": "  con.execute('INSERT OR REPLACE INTO sources VALUES (?,?,?,?,?)',(p,sha,url,'model','GitHub_connector_read_2026-11-12'))"
+        },
+        {
+          "line": 211,
+          "text": "  parent,sha=MODEL_EVIDENCE.get(n,('',None))"
+        },
+        {
+          "line": 212,
+          "text": "  if not sha:"
+        },
+        {
+          "line": 213,
+          "text": "   row=con.execute('SELECT github_blob_sha1 FROM sources WHERE path=?',(f'assets/minecraft/models/block/{n}.json',)).fetchone()"
+        },
+        {
+          "line": 214,
+          "text": "   sha=row[0] if row else None"
+        },
+        {
+          "line": 215,
+          "text": "  con.execute('INSERT INTO connected_geometry_v7 VALUES (?,?,?,?,?,?)',(n,parent,sha,len(boxes),j(boxes),'direct_or_parent_inherited_geometry; zero-thickness allowed'))"
+        },
+        {
+          "line": 234,
+          "text": "     con.execute('INSERT INTO assembly_primitives_v7 VALUES (?,?,?,?,?,?,?,?,?,?)',(b,case,pi,ei,model,j(lo),j(hi),j(a),j(c),zero_dims))"
+        },
+        {
+          "line": 236,
+          "text": "    con.execute('INSERT INTO assembly_parts_v7 VALUES (?,?,?,?,?,?,?,?,?,?,?)',(b,case,pi,model,str(r['entry']),r['x'],r['y'],int(r['uvlock']),len(boxes),j(a),j(c)))"
+        },
+        {
+          "line": 238,
+          "text": "   con.execute('INSERT INTO assembly_cases_v7 VALUES (?,?,?,?,?,?,?,?,?,?,?)',(b,case,j(p),SOURCE_STATES[b],'multipart' if b in RULES else 'variants',len(selected),total,zero,j(mn),j(mx),'state_condition_evaluated; blockstate x/y 90degree pivot=8; geometry from resolved templates; NOT actual rendere"
+        },
+        {
+          "line": 244,
+          "text": " 'L05':'blockstate rotation AABB는 직접 형상 정의에 대한 단순 기하학 변환이며 collision shape 아님',"
+        },
+        {
+          "line": 247,
+          "text": " for issue,desc in limits.items():con.execute('INSERT INTO research_limits_v7 VALUES (?,?,?)',(issue,desc,'OPEN'))"
+        },
+        {
+          "line": 257,
+          "text": " sources_rows=con.execute('SELECT * FROM connected_sources_v7 ORDER BY path').fetchall()"
+        },
+        {
+          "line": 264,
+          "text": " csv_dump('01_v7_상태별_최종조립_21사례.csv',['block','case_id','props_json','selection_kind','model_parts','geometry_elements','zero_thickness_elements','bound_min','bound_max'],cases_rows)"
+        },
+        {
+          "line": 267,
+          "text": " csv_dump('04_v7_원본경로_해시.csv',['path','git_blob_sha1','version','check','url'],sources_rows)"
+        },
+        {
+          "line": 268,
+          "text": " csv_dump('05_v7_모델별_구조정의.csv',['model','parent_template','sha1','elements','boxes_json','note'],geo_rows)"
+        },
+        {
+          "line": 274,
+          "text": " 'models_with_geometry':len(geo_rows),"
+        },
+        {
+          "line": 275,
+          "text": " 'source_evidence_entries':len(sources_rows),"
+        },
+        {
+          "line": 277,
+          "text": " 'prior_model_files':con.execute('select count(*) from models').fetchone()[0]+con.execute('select count(*) from model_additions_v6').fetchone()[0],"
+        },
+        {
+          "line": 279,
+          "text": " 'cumulative_source_paths':con.execute('select count(*) from sources').fetchone()[0],"
+        },
+        {
+          "line": 282,
+          "text": " 'v7_verification':'selected scenario matches independently calculated GitHub connector evaluations; SQLite integrity+zip CRC checked'"
+        },
+        {
+          "line": 289,
+          "text": "- 계승: v6 SQLite(기존 150종 텍스처, 모델 파일 68, 블록상태 23, UV 면 90)"
+        },
+        {
+          "line": 292,
+          "text": "- 누적 DB 출처 경로: **{stats['cumulative_source_paths']}개**. 텍스처 150종은 v4의 분석 통계만 계승했으며 공식 JAR 대조 미수행."
+        },
+        {
+          "line": 326,
+          "text": "- 기존 v6를 SQLite 백업한 뒤 신규 테이블 추가: 원본과 구버전 표를 덮어쓰지 않음."
+        },
+        {
+          "line": 327,
+          "text": "- SQLite integrity_check 통과, CSV·ZIP 재검사."
+        },
+        {
+          "line": 328,
+          "text": "- **미완료:** Mojang 공식 `client.jar`와 직접 SHA 비교, 실제 게임에서 조명·UVlock·상태 렌더 검증, 모델 카탈로그 전체 전수 확인, 특수 렌더 대상, 가구 모드 분석."
+        },
+        {
+          "line": 338,
+          "text": "`01` 상태별 조립 CSV, `02` 선택 모델 CSV, `03` 회전 후 요소 CSV, `04` 근거 경로 CSV, `05` 모델 구조 CSV, `06` 검증 JSON, 누적 SQLite, v7 재현 스크립트."
+        },
+        {
+          "line": 358,
+          "text": " (OUT/'README.md').write_text('# v7 연구 데이터\\n\\n이 패키지는 v6 연구 DB를 계승한 선택 블록상태 분석 자료입니다. PNG나 원본 Minecraft 모델 JSON은 포함하지 않습니다. 01~05 CSV 및 SQLite는 공개된 GitHub 추출 에셋에서 관찰한 21개 사례를 파생한 수치 자료이며 게임 전체의 조합을 뜻하지 않습니다.\\n',encoding='utf-8')"
+        },
+        {
+          "line": 364,
+          "text": "  if p.is_file(): z.write(p,arcname='MC_vanilla_models_study_07/results/'+p.name)"
+        },
+        {
+          "line": 368,
+          "text": "with sqlite3.connect(DB) as c:"
+        }
+      ],
+      "source_full_content_read": true,
+      "script_executed_this_round": false,
+      "DB_binary_reparsed_this_round": false
+    },
+    {
+      "path": "research/vanilla_models/v8/build_v8.py",
+      "sha": "9e03d94ddb1e79fbce1d50c7f084dbc48578ec40",
+      "source_bytes": 26402,
+      "source_lines": 318,
+      "DB_related_source_lines": [
+        {
+          "line": 2,
+          "text": "\"\"\"v7 SQLite -> v8: Minecraft Java 1.21.11 special & hybrid render evidence."
+        },
+        {
+          "line": 4,
+          "text": "SHA-1 identifiers were collected through live GitHub fetch calls on 2026-11-12."
+        },
+        {
+          "line": 7,
+          "text": "import csv, hashlib, io, json, os, re, sqlite3, zipfile"
+        },
+        {
+          "line": 12,
+          "text": "WORK=ROOT/'MC_vanilla_models_study_08'"
+        },
+        {
+          "line": 16,
+          "text": "OLD='MC_vanilla_models_study_07/results/MC_Furniture_Style_Stage1_Research_v7.sqlite'"
+        },
+        {
+          "line": 17,
+          "text": "DB=RESULT/'MC_Furniture_Style_Stage1_Research_v8.sqlite'"
+        },
+        {
+          "line": 27,
+          "text": "# state may refer to a model shared across many blocks, so Sha may repeat."
+        },
+        {
+          "line": 28,
+          "text": "# (block, classification, blockstate_sha1, model_name, model_sha1,"
+        },
+        {
+          "line": 29,
+          "text": "#  parent, resolved geometry elements, atlas, renderer, evidence explanation)"
+        },
+        {
+          "line": 41,
+          "text": "('decorated_pot','SPECIAL','2aa0faf7bb6157870c9d09cb29f52ea1adf72f6a','decorated_pot','1456e72d8c368d6bacdc16f172dc2771784fa422','',0,'decorated_pot','DecoratedPotBlockEntityRenderer','도자기 조립과 장식은 기본 블록 JSON의 elements로 표현되지 않음'),"
+        },
+        {
+          "line": 60,
+          "text": "# Exact PNG IHDR dimensions, file length, and Git blob SHA from connector binary"
+        },
+        {
+          "line": 61,
+          "text": "# content (base64 decoded for header verification).  These are not SHA-256."
+        },
+        {
+          "line": 88,
+          "text": "cn=sqlite3.connect(DB)"
+        },
+        {
+          "line": 91,
+          "text": "CREATE TABLE IF NOT EXISTS special_block_evidence_v8 ("
+        },
+        {
+          "line": 93,
+          "text": " blockstate_path TEXT NOT NULL, blockstate_blob_sha1 TEXT NOT NULL,"
+        },
+        {
+          "line": 94,
+          "text": " model_name TEXT NOT NULL, model_path TEXT NOT NULL, model_blob_sha1 TEXT NOT NULL,"
+        },
+        {
+          "line": 100,
+          "text": "CREATE TABLE IF NOT EXISTS texture_atlases_v8 ("
+        },
+        {
+          "line": 101,
+          "text": " atlas TEXT PRIMARY KEY, atlas_json_path TEXT NOT NULL, git_blob_sha1 TEXT NOT NULL,"
+        },
+        {
+          "line": 105,
+          "text": "CREATE TABLE IF NOT EXISTS special_texture_metadata_v8 ("
+        },
+        {
+          "line": 106,
+          "text": " texture_path TEXT PRIMARY KEY, git_blob_sha1 TEXT NOT NULL,"
+        },
+        {
+          "line": 111,
+          "text": "CREATE TABLE IF NOT EXISTS rendering_conclusions_v8 ("
+        },
+        {
+          "line": 119,
+          "text": "for block,typ,bs_sha,model,mod_sha,parent,primitives,atlas,renderer,desc in ROWS:"
+        },
+        {
+          "line": 120,
+          "text": "    bsp=f'{P}blockstates/{block}.json';mp=f'{P}models/block/{model}.json'"
+        },
+        {
+          "line": 121,
+          "text": "    cn.execute('INSERT INTO special_block_evidence_v8 VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',"
+        },
+        {
+          "line": 122,
+          "text": "     (block,typ,bsp,bs_sha,model,mp,mod_sha,parent,primitives,atlas,renderer,CLASS_DOCS.get(renderer),desc,"
+        },
+        {
+          "line": 124,
+          "text": "for atlas,sha,prefix,source in ATLAS:"
+        },
+        {
+          "line": 125,
+          "text": "    cn.execute('INSERT INTO texture_atlases_v8 VALUES (?,?,?,?,?,?)',"
+        },
+        {
+          "line": 126,
+          "text": "       (atlas,f'{P}atlases/{atlas}.json',sha,prefix,source,BRANCH))"
+        },
+        {
+          "line": 127,
+          "text": "for t,sha,w,h,n,bits,ct in TEXTURES:"
+        },
+        {
+          "line": 128,
+          "text": "    cn.execute('INSERT INTO special_texture_metadata_v8 VALUES (?,?,?,?,?,?,?,?,?)',"
+        },
+        {
+          "line": 129,
+          "text": "       (f'{P}textures/{t}',sha,w,h,n,bits,ct,1,BRANCH))"
+        },
+        {
+          "line": 133,
+          "text": " ['models/block/bed.json','models/block/chest.json','models/block/oak_sign.json','atlases/beds.json','atlases/chests.json','atlases/signs.json'], 'BER 소스 코드를 직접 디컴파일하거나 인게임 화면을 비교하지 않았다.','A/B'),"
+        },
+        {
+          "line": 135,
+          "text": " ['models/block/enchanting_table.json','models/block/lectern.json','models/block/oak_shelf.json','models/block/bell_floor.json'], '책·물품의 실제 프레임별 변환을 계산하지 않았다.','A/B'),"
+        },
+        {
+          "line": 137,
+          "text": " ['models/block/barrel.json','models/block/chiseled_bookshelf.json','blockstates/chiseled_bookshelf.json'], '확인된 두 대상에 한정하며 전체 블록의 전수판정이 아니다.','A'),"
+        },
+        {
+          "line": 143,
+          "text": " ['models/block/bed.json','models/block/oak_sign.json','atlases/beds.json','atlases/signs.json'], '26.2 부분은 공식 릴리스 노트에 근거한다. 26.2 실제 JSON 파일은 본 연구에서 열지 않았다.','A/B'),"
+        },
+        {
+          "line": 145,
+          "text": " ['models/block/lectern.json','models/block/oak_shelf.json','atlases/blocks.json'], '이 문장은 연구 방향을 위한 해석으로 최종 제작 규칙이 아니다.','Inference')]"
+        },
+        {
+          "line": 147,
+          "text": "    cn.execute('INSERT INTO rendering_conclusions_v8 VALUES (?,?,?,?,?,?)',"
+        },
+        {
+          "line": 166,
+          "text": " ['block','render_mode','blockstate_path','blockstate_git_sha1','model_path','model_git_sha1','geometry_element_count','atlas','renderer','renderer_doc_url','observation','state','model_source_url'],"
+        },
+        {
+          "line": 167,
+          "text": " [[b,k,f'{P}blockstates/{b}.json',s,f'{P}models/block/{m}.json',sh,c,at,rd,CLASS_DOCS.get(rd,''),d,BRANCH,link(f'{P}models/block/{m}.json')] for (b,k,s,m,sh,pa,c,at,rd,d) in ROWS])"
+        },
+        {
+          "line": 170,
+          "text": " ['path','width','height','file_bytes','bit_depth','png_color_type','git_blob_sha1','url','note'],"
+        },
+        {
+          "line": 171,
+          "text": " [[P+'textures/'+name,w,h,n,depth,color,sha,link(P+'textures/'+name),'PNG IHDR verified; alpha/compositing not analyzed'] for name,sha,w,h,n,depth,color in TEXTURES])"
+        },
+        {
+          "line": 174,
+          "text": " ['name','path','git_blob_sha1','source_prefix','source_dir','source_url'],"
+        },
+        {
+          "line": 175,
+          "text": " [[name,P+'atlases/'+name+'.json',sha,prefix,source,link(P+'atlases/'+name+'.json')] for name,sha,prefix,source in ATLAS])"
+        },
+        {
+          "line": 186,
+          "text": "- 지난 v7 SQLite DB(150종 텍스처 통계, 21개 상태별 조립 사례)를 그대로 계승하여 **17개 블록 유형을 재분류**했다."
+        },
+        {
+          "line": 188,
+          "text": "- 공식이 아닌 **1.21.11 추출 에셋의 실제 blockstates/models/atlases JSON을 열어** Git blob SHA-1을 기록했다."
+        },
+        {
+          "line": 194,
+          "text": "블록 상태 정의가 모델 JSON을 가리키더라도, `models/block/bed.json`, `models/block/chest.json`, `models/block/oak_sign.json` 등은 `textures.particle`만 있고 `elements`가 없다. 따라서 이 JSON으로 계산된 직육면체 수는 **0개**이며, **게임 내 시각적인 침대·상자·표지판이 없다는 뜻이 아니다**."
+        },
+        {
+          "line": 248,
+          "text": "- **A(직접 관찰)**: 해당 버전 JSON 파일의 내용과 Git blob SHA, PNG header(width,height,bitdepth,colorType), 리소스 경로. **파일 자체를 패키지에 재배포하지 않았다**."
+        },
+        {
+          "line": 278,
+          "text": "- 실물 PNG 19개 파일 헤더 파싱/해상도·Git blob SHA 기록"
+        },
+        {
+          "line": 285,
+          "text": "- 공식 1.21.11 client.jar SHA 비교 미실시"
+        },
+        {
+          "line": 300,
+          "text": "            'sources':'GitHub assets extract + Yarn 1.21.11 Javadoc + Mojang 26.2 release notes',"
+        },
+        {
+          "line": 301,
+          "text": "            'checks':['each observed record uses git blob sha1','sqlite integrity_check','150 historical texture stats','21 historical assembly examples','PNG headers observed in connected GitHub base64 response'],"
+        },
+        {
+          "line": 302,
+          "text": "            'not_verified':['official client.jar byte/sha comparison','runtime rendering','implementation details of BER'],"
+        },
+        {
+          "line": 306,
+          "text": "readme='''# MC Vanilla 3D v8 (Java 1.21.11)\\n\\nResearch only; no original copyrighted Minecraft images/models redistributed.\\n\\n`00` Korean report, `01` per-block render evidence, `02` PNG metadata, `03` atlas sources, `04` category summary, `05` progress, `06` validations, cumulative SQLite, `build"
+        },
+        {
+          "line": 317,
+          "text": "print('SQLITE',DB.stat().st_size,'STATS',stats)"
+        }
+      ],
+      "source_full_content_read": true,
+      "script_executed_this_round": false,
+      "DB_binary_reparsed_this_round": false
+    }
+  ],
+  "scope_note": "Original 4 .py source scripts actually reopened and SHA matched; code examined not executed, 4 SQLite DB contents not reread in this round."
+}

@@ -1,0 +1,362 @@
+{
+  "schema": "v64_original_historical_MD_JSON_direct_content_review_batch",
+  "batch_index": 2,
+  "total_batches": 6,
+  "count": 9,
+  "original_documents": [
+    {
+      "path": "research/vanilla_models/v7/06_v7_통계_검증현황.json",
+      "git_blob_sha": "b60845c7481746ba455c2cf403e7ed7aafdf41be",
+      "size": "616",
+      "extension": "json",
+      "lines": 18,
+      "json_keys": [
+        "source_repo",
+        "source_tag",
+        "case_count",
+        "case_block_types",
+        "model_part_instances",
+        "geometry_element_instances",
+        "plane_instances",
+        "models_with_geometry",
+        "source_evidence_entries",
+        "prior_texture_samples",
+        "prior_model_files",
+        "prior_blockstate_files",
+        "cumulative_source_paths",
+        "official_jar_crosschecks",
+        "ingame_render_verifications",
+        "v7_verification"
+      ],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 2,
+          "text": "  \"source_repo\": \"InventivetalentDev/minecraft-assets\","
+        },
+        {
+          "line": 3,
+          "text": "  \"source_tag\": \"1.21.11\","
+        },
+        {
+          "line": 10,
+          "text": "  \"source_evidence_entries\": 61,"
+        },
+        {
+          "line": 14,
+          "text": "  \"cumulative_source_paths\": 148,"
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v7/07_v7_학습_진행도.md",
+      "git_blob_sha": "369abaaa0f82fca50c65a0b5fe489c3fb5b752d5",
+      "size": "1089",
+      "extension": "md",
+      "lines": 14,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 3,
+          "text": "| 단계 | 현황 | 정량 근거 | 완료 판단 |"
+        },
+        {
+          "line": 6,
+          "text": "| 02 바닐라 모델·UV·상태 | v7 진행 중 | v6 68모델·23상태·UV 90면 계승 + v7 21개 조립 사례, 93개 요소 인스턴스 | 전수/특수렌더/인게임 미완료; 퍼센트 미부여 |"
+        },
+        {
+          "line": 11,
+          "text": "**단계 확정 완료 0/5개, 진행 중 2/5개, 미시작 3/5개.** 원본 에셋과 독립 검증 대조가 끝나기 전에는 01 전체를 최종 완료로 처리하지 않는다."
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v7/README.md",
+      "git_blob_sha": "5e1c61ed2964ed6e1a21b47fa440b30211a9a6d8",
+      "size": "344",
+      "extension": "md",
+      "lines": 4,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 3,
+          "text": "이 패키지는 v6 연구 DB를 계승한 선택 블록상태 분석 자료입니다. PNG나 원본 Minecraft 모델 JSON은 포함하지 않습니다. 01~05 CSV 및 SQLite는 공개된 GitHub 추출 에셋에서 관찰한 21개 사례를 파생한 수치 자료이며 게임 전체의 조합을 뜻하지 않습니다."
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v8/00_v8_특수렌더_정적동적_비교보고서.md",
+      "git_blob_sha": "2ba2dcddad72da65503b4bd10204f3996c4c485c",
+      "size": "6928",
+      "extension": "md",
+      "lines": 81,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 9,
+          "text": "- 공식이 아닌 **1.21.11 추출 에셋의 실제 blockstates/models/atlases JSON을 열어** Git blob SHA-1을 기록했다."
+        },
+        {
+          "line": 10,
+          "text": "- 엔티티 계열 텍스처 **19개 PNG 헤더를 직접 확인**했고, **아틀라스 정의 6개**를 대조했다."
+        },
+        {
+          "line": 15,
+          "text": "블록 상태 정의가 모델 JSON을 가리키더라도, `models/block/bed.json`, `models/block/chest.json`, `models/block/oak_sign.json` 등은 `textures.particle`만 있고 `elements`가 없다. 따라서 이 JSON으로 계산된 직육면체 수는 **0개**이며, **게임 내 시각적인 침대·상자·표지판이 없다는 뜻이 아니다**."
+        },
+        {
+          "line": 21,
+          "text": "| 사례 | JSON 기본 기하 | 특수 요소 근거 | 텍스처 사례 |"
+        },
+        {
+          "line": 34,
+          "text": "| 사례 | 확인한 정적 요소 | 별도 렌더 내용 | 근거 |"
+        },
+        {
+          "line": 41,
+          "text": "**주의:** 정적 모델에 부분적 3D 구조가 있는 것과 동적 렌더러가 있는 것은 양립할 수 있다. 특히 선반의 기본 모델이 3개 요소라는 사실만으로, 선반에 놓인 아이템의 위치까지 표현했다고 결론내리면 안 된다."
+        },
+        {
+          "line": 45,
+          "text": "**통**(`barrel.json`)은 부모 `cube_bottom_top`을 통해 16×16×16 큐브를 렌더한다. **끌로 조각한 책장**(`chiseled_bookshelf.json`)도 JSON 본체와 블록 상태의 **52개 multipart 조건**으로 책이 들어 있는 칸을 외형상 표시한다. 저장 공간/데이터를 가진 물체라는 사실과 렌더링 경로는 별개다."
+        },
+        {
+          "line": 49,
+          "text": "| 구분 | 이번 실제 PNG 헤더에서 확인한 해상도 | 오해하지 말 것 |"
+        },
+        {
+          "line": 56,
+          "text": "**아틀라스:** 1.21.11의 `beds`, `chests`, `signs`, `shulker_boxes`, `decorated_pot`에서 각각 `entity/...`를 가리키는 directory source를 검증했다. `blocks`는 `block/` 경로를 포함한다."
+        },
+        {
+          "line": 60,
+          "text": "**Java 26.2 릴리스 노트**는 **침대·표지판·매달린 표지판이 블록 모델을 사용하도록 전환**되고 `beds`, `signs` 아틀라스가 제거되었다고 명시한다. 따라서 **1.21.11에서 나온 JSON 중심 해석의 예외는 26.2에 그대로 적용되지 않는다.** 26.2의 실제 자산 JSON은 열지 않았으므로 이 차이는 공식 릴리스 설명에 근거한다."
+        },
+        {
+          "line": 69,
+          "text": "- **A(직접 관찰)**: 해당 버전 JSON 파일의 내용과 Git blob SHA, PNG header(width,height,bitdepth,colorType), 리소스 경로. **파일 자체를 패키지에 재배포하지 않았다**."
+        },
+        {
+          "line": 70,
+          "text": "- **B(개발자 문서 근거)**: 1.21.11 Yarn Javadoc에 등재된 클래스·필드·메서드, 26.2 릴리스 노트."
+        },
+        {
+          "line": 72,
+          "text": "- **미완료**: 게임 설치본 `client.jar` 공식 직접 대조, 인게임 렌더 이미지/애니메이션 검사, BER의 실제 Java 구현 로직과 각 축의 UV 지도 재구성."
+        },
+        {
+          "line": 76,
+          "text": "1. 1.21.11 BER 클래스 별 실제 `getTexturedModelData`/모델 파트 계층 구조 조사(가능한 경우 매핑·코드 자료 이용)."
+        },
+        {
+          "line": 77,
+          "text": "2. **같은 가구 유형의 인게임 외형과 모델의 일치** 확인(사용자 게임 스크린샷/실행본 제공 시)."
+        },
+        {
+          "line": 78,
+          "text": "3. 01과 02의 완료 조건 확정 후 03 가구 모드의 실제 `.json`/`.bbmodel` 샘플 분석으로 이동."
+        },
+        {
+          "line": 80,
+          "text": "**이번 연구는 실제 좀보이드 가구를 제작하거나 모델링 룰북(2단계)을 확정하는 작업이 아니다.**"
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v8/05_v8_학습진행도.md",
+      "git_blob_sha": "aa37064189f829c50e373200d5166558c471a0e5",
+      "size": "1496",
+      "extension": "md",
+      "lines": 30,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 3,
+          "text": "| 계획서 항목 | 상태 | 실측·근거 |"
+        },
+        {
+          "line": 5,
+          "text": "| 01 바닐라 재질·텍스처 | 표본 완료 / 원본·인게임 검증 보류 | 150 / 150종 표본 |"
+        },
+        {
+          "line": 16,
+          "text": "- 실물 PNG 19개 파일 헤더 파싱/해상도·Git blob SHA 기록"
+        },
+        {
+          "line": 23,
+          "text": "- 공식 1.21.11 client.jar SHA 비교 미실시"
+        },
+        {
+          "line": 24,
+          "text": "- 실제 게임의 재질 tint/광원/UV·BER 애니메이션 미검증"
+        },
+        {
+          "line": 29,
+          "text": "- 더 깊은 특수 렌더 지오메트리(침대·상자·표지판)의 실제 부품 구성/비율을 확인하고, 02 대표 샘플의 완료 기준을 고정한다."
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v8/06_v8_검증현황.json",
+      "git_blob_sha": "97d6dff8efed180400b0bee1118ef73adfd2e38e",
+      "size": "902",
+      "extension": "json",
+      "lines": 32,
+      "json_keys": [
+        "database_integrity",
+        "base_db",
+        "version",
+        "checkpoints",
+        "class_count",
+        "sources",
+        "checks",
+        "not_verified",
+        "published_material_contains_original_game_assets"
+      ],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 18,
+          "text": "  \"sources\": \"GitHub assets extract + Yarn 1.21.11 Javadoc + Mojang 26.2 release notes\","
+        },
+        {
+          "line": 20,
+          "text": "    \"each observed record uses git blob sha1\","
+        },
+        {
+          "line": 27,
+          "text": "    \"official client.jar byte/sha comparison\","
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v8/README.md",
+      "git_blob_sha": "9f95979df5afd420d4505ddab3146a1b90bdfd0c",
+      "size": "526",
+      "extension": "md",
+      "lines": 8,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 5,
+          "text": "`00` Korean report, `01` per-block render evidence, `02` PNG metadata, `03` atlas sources, `04` category summary, `05` progress, `06` validations, cumulative SQLite, `build_v8.py` (the entire v8 build script)."
+        },
+        {
+          "line": 7,
+          "text": "Git SHA-1 is Git blob ID, **not PNG SHA-256**.  Attached records are derived metadata from actual 1.21.11 repository files and 1.21.11 Yarn class metadata. No official Mojang client.jar hash verified."
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v9/00_v9_실제부품구조_분석보고서.md",
+      "git_blob_sha": "703cbecc68100f26a5f0a935e322a7adff792b22",
+      "size": "6444",
+      "extension": "md",
+      "lines": 69,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 1,
+          "text": "# v9 — Minecraft Java 1.21.11 특수 렌더링 가구의 실제 부품 구조"
+        },
+        {
+          "line": 4,
+          "text": "**실측 성격:** 해당 버전의 **비공식 추출 모델 JSON을 직접 읽어 집계한 결과**. 공식 `client.jar` 바이트 대조/인게임 재현은 아직 수행하지 않았다."
+        },
+        {
+          "line": 11,
+          "text": "- 각 파일의 Git blob SHA-1은 `01_특수모델_부품요약.csv`에 별도 기록."
+        },
+        {
+          "line": 12,
+          "text": "- 루트와 재귀 하위 `children`의 `cubes` 개수를 집계했다. **계층 파트 수와 실제 큐브 수는 다르다.**"
+        },
+        {
+          "line": 14,
+          "text": "- `uv`는 큐브 UV 시작 좌표이며, 정적 블록 모델의 `faces.uv`와 같은 자료 구조가 아니다. 원본 게임 모델 JSON이나 PNG는 재배포하지 않는다."
+        },
+        {
+          "line": 57,
+          "text": "- 0두께 또는 0.005두께 요소는 바닐라에서 얇은 표현을 위해 실제 사용되는 방법이다. 다만 가구 모델링에 무조건 이를 적용해야 한다는 뜻은 아니다."
+        },
+        {
+          "line": 66,
+          "text": "- 02 종료 판단 전 공식 JAR 및 실제 화면 확인 필요. 다음에는 체스트·책·셜커의 **추출 애니메이션 키프레임 메타데이터**를 분석한다."
+        },
+        {
+          "line": 68,
+          "text": "**검증 등급:** A-비공식 추출 JSON 직접 확인 / B-소스 설명·Yarn Javadoc 보조 / 미완료-원본 공식 JAR·게임 화면."
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v9/03_v9_애니메이션_검토보고서.md",
+      "git_blob_sha": "94ea30faf06ad1fce6f9b396c9ae372753563da7",
+      "size": "2238",
+      "extension": "md",
+      "lines": 36,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 3,
+          "text": "Minecraft Java Edition 1.21.11 추출 애니메이션 JSON의 키프레임 **메타데이터 직접 계측** (추출 도구의 `procedural-blocks.js` 기반 스냅샷 포함)."
+        },
+        {
+          "line": 8,
+          "text": "- 원본: https://github.com/InventivetalentDev/minecraft-entity-models/tree/1.21.11/animations/minecraft"
+        },
+        {
+          "line": 9,
+          "text": "- 방법: 각 클립의 `length`, `loop`, `bones`, `position/rotation/scale` 채널과 저장된 프레임 수만 집계. **게임 화면을 실제 재생·검증하지는 않음.**"
+        },
+        {
+          "line": 29,
+          "text": "## 해석과 주의"
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    }
+  ]
+}

@@ -1,0 +1,1179 @@
+{
+  "schema": "v64_original_historical_MD_JSON_direct_content_review_batch",
+  "batch_index": 4,
+  "total_batches": 6,
+  "count": 9,
+  "original_documents": [
+    {
+      "path": "research/vanilla_models/v29/00_v29_울타리문160면_실제PNG_UV_열림담장좌표비교보고서.md",
+      "git_blob_sha": "ef842c38531b2c8b610b99874ed4d8b10f92321f",
+      "size": "9120",
+      "extension": "md",
+      "lines": 72,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 1,
+      "sha40_values": [
+        "e5a15780171bdff340a8bab625c31d0891e8ba5e"
+      ],
+      "selected_supporting_lines": [
+        {
+          "line": 1,
+          "text": "# v29 — 바닐라 참나무 울타리 문 160면 실제 PNG 픽셀 및 열림·담장 기하 차이 검증"
+        },
+        {
+          "line": 4,
+          "text": "**근거:** 사용자 저장소의 `1.21.11/assets/minecraft/`에 있는 JSON 원본 및 `oak_planks.png` 원본 바이트. 2026-11-13 현재 Mojang **정식 client.jar 독립 교차인증·실제 게임 렌더 비교는 미완료**."
+        },
+        {
+          "line": 6,
+          "text": "## 1. v28 미완료 160면을 원본 PNG에 실제 대조"
+        },
+        {
+          "line": 11,
+          "text": "- 사용자 업로드 저장소의 원본 JSON 네 파일을 다시 열어, 원본 **Git blob SHA**와 `elements` 8개/템플릿, `faces` 40개/템플릿을 확인했다."
+        },
+        {
+          "line": 12,
+          "text": "- **4템플릿×40면 = 160개 source declared face**의 `faces.*.uv`를 직접 추출. **160/160 명시된 UV**이고, UV 범위 0–16의 **정수 좌표**만 사용(암시적 UV 0). 전체 **0면적 UV 0**, 역방향 UV 0, 모든 면은 `#texture` 슬롯을 참조한다."
+        },
+        {
+          "line": 13,
+          "text": "- 해당 4 leaf `oak_fence_gate*`는 `#texture`를 **`minecraft:block/oak_planks`**로 묶는 것을 v28 원본에서 확인했다. `oak_planks.png`는 기존 v26에서 분석된 **16×16/7가지 RGB 색/256 완전 불투명** 텍스처이므로 신규 PNG 경로로 계수하지 않는다."
+        },
+        {
+          "line": 14,
+          "text": "- 이번에는 GitHub에서 `oak_planks.png` **195바이트를 직접 재취득**하고 Python/Pillow로 PNG 자체를 열어 `verify()` 후 모든 RGBA 픽셀을 해독했다. 재계산한 **Git blob SHA `e5a15780171bdff340a8bab625c31d0891e8ba5e`**가 원본 GitHub SHA와 일치했다. 별도로 **SHA-256 `65665943ef9c8bcf63fc67d2083ed0c50243f724106d0e4bb1abea5d921b16d3`**을 독립 재계산하여 기존 v4 150종 표본 CSV의 해당 해시와 **완전 일치**를 확인했다. 이 검사는 "
+        },
+        {
+          "line": 15,
+          "text": "- 원본 PNG에서 독립 디코딩한 16×16 픽셀을 각 JSON face `uv`의 사각형 범위에 연결해 **160면 모두 원본 RGBA 1,952 텍셀 참조**를 계산했다. 총 참조 **불투명 1,952 / 완전 투명 0 / 부분 알파 0**. **1,952는 중복을 포함한 face별 사용 수**, 1,952개의 서로 다른 소스 픽셀 또는 게임 화면 픽셀 수가 아니다."
+        },
+        {
+          "line": 17,
+          "text": "### 네 원형의 실제 UV 영역 샘플"
+        },
+        {
+          "line": 19,
+          "text": "| 원형 | 요소 | 원본 면 | 직접 참조한 텍셀 사용 | 불투명 | 원본 UV 사각형 종류 |"
+        },
+        {
+          "line": 27,
+          "text": "방향별 소스 face 선언: 닫힘 원형은 `down/up/north/south` 각각 8, `west/east` 각각 4; 열림 원형은 `down/up/west/east` 각각 8, `north/south` 각각 4. 실제 게임 면 방향은 상태별 `y` 회전 후 별도로 변하므로 이 숫자는 **모델 로컬 방향**이다."
+        },
+        {
+          "line": 29,
+          "text": "[01 160면·원본 UV·면별 픽셀 수와 평균 RGB, Git SHA](01_fence_gate_160_source_face_uv_rgba.csv) · [04 원형별 UV 픽셀 통계](04_four_template_pixel_summaries.csv)."
+        },
+        {
+          "line": 31,
+          "text": "## 2. 실제 모델 요소 차이: 열린 위치 6개 / 담장 연결 시 정확한 y -3"
+        },
+        {
+          "line": 33,
+          "text": "네 원본 템플릿의 **8개 요소를 동일 인덱스로 대응**시켜, `from/to` 좌표를 정수 단위로 비교한 [06 기하 변경 CSV](06_eight_element_open_wall_geometry_deltas.csv)를 작성했다."
+        },
+        {
+          "line": 35,
+          "text": "- **일반 → 열림:** 두 기둥(`element 0,1`)은 from/to 좌표가 변하지 않는다(**2/8 동일**). 나머지 **6/8 요소**는 x/z 위치 또는 x/z 범위가 변하며, **y 좌표는 전 요소에서 불변**이다. 즉, 문짝·연결부의 좌표만 바뀌고 두 지지기둥은 자리를 지키는 원본 구성이다. 닫힌 원형 bbox는 **[0,5,7]–[16,16,9]**, 열린 원형 bbox는 **[0,5,7]–[16,16,15]**다."
+        },
+        {
+          "line": 38,
+          "text": "- 이는 사전 배치된 **네 가지 source model의 요소 좌표를 비교해 얻은 정적인 법칙**이다. 게임이 각 요소를 실시간 모션으로 보간/애니메이션한다고 입증한 것이 아니다. 실제 인게임 회전·충돌체·바운딩/조명은 별도 검증이 필요하다."
+        },
+        {
+          "line": 40,
+          "text": "[02 4원형 32개 요소 원시 좌표·면수·기하 값](02_fence_gate_32_source_elements.csv) · [06 8개 요소의 열림/담장 연결 델타](06_eight_element_open_wall_geometry_deltas.csv)."
+        },
+        {
+          "line": 44,
+          "text": "원본 `blockstates/oak_fence_gate.json`의 `facing 4 × open 2 × in_wall 2 = 16` 조합을 직접 재파싱했다. **각 상태는 정확히 4종 중 1개 원형 leaf**를 참조하며 각 원형은 **4개 방향**에서 선택된다."
+        },
+        {
+          "line": 47,
+          "text": "- `y` 회전 값은 원본에 기록된 0/90/180/270을 보존했다. 이 CSV의 `rotation_y`는 **JSON 소스 속성**이며 각 면의 인게임 최종 UV 결과나 방향 변환 시뮬레이션이 아니다."
+        },
+        {
+          "line": 48,
+          "text": "- 각 상태는 실질적으로 원형 8요소·40선언면의 구조를 선택하므로 `16×40=640`은 *상태별 적용 인스턴스 합*이지 **새 원본 face 640개 발견**을 뜻하지 않는다. v29 실제 신규 고유 UV 원본 face 분석은 **160개**뿐이다."
+        },
+        {
+          "line": 49,
+          "text": "- [03 블록 상태16→4원형·회전·UVlock·면별 소스 텍셀 사용 연결표](03_fence_gate_16_state_source_profile.csv)."
+        },
+        {
+          "line": 53,
+          "text": "**직접 확인할 수 있는 가구 모델링 관찰**"
+        },
+        {
+          "line": 55,
+          "text": "2. **8요소 중 2개 기둥은 유지/6개 부품만 재배치**되는 열림 사례를 관찰했다. 단순 정육면체 모델을 무작정 다시 조합하는 것보다 상태별 움직이는 부분을 구조적으로 분리할 수 있다는 유용한 설계 근거다."
+        },
+        {
+          "line": 56,
+          "text": "3. `in_wall`은 다른 모양을 처음부터 만들기보다 **원시 요소 전체를 y축 -3 이동한 동일 구조**로 표현하며, **열림과 담장 연결의 차이를 별개 축**으로 다루고 있음을 원본 8/8 델타 일치로 검증했다."
+        },
+        {
+          "line": 57,
+          "text": "4. 원본 면 UV는 **열림에 따라 픽셀 사각형 재배치**되며 40면의 텍셀 참조 합계는 닫힘 512/열림 464로 차이가 난다. 이 숫자는 단순 화소 빈도이지 면별 화면 면적·렌더링 품질의 직접 비교가 아니다."
+        },
+        {
+          "line": 61,
+          "text": "- 실제 `uvlock` 알고리즘과 x/y 회전, 컬링, 음영, 투명 레이어, 충돌체, 게임 스크린샷."
+        },
+        {
+          "line": 63,
+          "text": "- 공개 저장소의 게임 원본 `.class`·PNG·JSON 재배포 권한. 새 연구 파일에 원본 이미지를 복제하지 않았고, 공개 배포 위험은 계속 별도 검토 필요."
+        },
+        {
+          "line": 67,
+          "text": "- v28의 **울타리 문 네 원형 160선언면(당시 실제 PNG 화소 검사는 0)** → **v29에서 동일 160면을 실제 원본 UV→PNG RGBA까지 검증 완료**. **160면을 v28+v29로 중복 합산하면 안 된다**."
+        },
+        {
+          "line": 68,
+          "text": "- v29 **신규 원본 PNG 종류는 0**: 재사용한 `oak_planks`는 기존 v4 150종에도, v26 PNG8종 직접 디코딩에도 포함됐다. 대신 독립 SHA-256/Pillow 검증은 v29에서 이 한 장에 대해 **새로 수행**했다."
+        },
+        {
+          "line": 70,
+          "text": "- **상위 1단계 완료 확정 0/5.** 01 바닐라 텍스처 기존 150/150 표본 달성했지만 공식 JAR과 인게임 최종 검증 미완료; 02 모델·상태·UV 확대 중. 최종 연구 전체 %는 대상 범위가 없어서 임의로 만들지 않는다."
+        },
+        {
+          "line": 71,
+          "text": "- **다음 우선 작업:** (1) 공식 Mojang 1.21.11 `client.jar` 독립 출처·파일 해시 검증, (2) 인게임에서 울타리 문 열림/담장 연결/방향을 관찰하고 실제 UVlock 비교, (3) 바닐라 특수 엔티티 가구형 구조의 텍스처 좌표 재검증, (4) 바닐라 핵심 스타일 규칙 후보를 근거 등급별로 정리, (5) 충분한 바닐라 검증 후 모드 연구·최종 교차비교 재개."
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v29/v29_fence_gate_full_uv_rgba_summary.json",
+      "git_blob_sha": "06eb966ba5bd7f26bdf1906cf50179e2c3c922c6",
+      "size": "3431",
+      "extension": "json",
+      "lines": 144,
+      "json_keys": [
+        "checkpoint",
+        "date_kst",
+        "priority",
+        "report",
+        "source_repo",
+        "source_root",
+        "new_png_unique_source_paths",
+        "reused_png",
+        "reused_png_git_sha",
+        "png_verification",
+        "models",
+        "geometry",
+        "blockstate",
+        "v28_gate_source_declared_face_160_now_actual_pixel_verified",
+        "v28_source_face_duplicate_not_added",
+        "existing_v24_mod_metrics_unchanged",
+        "official_mojang_client_jar_verified",
+        "ingame_verified",
+        "stage1_final_completed_substeps",
+        "stage1_total_substeps",
+        "files"
+      ],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 1,
+      "sha40_values": [
+        "e5a15780171bdff340a8bab625c31d0891e8ba5e"
+      ],
+      "selected_supporting_lines": [
+        {
+          "line": 5,
+          "text": "  \"report\": \"research/vanilla_models/v29/00_v29_울타리문160면_실제PNG_UV_열림담장좌표비교보고서.md\","
+        },
+        {
+          "line": 6,
+          "text": "  \"source_repo\": \"sanato-nb/Minecraft_Furniture_Style_Research\","
+        },
+        {
+          "line": 7,
+          "text": "  \"source_root\": \"1.21.11/assets/minecraft\","
+        },
+        {
+          "line": 8,
+          "text": "  \"new_png_unique_source_paths\": 0,"
+        },
+        {
+          "line": 10,
+          "text": "  \"reused_png_git_sha\": \"e5a15780171bdff340a8bab625c31d0891e8ba5e\","
+        },
+        {
+          "line": 13,
+          "text": "    \"independent_git_blob_sha_match\": true,"
+        },
+        {
+          "line": 14,
+          "text": "    \"independent_sha256\": \"65665943ef9c8bcf63fc67d2083ed0c50243f724106d0e4bb1abea5d921b16d3\","
+        },
+        {
+          "line": 15,
+          "text": "    \"v4_sha256_matched\": true,"
+        },
+        {
+          "line": 16,
+          "text": "    \"source_file_bytes\": 195,"
+        },
+        {
+          "line": 26,
+          "text": "    \"source_parent_templates\": 4,"
+        },
+        {
+          "line": 29,
+          "text": "    \"unique_source_face_declarations\": 160,"
+        },
+        {
+          "line": 30,
+          "text": "    \"unique_source_element_declarations\": 32,"
+        },
+        {
+          "line": 31,
+          "text": "    \"source_uv_explicit_faces\": 160,"
+        },
+        {
+          "line": 32,
+          "text": "    \"source_uv_missing_faces\": 0,"
+        },
+        {
+          "line": 33,
+          "text": "    \"source_uv_reversed_faces\": 0,"
+        },
+        {
+          "line": 34,
+          "text": "    \"source_uv_zero_area_faces\": 0,"
+        },
+        {
+          "line": 59,
+          "text": "    \"source_elements_compared\": 8,"
+        },
+        {
+          "line": 115,
+          "text": "    \"source_variants_16\": 16,"
+        },
+        {
+          "line": 117,
+          "text": "    \"source_uvlock_true_explicit_16\": 16,"
+        },
+        {
+          "line": 128,
+          "text": "  \"v28_gate_source_declared_face_160_now_actual_pixel_verified\": 160,"
+        },
+        {
+          "line": 129,
+          "text": "  \"v28_source_face_duplicate_not_added\": true,"
+        },
+        {
+          "line": 136,
+          "text": "    \"01_fence_gate_160_source_face_uv_rgba.csv\","
+        },
+        {
+          "line": 137,
+          "text": "    \"02_fence_gate_32_source_elements.csv\","
+        },
+        {
+          "line": 138,
+          "text": "    \"03_fence_gate_16_state_source_profile.csv\","
+        },
+        {
+          "line": 140,
+          "text": "    \"05_oak_planks_independent_sha256_pillow_v4_crosscheck.csv\","
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v30/00_v30_바닐라5모델_91면UV_18PNG_RGBA_투명도정정보고서.md",
+      "git_blob_sha": "1c843f013ba7dd2575356a77c3dd6e6315ca7b66",
+      "size": "12986",
+      "extension": "md",
+      "lines": 91,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 1,
+          "text": "# v30 — 독서대·숫돌·화분·마법 부여대·모루의 원본 UV/PNG 실화소와 과거 PNG 투명도 오류 정정"
+        },
+        {
+          "line": 4,
+          "text": "- **입력 소스:** 사용자 업로드 GitHub `1.21.11/assets/minecraft/`의 실제 모델 JSON/블록 상태 JSON/원본 PNG와 이전 v4/v8/v26 연구."
+        },
+        {
+          "line": 5,
+          "text": "- **원칙:** 게임 원본 PNG/JAR/모델 JSON 재배포 없이 파생 통계·UV·Git blob SHA만 게시. **공식 Mojang client.jar·실제 인게임 렌더/UV 보정 미검증**."
+        },
+        {
+          "line": 7,
+          "text": "## 1. 기존 v29에서 새로 진행한 원본 분석"
+        },
+        {
+          "line": 9,
+          "text": "**독서대 `lectern`**, **숫돌 `grindstone`**, **화분 `flower_pot`**, **마법 부여대 `enchanting_table`**, **모루 원형 `template_anvil`**의 **5개 source JSON 모델**을 직접 읽고, 각 모델의 `elements[].faces.*.uv`와 재질 슬롯을 실제 원본 PNG의 **16×16 RGBA 픽셀**에 연결했다. 같은 버전의 leaf 모루 **3개** (`anvil`, `chipped_anvil`, `damaged_anvil`)도 원본 JSON으로 부모·top override를 확인했다."
+        },
+        {
+          "line": 11,
+          "text": "| 원본 모델 | 요소 선언 | source face 선언 | 실제 면×재질 조회행 | PNG texel 참조 횟수 | 알파=255 참조 |"
+        },
+        {
+          "line": 20,
+          "text": "- **93개 면×재질 레코드** 중 **원본 JSON 고유 면 선언은 91개**이다. 모루의 source `up/#top` 한 면을 정상·금감·파손 모루 leaf 텍스처 **3종**에 매핑했으므로 **추가 재질 버전 2행**이 존재한다. 3개 모루를 각기 21개 신규 source face로 세지 않았다."
+        },
+        {
+          "line": 21,
+          "text": "- 화분의 **흙 `#dirt` 상단 1면**은 v26에서 이미 확인했던 면으로, 이번 v30에서 다시 실제 텍스처에 대조했다. 따라서 **91개 중 90개 원본 face**는 이 단계에서 새로 PNG 실화소까지 확장된 것으로 분리해 해석한다."
+        },
+        {
+          "line": 22,
+          "text": "- `6,012`는 원본 텍스처의 서로 다른 6,012픽셀이 아니며 **UV 사각형별 재사용을 포함한 텍셀 참조 횟수**이다. 게임 화면의 픽셀 수·최종 렌더 출력값도 아니다."
+        },
+        {
+          "line": 23,
+          "text": "- **모든 93개의 source face×material UV 조회**에서 불투명 **6,012회**, 완전투명 **0회**, 부분 알파 **0회** 확인. UV 역순 선언 **7/93행**, UV 면적 0 **0/93행**. 실제 GPU 텍스처 보간/UV 회전 효과를 시뮬레이션한 것은 아니다."
+        },
+        {
+          "line": 24,
+          "text": "- [01 독서대·숫돌 9 PNG 전체 픽셀](01_lectern_grindstone_9_png_rgba.csv) · [02 독서대·숫돌 42면 원본 UV RGB·알파](02_lectern_grindstone_42_source_face_uv_pixels.csv) · [03 기하](03_lectern_grindstone_geometry.csv)."
+        },
+        {
+          "line": 25,
+          "text": "- [04 화분·마법부여대·모루 9 PNG 전체 픽셀](04_pot_enchant_anvil_9_png_rgba.csv) · [05 화분·마법부여대·모루 49원본 면/재질 51레코드 실화소](05_pot_enchant_anvil_51_material_face_uv_rgba.csv) · [06 기하](06_pot_enchant_anvil_geometry.csv)."
+        },
+        {
+          "line": 27,
+          "text": "### 1-1. 텍스처 18원본 PNG의 전체 디코딩"
+        },
+        {
+          "line": 29,
+          "text": "선정된 PNG **18개 경로 모두 `fetch_file(base64)`로 전체 바이트를 취득**해 PNG IDAT를 해제하고 16×16 RGBA로 복원했다. **18×256 = 4,608개 원본 소스 픽셀**에 대해 **완전 불투명 3,582, 완전 투명 1,026, 부분 알파 0**을 측정했다."
+        },
+        {
+          "line": 32,
+          "text": "- v26–v29에서 직접 다시 읽은 `oak_planks`, `dirt` 두 경로는 재사용으로 표시한다. 현재 v30 파일에서 전 바이트 해독한 18개 **모두가 프로젝트 전체 최초 시도**라는 뜻이 아니다."
+        },
+        {
+          "line": 33,
+          "text": "- **PNG 자체**에는 투명 픽셀이 1,026개 있지만, 이번 **선정 모델의 명시된 UV 사각형**에 사용된 픽셀은 6,012회 모두 불투명이다. 즉, **PNG 전체 알파 비율과 실제 선택한 모델 표면의 알파 비율은 서로 다르다**."
+        },
+        {
+          "line": 35,
+          "text": "- [09 v4 150종 중 5개 동일 경로 데이터 대조](09_five_legacy_v4_png_metrics_crosschecks.csv): **5/5** 파일 크기·가로세로·전체 픽셀·가시 픽셀 수 일치. SHA-256은 이 5종 전부 v30에서 독립 재계산한 것이 아님. `anvil_top`은 아래 `tRNS` 수정 후에야 가시 픽셀 **160**으로 일치했다."
+        },
+        {
+          "line": 37,
+          "text": "## 2. 개별 모델링 구조 관찰 (원본 source 근거 등급)"
+        },
+        {
+          "line": 41,
+          "text": "- `lectern`은 **자체 요소 3개/선언면 16개**. 몸체 상단 요소의 원본 `rotation.angle=-22.5`, `axis=x`, `origin=[8,8,8]`; **요소 내부 회전 1개**를 확인했다."
+        },
+        {
+          "line": 42,
+          "text": "- 원본 `blockstates/lectern.json`은 `facing` 4방향에 `y=0/90/180/270` 원형 1모델을 적용. **모델 요소의 회전**과 **방향 블록 상태의 회전**을 구분해야 한다."
+        },
+        {
+          "line": 43,
+          "text": "- 독서대의 놓인 책은 본체 source JSON의 3요소에 직접 기재되지 않는다. 이전 [v8 특수 렌더링 연구](../v8/00_v8_특수렌더_정적동적_비교보고서.md)는 `LecternBlockEntityRenderer`를 별도 경로로 확인했으나, v30에서 공식 게임 실행 화면/책 자세까지 재검증한 것은 아니다."
+        },
+        {
+          "line": 47,
+          "text": "- `grindstone`은 **5요소/26명시 UV면**. `blockstates/grindstone.json` 원본에 `face=floor|wall|ceiling × facing=4`의 **12개 variants**가 존재하며 **`x` 회전 0/90/180과 `y` 회전 0/90/180/270**의 조합을 지정한다."
+        },
+        {
+          "line": 48,
+          "text": "- 원본에 `element.rotation`이 없어도 `blockstate`의 회전으로 모델 설치 방향을 다양화하는 사례다. 다만 실제 텍스처 UV 보정, `uvlock` 렌더 효과, 부착 충돌체는 인게임 미확인."
+        },
+        {
+          "line": 52,
+          "text": "- `flower_pot`은 **5요소/22면**, 원시 bbox **[5,0,5]–[11,6,11]**. `flower_pot.png` 전체에서 **206/256투명**하지만 **21개 `#flowerpot` 면의 UV**는 전부 불투명 픽셀만 사용. `#dirt` 1면도 불투명 원본 `dirt.png`를 사용."
+        },
+        {
+          "line": 53,
+          "text": "- 장식용 작은 블록의 전체 PNG 배경은 많은 투명 픽셀을 포함할 수 있어도 실제 지정된 UV 사각형에서 필요한 영역만 사용한다는 근거다."
+        },
+        {
+          "line": 54,
+          "text": "- 책상용 화분 등의 실제 게임 배치 크기/꽃 모델은 이번 분석 범위 밖이다."
+        },
+        {
+          "line": 58,
+          "text": "- `enchanting_table` 원본 JSON 본체는 **1요소/6선언면**, bbox **[0,0,0]–[16,12,16]**. 3가지 `bottom/top/side` 원본 PNG와 UV 사각형을 직접 결합하여 **1,280 텍셀 사용**을 확인했다."
+        },
+        {
+          "line": 60,
+          "text": "- 이전 [v8 렌더러 조사](../v8/00_v8_특수렌더_정적동적_비교보고서.md)는 마법 부여대 책에 `EnchantingTableBlockEntityRenderer`를 확인했고, [v9](../v9/00_v9_실제부품구조_분석보고서.md)는 비공식 엔티티 모델 `book` 요소를 조사했다. v30에서 그 책 렌더 결과를 인게임 직접 재현한 것으로 표시하지 않는다."
+        },
+        {
+          "line": 64,
+          "text": "- `template_anvil` 원본 **4요소/21면**의 몸체 `#body`는 세 leaf에서 **같은 `block/anvil` 텍스처**를 사용한다."
+        },
+        {
+          "line": 65,
+          "text": "- `anvil`, `chipped_anvil`, `damaged_anvil`은 각각 **자체 요소 0개**, 부모 `template_anvil`을 공유하며 **`#top` PNG만 상태별로 바꾼다**. 하나의 source top face `UV=[3,0,13,16]`에 세 PNG의 **160개씩 실제 불투명 픽셀**을 비교했다. source PNG 전체에는 `anvil_top`의 경우 **96개 투명 픽셀**이 있는데 해당 UV 바깥에 있다."
+        },
+        {
+          "line": 75,
+          "text": "- 원본 바이트를 독립 **Pillow**로 `verify()` 및 RGBA 디코딩한 **4개 파일**: `stonecutter_saw`(v26), `grindstone_round`, `grindstone_side`, `anvil_top`. 각각 알파가 정확히 **246/522**, **96/160**, **144/112**, **160/96**(불투명/완전 투명)임을 확인했다."
+        },
+        {
+          "line": 76,
+          "text": "- v30 새 PNG 계량 CSV 중 `grindstone_round`, `grindstone_side`, `anvil_top`을 **바르게 정정한 최종 값**만 저장한다. 이 3 PNG의 원본 UV에 연결한 선택 영역은 전부 불투명이므로 **v30 면별 UV의 6,012회 불투명**은 수치 변경 없이 확인되었다."
+        },
+        {
+          "line": 77,
+          "text": "- 이전 **v26 `stonecutter_saw` PNG 자체**는 종전에 **768불투명/0투명**으로 잘못 보고됐으나 정확히 **246/522**이다(프레임별 각각 82/174). v26 톱날 source face×frame 6행(각98 텍셀)은 **82불투명/16투명**이어야 한다. 이에 따라 v26 총 8 PNG/8,704픽셀은 **불투명 3,900·완전 투명 4,804**, 기존 70 face-frame UV/3,652use는 **불투명 3,328·투명 324**로 수정했다."
+        },
+        {
+          "line": 78,
+          "text": "- **수정 대상 v26 원본 파일:** [v26 보고서](../v26/00_v26_바닐라8PNG_전체RGBA_36면70프레임_실화소보고서.md), [PNG 8종 CSV](../v26/01_eight_png_full_rgba_pixels.csv), [70 UV행 CSV](../v26/02_selected_face_frame_original_rgba.csv), [v26 summary JSON](../v26/v26_vanilla_pixel_uv_audit_summary.json). 수정된 데이터는 v30 커밋에서 함께 게시하며, v26 보고서 상단에 **v30 정정 이력**을 기록했다."
+        },
+        {
+          "line": 79,
+          "text": "- 이는 분석 정확도 보정을 위한 회고 수정이다. 기존 v27·v28·v29 연구의 Git SHA·표본 수·단계 번호는 임의로 변경하지 않는다."
+        },
+        {
+          "line": 83,
+          "text": "- **A (원본 확정 관찰):** 사용자 업로드 GitHub의 JSON과 PNG 실제 바이트/SHA에서 직접 읽은 모델의 요소·면·명시 UV·텍셀 사각형, PNG의 RGBA 화소(단 `tRNS` 필수 처리), leaf의 재질 override 및 원본 blockstate variants."
+        },
+        {
+          "line": 84,
+          "text": "- **B (간접 연구 결과):** v8/v9에서 비공식 소스·문서를 통해 확인한 책 렌더러/부품 구조. 공식 Mojang `client.jar`과 인게임 재현으로 확정하지 않음."
+        },
+        {
+          "line": 85,
+          "text": "- **미검증:** 실제 게임의 기하 회전·`uvlock` 구현·조명·컬링·책 애니메이션/상호작용, 원본 업로드 자료의 Mojang 정식 client.jar 일치, 게임 내 스크린샷 픽셀 비교."
+        },
+        {
+          "line": 87,
+          "text": "- **02 바닐라 모델 구조** 5 원본 모델·91면/93면×재질 실제 화소 연결 확장. 이들 중 `flower_pot`의 흙 1면은 v26에서 조사한 반복이므로 **90원본 면을 새로 실화소 대조**했으며, 앞 단계의 36·20·26·40·160면과 동일 경로 중복을 주의한다."
+        },
+        {
+          "line": 89,
+          "text": "- **다음 우선순위:** 공식 Mojang 1.21.11 `client.jar` 무결성 검증, 실제 런타임의 책/블록 엔티티 렌더링·UV 회전/`uvlock`, 바닐라 가구형 블록 추가 원본 UV+PNG 실화소, 이전 회색조 PNG 처리의 다른 기록 영향 감사."
+        },
+        {
+          "line": 90,
+          "text": "- **저작권:** 사용자 GitHub 저장소 루트 `1.21.11/`에는 게임 원본 `.class`·PNG·JSON이 공개되어 있어 재배포 권한 확인이 필요하다. v30 산출물에 원본 게임 에셋을 새로 복제하지 않고 파생 수치·경로·SHA만 저장했다."
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v30/v30_five_models_face_png_summary.json",
+      "git_blob_sha": "f4f8d63c03d9db5b58958eb106c805c822bcc4f8",
+      "size": "3162",
+      "extension": "json",
+      "lines": 86,
+      "json_keys": [
+        "checkpoint",
+        "date_kst",
+        "priority",
+        "report",
+        "models",
+        "original_model_json",
+        "anvil_original_leaf_json",
+        "source_elements",
+        "unique_source_face_declarations",
+        "source_face_material_instances",
+        "original_face_just_newly_sampled_excluding_v26_flowerpot_dirt",
+        "source_pngs_full_rgba_decoded",
+        "source_png_pixels",
+        "source_png_opaque",
+        "source_png_transparent",
+        "source_png_partial",
+        "existing_v4_150_overlap_png_paths",
+        "source_png_paths_outside_v4_150",
+        "prior_v26_29_png_reused",
+        "sampled_source_uv_pixels_with_repetition",
+        "sampled_face_pixels_opaque",
+        "sampled_face_pixels_transparent",
+        "sampled_face_pixels_partial",
+        "source_face_uv_reversed_records",
+        "source_face_uv_zero_area",
+        "source_blockstates_count",
+        "source_blockstate_variants",
+        "source_uvlock_true_explicit_count",
+        "source_uvlock_absent_in_all_30",
+        "anvil_template_top_material_variants",
+        "anvil_extra_material_variant_rows_not_source_faces",
+        "lectern_element_rotation_angle",
+        "grindstone_mount_variants",
+        "prior_v8_v9_book_renderer_studies_not_runtime_reverified",
+        "v4_crosschecks_matching",
+        "tRNS_decoder_fix",
+        "mojang_official_client_jar_verified",
+        "ingame_verified",
+        "runtime_uvlock_rotation_verified",
+        "mod_v24_metrics_unchanged",
+        "stage1_completed_substeps",
+        "stage1_total_substeps",
+        "v30_csv_count",
+        "outputs"
+      ],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 15,
+          "text": "  \"source_elements\": 18,"
+        },
+        {
+          "line": 16,
+          "text": "  \"unique_source_face_declarations\": 91,"
+        },
+        {
+          "line": 17,
+          "text": "  \"source_face_material_instances\": 93,"
+        },
+        {
+          "line": 19,
+          "text": "  \"source_pngs_full_rgba_decoded\": 18,"
+        },
+        {
+          "line": 20,
+          "text": "  \"source_png_pixels\": 4608,"
+        },
+        {
+          "line": 21,
+          "text": "  \"source_png_opaque\": 3582,"
+        },
+        {
+          "line": 22,
+          "text": "  \"source_png_transparent\": 1026,"
+        },
+        {
+          "line": 23,
+          "text": "  \"source_png_partial\": 0,"
+        },
+        {
+          "line": 25,
+          "text": "  \"source_png_paths_outside_v4_150\": 13,"
+        },
+        {
+          "line": 30,
+          "text": "  \"sampled_source_uv_pixels_with_repetition\": 6012,"
+        },
+        {
+          "line": 34,
+          "text": "  \"source_face_uv_reversed_records\": 7,"
+        },
+        {
+          "line": 35,
+          "text": "  \"source_face_uv_zero_area\": 0,"
+        },
+        {
+          "line": 36,
+          "text": "  \"source_blockstates_count\": 7,"
+        },
+        {
+          "line": 37,
+          "text": "  \"source_blockstate_variants\": 30,"
+        },
+        {
+          "line": 38,
+          "text": "  \"source_uvlock_true_explicit_count\": 0,"
+        },
+        {
+          "line": 39,
+          "text": "  \"source_uvlock_absent_in_all_30\": true,"
+        },
+        {
+          "line": 41,
+          "text": "  \"anvil_extra_material_variant_rows_not_source_faces\": 2,"
+        },
+        {
+          "line": 54,
+          "text": "    \"v26_stonecutter_source_opaque_corrected\": 246,"
+        },
+        {
+          "line": 55,
+          "text": "    \"v26_stonecutter_source_transparent_corrected\": 522,"
+        },
+        {
+          "line": 63,
+          "text": "      \"research/vanilla_models/v26/v26_vanilla_pixel_uv_audit_summary.json\","
+        },
+        {
+          "line": 76,
+          "text": "    \"02_lectern_grindstone_42_source_face_uv_pixels.csv\","
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v31/00_v31_책장양조기_264상태_47면_PNG실화소_모닥불원본보고서.md",
+      "git_blob_sha": "62b52f78172f5759b307f276d3f967aec24e7c92",
+      "size": "10382",
+      "extension": "md",
+      "lines": 84,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 1,
+          "text": "# v31 — 끌로 조각한 책장·양조기 multipart 264상태 전수 평가 / 47원본 UV면·6PNG 실화소 / 모닥불 정적 구조"
+        },
+        {
+          "line": 3,
+          "text": "> 2026-11-13 KST · **바닐라 01/02 우선 연구** · 직전 v30. 근거는 사용자가 제공한 GitHub `1.21.11/assets/minecraft/` 원본 JSON/PNG/메타데이터. 원본 PNG/모델 JSON 자체는 연구 산출물에 복제하지 않는다. 게임 내 렌더링/공식 Mojang client.jar 검증은 **미완료**."
+        },
+        {
+          "line": 7,
+          "text": "### 1-1. `multipart` 원본 52규칙, 256가지 입력 조건 조합 평가"
+        },
+        {
+          "line": 9,
+          "text": "`blockstates/chiseled_bookshelf.json`의 원본 규칙 **52개**를 개별 원본 조건 식/적용 모델/회전/`uvlock`까지 판독했다."
+        },
+        {
+          "line": 11,
+          "text": "- **방향 4 × 슬롯 점유 비트 2^6=64 = 256개** 상태 입력을 실제 `when.AND` 조건으로 평가. 각 상태에서 **기본 `chiseled_bookshelf` 1모델 + 슬롯별 장식 모델 6개 = 7개 모델 적용**을 **256/256** 확인했다."
+        },
+        {
+          "line": 12,
+          "text": "- 모든 상태에서 6개 슬롯 각각 정확히 **occupied 또는 empty 중 하나**가 선택됐다. 6 슬롯 중 선택 중복/누락 0. 이 결과는 **사용자가 제공한 blockstate JSON의 조건 엔진을 JS로 재현하여 평가한 계산**이지 공식 게임 런타임 검사가 아니다."
+        },
+        {
+          "line": 13,
+          "text": "- 원본 **13개 모델 참조 경로** = 기본 1 + 슬롯별 occupied/empty 12. 조건별 모델 선택 적용은 **256×7=1,792**건(고유 원본 1,792개가 아니라 동일 원형 재사용)."
+        },
+        {
+          "line": 14,
+          "text": "- 본체 `uvlock:true`가 각 방향에 1규칙씩 **4개 원본 규칙에서 명시**되어, 256개 상태마다 적용 1회. 슬롯 장식 48규칙은 `uvlock` 키 **미기재**. 이를 명시적인 `uvlock:false`로 기록하면 안 된다."
+        },
+        {
+          "line": 17,
+          "text": "[01 multipart 52+7 규칙 원본 파생표](01_bookshelf_brewing_59_original_multipart_rules.csv) · [02 책장256+양조기8 상태 조건 전수 평가](02_bookshelf_256_and_brewing_8_combinations.csv)"
+        },
+        {
+          "line": 21,
+          "text": "- 기본 몸체 `models/block/chiseled_bookshelf.json`은 **1요소·5선언면**. 정면 빈 부분은 6개 별도 슬롯 템플릿으로 표현."
+        },
+        {
+          "line": 22,
+          "text": "- 슬롯 템플릿 **6개×1요소×1면 = 6원본 선언면**은 모두 `from.z = to.z = 0`의 **0두께 평면**이다. 위·아래 2행(각 y 8단위), 각 행 3열(폭 6·5·5 단위)의 **전면 텍스처 면**을 구성한다. 이것은 **source JSON 좌표**이고 화면의 최종 컬링/면 방향 검증은 아니다."
+        },
+        {
+          "line": 24,
+          "text": "- 몸체 5면에서 `chiseled_bookshelf_top` 2면×256=512, `chiseled_bookshelf_side` 3면×256=768. 기본 5면+6원본 슬롯 면 = **11고유 source face**. 두 재질 선택으로 **17개 face×material RGBA 대조행**."
+        },
+        {
+          "line": 25,
+          "text": "- 총 source UV 실화소 **1,792 texel-uses**, **불투명 1,792/투명 0**. 이 합계는 책장 상태 256개 각각의 렌더 사용 횟수가 아니라 **기본 5면 + 슬롯 6면의 occupied/empty 양쪽 재질을 한 번씩 조사한 source face-material 표본**이다."
+        },
+        {
+          "line": 27,
+          "text": "[04 책장 11원본면/17재질면 UV→실제 PNG RGBA](04_bookshelf_17_source_face_material_rgba.csv) · [05 책장 7원형 요소 원시 좌표](05_bookshelf_7_elements_geometry.csv)"
+        },
+        {
+          "line": 33,
+          "text": "- 원본 `blockstates/brewing_stand.json`은 **7개 규칙**: 항상 적용되는 본체 1개 + 3자리의 병 있음 `bottle0/1/2` 또는 없음 `empty0/1/2` 6규칙."
+        },
+        {
+          "line": 34,
+          "text": "- **`has_bottle_0/1/2` 3비트 = 2^3=8개** 조합 평가, 모든 조합에서 **본체 1개 + 슬롯별 오버레이 3개 = 4개 모델 선택** 확인. **8×4=32** 조건별 모델 적용 기록, 고유 원본 32개 아님."
+        },
+        {
+          "line": 35,
+          "text": "- 원본 `multipart` **7개 규칙 전부 `uvlock` 키 미기재**. source에 `false`가 있다고 해석하지 않았다."
+        },
+        {
+          "line": 39,
+          "text": "- 기본 양조기 `models/block/brewing_stand.json`은 **4요소/24명시 UV면**. 세 군데 받침과 중심 기둥의 원시 형상을 가지고 있다."
+        },
+        {
+          "line": 40,
+          "text": "- `brewing_stand_bottle0/1/2`와 `brewing_stand_empty0/1/2` 6모델은 각 **자체 1요소/2면**. 모두 **z축 두께 0**이고 **양쪽 면의 반대 UV 선언(6역방향 면)**을 사용한다. 이 6개 양면 표시는 실제 병의 3D 둥근 메시 모델과 동일하지 않다."
+        },
+        {
+          "line": 41,
+          "text": "- 6개 오버레이 원형 중 **4개는 최소 x=-0.41**로 소스 블록 좌표 범위 `[0,16]`를 일부 벗어난다. 이는 **원본 모델 좌표**이며 게임의 실제 충돌상자·시야 가시성을 입증하지 않는다."
+        },
+        {
+          "line": 42,
+          "text": "- 양조기 `brewing_stand.png`는 **16×16 원본 PNG 중 완전 불투명130·완전 투명126픽셀**. `brewing_stand_base.png`는 **256픽셀 전부 불투명**."
+        },
+        {
+          "line": 43,
+          "text": "- 모델 **7개의 36원본 선언면**을 PNG의 직접 UV 사각형에 대조해 총 **2,016 texel-uses = 불투명1,260 + 완전투명756**, 부분 알파0을 얻었다. 이 중 기본 양조기 24면/480 uses는 모두 불투명. 병 표시 3원형은 각각 2면×256 uses 중 102 투명, 빈자리 3원형은 각각 2면×256 uses 중 150 투명."
+        },
+        {
+          "line": 45,
+          "text": "[06 양조기 36면 원본 UV·선택 화소](06_brewing_36_face_original_png_rgba.csv) · [07 양조기 10 요소 원시 기하](07_brewing_10_elements_model_geometry.csv)"
+        },
+        {
+          "line": 47,
+          "text": "## 3. 전체 신규 PNG 6종의 원본 바이트·RGBA 검사"
+        },
+        {
+          "line": 49,
+          "text": "[03 여섯 PNG의 파일 SHA·비트 형식·전체 픽셀/알파](03_six_png_full_rgba_audit.csv)"
+        },
+        {
+          "line": 51,
+          "text": "| PNG | 원본 크기 | 고유 RGBA 색 | 불투명 | 투명 |"
+        },
+        {
+          "line": 61,
+          "text": "- **6 PNG 모두 원본 Base64→PNG scanline→RGBA 전체 디코딩**했고 GitHub blob SHA를 기록했다. `brewing_stand`의 색상 팔레트 `tRNS` 투명도도 적용했다. `tRNS` 처리 누락을 수정한 v30 이후 값을 사용한다."
+        },
+        {
+          "line": 63,
+          "text": "- **이번 주요 원본 2 블록의 고유 source face 11+36=47면**, face×material 실화소 기록은 **17+36=53행**, 텍셀 참조 **1,792+2,016=3,808회(불투명3,052/투명756)**. 이전 v7/v8에 일부 책장 `multipart` 구조를 조사했으므로 52규칙을 최초 발견한 것처럼 계산하지 않는다. 이번 신규 내용은 **256 조합의 전수 조건 평가와 해당 모델 face→PNG 실화소 직접 연결**이다."
+        },
+        {
+          "line": 67,
+          "text": "이번 v31에서는 `template_campfire`, `campfire_off`, `campfire`, `soul_campfire` 원본 JSON과 `campfire/soul_campfire` 블록 상태 JSON, 불꽃 `.png.mcmeta` 2개를 직접 읽었다."
+        },
+        {
+          "line": 73,
+          "text": "- **모닥불은 이번에 원본 요소·상태·메타데이터만 조사**했고 **애니메이션 PNG의 프레임별 실제 픽셀, 인게임 불꽃·조명/렌더 동작은 측정하지 않았다**. 그러므로 위 책장/양조기 47면·3,808회에 모닥불의 선언면을 혼입하지 않는다."
+        },
+        {
+          "line": 75,
+          "text": "[08 모닥불 켜짐/꺼짐 12원본 요소](08_campfire_12_source_geometry_elements.csv) · [09 두 모닥불의 16 source variants](09_two_campfire_16_variants_source.csv)"
+        },
+        {
+          "line": 77,
+          "text": "## 5. 근거 경계·다음 진행"
+        },
+        {
+          "line": 79,
+          "text": "- **확인된 직접 입력 근거:** 사용자 제공 1.21.11 원본 JSON의 블록 상태·모델 요소·면·명시 UV, 원본 6 PNG의 직접 RGBA 복호와 Git blob SHA, `.png.mcmeta`의 `frametime`."
+        },
+        {
+          "line": 80,
+          "text": "- **원본 JSON에 대한 파생 계산:** 책장 `256`/양조기 `8` 조건의 자동 평가 결과. 이는 게임 엔진에서 실제 월드 상태를 배치하고 화면에 재현해 본 결과가 아니다."
+        },
+        {
+          "line": 81,
+          "text": "- **아직 미완료:** Mojang 공식 `client.jar` 독립 출처·해시/게임 실행, `uvlock` 런타임/회전·컬링/면 라이트, 모닥불 실제 애니메이션·인게임, 게임 원본 공개 repo 재배포 권한. PNG 프레임 검증과 공식 로더 math를 확보해야 미확인 항목을 검증됨으로 바꿀 수 있다."
+        },
+        {
+          "line": 83,
+          "text": "- **다음 단계:** ① 모닥불 `template_campfire`·`campfire_off`의 PNG 면별 RGBA/불꽃 애니메이션 프레임 실제 대조 ② Mojang 1.21.11 공식 client.jar 독립 검증 ③ 게임의 bookshelves/양조기/campfire 실제 방향·UVlock·불꽃 비교 ④ 출처·근거 등급에 따라 가구 모델링 디자인 규칙 후보 정리."
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v31/v31_bookshelf_brewing_campfire_summary.json",
+      "git_blob_sha": "20014328c910402731bcc1a5b7456b1003658d4e",
+      "size": "2990",
+      "extension": "json",
+      "lines": 84,
+      "json_keys": [
+        "checkpoint",
+        "date_kst",
+        "priority",
+        "report",
+        "original_blockstate_multipart_source_files",
+        "original_multipart_source_rules",
+        "evaluated_conditions",
+        "model_selection_instances_in_evaluated_inputs",
+        "distinct_bookcase_model_references",
+        "distinct_brewing_model_references",
+        "bookcase_root_plus_geometry_templates",
+        "bookcase_leaf_texture_overrides",
+        "bookcase_source_face_declarations",
+        "bookcase_face_material_records",
+        "bookcase_uv_texel_uses",
+        "bookcase_uv_opaque",
+        "bookcase_flat_slot_templates",
+        "bookcase_base_uvlock_true_source_rules",
+        "bookcase_decor_uvlock_key_missing",
+        "brewing_source_models",
+        "brewing_source_face_declarations",
+        "brewing_flat_overlay_elements",
+        "brewing_geometry_outside_block_elements",
+        "brewing_face_uv_texel_uses",
+        "brewing_uv_opaque",
+        "brewing_uv_transparent",
+        "brewing_state_rules_uvlock_key_missing",
+        "combined_distinct_source_face_declarations",
+        "combined_face_material_records",
+        "combined_face_uv_texel_uses",
+        "combined_face_uv_opaque_uses",
+        "combined_face_uv_transparent_uses",
+        "full_png_rgba_decoded",
+        "full_png_source_pixels",
+        "full_png_opaque",
+        "full_png_transparent",
+        "full_png_partial",
+        "png_overlaps_existing_v4_150_sample",
+        "png_outside_v4_selected_sample",
+        "v4_legacy_png_metrics_match",
+        "campfire_preliminary",
+        "official_mojang_client_jar_verified",
+        "ingame_verified",
+        "runtime_uvlock_verified",
+        "v24_mod_research_unchanged",
+        "stage1_final_completed_substeps",
+        "stage1_total_substeps",
+        "source_analysis_outputs"
+      ],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 5,
+          "text": "  \"report\": \"research/vanilla_models/v31/00_v31_책장양조기_264상태_47면_PNG실화소_모닥불원본보고서.md\","
+        },
+        {
+          "line": 6,
+          "text": "  \"original_blockstate_multipart_source_files\": 2,"
+        },
+        {
+          "line": 7,
+          "text": "  \"original_multipart_source_rules\": {"
+        },
+        {
+          "line": 26,
+          "text": "  \"bookcase_source_face_declarations\": 11,"
+        },
+        {
+          "line": 31,
+          "text": "  \"bookcase_base_uvlock_true_source_rules\": 4,"
+        },
+        {
+          "line": 33,
+          "text": "  \"brewing_source_models\": 7,"
+        },
+        {
+          "line": 34,
+          "text": "  \"brewing_source_face_declarations\": 36,"
+        },
+        {
+          "line": 41,
+          "text": "  \"combined_distinct_source_face_declarations\": 47,"
+        },
+        {
+          "line": 47,
+          "text": "  \"full_png_source_pixels\": 1536,"
+        },
+        {
+          "line": 55,
+          "text": "    \"original_off_source_elements\": 5,"
+        },
+        {
+          "line": 56,
+          "text": "    \"off_source_faces\": 28,"
+        },
+        {
+          "line": 57,
+          "text": "    \"original_lit_template_source_elements\": 7,"
+        },
+        {
+          "line": 58,
+          "text": "    \"lit_template_source_faces\": 32,"
+        },
+        {
+          "line": 71,
+          "text": "  \"source_analysis_outputs\": ["
+        },
+        {
+          "line": 75,
+          "text": "    \"04_bookshelf_17_source_face_material_rgba.csv\","
+        },
+        {
+          "line": 79,
+          "text": "    \"08_campfire_12_source_geometry_elements.csv\","
+        },
+        {
+          "line": 80,
+          "text": "    \"09_two_campfire_16_variants_source.csv\","
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v32/00_v32_정적통베틀작업대_25PNG_42면암시UV_20상태보고서.md",
+      "git_blob_sha": "879cebbc901df72e0cb5aa414bf813f09a38c279",
+      "size": "9330",
+      "extension": "md",
+      "lines": 94,
+      "json_keys": [],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 5,
+          "text": "- **원본 근거:** 사용자가 업로드한 GitHub `1.21.11/assets/minecraft/` 실제 모델 JSON, blockstate JSON, PNG Base64 전체 바이트. 자료 SHA를 각 CSV에 기록했다. **독립 공식 Mojang 배포 `client.jar` 인증 및 실제 게임 화면 대조는 완료하지 않음**."
+        },
+        {
+          "line": 20,
+          "text": "- 원본 `cube.json`은 **[0,0,0]–[16,16,16] 한 개 요소·6개 face 선언**. `cube_bottom_top`과 `orientable_with_bottom`은 자체 기하 없이 텍스처 슬롯 대응을 정의한다."
+        },
+        {
+          "line": 21,
+          "text": "- leaf **7개는 자체 `elements` 0개**이므로 모델별 **유효한 6면**은 같고 **텍스처 슬롯 매핑만 변경**된다. **42면은 7 leaf×6면의 활용 인스턴스**이며 서로 다른 소스 기하 선언 42면이 아니다. 공통 `cube`의 **고유 소스 face 선언은 6면**이다. 일부 leaf·부모 상속 사실은 기존 v25에서도 관찰했으며 이번의 새 기여는 **각 leaf의 최종 면→텍스처 바인딩과 원본 PNG 화소**를 완전히 연결한 점이다."
+        },
+        {
+          "line": 26,
+          "text": "부모 `cube`의 `faces`에는 `uv` 값이 명시되어 있지 않다. 16×16×16 완전한 정육면체이므로 원본 기하에서 일반적으로 유도되는 각 **전체 면 UV 0–16 범위**를 **추론한 암시적 UV**로 기록했다. `[0,0,16,16]`의 256픽셀 *영역*은 각 면에서 동일하지만, 실제 엔진의 면 방향별 UV 순서/반전·블록상태 회전 후 UV 보정은 검증하지 않았다. **source-declared explicit UV라고 표기하면 안 된다.**"
+        },
+        {
+          "line": 28,
+          "text": "## 2. 25개 원본 PNG 실제 전체 RGBA 분석"
+        },
+        {
+          "line": 30,
+          "text": "사용자 저장소의 leaf 모델 7개에서 실제 참조하는 **중복 제거된 PNG 25경로**를 직접 조회하여, 4/8비트 인덱스 팔레트 및 8비트 RGB 원본을 바이트 단위로 풀고 **전 25종×16×16 = 6,400픽셀**의 RGBA를 조사했다."
+        },
+        {
+          "line": 32,
+          "text": "| 항목 | 직접 측정 수치 |"
+        },
+        {
+          "line": 34,
+          "text": "| 원본 PNG 고유 경로 수 | **25** |"
+        },
+        {
+          "line": 43,
+          "text": "- 위 **10,752**는 **42개 leaf-specific face×material**이 전체 16×16 PNG 영역을 참조한다는 암시적 UV 기반 **추론 픽셀 사용 횟수**다. 10,752개의 서로 다른 원본 PNG 픽셀이나 실제 화면 렌더 결과가 아니다."
+        },
+        {
+          "line": 44,
+          "text": "- 개별 이미지 RGBA 색상 종류는 다양하다. 예: `cartography_table_top` 27색, `fletching_table_side` 41색, `loom_bottom` 4색. 이는 **원본 이미지 색 수**로 실제 카메라 방향별 밝기/조명 수준과 혼동하면 안 된다."
+        },
+        {
+          "line": 46,
+          "text": "- 기존 v4 **150선정 표본 중 12경로**의 **PNG 파일 바이트 길이·크기·전체 픽셀·가시 픽셀 수 모두 12/12 일치**. [06 원본 v4 표본과 교차검사](06_v4_overlap_png_byte_pixel_crosscheck.csv). SHA-256 전체 25파일을 별도로 재계산하지 않았다. 또한 **v4 표본 밖13경로=프로젝트 전체에 새로 등장한13경로**라는 뜻은 아니다(기존 v25–31 연구에 재검사된 원본 텍스처 있음)."
+        },
+        {
+          "line": 50,
+          "text": "[07 20개 원본 상태·모델 선택·`x/y` 회전·`uvlock` 키 전수](07_six_blocks_20_static_state_variants.csv)"
+        },
+        {
+          "line": 52,
+          "text": "| 블록 | source variant 수 | 차원 |"
+        },
+        {
+          "line": 60,
+          "text": "| **합계** | **20** | source JSON 원본 항목수 |"
+        },
+        {
+          "line": 62,
+          "text": "- 20개 변형 중 **`x` 비0 회전 10개**, **`y` 비0 회전 9개**를 source 기준 통계. 모든 20행에 `uvlock` 속성이 **없음**(명시적 `uvlock:false` 20건이라는 뜻이 아님)."
+        },
+        {
+          "line": 64,
+          "text": "- 지도 제작대·화살 작업대·대장장이 작업대·제작대는 별도 방향 상태 없는 **한 가지 모델 선택**이지만, `cube` 템플릿의 동서남북에 서로 다른 front/side PNG를 대응하여 정적 방향성이 있는 디자인을 구성한다. (예: 지도 제작대는 side1/side2/side3 3경로 사용.) 이것은 **모델의 로컬 면 별 재질 선언**이며 사용자가 실제 게임에서 블록을 놓았을 때 회전 가능한지에 대한 추가 검증은 아님."
+        },
+        {
+          "line": 66,
+          "text": "## 4. 통 정적 열림/닫힘 — 실제 PNG 픽셀 단위 직접 차이"
+        },
+        {
+          "line": 68,
+          "text": "`barrel_top.png`와 `barrel_top_open.png`를 추가로 **독립 Python/Pillow`verify()`+RGBA 디코딩**하고 Git blob SHA-1 및 SHA-256을 각각 재계산했다. 업로드된 사용자 GitHub 원본 Git SHA와 **2/2 정확히 일치**."
+        },
+        {
+          "line": 75,
+          "text": "**두 이미지의 대응 위치 256픽셀 가운데 132픽셀이 서로 다르고, 124픽셀은 동일**하다. RGB 각 채널 절댓값 차이 합은 **25,405**(8비트 채널 원본 RGB 수치 차이의 합, 시각적 품질 점수 아님). 모델 상속 최종 형상·6면은 바뀌지 않고 **로컬 `#top` 텍스처만 교체되는 정적 모델 상태**이다."
+        },
+        {
+          "line": 77,
+          "text": "- [08 통 윗면 PNG2 독립 Pillow·SHA256 재검증](08_barrel_two_top_png_pillow_sha256.csv)"
+        },
+        {
+          "line": 78,
+          "text": "- [09 통 닫힘/열림 132픽셀 RGBA 변화 기록](09_barrel_open_closed_rgba_difference.json)"
+        },
+        {
+          "line": 82,
+          "text": "**직접 검증됨:** 사용자 업로드 소스 JSON의 leaf/parent 상속, 6 source face 원형 선언, 42 leaf×면 재질 바인딩, 20 원본 상태, PNG 25 전체 RGBA 6,400픽셀, 통 윗면 PNG2 독립 Pillow·Git SHA 검증 및 132픽셀 차이."
+        },
+        {
+          "line": 84,
+          "text": "**추론으로 명확히 구분:** 암시적 UV가 16×16 전체면이라는 기하 기반 유도, 42면·10,752 텍셀 사용 계산(실제 로더의 UV winding, `uvlock` 적용 및 텍스처 회전·조명 결과 아님)."
+        },
+        {
+          "line": 86,
+          "text": "**미검증:** 공식 Mojang Minecraft Java 1.21.11 `client.jar` 독립 출처·해시 인증, 게임 내 렌더·면별 UV 방향·조명·컬링/빛 번짐, 전체 모델 목록 대비 조사 비율."
+        },
+        {
+          "line": 90,
+          "text": "**후속 연구:** 바닐라 가구형 **정적** 모델 중 서로 다른 입체 부품을 쓰는 모델, 작업대별 재질 패턴의 비교표, 공식 클라이언트 정품 검증, 사용자 실제 게임 정적 상태 캡처 확보 후 회전/UV/음영 교차검증."
+        },
+        {
+          "line": 93,
+          "text": "- 게임 원본 `.class`/PNG/JSON이 공개 GitHub에 존재하므로 재배포 권리 점검 필요. v32 커밋에는 원본 에셋 대신 **파생 CSV·JSON·연구 보고서**만 추가한다."
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v32/09_barrel_open_closed_rgba_difference.json",
+      "git_blob_sha": "3f716334f80d0a99ee680bdad3424641acc8c97f",
+      "size": "345",
+      "extension": "json",
+      "lines": 12,
+      "json_keys": [
+        "comparison",
+        "different_rgba_pixel_positions",
+        "same_rgba_pixel_positions",
+        "total_pixels",
+        "raw_rgb_absolute_channel_sum",
+        "face_geometry_same",
+        "changed_source_slot",
+        "static_state_only",
+        "animation_analysis_performed"
+      ],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 8,
+          "text": "  \"changed_source_slot\": \"top\","
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    },
+    {
+      "path": "research/vanilla_models/v32/v32_static_cube_face_png_audit_summary.json",
+      "git_blob_sha": "b047454630446db54197228529440a888659d534",
+      "size": "2842",
+      "extension": "json",
+      "lines": 92,
+      "json_keys": [
+        "checkpoint",
+        "date_kst",
+        "priority",
+        "animation_status",
+        "report",
+        "blocks",
+        "original_leaf_models",
+        "leaf_json",
+        "parent_model_json_direct_read",
+        "leaf_own_geometry_elements_all_zero",
+        "cube_original_source_elements",
+        "cube_unique_source_face_declarations",
+        "leaf_inherited_face_material_instances",
+        "source_face_uv_explicit",
+        "face_full_16x16_uv_inferred_not_game_renderer_verified",
+        "source_png_count",
+        "source_png_pixels",
+        "source_png_opaque",
+        "source_png_transparent",
+        "source_png_partial_alpha",
+        "source_face_material_texel_uses_inferred",
+        "source_face_material_texel_opaque",
+        "source_face_material_texel_transparent",
+        "png_in_existing_v4_150_sample",
+        "png_outside_existing_v4_150_sample",
+        "v4_crosschecks_match",
+        "blockstate_source_files",
+        "source_variant_rows",
+        "per_block_variants",
+        "source_rotation_x_nonzero_rows",
+        "source_rotation_y_nonzero_rows",
+        "uvlock_true_declared_rows",
+        "uvlock_absent_rows",
+        "barrel_static_open_vs_closed",
+        "official_mojang_client_jar_verified",
+        "ingame_static_render_verified",
+        "runtime_implicit_uv_orientation_verified",
+        "mod_v24_data_unchanged",
+        "stage1_completed_substeps",
+        "stage1_total_substeps",
+        "v32_outputs"
+      ],
+      "exact_original_model_path_mentions": [],
+      "sha40_count": 0,
+      "sha40_values": [],
+      "selected_supporting_lines": [
+        {
+          "line": 31,
+          "text": "  \"cube_original_source_elements\": 1,"
+        },
+        {
+          "line": 32,
+          "text": "  \"cube_unique_source_face_declarations\": 6,"
+        },
+        {
+          "line": 34,
+          "text": "  \"source_face_uv_explicit\": false,"
+        },
+        {
+          "line": 36,
+          "text": "  \"source_png_count\": 25,"
+        },
+        {
+          "line": 37,
+          "text": "  \"source_png_pixels\": 6400,"
+        },
+        {
+          "line": 38,
+          "text": "  \"source_png_opaque\": 6400,"
+        },
+        {
+          "line": 39,
+          "text": "  \"source_png_transparent\": 0,"
+        },
+        {
+          "line": 40,
+          "text": "  \"source_png_partial_alpha\": 0,"
+        },
+        {
+          "line": 41,
+          "text": "  \"source_face_material_texel_uses_inferred\": 10752,"
+        },
+        {
+          "line": 42,
+          "text": "  \"source_face_material_texel_opaque\": 10752,"
+        },
+        {
+          "line": 43,
+          "text": "  \"source_face_material_texel_transparent\": 0,"
+        },
+        {
+          "line": 47,
+          "text": "  \"blockstate_source_files\": 6,"
+        },
+        {
+          "line": 48,
+          "text": "  \"source_variant_rows\": 20,"
+        },
+        {
+          "line": 57,
+          "text": "  \"source_rotation_x_nonzero_rows\": 10,"
+        },
+        {
+          "line": 58,
+          "text": "  \"source_rotation_y_nonzero_rows\": 9,"
+        },
+        {
+          "line": 71,
+          "text": "    \"source_git_blob_sha_matches\": \"2/2\","
+        },
+        {
+          "line": 88,
+          "text": "    \"08_barrel_two_top_png_pillow_sha256.csv\","
+        },
+        {
+          "line": 89,
+          "text": "    \"09_barrel_open_closed_rgba_difference.json\""
+        }
+      ],
+      "contents_reopened_and_SHA_matched": true,
+      "model_semantic_completion_inferred": false
+    }
+  ]
+}
