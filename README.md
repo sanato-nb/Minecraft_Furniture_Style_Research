@@ -1,5 +1,8 @@
 # Minecraft Furniture Style Research
 
+> **현행 전역 v45 · 2026-11-14:** [1-2-A 역사 SHA·아카시아 선반 7 leaf 직접 소스 검증](research/vanilla_models/v45/REPORT.md) · [P1 544행 최신 상태 원장](research/vanilla_models/v45/01_P1_544_MODEL_VERIFICATION_LEDGER.csv) · [v45 다음 채팅 인계](research/vanilla_models/v45/NEXT_CHAT_HANDOFF.md). 기존 v44 SHA 연결 110 + 과거 v30 증거 신규 회수 2 + 새 원본 아카시아 선반 leaf 7 = **119개 연결**, **425개는 검사 범위에서만 미연결**. 추가 역사 CSV **86종 SHA 필드 검사**; 7개 부모 템플릿은 v38 원형 재사용. 아카시아 blockstate 원본 24 multipart / 파생 32 조합. 1-2-A 및 1-2 전체 **진행 중**, 실제 종합 완료율 미산정. **1-1 150/150 완료 · 상위 1/5 유지**. 아래 v44 이하 '현행' 문구는 과거 스냅샷.
+
+
 > **현재 전역 v44 · 2026-11-14:** [1-2-A P1 544개 역사적 SHA 증거 1차 대조](research/vanilla_models/v44/REPORT.md) · [544개 모델별 원장](research/vanilla_models/v44/01_P1_544_SHA_CROSSWALK.csv). **110개는 선택한 과거 증거에서 SHA가 연결된 고유 모델, 434개는 이번 자료에서 미연결**(미분석 확정 아님). v38 중복 5개 제거·오탐 2건 정정, v5~v43 전체 증거 통합은 **계속 진행 중**. 1-1 v42 소스 완료 150/150 및 전체 **1/5 완료 유지**. 아래 v43/v42 '최신' 문구는 당시 스냅샷.
 
 

@@ -1,5 +1,8 @@
 # 1-2 연구 실행 계획 — 바닐라 모델/UV/blockstate
 
+> **현행 v45 연구 갱신 · 2026-11-14:** [1-2-A 실제 검증 보고서](../../research/vanilla_models/v45/REPORT.md) · [544행 검증 상태 원장](../../research/vanilla_models/v45/01_P1_544_MODEL_VERIFICATION_LEDGER.csv) · [9개 추가 SHA 연결 증거](../../research/vanilla_models/v45/02_NEW_EVIDENCE_LINKS_9.csv). v44 연결 110 + 과거 v30 중복 제거 후 증거 회수 2 + 새로운 acacia_shelf 7 leaf 원본 확인 = **119개 SHA 연결**, **425개는 조사한 근거에서만 미연결**. v44 제외 역사 CSV **86개 SHA 필드 조사**; v38 부모 7템플릿은 재사용, blockstate 원본 24개 multipart/파생 32조합. 1-2-A 전체 v5~v43 서술형/JSON 대조, PNG·특수 렌더 검증 **남아 있으며 전체 1-2 완료율 미산정**. v42 1-1 150/150 완료, 상위 **1/5 유지**. 아래 v44/v43 '최신' 표현은 역사적 스냅샷.
+
+
 > **1-2-A 실제 실행 v44:** [원본 모델 인벤토리·544 P1 SHA 대조 결과](../../research/vanilla_models/v44/REPORT.md). (1) 파일 원본 2,390/2,390 SHA 일치 (2) 선택 증거 파일 17개/144참조 (3) 고유 P1 SHA 연결 110, 현재 미연결 434 (4) v38 중복 5·v36 SHA 타입 오탐2 정정. 이는 **A 단계의 첫 부분 결과**이며, 남은 전역 v5~v43 전체 문서/CSV 증거 검토·모델별 심층 검증은 진행 중.
 
 

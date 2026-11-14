@@ -1,5 +1,8 @@
 # Minecraft Furniture Style Research — 현재 프로젝트 진행도
 
+> **현행 v45 연구 갱신 · 2026-11-14:** [1-2-A 실제 검증 보고서](../research/vanilla_models/v45/REPORT.md) · [544행 검증 상태 원장](../research/vanilla_models/v45/01_P1_544_MODEL_VERIFICATION_LEDGER.csv) · [9개 추가 SHA 연결 증거](../research/vanilla_models/v45/02_NEW_EVIDENCE_LINKS_9.csv). v44 연결 110 + 과거 v30 중복 제거 후 증거 회수 2 + 새로운 acacia_shelf 7 leaf 원본 확인 = **119개 SHA 연결**, **425개는 조사한 근거에서만 미연결**. v44 제외 역사 CSV **86개 SHA 필드 조사**; v38 부모 7템플릿은 재사용, blockstate 원본 24개 multipart/파생 32조합. 1-2-A 전체 v5~v43 서술형/JSON 대조, PNG·특수 렌더 검증 **남아 있으며 전체 1-2 완료율 미산정**. v42 1-1 150/150 완료, 상위 **1/5 유지**. 아래 v44/v43 '최신' 표현은 역사적 스냅샷.
+
+
 > **최신 전역 v44 · 2026-11-14:** [1-2-A 원본 근거 1차 재대조](../research/vanilla_models/v44/REPORT.md): P1 544 후보 중 110개 SHA 증거 연결, 미연결 434개(미조사 확정 아님), 176 증거 링크·중복5·SHA 타입 오탐2 해결. **1-2-A 진행 중**, 완료 과제 **1/5 유지**. 아래 v43 이전 문구는 역사 기록.
 
 

@@ -1,5 +1,8 @@
 # 1-2 새 채팅 인수인계·시작 프롬프트 (v43 이후)
 
+> **새 채팅은 v45에서 재개 (2026-11-14):** [v45 직접 연구 보고서](../../research/vanilla_models/v45/REPORT.md) · [544행 상태 원장](../../research/vanilla_models/v45/01_P1_544_MODEL_VERIFICATION_LEDGER.csv) · [실제 최신 인수인계](../../research/vanilla_models/v45/NEXT_CHAT_HANDOFF.md). 아래 v43/v44 시작문은 **과거 출발점**. 반드시 GitHub main HEAD 및 handoff/STATE.json을 재확인하고, **119 SHA 연결/425 선택 근거 미연결**, 지난 연구 CSV 86추가 검사·과거 2건 회수·신규 acacia_shelf 7 leaf 검증을 계승하라. 1-2-A·1-2 전체 계속 진행, 완료 퍼센트 미산정. 1-1 완료 및 상위 1/5 유지.
+
+
 > **현행 v44 후속:** [v44 감사 보고서](../../research/vanilla_models/v44/REPORT.md)와 [P1 544개 모델별 상태](../../research/vanilla_models/v44/01_P1_544_SHA_CROSSWALK.csv)부터 읽고, **이미 대조한 17CSV/144근거·중복5/오탐2**를 신규 실적으로 반복하지 말 것. 434개는 현재 *선택한 증거에서만 미연결*, 첫 작업은 나머지 v5~v43 과거 CSV/보고서의 추가 확인. 아래 v43 시작 지시는 역사적 출발점이며 현행 v44 요약이 우선.
 
 
