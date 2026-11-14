@@ -1,4 +1,7 @@
 # 새로운 ChatGPT 채팅에서 Minecraft 가구 모델링 학습 이어하기
+> **최신 통합 v42:** [1-1 소스 연구 150/150 완료 정정 보고서](../research/vanilla_textures/integrations/v42_INT-1-1-11steps_150_SOURCE_COMPLETE/REPORT.md). 1-1-01 목재·원목은 과거부터 통합 원장에 포함되어 있었고, 0/18은 낡은 상태 카운터에 의한 판정 오류였다. 2026-11-14에 근거 대조 후 18/18 정정. 아래 v41/구 R000 작업 프롬프트보다 이 내용과 단계별 최신 STATE가 우선.
+
+
 > **현재 전역 v41:** [11단계·150종 통합, 1-1-02 최신 R017 반영](../research/vanilla_textures/integrations/v41_INT-1-1-11steps_150_R017_REFRESH/REPORT.md). 소스 연구 완료 132/150(88%), 1-1-01 목재·원목 18종 미종결. 아래 v40/v38 인수인계 텍스트는 과거 기록이므로 이 최신 참조와 각 단계 라이브 STATE를 우선한다.
 
 

@@ -1,5 +1,17 @@
 # 학습 진행도
-## 전역 최신 체크포인트 v41 — 석재·벽돌 R017 완료 반영, 11단계·150종 통합 유지
+## 최신 전역 v42 — 목재 완료 판정 오류 정정 · 1-1 소스 연구 150/150 완료
+
+> **2026-11-14, 통합 `INT-1-1-20261114-02`**. 이 문단은 아래 v41/v40/v39의 역사적 누적 연구 기록보다 최신이며 현재 진행도에서는 이 값을 우선한다.
+
+- **[v42 검수 보고서](research/vanilla_textures/integrations/v42_INT-1-1-11steps_150_SOURCE_COMPLETE/REPORT.md)** · [11개 단계 완료 원장](research/vanilla_textures/integrations/v42_INT-1-1-11steps_150_SOURCE_COMPLETE/STAGE_INTEGRATION_LEDGER.csv) · [150개 텍스처별 완료 원장](research/vanilla_textures/integrations/v42_INT-1-1-11steps_150_SOURCE_COMPLETE/TEXTURE_150_SCOPE_LEDGER.csv) · [Git SHA 증거](research/vanilla_textures/integrations/v42_INT-1-1-11steps_150_SOURCE_COMPLETE/MANIFEST.json) · [검증 JSON](research/vanilla_textures/integrations/v42_INT-1-1-11steps_150_SOURCE_COMPLETE/VALIDATION.json).
+- **목재·원목 1-1-01 고정 18종은 v39부터 이미 원장에 포함**되어 있었다. 그 단계 `STATE.json`의 `stage_current_analysis_completed_count=0`은 이전 R001–R008 소스 연구 결과를 반영하지 않은 **완료 집계 누락**이었고, 근거 감사 및 사용자 정정 요청을 반영해 **18/18**로 갱신. 새 TEX 연구 버전/PNG 실측은 추가하지 않고 `TEX01-R008` 보존.
+- **1-1 바닐라 재질·텍스처 지정 11개 분류 / 150개 texture_id = 사용자 승인 원본 소스 연구 범위 완료 100%**. 원장 등록 150/150과 단계별 승인 소스 검증 완료 150/150이 둘 다 충족됨. **모든 Minecraft 블록 PNG 1111종 완료라고 주장하는 것이 아님**.
+- 범위에 맞춰 **상위 연구 5개 세부과제 중 첫 번째 '01 바닐라 재질·텍스처 분석'을 완료로 기록**, 다른 02–05는 계속 개별 검수 필요. **상위 1단계 1/5**이며 상위 2단계 디자인 가이드 완성을 의미하지 않는다.
+- 공식 Mojang 압축 JAR SHA 검증 및 실제 인게임 정적 렌더 검증은 사용자 요청으로 완료 요건에서 제외(직접 성공했다는 뜻 아님). 애니메이션 소스 재개 9단계, 단계 02·10 별도 보류. 가구 모드 및 실제 가구 모델 제작·PZ 변환은 이번 소스 완료 판정 범위 밖.
+- v39(133종 부분통합), v40(150종 최초 통합), v41(석재 R017 갱신) 연구 스냅샷은 **원본 그대로 보존**. 원래 v4·TEX 모든 리비전에도 신규 측정 실적을 중복 집계하지 않았다.
+
+
+## 전역 최신 체크포인트 v42 — 석재·벽돌 R017 완료 반영, 11단계·150종 통합 유지
 
 > **2026-11-14 KST · 통합 `INT-1-1-20261114-01`.** 이 문단의 v41 연구 상태/작업 범위가 아래의 v40/v39/v38 역사적 기록보다 우선한다. 기존 보고서와 독립 단계 파일은 삭제·수정하지 않았다.
 

@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-14",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v41",
+  "current_checkpoint": "v42",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -19,7 +19,7 @@
     {
       "id": "01",
       "topic": "vanilla material and texture analysis",
-      "status": "v41_all_11_categories_150_texture_ids_integrated_10_of_11_source_only_completed_132_of_150_stone_R017_latest_wood_18_open_not_final_substep_done",
+      "status": "v42_source_only_completed_11_of_11_categories_150_of_150_fixed_wood18_reconciled_existing_R001_R008_approved_scope",
       "sample_count": 150,
       "target": 150,
       "v26_pngs_full_rgba_decoded": 8,
@@ -73,7 +73,12 @@
       "v38_png_sha_v34_match": 2,
       "v38_actual_rgba_uv_regions": 38,
       "v38_actual_rgba_texel_uses": 2304,
-      "v38_actual_rgba_opaque_uses": 2304
+      "v38_actual_rgba_opaque_uses": 2304,
+      "completed": true,
+      "source_scope_completed_count": 150,
+      "source_scope_target": 150,
+      "source_scope_completion_pct": 100,
+      "verification_limit": "Source-only user-approved A-E/G; original official compressed JAR SHA1 and Minecraft in-game runtime verification excluded and not performed."
     },
     {
       "id": "02",
@@ -438,7 +443,7 @@
       }
     }
   ],
-  "completed_substeps": 0,
+  "completed_substeps": 1,
   "total_substeps": 5,
   "verified_sqlite_local": {
     "integrity": "ok",
@@ -498,12 +503,12 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "Latest v41 integrates all 11 materials/150 IDs and replaces stone/brick integration reference TEX02-R015 with TEX02-R017 final source-only 17/17. v39 and v40 are immutable historical integrations.",
-    "Stage 1-1-01 wood/log remains unfinished for source-only completion (18/18 pending final stage-level closure). Do not report 150/150 source research complete; 132/150 verified source-only complete (88%) is current.",
-    "Continue standalone 1-1-01 work on actual source evidence; only create a new integrated v42 after new authentic stage work is committed; no duplicate measurement counts.",
-    "Official Mojang compressed JAR SHA certification and in-game runtime observation are excluded from required completion by user; do not claim either was verified.",
-    "Animation source study has been resumed in stages 01,03,04,05,06,07,08,09,11 and deferred in 02 and 10. Respect each current stage policy.",
-    "Top-level Stage 1 five substeps remain 0/5, and actual furniture design/model generation / Project Zomboid conversion remain out of scope."
+    "Stage 1 substep 01 vanilla material/texture user-approved source-only research is completed in v42 (11 categories, 150/150 selected PNGs). Wood was already integrated in v39-v41; stale legacy 0/18 now corrected, no new research release.",
+    "Continue Stage 1 substep 02 vanilla model JSON geometry UV and blockstate coverage. Do not infer full 2390 model closure from the 150 PNG completion.",
+    "Continue independent Stage 1 substeps 03 mod furniture geometry, 04 mod texture UV, 05 vanilla-vs-mod comparison. Stage1 total substeps completed now 1/5, not all five.",
+    "Keep source-only texture evidence distinct from official compressed JAR authenticity and actual in-game rendering; those verifications excluded by user, not successfully measured.",
+    "Animation asset study resumed in nine material stages, still deferred for 1-1-02 and 1-1-10 at latest stage-level STATE; runtime animation effects not authenticated.",
+    "Preserve all v39/v40/v41 and TEXnn original evidence immutable. Project Zomboid conversion/actual furniture asset building excluded."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -2547,5 +2552,141 @@
     ],
     "source_integration_manifest_sha": "73b79587bc2227e2cdc670e7b087a9642106ff09",
     "source_git_head_pinned": "8c4d40d27537a08a18926840836534aa91f0132a"
+  },
+  "v42": {
+    "date_kst": "2026-11-14",
+    "checkpoint": "v42",
+    "integration_id": "INT-1-1-20261114-02",
+    "report": "research/vanilla_textures/integrations/v42_INT-1-1-11steps_150_SOURCE_COMPLETE/REPORT.md",
+    "stages": "research/vanilla_textures/integrations/v42_INT-1-1-11steps_150_SOURCE_COMPLETE/STAGE_INTEGRATION_LEDGER.csv",
+    "textures": "research/vanilla_textures/integrations/v42_INT-1-1-11steps_150_SOURCE_COMPLETE/TEXTURE_150_SCOPE_LEDGER.csv",
+    "manifest": "research/vanilla_textures/integrations/v42_INT-1-1-11steps_150_SOURCE_COMPLETE/MANIFEST.json",
+    "validation": "research/vanilla_textures/integrations/v42_INT-1-1-11steps_150_SOURCE_COMPLETE/VALIDATION.json",
+    "continuation": "research/vanilla_textures/integrations/v42_INT-1-1-11steps_150_SOURCE_COMPLETE/CONTINUATION.md",
+    "manifest_git_sha": "1840287674fd575baf1144c65dfb8932b748554b",
+    "pinned_integration_head": "4206d318625adfe85dbf7c8050ac6adeba048255",
+    "integrated_stages": 11,
+    "source_completed_stages": 11,
+    "integrated_texture_ids": 150,
+    "source_completed_texture_ids": 150,
+    "source_completion_percentage": 100,
+    "wood_corrected_from_legacy_zero": true,
+    "wood_completion_basis": [
+      "research/vanilla_textures/by_stage/1-1-01/TEX01-R006/REPORT.md",
+      "research/vanilla_textures/by_stage/1-1-01/TEX01-R007/REPORT.md",
+      "research/vanilla_textures/by_stage/1-1-01/TEX01-R008/REPORT.md"
+    ],
+    "wood_stage_revision": "TEX01-R008",
+    "wood_stage_state_sha": "704d861ed9335a1d4798cfb2b3b46813d331fc4c",
+    "global_substep01_completed_user_approved_source_scope": true,
+    "global_completed_substeps": 1,
+    "global_total_substeps": 5,
+    "source_only_scope_not_all_minecraft_blocks": true,
+    "new_independent_original_PNG_measurements_during_integration": 0,
+    "historical_v39_v40_v41_immutable": true,
+    "official_jar_auth_not_required_or_claimed": true,
+    "ingame_render_not_required_or_claimed": true,
+    "animation_research_per_stage": "9 resumed, 2 deferred",
+    "stage_snapshots": [
+      {
+        "stage": "1-1-01",
+        "revision": "TEX01-R008",
+        "source_state_sha": "704d861ed9335a1d4798cfb2b3b46813d331fc4c",
+        "source_report_sha": "cf9697bdd89070cb436b2fff2c74b710a3de5d97",
+        "source_summary_sha": "c611146f46db299db5a87a91412c98152e6d111b",
+        "target": 18,
+        "source_completed": 18
+      },
+      {
+        "stage": "1-1-02",
+        "revision": "TEX02-R017",
+        "source_state_sha": "1626a2041bc599fa9b79a0c5c63c4686e6c4a372",
+        "source_report_sha": "55fc7d3083364c71b3a7b5e8e88d2cc76a881570",
+        "source_summary_sha": "989b4be1d3793f97f448607a0db8170cf6fb11f0",
+        "target": 17,
+        "source_completed": 17
+      },
+      {
+        "stage": "1-1-03",
+        "revision": "TEX03-R008",
+        "source_state_sha": "c8cda5b5b7d830f53c44deadb5ffc6c45581e95b",
+        "source_report_sha": "d99329eb4cd167634a9213082b3a5743e821bcf8",
+        "source_summary_sha": "a979cf6306e2785aa67052a07e1d99439fa00e5c",
+        "target": 16,
+        "source_completed": 16
+      },
+      {
+        "stage": "1-1-04",
+        "revision": "TEX04-R009",
+        "source_state_sha": "55d6656280d2c33261a5a3559d3955da5936f4a9",
+        "source_report_sha": "13effb986f2c1cfe15b3a19a1acebe7ebe894497",
+        "source_summary_sha": "c5603adfb67e8ebee460b26c3d100904d445c312",
+        "target": 9,
+        "source_completed": 9
+      },
+      {
+        "stage": "1-1-05",
+        "revision": "TEX05-R008",
+        "source_state_sha": "6dba81b485cf626be9e39f26f187095a4546ac32",
+        "source_report_sha": "1a779027d8e4faccbc502c3488ad1c1560cb217f",
+        "source_summary_sha": "3801637c9a15286d88ec0563ff590e9ea5bd1572",
+        "target": 6,
+        "source_completed": 6
+      },
+      {
+        "stage": "1-1-06",
+        "revision": "TEX06-R008",
+        "source_state_sha": "bde2583094d11ccd7b275469d92251367c356c80",
+        "source_report_sha": "2f900ddc74e2f756ea7c82d1a4805a6594b845ae",
+        "source_summary_sha": "605f45e84db179c20de250bcbd5c7de5d3bc2fed",
+        "target": 8,
+        "source_completed": 8
+      },
+      {
+        "stage": "1-1-07",
+        "revision": "TEX07-R008",
+        "source_state_sha": "19336be69c40437c495d3e201d52c5dd72aa33ec",
+        "source_report_sha": "93a6ecb7a4d554fd6d614eba119af834f2389e0c",
+        "source_summary_sha": "2996edc8489159130c9c326856ae01968893c264",
+        "target": 7,
+        "source_completed": 7
+      },
+      {
+        "stage": "1-1-08",
+        "revision": "TEX08-R008",
+        "source_state_sha": "ba780589ac47e865596f72001c5b7e77b5c8083d",
+        "source_report_sha": "43d01867495fe44e16eb065d2e071d8088c42d04",
+        "source_summary_sha": "a570aa30782fd7facd2719a9e220ff9ceba6ba30",
+        "target": 21,
+        "source_completed": 21
+      },
+      {
+        "stage": "1-1-09",
+        "revision": "TEX09-R008",
+        "source_state_sha": "fd10f98e02b63222dee9be007f68449852aad894",
+        "source_report_sha": "a4e72a0600489cce069935d588d61c4cb9551ad0",
+        "source_summary_sha": "5b79b89f8aaaa9fee52a164f332d7c1ce4570bf5",
+        "target": 9,
+        "source_completed": 9
+      },
+      {
+        "stage": "1-1-10",
+        "revision": "TEX10-R014",
+        "source_state_sha": "1b92885d4605554d40014a192ed04f0e9143707a",
+        "source_report_sha": "dc2044cd2b07029d83228da707e0bd22232f4e5b",
+        "source_summary_sha": "5e7e7c16e2366d5caec0032f02069399df6881b1",
+        "target": 8,
+        "source_completed": 8
+      },
+      {
+        "stage": "1-1-11",
+        "revision": "TEX11-R013",
+        "source_state_sha": "2801db63c5599e5dec27589e150ee48496ef1ff1",
+        "source_report_sha": "c2127526aca0a249e341ad658d4cee83c9dbb5ed",
+        "source_summary_sha": "fea34774f4aaad4190690f2e84b3a49ff44a0acf",
+        "target": 31,
+        "source_completed": 31
+      }
+    ]
   }
 }
