@@ -1,0 +1,522 @@
+{
+  "schema": "v53_direct_source_blockstate_and_geometry_parent",
+  "source_version": "Minecraft Java 1.21.11",
+  "entries": [
+    {
+      "path": "1.21.11/assets/minecraft/models/block/template_lightning_rod.json",
+      "status": "read_source_JSON",
+      "asset_type": "block_model_json",
+      "git_blob_sha": "2d6b22cf0ac4a2052c4ad739318a044891f74bf4",
+      "source_json": {
+        "parent": "block/block",
+        "display": {
+          "head": {
+            "rotation": [
+              -180,
+              0,
+              0
+            ],
+            "translation": [
+              8.5,
+              4,
+              0
+            ]
+          },
+          "thirdperson_righthand": {
+            "translation": [
+              0,
+              2,
+              0.5
+            ],
+            "scale": [
+              0.4,
+              0.4,
+              0.4
+            ]
+          }
+        },
+        "textures": {
+          "particle": "#texture"
+        },
+        "elements": [
+          {
+            "from": [
+              6,
+              12,
+              6
+            ],
+            "to": [
+              10,
+              16,
+              10
+            ],
+            "faces": {
+              "north": {
+                "uv": [
+                  0,
+                  0,
+                  4,
+                  4
+                ],
+                "texture": "#texture"
+              },
+              "south": {
+                "uv": [
+                  0,
+                  0,
+                  4,
+                  4
+                ],
+                "texture": "#texture"
+              },
+              "west": {
+                "uv": [
+                  0,
+                  0,
+                  4,
+                  4
+                ],
+                "texture": "#texture"
+              },
+              "east": {
+                "uv": [
+                  0,
+                  0,
+                  4,
+                  4
+                ],
+                "texture": "#texture"
+              },
+              "down": {
+                "uv": [
+                  0,
+                  0,
+                  4,
+                  4
+                ],
+                "texture": "#texture"
+              },
+              "up": {
+                "uv": [
+                  4,
+                  4,
+                  0,
+                  0
+                ],
+                "texture": "#texture"
+              }
+            }
+          },
+          {
+            "from": [
+              7,
+              0,
+              7
+            ],
+            "to": [
+              9,
+              12,
+              9
+            ],
+            "faces": {
+              "north": {
+                "uv": [
+                  0,
+                  4,
+                  2,
+                  16
+                ],
+                "texture": "#texture"
+              },
+              "south": {
+                "uv": [
+                  0,
+                  4,
+                  2,
+                  16
+                ],
+                "texture": "#texture"
+              },
+              "west": {
+                "uv": [
+                  0,
+                  4,
+                  2,
+                  16
+                ],
+                "texture": "#texture"
+              },
+              "east": {
+                "uv": [
+                  0,
+                  4,
+                  2,
+                  16
+                ],
+                "texture": "#texture"
+              },
+              "down": {
+                "uv": [
+                  0,
+                  4,
+                  2,
+                  6
+                ],
+                "texture": "#texture"
+              }
+            }
+          }
+        ]
+      },
+      "original_elements": 2,
+      "original_faces": 11,
+      "original_explicit_uv": 11,
+      "original_variant_rules": 0,
+      "variant_model_alternatives": 0,
+      "original_multipart_rules": 0
+    },
+    {
+      "path": "1.21.11/assets/minecraft/blockstates/brown_candle.json",
+      "status": "read_source_JSON",
+      "asset_type": "blockstate_json",
+      "git_blob_sha": "66979471fa5c356e5f3f9a566d7cb82272560abf",
+      "source_json": {
+        "variants": {
+          "candles=1,lit=false": {
+            "model": "minecraft:block/brown_candle_one_candle"
+          },
+          "candles=1,lit=true": {
+            "model": "minecraft:block/brown_candle_one_candle_lit"
+          },
+          "candles=2,lit=false": {
+            "model": "minecraft:block/brown_candle_two_candles"
+          },
+          "candles=2,lit=true": {
+            "model": "minecraft:block/brown_candle_two_candles_lit"
+          },
+          "candles=3,lit=false": {
+            "model": "minecraft:block/brown_candle_three_candles"
+          },
+          "candles=3,lit=true": {
+            "model": "minecraft:block/brown_candle_three_candles_lit"
+          },
+          "candles=4,lit=false": {
+            "model": "minecraft:block/brown_candle_four_candles"
+          },
+          "candles=4,lit=true": {
+            "model": "minecraft:block/brown_candle_four_candles_lit"
+          }
+        }
+      },
+      "original_elements": 0,
+      "original_faces": 0,
+      "original_explicit_uv": 0,
+      "original_variant_rules": 8,
+      "variant_model_alternatives": 8,
+      "original_multipart_rules": 0
+    },
+    {
+      "path": "1.21.11/assets/minecraft/blockstates/brown_candle_cake.json",
+      "status": "read_source_JSON",
+      "asset_type": "blockstate_json",
+      "git_blob_sha": "e92e80830364789a5707953cd11ca22a36f42324",
+      "source_json": {
+        "variants": {
+          "lit=false": {
+            "model": "minecraft:block/brown_candle_cake"
+          },
+          "lit=true": {
+            "model": "minecraft:block/brown_candle_cake_lit"
+          }
+        }
+      },
+      "original_elements": 0,
+      "original_faces": 0,
+      "original_explicit_uv": 0,
+      "original_variant_rules": 2,
+      "variant_model_alternatives": 2,
+      "original_multipart_rules": 0
+    },
+    {
+      "path": "1.21.11/assets/minecraft/blockstates/cyan_candle.json",
+      "status": "read_source_JSON",
+      "asset_type": "blockstate_json",
+      "git_blob_sha": "4e35ccd531ab5d05d8d3aa35dfc5959175cd956e",
+      "source_json": {
+        "variants": {
+          "candles=1,lit=false": {
+            "model": "minecraft:block/cyan_candle_one_candle"
+          },
+          "candles=1,lit=true": {
+            "model": "minecraft:block/cyan_candle_one_candle_lit"
+          },
+          "candles=2,lit=false": {
+            "model": "minecraft:block/cyan_candle_two_candles"
+          },
+          "candles=2,lit=true": {
+            "model": "minecraft:block/cyan_candle_two_candles_lit"
+          },
+          "candles=3,lit=false": {
+            "model": "minecraft:block/cyan_candle_three_candles"
+          },
+          "candles=3,lit=true": {
+            "model": "minecraft:block/cyan_candle_three_candles_lit"
+          },
+          "candles=4,lit=false": {
+            "model": "minecraft:block/cyan_candle_four_candles"
+          },
+          "candles=4,lit=true": {
+            "model": "minecraft:block/cyan_candle_four_candles_lit"
+          }
+        }
+      },
+      "original_elements": 0,
+      "original_faces": 0,
+      "original_explicit_uv": 0,
+      "original_variant_rules": 8,
+      "variant_model_alternatives": 8,
+      "original_multipart_rules": 0
+    },
+    {
+      "path": "1.21.11/assets/minecraft/blockstates/green_candle_cake.json",
+      "status": "read_source_JSON",
+      "asset_type": "blockstate_json",
+      "git_blob_sha": "d01a78d90c3332c1953930d515cfcb21a7bee6e8",
+      "source_json": {
+        "variants": {
+          "lit=false": {
+            "model": "minecraft:block/green_candle_cake"
+          },
+          "lit=true": {
+            "model": "minecraft:block/green_candle_cake_lit"
+          }
+        }
+      },
+      "original_elements": 0,
+      "original_faces": 0,
+      "original_explicit_uv": 0,
+      "original_variant_rules": 2,
+      "variant_model_alternatives": 2,
+      "original_multipart_rules": 0
+    },
+    {
+      "path": "1.21.11/assets/minecraft/blockstates/exposed_lightning_rod.json",
+      "status": "read_source_JSON",
+      "asset_type": "blockstate_json",
+      "git_blob_sha": "1d675ca101daf58b35a93984e4ac64bc496168ea",
+      "source_json": {
+        "variants": {
+          "facing=down,powered=false": {
+            "model": "minecraft:block/exposed_lightning_rod",
+            "x": 180
+          },
+          "facing=down,powered=true": {
+            "model": "minecraft:block/lightning_rod_on",
+            "x": 180
+          },
+          "facing=east,powered=false": {
+            "model": "minecraft:block/exposed_lightning_rod",
+            "x": 90,
+            "y": 90
+          },
+          "facing=east,powered=true": {
+            "model": "minecraft:block/lightning_rod_on",
+            "x": 90,
+            "y": 90
+          },
+          "facing=north,powered=false": {
+            "model": "minecraft:block/exposed_lightning_rod",
+            "x": 90
+          },
+          "facing=north,powered=true": {
+            "model": "minecraft:block/lightning_rod_on",
+            "x": 90
+          },
+          "facing=south,powered=false": {
+            "model": "minecraft:block/exposed_lightning_rod",
+            "x": 90,
+            "y": 180
+          },
+          "facing=south,powered=true": {
+            "model": "minecraft:block/lightning_rod_on",
+            "x": 90,
+            "y": 180
+          },
+          "facing=up,powered=false": {
+            "model": "minecraft:block/exposed_lightning_rod"
+          },
+          "facing=up,powered=true": {
+            "model": "minecraft:block/lightning_rod_on"
+          },
+          "facing=west,powered=false": {
+            "model": "minecraft:block/exposed_lightning_rod",
+            "x": 90,
+            "y": 270
+          },
+          "facing=west,powered=true": {
+            "model": "minecraft:block/lightning_rod_on",
+            "x": 90,
+            "y": 270
+          }
+        }
+      },
+      "original_elements": 0,
+      "original_faces": 0,
+      "original_explicit_uv": 0,
+      "original_variant_rules": 12,
+      "variant_model_alternatives": 12,
+      "original_multipart_rules": 0
+    },
+    {
+      "path": "1.21.11/assets/minecraft/blockstates/piston_head.json",
+      "status": "read_source_JSON",
+      "asset_type": "blockstate_json",
+      "git_blob_sha": "b1a803521596bb88444f50288f73a10ba73880ce",
+      "source_json": {
+        "variants": {
+          "facing=down,short=false,type=normal": {
+            "model": "minecraft:block/piston_head",
+            "x": 90
+          },
+          "facing=down,short=false,type=sticky": {
+            "model": "minecraft:block/piston_head_sticky",
+            "x": 90
+          },
+          "facing=down,short=true,type=normal": {
+            "model": "minecraft:block/piston_head_short",
+            "x": 90
+          },
+          "facing=down,short=true,type=sticky": {
+            "model": "minecraft:block/piston_head_short_sticky",
+            "x": 90
+          },
+          "facing=east,short=false,type=normal": {
+            "model": "minecraft:block/piston_head",
+            "y": 90
+          },
+          "facing=east,short=false,type=sticky": {
+            "model": "minecraft:block/piston_head_sticky",
+            "y": 90
+          },
+          "facing=east,short=true,type=normal": {
+            "model": "minecraft:block/piston_head_short",
+            "y": 90
+          },
+          "facing=east,short=true,type=sticky": {
+            "model": "minecraft:block/piston_head_short_sticky",
+            "y": 90
+          },
+          "facing=north,short=false,type=normal": {
+            "model": "minecraft:block/piston_head"
+          },
+          "facing=north,short=false,type=sticky": {
+            "model": "minecraft:block/piston_head_sticky"
+          },
+          "facing=north,short=true,type=normal": {
+            "model": "minecraft:block/piston_head_short"
+          },
+          "facing=north,short=true,type=sticky": {
+            "model": "minecraft:block/piston_head_short_sticky"
+          },
+          "facing=south,short=false,type=normal": {
+            "model": "minecraft:block/piston_head",
+            "y": 180
+          },
+          "facing=south,short=false,type=sticky": {
+            "model": "minecraft:block/piston_head_sticky",
+            "y": 180
+          },
+          "facing=south,short=true,type=normal": {
+            "model": "minecraft:block/piston_head_short",
+            "y": 180
+          },
+          "facing=south,short=true,type=sticky": {
+            "model": "minecraft:block/piston_head_short_sticky",
+            "y": 180
+          },
+          "facing=up,short=false,type=normal": {
+            "model": "minecraft:block/piston_head",
+            "x": 270
+          },
+          "facing=up,short=false,type=sticky": {
+            "model": "minecraft:block/piston_head_sticky",
+            "x": 270
+          },
+          "facing=up,short=true,type=normal": {
+            "model": "minecraft:block/piston_head_short",
+            "x": 270
+          },
+          "facing=up,short=true,type=sticky": {
+            "model": "minecraft:block/piston_head_short_sticky",
+            "x": 270
+          },
+          "facing=west,short=false,type=normal": {
+            "model": "minecraft:block/piston_head",
+            "y": 270
+          },
+          "facing=west,short=false,type=sticky": {
+            "model": "minecraft:block/piston_head_sticky",
+            "y": 270
+          },
+          "facing=west,short=true,type=normal": {
+            "model": "minecraft:block/piston_head_short",
+            "y": 270
+          },
+          "facing=west,short=true,type=sticky": {
+            "model": "minecraft:block/piston_head_short_sticky",
+            "y": 270
+          }
+        }
+      },
+      "original_elements": 0,
+      "original_faces": 0,
+      "original_explicit_uv": 0,
+      "original_variant_rules": 24,
+      "variant_model_alternatives": 24,
+      "original_multipart_rules": 0
+    },
+    {
+      "path": "1.21.11/assets/minecraft/blockstates/brown_shulker_box.json",
+      "status": "read_source_JSON",
+      "asset_type": "blockstate_json",
+      "git_blob_sha": "c4f723bb3459132c18c2c5d14bd03af002711d47",
+      "source_json": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/brown_shulker_box"
+          }
+        }
+      },
+      "original_elements": 0,
+      "original_faces": 0,
+      "original_explicit_uv": 0,
+      "original_variant_rules": 1,
+      "variant_model_alternatives": 1,
+      "original_multipart_rules": 0
+    },
+    {
+      "path": "1.21.11/assets/minecraft/blockstates/brown_carpet.json",
+      "status": "read_source_JSON",
+      "asset_type": "blockstate_json",
+      "git_blob_sha": "7273224e5032dc1f1bec6ec6f14ef8fbd25a0d09",
+      "source_json": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/brown_carpet"
+          }
+        }
+      },
+      "original_elements": 0,
+      "original_faces": 0,
+      "original_explicit_uv": 0,
+      "original_variant_rules": 1,
+      "variant_model_alternatives": 1,
+      "original_multipart_rules": 0
+    },
+    {
+      "path": "1.21.11/assets/minecraft/blockstates/skull.json",
+      "status": "fetch_error",
+      "error": "NOT_FOUND: Error code: NOT_FOUND; Error: GitHub API error 404: {\"message\":\"Not Found\",\"documentation_url\":\"https://docs.github.com/rest/repos/contents#get-repository-content\",\"status\":\"404\"}"
+    }
+  ]
+}
