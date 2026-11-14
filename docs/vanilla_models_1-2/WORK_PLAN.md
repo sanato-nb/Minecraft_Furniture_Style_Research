@@ -1,5 +1,8 @@
 # 1-2 연구 실행 계획 — 바닐라 모델/UV/blockstate
 
+> **현행 v50 · 2026-11-14:** [원본 P1 모델 51경로 연구 보고서](../../research/vanilla_models/v50/REPORT.md) · [P1 544행 최신 근거 원장](../../research/vanilla_models/v50/01_P1_544_EVIDENCE_LEDGER.csv) · [다음 채팅 인수인계](../../research/vanilla_models/v50/NEXT_CHAT_HANDOFF.md). v49 230 → v50 **281개 원본 모델 경로+SHA 연결**, 검사한 출처에서 **263개 미연결**(미연구 확정 아님). 새 51개 모델 원본 직접 검증 = particle-only 22 / inherited geometry 27 / own source 2. 원본 자체 5 요소/22면(명시UV16·암시UV6), 상속 적용면 561건(명시UV519/암시UV42). 원본 blockstate 35파일 및 variants74, 해당 51 모델 중 월드 상태 참조49·템플릿2. 기존 랜턴 템플릿2 SHA 재검증 실적 재사용. 새 PNG RGBA 검증0·실게임 렌더0. **1-2-A·1-2 전체 미완료, 완료율 미산정. 1-1 승인150/150 완료 및 상위 1/5 완료 상태 유지.** 아래 v49 이하 '최신/현행'은 당시 스냅샷.
+
+
 > **현행 v49 · 2026-11-14:** [1-2-A 원본 검증 보고서](../../research/vanilla_models/v49/REPORT.md) · [P1 544 모델별 최신 원장](../../research/vanilla_models/v49/01_P1_544_EVIDENCE_LEDGER.csv) · [다음 채팅 인계](../../research/vanilla_models/v49/NEXT_CHAT_HANDOFF.md). v48 **171 → v49 230 SHA 연결 모델 경로**, 조사 출처에서 **314개 미연결**(미연구 확정 아님). 새 P1 source path 연결 **59** = 화분37 + 선반21 + 화분 parent1. 그중 **v47에 이미 직접 확인된 화분6개는 과거 근거 회수**, 새로운 직접 소스 연구 53개로 구분. 화분 원본 고유 30요소·106면(명시UV100/암시UV6), 상속 적용면978건; 선반 기존 7부모 원형 재사용/상속 적용면114건. 화분 original blockstate 37개 단일 variant, 선반 원본 multipart72/파생 static96조합. **새 PNG RGBA 측정 0, 인게임 검증 0, 1-2-A·1-2 전체 미완료 및 완료율 미산정**. 1-1 v42 승인150/150, 상위 5과제 중 **1/5 완료 유지**. 아래 과거 v48 이하 '현행'은 그때의 스냅샷.
 
 
