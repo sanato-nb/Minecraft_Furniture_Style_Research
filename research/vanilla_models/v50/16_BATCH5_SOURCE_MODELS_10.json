@@ -1,0 +1,475 @@
+[
+  {
+    "source_model": "sea_lantern.json",
+    "asset_type": "block_model_json",
+    "full_source_path": "1.21.11/assets/minecraft/models/block/sea_lantern.json",
+    "source_git_blob_sha": "f7602b29dd068d3fecd45d347d2ba06fc943a674",
+    "v49_linked": false,
+    "original_model_JSON": {
+      "parent": "minecraft:block/cube_all",
+      "textures": {
+        "all": "minecraft:block/sea_lantern"
+      }
+    },
+    "keys": [
+      "parent",
+      "textures"
+    ],
+    "parent": "minecraft:block/cube_all",
+    "parent_key_present": true,
+    "own_elements_key_present": false,
+    "own_elements": 0,
+    "own_faces": 0,
+    "own_explicit_uv_faces": 0,
+    "own_implicit_uv_faces": 0,
+    "own_flat_elements": 0,
+    "own_rotated_elements": 0,
+    "source_texture_overrides": {
+      "all": "minecraft:block/sea_lantern"
+    }
+  },
+  {
+    "source_model": "soul_campfire.json",
+    "asset_type": "block_model_json",
+    "full_source_path": "1.21.11/assets/minecraft/models/block/soul_campfire.json",
+    "source_git_blob_sha": "d3097b59e61a5dfeaf6edc5c9a6abf49e2eb7eb6",
+    "v49_linked": false,
+    "original_model_JSON": {
+      "parent": "minecraft:block/template_campfire",
+      "textures": {
+        "fire": "minecraft:block/soul_campfire_fire",
+        "lit_log": "minecraft:block/soul_campfire_log_lit"
+      }
+    },
+    "keys": [
+      "parent",
+      "textures"
+    ],
+    "parent": "minecraft:block/template_campfire",
+    "parent_key_present": true,
+    "own_elements_key_present": false,
+    "own_elements": 0,
+    "own_faces": 0,
+    "own_explicit_uv_faces": 0,
+    "own_implicit_uv_faces": 0,
+    "own_flat_elements": 0,
+    "own_rotated_elements": 0,
+    "source_texture_overrides": {
+      "fire": "minecraft:block/soul_campfire_fire",
+      "lit_log": "minecraft:block/soul_campfire_log_lit"
+    }
+  },
+  {
+    "source_model": "spruce_hanging_sign.json",
+    "asset_type": "block_model_json",
+    "full_source_path": "1.21.11/assets/minecraft/models/block/spruce_hanging_sign.json",
+    "source_git_blob_sha": "b64f9092a66b32d8705b0b7805be911ad7ea1cfc",
+    "v49_linked": false,
+    "original_model_JSON": {
+      "textures": {
+        "particle": "minecraft:block/stripped_spruce_log"
+      }
+    },
+    "keys": [
+      "textures"
+    ],
+    "parent": null,
+    "parent_key_present": false,
+    "own_elements_key_present": false,
+    "own_elements": 0,
+    "own_faces": 0,
+    "own_explicit_uv_faces": 0,
+    "own_implicit_uv_faces": 0,
+    "own_flat_elements": 0,
+    "own_rotated_elements": 0,
+    "source_texture_overrides": {
+      "particle": "minecraft:block/stripped_spruce_log"
+    }
+  },
+  {
+    "source_model": "spruce_sign.json",
+    "asset_type": "block_model_json",
+    "full_source_path": "1.21.11/assets/minecraft/models/block/spruce_sign.json",
+    "source_git_blob_sha": "d4f03b2e21f6e4d7dbbd756ef5fbfdc2b2456a7e",
+    "v49_linked": false,
+    "original_model_JSON": {
+      "textures": {
+        "particle": "minecraft:block/spruce_planks"
+      }
+    },
+    "keys": [
+      "textures"
+    ],
+    "parent": null,
+    "parent_key_present": false,
+    "own_elements_key_present": false,
+    "own_elements": 0,
+    "own_faces": 0,
+    "own_explicit_uv_faces": 0,
+    "own_implicit_uv_faces": 0,
+    "own_flat_elements": 0,
+    "own_rotated_elements": 0,
+    "source_texture_overrides": {
+      "particle": "minecraft:block/spruce_planks"
+    }
+  },
+  {
+    "source_model": "template_cake_with_candle.json",
+    "asset_type": "block_model_json",
+    "full_source_path": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+    "source_git_blob_sha": "82a6ee824a3657a9d3080dbec303a83171f1baf2",
+    "v49_linked": false,
+    "original_model_JSON": {
+      "textures": {
+        "particle": "block/cake_side",
+        "bottom": "block/cake_bottom",
+        "top": "block/cake_top",
+        "side": "block/cake_side"
+      },
+      "elements": [
+        {
+          "from": [
+            1,
+            0,
+            1
+          ],
+          "to": [
+            15,
+            8,
+            15
+          ],
+          "faces": {
+            "down": {
+              "texture": "#bottom",
+              "cullface": "down"
+            },
+            "up": {
+              "texture": "#top"
+            },
+            "north": {
+              "texture": "#side"
+            },
+            "south": {
+              "texture": "#side"
+            },
+            "west": {
+              "texture": "#side"
+            },
+            "east": {
+              "texture": "#side"
+            }
+          }
+        },
+        {
+          "from": [
+            7,
+            8,
+            7
+          ],
+          "to": [
+            9,
+            14,
+            9
+          ],
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                8,
+                2,
+                14
+              ],
+              "texture": "#candle"
+            },
+            "east": {
+              "uv": [
+                0,
+                8,
+                2,
+                14
+              ],
+              "texture": "#candle"
+            },
+            "south": {
+              "uv": [
+                0,
+                8,
+                2,
+                14
+              ],
+              "texture": "#candle"
+            },
+            "west": {
+              "uv": [
+                0,
+                8,
+                2,
+                14
+              ],
+              "texture": "#candle"
+            },
+            "up": {
+              "uv": [
+                0,
+                6,
+                2,
+                8
+              ],
+              "texture": "#candle"
+            },
+            "down": {
+              "uv": [
+                0,
+                14,
+                2,
+                16
+              ],
+              "texture": "#candle",
+              "cullface": "down"
+            }
+          }
+        },
+        {
+          "from": [
+            7.5,
+            14,
+            8
+          ],
+          "to": [
+            8.5,
+            15,
+            8
+          ],
+          "rotation": {
+            "angle": -45,
+            "axis": "y",
+            "origin": [
+              8,
+              14,
+              8
+            ]
+          },
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                5,
+                1,
+                6
+              ],
+              "texture": "#candle"
+            },
+            "south": {
+              "uv": [
+                0,
+                5,
+                1,
+                6
+              ],
+              "texture": "#candle"
+            }
+          }
+        },
+        {
+          "from": [
+            7.5,
+            14,
+            8
+          ],
+          "to": [
+            8.5,
+            15,
+            8
+          ],
+          "rotation": {
+            "angle": 45,
+            "axis": "y",
+            "origin": [
+              8,
+              14,
+              8
+            ]
+          },
+          "faces": {
+            "north": {
+              "uv": [
+                0,
+                5,
+                1,
+                6
+              ],
+              "texture": "#candle"
+            },
+            "south": {
+              "uv": [
+                0,
+                5,
+                1,
+                6
+              ],
+              "texture": "#candle"
+            }
+          }
+        }
+      ]
+    },
+    "keys": [
+      "textures",
+      "elements"
+    ],
+    "parent": null,
+    "parent_key_present": false,
+    "own_elements_key_present": true,
+    "own_elements": 4,
+    "own_faces": 16,
+    "own_explicit_uv_faces": 10,
+    "own_implicit_uv_faces": 6,
+    "own_flat_elements": 2,
+    "own_rotated_elements": 2,
+    "source_texture_overrides": {
+      "particle": "block/cake_side",
+      "bottom": "block/cake_bottom",
+      "top": "block/cake_top",
+      "side": "block/cake_side"
+    }
+  },
+  {
+    "source_model": "warped_hanging_sign.json",
+    "asset_type": "block_model_json",
+    "full_source_path": "1.21.11/assets/minecraft/models/block/warped_hanging_sign.json",
+    "source_git_blob_sha": "8d0629a43d0f18a1a02a8168f9af4f8e0a4da741",
+    "v49_linked": false,
+    "original_model_JSON": {
+      "textures": {
+        "particle": "minecraft:block/stripped_warped_stem"
+      }
+    },
+    "keys": [
+      "textures"
+    ],
+    "parent": null,
+    "parent_key_present": false,
+    "own_elements_key_present": false,
+    "own_elements": 0,
+    "own_faces": 0,
+    "own_explicit_uv_faces": 0,
+    "own_implicit_uv_faces": 0,
+    "own_flat_elements": 0,
+    "own_rotated_elements": 0,
+    "source_texture_overrides": {
+      "particle": "minecraft:block/stripped_warped_stem"
+    }
+  },
+  {
+    "source_model": "warped_sign.json",
+    "asset_type": "block_model_json",
+    "full_source_path": "1.21.11/assets/minecraft/models/block/warped_sign.json",
+    "source_git_blob_sha": "b7b47f672742709109c1649523fd0d78d2d83876",
+    "v49_linked": false,
+    "original_model_JSON": {
+      "textures": {
+        "particle": "minecraft:block/warped_planks"
+      }
+    },
+    "keys": [
+      "textures"
+    ],
+    "parent": null,
+    "parent_key_present": false,
+    "own_elements_key_present": false,
+    "own_elements": 0,
+    "own_faces": 0,
+    "own_explicit_uv_faces": 0,
+    "own_implicit_uv_faces": 0,
+    "own_flat_elements": 0,
+    "own_rotated_elements": 0,
+    "source_texture_overrides": {
+      "particle": "minecraft:block/warped_planks"
+    }
+  },
+  {
+    "source_model": "weathered_copper_chest.json",
+    "asset_type": "block_model_json",
+    "full_source_path": "1.21.11/assets/minecraft/models/block/weathered_copper_chest.json",
+    "source_git_blob_sha": "30e8ccc71edb138a33ca1822485d69203d600bad",
+    "v49_linked": false,
+    "original_model_JSON": {
+      "textures": {
+        "particle": "minecraft:block/weathered_copper"
+      }
+    },
+    "keys": [
+      "textures"
+    ],
+    "parent": null,
+    "parent_key_present": false,
+    "own_elements_key_present": false,
+    "own_elements": 0,
+    "own_faces": 0,
+    "own_explicit_uv_faces": 0,
+    "own_implicit_uv_faces": 0,
+    "own_flat_elements": 0,
+    "own_rotated_elements": 0,
+    "source_texture_overrides": {
+      "particle": "minecraft:block/weathered_copper"
+    }
+  },
+  {
+    "source_model": "weathered_copper_lantern.json",
+    "asset_type": "block_model_json",
+    "full_source_path": "1.21.11/assets/minecraft/models/block/weathered_copper_lantern.json",
+    "source_git_blob_sha": "a93e1438a20f96da56d5777d913f4cfb1730d781",
+    "v49_linked": false,
+    "original_model_JSON": {
+      "parent": "minecraft:block/template_lantern",
+      "textures": {
+        "lantern": "minecraft:block/weathered_copper_lantern"
+      }
+    },
+    "keys": [
+      "parent",
+      "textures"
+    ],
+    "parent": "minecraft:block/template_lantern",
+    "parent_key_present": true,
+    "own_elements_key_present": false,
+    "own_elements": 0,
+    "own_faces": 0,
+    "own_explicit_uv_faces": 0,
+    "own_implicit_uv_faces": 0,
+    "own_flat_elements": 0,
+    "own_rotated_elements": 0,
+    "source_texture_overrides": {
+      "lantern": "minecraft:block/weathered_copper_lantern"
+    }
+  },
+  {
+    "source_model": "weathered_copper_lantern_hanging.json",
+    "asset_type": "block_model_json",
+    "full_source_path": "1.21.11/assets/minecraft/models/block/weathered_copper_lantern_hanging.json",
+    "source_git_blob_sha": "e6667436f250d86d6aff3a023228c4c514255c8f",
+    "v49_linked": false,
+    "original_model_JSON": {
+      "parent": "minecraft:block/template_hanging_lantern",
+      "textures": {
+        "lantern": "minecraft:block/weathered_copper_lantern"
+      }
+    },
+    "keys": [
+      "parent",
+      "textures"
+    ],
+    "parent": "minecraft:block/template_hanging_lantern",
+    "parent_key_present": true,
+    "own_elements_key_present": false,
+    "own_elements": 0,
+    "own_faces": 0,
+    "own_explicit_uv_faces": 0,
+    "own_implicit_uv_faces": 0,
+    "own_flat_elements": 0,
+    "own_rotated_elements": 0,
+    "source_texture_overrides": {
+      "lantern": "minecraft:block/weathered_copper_lantern"
+    }
+  }
+]

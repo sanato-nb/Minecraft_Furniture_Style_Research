@@ -1,0 +1,92 @@
+{
+  "schema": "Minecraft_Furniture_Style_Research/vanilla_models_1-2-A/v50",
+  "revision": "v50",
+  "date_kst": "2026-11-14",
+  "base_main_HEAD": "30430db39c83251f2dff060f3fb7120222fee81e",
+  "source_version": "Minecraft Java Edition 1.21.11 user extracted assets",
+  "stage": "1-2-A ongoing; original model geometry, inherited UV and blockstate checks",
+  "population": {
+    "P1_source_model_paths": 544,
+    "v49_typed_SHA_linked_paths": 230,
+    "v50_new_typed_source_SHA_links": 51,
+    "v50_typed_source_SHA_linked_paths": 281,
+    "v50_unlinked_in_examined_sources": 263,
+    "model_identity": "(asset_type, full_source_path, git_blob_sha)",
+    "entire_1_2_completion_percent": null
+  },
+  "direct_model_source": {
+    "directly_read_new_P1_models": 51,
+    "chosen_unlinked_leaf_or_template_paths": 50,
+    "additional_unlinked_P1_parent_template_torch_wall": 1,
+    "types": {
+      "sign_and_hanging_sign": 18,
+      "candle_and_candle_cake_and_template": 17,
+      "copper_chest": 4,
+      "copper_lantern_variants": 6,
+      "other": 5,
+      "extra_template_torch_wall": 1
+    },
+    "no_parent_no_elements_particle_only": 22,
+    "inherit_parent_source_geometry": 27,
+    "own_elements_declared": 2,
+    "source_own_elements_across_51": 5,
+    "source_own_faces_across_51": 22,
+    "source_own_explicitUV_faces": 16,
+    "source_own_implicitUV_faces": 6,
+    "parent_template_JSON_reopened": 11,
+    "additional_ancestor_JSON_reopened": 3,
+    "prior_v48_lantern_parent_identical_SHA_confirmed": 2,
+    "parent_geometry_source_read_not_always_new_archetype": true,
+    "effective_face_applications": 561,
+    "effective_explicitUV_source_face_applications": 519,
+    "effective_implicitUV_source_face_applications": 42,
+    "template_local_unresolved_texture_slots": 16,
+    "unresolved_occurrences_only_in": [
+      "template_cake_with_candle.json",
+      "template_torch_wall.json"
+    ],
+    "leaf_override_texture_resolution_separate": true,
+    "official_compressed_client_jar_authenticated": false,
+    "ingame_special_renderer_verified": false,
+    "new_png_RGBA_pixel_measurements": 0
+  },
+  "blockstate_source": {
+    "checked_original_blockstate_JSON_paths": 35,
+    "original_variant_rules": 74,
+    "original_multipart_rules": 0,
+    "distinct_original_variant_apply_model_refs": 55,
+    "v50_model_paths_referenced_by_checked_world_blockstates": 49,
+    "v50_template_only_model_paths_not_directly_world_referenced": 2,
+    "examples": {
+      "black_candle_original_variants": 8,
+      "black_candle_cake_original_variants": 2,
+      "ordinary_candle_original_variants": 8,
+      "candle_cake_original_variants": 2,
+      "campfire_original_variants": 8,
+      "soul_campfire_original_variants": 8,
+      "copper_chest_variant_per_oxidation": 1,
+      "copper_lantern_two_hanging_conditions_per_oxidation": 2
+    },
+    "static_source_only": true,
+    "actual_game_runtime_verified": false
+  },
+  "historical_reuse": {
+    "v48_template_lantern_and_hanging_lantern_SHA_verified_identical": 2,
+    "v35_cake_originals_not_equated_to_template_cake_with_candle": true,
+    "all_prior_research_v1_v49_preserved": true,
+    "full_earlier_history_semantic_audit_complete": false
+  },
+  "important_denominators": "281 model source path SHA links vs 22 original own source faces vs 561 effective source face applications vs 74 original blockstate variants vs 0 original PNG RGBA pixel tests; do not conflate",
+  "open_tasks": [
+    "263 currently unlinked P1 source model paths",
+    "source PNG pixel and alpha validation",
+    "renderer and block-entity exceptions",
+    "remaining indirect historical semantics and cross-asset provenance"
+  ],
+  "major_tasks_completed": 1,
+  "major_tasks_total": 5,
+  "stage_1_1_approved_150_textures_complete": true,
+  "stage_1_2_A_complete": false,
+  "stage_1_2_complete": false,
+  "requested_out_of_scope_modelling_and_PZ_conversion_started": false
+}
