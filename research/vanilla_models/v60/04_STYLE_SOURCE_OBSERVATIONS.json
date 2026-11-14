@@ -1,0 +1,34 @@
+{
+  "schema": "v60_style_observations_source_based_not_universal",
+  "observations": [
+    {
+      "claim": "Six distinct lantern textures reuse two inherited 4-element originals",
+      "source": "12 leaf JSON parent declarations and 2 parent template original elements",
+      "status": "direct_source"
+    },
+    {
+      "claim": "Standing lower body 6×7×6 and top cap 4×2×4; hanging counterpart raised by one unit",
+      "source": "template_lantern and template_hanging_lantern element from/to",
+      "status": "direct_source"
+    },
+    {
+      "claim": "Two 0-thickness planes per source template rotated by Y45 and shade:false",
+      "source": "parent elements[2], [3] original rotation/shade",
+      "status": "direct_source"
+    },
+    {
+      "claim": "6 textures use frame-like 16x48 image files, each accompanied by frametime8 mcmeta and visibly 3 distinct source bands",
+      "source": "Original PNG RGBA pixel hashes and original animation metadata",
+      "status": "source_pixel_and_declaration"
+    },
+    {
+      "claim": "Layer/material variation expressed through texture-slot override, geometry through parents",
+      "source": "Leaf textures.lantern and parents.elements",
+      "status": "direct_source"
+    },
+    {
+      "claim": "These observations do not authenticate renderer UV orientation and do not establish global vanilla furniture style rules",
+      "status": "limitation"
+    }
+  ]
+}

@@ -1,0 +1,2187 @@
+{
+  "schema": "v60_geometry_14_P1_lantern_models_inherited_vs_original",
+  "base_main_HEAD": "9855cf791fdb2661d91115b22ad6af9e37574f2f",
+  "summary": {
+    "models": 14,
+    "leaf_models": 12,
+    "templates": 2,
+    "own_elements": 8,
+    "own_faces": 31,
+    "applied_elements": 56,
+    "applied_faces": 217,
+    "applied_source_explicitUV_faces": 217,
+    "applied_computed_implicitUV_candidates": 0,
+    "applied_zero_thickness_elements": 28,
+    "applied_rotated_elements": 28,
+    "applied_U_reversed": 28,
+    "applied_V_reversed": 0,
+    "leaf_png_texture_resolved_faces": 186,
+    "template_unresolved_faces": 31,
+    "applied_cullface_down": 7
+  },
+  "model_records": [
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/lantern.json",
+      "git_blob_sha": "12970adc81a3bd51666060e8312b7ef4cf476930",
+      "category": "inherited_leaf",
+      "source_original_parent": "minecraft:block/template_lantern",
+      "parent_source_path": "1.21.11/assets/minecraft/models/block/template_lantern.json",
+      "parent_git_blob_sha": "d54baf8db9aa52c0d828cb6047ea5aec21b8b341",
+      "original_own_elements": 0,
+      "original_own_faces": 0,
+      "effective_elements": 4,
+      "effective_faces": 15,
+      "effective_source_explicitUV_faces": 15,
+      "effective_computed_implicitUV_candidates": 0,
+      "zero_thickness_elements": 2,
+      "rotated_elements": 2,
+      "original_declared_uv_U_reversed_faces": 2,
+      "original_declared_uv_V_reversed_faces": 0,
+      "original_face_cullface_down_count": 1,
+      "leaf_resolved_texture_png_path": "1.21.11/assets/minecraft/textures/block/lantern.png",
+      "leaf_source_texture_slot_override": {
+        "lantern": "minecraft:block/lantern"
+      },
+      "original_own_elements_declarations": [],
+      "effective_geometry_elements": [
+        {
+          "from": [
+            5,
+            0,
+            5
+          ],
+          "to": [
+            11,
+            7,
+            11
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6,
+            7,
+            6
+          ],
+          "to": [
+            10,
+            9,
+            10
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6.5,
+            9,
+            8
+          ],
+          "to": [
+            9.5,
+            11,
+            8
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "north",
+            "south"
+          ]
+        },
+        {
+          "from": [
+            8,
+            9,
+            6.5
+          ],
+          "to": [
+            8,
+            11,
+            9.5
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "west",
+            "east"
+          ]
+        }
+      ],
+      "runtime_render_verification": false
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/lantern_hanging.json",
+      "git_blob_sha": "d047dcd004fa2d3bb374ae2c7f490587456b42b1",
+      "category": "inherited_leaf",
+      "source_original_parent": "minecraft:block/template_hanging_lantern",
+      "parent_source_path": "1.21.11/assets/minecraft/models/block/template_hanging_lantern.json",
+      "parent_git_blob_sha": "fb7ebb4d64e33bc0ab18aa568e273987a7c1cc9b",
+      "original_own_elements": 0,
+      "original_own_faces": 0,
+      "effective_elements": 4,
+      "effective_faces": 16,
+      "effective_source_explicitUV_faces": 16,
+      "effective_computed_implicitUV_candidates": 0,
+      "zero_thickness_elements": 2,
+      "rotated_elements": 2,
+      "original_declared_uv_U_reversed_faces": 2,
+      "original_declared_uv_V_reversed_faces": 0,
+      "original_face_cullface_down_count": 0,
+      "leaf_resolved_texture_png_path": "1.21.11/assets/minecraft/textures/block/lantern.png",
+      "leaf_source_texture_slot_override": {
+        "lantern": "minecraft:block/lantern"
+      },
+      "original_own_elements_declarations": [],
+      "effective_geometry_elements": [
+        {
+          "from": [
+            5,
+            1,
+            5
+          ],
+          "to": [
+            11,
+            8,
+            11
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6,
+            8,
+            6
+          ],
+          "to": [
+            10,
+            10,
+            10
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6.5,
+            11,
+            8
+          ],
+          "to": [
+            9.5,
+            15,
+            8
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "north",
+            "south"
+          ]
+        },
+        {
+          "from": [
+            8,
+            10,
+            6.5
+          ],
+          "to": [
+            8,
+            16,
+            9.5
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "west",
+            "east"
+          ]
+        }
+      ],
+      "runtime_render_verification": false
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/soul_lantern.json",
+      "git_blob_sha": "6a0a0e9974e22bb4b01ad9956abdb066afe20c2a",
+      "category": "inherited_leaf",
+      "source_original_parent": "minecraft:block/template_lantern",
+      "parent_source_path": "1.21.11/assets/minecraft/models/block/template_lantern.json",
+      "parent_git_blob_sha": "d54baf8db9aa52c0d828cb6047ea5aec21b8b341",
+      "original_own_elements": 0,
+      "original_own_faces": 0,
+      "effective_elements": 4,
+      "effective_faces": 15,
+      "effective_source_explicitUV_faces": 15,
+      "effective_computed_implicitUV_candidates": 0,
+      "zero_thickness_elements": 2,
+      "rotated_elements": 2,
+      "original_declared_uv_U_reversed_faces": 2,
+      "original_declared_uv_V_reversed_faces": 0,
+      "original_face_cullface_down_count": 1,
+      "leaf_resolved_texture_png_path": "1.21.11/assets/minecraft/textures/block/soul_lantern.png",
+      "leaf_source_texture_slot_override": {
+        "lantern": "minecraft:block/soul_lantern"
+      },
+      "original_own_elements_declarations": [],
+      "effective_geometry_elements": [
+        {
+          "from": [
+            5,
+            0,
+            5
+          ],
+          "to": [
+            11,
+            7,
+            11
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6,
+            7,
+            6
+          ],
+          "to": [
+            10,
+            9,
+            10
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6.5,
+            9,
+            8
+          ],
+          "to": [
+            9.5,
+            11,
+            8
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "north",
+            "south"
+          ]
+        },
+        {
+          "from": [
+            8,
+            9,
+            6.5
+          ],
+          "to": [
+            8,
+            11,
+            9.5
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "west",
+            "east"
+          ]
+        }
+      ],
+      "runtime_render_verification": false
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/soul_lantern_hanging.json",
+      "git_blob_sha": "8aa725b29f61f67d11c0767c87ecf43deab7dea9",
+      "category": "inherited_leaf",
+      "source_original_parent": "minecraft:block/template_hanging_lantern",
+      "parent_source_path": "1.21.11/assets/minecraft/models/block/template_hanging_lantern.json",
+      "parent_git_blob_sha": "fb7ebb4d64e33bc0ab18aa568e273987a7c1cc9b",
+      "original_own_elements": 0,
+      "original_own_faces": 0,
+      "effective_elements": 4,
+      "effective_faces": 16,
+      "effective_source_explicitUV_faces": 16,
+      "effective_computed_implicitUV_candidates": 0,
+      "zero_thickness_elements": 2,
+      "rotated_elements": 2,
+      "original_declared_uv_U_reversed_faces": 2,
+      "original_declared_uv_V_reversed_faces": 0,
+      "original_face_cullface_down_count": 0,
+      "leaf_resolved_texture_png_path": "1.21.11/assets/minecraft/textures/block/soul_lantern.png",
+      "leaf_source_texture_slot_override": {
+        "lantern": "minecraft:block/soul_lantern"
+      },
+      "original_own_elements_declarations": [],
+      "effective_geometry_elements": [
+        {
+          "from": [
+            5,
+            1,
+            5
+          ],
+          "to": [
+            11,
+            8,
+            11
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6,
+            8,
+            6
+          ],
+          "to": [
+            10,
+            10,
+            10
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6.5,
+            11,
+            8
+          ],
+          "to": [
+            9.5,
+            15,
+            8
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "north",
+            "south"
+          ]
+        },
+        {
+          "from": [
+            8,
+            10,
+            6.5
+          ],
+          "to": [
+            8,
+            16,
+            9.5
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "west",
+            "east"
+          ]
+        }
+      ],
+      "runtime_render_verification": false
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/copper_lantern.json",
+      "git_blob_sha": "7e7db7f91cb29d7b1b000fa7acdf1f22f047894f",
+      "category": "inherited_leaf",
+      "source_original_parent": "minecraft:block/template_lantern",
+      "parent_source_path": "1.21.11/assets/minecraft/models/block/template_lantern.json",
+      "parent_git_blob_sha": "d54baf8db9aa52c0d828cb6047ea5aec21b8b341",
+      "original_own_elements": 0,
+      "original_own_faces": 0,
+      "effective_elements": 4,
+      "effective_faces": 15,
+      "effective_source_explicitUV_faces": 15,
+      "effective_computed_implicitUV_candidates": 0,
+      "zero_thickness_elements": 2,
+      "rotated_elements": 2,
+      "original_declared_uv_U_reversed_faces": 2,
+      "original_declared_uv_V_reversed_faces": 0,
+      "original_face_cullface_down_count": 1,
+      "leaf_resolved_texture_png_path": "1.21.11/assets/minecraft/textures/block/copper_lantern.png",
+      "leaf_source_texture_slot_override": {
+        "lantern": "minecraft:block/copper_lantern"
+      },
+      "original_own_elements_declarations": [],
+      "effective_geometry_elements": [
+        {
+          "from": [
+            5,
+            0,
+            5
+          ],
+          "to": [
+            11,
+            7,
+            11
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6,
+            7,
+            6
+          ],
+          "to": [
+            10,
+            9,
+            10
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6.5,
+            9,
+            8
+          ],
+          "to": [
+            9.5,
+            11,
+            8
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "north",
+            "south"
+          ]
+        },
+        {
+          "from": [
+            8,
+            9,
+            6.5
+          ],
+          "to": [
+            8,
+            11,
+            9.5
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "west",
+            "east"
+          ]
+        }
+      ],
+      "runtime_render_verification": false
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/copper_lantern_hanging.json",
+      "git_blob_sha": "e0ed78375dfdb5dc5966880c8632bbd813b7f415",
+      "category": "inherited_leaf",
+      "source_original_parent": "minecraft:block/template_hanging_lantern",
+      "parent_source_path": "1.21.11/assets/minecraft/models/block/template_hanging_lantern.json",
+      "parent_git_blob_sha": "fb7ebb4d64e33bc0ab18aa568e273987a7c1cc9b",
+      "original_own_elements": 0,
+      "original_own_faces": 0,
+      "effective_elements": 4,
+      "effective_faces": 16,
+      "effective_source_explicitUV_faces": 16,
+      "effective_computed_implicitUV_candidates": 0,
+      "zero_thickness_elements": 2,
+      "rotated_elements": 2,
+      "original_declared_uv_U_reversed_faces": 2,
+      "original_declared_uv_V_reversed_faces": 0,
+      "original_face_cullface_down_count": 0,
+      "leaf_resolved_texture_png_path": "1.21.11/assets/minecraft/textures/block/copper_lantern.png",
+      "leaf_source_texture_slot_override": {
+        "lantern": "minecraft:block/copper_lantern"
+      },
+      "original_own_elements_declarations": [],
+      "effective_geometry_elements": [
+        {
+          "from": [
+            5,
+            1,
+            5
+          ],
+          "to": [
+            11,
+            8,
+            11
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6,
+            8,
+            6
+          ],
+          "to": [
+            10,
+            10,
+            10
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6.5,
+            11,
+            8
+          ],
+          "to": [
+            9.5,
+            15,
+            8
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "north",
+            "south"
+          ]
+        },
+        {
+          "from": [
+            8,
+            10,
+            6.5
+          ],
+          "to": [
+            8,
+            16,
+            9.5
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "west",
+            "east"
+          ]
+        }
+      ],
+      "runtime_render_verification": false
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/exposed_copper_lantern.json",
+      "git_blob_sha": "71274f3e917e90ed9c148e077829dfaa6e7af395",
+      "category": "inherited_leaf",
+      "source_original_parent": "minecraft:block/template_lantern",
+      "parent_source_path": "1.21.11/assets/minecraft/models/block/template_lantern.json",
+      "parent_git_blob_sha": "d54baf8db9aa52c0d828cb6047ea5aec21b8b341",
+      "original_own_elements": 0,
+      "original_own_faces": 0,
+      "effective_elements": 4,
+      "effective_faces": 15,
+      "effective_source_explicitUV_faces": 15,
+      "effective_computed_implicitUV_candidates": 0,
+      "zero_thickness_elements": 2,
+      "rotated_elements": 2,
+      "original_declared_uv_U_reversed_faces": 2,
+      "original_declared_uv_V_reversed_faces": 0,
+      "original_face_cullface_down_count": 1,
+      "leaf_resolved_texture_png_path": "1.21.11/assets/minecraft/textures/block/exposed_copper_lantern.png",
+      "leaf_source_texture_slot_override": {
+        "lantern": "minecraft:block/exposed_copper_lantern"
+      },
+      "original_own_elements_declarations": [],
+      "effective_geometry_elements": [
+        {
+          "from": [
+            5,
+            0,
+            5
+          ],
+          "to": [
+            11,
+            7,
+            11
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6,
+            7,
+            6
+          ],
+          "to": [
+            10,
+            9,
+            10
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6.5,
+            9,
+            8
+          ],
+          "to": [
+            9.5,
+            11,
+            8
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "north",
+            "south"
+          ]
+        },
+        {
+          "from": [
+            8,
+            9,
+            6.5
+          ],
+          "to": [
+            8,
+            11,
+            9.5
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "west",
+            "east"
+          ]
+        }
+      ],
+      "runtime_render_verification": false
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/exposed_copper_lantern_hanging.json",
+      "git_blob_sha": "ea987574ef374beb5c1f40c068dbe359961d9703",
+      "category": "inherited_leaf",
+      "source_original_parent": "minecraft:block/template_hanging_lantern",
+      "parent_source_path": "1.21.11/assets/minecraft/models/block/template_hanging_lantern.json",
+      "parent_git_blob_sha": "fb7ebb4d64e33bc0ab18aa568e273987a7c1cc9b",
+      "original_own_elements": 0,
+      "original_own_faces": 0,
+      "effective_elements": 4,
+      "effective_faces": 16,
+      "effective_source_explicitUV_faces": 16,
+      "effective_computed_implicitUV_candidates": 0,
+      "zero_thickness_elements": 2,
+      "rotated_elements": 2,
+      "original_declared_uv_U_reversed_faces": 2,
+      "original_declared_uv_V_reversed_faces": 0,
+      "original_face_cullface_down_count": 0,
+      "leaf_resolved_texture_png_path": "1.21.11/assets/minecraft/textures/block/exposed_copper_lantern.png",
+      "leaf_source_texture_slot_override": {
+        "lantern": "minecraft:block/exposed_copper_lantern"
+      },
+      "original_own_elements_declarations": [],
+      "effective_geometry_elements": [
+        {
+          "from": [
+            5,
+            1,
+            5
+          ],
+          "to": [
+            11,
+            8,
+            11
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6,
+            8,
+            6
+          ],
+          "to": [
+            10,
+            10,
+            10
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6.5,
+            11,
+            8
+          ],
+          "to": [
+            9.5,
+            15,
+            8
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "north",
+            "south"
+          ]
+        },
+        {
+          "from": [
+            8,
+            10,
+            6.5
+          ],
+          "to": [
+            8,
+            16,
+            9.5
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "west",
+            "east"
+          ]
+        }
+      ],
+      "runtime_render_verification": false
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/weathered_copper_lantern.json",
+      "git_blob_sha": "a93e1438a20f96da56d5777d913f4cfb1730d781",
+      "category": "inherited_leaf",
+      "source_original_parent": "minecraft:block/template_lantern",
+      "parent_source_path": "1.21.11/assets/minecraft/models/block/template_lantern.json",
+      "parent_git_blob_sha": "d54baf8db9aa52c0d828cb6047ea5aec21b8b341",
+      "original_own_elements": 0,
+      "original_own_faces": 0,
+      "effective_elements": 4,
+      "effective_faces": 15,
+      "effective_source_explicitUV_faces": 15,
+      "effective_computed_implicitUV_candidates": 0,
+      "zero_thickness_elements": 2,
+      "rotated_elements": 2,
+      "original_declared_uv_U_reversed_faces": 2,
+      "original_declared_uv_V_reversed_faces": 0,
+      "original_face_cullface_down_count": 1,
+      "leaf_resolved_texture_png_path": "1.21.11/assets/minecraft/textures/block/weathered_copper_lantern.png",
+      "leaf_source_texture_slot_override": {
+        "lantern": "minecraft:block/weathered_copper_lantern"
+      },
+      "original_own_elements_declarations": [],
+      "effective_geometry_elements": [
+        {
+          "from": [
+            5,
+            0,
+            5
+          ],
+          "to": [
+            11,
+            7,
+            11
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6,
+            7,
+            6
+          ],
+          "to": [
+            10,
+            9,
+            10
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6.5,
+            9,
+            8
+          ],
+          "to": [
+            9.5,
+            11,
+            8
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "north",
+            "south"
+          ]
+        },
+        {
+          "from": [
+            8,
+            9,
+            6.5
+          ],
+          "to": [
+            8,
+            11,
+            9.5
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "west",
+            "east"
+          ]
+        }
+      ],
+      "runtime_render_verification": false
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/weathered_copper_lantern_hanging.json",
+      "git_blob_sha": "e6667436f250d86d6aff3a023228c4c514255c8f",
+      "category": "inherited_leaf",
+      "source_original_parent": "minecraft:block/template_hanging_lantern",
+      "parent_source_path": "1.21.11/assets/minecraft/models/block/template_hanging_lantern.json",
+      "parent_git_blob_sha": "fb7ebb4d64e33bc0ab18aa568e273987a7c1cc9b",
+      "original_own_elements": 0,
+      "original_own_faces": 0,
+      "effective_elements": 4,
+      "effective_faces": 16,
+      "effective_source_explicitUV_faces": 16,
+      "effective_computed_implicitUV_candidates": 0,
+      "zero_thickness_elements": 2,
+      "rotated_elements": 2,
+      "original_declared_uv_U_reversed_faces": 2,
+      "original_declared_uv_V_reversed_faces": 0,
+      "original_face_cullface_down_count": 0,
+      "leaf_resolved_texture_png_path": "1.21.11/assets/minecraft/textures/block/weathered_copper_lantern.png",
+      "leaf_source_texture_slot_override": {
+        "lantern": "minecraft:block/weathered_copper_lantern"
+      },
+      "original_own_elements_declarations": [],
+      "effective_geometry_elements": [
+        {
+          "from": [
+            5,
+            1,
+            5
+          ],
+          "to": [
+            11,
+            8,
+            11
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6,
+            8,
+            6
+          ],
+          "to": [
+            10,
+            10,
+            10
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6.5,
+            11,
+            8
+          ],
+          "to": [
+            9.5,
+            15,
+            8
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "north",
+            "south"
+          ]
+        },
+        {
+          "from": [
+            8,
+            10,
+            6.5
+          ],
+          "to": [
+            8,
+            16,
+            9.5
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "west",
+            "east"
+          ]
+        }
+      ],
+      "runtime_render_verification": false
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/oxidized_copper_lantern.json",
+      "git_blob_sha": "4b4d7bc1d71b73e012d283adacd442fddf708b42",
+      "category": "inherited_leaf",
+      "source_original_parent": "minecraft:block/template_lantern",
+      "parent_source_path": "1.21.11/assets/minecraft/models/block/template_lantern.json",
+      "parent_git_blob_sha": "d54baf8db9aa52c0d828cb6047ea5aec21b8b341",
+      "original_own_elements": 0,
+      "original_own_faces": 0,
+      "effective_elements": 4,
+      "effective_faces": 15,
+      "effective_source_explicitUV_faces": 15,
+      "effective_computed_implicitUV_candidates": 0,
+      "zero_thickness_elements": 2,
+      "rotated_elements": 2,
+      "original_declared_uv_U_reversed_faces": 2,
+      "original_declared_uv_V_reversed_faces": 0,
+      "original_face_cullface_down_count": 1,
+      "leaf_resolved_texture_png_path": "1.21.11/assets/minecraft/textures/block/oxidized_copper_lantern.png",
+      "leaf_source_texture_slot_override": {
+        "lantern": "minecraft:block/oxidized_copper_lantern"
+      },
+      "original_own_elements_declarations": [],
+      "effective_geometry_elements": [
+        {
+          "from": [
+            5,
+            0,
+            5
+          ],
+          "to": [
+            11,
+            7,
+            11
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6,
+            7,
+            6
+          ],
+          "to": [
+            10,
+            9,
+            10
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6.5,
+            9,
+            8
+          ],
+          "to": [
+            9.5,
+            11,
+            8
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "north",
+            "south"
+          ]
+        },
+        {
+          "from": [
+            8,
+            9,
+            6.5
+          ],
+          "to": [
+            8,
+            11,
+            9.5
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "west",
+            "east"
+          ]
+        }
+      ],
+      "runtime_render_verification": false
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/oxidized_copper_lantern_hanging.json",
+      "git_blob_sha": "dd9482c887751375402fb86c88ef010532178fc8",
+      "category": "inherited_leaf",
+      "source_original_parent": "minecraft:block/template_hanging_lantern",
+      "parent_source_path": "1.21.11/assets/minecraft/models/block/template_hanging_lantern.json",
+      "parent_git_blob_sha": "fb7ebb4d64e33bc0ab18aa568e273987a7c1cc9b",
+      "original_own_elements": 0,
+      "original_own_faces": 0,
+      "effective_elements": 4,
+      "effective_faces": 16,
+      "effective_source_explicitUV_faces": 16,
+      "effective_computed_implicitUV_candidates": 0,
+      "zero_thickness_elements": 2,
+      "rotated_elements": 2,
+      "original_declared_uv_U_reversed_faces": 2,
+      "original_declared_uv_V_reversed_faces": 0,
+      "original_face_cullface_down_count": 0,
+      "leaf_resolved_texture_png_path": "1.21.11/assets/minecraft/textures/block/oxidized_copper_lantern.png",
+      "leaf_source_texture_slot_override": {
+        "lantern": "minecraft:block/oxidized_copper_lantern"
+      },
+      "original_own_elements_declarations": [],
+      "effective_geometry_elements": [
+        {
+          "from": [
+            5,
+            1,
+            5
+          ],
+          "to": [
+            11,
+            8,
+            11
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6,
+            8,
+            6
+          ],
+          "to": [
+            10,
+            10,
+            10
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6.5,
+            11,
+            8
+          ],
+          "to": [
+            9.5,
+            15,
+            8
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "north",
+            "south"
+          ]
+        },
+        {
+          "from": [
+            8,
+            10,
+            6.5
+          ],
+          "to": [
+            8,
+            16,
+            9.5
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "west",
+            "east"
+          ]
+        }
+      ],
+      "runtime_render_verification": false
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/template_lantern.json",
+      "git_blob_sha": "d54baf8db9aa52c0d828cb6047ea5aec21b8b341",
+      "category": "standalone_abstract_template",
+      "source_original_parent": "block/block",
+      "parent_source_path": "1.21.11/assets/minecraft/models/block/block.json",
+      "parent_git_blob_sha": "f9c72559950abcb186b8e3959e135c0f2d542bdf",
+      "original_own_elements": 4,
+      "original_own_faces": 15,
+      "effective_elements": 4,
+      "effective_faces": 15,
+      "effective_source_explicitUV_faces": 15,
+      "effective_computed_implicitUV_candidates": 0,
+      "zero_thickness_elements": 2,
+      "rotated_elements": 2,
+      "original_declared_uv_U_reversed_faces": 2,
+      "original_declared_uv_V_reversed_faces": 0,
+      "original_face_cullface_down_count": 1,
+      "leaf_resolved_texture_png_path": null,
+      "leaf_source_texture_slot_override": {
+        "particle": "#lantern"
+      },
+      "original_own_elements_declarations": [
+        {
+          "from": [
+            5,
+            0,
+            5
+          ],
+          "to": [
+            11,
+            7,
+            11
+          ],
+          "faces": {
+            "down": {
+              "uv": [
+                0,
+                9,
+                6,
+                15
+              ],
+              "texture": "#lantern",
+              "cullface": "down"
+            },
+            "up": {
+              "uv": [
+                0,
+                9,
+                6,
+                15
+              ],
+              "texture": "#lantern"
+            },
+            "north": {
+              "uv": [
+                0,
+                2,
+                6,
+                9
+              ],
+              "texture": "#lantern"
+            },
+            "south": {
+              "uv": [
+                0,
+                2,
+                6,
+                9
+              ],
+              "texture": "#lantern"
+            },
+            "west": {
+              "uv": [
+                0,
+                2,
+                6,
+                9
+              ],
+              "texture": "#lantern"
+            },
+            "east": {
+              "uv": [
+                0,
+                2,
+                6,
+                9
+              ],
+              "texture": "#lantern"
+            }
+          }
+        },
+        {
+          "from": [
+            6,
+            7,
+            6
+          ],
+          "to": [
+            10,
+            9,
+            10
+          ],
+          "faces": {
+            "up": {
+              "uv": [
+                1,
+                10,
+                5,
+                14
+              ],
+              "texture": "#lantern"
+            },
+            "north": {
+              "uv": [
+                1,
+                0,
+                5,
+                2
+              ],
+              "texture": "#lantern"
+            },
+            "south": {
+              "uv": [
+                1,
+                0,
+                5,
+                2
+              ],
+              "texture": "#lantern"
+            },
+            "west": {
+              "uv": [
+                1,
+                0,
+                5,
+                2
+              ],
+              "texture": "#lantern"
+            },
+            "east": {
+              "uv": [
+                1,
+                0,
+                5,
+                2
+              ],
+              "texture": "#lantern"
+            }
+          }
+        },
+        {
+          "from": [
+            6.5,
+            9,
+            8
+          ],
+          "to": [
+            9.5,
+            11,
+            8
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": {
+            "north": {
+              "uv": [
+                14,
+                1,
+                11,
+                3
+              ],
+              "texture": "#lantern"
+            },
+            "south": {
+              "uv": [
+                11,
+                1,
+                14,
+                3
+              ],
+              "texture": "#lantern"
+            }
+          }
+        },
+        {
+          "from": [
+            8,
+            9,
+            6.5
+          ],
+          "to": [
+            8,
+            11,
+            9.5
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": {
+            "west": {
+              "uv": [
+                14,
+                10,
+                11,
+                12
+              ],
+              "texture": "#lantern"
+            },
+            "east": {
+              "uv": [
+                11,
+                10,
+                14,
+                12
+              ],
+              "texture": "#lantern"
+            }
+          }
+        }
+      ],
+      "effective_geometry_elements": [
+        {
+          "from": [
+            5,
+            0,
+            5
+          ],
+          "to": [
+            11,
+            7,
+            11
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6,
+            7,
+            6
+          ],
+          "to": [
+            10,
+            9,
+            10
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6.5,
+            9,
+            8
+          ],
+          "to": [
+            9.5,
+            11,
+            8
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "north",
+            "south"
+          ]
+        },
+        {
+          "from": [
+            8,
+            9,
+            6.5
+          ],
+          "to": [
+            8,
+            11,
+            9.5
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "west",
+            "east"
+          ]
+        }
+      ],
+      "runtime_render_verification": false
+    },
+    {
+      "asset_type": "block_model_json",
+      "full_source_path": "1.21.11/assets/minecraft/models/block/template_hanging_lantern.json",
+      "git_blob_sha": "fb7ebb4d64e33bc0ab18aa568e273987a7c1cc9b",
+      "category": "standalone_abstract_template",
+      "source_original_parent": "block/block",
+      "parent_source_path": "1.21.11/assets/minecraft/models/block/block.json",
+      "parent_git_blob_sha": "f9c72559950abcb186b8e3959e135c0f2d542bdf",
+      "original_own_elements": 4,
+      "original_own_faces": 16,
+      "effective_elements": 4,
+      "effective_faces": 16,
+      "effective_source_explicitUV_faces": 16,
+      "effective_computed_implicitUV_candidates": 0,
+      "zero_thickness_elements": 2,
+      "rotated_elements": 2,
+      "original_declared_uv_U_reversed_faces": 2,
+      "original_declared_uv_V_reversed_faces": 0,
+      "original_face_cullface_down_count": 0,
+      "leaf_resolved_texture_png_path": null,
+      "leaf_source_texture_slot_override": {
+        "particle": "#lantern"
+      },
+      "original_own_elements_declarations": [
+        {
+          "from": [
+            5,
+            1,
+            5
+          ],
+          "to": [
+            11,
+            8,
+            11
+          ],
+          "faces": {
+            "down": {
+              "uv": [
+                0,
+                9,
+                6,
+                15
+              ],
+              "texture": "#lantern"
+            },
+            "up": {
+              "uv": [
+                0,
+                9,
+                6,
+                15
+              ],
+              "texture": "#lantern"
+            },
+            "north": {
+              "uv": [
+                0,
+                2,
+                6,
+                9
+              ],
+              "texture": "#lantern"
+            },
+            "south": {
+              "uv": [
+                0,
+                2,
+                6,
+                9
+              ],
+              "texture": "#lantern"
+            },
+            "west": {
+              "uv": [
+                0,
+                2,
+                6,
+                9
+              ],
+              "texture": "#lantern"
+            },
+            "east": {
+              "uv": [
+                0,
+                2,
+                6,
+                9
+              ],
+              "texture": "#lantern"
+            }
+          }
+        },
+        {
+          "from": [
+            6,
+            8,
+            6
+          ],
+          "to": [
+            10,
+            10,
+            10
+          ],
+          "faces": {
+            "down": {
+              "uv": [
+                1,
+                10,
+                5,
+                14
+              ],
+              "texture": "#lantern"
+            },
+            "up": {
+              "uv": [
+                1,
+                10,
+                5,
+                14
+              ],
+              "texture": "#lantern"
+            },
+            "north": {
+              "uv": [
+                1,
+                0,
+                5,
+                2
+              ],
+              "texture": "#lantern"
+            },
+            "south": {
+              "uv": [
+                1,
+                0,
+                5,
+                2
+              ],
+              "texture": "#lantern"
+            },
+            "west": {
+              "uv": [
+                1,
+                0,
+                5,
+                2
+              ],
+              "texture": "#lantern"
+            },
+            "east": {
+              "uv": [
+                1,
+                0,
+                5,
+                2
+              ],
+              "texture": "#lantern"
+            }
+          }
+        },
+        {
+          "from": [
+            6.5,
+            11,
+            8
+          ],
+          "to": [
+            9.5,
+            15,
+            8
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": {
+            "north": {
+              "uv": [
+                14,
+                1,
+                11,
+                5
+              ],
+              "texture": "#lantern"
+            },
+            "south": {
+              "uv": [
+                11,
+                1,
+                14,
+                5
+              ],
+              "texture": "#lantern"
+            }
+          }
+        },
+        {
+          "from": [
+            8,
+            10,
+            6.5
+          ],
+          "to": [
+            8,
+            16,
+            9.5
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": {
+            "west": {
+              "uv": [
+                14,
+                6,
+                11,
+                12
+              ],
+              "texture": "#lantern"
+            },
+            "east": {
+              "uv": [
+                11,
+                6,
+                14,
+                12
+              ],
+              "texture": "#lantern"
+            }
+          }
+        }
+      ],
+      "effective_geometry_elements": [
+        {
+          "from": [
+            5,
+            1,
+            5
+          ],
+          "to": [
+            11,
+            8,
+            11
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6,
+            8,
+            6
+          ],
+          "to": [
+            10,
+            10,
+            10
+          ],
+          "rotation": null,
+          "shade": null,
+          "faces": [
+            "down",
+            "up",
+            "north",
+            "south",
+            "west",
+            "east"
+          ]
+        },
+        {
+          "from": [
+            6.5,
+            11,
+            8
+          ],
+          "to": [
+            9.5,
+            15,
+            8
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "north",
+            "south"
+          ]
+        },
+        {
+          "from": [
+            8,
+            10,
+            6.5
+          ],
+          "to": [
+            8,
+            16,
+            9.5
+          ],
+          "rotation": {
+            "origin": [
+              8,
+              8,
+              8
+            ],
+            "axis": "y",
+            "angle": 45
+          },
+          "shade": false,
+          "faces": [
+            "west",
+            "east"
+          ]
+        }
+      ],
+      "runtime_render_verification": false
+    }
+  ]
+}
