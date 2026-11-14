@@ -1,5 +1,7 @@
 # 새로운 ChatGPT 채팅 시작 — 최신 v42
 
+> **[전체 프로젝트 최신 진행도](CURRENT_PROJECT_STATUS.md)** · 1-1 완료(150/150), 다음은 1-2. 본 프롬프트 실행 전 GitHub 라이브 상태를 확인한다.
+
 **완료:** 1-1 바닐라 재질·텍스처 소스 연구 **11/11단계·150/150종**. [정본](vanilla_texture_1-1/CURRENT_STATUS.md) · [독립 감사](../research/vanilla_textures/audits/2026-11-14_v42_scope_verification/REPORT.md) · [전체 상태](../handoff/STATE.json). **1단계 세부과제 1/5 완료**.
 
 ## 다음 채팅에 복사할 실행 지시

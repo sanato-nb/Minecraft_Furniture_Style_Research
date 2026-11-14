@@ -1,5 +1,8 @@
 # Minecraft Furniture Style Research
 
+> **현재 GitHub 정본 · v42 (2026-11-14):** [전체 프로젝트 진행도](docs/CURRENT_PROJECT_STATUS.md) · [1-1 검수 완료](docs/vanilla_texture_1-1/CURRENT_STATUS.md) · [전체 상태 JSON](handoff/STATE.json). **11개 재질·150종 소스 분석 완료 / 상위 세부과제 1/5**, 다음 과제는 **1-2 바닐라 3D 모델·UV·상태 분석**. 아래 v38~v41의 '최신' 표현은 과거 스냅샷이며 현재 실행 지시가 아님.
+
+
 > **현재 기준 v42(2026-11-14):** [1-1 지정 11분류·150종 소스 연구 완료](docs/vanilla_texture_1-1/CURRENT_STATUS.md) · [원본 Git tree·연구 근거 독립 재검수](research/vanilla_textures/audits/2026-11-14_v42_scope_verification/REPORT.md). 상위 세부과제 **1/5 완료**. 아래 v38~v41 문장/수치는 **당시 스냅샷**이며 현행 업무 지시가 아님.
 
 > **전체 체크포인트 v42:** [1-1 고정 150종 원본 소스 연구 11/11단계 완료](research/vanilla_textures/integrations/v42_INT-1-1-11steps_150_SOURCE_COMPLETE/REPORT.md). 이전 v41의 목재 0/18은 기록상 완료 계수 미반영 오류였고 근거 감사 후 18/18 정정. 1단계 01 항목 완료, 전체 5개 세부과제 중 1/5; 과거 v39–v41 보고서 원본 보존.

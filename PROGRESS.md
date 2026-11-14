@@ -1,5 +1,8 @@
 # 학습 진행도
 
+> **현재 GitHub 정본 · v42 (2026-11-14):** [전체 프로젝트 진행도](docs/CURRENT_PROJECT_STATUS.md) · [1-1 검수 완료](docs/vanilla_texture_1-1/CURRENT_STATUS.md) · [전체 상태 JSON](handoff/STATE.json). **11개 재질·150종 소스 분석 완료 / 상위 세부과제 1/5**, 다음 과제는 **1-2 바닐라 3D 모델·UV·상태 분석**. 아래 v38~v41의 '최신' 표현은 과거 스냅샷이며 현재 실행 지시가 아님.
+
+
 > **현재 기준 v42(2026-11-14):** [1-1 지정 11분류·150종 소스 연구 완료](docs/vanilla_texture_1-1/CURRENT_STATUS.md) · [원본 Git tree·연구 근거 독립 재검수](research/vanilla_textures/audits/2026-11-14_v42_scope_verification/REPORT.md). 상위 세부과제 **1/5 완료**. 아래 v38~v41 문장/수치는 **당시 스냅샷**이며 현행 업무 지시가 아님.
 
 ## 최신 전역 v42 — 목재 완료 판정 오류 정정 · 1-1 소스 연구 150/150 완료

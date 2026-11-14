@@ -1,5 +1,7 @@
 # 1-1 현재 완료 현황 — 정본 v42 (2026-11-14)
 
+> **[전체 프로젝트 현재 진행도](../CURRENT_PROJECT_STATUS.md)** · 본 문서는 완료된 1-1 세부과제의 자료만 관리하며, 현재 다음 과제는 1-2다.
+
 **Minecraft Java 1.21.11에서 지정한 텍스처 150개 / 재질 11개 분류의 승인된 소스 연구 완료 150/150.** 전역 상위 세부과제 완료는 **1/5**이며 1-2~1-5 연구는 별개다. 전체 블록 PNG 1,111종을 전수 분석했다는 주장이 아니다.
 
 [v42 통합 보고서](../../research/vanilla_textures/integrations/v42_INT-1-1-11steps_150_SOURCE_COMPLETE/REPORT.md) · [150종 고유 ID 추적 원장](../../research/vanilla_textures/integrations/v42_INT-1-1-11steps_150_SOURCE_COMPLETE/TEXTURE_150_SCOPE_LEDGER.csv) · [단계 원장](../../research/vanilla_textures/integrations/v42_INT-1-1-11steps_150_SOURCE_COMPLETE/STAGE_INTEGRATION_LEDGER.csv) · [독립 재감사](../../research/vanilla_textures/audits/2026-11-14_v42_scope_verification/REPORT.md)
