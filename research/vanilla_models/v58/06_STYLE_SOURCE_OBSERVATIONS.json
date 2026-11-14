@@ -1,0 +1,38 @@
+{
+  "schema": "v58_furniture_style_grounded_local_observations_not_global_rules",
+  "source_version": "Minecraft Java 1.21.11",
+  "observations": [
+    {
+      "case": "Chiseled bookshelf occupancy overlay",
+      "source_models": "6 template_chiseled_bookshelf_slot_* + 12 chiseled_bookshelf_{empty,occupied}_slot_*",
+      "direct_geometry": "Each of six templates declares one zero-thickness Z=0 plane, one north face with original explicit UV; occupied and empty leaf use same geometry and override a single texture key",
+      "measured_texture": "Two 16x16 original PNGs, each 256 fully opaque pixels; each texture subdivided in six disjoint source UV regions exactly covering 256 texels",
+      "interpretation": "Furniture surface detail is represented as a set of coplanar overlays selected by blockstate rather than 12 independent bulky 3D solids",
+      "scope_limit": "Source model / PNG only; no in-game cullface, face winding, atlas rotation or lighting verified"
+    },
+    {
+      "case": "Chiseled bookshelf static blockstate combinations",
+      "source_blockstate": "1.21.11/assets/minecraft/blockstates/chiseled_bookshelf.json",
+      "direct_source": "52 original multipart rules (4 facings x 13). Each input state from 4 facing x 2^6 occupied slots matches exactly 7 rules (1 base and 6 slots), 1792 repeated model apply selections across all 256 input states",
+      "interpretation": "Same 6 slot positions can be reused with state-driven binary selection; do not count 1792 as distinct source models or rule declarations",
+      "scope_limit": "Static JSON predicate evaluation; not runtime verified. Only base apply rules explicitly have uvlock:true; slot rules omit uvlock"
+    },
+    {
+      "case": "Composter filling geometry",
+      "source_models": "composter_contents1..7, composter_contents_ready",
+      "direct_geometry": "Eight elements each from [2,0,2] to [14,height,14], where height=3,5,7,9,11,13,15,15; one upward face, no original uv key",
+      "measured_texture": "composter_compost and composter_ready each 16x16; central [2,2,14,14] 144 pixels all opaque and outer 112 all transparent; computed upward UV candidate coincides with this mask",
+      "interpretation": "Changing fill level shifts the upper geometry plane without increasing element count, with texture supplying surface detail",
+      "scope_limit": "Implicit UV formula candidate matches alpha mask, not a certified Minecraft engine rule"
+    },
+    {
+      "case": "Composter source-state mapping",
+      "source_blockstate": "1.21.11/assets/minecraft/blockstates/composter.json",
+      "direct_source": "9 multipart rules: unconditional base and level1..8 content model; level0 matches one model, levels1..8 match two; 9 enumerated levels yield 17 model applies",
+      "interpretation": "One static base plus one state-dependent interior plane",
+      "scope_limit": "Source-only selection check"
+    }
+  ],
+  "established_universal_rules": false,
+  "game_furniture_model_creation_started": false
+}
