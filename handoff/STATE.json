@@ -83,7 +83,7 @@
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v69_original_brewing_stand_7_models_7_multipart_rules_8_boolean_states_source_geometry36_faces30_each_240_across_states_2_palette_PNG_SHA_IHDR_v68_P1_544x379_preserved_as_544x393_stage_A_COMPLETE_SOURCE_SCOPE_B_NEXT",
+      "status": "v69_original_brewing_stand_7_models_7_multipart_rules_8_boolean_states_source_geometry36_faces30_each_240_across_states_2_palette_PNG_SHA_IHDR_v68_P1_544x379_preserved_as_544x393_stage_A_COMPLETE_SOURCE_SCOPE_B_IN_PROGRESS_ENTRY1",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -1083,11 +1083,11 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "1-2-A A_COMPLETE_SOURCE_SCOPE: G1-G5 PASS 5/5, independent 50/50, 3/3 rounds. STOP A permanently; do not create Round4 or new A model v70.",
-    "Start next distinct stage 1-2-B: read research/vanilla_models/phase_1-2-A_completion/round3/A_HANDOFF.md and round2/A_TO_BCDEFG_HANDOFF_QUEUE.csv, then choose outstanding geometry/parent inheritance source cases.",
-    "Prior v1-v69 model studies are preserved; only credit genuinely new direct model analysis. Keep v69 P1 source 544x393 and review544x70 intact.",
-    "1-2-B study of geometry, parents, P2/P3 unknown parent dependencies; C UV/PNG, D blockstate assembly, E special renderer, F style taxonomy, G independent verification. No actual furniture build or Zomboid conversion.",
-    "Continue 1-1 approved150/150, top stage completed1/5, overall 1-2 still incomplete and true deep completeness percentage unknown."
+    "1-2-A is A_COMPLETE_SOURCE_SCOPE. Do not repeat A or create 4th round.",
+    "1-2-B has started; read docs/vanilla_models_1-2/1-2-B_WORK_PLAN.md and research/vanilla_models/phase_1-2-B/entry1/B_ENTRY1_REPORT.md.",
+    "Entry1 source JSON leaf14/parent13 verified, element instances17, face references84, zero-thickness3, audit15/15; not B completed, no new unique model identity credit.",
+    "Continue precise parent chain and geometry source checks for B first-owner 2360: P1 514 plus P2/P3 1846, E-first P1 30 separately retained.",
+    "Preserve v69 544x393 and review544x70, 1-1 approval150/150 and project1/5 complete. UV(C), state(D), rendering(E) remain separate; no furniture or PZ conversion."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -4169,5 +4169,35 @@
     "original_research_checkpoint": "v69",
     "official_renderer_or_1_2_B_G_complete": false,
     "post_commit_validation": "research/vanilla_models/phase_1-2-A_completion/round3/ROUND3_POST_COMMIT_VALIDATION.json"
-  }
+  },
+  "phase_1_2_B_execution": {
+    "status": "B_IN_PROGRESS_ENTRY1",
+    "plan": "docs/vanilla_models_1-2/1-2-B_WORK_PLAN.md",
+    "entry1": "research/vanilla_models/phase_1-2-B/entry1/B_ENTRY1_REPORT.md",
+    "audit": "research/vanilla_models/phase_1-2-B/entry1/B_ENTRY1_AUDIT.json",
+    "B_first_primary_owner": 2360,
+    "P1_first_B": 514,
+    "P1_first_E_separate": 30,
+    "P2_B": 1039,
+    "P3_B": 807,
+    "leaf_original_JSON_direct_read_this_entry": 14,
+    "parent_templates_original_JSON_direct_read_this_entry": 13,
+    "distinct_source_JSON_sha_verified": 27,
+    "effective_element_instances": 17,
+    "effective_declared_face_refs": 84,
+    "zero_thickness_element_instances": 3,
+    "P2_P3_first_source_parent_chain_checked": 11,
+    "remaining_P2P3_not_yet_checked": 1835,
+    "geometry_validation_complete": false,
+    "overall_1_2_B_percent": null,
+    "new_unique_original_model_identity_credit": 0,
+    "next_tasks": "Verify remaining original B-owner scope and inherited parents; reuse v44-v69 exact SHA proof; record unknown and split UV/PNG/state/renderer to C/D/E."
+  },
+  "phase_1_2_B_previous_next_work": [
+    "1-2-A A_COMPLETE_SOURCE_SCOPE: G1-G5 PASS 5/5, independent 50/50, 3/3 rounds. STOP A permanently; do not create Round4 or new A model v70.",
+    "Start next distinct stage 1-2-B: read research/vanilla_models/phase_1-2-A_completion/round3/A_HANDOFF.md and round2/A_TO_BCDEFG_HANDOFF_QUEUE.csv, then choose outstanding geometry/parent inheritance source cases.",
+    "Prior v1-v69 model studies are preserved; only credit genuinely new direct model analysis. Keep v69 P1 source 544x393 and review544x70 intact.",
+    "1-2-B study of geometry, parents, P2/P3 unknown parent dependencies; C UV/PNG, D blockstate assembly, E special renderer, F style taxonomy, G independent verification. No actual furniture build or Zomboid conversion.",
+    "Continue 1-1 approved150/150, top stage completed1/5, overall 1-2 still incomplete and true deep completeness percentage unknown."
+  ]
 }
