@@ -1,6 +1,6 @@
 {
   "schema": "mc-furniture-handoff/v1",
-  "updated_at": "2026-11-15",
+  "updated_at": "2026-11-16",
   "timezone": "Asia/Seoul",
   "current_checkpoint": "v69",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
@@ -83,7 +83,7 @@
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v69_original_brewing_stand_7_models_7_multipart_rules_8_boolean_states_source_geometry36_faces30_each_240_across_states_2_palette_PNG_SHA_IHDR_v68_P1_544x379_preserved_as_544x393_stage_A_COMPLETE_SOURCE_SCOPE_B_IN_PROGRESS_ENTRY9",
+      "status": "v69_original_brewing_stand_7_models_7_multipart_rules_8_boolean_states_source_geometry36_faces30_each_240_across_states_2_palette_PNG_SHA_IHDR_v68_P1_544x379_preserved_as_544x393_stage_A_COMPLETE_SOURCE_SCOPE_B_IN_PROGRESS_ENTRY10_REMOTE_AUDIT_PENDING",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -1084,13 +1084,12 @@
   ],
   "next_work": {
     "next": [
-      "A_COMPLETE_SOURCE_SCOPE preserved; B_IN_PROGRESS_ENTRY9, not B completion.",
-      "Start Entry10 at research/vanilla_models/phase_1-2-B/entry9/B_NEXT.md; select B-first false only.",
-      "B verified 1724/2360; pending636 (P1 169 P2 347 P3 120); E-first P1 30 separate.",
-      "P2P3 source P1 ancestry confirmed1379 no1379; unknown467, do not infer no.",
-      "Entry9 original JSON new leaf240, direct parent93, 2 parents new, cache1767; independent audit30/30.",
-      "Prior v69 544x393 and review544x70, 1-1 150/150, top-stage1/5, and Entry1-8 preserved.",
-      "No C UV/PNG, D blockstate, E runtime, F/G, furniture modeling or Project Zomboid conversion."
+      "A_COMPLETE_SOURCE_SCOPE preserved; Entry10 B-first 2360/2360 source validated.",
+      "Complete B4 remote file SHA/row/readback audit before declaring B_COMPLETE_SOURCE_GEOMETRY_SCOPE.",
+      "After B4 PASS, stop B; proceed to pre-existing 1-2-C, not furniture modeling.",
+      "P2/P3 1846 no P1 ancestors based on source; original legacy enum NO_P1_ANCESTOR_SOURCE_CHECKED kept verbatim.",
+      "56 missing general elements deferred to E; UV PNG blockstate runtime F/G not certified.",
+      "v69 P1 544x393/review544x70, approved150, top-stage1of5 and Entry1-9 unchanged."
     ]
   },
   "sources": [
@@ -4175,7 +4174,7 @@
     "post_commit_validation": "research/vanilla_models/phase_1-2-A_completion/round3/ROUND3_POST_COMMIT_VALIDATION.json"
   },
   "phase_1_2_B_execution": {
-    "status": "B_IN_PROGRESS_ENTRY9",
+    "status": "B_IN_PROGRESS_ENTRY10_REMOTE_AUDIT_PENDING",
     "plan": "docs/vanilla_models_1-2/1-2-B_WORK_PLAN.md",
     "entry1": "research/vanilla_models/phase_1-2-B/entry1/B_ENTRY1_REPORT.md",
     "audit": "research/vanilla_models/phase_1-2-B/entry1/B_ENTRY1_AUDIT.json",
@@ -4195,14 +4194,14 @@
     "geometry_validation_complete": false,
     "overall_1_2_B_percent": null,
     "new_unique_original_model_identity_credit": 0,
-    "next_tasks": "Entry10: 636 B-first unverified (P1 169 P2 347 P3 120); P2P3 unknown467. Source cache1767; keep E-first P1 30 separate. B1 PASS B2/B3 PARTIAL B4 PENDING.",
+    "next_tasks": "Complete Entry10 GitHub remote readback. Then set B_COMPLETE_SOURCE_GEOMETRY_SCOPE and close B; move to C. No Entry11 B repetition.",
     "entry2": "research/vanilla_models/phase_1-2-B/entry2/B_ENTRY2_REPORT.md",
     "entry2_scope_index": "research/vanilla_models/phase_1-2-B/entry2/B_SCOPE_2390_STATUS.csv",
     "entry2_audit": "research/vanilla_models/phase_1-2-B/entry2/B_ENTRY2_AUDIT.json",
     "B1_population_evidence_grade_owner_2390": "PASS_SOURCE_SCOPE_ONLY",
-    "B2_parent_chains": "PARTIAL_1724_OF_2360_SOURCE_CHECKED",
-    "B3_geometry": "PARTIAL_1681_GENERAL_GEOMETRY_SOURCE_AND_43_NO_ELEMENTS",
-    "B4_independent_exit": "PENDING",
+    "B2_parent_chains": "SOURCE_PASS_2360_OF_2360_ALL_PARENT_RESOLVED",
+    "B3_geometry": "SOURCE_PASS_2304_GENERAL_GEOMETRY_AND_56_E_DEFERRED",
+    "B4_independent_exit": "SOURCE_54_OF_54_PASS_REMOTE_READBACK_PENDING",
     "entry2_leaf_new_120": {
       "P1": 24,
       "P2": 48,
@@ -4211,17 +4210,17 @@
     "entry2_additional_parent_JSON_files": 43,
     "entry2_original_source_unique_beyond_entry1": 162,
     "entry2_unique_source_files_B_total": 189,
-    "B_cumulative_leaf_original_source_checked": 1724,
-    "B_cumulative_P1_leaf_checked": 345,
-    "B_cumulative_P2_leaf_checked": 692,
-    "B_cumulative_P3_leaf_checked": 687,
-    "B_first_remaining_without_B_source_read": 636,
-    "P2P3_parent_dependency_checked": 1379,
-    "P2P3_parent_dependency_no": 1379,
+    "B_cumulative_leaf_original_source_checked": 2360,
+    "B_cumulative_P1_leaf_checked": 514,
+    "B_cumulative_P2_leaf_checked": 1039,
+    "B_cumulative_P3_leaf_checked": 807,
+    "B_first_remaining_without_B_source_read": 0,
+    "P2P3_parent_dependency_checked": 1846,
+    "P2P3_parent_dependency_no": 1846,
     "P2P3_parent_dependency_yes": 0,
-    "P2P3_parent_dependency_unknown": 467,
-    "B_cumulative_geometry_source_present": 1681,
-    "B_cumulative_no_elements": 43,
+    "P2P3_parent_dependency_unknown": 0,
+    "B_cumulative_geometry_source_present": 2304,
+    "B_cumulative_no_elements": 56,
     "entry2_applied_element_instances": 333,
     "entry2_source_face_declaration_references": 1300,
     "entry2_zero_thickness_element_instances": 122,
@@ -4237,7 +4236,7 @@
     "entry3_new_parent_JSON_paths": 33,
     "entry3_leaf_already_read_as_prior_parent": 3,
     "entry3_net_new_unique_source_paths": 210,
-    "B_unique_source_paths_total": 1767,
+    "B_unique_source_paths_total": 2360,
     "entry3_applied_element_instances": 381,
     "entry3_source_face_declaration_references": 1548,
     "entry3_zero_thickness_element_instances": 143,
@@ -4358,7 +4357,30 @@
     "entry9_rotated": 163,
     "entry9_outside_0_16": 59,
     "entry9_inverted": 3,
-    "entry9_independent_audit": "30/30 PASS"
+    "entry9_independent_audit": "30/30 PASS",
+    "entry10": "research/vanilla_models/phase_1-2-B/entry10/B_ENTRY10_REPORT.md",
+    "entry10_scope_index": "research/vanilla_models/phase_1-2-B/entry10/B_SCOPE_2390_STATUS.csv",
+    "entry10_audit": "research/vanilla_models/phase_1-2-B/entry10/B_ENTRY10_AUDIT.json",
+    "entry10_source_cache": "research/vanilla_models/phase_1-2-B/entry10/SOURCE_JSON_CACHE_2360.json",
+    "entry10_models_new": {
+      "P1": 169,
+      "P2": 347,
+      "P3": 120
+    },
+    "entry10_parent_sources_direct_rechecked": 122,
+    "entry10_new_unique_source_paths": 593,
+    "entry10_leaf_prior_parent_overlap": 43,
+    "entry10_source_element_instances": 1602,
+    "entry10_source_face_refs": 6542,
+    "entry10_source_cullfaces": 2338,
+    "entry10_source_flat": 502,
+    "entry10_source_rotated": 402,
+    "entry10_source_outside": 75,
+    "entry10_source_inverted": 2,
+    "entry10_full_element_instances": 5689,
+    "entry10_full_faces": 23090,
+    "entry10_full_cullfaces": 8988,
+    "entry10_independent_audit": "54/54 SOURCE PASS; GITHUB REMOTE CHECK PENDING"
   },
   "phase_1_2_B_previous_next_work": [
     "1-2-A A_COMPLETE_SOURCE_SCOPE: G1-G5 PASS 5/5, independent 50/50, 3/3 rounds. STOP A permanently; do not create Round4 or new A model v70.",
@@ -4564,5 +4586,24 @@
     "B source geometry present1448, no general elements36, E review of special source pending.",
     "Entry8 raw original JSON source unique1544 (+226 net), leaf240 new parents3 overlap17; SOURCE_JSON_CACHE_1544.json available.",
     "Do not change v69 P1 544x393/review544x70, A final, approved150, top-level completed 1/5, prior Entry1~7, fixed B plan. No furniture modeling or PZ conversion."
-  ]
+  ],
+  "phase_1_2_B_entry10": {
+    "status": "B_IN_PROGRESS_ENTRY10_REMOTE_AUDIT_PENDING",
+    "B_checked": 2360,
+    "B_pending": 0,
+    "P1_checked": 514,
+    "P2_checked": 1039,
+    "P3_checked": 807,
+    "P2P3_dependency_unknown": 0,
+    "no_general_elements_E_deferred": 56,
+    "gates": {
+      "B1": "SOURCE_PASS",
+      "B2": "SOURCE_PASS",
+      "B3": "SOURCE_PASS",
+      "B4": "PENDING_REMOTE_READBACK"
+    },
+    "audit": "54/54 SOURCE PASS",
+    "report": "research/vanilla_models/phase_1-2-B/entry10/B_ENTRY10_REPORT.md",
+    "source_cache": "research/vanilla_models/phase_1-2-B/entry10/SOURCE_JSON_CACHE_2360.json"
+  }
 }
