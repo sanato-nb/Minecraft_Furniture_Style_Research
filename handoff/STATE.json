@@ -83,7 +83,7 @@
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v69_original_brewing_stand_7_models_7_multipart_rules_8_boolean_states_source_geometry36_faces30_each_240_across_states_2_palette_PNG_SHA_IHDR_v68_P1_544x379_preserved_as_544x393_stage_A_COMPLETE_SOURCE_SCOPE_B_IN_PROGRESS_ENTRY6",
+      "status": "v69_original_brewing_stand_7_models_7_multipart_rules_8_boolean_states_source_geometry36_faces30_each_240_across_states_2_palette_PNG_SHA_IHDR_v68_P1_544x379_preserved_as_544x393_stage_A_COMPLETE_SOURCE_SCOPE_B_IN_PROGRESS_ENTRY7",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -1083,13 +1083,13 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "A_COMPLETE_SOURCE_SCOPE remains complete; B_IN_PROGRESS_ENTRY6 is source-only, not complete.",
-    "Continue 1-2-B Entry7 using research/vanilla_models/phase_1-2-B/entry6/B_SCOPE_2390_STATUS.csv and B_NEXT.md; only B-first false rows.",
-    "Cumulative Entry1~6 leaf source verified=1004/2360; unverified1356 (P1 313/P2 635/P3 408); E-first P1 30 separate.",
-    "P2/P3 ancestry 803 checked no, 1043 unknown; no blanket inference.",
-    "B-source geometry present980, no general elements24; retain E review with source-only non-render claims.",
-    "Entry6 leaf240 parents7, previous parent overlap14, raw unique source paths1088 (net new233); no identity double counts.",
-    "Preserve original v69 P1 544x393 and review544x70, 1-1 approved150/150, top-level1/5, prior Entry1~5, A completed; no furniture modeling or Zomboid conversion."
+    "A_COMPLETE_SOURCE_SCOPE remains complete; do not repeat A or original v69.",
+    "Continue B Entry8: research/vanilla_models/phase_1-2-B/entry7/B_NEXT.md; only B-first unverified in B_SCOPE_2390_STATUS.csv.",
+    "Entry1~7 total leaf original source verified1244/2360; pending1116 P1 265 P2 539 P3 312, E-first30 separate.",
+    "P2P3 ancestor checked995 no, unknown851; do not infer no for unchecked.",
+    "Source geometry1215 present; general elements29 absent—E special renderer followup.",
+    "Entry7 leaf240, new parent5, prior parent overlap15, raw-source unique paths1318, net +230. No fake new model identity credit.",
+    "Keep 1-1 150/150 approved, completed 1 of 5 high-level stages, v69 P1 544×393/review544×70, A final, historical Entry1~6 intact. UV C, blockstates D, special E, F/G separate; no game model production or Zomboid conversion."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -4173,7 +4173,7 @@
     "post_commit_validation": "research/vanilla_models/phase_1-2-A_completion/round3/ROUND3_POST_COMMIT_VALIDATION.json"
   },
   "phase_1_2_B_execution": {
-    "status": "B_IN_PROGRESS_ENTRY6",
+    "status": "B_IN_PROGRESS_ENTRY7",
     "plan": "docs/vanilla_models_1-2/1-2-B_WORK_PLAN.md",
     "entry1": "research/vanilla_models/phase_1-2-B/entry1/B_ENTRY1_REPORT.md",
     "audit": "research/vanilla_models/phase_1-2-B/entry1/B_ENTRY1_AUDIT.json",
@@ -4193,13 +4193,13 @@
     "geometry_validation_complete": false,
     "overall_1_2_B_percent": null,
     "new_unique_original_model_identity_credit": 0,
-    "next_tasks": "Entry7: B-first 1356 unchecked (P1 313/P2 635/P3 408), P2P3 dependency unknown 1043, E-first30 separate. Continue from entry6/B_SCOPE_2390_STATUS.csv, preserve A complete, no UV or runtime claims.",
+    "next_tasks": "Entry8 from entry7/B_SCOPE_2390_STATUS.csv; 1116 B-first pending (P1 265/P2 539/P3 312). P2P3 ancestry unknown 851, E-first P1 30 remain separate; A completed, v69 unchanged. No UV/renderer claims.",
     "entry2": "research/vanilla_models/phase_1-2-B/entry2/B_ENTRY2_REPORT.md",
     "entry2_scope_index": "research/vanilla_models/phase_1-2-B/entry2/B_SCOPE_2390_STATUS.csv",
     "entry2_audit": "research/vanilla_models/phase_1-2-B/entry2/B_ENTRY2_AUDIT.json",
     "B1_population_evidence_grade_owner_2390": "PASS_SOURCE_SCOPE_ONLY",
-    "B2_parent_chains": "PARTIAL_1004_OF_2360_SOURCE_CHECKED",
-    "B3_geometry": "PARTIAL_980_GEOMETRY_SOURCE_AND_24_NO_ELEMENTS",
+    "B2_parent_chains": "PARTIAL_1244_OF_2360_SOURCE_CHECKED",
+    "B3_geometry": "PARTIAL_1215_GEOMETRY_SOURCE_AND_29_NO_ELEMENTS",
     "B4_independent_exit": "PENDING",
     "entry2_leaf_new_120": {
       "P1": 24,
@@ -4209,17 +4209,17 @@
     "entry2_additional_parent_JSON_files": 43,
     "entry2_original_source_unique_beyond_entry1": 162,
     "entry2_unique_source_files_B_total": 189,
-    "B_cumulative_leaf_original_source_checked": 1004,
-    "B_cumulative_P1_leaf_checked": 201,
-    "B_cumulative_P2_leaf_checked": 404,
-    "B_cumulative_P3_leaf_checked": 399,
-    "B_first_remaining_without_B_source_read": 1356,
-    "P2P3_parent_dependency_checked": 803,
-    "P2P3_parent_dependency_no": 803,
+    "B_cumulative_leaf_original_source_checked": 1244,
+    "B_cumulative_P1_leaf_checked": 249,
+    "B_cumulative_P2_leaf_checked": 500,
+    "B_cumulative_P3_leaf_checked": 495,
+    "B_first_remaining_without_B_source_read": 1116,
+    "P2P3_parent_dependency_checked": 995,
+    "P2P3_parent_dependency_no": 995,
     "P2P3_parent_dependency_yes": 0,
-    "P2P3_parent_dependency_unknown": 1043,
-    "B_cumulative_geometry_source_present": 980,
-    "B_cumulative_no_elements": 24,
+    "P2P3_parent_dependency_unknown": 851,
+    "B_cumulative_geometry_source_present": 1215,
+    "B_cumulative_no_elements": 29,
     "entry2_applied_element_instances": 333,
     "entry2_source_face_declaration_references": 1300,
     "entry2_zero_thickness_element_instances": 122,
@@ -4235,7 +4235,7 @@
     "entry3_new_parent_JSON_paths": 33,
     "entry3_leaf_already_read_as_prior_parent": 3,
     "entry3_net_new_unique_source_paths": 210,
-    "B_unique_source_paths_total": 1088,
+    "B_unique_source_paths_total": 1318,
     "entry3_applied_element_instances": 381,
     "entry3_source_face_declaration_references": 1548,
     "entry3_zero_thickness_element_instances": 143,
@@ -4296,7 +4296,26 @@
     "entry6_rotated_elements": 154,
     "entry6_out_of_bounds_elements": 47,
     "entry6_inverted_coordinate_elements": 1,
-    "entry6_audit_passed": "48/48"
+    "entry6_audit_passed": "48/48",
+    "entry7": "research/vanilla_models/phase_1-2-B/entry7/B_ENTRY7_REPORT.md",
+    "entry7_scope_index": "research/vanilla_models/phase_1-2-B/entry7/B_SCOPE_2390_STATUS.csv",
+    "entry7_audit": "research/vanilla_models/phase_1-2-B/entry7/B_ENTRY7_AUDIT.json",
+    "entry7_leaf_new": {
+      "P1": 48,
+      "P2": 96,
+      "P3": 96
+    },
+    "entry7_new_parent_originals": 5,
+    "entry7_leaf_previously_direct_read_as_parent": 15,
+    "entry7_new_unique_raw_original_paths": 230,
+    "entry7_element_instances": 615,
+    "entry7_face_declaration_refs": 2583,
+    "entry7_cullface_refs": 1005,
+    "entry7_zero_thickness_element_instances": 203,
+    "entry7_rotated_elements": 165,
+    "entry7_outside_0_16_elements": 43,
+    "entry7_inverted_coordinate_elements": 3,
+    "entry7_audit_passed": "49/49"
   },
   "phase_1_2_B_previous_next_work": [
     "1-2-A A_COMPLETE_SOURCE_SCOPE: G1-G5 PASS 5/5, independent 50/50, 3/3 rounds. STOP A permanently; do not create Round4 or new A model v70.",
@@ -4447,5 +4466,19 @@
     "B_pending": 1356,
     "original_JSON_raw_unique_source_paths": 1088,
     "report": "research/vanilla_models/phase_1-2-B/entry6/B_ENTRY6_REPORT.md"
+  },
+  "phase_1_2_B_entry7": {
+    "status": "B_IN_PROGRESS_ENTRY7",
+    "B_first_verified": 1244,
+    "B_first_pending": 1116,
+    "P2P3_ancestor_unknown": 851,
+    "raw_unique_source_paths": 1318,
+    "gates": {
+      "B1": "PASS_SOURCE_SCOPE_INDEX",
+      "B2": "PARTIAL",
+      "B3": "PARTIAL",
+      "B4": "PENDING"
+    },
+    "report": "research/vanilla_models/phase_1-2-B/entry7/B_ENTRY7_REPORT.md"
   }
 }
