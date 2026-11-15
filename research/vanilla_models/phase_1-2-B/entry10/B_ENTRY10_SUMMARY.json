@@ -4,13 +4,13 @@
   "baseline": "92d061766fcdc1e4c36ef4cad398968bc4943db3",
   "game": "Minecraft Java Edition 1.21.11",
   "A_status": "A_COMPLETE_SOURCE_SCOPE",
-  "B_status": "B_IN_PROGRESS_ENTRY10_REMOTE_AUDIT_PENDING",
-  "B_complete": false,
+  "B_status": "B_COMPLETE_SOURCE_GEOMETRY_SCOPE",
+  "B_complete": true,
   "gates": {
-    "B1": "PASS_SOURCE_SCOPE",
-    "B2": "PASS_SOURCE_PARENT_ANCESTRY",
-    "B3": "PASS_SOURCE_GEOMETRY_WITH_E_DEFERRED",
-    "B4": "SOURCE_AUDIT_54_OF54_PASS_REMOTE_PENDING"
+    "B1": "PASS_SOURCE_SCOPE_INDEX",
+    "B2": "PASS_ORIGINAL_PARENT_ANCESTRY",
+    "B3": "PASS_ORIGINAL_GEOMETRY_AND_E_DEFERRED",
+    "B4": "PASS_INDEPENDENT_SOURCE_AND_REMOTE"
   },
   "entry10": {
     "new_B_first_leaf": 636,
@@ -59,7 +59,11 @@
   "independent_checks": {
     "source_passed": 54,
     "source_failed": 0,
-    "remote_readback_pending": true
+    "remote_readback_pending": false,
+    "remote_files_verified": 30,
+    "protected_source_hashes_verified": 5,
+    "primary_commit": "e6e5baef84ed521f04c93cd6e29725b48290e055",
+    "remote_attestation": "research/vanilla_models/phase_1-2-B/entry10/B_ENTRY10_POST_COMMIT_VALIDATION.json"
   },
   "preserve": {
     "v69_544x393": true,

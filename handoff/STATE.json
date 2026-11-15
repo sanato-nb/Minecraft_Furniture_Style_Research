@@ -83,7 +83,7 @@
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v69_original_brewing_stand_7_models_7_multipart_rules_8_boolean_states_source_geometry36_faces30_each_240_across_states_2_palette_PNG_SHA_IHDR_v68_P1_544x379_preserved_as_544x393_stage_A_COMPLETE_SOURCE_SCOPE_B_IN_PROGRESS_ENTRY10_REMOTE_AUDIT_PENDING",
+      "status": "v69_original_brewing_stand_7_models_7_multipart_rules_8_boolean_states_source_geometry36_faces30_each_240_across_states_2_palette_PNG_SHA_IHDR_v68_P1_544x379_preserved_as_544x393_stage_A_COMPLETE_SOURCE_SCOPE_B_COMPLETE_SOURCE_GEOMETRY_SCOPE",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -1084,12 +1084,13 @@
   ],
   "next_work": {
     "next": [
-      "A_COMPLETE_SOURCE_SCOPE preserved; Entry10 B-first 2360/2360 source validated.",
-      "Complete B4 remote file SHA/row/readback audit before declaring B_COMPLETE_SOURCE_GEOMETRY_SCOPE.",
-      "After B4 PASS, stop B; proceed to pre-existing 1-2-C, not furniture modeling.",
-      "P2/P3 1846 no P1 ancestors based on source; original legacy enum NO_P1_ANCESTOR_SOURCE_CHECKED kept verbatim.",
-      "56 missing general elements deferred to E; UV PNG blockstate runtime F/G not certified.",
-      "v69 P1 544x393/review544x70, approved150, top-stage1of5 and Entry1-9 unchanged."
+      "1-2-A A_COMPLETE_SOURCE_SCOPE and 1-2-B B_COMPLETE_SOURCE_GEOMETRY_SCOPE. Do NOT repeat Entry1-10.",
+      "Next scoped research is 1-2-C UV/texture/PNG, subject to existing WORK_PLAN; D blockstate, E runtime special rendering, F/G follow later.",
+      "B first-owner 2360/2360 complete, P2P3 1846/1846 P1 ancestor source no, B pending 0, E-first P1 30 separate.",
+      "56 original source chains have no general elements; E renderer study remains, not certified by B.",
+      "B4 independent54/54 + remote file SHA/rows30/30 + protected original SHA5/5 PASS.",
+      "Preserve v69 P1 ledger 544x393 and review544x70, approved150/150, top-level completion1/5.",
+      "No furniture model creation or Project Zomboid conversion."
     ]
   },
   "sources": [
@@ -4174,7 +4175,7 @@
     "post_commit_validation": "research/vanilla_models/phase_1-2-A_completion/round3/ROUND3_POST_COMMIT_VALIDATION.json"
   },
   "phase_1_2_B_execution": {
-    "status": "B_IN_PROGRESS_ENTRY10_REMOTE_AUDIT_PENDING",
+    "status": "B_COMPLETE_SOURCE_GEOMETRY_SCOPE",
     "plan": "docs/vanilla_models_1-2/1-2-B_WORK_PLAN.md",
     "entry1": "research/vanilla_models/phase_1-2-B/entry1/B_ENTRY1_REPORT.md",
     "audit": "research/vanilla_models/phase_1-2-B/entry1/B_ENTRY1_AUDIT.json",
@@ -4191,17 +4192,17 @@
     "zero_thickness_element_instances": 3,
     "P2_P3_first_source_parent_chain_checked": 11,
     "remaining_P2P3_not_yet_checked": 1835,
-    "geometry_validation_complete": false,
-    "overall_1_2_B_percent": null,
+    "geometry_validation_complete": true,
+    "overall_1_2_B_percent": 100,
     "new_unique_original_model_identity_credit": 0,
-    "next_tasks": "Complete Entry10 GitHub remote readback. Then set B_COMPLETE_SOURCE_GEOMETRY_SCOPE and close B; move to C. No Entry11 B repetition.",
+    "next_tasks": "1-2-B source geometry scope closed. Start 1-2-C separately (UV/PNG); D states; E special rendering incl no-elements56; F/G later. No Entry11 B repetition or furniture modeling.",
     "entry2": "research/vanilla_models/phase_1-2-B/entry2/B_ENTRY2_REPORT.md",
     "entry2_scope_index": "research/vanilla_models/phase_1-2-B/entry2/B_SCOPE_2390_STATUS.csv",
     "entry2_audit": "research/vanilla_models/phase_1-2-B/entry2/B_ENTRY2_AUDIT.json",
     "B1_population_evidence_grade_owner_2390": "PASS_SOURCE_SCOPE_ONLY",
-    "B2_parent_chains": "SOURCE_PASS_2360_OF_2360_ALL_PARENT_RESOLVED",
-    "B3_geometry": "SOURCE_PASS_2304_GENERAL_GEOMETRY_AND_56_E_DEFERRED",
-    "B4_independent_exit": "SOURCE_54_OF_54_PASS_REMOTE_READBACK_PENDING",
+    "B2_parent_chains": "PASS_2360_OF_2360_ORIGINAL_PARENT_SHA",
+    "B3_geometry": "PASS_2304_GEOMETRY_AND_56_NO_GENERAL_ELEMENTS_E_DEFERRED",
+    "B4_independent_exit": "PASS_54_SOURCE_30_REMOTE_FILE_5_PRESERVED_SHA",
     "entry2_leaf_new_120": {
       "P1": 24,
       "P2": 48,
@@ -4380,7 +4381,11 @@
     "entry10_full_element_instances": 5689,
     "entry10_full_faces": 23090,
     "entry10_full_cullfaces": 8988,
-    "entry10_independent_audit": "54/54 SOURCE PASS; GITHUB REMOTE CHECK PENDING"
+    "entry10_independent_audit": "54/54 SOURCE PASS + 30/30 REMOTE FILE PASS + 5/5 PROTECTED SHA PASS",
+    "geometry_validation_complete_source_only": true,
+    "B_complete_source_geometry_scope": true,
+    "B_completion_commit_primary": "e6e5baef84ed521f04c93cd6e29725b48290e055",
+    "B_completion_remote_audit": "research/vanilla_models/phase_1-2-B/entry10/B_ENTRY10_POST_COMMIT_VALIDATION.json"
   },
   "phase_1_2_B_previous_next_work": [
     "1-2-A A_COMPLETE_SOURCE_SCOPE: G1-G5 PASS 5/5, independent 50/50, 3/3 rounds. STOP A permanently; do not create Round4 or new A model v70.",
@@ -4588,7 +4593,7 @@
     "Do not change v69 P1 544x393/review544x70, A final, approved150, top-level completed 1/5, prior Entry1~7, fixed B plan. No furniture modeling or PZ conversion."
   ],
   "phase_1_2_B_entry10": {
-    "status": "B_IN_PROGRESS_ENTRY10_REMOTE_AUDIT_PENDING",
+    "status": "B_COMPLETE_SOURCE_GEOMETRY_SCOPE",
     "B_checked": 2360,
     "B_pending": 0,
     "P1_checked": 514,
@@ -4597,13 +4602,17 @@
     "P2P3_dependency_unknown": 0,
     "no_general_elements_E_deferred": 56,
     "gates": {
-      "B1": "SOURCE_PASS",
-      "B2": "SOURCE_PASS",
-      "B3": "SOURCE_PASS",
-      "B4": "PENDING_REMOTE_READBACK"
+      "B1": "PASS_SOURCE_SCOPE",
+      "B2": "PASS_PARENT_ANCESTRY",
+      "B3": "PASS_SOURCE_GEOMETRY_WITH_56_E_DEFERRED",
+      "B4": "PASS_INDEPENDENT_AND_REMOTE_READBACK"
     },
     "audit": "54/54 SOURCE PASS",
     "report": "research/vanilla_models/phase_1-2-B/entry10/B_ENTRY10_REPORT.md",
-    "source_cache": "research/vanilla_models/phase_1-2-B/entry10/SOURCE_JSON_CACHE_2360.json"
+    "source_cache": "research/vanilla_models/phase_1-2-B/entry10/SOURCE_JSON_CACHE_2360.json",
+    "B_complete": true,
+    "remote_files_verified": 30,
+    "protected_source_SHA_verified": 5,
+    "remote_audit": "research/vanilla_models/phase_1-2-B/entry10/B_ENTRY10_POST_COMMIT_VALIDATION.json"
   }
 }

@@ -41,7 +41,7 @@ P2/P3 **1,846/1,846** 모두 source 기반 P1 조상 여부 판단: **no 1,846, 
 - B1 범위·증거 통합: **source PASS**.
 - B2 부모 계보 및 P1 의존성: **source PASS**.
 - B3 원본 기하 상태: **source PASS**, E 예외 56 별도.
-- B4 독립검사: **54/54 source PASS**, GitHub 원격 커밋·SHA/행수 사후 readback은 최초 커밋 전 **PENDING**. 원격 재검사 후에만 최종 `B_COMPLETE_SOURCE_GEOMETRY_SCOPE`로 전환한다.
+- B4 독립검사: **54/54 source PASS** + 첫 커밋 30/30 원격 파일 SHA·내용·행수 + 불변 원본 SHA 5/5 **PASS**. **`B_COMPLETE_SOURCE_GEOMETRY_SCOPE` 선언**.
 
 **변경 금지 보존:** 1-2-A `A_COMPLETE_SOURCE_SCOPE`, v69 P1 544×393/검토 544×70, 1-1 승인 150/150, 상위 단계 완료 1/5, 원본 v1~v69 및 Entry1~9. 새 가구 모델/좀보이드 변환 없음. UV·PNG는 C, blockstate D, 특수 renderer E, 최종 스타일 규칙 F/G 소관이며 B의 추가 완료 조건이 아니다.
 
@@ -52,3 +52,7 @@ P2/P3 **1,846/1,846** 모두 source 기반 P1 조상 여부 판단: **no 1,846, 
 - `PARENT_TEMPLATE_SOURCE.csv`, `GEOMETRY_PROVIDER_REUSE.csv`, `B_NO_ELEMENTS_SOURCE_ALL.csv`, `INVERTED_COORDINATE_ELEMENTS_ALL.csv`, `B_UNRESOLVED_HANDOFF.csv`
 - `B_SCOPE_2390_STATUS.csv`, `B_ENTRY10_B1B2_AUDIT.json`, `B_ENTRY10_B3_AUDIT.json`, `B_ENTRY10_AUDIT.json`, `B_ENTRY10_SUMMARY.json`, `B_NEXT.md`.
 
+
+## 사후 GitHub 원격 검증 확정 (2026-11-16 KST)
+
+첫 커밋 `e6e5baef84ed521f04c93cd6e29725b48290e055`의 **30개 파일**을 GitHub 원격 경로별로 다시 읽고 원본 Git Blob SHA·JSON/CSV 내용·행수 모두 일치 확인. v69 P1 원장 2개, A 원본 자산 색인, A 완료 인수인계, Entry9 보고서 **5개 보존 SHA 일치**. 최종 `B1~B4 PASS`와 B 소스 범위 완료 선언. UV/PNG 등 후속 단계는 별도.
