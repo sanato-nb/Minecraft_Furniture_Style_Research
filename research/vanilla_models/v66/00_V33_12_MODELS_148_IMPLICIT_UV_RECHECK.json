@@ -1,0 +1,5148 @@
+{
+  "schema": "v66_independent_historical_v33_148_implicit_uv_faces_original_JSON_recheck",
+  "source_head": "8368ecf760dc2f60c53f8943c5f021f3b3b9951d",
+  "historical_csv_path": "research/vanilla_models/v33/02_twelve_model_148_inferred_uv_faces.csv",
+  "historical_csv_git_blob_sha": "e80591d98edacf2794ad8ebf37976ab6666843f0",
+  "original_source_models": [
+    {
+      "name": "cauldron",
+      "source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_model_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "own_elements": 13,
+      "own_faces": 58
+    },
+    {
+      "name": "hopper",
+      "source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_model_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "own_elements": 7,
+      "own_faces": 32
+    },
+    {
+      "name": "hopper_side",
+      "source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_model_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "own_elements": 7,
+      "own_faces": 32
+    },
+    {
+      "name": "composter",
+      "source_path": "1.21.11/assets/minecraft/models/block/composter.json",
+      "original_model_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+      "own_elements": 5,
+      "own_faces": 18
+    },
+    {
+      "name": "composter_contents1",
+      "source_path": "1.21.11/assets/minecraft/models/block/composter_contents1.json",
+      "original_model_git_sha": "fe6c8504a7bd48e198cb9ee47f3bacbcbf7ab511",
+      "own_elements": 1,
+      "own_faces": 1
+    },
+    {
+      "name": "composter_contents2",
+      "source_path": "1.21.11/assets/minecraft/models/block/composter_contents2.json",
+      "original_model_git_sha": "b5cc54c46a4d16494df7eea24d9ea1f43e5105d7",
+      "own_elements": 1,
+      "own_faces": 1
+    },
+    {
+      "name": "composter_contents3",
+      "source_path": "1.21.11/assets/minecraft/models/block/composter_contents3.json",
+      "original_model_git_sha": "4c3cdc1088b8d308efb7ac3374e1f7c7299bd579",
+      "own_elements": 1,
+      "own_faces": 1
+    },
+    {
+      "name": "composter_contents4",
+      "source_path": "1.21.11/assets/minecraft/models/block/composter_contents4.json",
+      "original_model_git_sha": "48e0456f5f4bd2fcf1c606ff9cd481438aaf2465",
+      "own_elements": 1,
+      "own_faces": 1
+    },
+    {
+      "name": "composter_contents5",
+      "source_path": "1.21.11/assets/minecraft/models/block/composter_contents5.json",
+      "original_model_git_sha": "21e4b30357f272d53214a585d587b8184a283b4c",
+      "own_elements": 1,
+      "own_faces": 1
+    },
+    {
+      "name": "composter_contents6",
+      "source_path": "1.21.11/assets/minecraft/models/block/composter_contents6.json",
+      "original_model_git_sha": "12b655168f0696fc16a1a9bece700b785c950fb7",
+      "own_elements": 1,
+      "own_faces": 1
+    },
+    {
+      "name": "composter_contents7",
+      "source_path": "1.21.11/assets/minecraft/models/block/composter_contents7.json",
+      "original_model_git_sha": "b135ad12cd622702881dbef71505ca34ebcab0ed",
+      "own_elements": 1,
+      "own_faces": 1
+    },
+    {
+      "name": "composter_contents_ready",
+      "source_path": "1.21.11/assets/minecraft/models/block/composter_contents_ready.json",
+      "original_model_git_sha": "63744ccac86702872268cce243d72ca50f237501",
+      "own_elements": 1,
+      "own_faces": 1
+    }
+  ],
+  "rows_checked": 148,
+  "checks_per_row": 10,
+  "checks_passed": {
+    "SHA": 148,
+    "source_element_and_face": 148,
+    "source_UV_omitted": 148,
+    "formula_derived_UV_match": 148,
+    "texture_slot_match": 148,
+    "resolved_texture_match": 148,
+    "cullface_match": 148,
+    "rotation_match": 148,
+    "tint_match": 148,
+    "uv_area_match": 148
+  },
+  "errors": [],
+  "mismatch_types": {},
+  "face_rows": [
+    {
+      "historical_source_row": 2,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 0,
+      "face": "north",
+      "source_from": [
+        0,
+        3,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        0,
+        16,
+        13
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        0,
+        16,
+        13
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 3,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 0,
+      "face": "east",
+      "source_from": [
+        0,
+        3,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        13
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        13
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 4,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 0,
+      "face": "south",
+      "source_from": [
+        0,
+        3,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        2,
+        13
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        2,
+        13
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 5,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 0,
+      "face": "west",
+      "source_from": [
+        0,
+        3,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        13
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        13
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 6,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 0,
+      "face": "up",
+      "source_from": [
+        0,
+        3,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        2,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        2,
+        16
+      ],
+      "source_texture_slot": "#top",
+      "source_texture_path": "block/cauldron_top",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 7,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 0,
+      "face": "down",
+      "source_from": [
+        0,
+        3,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        2,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        2,
+        16
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/cauldron_inner",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 8,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 1,
+      "face": "up",
+      "source_from": [
+        2,
+        3,
+        2
+      ],
+      "source_to": [
+        14,
+        4,
+        14
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/cauldron_inner",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 9,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 1,
+      "face": "down",
+      "source_from": [
+        2,
+        3,
+        2
+      ],
+      "source_to": [
+        14,
+        4,
+        14
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/cauldron_inner",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 10,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 2,
+      "face": "north",
+      "source_from": [
+        14,
+        3,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        2,
+        13
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        2,
+        13
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 11,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 2,
+      "face": "east",
+      "source_from": [
+        14,
+        3,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        13
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        13
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 12,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 2,
+      "face": "south",
+      "source_from": [
+        14,
+        3,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        0,
+        16,
+        13
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        0,
+        16,
+        13
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 13,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 2,
+      "face": "west",
+      "source_from": [
+        14,
+        3,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        13
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        13
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 14,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 2,
+      "face": "up",
+      "source_from": [
+        14,
+        3,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        0,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        0,
+        16,
+        16
+      ],
+      "source_texture_slot": "#top",
+      "source_texture_path": "block/cauldron_top",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 15,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 2,
+      "face": "down",
+      "source_from": [
+        14,
+        3,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        0,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        0,
+        16,
+        16
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/cauldron_inner",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 16,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 3,
+      "face": "north",
+      "source_from": [
+        2,
+        3,
+        0
+      ],
+      "source_to": [
+        14,
+        16,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        13
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        13
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 17,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 3,
+      "face": "south",
+      "source_from": [
+        2,
+        3,
+        0
+      ],
+      "source_to": [
+        14,
+        16,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        13
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        13
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 18,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 3,
+      "face": "up",
+      "source_from": [
+        2,
+        3,
+        0
+      ],
+      "source_to": [
+        14,
+        16,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        2
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        2
+      ],
+      "source_texture_slot": "#top",
+      "source_texture_path": "block/cauldron_top",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 19,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 3,
+      "face": "down",
+      "source_from": [
+        2,
+        3,
+        0
+      ],
+      "source_to": [
+        14,
+        16,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        14,
+        14,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        14,
+        14,
+        16
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/cauldron_inner",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 20,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 4,
+      "face": "north",
+      "source_from": [
+        2,
+        3,
+        14
+      ],
+      "source_to": [
+        14,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        13
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        13
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 21,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 4,
+      "face": "south",
+      "source_from": [
+        2,
+        3,
+        14
+      ],
+      "source_to": [
+        14,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        13
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        13
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 22,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 4,
+      "face": "up",
+      "source_from": [
+        2,
+        3,
+        14
+      ],
+      "source_to": [
+        14,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        14,
+        14,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        14,
+        14,
+        16
+      ],
+      "source_texture_slot": "#top",
+      "source_texture_path": "block/cauldron_top",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 23,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 4,
+      "face": "down",
+      "source_from": [
+        2,
+        3,
+        14
+      ],
+      "source_to": [
+        14,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        2
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        2
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/cauldron_inner",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 24,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 5,
+      "face": "north",
+      "source_from": [
+        0,
+        0,
+        0
+      ],
+      "source_to": [
+        4,
+        3,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        12,
+        13,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        12,
+        13,
+        16,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 25,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 5,
+      "face": "east",
+      "source_from": [
+        0,
+        0,
+        0
+      ],
+      "source_to": [
+        4,
+        3,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        13,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        13,
+        16,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 26,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 5,
+      "face": "south",
+      "source_from": [
+        0,
+        0,
+        0
+      ],
+      "source_to": [
+        4,
+        3,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        13,
+        4,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        13,
+        4,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 27,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 5,
+      "face": "west",
+      "source_from": [
+        0,
+        0,
+        0
+      ],
+      "source_to": [
+        4,
+        3,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        13,
+        2,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        13,
+        2,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 28,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 5,
+      "face": "down",
+      "source_from": [
+        0,
+        0,
+        0
+      ],
+      "source_to": [
+        4,
+        3,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        14,
+        4,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        14,
+        4,
+        16
+      ],
+      "source_texture_slot": "#bottom",
+      "source_texture_path": "block/cauldron_bottom",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 29,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 6,
+      "face": "east",
+      "source_from": [
+        0,
+        0,
+        2
+      ],
+      "source_to": [
+        2,
+        3,
+        4
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        12,
+        13,
+        14,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        12,
+        13,
+        14,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 30,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 6,
+      "face": "south",
+      "source_from": [
+        0,
+        0,
+        2
+      ],
+      "source_to": [
+        2,
+        3,
+        4
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        13,
+        2,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        13,
+        2,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 31,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 6,
+      "face": "west",
+      "source_from": [
+        0,
+        0,
+        2
+      ],
+      "source_to": [
+        2,
+        3,
+        4
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        13,
+        4,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        13,
+        4,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 32,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 6,
+      "face": "down",
+      "source_from": [
+        0,
+        0,
+        2
+      ],
+      "source_to": [
+        2,
+        3,
+        4
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        12,
+        2,
+        14
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        12,
+        2,
+        14
+      ],
+      "source_texture_slot": "#bottom",
+      "source_texture_path": "block/cauldron_bottom",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 33,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 7,
+      "face": "north",
+      "source_from": [
+        12,
+        0,
+        0
+      ],
+      "source_to": [
+        16,
+        3,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        13,
+        4,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        13,
+        4,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 34,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 7,
+      "face": "east",
+      "source_from": [
+        12,
+        0,
+        0
+      ],
+      "source_to": [
+        16,
+        3,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        13,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        13,
+        16,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 35,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 7,
+      "face": "south",
+      "source_from": [
+        12,
+        0,
+        0
+      ],
+      "source_to": [
+        16,
+        3,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        12,
+        13,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        12,
+        13,
+        16,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 36,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 7,
+      "face": "west",
+      "source_from": [
+        12,
+        0,
+        0
+      ],
+      "source_to": [
+        16,
+        3,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        13,
+        2,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        13,
+        2,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 37,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 7,
+      "face": "down",
+      "source_from": [
+        12,
+        0,
+        0
+      ],
+      "source_to": [
+        16,
+        3,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        12,
+        14,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        12,
+        14,
+        16,
+        16
+      ],
+      "source_texture_slot": "#bottom",
+      "source_texture_path": "block/cauldron_bottom",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 38,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 8,
+      "face": "east",
+      "source_from": [
+        14,
+        0,
+        2
+      ],
+      "source_to": [
+        16,
+        3,
+        4
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        12,
+        13,
+        14,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        12,
+        13,
+        14,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 39,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 8,
+      "face": "south",
+      "source_from": [
+        14,
+        0,
+        2
+      ],
+      "source_to": [
+        16,
+        3,
+        4
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        13,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        13,
+        16,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 40,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 8,
+      "face": "west",
+      "source_from": [
+        14,
+        0,
+        2
+      ],
+      "source_to": [
+        16,
+        3,
+        4
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        13,
+        4,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        13,
+        4,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 41,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 8,
+      "face": "down",
+      "source_from": [
+        14,
+        0,
+        2
+      ],
+      "source_to": [
+        16,
+        3,
+        4
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        12,
+        16,
+        14
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        12,
+        16,
+        14
+      ],
+      "source_texture_slot": "#bottom",
+      "source_texture_path": "block/cauldron_bottom",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 42,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 9,
+      "face": "north",
+      "source_from": [
+        0,
+        0,
+        14
+      ],
+      "source_to": [
+        4,
+        3,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        12,
+        13,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        12,
+        13,
+        16,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 43,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 9,
+      "face": "east",
+      "source_from": [
+        0,
+        0,
+        14
+      ],
+      "source_to": [
+        4,
+        3,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        13,
+        2,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        13,
+        2,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 44,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 9,
+      "face": "south",
+      "source_from": [
+        0,
+        0,
+        14
+      ],
+      "source_to": [
+        4,
+        3,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        13,
+        4,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        13,
+        4,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 45,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 9,
+      "face": "west",
+      "source_from": [
+        0,
+        0,
+        14
+      ],
+      "source_to": [
+        4,
+        3,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        13,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        13,
+        16,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 46,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 9,
+      "face": "down",
+      "source_from": [
+        0,
+        0,
+        14
+      ],
+      "source_to": [
+        4,
+        3,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        4,
+        2
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        4,
+        2
+      ],
+      "source_texture_slot": "#bottom",
+      "source_texture_path": "block/cauldron_bottom",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 47,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 10,
+      "face": "north",
+      "source_from": [
+        0,
+        0,
+        12
+      ],
+      "source_to": [
+        2,
+        3,
+        14
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        13,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        13,
+        16,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 48,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 10,
+      "face": "east",
+      "source_from": [
+        0,
+        0,
+        12
+      ],
+      "source_to": [
+        2,
+        3,
+        14
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        13,
+        4,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        13,
+        4,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 49,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 10,
+      "face": "west",
+      "source_from": [
+        0,
+        0,
+        12
+      ],
+      "source_to": [
+        2,
+        3,
+        14
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        12,
+        13,
+        14,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        12,
+        13,
+        14,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 50,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 10,
+      "face": "down",
+      "source_from": [
+        0,
+        0,
+        12
+      ],
+      "source_to": [
+        2,
+        3,
+        14
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        2,
+        2,
+        4
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        2,
+        2,
+        4
+      ],
+      "source_texture_slot": "#bottom",
+      "source_texture_path": "block/cauldron_bottom",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 51,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 11,
+      "face": "north",
+      "source_from": [
+        12,
+        0,
+        14
+      ],
+      "source_to": [
+        16,
+        3,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        13,
+        4,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        13,
+        4,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 52,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 11,
+      "face": "east",
+      "source_from": [
+        12,
+        0,
+        14
+      ],
+      "source_to": [
+        16,
+        3,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        13,
+        2,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        13,
+        2,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 53,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 11,
+      "face": "south",
+      "source_from": [
+        12,
+        0,
+        14
+      ],
+      "source_to": [
+        16,
+        3,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        12,
+        13,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        12,
+        13,
+        16,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 54,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 11,
+      "face": "west",
+      "source_from": [
+        12,
+        0,
+        14
+      ],
+      "source_to": [
+        16,
+        3,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        13,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        13,
+        16,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 55,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 11,
+      "face": "down",
+      "source_from": [
+        12,
+        0,
+        14
+      ],
+      "source_to": [
+        16,
+        3,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        12,
+        0,
+        16,
+        2
+      ],
+      "independent_geometry_derived_UV": [
+        12,
+        0,
+        16,
+        2
+      ],
+      "source_texture_slot": "#bottom",
+      "source_texture_path": "block/cauldron_bottom",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 56,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 12,
+      "face": "north",
+      "source_from": [
+        14,
+        0,
+        12
+      ],
+      "source_to": [
+        16,
+        3,
+        14
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        13,
+        2,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        13,
+        2,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 57,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 12,
+      "face": "east",
+      "source_from": [
+        14,
+        0,
+        12
+      ],
+      "source_to": [
+        16,
+        3,
+        14
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        13,
+        4,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        13,
+        4,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 58,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 12,
+      "face": "west",
+      "source_from": [
+        14,
+        0,
+        12
+      ],
+      "source_to": [
+        16,
+        3,
+        14
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        12,
+        13,
+        14,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        12,
+        13,
+        14,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/cauldron_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 59,
+      "original_model": "cauldron",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "original_source_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "element_index": 12,
+      "face": "down",
+      "source_from": [
+        14,
+        0,
+        12
+      ],
+      "source_to": [
+        16,
+        3,
+        14
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        2,
+        16,
+        4
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        2,
+        16,
+        4
+      ],
+      "source_texture_slot": "#bottom",
+      "source_texture_path": "block/cauldron_bottom",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 60,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 0,
+      "face": "down",
+      "source_from": [
+        0,
+        10,
+        0
+      ],
+      "source_to": [
+        16,
+        11,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/hopper_inside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 61,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 0,
+      "face": "up",
+      "source_from": [
+        0,
+        10,
+        0
+      ],
+      "source_to": [
+        16,
+        11,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/hopper_inside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 62,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 0,
+      "face": "north",
+      "source_from": [
+        0,
+        10,
+        0
+      ],
+      "source_to": [
+        16,
+        11,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        5,
+        16,
+        6
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        5,
+        16,
+        6
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 63,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 0,
+      "face": "south",
+      "source_from": [
+        0,
+        10,
+        0
+      ],
+      "source_to": [
+        16,
+        11,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        5,
+        16,
+        6
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        5,
+        16,
+        6
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 64,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 0,
+      "face": "west",
+      "source_from": [
+        0,
+        10,
+        0
+      ],
+      "source_to": [
+        16,
+        11,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        5,
+        16,
+        6
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        5,
+        16,
+        6
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 65,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 0,
+      "face": "east",
+      "source_from": [
+        0,
+        10,
+        0
+      ],
+      "source_to": [
+        16,
+        11,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        5,
+        16,
+        6
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        5,
+        16,
+        6
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 66,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 1,
+      "face": "up",
+      "source_from": [
+        0,
+        11,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        2,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        2,
+        16
+      ],
+      "source_texture_slot": "#top",
+      "source_texture_path": "block/hopper_top",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 67,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 1,
+      "face": "north",
+      "source_from": [
+        0,
+        11,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        0,
+        16,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        0,
+        16,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 68,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 1,
+      "face": "south",
+      "source_from": [
+        0,
+        11,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        2,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        2,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 69,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 1,
+      "face": "west",
+      "source_from": [
+        0,
+        11,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 70,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 1,
+      "face": "east",
+      "source_from": [
+        0,
+        11,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 71,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 2,
+      "face": "up",
+      "source_from": [
+        14,
+        11,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        0,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        0,
+        16,
+        16
+      ],
+      "source_texture_slot": "#top",
+      "source_texture_path": "block/hopper_top",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 72,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 2,
+      "face": "north",
+      "source_from": [
+        14,
+        11,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        2,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        2,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 73,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 2,
+      "face": "south",
+      "source_from": [
+        14,
+        11,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        0,
+        16,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        0,
+        16,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 74,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 2,
+      "face": "west",
+      "source_from": [
+        14,
+        11,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 75,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 2,
+      "face": "east",
+      "source_from": [
+        14,
+        11,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 76,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 3,
+      "face": "up",
+      "source_from": [
+        2,
+        11,
+        0
+      ],
+      "source_to": [
+        14,
+        16,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        2
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        2
+      ],
+      "source_texture_slot": "#top",
+      "source_texture_path": "block/hopper_top",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 77,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 3,
+      "face": "north",
+      "source_from": [
+        2,
+        11,
+        0
+      ],
+      "source_to": [
+        14,
+        16,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 78,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 3,
+      "face": "south",
+      "source_from": [
+        2,
+        11,
+        0
+      ],
+      "source_to": [
+        14,
+        16,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 79,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 4,
+      "face": "up",
+      "source_from": [
+        2,
+        11,
+        14
+      ],
+      "source_to": [
+        14,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        14,
+        14,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        14,
+        14,
+        16
+      ],
+      "source_texture_slot": "#top",
+      "source_texture_path": "block/hopper_top",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 80,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 4,
+      "face": "north",
+      "source_from": [
+        2,
+        11,
+        14
+      ],
+      "source_to": [
+        14,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 81,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 4,
+      "face": "south",
+      "source_from": [
+        2,
+        11,
+        14
+      ],
+      "source_to": [
+        14,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 82,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 5,
+      "face": "down",
+      "source_from": [
+        4,
+        4,
+        4
+      ],
+      "source_to": [
+        12,
+        10,
+        12
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        4,
+        4,
+        12,
+        12
+      ],
+      "independent_geometry_derived_UV": [
+        4,
+        4,
+        12,
+        12
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/hopper_inside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 83,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 5,
+      "face": "north",
+      "source_from": [
+        4,
+        4,
+        4
+      ],
+      "source_to": [
+        12,
+        10,
+        12
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        4,
+        6,
+        12,
+        12
+      ],
+      "independent_geometry_derived_UV": [
+        4,
+        6,
+        12,
+        12
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 84,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 5,
+      "face": "south",
+      "source_from": [
+        4,
+        4,
+        4
+      ],
+      "source_to": [
+        12,
+        10,
+        12
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        4,
+        6,
+        12,
+        12
+      ],
+      "independent_geometry_derived_UV": [
+        4,
+        6,
+        12,
+        12
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 85,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 5,
+      "face": "west",
+      "source_from": [
+        4,
+        4,
+        4
+      ],
+      "source_to": [
+        12,
+        10,
+        12
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        4,
+        6,
+        12,
+        12
+      ],
+      "independent_geometry_derived_UV": [
+        4,
+        6,
+        12,
+        12
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 86,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 5,
+      "face": "east",
+      "source_from": [
+        4,
+        4,
+        4
+      ],
+      "source_to": [
+        12,
+        10,
+        12
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        4,
+        6,
+        12,
+        12
+      ],
+      "independent_geometry_derived_UV": [
+        4,
+        6,
+        12,
+        12
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 87,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 6,
+      "face": "down",
+      "source_from": [
+        6,
+        0,
+        6
+      ],
+      "source_to": [
+        10,
+        4,
+        10
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        6,
+        6,
+        10,
+        10
+      ],
+      "independent_geometry_derived_UV": [
+        6,
+        6,
+        10,
+        10
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/hopper_inside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 88,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 6,
+      "face": "north",
+      "source_from": [
+        6,
+        0,
+        6
+      ],
+      "source_to": [
+        10,
+        4,
+        10
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        6,
+        12,
+        10,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        6,
+        12,
+        10,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 89,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 6,
+      "face": "south",
+      "source_from": [
+        6,
+        0,
+        6
+      ],
+      "source_to": [
+        10,
+        4,
+        10
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        6,
+        12,
+        10,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        6,
+        12,
+        10,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 90,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 6,
+      "face": "west",
+      "source_from": [
+        6,
+        0,
+        6
+      ],
+      "source_to": [
+        10,
+        4,
+        10
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        6,
+        12,
+        10,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        6,
+        12,
+        10,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 91,
+      "original_model": "hopper",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper.json",
+      "original_source_git_sha": "ce9eb542c6ee3bd0a449183048fa5b6c090af550",
+      "element_index": 6,
+      "face": "east",
+      "source_from": [
+        6,
+        0,
+        6
+      ],
+      "source_to": [
+        10,
+        4,
+        10
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        6,
+        12,
+        10,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        6,
+        12,
+        10,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 92,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 0,
+      "face": "down",
+      "source_from": [
+        0,
+        10,
+        0
+      ],
+      "source_to": [
+        16,
+        11,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/hopper_inside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 93,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 0,
+      "face": "up",
+      "source_from": [
+        0,
+        10,
+        0
+      ],
+      "source_to": [
+        16,
+        11,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/hopper_inside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 94,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 0,
+      "face": "north",
+      "source_from": [
+        0,
+        10,
+        0
+      ],
+      "source_to": [
+        16,
+        11,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        5,
+        16,
+        6
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        5,
+        16,
+        6
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 95,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 0,
+      "face": "south",
+      "source_from": [
+        0,
+        10,
+        0
+      ],
+      "source_to": [
+        16,
+        11,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        5,
+        16,
+        6
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        5,
+        16,
+        6
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 96,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 0,
+      "face": "west",
+      "source_from": [
+        0,
+        10,
+        0
+      ],
+      "source_to": [
+        16,
+        11,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        5,
+        16,
+        6
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        5,
+        16,
+        6
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 97,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 0,
+      "face": "east",
+      "source_from": [
+        0,
+        10,
+        0
+      ],
+      "source_to": [
+        16,
+        11,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        5,
+        16,
+        6
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        5,
+        16,
+        6
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 98,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 1,
+      "face": "up",
+      "source_from": [
+        0,
+        11,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        2,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        2,
+        16
+      ],
+      "source_texture_slot": "#top",
+      "source_texture_path": "block/hopper_top",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 99,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 1,
+      "face": "north",
+      "source_from": [
+        0,
+        11,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        0,
+        16,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        0,
+        16,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 100,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 1,
+      "face": "south",
+      "source_from": [
+        0,
+        11,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        2,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        2,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 101,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 1,
+      "face": "west",
+      "source_from": [
+        0,
+        11,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 102,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 1,
+      "face": "east",
+      "source_from": [
+        0,
+        11,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 103,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 2,
+      "face": "up",
+      "source_from": [
+        14,
+        11,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        0,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        0,
+        16,
+        16
+      ],
+      "source_texture_slot": "#top",
+      "source_texture_path": "block/hopper_top",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 104,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 2,
+      "face": "north",
+      "source_from": [
+        14,
+        11,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        2,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        2,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 105,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 2,
+      "face": "south",
+      "source_from": [
+        14,
+        11,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        0,
+        16,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        0,
+        16,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 106,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 2,
+      "face": "west",
+      "source_from": [
+        14,
+        11,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 107,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 2,
+      "face": "east",
+      "source_from": [
+        14,
+        11,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 108,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 3,
+      "face": "up",
+      "source_from": [
+        2,
+        11,
+        0
+      ],
+      "source_to": [
+        14,
+        16,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        2
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        2
+      ],
+      "source_texture_slot": "#top",
+      "source_texture_path": "block/hopper_top",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 109,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 3,
+      "face": "north",
+      "source_from": [
+        2,
+        11,
+        0
+      ],
+      "source_to": [
+        14,
+        16,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 110,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 3,
+      "face": "south",
+      "source_from": [
+        2,
+        11,
+        0
+      ],
+      "source_to": [
+        14,
+        16,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 111,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 4,
+      "face": "up",
+      "source_from": [
+        2,
+        11,
+        14
+      ],
+      "source_to": [
+        14,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        14,
+        14,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        14,
+        14,
+        16
+      ],
+      "source_texture_slot": "#top",
+      "source_texture_path": "block/hopper_top",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 112,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 4,
+      "face": "north",
+      "source_from": [
+        2,
+        11,
+        14
+      ],
+      "source_to": [
+        14,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 113,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 4,
+      "face": "south",
+      "source_from": [
+        2,
+        11,
+        14
+      ],
+      "source_to": [
+        14,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        5
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        5
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 114,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 5,
+      "face": "down",
+      "source_from": [
+        4,
+        4,
+        4
+      ],
+      "source_to": [
+        12,
+        10,
+        12
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        4,
+        4,
+        12,
+        12
+      ],
+      "independent_geometry_derived_UV": [
+        4,
+        4,
+        12,
+        12
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/hopper_inside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 115,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 5,
+      "face": "north",
+      "source_from": [
+        4,
+        4,
+        4
+      ],
+      "source_to": [
+        12,
+        10,
+        12
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        4,
+        6,
+        12,
+        12
+      ],
+      "independent_geometry_derived_UV": [
+        4,
+        6,
+        12,
+        12
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 116,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 5,
+      "face": "south",
+      "source_from": [
+        4,
+        4,
+        4
+      ],
+      "source_to": [
+        12,
+        10,
+        12
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        4,
+        6,
+        12,
+        12
+      ],
+      "independent_geometry_derived_UV": [
+        4,
+        6,
+        12,
+        12
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 117,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 5,
+      "face": "west",
+      "source_from": [
+        4,
+        4,
+        4
+      ],
+      "source_to": [
+        12,
+        10,
+        12
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        4,
+        6,
+        12,
+        12
+      ],
+      "independent_geometry_derived_UV": [
+        4,
+        6,
+        12,
+        12
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 118,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 5,
+      "face": "east",
+      "source_from": [
+        4,
+        4,
+        4
+      ],
+      "source_to": [
+        12,
+        10,
+        12
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        4,
+        6,
+        12,
+        12
+      ],
+      "independent_geometry_derived_UV": [
+        4,
+        6,
+        12,
+        12
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 119,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 6,
+      "face": "down",
+      "source_from": [
+        6,
+        4,
+        0
+      ],
+      "source_to": [
+        10,
+        8,
+        4
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        6,
+        12,
+        10,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        6,
+        12,
+        10,
+        16
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/hopper_inside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 120,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 6,
+      "face": "up",
+      "source_from": [
+        6,
+        4,
+        0
+      ],
+      "source_to": [
+        10,
+        8,
+        4
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        6,
+        0,
+        10,
+        4
+      ],
+      "independent_geometry_derived_UV": [
+        6,
+        0,
+        10,
+        4
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 121,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 6,
+      "face": "north",
+      "source_from": [
+        6,
+        4,
+        0
+      ],
+      "source_to": [
+        10,
+        8,
+        4
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        6,
+        8,
+        10,
+        12
+      ],
+      "independent_geometry_derived_UV": [
+        6,
+        8,
+        10,
+        12
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 122,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 6,
+      "face": "west",
+      "source_from": [
+        6,
+        4,
+        0
+      ],
+      "source_to": [
+        10,
+        8,
+        4
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        8,
+        4,
+        12
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        8,
+        4,
+        12
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 123,
+      "original_model": "hopper_side",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/hopper_side.json",
+      "original_source_git_sha": "28d3dc65b758afdaf9eed61ba964b6575c5e8c8e",
+      "element_index": 6,
+      "face": "east",
+      "source_from": [
+        6,
+        4,
+        0
+      ],
+      "source_to": [
+        10,
+        8,
+        4
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        12,
+        8,
+        16,
+        12
+      ],
+      "independent_geometry_derived_UV": [
+        12,
+        8,
+        16,
+        12
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/hopper_outside",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 124,
+      "original_model": "composter",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter.json",
+      "original_source_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+      "element_index": 0,
+      "face": "up",
+      "source_from": [
+        0,
+        0,
+        0
+      ],
+      "source_to": [
+        16,
+        2,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/composter_bottom",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 125,
+      "original_model": "composter",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter.json",
+      "original_source_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+      "element_index": 0,
+      "face": "down",
+      "source_from": [
+        0,
+        0,
+        0
+      ],
+      "source_to": [
+        16,
+        2,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "source_texture_slot": "#bottom",
+      "source_texture_path": "block/composter_bottom",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 126,
+      "original_model": "composter",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter.json",
+      "original_source_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+      "element_index": 1,
+      "face": "up",
+      "source_from": [
+        0,
+        0,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        2,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        2,
+        16
+      ],
+      "source_texture_slot": "#top",
+      "source_texture_path": "block/composter_top",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 127,
+      "original_model": "composter",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter.json",
+      "original_source_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+      "element_index": 1,
+      "face": "north",
+      "source_from": [
+        0,
+        0,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        0,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        0,
+        16,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/composter_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 128,
+      "original_model": "composter",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter.json",
+      "original_source_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+      "element_index": 1,
+      "face": "south",
+      "source_from": [
+        0,
+        0,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        2,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        2,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/composter_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 129,
+      "original_model": "composter",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter.json",
+      "original_source_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+      "element_index": 1,
+      "face": "west",
+      "source_from": [
+        0,
+        0,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/composter_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 130,
+      "original_model": "composter",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter.json",
+      "original_source_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+      "element_index": 1,
+      "face": "east",
+      "source_from": [
+        0,
+        0,
+        0
+      ],
+      "source_to": [
+        2,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/composter_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 131,
+      "original_model": "composter",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter.json",
+      "original_source_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+      "element_index": 2,
+      "face": "up",
+      "source_from": [
+        14,
+        0,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        0,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        0,
+        16,
+        16
+      ],
+      "source_texture_slot": "#top",
+      "source_texture_path": "block/composter_top",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 132,
+      "original_model": "composter",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter.json",
+      "original_source_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+      "element_index": 2,
+      "face": "north",
+      "source_from": [
+        14,
+        0,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        2,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        2,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/composter_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 133,
+      "original_model": "composter",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter.json",
+      "original_source_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+      "element_index": 2,
+      "face": "south",
+      "source_from": [
+        14,
+        0,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        14,
+        0,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        14,
+        0,
+        16,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/composter_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 134,
+      "original_model": "composter",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter.json",
+      "original_source_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+      "element_index": 2,
+      "face": "west",
+      "source_from": [
+        14,
+        0,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/composter_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 135,
+      "original_model": "composter",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter.json",
+      "original_source_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+      "element_index": 2,
+      "face": "east",
+      "source_from": [
+        14,
+        0,
+        0
+      ],
+      "source_to": [
+        16,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/composter_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 136,
+      "original_model": "composter",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter.json",
+      "original_source_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+      "element_index": 3,
+      "face": "up",
+      "source_from": [
+        2,
+        0,
+        0
+      ],
+      "source_to": [
+        14,
+        16,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        2
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        2
+      ],
+      "source_texture_slot": "#top",
+      "source_texture_path": "block/composter_top",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 137,
+      "original_model": "composter",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter.json",
+      "original_source_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+      "element_index": 3,
+      "face": "north",
+      "source_from": [
+        2,
+        0,
+        0
+      ],
+      "source_to": [
+        14,
+        16,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/composter_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 138,
+      "original_model": "composter",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter.json",
+      "original_source_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+      "element_index": 3,
+      "face": "south",
+      "source_from": [
+        2,
+        0,
+        0
+      ],
+      "source_to": [
+        14,
+        16,
+        2
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/composter_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 139,
+      "original_model": "composter",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter.json",
+      "original_source_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+      "element_index": 4,
+      "face": "up",
+      "source_from": [
+        2,
+        0,
+        14
+      ],
+      "source_to": [
+        14,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        14,
+        14,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        14,
+        14,
+        16
+      ],
+      "source_texture_slot": "#top",
+      "source_texture_path": "block/composter_top",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 140,
+      "original_model": "composter",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter.json",
+      "original_source_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+      "element_index": 4,
+      "face": "north",
+      "source_from": [
+        2,
+        0,
+        14
+      ],
+      "source_to": [
+        14,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/composter_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 141,
+      "original_model": "composter",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter.json",
+      "original_source_git_sha": "9650f777a58fe668b42ad8ad6d57a643121f5202",
+      "element_index": 4,
+      "face": "south",
+      "source_from": [
+        2,
+        0,
+        14
+      ],
+      "source_to": [
+        14,
+        16,
+        16
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        0,
+        14,
+        16
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        0,
+        14,
+        16
+      ],
+      "source_texture_slot": "#side",
+      "source_texture_path": "block/composter_side",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 142,
+      "original_model": "composter_contents1",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter_contents1.json",
+      "original_source_git_sha": "fe6c8504a7bd48e198cb9ee47f3bacbcbf7ab511",
+      "element_index": 0,
+      "face": "up",
+      "source_from": [
+        2,
+        0,
+        2
+      ],
+      "source_to": [
+        14,
+        3,
+        14
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/composter_compost",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 143,
+      "original_model": "composter_contents2",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter_contents2.json",
+      "original_source_git_sha": "b5cc54c46a4d16494df7eea24d9ea1f43e5105d7",
+      "element_index": 0,
+      "face": "up",
+      "source_from": [
+        2,
+        0,
+        2
+      ],
+      "source_to": [
+        14,
+        5,
+        14
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/composter_compost",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 144,
+      "original_model": "composter_contents3",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter_contents3.json",
+      "original_source_git_sha": "4c3cdc1088b8d308efb7ac3374e1f7c7299bd579",
+      "element_index": 0,
+      "face": "up",
+      "source_from": [
+        2,
+        0,
+        2
+      ],
+      "source_to": [
+        14,
+        7,
+        14
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/composter_compost",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 145,
+      "original_model": "composter_contents4",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter_contents4.json",
+      "original_source_git_sha": "48e0456f5f4bd2fcf1c606ff9cd481438aaf2465",
+      "element_index": 0,
+      "face": "up",
+      "source_from": [
+        2,
+        0,
+        2
+      ],
+      "source_to": [
+        14,
+        9,
+        14
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/composter_compost",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 146,
+      "original_model": "composter_contents5",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter_contents5.json",
+      "original_source_git_sha": "21e4b30357f272d53214a585d587b8184a283b4c",
+      "element_index": 0,
+      "face": "up",
+      "source_from": [
+        2,
+        0,
+        2
+      ],
+      "source_to": [
+        14,
+        11,
+        14
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/composter_compost",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 147,
+      "original_model": "composter_contents6",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter_contents6.json",
+      "original_source_git_sha": "12b655168f0696fc16a1a9bece700b785c950fb7",
+      "element_index": 0,
+      "face": "up",
+      "source_from": [
+        2,
+        0,
+        2
+      ],
+      "source_to": [
+        14,
+        13,
+        14
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/composter_compost",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 148,
+      "original_model": "composter_contents7",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter_contents7.json",
+      "original_source_git_sha": "b135ad12cd622702881dbef71505ca34ebcab0ed",
+      "element_index": 0,
+      "face": "up",
+      "source_from": [
+        2,
+        0,
+        2
+      ],
+      "source_to": [
+        14,
+        15,
+        14
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/composter_compost",
+      "mismatches": []
+    },
+    {
+      "historical_source_row": 149,
+      "original_model": "composter_contents_ready",
+      "original_source_path": "1.21.11/assets/minecraft/models/block/composter_contents_ready.json",
+      "original_source_git_sha": "63744ccac86702872268cce243d72ca50f237501",
+      "element_index": 0,
+      "face": "up",
+      "source_from": [
+        2,
+        0,
+        2
+      ],
+      "source_to": [
+        14,
+        15,
+        14
+      ],
+      "source_has_explicit_uv": false,
+      "historical_derived_uv": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "independent_geometry_derived_UV": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "source_texture_slot": "#inside",
+      "source_texture_path": "block/composter_ready",
+      "mismatches": []
+    }
+  ],
+  "verification_limits": [
+    "Derived implicit UV is re-computed with six geometric direction formulas, which is NOT official client engine UV implementation authentication.",
+    "Original source face uv is absent for every source row here; no explicit UV should be fabricated.",
+    "No original PNG pixel images newly decoded, and no world renderer tested.",
+    "CSV source Git SHA and same model path Git SHA are directly read from GitHub, not inferred from filename."
+  ]
+}

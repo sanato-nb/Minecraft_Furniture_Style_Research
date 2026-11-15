@@ -1,0 +1,660 @@
+{
+  "schema": "v66_previous_history_only_28_original_model_batch",
+  "source_ref": "8368ecf760dc2f60c53f8943c5f021f3b3b9951d",
+  "start": 8,
+  "models": [
+    {
+      "source_path": "1.21.11/assets/minecraft/models/block/candle_one_candle.json",
+      "source_model": "candle_one_candle.json",
+      "git_blob_sha": "36c9b76727bd97776e1777db2860d54590a24a80",
+      "original_JSON": {
+        "parent": "minecraft:block/template_candle",
+        "textures": {
+          "all": "minecraft:block/candle",
+          "particle": "minecraft:block/candle"
+        }
+      },
+      "own_elements": 0,
+      "own_faces": 0,
+      "explicit_UV_faces": 0,
+      "source_UV_missing_faces": 0,
+      "zero_thickness_elements": 0,
+      "rotated_elements": 0,
+      "parent": "minecraft:block/template_candle",
+      "own_face_evidence": [],
+      "preexisting_v63_direct_flag": "false"
+    },
+    {
+      "source_path": "1.21.11/assets/minecraft/models/block/candle_three_candles.json",
+      "source_model": "candle_three_candles.json",
+      "git_blob_sha": "b40569167c3247bb48c3779de5e74876e2eedb59",
+      "original_JSON": {
+        "parent": "minecraft:block/template_three_candles",
+        "textures": {
+          "all": "minecraft:block/candle",
+          "particle": "minecraft:block/candle"
+        }
+      },
+      "own_elements": 0,
+      "own_faces": 0,
+      "explicit_UV_faces": 0,
+      "source_UV_missing_faces": 0,
+      "zero_thickness_elements": 0,
+      "rotated_elements": 0,
+      "parent": "minecraft:block/template_three_candles",
+      "own_face_evidence": [],
+      "preexisting_v63_direct_flag": "false"
+    },
+    {
+      "source_path": "1.21.11/assets/minecraft/models/block/candle_two_candles.json",
+      "source_model": "candle_two_candles.json",
+      "git_blob_sha": "cda5223f64eaecd39b3e140519ed402bf2180bf1",
+      "original_JSON": {
+        "parent": "minecraft:block/template_two_candles",
+        "textures": {
+          "all": "minecraft:block/candle",
+          "particle": "minecraft:block/candle"
+        }
+      },
+      "own_elements": 0,
+      "own_faces": 0,
+      "explicit_UV_faces": 0,
+      "source_UV_missing_faces": 0,
+      "zero_thickness_elements": 0,
+      "rotated_elements": 0,
+      "parent": "minecraft:block/template_two_candles",
+      "own_face_evidence": [],
+      "preexisting_v63_direct_flag": "false"
+    },
+    {
+      "source_path": "1.21.11/assets/minecraft/models/block/cartography_table.json",
+      "source_model": "cartography_table.json",
+      "git_blob_sha": "770c10613ce3b580800df5bf9edd14063dd58342",
+      "original_JSON": {
+        "parent": "minecraft:block/cube",
+        "textures": {
+          "down": "minecraft:block/dark_oak_planks",
+          "east": "minecraft:block/cartography_table_side3",
+          "north": "minecraft:block/cartography_table_side3",
+          "particle": "minecraft:block/cartography_table_side3",
+          "south": "minecraft:block/cartography_table_side1",
+          "up": "minecraft:block/cartography_table_top",
+          "west": "minecraft:block/cartography_table_side2"
+        }
+      },
+      "own_elements": 0,
+      "own_faces": 0,
+      "explicit_UV_faces": 0,
+      "source_UV_missing_faces": 0,
+      "zero_thickness_elements": 0,
+      "rotated_elements": 0,
+      "parent": "minecraft:block/cube",
+      "own_face_evidence": [],
+      "preexisting_v63_direct_flag": "false"
+    },
+    {
+      "source_path": "1.21.11/assets/minecraft/models/block/decorated_pot.json",
+      "source_model": "decorated_pot.json",
+      "git_blob_sha": "1456e72d8c368d6bacdc16f172dc2771784fa422",
+      "original_JSON": {
+        "textures": {
+          "particle": "minecraft:block/terracotta"
+        }
+      },
+      "own_elements": 0,
+      "own_faces": 0,
+      "explicit_UV_faces": 0,
+      "source_UV_missing_faces": 0,
+      "zero_thickness_elements": 0,
+      "rotated_elements": 0,
+      "parent": null,
+      "own_face_evidence": [],
+      "preexisting_v63_direct_flag": "false"
+    },
+    {
+      "source_path": "1.21.11/assets/minecraft/models/block/enchanting_table.json",
+      "source_model": "enchanting_table.json",
+      "git_blob_sha": "404ca9a3d28f77362a5597a4b0f0c2deaba6987c",
+      "original_JSON": {
+        "parent": "block/block",
+        "textures": {
+          "particle": "block/enchanting_table_bottom",
+          "bottom": "block/enchanting_table_bottom",
+          "top": "block/enchanting_table_top",
+          "side": "block/enchanting_table_side"
+        },
+        "elements": [
+          {
+            "from": [
+              0,
+              0,
+              0
+            ],
+            "to": [
+              16,
+              12,
+              16
+            ],
+            "faces": {
+              "down": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#bottom",
+                "cullface": "down"
+              },
+              "up": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#top"
+              },
+              "north": {
+                "uv": [
+                  0,
+                  4,
+                  16,
+                  16
+                ],
+                "texture": "#side",
+                "cullface": "north"
+              },
+              "south": {
+                "uv": [
+                  0,
+                  4,
+                  16,
+                  16
+                ],
+                "texture": "#side",
+                "cullface": "south"
+              },
+              "west": {
+                "uv": [
+                  0,
+                  4,
+                  16,
+                  16
+                ],
+                "texture": "#side",
+                "cullface": "west"
+              },
+              "east": {
+                "uv": [
+                  0,
+                  4,
+                  16,
+                  16
+                ],
+                "texture": "#side",
+                "cullface": "east"
+              }
+            }
+          }
+        ]
+      },
+      "own_elements": 1,
+      "own_faces": 6,
+      "explicit_UV_faces": 6,
+      "source_UV_missing_faces": 0,
+      "zero_thickness_elements": 0,
+      "rotated_elements": 0,
+      "parent": "block/block",
+      "own_face_evidence": [
+        {
+          "index": 0,
+          "direction": "down",
+          "UV_key_present": true,
+          "original_uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#bottom",
+          "rotation": null,
+          "cullface": "down"
+        },
+        {
+          "index": 0,
+          "direction": "up",
+          "UV_key_present": true,
+          "original_uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#top",
+          "rotation": null,
+          "cullface": null
+        },
+        {
+          "index": 0,
+          "direction": "north",
+          "UV_key_present": true,
+          "original_uv": [
+            0,
+            4,
+            16,
+            16
+          ],
+          "texture": "#side",
+          "rotation": null,
+          "cullface": "north"
+        },
+        {
+          "index": 0,
+          "direction": "south",
+          "UV_key_present": true,
+          "original_uv": [
+            0,
+            4,
+            16,
+            16
+          ],
+          "texture": "#side",
+          "rotation": null,
+          "cullface": "south"
+        },
+        {
+          "index": 0,
+          "direction": "west",
+          "UV_key_present": true,
+          "original_uv": [
+            0,
+            4,
+            16,
+            16
+          ],
+          "texture": "#side",
+          "rotation": null,
+          "cullface": "west"
+        },
+        {
+          "index": 0,
+          "direction": "east",
+          "UV_key_present": true,
+          "original_uv": [
+            0,
+            4,
+            16,
+            16
+          ],
+          "texture": "#side",
+          "rotation": null,
+          "cullface": "east"
+        }
+      ],
+      "preexisting_v63_direct_flag": "false"
+    },
+    {
+      "source_path": "1.21.11/assets/minecraft/models/block/end_rod.json",
+      "source_model": "end_rod.json",
+      "git_blob_sha": "aeb57d0b7929e2df4e2c2b47dc0ce571fd53de97",
+      "original_JSON": {
+        "parent": "block/block",
+        "display": {
+          "head": {
+            "rotation": [
+              -60,
+              0,
+              0
+            ],
+            "translation": [
+              0,
+              5,
+              -9
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "thirdperson_righthand": {
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "translation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              0.375,
+              0.375,
+              0.375
+            ]
+          }
+        },
+        "textures": {
+          "end_rod": "block/end_rod",
+          "particle": "block/end_rod"
+        },
+        "elements": [
+          {
+            "from": [
+              6,
+              0,
+              6
+            ],
+            "to": [
+              10,
+              1,
+              10
+            ],
+            "faces": {
+              "down": {
+                "uv": [
+                  6,
+                  6,
+                  2,
+                  2
+                ],
+                "texture": "#end_rod",
+                "cullface": "down"
+              },
+              "up": {
+                "uv": [
+                  2,
+                  2,
+                  6,
+                  6
+                ],
+                "texture": "#end_rod"
+              },
+              "north": {
+                "uv": [
+                  2,
+                  6,
+                  6,
+                  7
+                ],
+                "texture": "#end_rod"
+              },
+              "south": {
+                "uv": [
+                  2,
+                  6,
+                  6,
+                  7
+                ],
+                "texture": "#end_rod"
+              },
+              "west": {
+                "uv": [
+                  2,
+                  6,
+                  6,
+                  7
+                ],
+                "texture": "#end_rod"
+              },
+              "east": {
+                "uv": [
+                  2,
+                  6,
+                  6,
+                  7
+                ],
+                "texture": "#end_rod"
+              }
+            }
+          },
+          {
+            "from": [
+              7,
+              1,
+              7
+            ],
+            "to": [
+              9,
+              16,
+              9
+            ],
+            "faces": {
+              "up": {
+                "uv": [
+                  2,
+                  0,
+                  4,
+                  2
+                ],
+                "texture": "#end_rod",
+                "cullface": "up"
+              },
+              "north": {
+                "uv": [
+                  0,
+                  0,
+                  2,
+                  15
+                ],
+                "texture": "#end_rod"
+              },
+              "south": {
+                "uv": [
+                  0,
+                  0,
+                  2,
+                  15
+                ],
+                "texture": "#end_rod"
+              },
+              "west": {
+                "uv": [
+                  0,
+                  0,
+                  2,
+                  15
+                ],
+                "texture": "#end_rod"
+              },
+              "east": {
+                "uv": [
+                  0,
+                  0,
+                  2,
+                  15
+                ],
+                "texture": "#end_rod"
+              }
+            }
+          }
+        ]
+      },
+      "own_elements": 2,
+      "own_faces": 11,
+      "explicit_UV_faces": 11,
+      "source_UV_missing_faces": 0,
+      "zero_thickness_elements": 0,
+      "rotated_elements": 0,
+      "parent": "block/block",
+      "own_face_evidence": [
+        {
+          "index": 0,
+          "direction": "down",
+          "UV_key_present": true,
+          "original_uv": [
+            6,
+            6,
+            2,
+            2
+          ],
+          "texture": "#end_rod",
+          "rotation": null,
+          "cullface": "down"
+        },
+        {
+          "index": 0,
+          "direction": "up",
+          "UV_key_present": true,
+          "original_uv": [
+            2,
+            2,
+            6,
+            6
+          ],
+          "texture": "#end_rod",
+          "rotation": null,
+          "cullface": null
+        },
+        {
+          "index": 0,
+          "direction": "north",
+          "UV_key_present": true,
+          "original_uv": [
+            2,
+            6,
+            6,
+            7
+          ],
+          "texture": "#end_rod",
+          "rotation": null,
+          "cullface": null
+        },
+        {
+          "index": 0,
+          "direction": "south",
+          "UV_key_present": true,
+          "original_uv": [
+            2,
+            6,
+            6,
+            7
+          ],
+          "texture": "#end_rod",
+          "rotation": null,
+          "cullface": null
+        },
+        {
+          "index": 0,
+          "direction": "west",
+          "UV_key_present": true,
+          "original_uv": [
+            2,
+            6,
+            6,
+            7
+          ],
+          "texture": "#end_rod",
+          "rotation": null,
+          "cullface": null
+        },
+        {
+          "index": 0,
+          "direction": "east",
+          "UV_key_present": true,
+          "original_uv": [
+            2,
+            6,
+            6,
+            7
+          ],
+          "texture": "#end_rod",
+          "rotation": null,
+          "cullface": null
+        },
+        {
+          "index": 1,
+          "direction": "up",
+          "UV_key_present": true,
+          "original_uv": [
+            2,
+            0,
+            4,
+            2
+          ],
+          "texture": "#end_rod",
+          "rotation": null,
+          "cullface": "up"
+        },
+        {
+          "index": 1,
+          "direction": "north",
+          "UV_key_present": true,
+          "original_uv": [
+            0,
+            0,
+            2,
+            15
+          ],
+          "texture": "#end_rod",
+          "rotation": null,
+          "cullface": null
+        },
+        {
+          "index": 1,
+          "direction": "south",
+          "UV_key_present": true,
+          "original_uv": [
+            0,
+            0,
+            2,
+            15
+          ],
+          "texture": "#end_rod",
+          "rotation": null,
+          "cullface": null
+        },
+        {
+          "index": 1,
+          "direction": "west",
+          "UV_key_present": true,
+          "original_uv": [
+            0,
+            0,
+            2,
+            15
+          ],
+          "texture": "#end_rod",
+          "rotation": null,
+          "cullface": null
+        },
+        {
+          "index": 1,
+          "direction": "east",
+          "UV_key_present": true,
+          "original_uv": [
+            0,
+            0,
+            2,
+            15
+          ],
+          "texture": "#end_rod",
+          "rotation": null,
+          "cullface": null
+        }
+      ],
+      "preexisting_v63_direct_flag": "false"
+    },
+    {
+      "source_path": "1.21.11/assets/minecraft/models/block/ender_chest.json",
+      "source_model": "ender_chest.json",
+      "git_blob_sha": "ae6b33b2d0c399283351c2c97270e21ae4f7c6bb",
+      "original_JSON": {
+        "textures": {
+          "particle": "minecraft:block/obsidian"
+        }
+      },
+      "own_elements": 0,
+      "own_faces": 0,
+      "explicit_UV_faces": 0,
+      "source_UV_missing_faces": 0,
+      "zero_thickness_elements": 0,
+      "rotated_elements": 0,
+      "parent": null,
+      "own_face_evidence": [],
+      "preexisting_v63_direct_flag": "false"
+    }
+  ]
+}

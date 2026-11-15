@@ -1,0 +1,14 @@
+# v66 → 다음 채팅 1-2-A 실제 연구 인수인계
+
+GitHub `main` HEAD를 먼저 읽고 최신 버전을 확인. v66 기준 `research/vanilla_models/v66/REPORT.md`, `SUMMARY.json`, `07_P1_544_EVIDENCE_LEDGER.csv`, `VALIDATION_POST_RESEARCH_COMMIT.json` 사후 readback. v67+이 존재하면 최신 우선.
+
+## 이번 실제 작업
+- v65에서 P1 544모델 중 **직접 원본 JSON 읽기 이력이 없는 28개**는 과거 원본 CSV 모델 SHA만 존재. v66에서 이 **28개 JSON 실물 GitHub 경로+SHA 직접 읽기/파싱** 모두 수행. 28개의 own elements37/own faces164/explicit UV164/source UV omitted0/zero thickness10/rotated elements8/own elements0 모델13. **new original source identity0**. 다른 v33 12, v38 14 모델 원본 JSON을 직접 재조회해 v66 총 모델 서로 다른 경로 **54개** 직접 조회(기존 직접 26+신규 직접28). 이전 v35~v65 516 direct → **v35~v66 544/544 original model JSON 직접판독 이력**. 의미론/상속/엔진 검증완료 아님.
+- v33 `02_twelve_model_148_inferred_uv_faces.csv` 원본 Git SHA `e80591d98edacf2794ad8ebf37976ab6666843f0`의 148 행을 12 원본 1.21.11 모델 JSON 내용·SHA, element from/to, face dir, textures, source UV-key absence, 6-direction derived UV geometry formula, area/cull/rotation/tint와 **10가지 ×148면 확인 전부 일치**. **암시 UV는 엔진 공식 인증 아님**. `00_V33_12_MODELS_148_IMPLICIT_UV_RECHECK.json`.
+- v38 `oak_shelf` 7 leaf + 7 parent 원본 모델 JSON (14경로), **historical 38 source face×17 검사항목 일치**, 원본 blockstates24 multipart rules 원본과 일치; 4 facing×2 powered×4 side_chain **32 정적 상태에서 각 본체15면 + overlay1면 = 소스 면16**, 렌더 후 컬링 이전. 38면에는 **인벤토리 전용18면**이 포함되어 실제 월드에서 38면이 동시에 표현되는 것이 아님. original oak_shelf.png 32×32 Git SHA/IHDR 확인, full RGBA 신규 실측0. **leaf별 source SHA를 사용**, 단일 oak_shelf SHA만 쓰면 가짜 불일치23. `00_V38_OAK_SHELF_38_FACE_24_STATE_32_COMBINATIONS_RECHECK.json`.
+- 새 원본 면별 안전 증거 CSV **186행** = v33 계산 후보148 + v38 명시 소스면38: `01_ORIGINAL_SOURCE_FACE_CROSSCHECK_186.csv`. 선반 **32개 정적 state 조합**: `02_OAK_SHELF_STATIC_32_STATES.csv`. prior26 model source snapshot: `03_V66_PRIOR26_SOURCE_RECHECK.csv`. prior28 source original JSON batch4+summary 파일(00_DIRECT...).
+- P1 누적 증거 원장 최신 **544행×351열**, 기존 v65 **337열×544행=183,328 데이터셀 전부 동일**, 새14열. 모델 리뷰 원장 **544행×48열**, v65 37열×544행 **20,128 데이터셀 그대로**. 직접 원본 JSON read flag v66 cumulative **544/544** vs '깊은 의미 검증 완료율' 산정 불가. V65 역사파일194개 접근 범위/근거 이어받되 이전 역사 모델 세부 주장을 모두 인증했다고 말하지 말 것.
+- source SHA collision: 544 distinct model paths share 539 distinct Git blob SHA (2 collision groups / 7 paths). 반드시 `asset_type, full_source_path, SHA` typed key 유지. 원본 UV missing vs derived UV candidate vs official renderer UV 인증 분리.
+- 다음 실제 연구: parent inheritance를 P1 544개별로 source resolved geometry/UV/texture slot과 함께 정규화, 특히 own geometry0/special renderer14, remaining UV implicit and special client renderer / animations. 과거 v5~v43 의미론 사례 검증 확장. 먼저 대상을 정해 원본 JSON, blockstate, PNG를 직접 읽은 후 old ledger와 교차. 자동 소스 파일 조회 결과가 곧 1-2-A 완료라고 판단하지 말 것.
+
+최종 상태 1-1 승인150/150, 상위 5 중1 완료, **1-2-A/1-2 진행 중·실질 완료율 null**, 가구 제작/좀보이드 맵 변환 미시작. 커밋 전 HEAD lease, 저장 후 remote original CSV/JSON and ledger old-cells readback 후 별도 validation commit 필수.
