@@ -1083,14 +1083,11 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "Verify live GitHub main; read v69 SUMMARY, REPORT, 544×393 cumulative P1 ledger and separate post-commit validation; if v70+ exists start from newest.",
-    "v69 original seven brewing stand model JSON and source blockstate multipart7, 8 boolean states all evaluated: body1 + 3 slot optional models, 4 models, 7 element instances, 30 original face refs every state, 8-state total240; only 36 unique source face declarations, all explicit UV.",
-    "v69 three bottle/empty pairs share identical planar geometry (zero thickness, two-sided), use same indexed PNG but separate explicit UV, slots1/2 rotate yaw -45/+45. Real pixels and actual engine runtime unverified.",
-    "Two original brewing stand PNG Git SHA/IHDR 16x16 bit8 color-type3 indexed palette; do not claim source PNG color-type6/RGBA raw or decode. Full RGBA newly decoded0.",
-    "P1 v69 544 rows x393 cols preserve v68 379×544=206176 data cells; review v69 544 rows x70 cols preserve v68 64×544=34816 cells. Previous v66 direct model JSON read 544/544 and v65 194 historical files available; not 544 deep semantic complete.",
-    "Next work a distinct multi-model, state-dependent P1 furniture family selected by original source and prior ledger: parent inheritance / multipart / UV / textures; or official client implicit UV runtime certification. Avoid redundant deep PNG 49, old v31 brewing stand and v66 bottle leaf as newly discovered models.",
-    "Stage 1-1 approved150/150, top completed1/5, stage1-2-A and 1-2 still incomplete and actual pct null, model production/PZ conversion not started.",
-    "Before GitHub modifications check current HEAD lease, preserve old files/columns, commit source research, remote readback original content and old cells, then separate validation commit."
+    "IMPORTANT USER REQUIREMENT: Before any more model-family geometry/UV/state research, execute the fixed 1-2-A data integration closure plan docs/vanilla_models_1-2/1-2-A_FIXED_SCOPE_AND_EXIT_PLAN.md. Do not perform endless B-E work under A.",
+    "Round 1: G1 check 4669 typed original path/SHA inventory against Git tree and P1/P2/P3 2390 priority mapping; G2 source history 194 and v44-v69 checkpoint26 inventory.",
+    "Round 2: G2 historical evidence provenance status and G3 P1 544/544 evidence grades/provenance; G4 P2/P3 1846 boundary and B-G work handoff queue.",
+    "Round 3: G5 independent audit old ledger cells, all five gates and final A completion or A_BLOCKED verdict. Only one correction pass within this round. Stop after three rounds; no automatic indefinite repeat.",
+    "Only after all G1-G5 PASS, mark A_COMPLETE_SOURCE_SCOPE and hand off to B. Keep latest research checkpoint v69 unchanged until actual further execution. Preserve earlier status and evidence, don't infer runtime render completion."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -4000,5 +3997,61 @@
     "source_png_fullRGBA_newly_verified": 0,
     "stage_1_2_A_complete": false,
     "actual_completion_percent": null
-  }
+  },
+  "phase_1_2_A_fixed_exit_plan": {
+    "version": "2026-11-15-v1",
+    "status": "PLAN_SAVED_A_NOT_COMPLETED",
+    "plan": "docs/vanilla_models_1-2/1-2-A_FIXED_SCOPE_AND_EXIT_PLAN.md",
+    "machine_contract": "docs/vanilla_models_1-2/1-2-A_ACCEPTANCE_CONTRACT.json",
+    "research_checkpoint_unchanged": "v69",
+    "gates": [
+      {
+        "id": "G1",
+        "name": "typed source population",
+        "target": "4669/4669 asset path + SHA, P1/P2/P3 2390 exact mapping"
+      },
+      {
+        "id": "G2",
+        "name": "historical evidence provenance",
+        "target": "194/194 v5-v43 source files + 26/26 v44-v69 checkpoint index"
+      },
+      {
+        "id": "G3",
+        "name": "P1 identity/provenance status",
+        "target": "544/544 classified and graded"
+      },
+      {
+        "id": "G4",
+        "name": "P2/P3 and B-G handoff",
+        "target": "1846/1846 category, 544/544 stage routing and 100% issue ownership"
+      },
+      {
+        "id": "G5",
+        "name": "independent audit and verdict",
+        "target": "0 unrecorded critical path/type/SHA errors; all old data intact"
+      }
+    ],
+    "execution_round_cap": 3,
+    "remediation_in_last_round_max": 1,
+    "early_exit_on_all_gates": true,
+    "on_pass": "A_COMPLETE_SOURCE_SCOPE; no more A model family deep research",
+    "on_fail": "A_BLOCKED; stop automatic work and report deficiencies",
+    "scope_excludes": [
+      "new detailed B-E source geometry / UV / PNG / renderer family studies",
+      "official client.jar certification",
+      "in game rendering",
+      "PZ conversion"
+    ],
+    "not_inferred_from": "544/544 original JSON identity or 194/194 file contents alone"
+  },
+  "pre_fixed_A_next_work_v69": [
+    "Verify live GitHub main; read v69 SUMMARY, REPORT, 544×393 cumulative P1 ledger and separate post-commit validation; if v70+ exists start from newest.",
+    "v69 original seven brewing stand model JSON and source blockstate multipart7, 8 boolean states all evaluated: body1 + 3 slot optional models, 4 models, 7 element instances, 30 original face refs every state, 8-state total240; only 36 unique source face declarations, all explicit UV.",
+    "v69 three bottle/empty pairs share identical planar geometry (zero thickness, two-sided), use same indexed PNG but separate explicit UV, slots1/2 rotate yaw -45/+45. Real pixels and actual engine runtime unverified.",
+    "Two original brewing stand PNG Git SHA/IHDR 16x16 bit8 color-type3 indexed palette; do not claim source PNG color-type6/RGBA raw or decode. Full RGBA newly decoded0.",
+    "P1 v69 544 rows x393 cols preserve v68 379×544=206176 data cells; review v69 544 rows x70 cols preserve v68 64×544=34816 cells. Previous v66 direct model JSON read 544/544 and v65 194 historical files available; not 544 deep semantic complete.",
+    "Next work a distinct multi-model, state-dependent P1 furniture family selected by original source and prior ledger: parent inheritance / multipart / UV / textures; or official client implicit UV runtime certification. Avoid redundant deep PNG 49, old v31 brewing stand and v66 bottle leaf as newly discovered models.",
+    "Stage 1-1 approved150/150, top completed1/5, stage1-2-A and 1-2 still incomplete and actual pct null, model production/PZ conversion not started.",
+    "Before GitHub modifications check current HEAD lease, preserve old files/columns, commit source research, remote readback original content and old cells, then separate validation commit."
+  ]
 }

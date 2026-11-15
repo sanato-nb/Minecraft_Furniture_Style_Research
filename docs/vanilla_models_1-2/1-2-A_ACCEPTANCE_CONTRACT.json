@@ -1,0 +1,75 @@
+{
+  "schema": "1-2-A_FIXED_SCOPE_EXIT_CONTRACT_v1",
+  "plan_date_KST": "2026-11-15",
+  "baseline_research_checkpoint": "v69",
+  "status": "PLANNED_NOT_EXECUTED_OR_APPROVED_COMPLETE",
+  "denominators": {
+    "block_models": 2390,
+    "blockstates": 1168,
+    "block_PNGs": 1111,
+    "typed_assets": 4669,
+    "P1": 544,
+    "P2": 1039,
+    "P3": 807,
+    "P2_P3": 1846,
+    "historical_v5_v43_files": 194,
+    "checkpoints_v44_v69": 26
+  },
+  "gate_ids": [
+    "G1",
+    "G2",
+    "G3",
+    "G4",
+    "G5"
+  ],
+  "all_gates_required": true,
+  "gate_acceptance": {
+    "G1": {
+      "typed_path_sha_verified": 4669,
+      "priority_population": 2390,
+      "unclassified_priority": 0,
+      "unresolved_identity_sha": 0
+    },
+    "G2": {
+      "history_files_indexed": 194,
+      "modern_checkpoints_indexed": 26,
+      "provenance_record_required_for_every_source": true
+    },
+    "G3": {
+      "P1_source_provenance_grades": 544,
+      "verified_or_explicitly_not_verified_flags": 544,
+      "identity_key": [
+        "asset_type",
+        "full_source_path",
+        "git_blob_sha"
+      ],
+      "collision_groups_preserved": 2
+    },
+    "G4": {
+      "P2_P3_scope_or_deferred_routing": 1846,
+      "P1_next_stage_routing": 544,
+      "known_unresolved_with_explicit_owner_percent": 100
+    },
+    "G5": {
+      "all_P1_old_cells_unchanged": true,
+      "no_unrecorded_critical_SHA_path_type_error": true,
+      "reproducible_audit_all_checks_pass": true
+    }
+  },
+  "audit_round_cap": 3,
+  "third_round_correction_passes_max": 1,
+  "early_exit_if_all_gates_pass": true,
+  "on_pass": "A_COMPLETE_SOURCE_SCOPE; stop phase 1-2-A and hand off to B",
+  "on_fail": "A_BLOCKED; report exact failing counts and stop automatic work",
+  "not_required": [
+    "full_geometry_UV_texture_RGBA_all_544",
+    "official_client_jar_hash",
+    "in_game_renderer",
+    "deep_2390_model_study",
+    "Project_Zomboid_conversion"
+  ],
+  "files": {
+    "main_plan": "docs/vanilla_models_1-2/1-2-A_FIXED_SCOPE_AND_EXIT_PLAN.md",
+    "contract": "docs/vanilla_models_1-2/1-2-A_ACCEPTANCE_CONTRACT.json"
+  }
+}
