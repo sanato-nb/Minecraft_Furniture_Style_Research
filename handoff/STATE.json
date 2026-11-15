@@ -2,7 +2,7 @@
   "schema": "mc-furniture-handoff/v1",
   "updated_at": "2026-11-15",
   "timezone": "Asia/Seoul",
-  "current_checkpoint": "v68",
+  "current_checkpoint": "v69",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "version": "Minecraft Java Edition 1.21.11",
   "scope": {
@@ -83,7 +83,7 @@
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v68_original_lit_candle4_template_geometry30_applied_faces100_explicitUV100_candle_states8_original_PNG2_SHA_IHDR_5_special_models_secondary_renderer_registration_544x379_P1_no_runtime_certification_stage_A_incomplete",
+      "status": "v69_original_brewing_stand_7_models_7_multipart_rules_8_boolean_states_source_geometry36_faces30_each_240_across_states_2_palette_PNG_SHA_IHDR_v68_P1_544x379_preserved_as_544x393_stage_A_incomplete",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -728,7 +728,25 @@
       "v68_new_review_cols": 64,
       "v68_previous_review_cells_preserved": 30464,
       "v68_actual_completion_percent": null,
-      "v68_complete": false
+      "v68_complete": false,
+      "v69_model_JSON_source_reopened": 7,
+      "v69_original_blockstate_JSON_reopened": 1,
+      "v69_source_36_original_faces_explicitUV": true,
+      "v69_source_multipart_rules": 7,
+      "v69_boolean_state_combination_count_exhaustive": 8,
+      "v69_source_faces_per_state": 30,
+      "v69_source_total_face_references_across_8_states": 240,
+      "v69_source_2_PNG_SHA_IHDR_checked": true,
+      "v69_PNG_full_RGBA_pixels_newly_decoded": 0,
+      "v69_new_P1_unique_models": 0,
+      "v69_original_source_P1_models_direct_read_cumulative": 544,
+      "v69_P1_columns": 393,
+      "v69_previous_P1_data_cells_preserved": 206176,
+      "v69_source_review_columns": 70,
+      "v69_previous_source_review_cells_preserved": 34816,
+      "v69_client_renderer_authenticated": false,
+      "v69_complete": false,
+      "v69_actual_completion_percent": null
     },
     {
       "id": "03",
@@ -1065,12 +1083,14 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "Read live main HEAD, v68 SUMMARY REPORT P1 ledger544x379 and validation; if v69+ use latest.",
-    "V68 lit candle 4 original source leaf JSON and template 4, candle blockstate eight variants; inherited elements30, applied face refs100 all source explicit UV, candle_lit/candle PNG 16x16 SHA/IHDR only, no new RGBA pixels or game world brightness certification.",
-    "V68 secondary unofficial third-party decompiled source files7 with source Git SHA and line numbers show 4 unique BE renderers for geometry0 original P1 models5. Do NOT promote to official 1.21.11 client.jar runtime geometry authentication.",
-    "Latest P1 544x379 all v67 544x365=198560 data cells preserved; source review544x64 all old544x56=30464 cells preserved; cumulative direct original source JSON read 544/544 from v66, not full deep geometry UV PNG renderer complete.",
-    "Next original selected P1 models effective parent geometry texture UV and blockstate 1.21.11 direct source study, or official client engine renderer/implicit UV certification. Avoid repeating 49 PNG deep prior source audits, and do not count 100 lit inherited face refs as new original face declarations.",
-    "1-1 approved150/150 top level1/5 completed, stage 1-2-A/1-2 incomplete percentage null and no furniture model building or PZ conversion. Pre-commit HEAD lease and remote readback then separate validation commit."
+    "Verify live GitHub main; read v69 SUMMARY, REPORT, 544×393 cumulative P1 ledger and separate post-commit validation; if v70+ exists start from newest.",
+    "v69 original seven brewing stand model JSON and source blockstate multipart7, 8 boolean states all evaluated: body1 + 3 slot optional models, 4 models, 7 element instances, 30 original face refs every state, 8-state total240; only 36 unique source face declarations, all explicit UV.",
+    "v69 three bottle/empty pairs share identical planar geometry (zero thickness, two-sided), use same indexed PNG but separate explicit UV, slots1/2 rotate yaw -45/+45. Real pixels and actual engine runtime unverified.",
+    "Two original brewing stand PNG Git SHA/IHDR 16x16 bit8 color-type3 indexed palette; do not claim source PNG color-type6/RGBA raw or decode. Full RGBA newly decoded0.",
+    "P1 v69 544 rows x393 cols preserve v68 379×544=206176 data cells; review v69 544 rows x70 cols preserve v68 64×544=34816 cells. Previous v66 direct model JSON read 544/544 and v65 194 historical files available; not 544 deep semantic complete.",
+    "Next work a distinct multi-model, state-dependent P1 furniture family selected by original source and prior ledger: parent inheritance / multipart / UV / textures; or official client implicit UV runtime certification. Avoid redundant deep PNG 49, old v31 brewing stand and v66 bottle leaf as newly discovered models.",
+    "Stage 1-1 approved150/150, top completed1/5, stage1-2-A and 1-2 still incomplete and actual pct null, model production/PZ conversion not started.",
+    "Before GitHub modifications check current HEAD lease, preserve old files/columns, commit source research, remote readback original content and old cells, then separate validation commit."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -3708,7 +3728,7 @@
       "handoff": "research/vanilla_models/v56/NEXT_CHAT_HANDOFF.md"
     }
   },
-  "latest_vanilla_model_research": "research/vanilla_models/v68/REPORT.md",
+  "latest_vanilla_model_research": "research/vanilla_models/v69/REPORT.md",
   "v58": {
     "checkpoint": "research/vanilla_models/v58/REPORT.md",
     "ledger": "research/vanilla_models/v58/07_P1_544_EVIDENCE_LEDGER.csv",
@@ -3956,5 +3976,29 @@
     "candle_source_faces": 100,
     "secondary_renderer_class_links": 5,
     "official_client_jar_runtime_authenticated": false
+  },
+  "v69": {
+    "report": "research/vanilla_models/v69/REPORT.md",
+    "summary": "research/vanilla_models/v69/SUMMARY.json",
+    "P1": "research/vanilla_models/v69/07_P1_544_EVIDENCE_LEDGER.csv",
+    "review": "research/vanilla_models/v69/04_SOURCE_REVIEW_LEDGER_544.csv",
+    "source_snapshot": "research/vanilla_models/v69/00_ORIGINAL_BREWING_7_MODELS_1_BLOCKSTATE.json",
+    "multipart_exhaustive_proof": "research/vanilla_models/v69/00_BREWING_7_MODELS_8_STATE_240FACE_PROOF.json",
+    "source_face": "research/vanilla_models/v69/01_BREWING_SOURCE_36_DECLARED_FACES.csv",
+    "state_8": "research/vanilla_models/v69/02_BREWING_8_EXHAUSTIVE_MULTIPART_STATES.csv",
+    "state_applied_face_240": "research/vanilla_models/v69/03_BREWING_240_STATE_APPLIED_FACE_REFERENCES.csv",
+    "original_PNG_SHA_IHDR": "research/vanilla_models/v69/00_BREWING_TWO_PNG_ORIGINAL_SHA_IHDR.json",
+    "next_chat": "research/vanilla_models/v69/NEXT_CHAT_HANDOFF.md",
+    "P1_rows": 544,
+    "P1_cols": 393,
+    "previous_P1_379_columns_cells_preserved": 206176,
+    "review_cols": 70,
+    "previous_review_64_columns_cells_preserved": 34816,
+    "source_multipart_cases_verified": 8,
+    "source_original_declared_faces": 36,
+    "source_applied_face_refs_all_cases": 240,
+    "source_png_fullRGBA_newly_verified": 0,
+    "stage_1_2_A_complete": false,
+    "actual_completion_percent": null
   }
 }
