@@ -1083,11 +1083,10 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "1-2-A Round1 G1 PASS: 4669/4669 source type/path/blob SHA vs live Git trees, priority P1 544/P2 1039/P3 807. G2 history194 checkpoint26 source SHA index complete but evidence semantics not fully reconciled. Round1 report at research/vanilla_models/phase_1-2-A_completion/round1/ROUND1_REPORT.md.",
-    "Start Round2 ONLY after latest main HEAD and fixed contract read. Use round1 ROUND2_START.md; G2 integrate 194 source contents/provenance with prior work, G3 544 model evidence grades, G4 1846 P2+P3 scope and route all 544 P1 to B-G or N/A with reasons.",
-    "Do not perform additional deep individual model family geometry/UV/PNG/renderer studies in A. Do not repeat prior evidence as new discoveries.",
-    "Then Round3 G5 independent audit, all gates PASS then A_COMPLETE_SOURCE_SCOPE or A_BLOCKED after last permitted correction. Never auto exceed three rounds.",
-    "Keep v69 research baseline and all original legacy proof files unchanged; 1-2-A not completed, upper 1/5 only, 1-1 150/150 unchanged."
+    "1-2-A Round2 source-provenance audit PASS for G2 194 history and 26 checkpoints; G3 P1 544 source grades PASS; G4 B-G ownership of all 2390 models PASS. Fixed scope only: not actual all-model geometry or history full semantic re-execution.",
+    "Round3 FINAL: read live main HEAD; docs/vanilla_models_1-2/1-2-A_ACCEPTANCE_CONTRACT.json and round2/ROUND3_START.md; perform G5 independent audit across original v69 P1 544x393, review544x70, round1 registry4669, history194, checkpoints26, priority2390 and source SHA references.",
+    "Round3 verification must include Git tree SHA and prior-value preservation, 1-2-A completion only if all five gates PASS. If not passed after last allowed correction, A_BLOCKED and STOP; do not start an auto fourth round.",
+    "No further B-E deep model family study under A. Keep all prior v1-v69 files unchanged. Existing status 1-1 150/150, top stages 1/5 complete; furniture modelling and Zomboid conversion not started."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -4000,7 +3999,7 @@
   },
   "phase_1_2_A_fixed_exit_plan": {
     "version": "2026-11-15-v1",
-    "status": "PLAN_SAVED_A_NOT_COMPLETED",
+    "status": "EXECUTING_ROUND2_A_NOT_COMPLETED",
     "plan": "docs/vanilla_models_1-2/1-2-A_FIXED_SCOPE_AND_EXIT_PLAN.md",
     "machine_contract": "docs/vanilla_models_1-2/1-2-A_ACCEPTANCE_CONTRACT.json",
     "research_checkpoint_unchanged": "v69",
@@ -4059,8 +4058,8 @@
     "baseline_research_checkpoint": "v69",
     "source_main_baseline": "52ef681327f7dce291312e59e647160a75005c53",
     "planned_max_rounds": 3,
-    "rounds_completed": 1,
-    "current_round": "ROUND1_COMMITTED_AFTER_LIVE_GITHUB_TREE_AUDIT",
+    "rounds_completed": 2,
+    "current_round": "ROUND2_RESEARCH_COMMITTED_PENDING_FINAL_ROUND3_AUDIT",
     "phase_status": "IN_PROGRESS",
     "G1": {
       "status": "PASS",
@@ -4076,20 +4075,35 @@
       "extra_png_mcmeta_outside_PNG_scope": 99
     },
     "G2": {
-      "status": "INDEX_COMPLETE_SEMANTIC_CROSSWALK_PENDING_ROUND2",
-      "historical_194_path_SHA_size_matches": 194,
-      "v65_original_file_content_reopen_record_194_inherited": true,
-      "checkpoint_26_report_and_summary_tree_shas_found": 26,
-      "semantic_content_contribution_crosswalk_completed": false
+      "status": "PASS_FOR_SOURCE_PROVENANCE_AND_DOMAIN_INDEX_ONLY",
+      "historical_files": 194,
+      "historical_source_SHA_content_prior_proof_mapped": 194,
+      "prior_historical_three_original_text_reread_this_round": 3,
+      "modern_checkpoint_26_SUMMARY_source_read_SHA": 26,
+      "checkpoint_REPORT_source_tree_SHA_26_verified": 26,
+      "all_model_semantic_claims_deep_reverified": false
     },
     "G3": {
-      "status": "PENDING_ROUND2"
+      "status": "PASS_FOR_P1_544_SOURCE_IDENTIFICATION_AND_EVIDENCE_GRADE",
+      "P1_models": 544,
+      "v66_prior_direct_JSON_544": true,
+      "new_original_model_reads_round2": 0,
+      "original_P1_544x393_unchanged": true,
+      "source_unique_git_blob_SHA_539": true,
+      "shared_blob_sha_groups2_paths7": true
     },
     "G4": {
-      "status": "PENDING_ROUND2"
+      "status": "PASS_FOR_2390_SOURCE_SCOPE_AND_B_TO_G_OWNER_RECORD",
+      "P1": 544,
+      "P2": 1039,
+      "P3": 807,
+      "model_owner_filled_2390": true,
+      "unresolved_model_issues_with_stage_owner": 2390,
+      "P2_P3_parent_dependency_pending_B": 1846
     },
     "G5": {
-      "status": "PENDING_ROUND3"
+      "status": "PENDING_ROUND3_INDEPENDENT_EXIT_AUDIT",
+      "legacy_data_preservation_reproduction_pending": true
     },
     "A_complete": false,
     "actual_overall_A_completion_percent": null,
@@ -4099,7 +4113,14 @@
     "round1_history_index": "research/vanilla_models/phase_1-2-A_completion/round1/A_HISTORY_194_INDEX.csv",
     "round1_checkpoint_index": "research/vanilla_models/phase_1-2-A_completion/round1/A_CHECKPOINT_26_INDEX.csv",
     "round2_start": "research/vanilla_models/phase_1-2-A_completion/round1/ROUND2_START.md",
-    "stop_at_max_rounds": true
+    "stop_at_max_rounds": true,
+    "actual_A_completion_percent": null,
+    "round2_report": "research/vanilla_models/phase_1-2-A_completion/round2/ROUND2_REPORT.md",
+    "round2_summary": "research/vanilla_models/phase_1-2-A_completion/round2/ROUND2_SUMMARY.json",
+    "round3_start": "research/vanilla_models/phase_1-2-A_completion/round2/ROUND3_START.md",
+    "round2_P1_544_status": "research/vanilla_models/phase_1-2-A_completion/round2/A_P1_544_SOURCE_STATUS.csv",
+    "round2_B_to_G_2390_queue": "research/vanilla_models/phase_1-2-A_completion/round2/A_TO_BCDEFG_HANDOFF_QUEUE_2390.csv",
+    "round2_issues": "research/vanilla_models/phase_1-2-A_completion/round2/A_UNRESOLVED.csv"
   },
   "phase_1_2_A_round1_previous_next_work": [
     "IMPORTANT USER REQUIREMENT: Before any more model-family geometry/UV/state research, execute the fixed 1-2-A data integration closure plan docs/vanilla_models_1-2/1-2-A_FIXED_SCOPE_AND_EXIT_PLAN.md. Do not perform endless B-E work under A.",
@@ -4107,5 +4128,12 @@
     "Round 2: G2 historical evidence provenance status and G3 P1 544/544 evidence grades/provenance; G4 P2/P3 1846 boundary and B-G work handoff queue.",
     "Round 3: G5 independent audit old ledger cells, all five gates and final A completion or A_BLOCKED verdict. Only one correction pass within this round. Stop after three rounds; no automatic indefinite repeat.",
     "Only after all G1-G5 PASS, mark A_COMPLETE_SOURCE_SCOPE and hand off to B. Keep latest research checkpoint v69 unchanged until actual further execution. Preserve earlier status and evidence, don't infer runtime render completion."
+  ],
+  "phase_1_2_A_round2_previous_next_work": [
+    "1-2-A Round1 G1 PASS: 4669/4669 source type/path/blob SHA vs live Git trees, priority P1 544/P2 1039/P3 807. G2 history194 checkpoint26 source SHA index complete but evidence semantics not fully reconciled. Round1 report at research/vanilla_models/phase_1-2-A_completion/round1/ROUND1_REPORT.md.",
+    "Start Round2 ONLY after latest main HEAD and fixed contract read. Use round1 ROUND2_START.md; G2 integrate 194 source contents/provenance with prior work, G3 544 model evidence grades, G4 1846 P2+P3 scope and route all 544 P1 to B-G or N/A with reasons.",
+    "Do not perform additional deep individual model family geometry/UV/PNG/renderer studies in A. Do not repeat prior evidence as new discoveries.",
+    "Then Round3 G5 independent audit, all gates PASS then A_COMPLETE_SOURCE_SCOPE or A_BLOCKED after last permitted correction. Never auto exceed three rounds.",
+    "Keep v69 research baseline and all original legacy proof files unchanged; 1-2-A not completed, upper 1/5 only, 1-1 150/150 unchanged."
   ]
 }

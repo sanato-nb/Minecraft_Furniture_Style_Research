@@ -1,0 +1,85 @@
+{
+  "schema": "1-2-A_FIXED_EXIT_ROUND2_V1",
+  "date_KST": "2026-11-15",
+  "research_baseline_checkpoint": "v69",
+  "baseline_main_commit": "6854f468926e23c7ead3b6f6ccd4a860960e929a",
+  "execution_round": 2,
+  "max_rounds": 3,
+  "rounds_completed": 2,
+  "phase_A_status": "IN_PROGRESS_G5_PENDING",
+  "gate_status": {
+    "G1": "PASS_CARRIED_FROM_ROUND1",
+    "G2": "PASS_FOR_HISTORICAL_PROVENANCE_AND_EVIDENCE_DOMAIN_SCOPE_ONLY",
+    "G3": "PASS_FOR_SOURCE_IDENTITY_AND_EVIDENCE_STATUS_544",
+    "G4": "PASS_FOR_SCOPE_AND_EXPLICIT_NEXT_STAGE_ROUTING_WITH_DEPENDENCIES_DEFERRED",
+    "G5": "PENDING_ROUND3_INDEPENDENT_AUDIT"
+  },
+  "G1": {
+    "original_source_asset_path_sha": 4669,
+    "original_model_priority_mapping": 2390,
+    "p1": 544,
+    "p2": 1039,
+    "p3": 807,
+    "source_SHA_mismatch": 0
+  },
+  "G2": {
+    "original_history_files_indexed": 194,
+    "prior_file_content_proofs_verified": 194,
+    "source_domain_classified": 194,
+    "source_SHA_mismatch": 0,
+    "checkpoint_original_SUMMARY_JSON_direct_reopened": 26,
+    "checkpoint_REPORT_source_path_SHA_tree_verified": 26,
+    "checkpoint_REPORT_body_reopened_this_round": 0,
+    "original_historical_model_semantic_claims_deep_reverified": false,
+    "full_model_geometry_semantic_completion_claim": false,
+    "prior_bulk_model_inventory_files_not_recounted_as_semantic": 3,
+    "historical_prior_model_file_SHA_links_including_identity_inventory": 2044
+  },
+  "G3": {
+    "P1_source_rows_status_classified": 544,
+    "cumulative_prior_direct_JSON_flags_544": true,
+    "new_original_model_JSON_direct_reopens": 0,
+    "source_P1_544x393_original_ledger_unchanged": true,
+    "distinct_original_P1_git_blob_SHA": 539,
+    "shared_blob_SHA_groups": 2,
+    "paths_in_shared_groups": 7,
+    "computed_implicitUV_source_candidate_model_hints": 189,
+    "exception_renderer_route_E_model_hints": 30,
+    "models_with_some_historical_PNG_evidence": 232,
+    "all_544_actual_world_renderer_fully_authenticated": false
+  },
+  "G4": {
+    "P2_P3_priority_scope": 1846,
+    "P1_next_stage_primary_owner": 544,
+    "P2_P3_explicit_B_owner": 1846,
+    "all_priority_model_route_rows": 2390,
+    "all_2390_model_issues_owner": 2390,
+    "known_crosscutting_previous_issues": 3,
+    "P2_P3_parent_P1_dependency_resolution": "unknown_and_transferred_to_1-2-B_not_claimed_verified",
+    "open_issue_owner_missing": 0
+  },
+  "G5": {
+    "status": "PENDING_INDEPENDENT_ROUND3",
+    "audited_old_v69_P1_cells_exhaustively_against_new_data": false,
+    "independent_reproduction_all_checks_pass": false
+  },
+  "files": {
+    "G2_historical": "research/vanilla_models/phase_1-2-A_completion/round2/A_HISTORY_194_EVIDENCE_CROSSWALK.csv",
+    "G2_checkpoint": "research/vanilla_models/phase_1-2-A_completion/round2/A_CHECKPOINT_26_EVIDENCE_CROSSWALK.csv",
+    "G2_history_audit": "research/vanilla_models/phase_1-2-A_completion/round2/G2_HISTORY_194_EVIDENCE_CLASSIFICATION_AUDIT.json",
+    "G2_checkpoint_audit": "research/vanilla_models/phase_1-2-A_completion/round2/G2_CHECKPOINT_26_AUDIT.json",
+    "P1": "research/vanilla_models/phase_1-2-A_completion/round2/A_P1_544_SOURCE_STATUS.csv",
+    "handoff_queue": "research/vanilla_models/phase_1-2-A_completion/round2/A_TO_BCDEFG_HANDOFF_QUEUE_2390.csv",
+    "G3G4_audit": "research/vanilla_models/phase_1-2-A_completion/round2/G3_G4_P1_P2P3_INTEGRITY_AUDIT.json",
+    "unresolved": "research/vanilla_models/phase_1-2-A_completion/round2/A_UNRESOLVED.csv",
+    "report": "research/vanilla_models/phase_1-2-A_completion/round2/ROUND2_REPORT.md",
+    "next_chat": "research/vanilla_models/phase_1-2-A_completion/round2/ROUND3_START.md"
+  },
+  "no_deep_model_research_this_round": true,
+  "no_new_P1_identity_credits": true,
+  "top_level_research_completed": 1,
+  "top_level_research_total": 5,
+  "stage_1_1_approved": 150,
+  "stage_1_2_A_complete": false,
+  "actual_A_completion_percentage": null
+}

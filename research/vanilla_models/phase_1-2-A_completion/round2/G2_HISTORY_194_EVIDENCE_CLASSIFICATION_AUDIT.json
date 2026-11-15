@@ -1,0 +1,64 @@
+{
+  "schema": "1-2-A_round2_G2_194_historical_source_graded_crosswalk",
+  "date_KST": "2026-11-15",
+  "original_source_baseline": "6854f468926e23c7ead3b6f6ccd4a860960e929a",
+  "evidence_sources": [
+    "v62 original CSV group proofs",
+    "v63 original selected CSV text",
+    "v64 original markdown/JSON selected excerpts and Python source lines",
+    "v65 113 original CSV headers/rows + four SQLite Btree schemas"
+  ],
+  "source_content_provenance_files": 194,
+  "file_domain_classes_from_actual_original_headers_excerpt": 194,
+  "file_sources_without_classification": [],
+  "bulk_inventory_preserved_as_identity_not_semantic": 3,
+  "model_file_links_prior_source_sha_matching": 2044,
+  "original_semantics_all_per_model_reverified": false,
+  "old_file_content_read_historical_inherited_not_new_file_reads": true,
+  "stats": {
+    "total": 194,
+    "source_content_proofs": 194,
+    "domain_classified": 194,
+    "missing_proofs": [],
+    "SHA_mismatch_proofs": [],
+    "bulk_inventory_only": 3,
+    "model_file_source_SHA_links_from_prior_proofs": 2044,
+    "files_with_model_sha_path_links": 55,
+    "domain_counts": {
+      "geometry": 129,
+      "UV_PNG_texture": 156,
+      "blockstate_assembly": 71,
+      "special_renderer": 45,
+      "source_methodology": 185,
+      "unresolved_issue_register": 1,
+      "historical_pack_documentation_and_limits": 1,
+      "model_render_family_taxonomy_from_prior_CSV": 1
+    },
+    "sources_by_type": {
+      "md": 30,
+      "csv": 137,
+      "json": 19,
+      "sqlite": 4,
+      "py": 4
+    }
+  },
+  "gate_G2_scope": "source grade/domain/provenance index complete; model-specific content deep re-authentication handed off to B-G",
+  "exceptions_original_three_source_contents_direct_reopened": [
+    {
+      "path": "research/vanilla_models/v6/06_v6_검증보류항목.csv",
+      "sha": "fc3a88ec18e70cc46eb4800d8e59c44046853d2b",
+      "evidence": "I01–I09 pending status records directly reread; no client JAR/renderer validated"
+    },
+    {
+      "path": "research/vanilla_models/v6/README.md",
+      "sha": "85bdcc08389af13dcaa71d2b7aed613c83331a7b",
+      "evidence": "Data-only pack; v5 SQLite carried over, selected UV only, game render not verified"
+    },
+    {
+      "path": "research/vanilla_models/v8/04_v8_17모델_유형요약.csv",
+      "sha": "15ee7201ae3b59aecc34dbb1b289d7cdb47cc6fa",
+      "evidence": "Original 3 rows SPECIAL11 HYBRID4 JSON_ONLY2, not current 544-game engine classification"
+    }
+  ],
+  "model_level_evidence_still_not_fully_certified": true
+}
