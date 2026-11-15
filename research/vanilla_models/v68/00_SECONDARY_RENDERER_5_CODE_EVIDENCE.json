@@ -1,0 +1,298 @@
+{
+  "schema": "v68_secondary_third_party_decompiled_1_21_11_blockentity_renderer_path_evidence_5",
+  "source_repo": "https://github.com/H1lkaaaGD/Minecraft_1.21.11_Source",
+  "read_date_KST": "2026-11-15",
+  "secondary_git_source_files": [
+    {
+      "path": "net/minecraft/client/renderer/blockentity/BlockEntityRenderers.java",
+      "git_blob_sha": "aa74e2572aabe642637847ee4353e90bfba665dd",
+      "total_source_lines": 58
+    },
+    {
+      "path": "net/minecraft/client/renderer/blockentity/DecoratedPotRenderer.java",
+      "git_blob_sha": "d0502540bdc5c64914afdeba31a32a39de9efc5b",
+      "total_source_lines": 179
+    },
+    {
+      "path": "net/minecraft/client/renderer/blockentity/ChestRenderer.java",
+      "git_blob_sha": "d1301b0119a7d5df74989e0ec2bd4ab73d75ff2b",
+      "total_source_lines": 140
+    },
+    {
+      "path": "net/minecraft/client/renderer/blockentity/HangingSignRenderer.java",
+      "git_blob_sha": "36e871b5d68e67180dfcf4ddc0f5888ebf2b84ea",
+      "total_source_lines": 154
+    },
+    {
+      "path": "net/minecraft/client/renderer/blockentity/ShulkerBoxRenderer.java",
+      "git_blob_sha": "73e119a0c3f73a85d2bc5568ddc9c272a0475e96",
+      "total_source_lines": 111
+    },
+    {
+      "path": "net/minecraft/client/renderer/special/SpecialModelRenderers.java",
+      "git_blob_sha": "807166bc3c9e5c8c7e2252249ac128e04725a24c",
+      "total_source_lines": 64
+    },
+    {
+      "path": "net/minecraft/client/model/object/chest/ChestModel.java",
+      "git_blob_sha": "9c68549a4837f32ceae989d55d9d3f60c1c8179b",
+      "total_source_lines": 58
+    }
+  ],
+  "original_P1_geometry_zero_leaf_refs": 5,
+  "renderer_register_type_unique": 4,
+  "model_ref_count": 5,
+  "instances": [
+    {
+      "leaf_model": "1.21.11/assets/minecraft/models/block/decorated_pot.json",
+      "source_blockstate": "1.21.11/assets/minecraft/blockstates/decorated_pot.json",
+      "original_model_or_parent_element_faces_declared": 0,
+      "secondary_blockentity_renderer_type": "BlockEntityType.DECORATED_POT",
+      "secondary_renderer_class": "DecoratedPotRenderer",
+      "secondary_registration": {
+        "path": "net/minecraft/client/renderer/blockentity/BlockEntityRenderers.java",
+        "git_blob_sha": "aa74e2572aabe642637847ee4353e90bfba665dd",
+        "line_numbers": [
+          51
+        ]
+      },
+      "secondary_special_item_model_registration": {
+        "path": "net/minecraft/client/renderer/special/SpecialModelRenderers.java",
+        "git_blob_sha": "807166bc3c9e5c8c7e2252249ac128e04725a24c",
+        "line_numbers": [
+          60
+        ]
+      },
+      "secondary_geometry_code_indicators": [
+        {
+          "path": "net/minecraft/client/renderer/blockentity/DecoratedPotRenderer.java",
+          "git_blob_sha": "d0502540bdc5c64914afdeba31a32a39de9efc5b",
+          "line_numbers": [
+            69
+          ]
+        },
+        {
+          "path": "net/minecraft/client/renderer/blockentity/DecoratedPotRenderer.java",
+          "git_blob_sha": "d0502540bdc5c64914afdeba31a32a39de9efc5b",
+          "line_numbers": [
+            73
+          ]
+        },
+        {
+          "path": "net/minecraft/client/renderer/blockentity/DecoratedPotRenderer.java",
+          "git_blob_sha": "d0502540bdc5c64914afdeba31a32a39de9efc5b",
+          "line_numbers": [
+            85
+          ]
+        },
+        {
+          "path": "net/minecraft/client/renderer/blockentity/DecoratedPotRenderer.java",
+          "git_blob_sha": "d0502540bdc5c64914afdeba31a32a39de9efc5b",
+          "line_numbers": [
+            95,
+            96,
+            97,
+            98,
+            99
+          ]
+        }
+      ],
+      "secondary_evidence_level": "independent third-party repository labeled Minecraft 1.21.11 decompiled Java source, code static inspection only",
+      "official_original_client_jar_sha_proven": false,
+      "actual_runtime_class_invocation_or_geometry_mesh_verified": false
+    },
+    {
+      "leaf_model": "1.21.11/assets/minecraft/models/block/ender_chest.json",
+      "source_blockstate": "1.21.11/assets/minecraft/blockstates/ender_chest.json",
+      "original_model_or_parent_element_faces_declared": 0,
+      "secondary_blockentity_renderer_type": "BlockEntityType.ENDER_CHEST",
+      "secondary_renderer_class": "ChestRenderer",
+      "secondary_registration": {
+        "path": "net/minecraft/client/renderer/blockentity/BlockEntityRenderers.java",
+        "git_blob_sha": "aa74e2572aabe642637847ee4353e90bfba665dd",
+        "line_numbers": [
+          34
+        ]
+      },
+      "secondary_special_item_model_registration": {
+        "path": "net/minecraft/client/renderer/special/SpecialModelRenderers.java",
+        "git_blob_sha": "807166bc3c9e5c8c7e2252249ac128e04725a24c",
+        "line_numbers": [
+          60
+        ]
+      },
+      "secondary_geometry_code_indicators": [
+        {
+          "path": "net/minecraft/client/renderer/blockentity/ChestRenderer.java",
+          "git_blob_sha": "d1301b0119a7d5df74989e0ec2bd4ab73d75ff2b",
+          "line_numbers": [
+            48
+          ]
+        },
+        {
+          "path": "net/minecraft/client/model/object/chest/ChestModel.java",
+          "git_blob_sha": "9c68549a4837f32ceae989d55d9d3f60c1c8179b",
+          "line_numbers": [
+            28,
+            37,
+            46
+          ]
+        },
+        {
+          "path": "net/minecraft/client/model/object/chest/ChestModel.java",
+          "git_blob_sha": "9c68549a4837f32ceae989d55d9d3f60c1c8179b",
+          "line_numbers": [
+            29,
+            38,
+            47
+          ]
+        }
+      ],
+      "secondary_evidence_level": "independent third-party repository labeled Minecraft 1.21.11 decompiled Java source, code static inspection only",
+      "official_original_client_jar_sha_proven": false,
+      "actual_runtime_class_invocation_or_geometry_mesh_verified": false
+    },
+    {
+      "leaf_model": "1.21.11/assets/minecraft/models/block/oak_hanging_sign.json",
+      "source_blockstate": "1.21.11/assets/minecraft/blockstates/oak_hanging_sign.json",
+      "original_model_or_parent_element_faces_declared": 0,
+      "secondary_blockentity_renderer_type": "BlockEntityType.HANGING_SIGN",
+      "secondary_renderer_class": "HangingSignRenderer",
+      "secondary_registration": {
+        "path": "net/minecraft/client/renderer/blockentity/BlockEntityRenderers.java",
+        "git_blob_sha": "aa74e2572aabe642637847ee4353e90bfba665dd",
+        "line_numbers": [
+          30
+        ]
+      },
+      "secondary_special_item_model_registration": {
+        "path": "net/minecraft/client/renderer/special/SpecialModelRenderers.java",
+        "git_blob_sha": "807166bc3c9e5c8c7e2252249ac128e04725a24c",
+        "line_numbers": [
+          60
+        ]
+      },
+      "secondary_geometry_code_indicators": [
+        {
+          "path": "net/minecraft/client/renderer/blockentity/HangingSignRenderer.java",
+          "git_blob_sha": "36e871b5d68e67180dfcf4ddc0f5888ebf2b84ea",
+          "line_numbers": [
+            102
+          ]
+        },
+        {
+          "path": "net/minecraft/client/renderer/blockentity/HangingSignRenderer.java",
+          "git_blob_sha": "36e871b5d68e67180dfcf4ddc0f5888ebf2b84ea",
+          "line_numbers": [
+            109
+          ]
+        },
+        {
+          "path": "net/minecraft/client/renderer/blockentity/HangingSignRenderer.java",
+          "git_blob_sha": "36e871b5d68e67180dfcf4ddc0f5888ebf2b84ea",
+          "line_numbers": [
+            116
+          ]
+        }
+      ],
+      "secondary_evidence_level": "independent third-party repository labeled Minecraft 1.21.11 decompiled Java source, code static inspection only",
+      "official_original_client_jar_sha_proven": false,
+      "actual_runtime_class_invocation_or_geometry_mesh_verified": false
+    },
+    {
+      "leaf_model": "1.21.11/assets/minecraft/models/block/shulker_box.json",
+      "source_blockstate": "1.21.11/assets/minecraft/blockstates/shulker_box.json",
+      "original_model_or_parent_element_faces_declared": 0,
+      "secondary_blockentity_renderer_type": "BlockEntityType.SHULKER_BOX",
+      "secondary_renderer_class": "ShulkerBoxRenderer",
+      "secondary_registration": {
+        "path": "net/minecraft/client/renderer/blockentity/BlockEntityRenderers.java",
+        "git_blob_sha": "aa74e2572aabe642637847ee4353e90bfba665dd",
+        "line_numbers": [
+          45
+        ]
+      },
+      "secondary_special_item_model_registration": {
+        "path": "net/minecraft/client/renderer/special/SpecialModelRenderers.java",
+        "git_blob_sha": "807166bc3c9e5c8c7e2252249ac128e04725a24c",
+        "line_numbers": [
+          60
+        ]
+      },
+      "secondary_geometry_code_indicators": [
+        {
+          "path": "net/minecraft/client/renderer/blockentity/ShulkerBoxRenderer.java",
+          "git_blob_sha": "73e119a0c3f73a85d2bc5568ddc9c272a0475e96",
+          "line_numbers": [
+            43
+          ]
+        },
+        {
+          "path": "net/minecraft/client/renderer/blockentity/ShulkerBoxRenderer.java",
+          "git_blob_sha": "73e119a0c3f73a85d2bc5568ddc9c272a0475e96",
+          "line_numbers": [
+            107
+          ]
+        },
+        {
+          "path": "net/minecraft/client/renderer/blockentity/ShulkerBoxRenderer.java",
+          "git_blob_sha": "73e119a0c3f73a85d2bc5568ddc9c272a0475e96",
+          "line_numbers": [
+            106
+          ]
+        }
+      ],
+      "secondary_evidence_level": "independent third-party repository labeled Minecraft 1.21.11 decompiled Java source, code static inspection only",
+      "official_original_client_jar_sha_proven": false,
+      "actual_runtime_class_invocation_or_geometry_mesh_verified": false
+    },
+    {
+      "leaf_model": "1.21.11/assets/minecraft/models/block/white_shulker_box.json",
+      "source_blockstate": "1.21.11/assets/minecraft/blockstates/white_shulker_box.json",
+      "original_model_or_parent_element_faces_declared": 0,
+      "secondary_blockentity_renderer_type": "BlockEntityType.SHULKER_BOX",
+      "secondary_renderer_class": "ShulkerBoxRenderer",
+      "secondary_registration": {
+        "path": "net/minecraft/client/renderer/blockentity/BlockEntityRenderers.java",
+        "git_blob_sha": "aa74e2572aabe642637847ee4353e90bfba665dd",
+        "line_numbers": [
+          45
+        ]
+      },
+      "secondary_special_item_model_registration": {
+        "path": "net/minecraft/client/renderer/special/SpecialModelRenderers.java",
+        "git_blob_sha": "807166bc3c9e5c8c7e2252249ac128e04725a24c",
+        "line_numbers": [
+          60
+        ]
+      },
+      "secondary_geometry_code_indicators": [
+        {
+          "path": "net/minecraft/client/renderer/blockentity/ShulkerBoxRenderer.java",
+          "git_blob_sha": "73e119a0c3f73a85d2bc5568ddc9c272a0475e96",
+          "line_numbers": [
+            43
+          ]
+        },
+        {
+          "path": "net/minecraft/client/renderer/blockentity/ShulkerBoxRenderer.java",
+          "git_blob_sha": "73e119a0c3f73a85d2bc5568ddc9c272a0475e96",
+          "line_numbers": [
+            107
+          ]
+        },
+        {
+          "path": "net/minecraft/client/renderer/blockentity/ShulkerBoxRenderer.java",
+          "git_blob_sha": "73e119a0c3f73a85d2bc5568ddc9c272a0475e96",
+          "line_numbers": [
+            106
+          ]
+        }
+      ],
+      "secondary_evidence_level": "independent third-party repository labeled Minecraft 1.21.11 decompiled Java source, code static inspection only",
+      "official_original_client_jar_sha_proven": false,
+      "actual_runtime_class_invocation_or_geometry_mesh_verified": false
+    }
+  ],
+  "scope_limitation": "Downloaded source file contents via connected GitHub; third-party decompile not original official client.jar runtime verified. Code class existence/registrations explain source model JSON 0 elements but do not certify actual rendered dimensions, GPU geometry, world animations or final visual appearance."
+}
