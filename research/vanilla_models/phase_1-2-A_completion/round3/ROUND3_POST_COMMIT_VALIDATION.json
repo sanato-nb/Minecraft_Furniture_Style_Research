@@ -1,0 +1,60 @@
+{
+  "schema": "1-2-A_round3_separate_GitHub_remote_post_commit_validation",
+  "date_KST": "2026-11-15",
+  "research_commit_SHA": "61fffcc16fc94663ac2ac622fb6ca45442de986f",
+  "previous_round2_head": "4ec342e698ff53bafd68e08ba7595bb8c892cbbd",
+  "stage": "A_COMPLETE_SOURCE_SCOPE",
+  "G1": "PASS",
+  "G2": "PASS",
+  "G3": "PASS",
+  "G4": "PASS",
+  "G5": "PASS",
+  "independent_audit_checks_passed": 50,
+  "independent_audit_checks_total": 50,
+  "remote_research_files_readback": 17,
+  "remote_research_file_blob_SHA_mismatches": 0,
+  "remote_commit_expected_file_changes": 17,
+  "remote_original_source_records": [
+    {
+      "path": "research/vanilla_models/v69/07_P1_544_EVIDENCE_LEDGER.csv",
+      "expected": "97beb828fad8c77f6871dcaba56b19fb4c5740f9",
+      "actual": "97beb828fad8c77f6871dcaba56b19fb4c5740f9"
+    },
+    {
+      "path": "research/vanilla_models/v69/04_SOURCE_REVIEW_LEDGER_544.csv",
+      "expected": "875c9770bae5e405471e05a0d5193abae54e0370",
+      "actual": "875c9770bae5e405471e05a0d5193abae54e0370"
+    },
+    {
+      "path": "research/vanilla_models/phase_1-2-A_completion/round1/A_ASSET_REGISTRY_4669.csv",
+      "expected": "0d8addbe05e5e9614950e0f546e4f348c138ba4a",
+      "actual": "0d8addbe05e5e9614950e0f546e4f348c138ba4a"
+    },
+    {
+      "path": "docs/vanilla_models_1-2/1-2-A_ACCEPTANCE_CONTRACT.json",
+      "expected": "3fdfeed243840259f31317282d5cbc4c2f864f2a",
+      "actual": "3fdfeed243840259f31317282d5cbc4c2f864f2a"
+    }
+  ],
+  "checks": {
+    "original_v69_544x393_SHA_unchanged": true,
+    "original_v69_review_544x70_SHA_unchanged": true,
+    "round1_4669_source_registry_SHA_unchanged": true,
+    "fixed_exit_contract_SHA_unchanged": true,
+    "research_17_changed_files_remote_SHA_match": true,
+    "new_main_head_after_research_commit_correct": true,
+    "research_only_17_expected_paths_changed": true,
+    "legacy_research_v1_v69_source_not_modified": true,
+    "G1_to_G5_50_50_complete_and_state_saved": true,
+    "approved_1_1_150_and_top_1_5_remain": true,
+    "round3_is_final_3_3_no_auto_round4": true,
+    "original_six_1_2_B_G_deferred_not_miscounted_as_complete": true
+  },
+  "checks_passed": 12,
+  "checks_failed": 0,
+  "post_validation_file_itself_verified_in_same_commit": false,
+  "verification_file_requires_own_separate_readback": true,
+  "round3_last_allowed_round": true,
+  "stop_1_2_A": true,
+  "next_stage": "1-2-B"
+}
