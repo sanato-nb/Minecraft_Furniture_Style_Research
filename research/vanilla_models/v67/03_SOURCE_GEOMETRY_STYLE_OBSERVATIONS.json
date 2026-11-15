@@ -1,0 +1,50 @@
+{
+  "schema": "v67_13_own_zero_leaf_parent_134face_23_state_9PNG_path_audit",
+  "base_main": "9c3ee2bf70ad7f2874f4facd9b85aa194a83803a",
+  "direct_JSON_originals": {
+    "leaf": 13,
+    "ancestor": 8,
+    "blockstate": 9
+  },
+  "parent_effective": {
+    "source_leaf_inherits_elements": 8,
+    "source_leaf_zero_elements_even_after_parent": 5,
+    "element_instances": 36,
+    "source_face_instances": 134,
+    "explicit_uv_source_faces": 128,
+    "implicit_uv_source_faces": 6,
+    "computed_full_cube_implicit_uv_candidates": 6,
+    "candidate_is_engine_certified": false,
+    "rotated_elements": 20,
+    "zero_thickness_elements": 20
+  },
+  "blockstate": {
+    "original_blockstate_files": 9,
+    "source_variant_model_target_refs": 23,
+    "total_possible_variants_in_nine_sources": 27,
+    "candle_four_lit_model_variants_not_in_selected_leaf_set": 4
+  },
+  "png": {
+    "original_PNGs_SHA_IHDR_checked": 9,
+    "original_real_RGBA_pixel_decodes_new": 0
+  },
+  "style_observations": [
+    {
+      "claim": "The four original unlit candle leaf JSON files each declare zero elements and inherit template candle geometry. Inherited element counts are 3,6,9,12 and original face reference counts 10,20,30,40.",
+      "proof_kind": "direct original JSON inheritance"
+    },
+    {
+      "claim": "The cartography_table leaf inherits one 0..16 cube with six faces from minecraft:block/cube; all six source UV keys are absent; candidate full-face UV 0,0,16,16 is geometry-derived only.",
+      "proof_kind": "source JSON + independent arithmetic candidate; NOT engine-authenticated"
+    },
+    {
+      "claim": "Both lightning_rod leaf variants inherit the same 2 element/11 face template geometry, but use different source texture slots and map to distinct powered state variants.",
+      "proof_kind": "original JSON parent and blockstate refs"
+    },
+    {
+      "claim": "Five zero-element root JSONs are nevertheless targets in corresponding original blockstate files. Their actual game-rendered shape is outside the JSON elements evidence.",
+      "proof_kind": "source original model JSON + blockstates; renderer unverified"
+    }
+  ],
+  "scope": "no full 544 model certification, no special renderer runtime execution"
+}
