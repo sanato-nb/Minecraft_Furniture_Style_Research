@@ -1,0 +1,37 @@
+{
+  "schema": "round3_independent_G2",
+  "source_commit": "4ec342e698ff53bafd68e08ba7595bb8c892cbbd",
+  "tests": {
+    "research_tree_current_and_round1_complete": true,
+    "historical_v1_v69_files_unchanged_against_baseline_tree": true,
+    "G2_history_194_source_SHA_size_vs_current_and_round1_v65": true,
+    "G2_history_194_evidence_grades_and_real_proof_paths": true,
+    "G2_26_v44_v69_checkpoint_ref_SHA_valid": true,
+    "G2_checkpoint_26_grade_direct_SUMMARY_only": true,
+    "G2_v44_optional_handoff_absent_not_error": true,
+    "G2_no_full_historical_semantic_certification_claim": true,
+    "G2_csv_rows_stable_widths": true
+  },
+  "passed": 9,
+  "failed": [],
+  "errors": {},
+  "source_blobs": {
+    "history": "9c56d9e324530dcc10e535ea491a79ab8fee8e01",
+    "checkpoint": "19f83d22d3815459f45af54e52fa346ffe867ac3",
+    "history1": "f993a588679021ef3871155e83a0f9501be60e19",
+    "checkpoint1": "4a30c4c2e2337d1c033f074b40b16dd983b36857",
+    "v65": "f4ec066ea986ab304ffd8e068f71067b50418c24"
+  },
+  "history": 194,
+  "checkpoints": 26,
+  "baseline_legacy_tree": "894b9f6b3e5b0ed4e4f624e8d6bbfdec7580e5b3",
+  "current_research_tree": "ce183aefb45a159729439e412193bd920a4ce341",
+  "legacy_files_checked": 630,
+  "baseline_file_count": 630,
+  "audit_predicate_clarification": "194 history flags: 191 exact 'false', 3 'false;original_..._direct_reopened' (these notes indicate direct source read, not full semantic certification). Strict equality incorrectly failed; corrected to startsWith('false'), after inspecting exact source values. No source records modified.",
+  "semantics_flag_counts": {
+    "false": 191,
+    "false_with_direct_reopened_note": 3
+  },
+  "third_round_correction_pass_used": 1
+}

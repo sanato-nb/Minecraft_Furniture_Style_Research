@@ -1,0 +1,126 @@
+{
+  "schema": "1-2-A_ROUND3_G5_INDEPENDENT_CLOSE_AUDIT",
+  "date_KST": "2026-11-15",
+  "repository": "sanato-nb/Minecraft_Furniture_Style_Research",
+  "source_main_commit": "4ec342e698ff53bafd68e08ba7595bb8c892cbbd",
+  "original_research_baseline": "52ef681327f7dce291312e59e647160a75005c53",
+  "original_research_checkpoint": "v69",
+  "source_scope": "Minecraft Java 1.21.11 asset inventory & historical provenance, not rendering",
+  "audit_round": 3,
+  "maximum_rounds": 3,
+  "third_round_correction_passes_used": 1,
+  "gate_results": {
+    "G1": "PASS",
+    "G2": "PASS",
+    "G3": "PASS",
+    "G4": "PASS",
+    "G5": "PASS"
+  },
+  "phase_a_status": "A_COMPLETE_SOURCE_SCOPE",
+  "prior_gate_audit_blobs": {
+    "G1": "d4ebbb1c08702df17504bb055e34e0ed698c46cb",
+    "G2": "deb3cd581e2d76c31d7906263d89b2b318848c02",
+    "G3": "d16ab27c384ac1c55176164c839e11d2a770c20d",
+    "G4": "6d96228492457600a0ed2f8d188265a3c01e3a72"
+  },
+  "prior_gate_audit_counts": {
+    "G1": {
+      "checks": 8,
+      "failed": []
+    },
+    "G2": {
+      "checks": 9,
+      "passed": 9,
+      "failed": []
+    },
+    "G3": {
+      "checks": 11,
+      "passed": 11,
+      "failed": []
+    },
+    "G4": {
+      "checks": 12,
+      "passed": 12,
+      "failed": []
+    }
+  },
+  "tests": {
+    "G5_all_four_prior_gate_audits_pass": true,
+    "G5_prior_v1_v69_legacy_files_exact_tree_sha": true,
+    "G5_git_commit_comparison_no_source_or_legacy_changes": true,
+    "G5_fixed_exit_contract_unchanged": true,
+    "G5_contract_five_gates_and_three_round_cap": true,
+    "G5_state_prior_150_and_top_1_of_5_retained": true,
+    "G5_original_models_not_studied_in_round3": true,
+    "G5_no_deep_B_E_claim_in_A": true,
+    "G5_four_sample_original_model_JSON_Sha_and_parse": true,
+    "G5_prior_round1_nine_files_preserved_including_post_commit_validation": true
+  },
+  "checks_count": 10,
+  "checks_passed": 10,
+  "checks_failed": 0,
+  "failures": {},
+  "legacy_files_source_blob_SHA_preserved": 630,
+  "round1_files": 9,
+  "source_model_sample_JSON_checks": [
+    {
+      "name": "acacia_hanging_sign.json",
+      "path": "1.21.11/assets/minecraft/models/block/acacia_hanging_sign.json",
+      "sha": "9d088d1113dd0241d1a01687374c79ac534b86e5",
+      "priority": "P1",
+      "json_parsed": true,
+      "original_keys": [
+        "textures"
+      ]
+    },
+    {
+      "name": "acacia_button.json",
+      "path": "1.21.11/assets/minecraft/models/block/acacia_button.json",
+      "sha": "e3ee4499ab91d06e5a7119dafafd824f78e6c9fb",
+      "priority": "P2",
+      "json_parsed": true,
+      "original_keys": [
+        "parent",
+        "textures"
+      ]
+    },
+    {
+      "name": "brewing_stand.json",
+      "path": "1.21.11/assets/minecraft/models/block/brewing_stand.json",
+      "sha": "809d3d88bd57327a50c616575d2b8be3f1df9569",
+      "priority": "P1",
+      "json_parsed": true,
+      "original_keys": [
+        "textures",
+        "elements"
+      ]
+    },
+    {
+      "name": "acacia_leaves.json",
+      "path": "1.21.11/assets/minecraft/models/block/acacia_leaves.json",
+      "sha": "9d1d8e16c935fad8227e3b367304a14c68e1f3fd",
+      "priority": "P3",
+      "json_parsed": true,
+      "original_keys": [
+        "parent",
+        "textures"
+      ]
+    }
+  ],
+  "P1_source_rows": 544,
+  "P1_original_ledger_columns": 393,
+  "P2P3": 1846,
+  "history_files": 194,
+  "checkpoints": 26,
+  "all_4669_source_SHA_verified_in_G1": true,
+  "completion_limited_to_A": true,
+  "follow_up": "1-2-B, then C/D/E/F/G; no automatic 4th A round",
+  "prior_round1_check_benchmark_commit": "6854f468926e23c7ead3b6f6ccd4a860960e929a",
+  "correction_pass": {
+    "used": 1,
+    "max": 1,
+    "scope": "Consolidated correction of audit predicates only. The earlier G2 false;original_* note and the Round1 8 vs 9 count (8 research files + separate validation file) were audit-assertion mistakes, not source failures. Raw source contents and rows were not modified.",
+    "data_corrections": 0,
+    "additional_model_research": 0
+  }
+}

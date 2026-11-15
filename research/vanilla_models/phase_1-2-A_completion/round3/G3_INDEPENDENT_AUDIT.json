@@ -1,0 +1,55 @@
+{
+  "schema": "round3_independent_G3_P1",
+  "source_commit": "4ec342e698ff53bafd68e08ba7595bb8c892cbbd",
+  "tests": {
+    "v69_old_P1_544_rows_393_cols_direct_read": true,
+    "v69_old_review_544_rows_70_cols_direct_read": true,
+    "v69_old_393_ledger_and_review_blobs_SHA_unchanged": true,
+    "P1_544_status_28_columns_valid": true,
+    "P1_544_identity_triple_join_original_review_queue": true,
+    "P1_544_source_direct_read_is_prior_not_new_credit": true,
+    "P1_544_deep_UV_renderer_not_falsely_certified": true,
+    "P1_544_all_evidence_grade_owner_prior_blob_SHA": true,
+    "P1_544_distinct_539_blobs_with_two_collisions_seven_paths": true,
+    "G3_P1_grade_source_counts_match_round2": true,
+    "CSV_6_original_row_widths_all_stable": true
+  },
+  "passed": 11,
+  "failed": [],
+  "errors": {},
+  "hints": {
+    "computed_implicitUV": 189,
+    "special_E": 30,
+    "png_any": 232
+  },
+  "source_blobs": {
+    "status": "ac2ce5846cf747334114b36f8b0856493004bea2",
+    "old": "97beb828fad8c77f6871dcaba56b19fb4c5740f9",
+    "review": "875c9770bae5e405471e05a0d5193abae54e0370",
+    "g1": "0d8addbe05e5e9614950e0f546e4f348c138ba4a",
+    "queue": "fac87365995fec27225b85e753a036319d1860cb",
+    "history": "9c56d9e324530dcc10e535ea491a79ab8fee8e01"
+  },
+  "original_393_cell_count": 213792,
+  "old_original_review_70_cell_count": 38080,
+  "shared_SHA_groups": [
+    {
+      "sha": "00c837bfb2e49f00dff93ac37be1b3d17f9f9369",
+      "paths": [
+        "1.21.11/assets/minecraft/models/block/bamboo_hanging_sign.json",
+        "1.21.11/assets/minecraft/models/block/bamboo_sign.json"
+      ]
+    },
+    {
+      "sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+      "paths": [
+        "1.21.11/assets/minecraft/models/block/banner.json",
+        "1.21.11/assets/minecraft/models/block/bed.json",
+        "1.21.11/assets/minecraft/models/block/chest.json",
+        "1.21.11/assets/minecraft/models/block/oak_sign.json",
+        "1.21.11/assets/minecraft/models/block/trapped_chest.json"
+      ]
+    }
+  ],
+  "completion_scope": "P1 544 source identity and evidence grades only; deep geometry UV PNG and actual rendering unknown"
+}

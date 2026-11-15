@@ -1,0 +1,195 @@
+{
+  "schema": "1-2-A_FIXED_SCOPE_ROUND3_FINAL_INDEPENDENT_AUDIT",
+  "date_KST": "2026-11-15",
+  "repository": "sanato-nb/Minecraft_Furniture_Style_Research",
+  "read_baseline_main_HEAD": "4ec342e698ff53bafd68e08ba7595bb8c892cbbd",
+  "model_research_baseline": "v69",
+  "acceptance_contract": "docs/vanilla_models_1-2/1-2-A_ACCEPTANCE_CONTRACT.json",
+  "acceptance_contract_git_blob_sha": "3fdfeed243840259f31317282d5cbc4c2f864f2a",
+  "fixed_scope_plan_git_blob_sha": "72541e6b4cf033708802b27b35c33ad42048cf82",
+  "executed_rounds": 3,
+  "round_cap": 3,
+  "correction_passes_used": 1,
+  "gate_results": {
+    "G1": {
+      "status": "PASS",
+      "checks": 8,
+      "passed": 8,
+      "failures": []
+    },
+    "G2": {
+      "status": "PASS",
+      "checks": 9,
+      "passed": 9,
+      "failures": []
+    },
+    "G3": {
+      "status": "PASS",
+      "checks": 11,
+      "passed": 11,
+      "failures": []
+    },
+    "G4": {
+      "status": "PASS",
+      "checks": 12,
+      "passed": 12,
+      "failures": []
+    },
+    "G5": {
+      "status": "PASS",
+      "checks": 10,
+      "passed": 10,
+      "failures": []
+    }
+  },
+  "all_gate_pass": true,
+  "checks_passed": 50,
+  "checks_total": 50,
+  "unrecorded_critical_path_type_SHA_errors": 0,
+  "stage_status": "A_COMPLETE_SOURCE_SCOPE",
+  "audit_input_blobs": {
+    "G1": "d4ebbb1c08702df17504bb055e34e0ed698c46cb",
+    "G2": "deb3cd581e2d76c31d7906263d89b2b318848c02",
+    "G3": "d16ab27c384ac1c55176164c839e11d2a770c20d",
+    "G4": "6d96228492457600a0ed2f8d188265a3c01e3a72",
+    "G5": "f9414997ba15d1975532add23d6f769e9321d983"
+  },
+  "audit_tests_by_gate": {
+    "G1": {
+      "source_root_1_21_11_tree_present": true,
+      "G1_registry_4669_keys_unique": true,
+      "G1_models_inventory_matches_source_tree": true,
+      "G1_states_inventory_matches_source_tree": true,
+      "G1_png_inventory_matches_source_tree": true,
+      "G1_png_mcmeta_99_separate": true,
+      "G1_P1_P2_P3_priority_mapped_2390": true,
+      "G1_4669_types_all_matched": true
+    },
+    "G2": {
+      "research_tree_current_and_round1_complete": true,
+      "historical_v1_v69_files_unchanged_against_baseline_tree": true,
+      "G2_history_194_source_SHA_size_vs_current_and_round1_v65": true,
+      "G2_history_194_evidence_grades_and_real_proof_paths": true,
+      "G2_26_v44_v69_checkpoint_ref_SHA_valid": true,
+      "G2_checkpoint_26_grade_direct_SUMMARY_only": true,
+      "G2_v44_optional_handoff_absent_not_error": true,
+      "G2_no_full_historical_semantic_certification_claim": true,
+      "G2_csv_rows_stable_widths": true
+    },
+    "G3": {
+      "v69_old_P1_544_rows_393_cols_direct_read": true,
+      "v69_old_review_544_rows_70_cols_direct_read": true,
+      "v69_old_393_ledger_and_review_blobs_SHA_unchanged": true,
+      "P1_544_status_28_columns_valid": true,
+      "P1_544_identity_triple_join_original_review_queue": true,
+      "P1_544_source_direct_read_is_prior_not_new_credit": true,
+      "P1_544_deep_UV_renderer_not_falsely_certified": true,
+      "P1_544_all_evidence_grade_owner_prior_blob_SHA": true,
+      "P1_544_distinct_539_blobs_with_two_collisions_seven_paths": true,
+      "G3_P1_grade_source_counts_match_round2": true,
+      "CSV_6_original_row_widths_all_stable": true
+    },
+    "G4": {
+      "G4_queue_2390_original_priority_counts": true,
+      "G4_all_models_original_identity_unique": true,
+      "G4_2390_source_SHA_matches_v34_original_and_G1": true,
+      "G4_all_544_P1_handoff_owner_and_later_stages": true,
+      "G4_P2P3_1846_complete_separate_scope_exact_15_values": true,
+      "G4_P2P3_parent_P1_relation_unknown_routed_to_B": true,
+      "G4_all_2390_unresolved_exact_asset_path_SHA_owner": true,
+      "G4_three_shared_prior_issues_owner": true,
+      "G4_unresolved_issue_keys_unique": true,
+      "G4_2393_issue_source_evidence_files_exist": true,
+      "G4_P1_primary_owners_B514_E30_exact": true,
+      "G4_all_CSV_record_width_consistent": true
+    },
+    "G5": {
+      "G5_all_four_prior_gate_audits_pass": true,
+      "G5_prior_v1_v69_legacy_files_exact_tree_sha": true,
+      "G5_git_commit_comparison_no_source_or_legacy_changes": true,
+      "G5_fixed_exit_contract_unchanged": true,
+      "G5_contract_five_gates_and_three_round_cap": true,
+      "G5_state_prior_150_and_top_1_of_5_retained": true,
+      "G5_original_models_not_studied_in_round3": true,
+      "G5_no_deep_B_E_claim_in_A": true,
+      "G5_four_sample_original_model_JSON_Sha_and_parse": true,
+      "G5_prior_round1_nine_files_preserved_including_post_commit_validation": true
+    }
+  },
+  "numbers": {
+    "typed_assets": 4669,
+    "block_models": 2390,
+    "blockstates": 1168,
+    "PNG": 1111,
+    "PNG_mcmeta_excluded": 99,
+    "history_files": 194,
+    "checkpoints": 26,
+    "P1": 544,
+    "P2": 1039,
+    "P3": 807,
+    "P2P3": 1846,
+    "open_issues_owned": 2393,
+    "original_P1_ledger_rows": 544,
+    "original_P1_ledger_cols": 393,
+    "original_P1_ledger_data_cells": 213792,
+    "original_review_rows": 544,
+    "original_review_cols": 70,
+    "original_review_data_cells": 38080,
+    "unchanged_legacy_files_v1_v69": 630,
+    "round1_files": 9
+  },
+  "original_v69_P1_blob_SHA": "97beb828fad8c77f6871dcaba56b19fb4c5740f9",
+  "original_v69_review_blob_SHA": "875c9770bae5e405471e05a0d5193abae54e0370",
+  "source_model_sample_JSON": [
+    {
+      "name": "acacia_hanging_sign.json",
+      "path": "1.21.11/assets/minecraft/models/block/acacia_hanging_sign.json",
+      "sha": "9d088d1113dd0241d1a01687374c79ac534b86e5",
+      "priority": "P1",
+      "json_parsed": true,
+      "original_keys": [
+        "textures"
+      ]
+    },
+    {
+      "name": "acacia_button.json",
+      "path": "1.21.11/assets/minecraft/models/block/acacia_button.json",
+      "sha": "e3ee4499ab91d06e5a7119dafafd824f78e6c9fb",
+      "priority": "P2",
+      "json_parsed": true,
+      "original_keys": [
+        "parent",
+        "textures"
+      ]
+    },
+    {
+      "name": "brewing_stand.json",
+      "path": "1.21.11/assets/minecraft/models/block/brewing_stand.json",
+      "sha": "809d3d88bd57327a50c616575d2b8be3f1df9569",
+      "priority": "P1",
+      "json_parsed": true,
+      "original_keys": [
+        "textures",
+        "elements"
+      ]
+    },
+    {
+      "name": "acacia_leaves.json",
+      "path": "1.21.11/assets/minecraft/models/block/acacia_leaves.json",
+      "sha": "9d1d8e16c935fad8227e3b367304a14c68e1f3fd",
+      "priority": "P3",
+      "json_parsed": true,
+      "original_keys": [
+        "parent",
+        "textures"
+      ]
+    }
+  ],
+  "allowed_unverified_followup": "P2/P3 parent relationships, full geometry/UV/PNG, in-game renderer and official JAR; explicitly deferred B-E",
+  "correction_note": "One consolidated audit predicate correction: 3 historical flags include 'false;original...direct_reopened' notes; Round1 has 9 blobs (8 research + one post-commit validation), not 8. No source row or historical file was changed.",
+  "no_new_unique_model_research": true,
+  "stop_A_immediately": true,
+  "stage_1_1_approved_150_retained": true,
+  "top_level_completed_1_of_5_retained": true,
+  "after_commit_remote_readback": "REQUIRES_SEPARATE_VALIDATION_COMMIT; this audit does not claim its own remote readback"
+}

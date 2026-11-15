@@ -83,7 +83,7 @@
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v69_original_brewing_stand_7_models_7_multipart_rules_8_boolean_states_source_geometry36_faces30_each_240_across_states_2_palette_PNG_SHA_IHDR_v68_P1_544x379_preserved_as_544x393_stage_A_incomplete",
+      "status": "v69_original_brewing_stand_7_models_7_multipart_rules_8_boolean_states_source_geometry36_faces30_each_240_across_states_2_palette_PNG_SHA_IHDR_v68_P1_544x379_preserved_as_544x393_stage_A_COMPLETE_SOURCE_SCOPE_B_NEXT",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -1083,10 +1083,11 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "1-2-A Round2 source-provenance audit PASS for G2 194 history and 26 checkpoints; G3 P1 544 source grades PASS; G4 B-G ownership of all 2390 models PASS. Fixed scope only: not actual all-model geometry or history full semantic re-execution.",
-    "Round3 FINAL: read live main HEAD; docs/vanilla_models_1-2/1-2-A_ACCEPTANCE_CONTRACT.json and round2/ROUND3_START.md; perform G5 independent audit across original v69 P1 544x393, review544x70, round1 registry4669, history194, checkpoints26, priority2390 and source SHA references.",
-    "Round3 verification must include Git tree SHA and prior-value preservation, 1-2-A completion only if all five gates PASS. If not passed after last allowed correction, A_BLOCKED and STOP; do not start an auto fourth round.",
-    "No further B-E deep model family study under A. Keep all prior v1-v69 files unchanged. Existing status 1-1 150/150, top stages 1/5 complete; furniture modelling and Zomboid conversion not started."
+    "1-2-A A_COMPLETE_SOURCE_SCOPE: G1-G5 PASS 5/5, independent 50/50, 3/3 rounds. STOP A permanently; do not create Round4 or new A model v70.",
+    "Start next distinct stage 1-2-B: read research/vanilla_models/phase_1-2-A_completion/round3/A_HANDOFF.md and round2/A_TO_BCDEFG_HANDOFF_QUEUE.csv, then choose outstanding geometry/parent inheritance source cases.",
+    "Prior v1-v69 model studies are preserved; only credit genuinely new direct model analysis. Keep v69 P1 source 544x393 and review544x70 intact.",
+    "1-2-B study of geometry, parents, P2/P3 unknown parent dependencies; C UV/PNG, D blockstate assembly, E special renderer, F style taxonomy, G independent verification. No actual furniture build or Zomboid conversion.",
+    "Continue 1-1 approved150/150, top stage completed1/5, overall 1-2 still incomplete and true deep completeness percentage unknown."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -3999,7 +4000,7 @@
   },
   "phase_1_2_A_fixed_exit_plan": {
     "version": "2026-11-15-v1",
-    "status": "EXECUTING_ROUND2_A_NOT_COMPLETED",
+    "status": "A_COMPLETE_SOURCE_SCOPE_FINAL_AUDIT_3_OF_3",
     "plan": "docs/vanilla_models_1-2/1-2-A_FIXED_SCOPE_AND_EXIT_PLAN.md",
     "machine_contract": "docs/vanilla_models_1-2/1-2-A_ACCEPTANCE_CONTRACT.json",
     "research_checkpoint_unchanged": "v69",
@@ -4058,9 +4059,9 @@
     "baseline_research_checkpoint": "v69",
     "source_main_baseline": "52ef681327f7dce291312e59e647160a75005c53",
     "planned_max_rounds": 3,
-    "rounds_completed": 2,
-    "current_round": "ROUND2_RESEARCH_COMMITTED_PENDING_FINAL_ROUND3_AUDIT",
-    "phase_status": "IN_PROGRESS",
+    "rounds_completed": 3,
+    "current_round": "ROUND3_FINAL_AUDIT_COMPLETE_NO_MORE_A_ROUNDS",
+    "phase_status": "A_COMPLETE_SOURCE_SCOPE",
     "G1": {
       "status": "PASS",
       "typed_assets_4669_original_tree_SHA_matches": 4669,
@@ -4102,10 +4103,19 @@
       "P2_P3_parent_dependency_pending_B": 1846
     },
     "G5": {
-      "status": "PENDING_ROUND3_INDEPENDENT_EXIT_AUDIT",
-      "legacy_data_preservation_reproduction_pending": true
+      "status": "PASS",
+      "checks_passed": 50,
+      "checks_total": 50,
+      "unrecorded_critical_path_type_sha_errors": 0,
+      "source_legacy_v1_v69_files_preserved": 630,
+      "round1_files_preserved": 9,
+      "old_P1_544x393_git_blob_preserved": true,
+      "old_review_544x70_git_blob_preserved": true,
+      "correction_passes_used": 1,
+      "max_correction_passes": 1,
+      "independent_audit": "research/vanilla_models/phase_1-2-A_completion/round3/A_AUDIT.json"
     },
-    "A_complete": false,
+    "A_complete": true,
     "actual_overall_A_completion_percent": null,
     "round1_report": "research/vanilla_models/phase_1-2-A_completion/round1/ROUND1_REPORT.md",
     "round1_summary": "research/vanilla_models/phase_1-2-A_completion/round1/ROUND1_SUMMARY.json",
@@ -4120,7 +4130,11 @@
     "round3_start": "research/vanilla_models/phase_1-2-A_completion/round2/ROUND3_START.md",
     "round2_P1_544_status": "research/vanilla_models/phase_1-2-A_completion/round2/A_P1_544_SOURCE_STATUS.csv",
     "round2_B_to_G_2390_queue": "research/vanilla_models/phase_1-2-A_completion/round2/A_TO_BCDEFG_HANDOFF_QUEUE_2390.csv",
-    "round2_issues": "research/vanilla_models/phase_1-2-A_completion/round2/A_UNRESOLVED.csv"
+    "round2_issues": "research/vanilla_models/phase_1-2-A_completion/round2/A_UNRESOLVED.csv",
+    "final_report": "research/vanilla_models/phase_1-2-A_completion/round3/A_FINAL_REPORT.md",
+    "final_handoff": "research/vanilla_models/phase_1-2-A_completion/round3/A_HANDOFF.md",
+    "next_stage": "1-2-B",
+    "no_A_round4": true
   },
   "phase_1_2_A_round1_previous_next_work": [
     "IMPORTANT USER REQUIREMENT: Before any more model-family geometry/UV/state research, execute the fixed 1-2-A data integration closure plan docs/vanilla_models_1-2/1-2-A_FIXED_SCOPE_AND_EXIT_PLAN.md. Do not perform endless B-E work under A.",
@@ -4135,5 +4149,25 @@
     "Do not perform additional deep individual model family geometry/UV/PNG/renderer studies in A. Do not repeat prior evidence as new discoveries.",
     "Then Round3 G5 independent audit, all gates PASS then A_COMPLETE_SOURCE_SCOPE or A_BLOCKED after last permitted correction. Never auto exceed three rounds.",
     "Keep v69 research baseline and all original legacy proof files unchanged; 1-2-A not completed, upper 1/5 only, 1-1 150/150 unchanged."
-  ]
+  ],
+  "phase_1_2_A_round3_previous_next_work": [
+    "1-2-A Round2 source-provenance audit PASS for G2 194 history and 26 checkpoints; G3 P1 544 source grades PASS; G4 B-G ownership of all 2390 models PASS. Fixed scope only: not actual all-model geometry or history full semantic re-execution.",
+    "Round3 FINAL: read live main HEAD; docs/vanilla_models_1-2/1-2-A_ACCEPTANCE_CONTRACT.json and round2/ROUND3_START.md; perform G5 independent audit across original v69 P1 544x393, review544x70, round1 registry4669, history194, checkpoints26, priority2390 and source SHA references.",
+    "Round3 verification must include Git tree SHA and prior-value preservation, 1-2-A completion only if all five gates PASS. If not passed after last allowed correction, A_BLOCKED and STOP; do not start an auto fourth round.",
+    "No further B-E deep model family study under A. Keep all prior v1-v69 files unchanged. Existing status 1-1 150/150, top stages 1/5 complete; furniture modelling and Zomboid conversion not started."
+  ],
+  "phase_1_2_A_round3_closure": {
+    "status": "A_COMPLETE_SOURCE_SCOPE",
+    "G1": "PASS",
+    "G2": "PASS",
+    "G3": "PASS",
+    "G4": "PASS",
+    "G5": "PASS",
+    "G5_independent_checks": "50/50",
+    "completed_execution_rounds": 3,
+    "maximum_rounds": 3,
+    "original_research_checkpoint": "v69",
+    "official_renderer_or_1_2_B_G_complete": false,
+    "post_commit_validation": "research/vanilla_models/phase_1-2-A_completion/round3/ROUND3_POST_COMMIT_VALIDATION.json"
+  }
 }
