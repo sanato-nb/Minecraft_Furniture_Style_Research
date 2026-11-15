@@ -1,0 +1,73 @@
+{
+  "schema": "1-2-A_round2_required_outputs_alignment_and_independent_source_crosscheck_v1",
+  "date_KST": "2026-11-15",
+  "baseline_main_commit": "e0e344df0058ba9daa1659841002fa076c90b1c0",
+  "source_round2_research_commit": "c107c8b56bb35b13a7bc30560226f703967638c0",
+  "scope": "Round2 already completed in another chat. No duplicate research, no new model read. Only exact requested filename compliance and independent crosschecks.",
+  "reused_existing_source_files": {
+    "A_CHECKPOINT_26_EVIDENCE_INDEX.csv": {
+      "identical_blob_sha": "19f83d22d3815459f45af54e52fa346ffe867ac3",
+      "original_filename": "A_CHECKPOINT_26_EVIDENCE_CROSSWALK.csv",
+      "rows": 26
+    },
+    "A_TO_BCDEFG_HANDOFF_QUEUE.csv": {
+      "identical_blob_sha": "fac87365995fec27225b85e753a036319d1860cb",
+      "original_filename": "A_TO_BCDEFG_HANDOFF_QUEUE_2390.csv",
+      "rows": 2390
+    }
+  },
+  "derived_from_existing_queue": {
+    "output": "A_P2_P3_1846_SCOPE.csv",
+    "source_blob_sha": "fac87365995fec27225b85e753a036319d1860cb",
+    "rows": 1846,
+    "columns": 15,
+    "P2": 1039,
+    "P3": 807,
+    "dependency_unknown_preserved": true
+  },
+  "source_v69_original_ledger_sha": "97beb828fad8c77f6871dcaba56b19fb4c5740f9",
+  "original_544x393_cells_preserved_by_read_only_reference": true,
+  "original_review_544x70_preserved_by_read_only_reference": true,
+  "G1": "PASS_CARRIED_FROM_ROUND1",
+  "G2": "PASS_SOURCE_PROVENANCE_SCOPE",
+  "G3": "PASS_SOURCE_STATUS_544",
+  "G4": "PASS_2390_QUEUE_1846_P2P3",
+  "G5": "PENDING_ROUND3_INDEPENDENT_EXIT_AUDIT",
+  "phase_A_status": "IN_PROGRESS_G5_PENDING",
+  "checks": {
+    "g1_4669": true,
+    "old_P1_544x393": true,
+    "old_review_544x70": true,
+    "history_194x17": true,
+    "checkpoint_26x14": true,
+    "p1_544x28": true,
+    "queue_2390x15": true,
+    "issues_2393x11": true,
+    "g1_consistent_CSV_width": true,
+    "old_consistent_CSV_width": true,
+    "review_consistent_CSV_width": true,
+    "history_consistent_CSV_width": true,
+    "checkpoint_consistent_CSV_width": true,
+    "p1_consistent_CSV_width": true,
+    "queue_consistent_CSV_width": true,
+    "issues_consistent_CSV_width": true,
+    "p1_original_identity_matches_G1": true,
+    "p1_original_identity_matches_v69": true,
+    "queue_all_identity_matches_G1": true,
+    "priority_exact": true,
+    "queue_unique_asset_key": true,
+    "p1_owner_and_grade_complete": true,
+    "queue_all_owner": true,
+    "P2P3_1846": true,
+    "P2P3_unknown_parent_still_deferred": true,
+    "issues_2390_model_keys": true,
+    "issues_all_have_owner": true,
+    "history_SHA_and_proof_grade": true,
+    "checkpoint_REPORT_SUMMARY_SHA": true,
+    "shared_blob_2_groups_7_paths": true,
+    "v69_old_values_not_modified_reference_same_sha": true
+  },
+  "checks_passed": 31,
+  "checks_failed": 0,
+  "note": "This is a new independent limited source and CSV structural crosscheck, not the G5 independent final audit. Existing round2 post-commit 36/36 validation remains separately retained. This file does not pre-claim readback of this alignment commit."
+}
