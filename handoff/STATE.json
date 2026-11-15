@@ -83,7 +83,7 @@
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v69_original_brewing_stand_7_models_7_multipart_rules_8_boolean_states_source_geometry36_faces30_each_240_across_states_2_palette_PNG_SHA_IHDR_v68_P1_544x379_preserved_as_544x393_stage_A_COMPLETE_SOURCE_SCOPE_B_IN_PROGRESS_ENTRY3",
+      "status": "v69_original_brewing_stand_7_models_7_multipart_rules_8_boolean_states_source_geometry36_faces30_each_240_across_states_2_palette_PNG_SHA_IHDR_v68_P1_544x379_preserved_as_544x393_stage_A_COMPLETE_SOURCE_SCOPE_B_IN_PROGRESS_ENTRY4",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -1083,13 +1083,14 @@
     "research/furniture_mods/v23/00_v23_추가블록상태10_신규51모델_42PNG_1119면실화소_보고서.md"
   ],
   "next_work": [
-    "1-2-A A_COMPLETE_SOURCE_SCOPE remains final, do not repeat A.",
-    "Continue 1-2-B entry4 according to docs/vanilla_models_1-2/1-2-B_WORK_PLAN.md and research/vanilla_models/phase_1-2-B/entry3/B_NEXT.md.",
-    "Entry1 14 + Entry2 120 + Entry3 180 = 314 source-verified leaf models; do not double-credit.",
-    "Remaining B-first 2046: P1 451, P2 911, P3 684; E-first P1 30 preserved.",
-    "P2P3 251 original source parent dependency checked NO, 1595 UNKNOWN; no full-coverage claim.",
-    "Geometry provided 307; 7 no-elements source-only routed E for runtime evidence.",
-    "Preserve 1-1 approved 150/150, 5 top substeps only 1 complete, research checkpoint v69, prior P1 544x393 and review544x70 unchanged; no furniture creation or Zomboid conversion."
+    "1-2-A A_COMPLETE_SOURCE_SCOPE remains final; do not repeat A.",
+    "Continue B Entry5: docs/vanilla_models_1-2/1-2-B_WORK_PLAN.md; research/vanilla_models/phase_1-2-B/entry4/B_NEXT.md; use Entry4 B_SCOPE_2390_STATUS.csv.",
+    "Entry1 leaf14 + Entry2 leaf120 + Entry3 leaf180 + Entry4 leaf210 = 524 B-first source-verified; do not duplicate new work.",
+    "Remaining B-first1836 (P1 409, P2 827, P3 600); E-first P1 30 separate.",
+    "P2P3 source P1-ancestor no=419, unknown=1427; do not infer remaining.",
+    "B source geometry 512, no general elements 12 special E follow-up; inverted internal geometry preserved and not automatically wrong.",
+    "Raw original JSON path union from Entry1-3 recalculated 396 (not previously reported 399), with Entry4 now 615; preserve historical output and cite Entry4 reconciliation.",
+    "1-1 150/150 approved, top stage 1/5 complete, v69 unchanged; no furniture or PZ conversion; C UV, D blockstates, E runtime still separate."
   ],
   "sources": [
     "https://github.com/InventivetalentDev/minecraft-assets/tree/1.21.11",
@@ -4173,7 +4174,7 @@
     "post_commit_validation": "research/vanilla_models/phase_1-2-A_completion/round3/ROUND3_POST_COMMIT_VALIDATION.json"
   },
   "phase_1_2_B_execution": {
-    "status": "B_IN_PROGRESS_ENTRY3",
+    "status": "B_IN_PROGRESS_ENTRY4",
     "plan": "docs/vanilla_models_1-2/1-2-B_WORK_PLAN.md",
     "entry1": "research/vanilla_models/phase_1-2-B/entry1/B_ENTRY1_REPORT.md",
     "audit": "research/vanilla_models/phase_1-2-B/entry1/B_ENTRY1_AUDIT.json",
@@ -4193,13 +4194,13 @@
     "geometry_validation_complete": false,
     "overall_1_2_B_percent": null,
     "new_unique_original_model_identity_credit": 0,
-    "next_tasks": "Use entry3/B_SCOPE_2390_STATUS.csv; 2046 unchecked B-first, P2P3 unknown 1595. Reuse prior 314 direct leaf and 399 unique source proofs without double credit. E-first30 separate. A complete; v69 original unchanged.",
+    "next_tasks": "Entry5: use Entry4 B_SCOPE_2390_STATUS.csv; 1836 unchecked B-first P1 409/P2 827/P3 600. P2P3 unknown 1427. Keep E-first30. Honor prior raw source unique correction 396 -> 615. Source only, no UV/runtime.",
     "entry2": "research/vanilla_models/phase_1-2-B/entry2/B_ENTRY2_REPORT.md",
     "entry2_scope_index": "research/vanilla_models/phase_1-2-B/entry2/B_SCOPE_2390_STATUS.csv",
     "entry2_audit": "research/vanilla_models/phase_1-2-B/entry2/B_ENTRY2_AUDIT.json",
     "B1_population_evidence_grade_owner_2390": "PASS_SOURCE_SCOPE_ONLY",
-    "B2_parent_chains": "PARTIAL_314_OF_2360_SOURCE_CHECKED",
-    "B3_geometry": "PARTIAL_307_WITH_GEOMETRY_AND_7_NO_ELEMENTS",
+    "B2_parent_chains": "PARTIAL_524_OF_2360_SOURCE_CHECKED",
+    "B3_geometry": "PARTIAL_512_GEOMETRY_SOURCE_AND_12_NO_ELEMENTS",
     "B4_independent_exit": "PENDING",
     "entry2_leaf_new_120": {
       "P1": 24,
@@ -4209,17 +4210,17 @@
     "entry2_additional_parent_JSON_files": 43,
     "entry2_original_source_unique_beyond_entry1": 162,
     "entry2_unique_source_files_B_total": 189,
-    "B_cumulative_leaf_original_source_checked": 314,
-    "B_cumulative_P1_leaf_checked": 63,
-    "B_cumulative_P2_leaf_checked": 128,
-    "B_cumulative_P3_leaf_checked": 123,
-    "B_first_remaining_without_B_source_read": 2046,
-    "P2P3_parent_dependency_checked": 251,
-    "P2P3_parent_dependency_no": 251,
+    "B_cumulative_leaf_original_source_checked": 524,
+    "B_cumulative_P1_leaf_checked": 105,
+    "B_cumulative_P2_leaf_checked": 212,
+    "B_cumulative_P3_leaf_checked": 207,
+    "B_first_remaining_without_B_source_read": 1836,
+    "P2P3_parent_dependency_checked": 419,
+    "P2P3_parent_dependency_no": 419,
     "P2P3_parent_dependency_yes": 0,
-    "P2P3_parent_dependency_unknown": 1595,
-    "B_cumulative_geometry_source_present": 307,
-    "B_cumulative_no_elements": 7,
+    "P2P3_parent_dependency_unknown": 1427,
+    "B_cumulative_geometry_source_present": 512,
+    "B_cumulative_no_elements": 12,
     "entry2_applied_element_instances": 333,
     "entry2_source_face_declaration_references": 1300,
     "entry2_zero_thickness_element_instances": 122,
@@ -4235,12 +4236,30 @@
     "entry3_new_parent_JSON_paths": 33,
     "entry3_leaf_already_read_as_prior_parent": 3,
     "entry3_net_new_unique_source_paths": 210,
-    "B_unique_source_paths_total": 399,
+    "B_unique_source_paths_total": 615,
     "entry3_applied_element_instances": 381,
     "entry3_source_face_declaration_references": 1548,
     "entry3_zero_thickness_element_instances": 143,
     "entry3_rotated_element_instances": 105,
-    "entry3_audit_passed": "36/36"
+    "entry3_audit_passed": "36/36",
+    "entry4": "research/vanilla_models/phase_1-2-B/entry4/B_ENTRY4_REPORT.md",
+    "entry4_scope_index": "research/vanilla_models/phase_1-2-B/entry4/B_SCOPE_2390_STATUS.csv",
+    "entry4_audit": "research/vanilla_models/phase_1-2-B/entry4/B_ENTRY4_AUDIT.json",
+    "entry4_210": {
+      "P1": 42,
+      "P2": 84,
+      "P3": 84
+    },
+    "entry4_new_parents_direct_source": 19,
+    "entry4_raw_new_unique_source_paths": 219,
+    "entry4_evidence_source_reconciled_previous": 396,
+    "entry4_applied_element_instances": 493,
+    "entry4_source_face_declaration_references": 1867,
+    "entry4_zero_thickness_element_instances": 201,
+    "entry4_rotated_element_instances": 149,
+    "entry4_cullface_face_declaration_references": 735,
+    "entry4_source_inverted_coordinate_elements": 2,
+    "entry4_audit_passed": "50/50"
   },
   "phase_1_2_B_previous_next_work": [
     "1-2-A A_COMPLETE_SOURCE_SCOPE: G1-G5 PASS 5/5, independent 50/50, 3/3 rounds. STOP A permanently; do not create Round4 or new A model v70.",
@@ -4337,5 +4356,26 @@
     "B_direct_checked": 314,
     "B_pending": 2046,
     "report": "research/vanilla_models/phase_1-2-B/entry3/B_ENTRY3_REPORT.md"
+  },
+  "phase_1_2_B_entry4_previous_state": {
+    "status": "B_IN_PROGRESS_ENTRY3",
+    "B_verified": 314,
+    "reported_raw_unique_paths": 399,
+    "P2P3_unknown": 1595,
+    "prior_source_overlap_correction": "See entry4/PRIOR_UNIQUE_SOURCE_RECONCILIATION.json; raw de-duplicated Entry1-3 actual 396, not 399"
+  },
+  "phase_1_2_B_entry4": {
+    "status": "B_IN_PROGRESS_ENTRY4",
+    "gates": {
+      "B1": "PASS_POPULATION_ONLY",
+      "B2": "PARTIAL",
+      "B3": "PARTIAL",
+      "B4": "PENDING"
+    },
+    "B_verified": 524,
+    "B_unverified": 1836,
+    "raw_unique_source_paths_dedup": 615,
+    "prior_raw_unique_count_corrected": 396,
+    "report": "research/vanilla_models/phase_1-2-B/entry4/B_ENTRY4_REPORT.md"
   }
 }

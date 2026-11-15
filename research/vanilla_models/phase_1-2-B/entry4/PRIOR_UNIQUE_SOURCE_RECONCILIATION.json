@@ -1,0 +1,44 @@
+{
+  "schema": "B_ENTRY4_PREVIOUS_UNIQUE_SOURCE_PATH_RECONCILIATION",
+  "source_SHA_refs": {
+    "entry3": "b5920da631b3f3b2f56e3c5c914015fb8b980f59",
+    "entry1leaf": "15febb148277bc383b1bab3fe842c453cc09a264",
+    "entry1parent": "ee82a70166f228df96c449b8609765f7669faee4",
+    "entry2raw": "7dd39dad4a469a39484d4669d39efbd5926dc082",
+    "entry4cache": "fd0f38319172fe9e1a66a2f61c35c183821d6139"
+  },
+  "entry1_entry2_raw_count": 190,
+  "entry1_entry2_raw_unique": 189,
+  "entry3_raw_count": 213,
+  "entry3_raw_unique": 213,
+  "actual_overlap_between_previous_and_entry3": [
+    "1.21.11/assets/minecraft/models/block/template_fence_gate_open.json",
+    "1.21.11/assets/minecraft/models/block/button_pressed.json",
+    "1.21.11/assets/minecraft/models/block/cube_directional.json",
+    "1.21.11/assets/minecraft/models/block/template_four_candles.json",
+    "1.21.11/assets/minecraft/models/block/cube_column_uv_locked_x.json",
+    "1.21.11/assets/minecraft/models/block/template_fire_side.json"
+  ],
+  "overlap_count": 6,
+  "prior_unique_raw_actual": 396,
+  "prior_report_stated_unique": 399,
+  "overstatement_in_prior_report": 3,
+  "entry4_leaf_raw_count": 210,
+  "entry4_prior_overlap": [
+    "1.21.11/assets/minecraft/models/block/door_bottom_left.json",
+    "1.21.11/assets/minecraft/models/block/template_orientable_trapdoor_open.json",
+    "1.21.11/assets/minecraft/models/block/inner_stairs.json",
+    "1.21.11/assets/minecraft/models/block/slab_top.json",
+    "1.21.11/assets/minecraft/models/block/stairs.json",
+    "1.21.11/assets/minecraft/models/block/template_glass_pane_post.json",
+    "1.21.11/assets/minecraft/models/block/cube_mirrored.json",
+    "1.21.11/assets/minecraft/models/block/stem_growth3.json",
+    "1.21.11/assets/minecraft/models/block/template_fire_floor.json",
+    "1.21.11/assets/minecraft/models/block/template_single_face.json"
+  ],
+  "entry4_new_parent_count": 19,
+  "entry4_parent_overlap": [],
+  "entry4_source_unique_after_dedup": 615,
+  "source_only_no_new_model_identity_discovery": true,
+  "note": "Prior Entry3 narrative had 399 cumulative unique source paths; de-duplicating all preserved raw JSON records reveals 396. Three further overlaps beyond the three prior-mentioned leaf-as-parent paths arise from parent sources. No historical file or SHA modified. Entry4 reports exact raw-proof distinct-source union 615, not 618."
+}
