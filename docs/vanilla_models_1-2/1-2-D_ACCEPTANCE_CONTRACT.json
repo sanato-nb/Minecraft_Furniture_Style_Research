@@ -1,0 +1,53 @@
+{
+  "schema": "minecraft-furniture-1-2-D/v1",
+  "baseline_main_head": "96dbd5b6859e91efd5c8693469ae759927abd65c",
+  "version": "Minecraft Java 1.21.11",
+  "population_path": "research/vanilla_models/v34/02_inventory_1168_blockstate_paths_git_shas.csv",
+  "population_blob_sha": "48f385ea06f5e100331cc41bbc24da082adbfb2e",
+  "original_blockstates_git_tree_sha": "7a36f7d757e62aa61ee61aebcd8d5689bc462a8d",
+  "total_source_JSON": 1168,
+  "allocation": [
+    {
+      "entry": 1,
+      "count": 12
+    },
+    {
+      "entry": 2,
+      "count": 96
+    },
+    {
+      "entry": 3,
+      "count": 265
+    },
+    {
+      "entry": 4,
+      "count": 265
+    },
+    {
+      "entry": 5,
+      "count": 265
+    },
+    {
+      "entry": 6,
+      "count": 265
+    }
+  ],
+  "max_entries": 6,
+  "after_entry6": "D_COMPLETE_SOURCE_BLOCKSTATE_ASSEMBLY_SCOPE only if D1-D5 all PASS else D_BLOCKED_AT_ENTRY6",
+  "entry7": false,
+  "gates": {
+    "D1": "1,168 unique source paths plus exact Git blob SHA and disjoint allocation",
+    "D2": "all 1,168 original JSON contents parsed with variants/multipart, conditions, model choice, x/y/uvlock key presence, alternatives",
+    "D3": "all static candidate states exhaustively tabulated or finite symbolic rule proof with explicit unexpanded boundary",
+    "D4": "all selected model refs path/blob SHA linked to existing B/C face/UV/texture/PNG evidence, prior investigation marked duplicate; E exceptions tracked",
+    "D5": "independent evaluation+remote GitHub path/SHA/line/content readback, immutable A/B/C/v69 checks"
+  },
+  "excluded": [
+    "E owns special geometry for B-first56 plus E-first30, not D JSON scope exclusion if blockstate references them",
+    "C previously verified 2304 models, 23090 faces, 1073 PNG; do not count as D new work",
+    "official distributed JAR, game engine runtime and special rendering",
+    "game-registered valid block property combinations unless independently sourced",
+    "F/G, actual Minecraft furniture construction and PZ conversion"
+  ],
+  "current_status": "D_SCOPE_FIXED_ENTRY1_SOURCE_RESEARCH_NEXT"
+}
