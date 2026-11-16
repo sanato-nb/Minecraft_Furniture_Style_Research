@@ -2,6 +2,7 @@
 import csv
 import hashlib
 import json
+import os
 import subprocess
 from collections import Counter
 from pathlib import Path
@@ -10,6 +11,9 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "research/vanilla_models/phase_1-2-C/entry1"
+ENTRY = os.environ.get("C_ENTRY", "entry1")
+if ENTRY != "entry1":
+    OUT = ROOT / f"research/vanilla_models/phase_1-2-C/{ENTRY}"
 MODEL = ROOT / "1.21.11/assets/minecraft/models/block"
 TEXTURE = ROOT / "1.21.11/assets/minecraft/textures"
 B = ROOT / "research/vanilla_models/phase_1-2-B/entry10"
@@ -18,6 +22,8 @@ NAMES = (
     "acacia_button", "glass_pane_post", "oak_door_bottom_left", "stone_brick_stairs_inner",
     "acacia_leaves", "stone", "wheat_stage1", "fire_floor1",
 )
+if ENTRY != "entry1":
+    NAMES = tuple(json.loads((OUT / "C_SELECTION.json").read_text())["models"])
 
 
 def blob(path):
@@ -116,7 +122,7 @@ def main():
                             if key not in pngs:
                                 with Image.open(png_path) as im:
                                     rgba = im.convert("RGBA")
-                                    counts = Counter(a for *_, a in rgba.getdata())
+                                    counts = Counter(a for *_, a in rgba.get_flattened_data())
                                     pngs[key] = dict(png_path=key, png_sha=blob(png_path), width=im.width,
                                                      height=im.height, mode=im.mode, rgba_sha256=hashlib.sha256(rgba.tobytes()).hexdigest(),
                                                      opaque_pixels=counts[255], transparent_pixels=counts[0],
@@ -148,7 +154,7 @@ def main():
     write_csv("PNG_RGBA_EVIDENCE.csv", sorted(pngs.values(), key=lambda r:r["png_path"]), list(next(iter(pngs.values()))))
     write_csv("MODEL_SOURCE_EVIDENCE.csv", evidence, list(evidence[0]))
     write_csv("UNRESOLVED.csv", unresolved, ["model", "issue", "ref"])
-    summary = dict(schema="C_ENTRY1_SOURCE_AUDIT", base_head="73571a9e1ab791e6ded46b6a01a1aae04fc8ffaf",
+    summary = dict(schema=f"C_{ENTRY.upper()}_SOURCE_AUDIT", base_head=os.environ.get("C_BASE_HEAD", "73571a9e1ab791e6ded46b6a01a1aae04fc8ffaf"),
                    model_count=len(evidence), priorities=dict(Counter(r["priority"] for r in evidence)),
                    applied_face_count=len(faces), explicit_source_faces=sum(r["uv_type"] == "explicit_source" for r in faces),
                    implicit_source_absent_faces=sum(r["uv_type"] == "implicit_source_absent" for r in faces),
@@ -156,7 +162,7 @@ def main():
                    png_rgba_pixels=sum(r["width"]*r["height"] for r in pngs.values()),
                    unresolved_rows=len(unresolved), prior_report_name_mentions=len(prior),
                    verification="local Git blob SHA agrees with B ledger and cache; PNG Git blob and decoded RGBA SHA recorded; no game renderer authentication")
-    (OUT / "C_ENTRY1_AUDIT.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n")
+    (OUT / f"C_{ENTRY.upper()}_AUDIT.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n")
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 
 
