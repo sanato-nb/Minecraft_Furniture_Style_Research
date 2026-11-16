@@ -1,0 +1,12 @@
+{
+  "scope": "ENTRY3_P2_FIRST_495",
+  "evidence_grade": "SOURCE_JSON_DIRECT_AND_PNG_FIRST_FRAME_CONTACT_SHEET",
+  "rules": [
+    {"pattern": "OPEN_FRAME_BARS", "source_example": "bamboo_fence_gate.json", "elements": 8, "transfer_hypothesis": "별도 가는 입체를 간격 있게 배치해 열린 틀을 표현", "limit": "게임 열림 동작 미인증"},
+    {"pattern": "SHALLOW_PANEL_TEXTURE_DETAIL", "source_example": "copper_trapdoor_bottom.json", "bbox_original_coordinates": [16,3,16], "transfer_hypothesis": "얕은 판의 내부 무늬를 원본 PNG 첫 프레임에 배치", "limit": "재질과 실제 렌더 미인증"},
+    {"pattern": "ZERO_THICKNESS_ALPHA_GRID", "source_example": "ladder.json", "bbox_original_coordinates": [16,16,0], "transfer_hypothesis": "평면과 PNG의 빈 픽셀로 가는 격자를 표현", "limit": "0두께 좌표와 실제 물리 두께는 다름"},
+    {"pattern": "SMALL_PROTRUSION", "source_example": "acacia_button_inventory.json", "bbox_original_coordinates": [6,4,4], "transfer_hypothesis": "작은 부품을 단순 입체와 면 무늬로 분리", "limit": "가구 손잡이 적용은 가설"}
+  ],
+  "source_and_sha_registers": ["F_MODEL_SOURCE_STATUS.csv", "F_GEOMETRY_ELEMENTS.csv", "F_PNG_DIRECT_VISUAL_OBSERVATIONS.csv"],
+  "comparison": "VANILLA_GEOMETRY_ARCHETYPES.md"
+}
