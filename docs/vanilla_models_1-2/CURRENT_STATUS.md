@@ -1,3 +1,5 @@
+> **2026-11-16 현행 Entry4:** 고정 배정732개 원본 UV/texture/PNG 실측, C 누적1,572/2,304. [보고서](../../research/vanilla_models/phase_1-2-C/entry4/C_ENTRY4_REPORT.md). `heavy_core` bare `all` 6면 해석 미해결, Entry5 잔여732 및 최종감사 대기. C 완료 아님. 아래 날짜별 기록 보존.
+
 > **2026-11-16 현행 Entry3:** 고정 배정732개 원본 UV/texture/PNG 실측, C 누적 840/2,304. [보고서](../../research/vanilla_models/phase_1-2-C/entry3/C_ENTRY3_REPORT.md). Entry4·5 각732 잔여, C 완료 아님. 아래 날짜별 기록 보존.
 
 > **2026-11-16 고정 계획:** [1-2-C 총 5 Entry 범위·종료계약](1-2-C_FIXED_SCOPE_AND_EXIT_CONTRACT.md). Entry1/2에서 108개 실제 조사, Entry3~5에 732개씩 배정. 배정은 완료 실적이 아니며 C 진행 중.

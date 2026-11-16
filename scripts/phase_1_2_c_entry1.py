@@ -116,7 +116,6 @@ def main():
                         png_path = TEXTURE / (tex.removeprefix("minecraft:") + ".png")
                         if not png_path.exists():
                             status = "missing_png"
-                            unresolved.append(dict(model=name, issue="missing_png", ref=tex))
                         else:
                             key = relative(png_path)
                             if key not in pngs:

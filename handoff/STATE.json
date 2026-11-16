@@ -4673,5 +4673,23 @@
     "independent_source_audit": "PASS",
     "gates": {"C1": "PARTIAL", "C2": "PARTIAL", "C3": "PARTIAL", "C4": "ENTRY3_AUDIT_PASS_STAGE_PENDING"},
     "report": "research/vanilla_models/phase_1-2-C/entry3/C_ENTRY3_REPORT.md"
+  },
+  "phase_1_2_C_entry4": {
+    "status": "C_IN_PROGRESS_ENTRY4_SOURCE_EXCEPTION",
+    "entry4_source_models": 732,
+    "priority_counts": {"P1": 154, "P2": 333, "P3": 245},
+    "cumulative_entry1_to_entry4_models": 1572,
+    "remaining_fixed_entry5_models": 732,
+    "face_source_rows": 7077,
+    "explicit_uv_source_faces": 5637,
+    "implicit_uv_key_absent_faces": 1440,
+    "entry4_png_rgba_paths": 589,
+    "cumulative_unique_png_paths": 872,
+    "entry4_mcmeta_paths": 48,
+    "unbound_template_face_refs": 402,
+    "heavy_core_bare_all_unresolved_face_refs": 6,
+    "independent_source_audit": "PASS_WITH_SOURCE_EXCEPTION",
+    "gates": {"C1": "PARTIAL", "C2": "PARTIAL", "C3": "SOURCE_EXCEPTION_PENDING", "C4": "ENTRY4_AUDIT_PASS_STAGE_PENDING"},
+    "report": "research/vanilla_models/phase_1-2-C/entry4/C_ENTRY4_REPORT.md"
   }
 }
