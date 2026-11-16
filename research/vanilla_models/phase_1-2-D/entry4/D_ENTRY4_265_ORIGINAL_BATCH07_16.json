@@ -1,0 +1,106 @@
+{
+  "schema": "D_ENTRY4_ORIGINAL/v1",
+  "baseline_head": "cdcf42f26b68dd482e87529d8ebeee3e88db21ec",
+  "queue_rows": [
+    97,
+    112
+  ],
+  "sources": [
+    {
+      "queue_row": 97,
+      "path": "1.21.11/assets/minecraft/blockstates/ice.json",
+      "git_blob_sha": "0617dfc34daa3a37b45a154c6304ee35f21929e4",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/ice\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 98,
+      "path": "1.21.11/assets/minecraft/blockstates/infested_chiseled_stone_bricks.json",
+      "git_blob_sha": "4034c11b19b600ddf4688c3c39ca912716a2f087",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/chiseled_stone_bricks\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 99,
+      "path": "1.21.11/assets/minecraft/blockstates/infested_cobblestone.json",
+      "git_blob_sha": "e94cf88207951592dfcc259180f2f8956d83680c",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/cobblestone\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 100,
+      "path": "1.21.11/assets/minecraft/blockstates/infested_cracked_stone_bricks.json",
+      "git_blob_sha": "6e194be2d32d7fc39efaaa1980f31c0f881dd83d",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/cracked_stone_bricks\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 101,
+      "path": "1.21.11/assets/minecraft/blockstates/infested_deepslate.json",
+      "git_blob_sha": "dd197be8f2c979cee97d316ee97e5033c7231746",
+      "json_text": "{\n  \"variants\": {\n    \"axis=x\": [\n      {\n        \"model\": \"minecraft:block/deepslate\",\n        \"x\": 90,\n        \"y\": 90\n      },\n      {\n        \"model\": \"minecraft:block/deepslate_mirrored\",\n        \"x\": 90,\n        \"y\": 90\n      },\n      {\n        \"model\": \"minecraft:block/deepslate\",\n        \"x\": 90,\n        \"y\": 90\n      },\n      {\n        \"model\": \"minecraft:block/deepslate_mirrored\",\n        \"x\": 90,\n        \"y\": 90\n      }\n    ],\n    \"axis=y\": [\n      {\n        \"model\": \"minecraft:block/deepslate\"\n      },\n      {\n        \"model\": \"minecraft:block/deepslate_mirrored\"\n      },\n      {\n        \"model\": \"minecraft:block/deepslate\",\n        \"y\": 180\n      },\n      {\n        \"model\": \"minecraft:block/deepslate_mirrored\",\n        \"y\": 180\n      }\n    ],\n    \"axis=z\": [\n      {\n        \"model\": \"minecraft:block/deepslate\",\n        \"x\": 90\n      },\n      {\n        \"model\": \"minecraft:block/deepslate_mirrored\",\n        \"x\": 90\n      },\n      {\n        \"model\": \"minecraft:block/deepslate\",\n        \"x\": 90,\n        \"y\": 180\n      },\n      {\n        \"model\": \"minecraft:block/deepslate_mirrored\",\n        \"x\": 90,\n        \"y\": 180\n      }\n    ]\n  }\n}"
+    },
+    {
+      "queue_row": 102,
+      "path": "1.21.11/assets/minecraft/blockstates/infested_mossy_stone_bricks.json",
+      "git_blob_sha": "c17c4a7f77c1d033759315234f7275687dc0384d",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/mossy_stone_bricks\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 103,
+      "path": "1.21.11/assets/minecraft/blockstates/infested_stone.json",
+      "git_blob_sha": "c150ec2940fca789502d83cd2de9b9e591e35538",
+      "json_text": "{\n  \"variants\": {\n    \"\": [\n      {\n        \"model\": \"minecraft:block/stone\"\n      },\n      {\n        \"model\": \"minecraft:block/stone_mirrored\"\n      },\n      {\n        \"model\": \"minecraft:block/stone\",\n        \"y\": 180\n      },\n      {\n        \"model\": \"minecraft:block/stone_mirrored\",\n        \"y\": 180\n      }\n    ]\n  }\n}"
+    },
+    {
+      "queue_row": 104,
+      "path": "1.21.11/assets/minecraft/blockstates/infested_stone_bricks.json",
+      "git_blob_sha": "8a05daf03b623753241ab61257ffae5d46726a6e",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/stone_bricks\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 105,
+      "path": "1.21.11/assets/minecraft/blockstates/iron_bars.json",
+      "git_blob_sha": "37dfb9912c3d0123ce5f02f518da95070457437d",
+      "json_text": "{\n  \"multipart\": [\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/iron_bars_post_ends\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/iron_bars_post\"\n      },\n      \"when\": {\n        \"east\": \"false\",\n        \"north\": \"false\",\n        \"south\": \"false\",\n        \"west\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/iron_bars_cap\"\n      },\n      \"when\": {\n        \"east\": \"false\",\n        \"north\": \"true\",\n        \"south\": \"false\",\n        \"west\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/iron_bars_cap\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"east\": \"true\",\n        \"north\": \"false\",\n        \"south\": \"false\",\n        \"west\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/iron_bars_cap_alt\"\n      },\n      \"when\": {\n        \"east\": \"false\",\n        \"north\": \"false\",\n        \"south\": \"true\",\n        \"west\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/iron_bars_cap_alt\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"east\": \"false\",\n        \"north\": \"false\",\n        \"south\": \"false\",\n        \"west\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/iron_bars_side\"\n      },\n      \"when\": {\n        \"north\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/iron_bars_side\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"east\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/iron_bars_side_alt\"\n      },\n      \"when\": {\n        \"south\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/iron_bars_side_alt\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"west\": \"true\"\n      }\n    }\n  ]\n}"
+    },
+    {
+      "queue_row": 106,
+      "path": "1.21.11/assets/minecraft/blockstates/iron_block.json",
+      "git_blob_sha": "5cad8c39f6e14edc522251f653c57eeaa3ddd715",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/iron_block\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 107,
+      "path": "1.21.11/assets/minecraft/blockstates/iron_chain.json",
+      "git_blob_sha": "0086e83d957cadda9b024cb4d89e2836cc505efc",
+      "json_text": "{\n  \"variants\": {\n    \"axis=x\": {\n      \"model\": \"minecraft:block/iron_chain\",\n      \"x\": 90,\n      \"y\": 90\n    },\n    \"axis=y\": {\n      \"model\": \"minecraft:block/iron_chain\"\n    },\n    \"axis=z\": {\n      \"model\": \"minecraft:block/iron_chain\",\n      \"x\": 90\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 108,
+      "path": "1.21.11/assets/minecraft/blockstates/iron_door.json",
+      "git_blob_sha": "e4fbc9526a5e69f6ce789273a262b5006b0b9862",
+      "json_text": "{\n  \"variants\": {\n    \"facing=east,half=lower,hinge=left,open=false\": {\n      \"model\": \"minecraft:block/iron_door_bottom_left\"\n    },\n    \"facing=east,half=lower,hinge=left,open=true\": {\n      \"model\": \"minecraft:block/iron_door_bottom_left_open\",\n      \"y\": 90\n    },\n    \"facing=east,half=lower,hinge=right,open=false\": {\n      \"model\": \"minecraft:block/iron_door_bottom_right\"\n    },\n    \"facing=east,half=lower,hinge=right,open=true\": {\n      \"model\": \"minecraft:block/iron_door_bottom_right_open\",\n      \"y\": 270\n    },\n    \"facing=east,half=upper,hinge=left,open=false\": {\n      \"model\": \"minecraft:block/iron_door_top_left\"\n    },\n    \"facing=east,half=upper,hinge=left,open=true\": {\n      \"model\": \"minecraft:block/iron_door_top_left_open\",\n      \"y\": 90\n    },\n    \"facing=east,half=upper,hinge=right,open=false\": {\n      \"model\": \"minecraft:block/iron_door_top_right\"\n    },\n    \"facing=east,half=upper,hinge=right,open=true\": {\n      \"model\": \"minecraft:block/iron_door_top_right_open\",\n      \"y\": 270\n    },\n    \"facing=north,half=lower,hinge=left,open=false\": {\n      \"model\": \"minecraft:block/iron_door_bottom_left\",\n      \"y\": 270\n    },\n    \"facing=north,half=lower,hinge=left,open=true\": {\n      \"model\": \"minecraft:block/iron_door_bottom_left_open\"\n    },\n    \"facing=north,half=lower,hinge=right,open=false\": {\n      \"model\": \"minecraft:block/iron_door_bottom_right\",\n      \"y\": 270\n    },\n    \"facing=north,half=lower,hinge=right,open=true\": {\n      \"model\": \"minecraft:block/iron_door_bottom_right_open\",\n      \"y\": 180\n    },\n    \"facing=north,half=upper,hinge=left,open=false\": {\n      \"model\": \"minecraft:block/iron_door_top_left\",\n      \"y\": 270\n    },\n    \"facing=north,half=upper,hinge=left,open=true\": {\n      \"model\": \"minecraft:block/iron_door_top_left_open\"\n    },\n    \"facing=north,half=upper,hinge=right,open=false\": {\n      \"model\": \"minecraft:block/iron_door_top_right\",\n      \"y\": 270\n    },\n    \"facing=north,half=upper,hinge=right,open=true\": {\n      \"model\": \"minecraft:block/iron_door_top_right_open\",\n      \"y\": 180\n    },\n    \"facing=south,half=lower,hinge=left,open=false\": {\n      \"model\": \"minecraft:block/iron_door_bottom_left\",\n      \"y\": 90\n    },\n    \"facing=south,half=lower,hinge=left,open=true\": {\n      \"model\": \"minecraft:block/iron_door_bottom_left_open\",\n      \"y\": 180\n    },\n    \"facing=south,half=lower,hinge=right,open=false\": {\n      \"model\": \"minecraft:block/iron_door_bottom_right\",\n      \"y\": 90\n    },\n    \"facing=south,half=lower,hinge=right,open=true\": {\n      \"model\": \"minecraft:block/iron_door_bottom_right_open\"\n    },\n    \"facing=south,half=upper,hinge=left,open=false\": {\n      \"model\": \"minecraft:block/iron_door_top_left\",\n      \"y\": 90\n    },\n    \"facing=south,half=upper,hinge=left,open=true\": {\n      \"model\": \"minecraft:block/iron_door_top_left_open\",\n      \"y\": 180\n    },\n    \"facing=south,half=upper,hinge=right,open=false\": {\n      \"model\": \"minecraft:block/iron_door_top_right\",\n      \"y\": 90\n    },\n    \"facing=south,half=upper,hinge=right,open=true\": {\n      \"model\": \"minecraft:block/iron_door_top_right_open\"\n    },\n    \"facing=west,half=lower,hinge=left,open=false\": {\n      \"model\": \"minecraft:block/iron_door_bottom_left\",\n      \"y\": 180\n    },\n    \"facing=west,half=lower,hinge=left,open=true\": {\n      \"model\": \"minecraft:block/iron_door_bottom_left_open\",\n      \"y\": 270\n    },\n    \"facing=west,half=lower,hinge=right,open=false\": {\n      \"model\": \"minecraft:block/iron_door_bottom_right\",\n      \"y\": 180\n    },\n    \"facing=west,half=lower,hinge=right,open=true\": {\n      \"model\": \"minecraft:block/iron_door_bottom_right_open\",\n      \"y\": 90\n    },\n    \"facing=west,half=upper,hinge=left,open=false\": {\n      \"model\": \"minecraft:block/iron_door_top_left\",\n      \"y\": 180\n    },\n    \"facing=west,half=upper,hinge=left,open=true\": {\n      \"model\": \"minecraft:block/iron_door_top_left_open\",\n      \"y\": 270\n    },\n    \"facing=west,half=upper,hinge=right,open=false\": {\n      \"model\": \"minecraft:block/iron_door_top_right\",\n      \"y\": 180\n    },\n    \"facing=west,half=upper,hinge=right,open=true\": {\n      \"model\": \"minecraft:block/iron_door_top_right_open\",\n      \"y\": 90\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 109,
+      "path": "1.21.11/assets/minecraft/blockstates/iron_ore.json",
+      "git_blob_sha": "c514e64b95425221b41b24d4553919c21920e2ea",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/iron_ore\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 110,
+      "path": "1.21.11/assets/minecraft/blockstates/iron_trapdoor.json",
+      "git_blob_sha": "df0b2b3d4abcc54ba1e3beb444aed451aabab0dc",
+      "json_text": "{\n  \"variants\": {\n    \"facing=east,half=bottom,open=false\": {\n      \"model\": \"minecraft:block/iron_trapdoor_bottom\"\n    },\n    \"facing=east,half=bottom,open=true\": {\n      \"model\": \"minecraft:block/iron_trapdoor_open\",\n      \"y\": 90\n    },\n    \"facing=east,half=top,open=false\": {\n      \"model\": \"minecraft:block/iron_trapdoor_top\"\n    },\n    \"facing=east,half=top,open=true\": {\n      \"model\": \"minecraft:block/iron_trapdoor_open\",\n      \"y\": 90\n    },\n    \"facing=north,half=bottom,open=false\": {\n      \"model\": \"minecraft:block/iron_trapdoor_bottom\"\n    },\n    \"facing=north,half=bottom,open=true\": {\n      \"model\": \"minecraft:block/iron_trapdoor_open\"\n    },\n    \"facing=north,half=top,open=false\": {\n      \"model\": \"minecraft:block/iron_trapdoor_top\"\n    },\n    \"facing=north,half=top,open=true\": {\n      \"model\": \"minecraft:block/iron_trapdoor_open\"\n    },\n    \"facing=south,half=bottom,open=false\": {\n      \"model\": \"minecraft:block/iron_trapdoor_bottom\"\n    },\n    \"facing=south,half=bottom,open=true\": {\n      \"model\": \"minecraft:block/iron_trapdoor_open\",\n      \"y\": 180\n    },\n    \"facing=south,half=top,open=false\": {\n      \"model\": \"minecraft:block/iron_trapdoor_top\"\n    },\n    \"facing=south,half=top,open=true\": {\n      \"model\": \"minecraft:block/iron_trapdoor_open\",\n      \"y\": 180\n    },\n    \"facing=west,half=bottom,open=false\": {\n      \"model\": \"minecraft:block/iron_trapdoor_bottom\"\n    },\n    \"facing=west,half=bottom,open=true\": {\n      \"model\": \"minecraft:block/iron_trapdoor_open\",\n      \"y\": 270\n    },\n    \"facing=west,half=top,open=false\": {\n      \"model\": \"minecraft:block/iron_trapdoor_top\"\n    },\n    \"facing=west,half=top,open=true\": {\n      \"model\": \"minecraft:block/iron_trapdoor_open\",\n      \"y\": 270\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 111,
+      "path": "1.21.11/assets/minecraft/blockstates/item_frame.json",
+      "git_blob_sha": "7b70ec00c775a4f6fe7ae84718624745aed216e1",
+      "json_text": "{\n    \"variants\": {\n        \"map=false\": { \"model\": \"block/item_frame\" },\n        \"map=true\":  { \"model\": \"block/item_frame_map\" }\n    }\n}\n"
+    },
+    {
+      "queue_row": 112,
+      "path": "1.21.11/assets/minecraft/blockstates/jack_o_lantern.json",
+      "git_blob_sha": "7454ebab3e0c14cbf4b35c5064f3ce5ea9d98027",
+      "json_text": "{\n  \"variants\": {\n    \"facing=east\": {\n      \"model\": \"minecraft:block/jack_o_lantern\",\n      \"y\": 90\n    },\n    \"facing=north\": {\n      \"model\": \"minecraft:block/jack_o_lantern\"\n    },\n    \"facing=south\": {\n      \"model\": \"minecraft:block/jack_o_lantern\",\n      \"y\": 180\n    },\n    \"facing=west\": {\n      \"model\": \"minecraft:block/jack_o_lantern\",\n      \"y\": 270\n    }\n  }\n}"
+    }
+  ]
+}

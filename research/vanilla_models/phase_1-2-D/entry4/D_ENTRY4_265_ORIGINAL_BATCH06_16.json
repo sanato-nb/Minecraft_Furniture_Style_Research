@@ -1,0 +1,106 @@
+{
+  "schema": "D_ENTRY4_ORIGINAL/v1",
+  "baseline_head": "cdcf42f26b68dd482e87529d8ebeee3e88db21ec",
+  "queue_rows": [
+    81,
+    96
+  ],
+  "sources": [
+    {
+      "queue_row": 81,
+      "path": "1.21.11/assets/minecraft/blockstates/green_stained_glass.json",
+      "git_blob_sha": "ca4fec4067cffd89000ee64251f878bf0d530a8a",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/green_stained_glass\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 82,
+      "path": "1.21.11/assets/minecraft/blockstates/green_stained_glass_pane.json",
+      "git_blob_sha": "d0c3779f24859911cc56a823b18d3d54449be992",
+      "json_text": "{\n  \"multipart\": [\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/green_stained_glass_pane_post\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/green_stained_glass_pane_side\"\n      },\n      \"when\": {\n        \"north\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/green_stained_glass_pane_side\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"east\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/green_stained_glass_pane_side_alt\"\n      },\n      \"when\": {\n        \"south\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/green_stained_glass_pane_side_alt\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"west\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/green_stained_glass_pane_noside\"\n      },\n      \"when\": {\n        \"north\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/green_stained_glass_pane_noside_alt\"\n      },\n      \"when\": {\n        \"east\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/green_stained_glass_pane_noside_alt\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"south\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/green_stained_glass_pane_noside\",\n        \"y\": 270\n      },\n      \"when\": {\n        \"west\": \"false\"\n      }\n    }\n  ]\n}"
+    },
+    {
+      "queue_row": 83,
+      "path": "1.21.11/assets/minecraft/blockstates/green_terracotta.json",
+      "git_blob_sha": "3bf40d83e0da20f3468ca3d9ffca2bcd4c53f351",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/green_terracotta\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 84,
+      "path": "1.21.11/assets/minecraft/blockstates/green_wall_banner.json",
+      "git_blob_sha": "f5e2c87f4dd44db6086c0bbb3ffdd2de0055d8d2",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/banner\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 85,
+      "path": "1.21.11/assets/minecraft/blockstates/green_wool.json",
+      "git_blob_sha": "895370355c077c05d9dc55546fdafba686e76f12",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/green_wool\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 86,
+      "path": "1.21.11/assets/minecraft/blockstates/grindstone.json",
+      "git_blob_sha": "244481d0a87030158eccc80a2b6d37df6a8671b4",
+      "json_text": "{\n  \"variants\": {\n    \"face=ceiling,facing=east\": {\n      \"model\": \"minecraft:block/grindstone\",\n      \"x\": 180,\n      \"y\": 270\n    },\n    \"face=ceiling,facing=north\": {\n      \"model\": \"minecraft:block/grindstone\",\n      \"x\": 180,\n      \"y\": 180\n    },\n    \"face=ceiling,facing=south\": {\n      \"model\": \"minecraft:block/grindstone\",\n      \"x\": 180\n    },\n    \"face=ceiling,facing=west\": {\n      \"model\": \"minecraft:block/grindstone\",\n      \"x\": 180,\n      \"y\": 90\n    },\n    \"face=floor,facing=east\": {\n      \"model\": \"minecraft:block/grindstone\",\n      \"y\": 90\n    },\n    \"face=floor,facing=north\": {\n      \"model\": \"minecraft:block/grindstone\"\n    },\n    \"face=floor,facing=south\": {\n      \"model\": \"minecraft:block/grindstone\",\n      \"y\": 180\n    },\n    \"face=floor,facing=west\": {\n      \"model\": \"minecraft:block/grindstone\",\n      \"y\": 270\n    },\n    \"face=wall,facing=east\": {\n      \"model\": \"minecraft:block/grindstone\",\n      \"x\": 90,\n      \"y\": 90\n    },\n    \"face=wall,facing=north\": {\n      \"model\": \"minecraft:block/grindstone\",\n      \"x\": 90\n    },\n    \"face=wall,facing=south\": {\n      \"model\": \"minecraft:block/grindstone\",\n      \"x\": 90,\n      \"y\": 180\n    },\n    \"face=wall,facing=west\": {\n      \"model\": \"minecraft:block/grindstone\",\n      \"x\": 90,\n      \"y\": 270\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 87,
+      "path": "1.21.11/assets/minecraft/blockstates/hanging_roots.json",
+      "git_blob_sha": "a6a155d0b6402156ea9a98f3606e2647a6ecacd8",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/hanging_roots\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 88,
+      "path": "1.21.11/assets/minecraft/blockstates/hay_block.json",
+      "git_blob_sha": "63467f1b36db5a9b587f9ed6cfda71c5c358e053",
+      "json_text": "{\n  \"variants\": {\n    \"axis=x\": {\n      \"model\": \"minecraft:block/hay_block_horizontal\",\n      \"x\": 90,\n      \"y\": 90\n    },\n    \"axis=y\": {\n      \"model\": \"minecraft:block/hay_block\"\n    },\n    \"axis=z\": {\n      \"model\": \"minecraft:block/hay_block_horizontal\",\n      \"x\": 90\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 89,
+      "path": "1.21.11/assets/minecraft/blockstates/heavy_weighted_pressure_plate.json",
+      "git_blob_sha": "3f2b8800a7fb147b8d3a280764ce56a10dc8e263",
+      "json_text": "{\n  \"variants\": {\n    \"power=0\": {\n      \"model\": \"minecraft:block/heavy_weighted_pressure_plate\"\n    },\n    \"power=1\": {\n      \"model\": \"minecraft:block/heavy_weighted_pressure_plate_down\"\n    },\n    \"power=10\": {\n      \"model\": \"minecraft:block/heavy_weighted_pressure_plate_down\"\n    },\n    \"power=11\": {\n      \"model\": \"minecraft:block/heavy_weighted_pressure_plate_down\"\n    },\n    \"power=12\": {\n      \"model\": \"minecraft:block/heavy_weighted_pressure_plate_down\"\n    },\n    \"power=13\": {\n      \"model\": \"minecraft:block/heavy_weighted_pressure_plate_down\"\n    },\n    \"power=14\": {\n      \"model\": \"minecraft:block/heavy_weighted_pressure_plate_down\"\n    },\n    \"power=15\": {\n      \"model\": \"minecraft:block/heavy_weighted_pressure_plate_down\"\n    },\n    \"power=2\": {\n      \"model\": \"minecraft:block/heavy_weighted_pressure_plate_down\"\n    },\n    \"power=3\": {\n      \"model\": \"minecraft:block/heavy_weighted_pressure_plate_down\"\n    },\n    \"power=4\": {\n      \"model\": \"minecraft:block/heavy_weighted_pressure_plate_down\"\n    },\n    \"power=5\": {\n      \"model\": \"minecraft:block/heavy_weighted_pressure_plate_down\"\n    },\n    \"power=6\": {\n      \"model\": \"minecraft:block/heavy_weighted_pressure_plate_down\"\n    },\n    \"power=7\": {\n      \"model\": \"minecraft:block/heavy_weighted_pressure_plate_down\"\n    },\n    \"power=8\": {\n      \"model\": \"minecraft:block/heavy_weighted_pressure_plate_down\"\n    },\n    \"power=9\": {\n      \"model\": \"minecraft:block/heavy_weighted_pressure_plate_down\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 90,
+      "path": "1.21.11/assets/minecraft/blockstates/honey_block.json",
+      "git_blob_sha": "337f73f9e74986b74717844fcde8aa335b259b75",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/honey_block\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 91,
+      "path": "1.21.11/assets/minecraft/blockstates/honeycomb_block.json",
+      "git_blob_sha": "b8a98bb352ad8d62de46d387d49b836944bf0c93",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/honeycomb_block\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 92,
+      "path": "1.21.11/assets/minecraft/blockstates/hopper.json",
+      "git_blob_sha": "be15ea37fe30021ad8356254154c912d436250ee",
+      "json_text": "{\n  \"variants\": {\n    \"facing=down\": {\n      \"model\": \"minecraft:block/hopper\"\n    },\n    \"facing=east\": {\n      \"model\": \"minecraft:block/hopper_side\",\n      \"y\": 90\n    },\n    \"facing=north\": {\n      \"model\": \"minecraft:block/hopper_side\"\n    },\n    \"facing=south\": {\n      \"model\": \"minecraft:block/hopper_side\",\n      \"y\": 180\n    },\n    \"facing=west\": {\n      \"model\": \"minecraft:block/hopper_side\",\n      \"y\": 270\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 93,
+      "path": "1.21.11/assets/minecraft/blockstates/horn_coral.json",
+      "git_blob_sha": "c7665173d836e15dba6d4c374a287aa8a740303b",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/horn_coral\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 94,
+      "path": "1.21.11/assets/minecraft/blockstates/horn_coral_block.json",
+      "git_blob_sha": "6f8f199f6576e57521b2181a17d7d31c895757f2",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/horn_coral_block\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 95,
+      "path": "1.21.11/assets/minecraft/blockstates/horn_coral_fan.json",
+      "git_blob_sha": "99f08549981b4fcb38441529d11dba0a3f28b1b2",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/horn_coral_fan\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 96,
+      "path": "1.21.11/assets/minecraft/blockstates/horn_coral_wall_fan.json",
+      "git_blob_sha": "07d22ed04db8a07742e4fe5e9f20864561b8e011",
+      "json_text": "{\n  \"variants\": {\n    \"facing=east\": {\n      \"model\": \"minecraft:block/horn_coral_wall_fan\",\n      \"y\": 90\n    },\n    \"facing=north\": {\n      \"model\": \"minecraft:block/horn_coral_wall_fan\"\n    },\n    \"facing=south\": {\n      \"model\": \"minecraft:block/horn_coral_wall_fan\",\n      \"y\": 180\n    },\n    \"facing=west\": {\n      \"model\": \"minecraft:block/horn_coral_wall_fan\",\n      \"y\": 270\n    }\n  }\n}"
+    }
+  ]
+}
