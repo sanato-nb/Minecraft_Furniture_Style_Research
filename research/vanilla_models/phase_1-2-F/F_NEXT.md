@@ -1,5 +1,5 @@
-# 1-2-F 다음 시작점 — Entry2 P1 잔여 494개
+# 1-2-F 다음 시작점 — Entry3 P2 전반 495개
 
-Entry1 고정150/150개 소스 스타일 조사·독립감사·GitHub 원격 검증 완료. F 누적 **150/2,390(6.28%)**, 나머지 **2,240개**. [Entry1 결과](entry1/F_ENTRY1_REPORT.md) · [원격 재조회](entry1/F_ENTRY1_REMOTE_READBACK.json) · [대표 구조·이미지 원형](entry1/VANILLA_GEOMETRY_ARCHETYPES.md).
+고정 Entry1 150 + Entry2 P1 잔여494의 원본 스타일 조사·독립 검산·GitHub 원격 재조회 완료. **F 누적644/2,390(26.95%), 미조사1,746개**. [Entry2 보고서](entry2/F_ENTRY2_REPORT.md) · [원격 readback](entry2/F_ENTRY2_REMOTE_READBACK.json) · [스타일 원형](entry2/VANILLA_GEOMETRY_ARCHETYPES.md).
 
-다음은 고정 `entry2/F_ENTRY2_QUEUE_494.csv`의 첫 행 `acacia_hanging_sign.json` SHA `9d088d1113dd0241d1a01687374c79ac534b86e5`부터 P1 잔여494개를 조사한다. 9개 미바인딩 템플릿과 E 8개 런타임 한계를 유지한다. 전체 F 완료는 Entry6 F1~F5 감사 전 선언 금지, Entry7 없음. A~E·v69 보존.
+다음은 고정 `entry3/F_ENTRY3_QUEUE_495.csv`의 첫 행 `acacia_button_inventory.json` SHA `0b50c625993383ca951ae15f3e0c1f00b21fff6e`부터 P2 전반495개. 27개 미바인딩 템플릿과 E47 실제 renderer 미인증 경계를 보존한다. Entry4 P2후반494, Entry5 P3전반379, Entry6 P3후반378+최종 감사, Entry7 없음. F 전체·상위1-2 미완료.
