@@ -1,0 +1,91 @@
+{
+  "schema": "F_ENTRY1_FIRST_PASS_ARCHETYPE_RULES/v1",
+  "source_rows": 150,
+  "rule_exact_full_cube": "one B applied element from=[0,0,0] to=[16,16,16] and unrotated",
+  "rule_thin": "any absolute element axis thickness <=1 (study-specific)",
+  "rule_zero": "any absolute element axis thickness ==0",
+  "rule_multiple": "applied B elements >1",
+  "rule_rotation": "any source element rotation_present=true",
+  "rule_inverted_outside": "outside [0,16] or from>to",
+  "multi_label_nonexclusive": true,
+  "visual_texture_comparison_not_performed": true,
+  "primary_precedence": [
+    "E_SOURCE_EXCEPTION",
+    "EXACT_FULL_CUBE",
+    "ROTATED_ELEMENT",
+    "MULTI_ELEMENT",
+    "THIN_ELEMENT",
+    "OTHER_SIMPLE_CUBOID"
+  ],
+  "sample_original_evidence": {
+    "THIN_OR_ZERO_THICKNESS": {
+      "path": "1.21.11/assets/minecraft/models/block/acacia_shelf_unconnected.json",
+      "sha": "772123a2efcb53ad08f4afddc56706000c6b1052",
+      "tags": [
+        "AXIS_ALIGNED_CUBOIDS",
+        "THIN_ELEMENT",
+        "ZERO_THICKNESS"
+      ]
+    },
+    "STRICT_FULL_CUBE": {
+      "path": "1.21.11/assets/minecraft/models/block/beehive_honey.json",
+      "sha": "1973867cdaa9cc67555e5b0a6f0b8e9e819de2dc",
+      "tags": [
+        "AXIS_ALIGNED_CUBOIDS",
+        "EXACT_FULL_CUBE"
+      ]
+    },
+    "ROTATED_GEOMETRY": {
+      "path": "1.21.11/assets/minecraft/models/block/black_candle_three_candles.json",
+      "sha": "31b82ceee88431af0dcb1a5c2b952333668a8c24",
+      "tags": [
+        "AXIS_ALIGNED_CUBOIDS",
+        "MULTI_ELEMENT",
+        "THIN_ELEMENT",
+        "ZERO_THICKNESS",
+        "ROTATED_ELEMENT"
+      ]
+    },
+    "OTHER_SIMPLE_CUBOID": {
+      "path": "1.21.11/assets/minecraft/models/block/cake_slice6.json",
+      "sha": "97151ba5fcf10c606680c78d2832a0178ac8f228",
+      "tags": [
+        "AXIS_ALIGNED_CUBOIDS"
+      ]
+    },
+    "SPECIAL_RENDER_SOURCE": {
+      "path": "1.21.11/assets/minecraft/models/block/exposed_copper_chest.json",
+      "sha": "746419c5a2775deebe075eff2f8e1ae5e0f912f3",
+      "tags": [
+        "E_SOURCE_EXCEPTION"
+      ]
+    },
+    "MULTI_ELEMENT_GEOMETRY": {
+      "path": "1.21.11/assets/minecraft/models/block/glow_item_frame.json",
+      "sha": "d465e3966fa8443318a9d122a8195f6bce21b0e2",
+      "tags": [
+        "AXIS_ALIGNED_CUBOIDS",
+        "MULTI_ELEMENT",
+        "THIN_ELEMENT"
+      ]
+    }
+  },
+  "primary_counts": {
+    "THIN_OR_ZERO_THICKNESS": 13,
+    "STRICT_FULL_CUBE": 33,
+    "ROTATED_GEOMETRY": 36,
+    "OTHER_SIMPLE_CUBOID": 33,
+    "SPECIAL_RENDER_SOURCE": 8,
+    "MULTI_ELEMENT_GEOMETRY": 27
+  },
+  "overlap_tag_counts": {
+    "AXIS_ALIGNED_CUBOIDS": 142,
+    "THIN_ELEMENT": 57,
+    "ZERO_THICKNESS": 52,
+    "EXACT_FULL_CUBE": 33,
+    "MULTI_ELEMENT": 61,
+    "ROTATED_ELEMENT": 36,
+    "INVERTED_OR_OUTSIDE_16": 16,
+    "E_SOURCE_EXCEPTION": 8
+  }
+}
