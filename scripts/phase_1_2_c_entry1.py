@@ -152,6 +152,16 @@ def main():
     write_csv("FACE_UV_EVIDENCE.csv", faces, list(faces[0]))
     write_csv("TEXTURE_BINDINGS.csv", bindings, list(bindings[0]))
     write_csv("PNG_RGBA_EVIDENCE.csv", sorted(pngs.values(), key=lambda r:r["png_path"]), list(next(iter(pngs.values()))))
+    animation_metadata = []
+    for key in sorted(pngs):
+        meta = ROOT / (key + ".mcmeta")
+        if meta.exists():
+            animation_metadata.append(dict(png_path=key, mcmeta_path=relative(meta),
+                                           mcmeta_sha=blob(meta), source_bytes=meta.stat().st_size,
+                                           interpretation="source_file_only_animation_timing_not_authenticated"))
+    if ENTRY not in ("entry1", "entry2"):
+        write_csv("PNG_MCMETA_SOURCE.csv", animation_metadata,
+                  ["png_path", "mcmeta_path", "mcmeta_sha", "source_bytes", "interpretation"])
     write_csv("MODEL_SOURCE_EVIDENCE.csv", evidence, list(evidence[0]))
     write_csv("UNRESOLVED.csv", unresolved, ["model", "issue", "ref"])
     summary = dict(schema=f"C_{ENTRY.upper()}_SOURCE_AUDIT", base_head=os.environ.get("C_BASE_HEAD", "73571a9e1ab791e6ded46b6a01a1aae04fc8ffaf"),
@@ -162,6 +172,8 @@ def main():
                    png_rgba_pixels=sum(r["width"]*r["height"] for r in pngs.values()),
                    unresolved_rows=len(unresolved), prior_report_name_mentions=len(prior),
                    verification="local Git blob SHA agrees with B ledger and cache; PNG Git blob and decoded RGBA SHA recorded; no game renderer authentication")
+    if ENTRY not in ("entry1", "entry2"):
+        summary["png_mcmeta_source_paths"] = len(animation_metadata)
     (OUT / f"C_{ENTRY.upper()}_AUDIT.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n")
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 

@@ -1,3 +1,5 @@
+> **2026-11-16 현행 Entry3:** 고정 배정732개 원본 UV/texture/PNG 실측, C 누적 840/2,304. [보고서](../../research/vanilla_models/phase_1-2-C/entry3/C_ENTRY3_REPORT.md). Entry4·5 각732 잔여, C 완료 아님. 아래 날짜별 기록 보존.
+
 > **2026-11-16 고정 계획:** [1-2-C 총 5 Entry 범위·종료계약](1-2-C_FIXED_SCOPE_AND_EXIT_CONTRACT.md). Entry1/2에서 108개 실제 조사, Entry3~5에 732개씩 배정. 배정은 완료 실적이 아니며 C 진행 중.
 
 > **2026-11-16 현행 Entry2:** 1-2-C에서 Entry1 12개+Entry2 96개로 C 코호트 108/2,304 모델의 원본 UV·텍스처 조사를 수행했다. Entry2 [보고서](../../research/vanilla_models/phase_1-2-C/entry2/C_ENTRY2_REPORT.md), 이전 역사 상태 기록은 아래에 보존. C 완료 아님.
