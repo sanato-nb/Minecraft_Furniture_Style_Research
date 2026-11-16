@@ -21,3 +21,7 @@
 
 ## 자료 보존·인계
 원본 JSON snapshot 24개와 부모 51개·C/D 연결의 기계 판독 원장을 `source_snapshots/`와 `F_ENTRY6_ANALYSIS_CONTEXT.json`에 보존하여 독립 재생 가능하게 한다. A/B/C/D/E·v69 기존 원본 수정하지 않는다. 현재 수행하지 않은 PNG 실감 검수와 F3 종료 판단은 [F_NEXT.md](F_NEXT.md)로 인수인계한다. 모든 GitHub 원격 결과는 커밋 후 별도로 재조회해야 한다.
+
+## GitHub 원격 재조회 감사 (2026-11-17)
+
+첫 Entry6 데이터 커밋 `425383861afa7ddf07315b87f50ef32c182c2e1e`에서 49개 변경 파일을 확인했다. 기존 A/B/C/D/E·v69 보호 범위 변경0. 원본 JSON 스냅샷 24개에 대해 모두 SHA/행 범위를 재조회했고 378개 전체 본문을 다시 파싱했다. `STYLE_OBSERVATIONS.csv` 378행, `F_GEOMETRY_ELEMENTS.csv` 661행, `F_UNRESOLVED.csv` 423행, 전체 통합 `F_ALL_2390_SCOPE_CROSSWALK.csv` 2,390행 등을 원격 재조회했다. 부모 51개·D 옵션678개가 저장된 대형 컨텍스트 JSON과 2개 구조 배치 JSON은 GitHub 경로 SHA 일치 확인 후 동일 SHA의 blob 본문을 다시 파싱했다. 자세한 값은 [F_ENTRY6_REMOTE_READBACK.json](F_ENTRY6_REMOTE_READBACK.json)에 기록한다. `F5` 원격·독립 검산 PASS, `F3` 시각 근거 차단 유지, F 전체 완료 아님.

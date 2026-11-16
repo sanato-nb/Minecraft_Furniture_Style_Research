@@ -1,0 +1,70 @@
+{
+  "schema": "F_ENTRY6_REMOTE_READBACK/v1",
+  "date": "2026-11-17",
+  "verified_commit": "425383861afa7ddf07315b87f50ef32c182c2e1e",
+  "changed_files": 49,
+  "previous_unchanged_protected_A_B_C_D_E_v69_files": 0,
+  "snapshot_json_files_verified": 24,
+  "snapshot_original_model_rows_reparsed": 378,
+  "snapshot_range": [
+    1,
+    378
+  ],
+  "source_queue_models": 378,
+  "original_model_git_shas_match": true,
+  "source_model_parent_and_geometry_independent_audit": {
+    "first168": "821789fa4e1d6611d7e15f59c9de052ac3bb843b",
+    "last210": "8aa127fb4e3a4d9b79ce9b9bb8e18e0ac8d0cfc9",
+    "mismatches": 0
+  },
+  "csv_rows_readback": {
+    "STYLE_OBSERVATIONS": 378,
+    "F_MODEL_SOURCE_STATUS": 378,
+    "F_GEOMETRY_FEATURES": 378,
+    "F_GEOMETRY_ELEMENTS": 661,
+    "F_TEXTURE_VISUAL_EVIDENCE": 378,
+    "F_ASSEMBLY_LINKS": 378,
+    "F_UNRESOLVED": 423,
+    "F_ALL_2390_SCOPE_CROSSWALK": 2390
+  },
+  "csv_GitSHA_all_expected_match": true,
+  "other_file_GitSHA_all_expected_match": true,
+  "large_blobs": {
+    "context": {
+      "git_blob_sha": "49415c5256f5556de536224b5299b8474d1bd8aa",
+      "body_json_retrieved_again": true,
+      "parent_sources": 51,
+      "D_rule_choices": 678
+    },
+    "replay_batches": [
+      {
+        "sha": "9e2e802f1c2f63c03e076c3ad5fc010627f0a74b",
+        "json_parsed": true,
+        "models": 168
+      },
+      {
+        "sha": "41e4f8a31b7cecc4c9f13dc9e827a437e7d5c2dc",
+        "json_parsed": true,
+        "models": 210
+      }
+    ]
+  },
+  "global_unique_models": 2390,
+  "global_faces": 23090,
+  "global_elements": 5689,
+  "global_D_model_options": 7592,
+  "gate_checks": {
+    "F1": "PASS",
+    "F2": "PASS",
+    "F3": "BLOCKED_PNG_VISUAL_EVIDENCE_NOT_PERFORMED",
+    "F4": "PASS",
+    "F5": "PASS_INDEPENDENT_SOURCE_AND_REMOTE"
+  },
+  "F_source_structure_checked": 2390,
+  "F_style_accepted": 2012,
+  "F_not_style_accepted": 378,
+  "F_complete": false,
+  "stage_1_2_complete": false,
+  "official_JAR_or_runtime_render_authenticated": false,
+  "readback_statement": "This audit attests to returned Git text bodies or same Git blob SHA for large JSON; no original PNG pixel image visual analysis claimed"
+}
