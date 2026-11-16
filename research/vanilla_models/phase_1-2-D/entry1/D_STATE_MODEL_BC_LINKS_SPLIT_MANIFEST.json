@@ -1,0 +1,50 @@
+{
+  "schema": "D_Entry1_readback_chunks/v1",
+  "source_large_csv": "research/vanilla_models/phase_1-2-D/entry1/D_STATE_MODEL_BC_LINKS.csv",
+  "source_large_csv_blob_sha": "3737ab9324232aa44be8aaa09961bc9dbf633c4e",
+  "source_blob_metadata_verified": true,
+  "source_large_csv_body_fetch_available": false,
+  "source_model_link_rows": 1972,
+  "independent_reconstruction_from": [
+    {
+      "path": "research/vanilla_models/phase_1-2-D/entry1/D_STATE_ASSEMBLY.csv",
+      "sha": "4d57dc3b3301fe9911a5702eee86e39018dd2458"
+    },
+    {
+      "path": "research/vanilla_models/phase_1-2-D/entry1/D_MODEL_BC_CROSSWALK.csv",
+      "sha": "14777ae650d95ea86b4e3a6a3657d9e236aaa023"
+    }
+  ],
+  "chunks": [
+    {
+      "path": "research/vanilla_models/phase_1-2-D/entry1/D_STATE_MODEL_BC_LINKS_PART1_493.csv",
+      "first_data_row": 1,
+      "last_data_row": 493,
+      "data_rows": 493,
+      "git_blob_sha": "2469b75ae99995c7346c6a45aba3aac7267017f8"
+    },
+    {
+      "path": "research/vanilla_models/phase_1-2-D/entry1/D_STATE_MODEL_BC_LINKS_PART2_493.csv",
+      "first_data_row": 494,
+      "last_data_row": 986,
+      "data_rows": 493,
+      "git_blob_sha": "090884168bfbeab5b506f6efcc088f021b6150cc"
+    },
+    {
+      "path": "research/vanilla_models/phase_1-2-D/entry1/D_STATE_MODEL_BC_LINKS_PART3_493.csv",
+      "first_data_row": 987,
+      "last_data_row": 1479,
+      "data_rows": 493,
+      "git_blob_sha": "1734c5463b42819d9ea06b387e69e56802ffa892"
+    },
+    {
+      "path": "research/vanilla_models/phase_1-2-D/entry1/D_STATE_MODEL_BC_LINKS_PART4_493.csv",
+      "first_data_row": 1480,
+      "last_data_row": 1972,
+      "data_rows": 493,
+      "git_blob_sha": "a1931028b7ed5559d5247e962001d7cee9b6c274"
+    }
+  ],
+  "total_rows": 1972,
+  "required_readback": "each of four chunks full body must be re-fetched and count 493; large source body could not be fetched directly"
+}
