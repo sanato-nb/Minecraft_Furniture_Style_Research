@@ -4793,5 +4793,47 @@
     "next": "research/vanilla_models/phase_1-2-D/entry1/D_NEXT.md",
     "official_jar_authentication": false,
     "ingame_runtime_rendering_tested": false
+  },
+  "phase_1_2_D_execution_plan": {
+    "date": "2026-11-16",
+    "status": "D_WORK_PLAN_READY_ENTRY2_NO_NEW_JSON_INSPECTION",
+    "preparation_baseline_head": "cea2877f725247235cfc6ba893e07483e9ab30cb",
+    "fixed_scope": 1168,
+    "fixed_scope_unchanged": true,
+    "entries": [
+      12,
+      96,
+      265,
+      265,
+      265,
+      265
+    ],
+    "max_entries": 6,
+    "original_inventory_and_assignment_sha_matches": 1168,
+    "original_raw_JSON_newly_inspected_during_preparation": 0,
+    "D_actual_source_JSON_inspected_cumulative": 12,
+    "D_source_JSON_uninspected": 1156,
+    "next_entry": "ENTRY2",
+    "next_entry_queued_uninspected": 96,
+    "plan": "docs/vanilla_models_1-2/1-2-D_WORK_PLAN.md",
+    "execution_matrix": "research/vanilla_models/phase_1-2-D/D_ENTRY_EXECUTION_MATRIX.csv",
+    "prep_audit": "research/vanilla_models/phase_1-2-D/D_EXECUTION_PREP_AUDIT.json",
+    "entry2_queue": "research/vanilla_models/phase_1-2-D/entry2/D_ENTRY2_QUEUE_96.csv",
+    "entry2_prep": "research/vanilla_models/phase_1-2-D/entry2/D_ENTRY2_PREP.md",
+    "gates": {
+      "D1": "PASS_EXISTING_AND_CURRENT_MANIFEST_CROSSCHECK",
+      "D2": "ENTRY1_ONLY",
+      "D3": "ENTRY1_ONLY",
+      "D4": "ENTRY1_ONLY",
+      "D5": "PENDING"
+    },
+    "previous_stage_statuses_unchanged": [
+      "A_COMPLETE_SOURCE_SCOPE",
+      "B_COMPLETE_SOURCE_GEOMETRY_SCOPE",
+      "C_COMPLETE_SOURCE_UV_TEXTURE_PNG_SCOPE"
+    ],
+    "E_special_renderer_exceptions_unchanged": 86,
+    "final_D_status_unchanged": "D_IN_PROGRESS_ENTRY1",
+    "no_entry7": true
   }
 }

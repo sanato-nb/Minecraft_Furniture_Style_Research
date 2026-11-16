@@ -1,0 +1,110 @@
+{
+  "schema": "minecraft-furniture-1-2-D/preparation-audit/v1",
+  "date": "2026-11-16",
+  "source_version": "Minecraft Java 1.21.11 user-extracted assets",
+  "preparation_baseline_main_head": "cea2877f725247235cfc6ba893e07483e9ab30cb",
+  "fixed_scope_contract": "docs/vanilla_models_1-2/1-2-D_FIXED_SCOPE_AND_EXIT_CONTRACT.md",
+  "fixed_scope_unchanged": true,
+  "manifest": {
+    "path": "research/vanilla_models/phase_1-2-D/D_FIXED_SCOPE_1168.csv",
+    "git_blob_sha": "a9e25893465810bf1386dddf4cf7a4f755b28fa1",
+    "unique_rows": 1168
+  },
+  "original_inventory": {
+    "path": "research/vanilla_models/v34/02_inventory_1168_blockstate_paths_git_shas.csv",
+    "git_blob_sha": "48f385ea06f5e100331cc41bbc24da082adbfb2e",
+    "rows": 1168
+  },
+  "original_blockstate_tree_sha_previously_verified": "7a36f7d757e62aa61ee61aebcd8d5689bc462a8d",
+  "audit_now": {
+    "manifest_vs_v34_path_sha_match": 1168,
+    "manifest_missing_in_v34": 0,
+    "manifest_git_sha_mismatch": 0,
+    "manifest_duplicate_paths": 0,
+    "entry_allocation_duplicates": 0,
+    "entry_allocation_missing": 0,
+    "actual_raw_json_contents_newly_read_in_preparation": 0
+  },
+  "entries": [
+    {
+      "entry": 1,
+      "count": 12,
+      "first": "1.21.11/assets/minecraft/blockstates/brewing_stand.json",
+      "last": "1.21.11/assets/minecraft/blockstates/stonecutter.json",
+      "expected": 12,
+      "actual_inspected": 12,
+      "queue_status": "ENTRY1_PREVIOUSLY_SOURCE_INSPECTED"
+    },
+    {
+      "entry": 2,
+      "count": 96,
+      "first": "1.21.11/assets/minecraft/blockstates/acacia_button.json",
+      "last": "1.21.11/assets/minecraft/blockstates/black_wall_banner.json",
+      "expected": 96,
+      "actual_inspected": 0,
+      "queue_status": "ASSIGNED_NOT_INSPECTED"
+    },
+    {
+      "entry": 3,
+      "count": 265,
+      "first": "1.21.11/assets/minecraft/blockstates/black_wool.json",
+      "last": "1.21.11/assets/minecraft/blockstates/dripstone_block.json",
+      "expected": 265,
+      "actual_inspected": 0,
+      "queue_status": "ASSIGNED_NOT_INSPECTED"
+    },
+    {
+      "entry": 4,
+      "count": 265,
+      "first": "1.21.11/assets/minecraft/blockstates/dropper.json",
+      "last": "1.21.11/assets/minecraft/blockstates/oak_button.json",
+      "expected": 265,
+      "actual_inspected": 0,
+      "queue_status": "ASSIGNED_NOT_INSPECTED"
+    },
+    {
+      "entry": 5,
+      "count": 265,
+      "first": "1.21.11/assets/minecraft/blockstates/oak_fence.json",
+      "last": "1.21.11/assets/minecraft/blockstates/short_dry_grass.json",
+      "expected": 265,
+      "actual_inspected": 0,
+      "queue_status": "ASSIGNED_NOT_INSPECTED"
+    },
+    {
+      "entry": 6,
+      "count": 265,
+      "first": "1.21.11/assets/minecraft/blockstates/short_grass.json",
+      "last": "1.21.11/assets/minecraft/blockstates/zombie_wall_head.json",
+      "expected": 265,
+      "actual_inspected": 0,
+      "queue_status": "ASSIGNED_NOT_INSPECTED"
+    }
+  ],
+  "current_source_progress": {
+    "actually_inspected_JSON": 12,
+    "total_JSON": 1168,
+    "uninspected_JSON": 1156,
+    "entry1_rules": 167,
+    "entry1_syntactic_states": 380,
+    "entry1_model_option_applications": 1972,
+    "entry1_distinct_C_models": 49,
+    "independently_checked_states": 380
+  },
+  "gates": {
+    "D1": "PASS_PREVIOUS_AUDIT_AND_MANIFEST_CURRENT_RECHECK",
+    "D2": "ENTRY1_ONLY",
+    "D3": "ENTRY1_ONLY",
+    "D4": "ENTRY1_ONLY",
+    "D5": "PENDING_FINAL_STAGE"
+  },
+  "execution_plan_status": "READY_FOR_ENTRY2_NOT_EXECUTED",
+  "next_96_queue": "research/vanilla_models/phase_1-2-D/entry2/D_ENTRY2_QUEUE_96.csv",
+  "excluded_claims": [
+    "not 1168 JSON source analysis",
+    "not 96 Entry2 JSON inspection",
+    "not official JAR or runtime-render authentication",
+    "not new PNG decoding or furniture construction"
+  ],
+  "end_contract": "ENTRY6 D1-D5 ALL PASS => D_COMPLETE_SOURCE_BLOCKSTATE_ASSEMBLY_SCOPE ELSE D_BLOCKED_AT_ENTRY6; no automatic ENTRY7"
+}
