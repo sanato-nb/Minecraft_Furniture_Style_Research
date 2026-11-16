@@ -1,0 +1,69 @@
+{
+  "schema": "F_FIXED_SOURCE_STYLE_TAXONOMY_ACCEPTANCE/v1",
+  "date": "2026-11-16",
+  "minecraft_version": "1.21.11",
+  "scope_source": "research/vanilla_models/phase_1-2-F/F_FIXED_SCOPE_2390.csv",
+  "scope_sha": "1c8c3e094fb18e570ac25eb28376eac3837133b4",
+  "scope_exact": 2390,
+  "priorities": {
+    "P1": 544,
+    "P2": 1039,
+    "P3": 807
+  },
+  "C_geometry_models": 2304,
+  "E_exception_models": 86,
+  "D_directly_selected_models": 2136,
+  "D_not_directly_selected_models": 254,
+  "E_D_directly_selected_models": 84,
+  "entries": [
+    150,
+    494,
+    495,
+    494,
+    379,
+    378
+  ],
+  "entry_count": 6,
+  "entry7_allowed": false,
+  "status_now": "F_SCOPE_AND_WORK_PLAN_READY_NOT_EXECUTED",
+  "actual_F_models_source_read": 0,
+  "actual_F_models_classified": 0,
+  "evidence_docs": [
+    "docs/vanilla_models_1-2/1-2-F_FIXED_SCOPE_AND_EXIT_PLAN.md",
+    "docs/vanilla_models_1-2/1-2-F_TAXONOMY_SCHEMA.md"
+  ],
+  "gates": {
+    "F1": {
+      "name": "FIXED_IDENTITY_AND_PROVENANCE",
+      "pass_if": "2390 distinct path/SHA match C; priorities 544/1039/807; C direct 2304 + E86; D direct2136 + unreferenced254; independent exact membership + prior A~E protected"
+    },
+    "F2": {
+      "name": "GEOMETRY_THICKNESS_PROPORTION",
+      "pass_if": "2304 C geometry sources with B-provenance, per-model elements/face/from-to/rotation/zero-thickness and ratio distribution; E86 separately source-typed; unresolved evidence not silently counted as proven"
+    },
+    "F3": {
+      "name": "UV_TEXTURE_VISUAL_STYLE",
+      "pass_if": "All 2390 models have valid source status and C or E paths; texture/3D detail style conclusions are grounded in observed original PNG/valid preview and marked provenance; no filename-only confident inference"
+    },
+    "F4": {
+      "name": "D_ASSEMBLY_AND_FURNITURE_TRANSFER",
+      "pass_if": "2136 D directly selected linked with state/rotation/multipart provenance, 254 not-direct distinguished, each row has grounded candidate or explicit not_determined, E runtime unverified preserved"
+    },
+    "F5": {
+      "name": "INDEPENDENT_SOURCE_AND_REMOTE_EXIT_AUDIT",
+      "pass_if": "2390 unique STYLE_OBSERVATIONS rows, independently checked source/model tags/distributions, representative archetype evidence with caveats, unresolved ownership, A/B/C/D/E/v69 zero modifications, remote SHA/row/body readback"
+    }
+  },
+  "finish_if_all_pass": "F_COMPLETE_SOURCE_STYLE_TAXONOMY_SCOPE",
+  "else_at_entry6": "F_BLOCKED_AT_ENTRY6",
+  "next_stage": "1-2-G independent overall source consistency and handoff",
+  "exclude": [
+    "official Minecraft JAR authentication",
+    "game renderer execution",
+    "runtime validated blockstate registry",
+    "E 86 runtime renderer determination",
+    "building Minecraft furniture asset/mod",
+    "Zomboid TMX to Minecraft map conversion"
+  ],
+  "source_claim": "USER_EXTRACTED_SOURCE_ONLY"
+}
