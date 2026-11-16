@@ -5,7 +5,7 @@ on:
       - '.github/workflows/f3-entry6-contact.yml'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   audit-original-pngs:
     runs-on: ubuntu-latest
@@ -17,9 +17,19 @@ jobs:
       - name: Verify original 332 textures and build contact sheets
         run: python scripts/phase_1_2_f_entry6_visual_contact.py
       - name: Upload visual review evidence
-        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: F3-Entry6-original-PNG-contact-and-audit
           path: research/vanilla_models/phase_1-2-F/entry6/visual_contact/
           retention-days: 30
+      - name: Commit immutable first-frame sheets and per-PNG pixel evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/vanilla_models/phase_1-2-F/entry6/visual_contact/contact_*.png
+          git add research/vanilla_models/phase_1-2-F/entry6/visual_contact/F3_FIRST_FRAME_PIXEL_AUDIT.csv
+          git add research/vanilla_models/phase_1-2-F/entry6/visual_contact/F3_PIXEL_AUDIT_SUMMARY.json
+          if ! git diff --cached --quiet; then
+            git commit -m "검수(1-2-F): 332개 PNG 원본 첫 프레임 8장과 픽셀 감사 데이터 저장"
+            git push origin HEAD:main
+          fi
