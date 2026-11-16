@@ -1,3 +1,11 @@
+# 2026-11-17 최종 추가 사항: F 소스 스타일 분류 범위 종료
+
+**F3를 실제 332개 원본 PNG의 첫 프레임 접촉시트 직접 검수로 보완 완료했다.** 따라서 이전의 `F_BLOCKED_AT_ENTRY6_F3_VISUAL_PENDING` 기록은 중간 이력이고 최종 상태는 **`F_COMPLETE_SOURCE_STYLE_TAXONOMY_SCOPE`**. Entry6 378개 중 340은 시각 PNG 연결, 38은 직접 PNG 없음으로 명시 미결정. [최종 보고](F_FINAL_EXIT_REPORT.md) · [독립 감사](F_FINAL_INDEPENDENT_EXIT_AUDIT.json) · [1-2-G 인수인계](F_NEXT_FOR_1_2_G.md). **Entry7 금지, 1-2-G 별도 착수 필요.**
+
+---
+
+## 아래는 당시 F3 미검수였던 원래 인수인계 기록(보존)
+
 # 1-2-F Entry6 P3 후반 378모델 실제 원본 구조 조사·검산 보고
 
 **기준 main `4f38439e52ae99c20ccab5fe70d293f7f09a5303` · 고정 Queue `F_ENTRY6_QUEUE_378.csv` · Minecraft Java 1.21.11 사용자 제공 추출 원본.**

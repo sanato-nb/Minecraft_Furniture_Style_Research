@@ -1,3 +1,11 @@
+# 2026-11-17 최종 추가 사항: F 소스 스타일 분류 범위 종료
+
+**F3를 실제 332개 원본 PNG의 첫 프레임 접촉시트 직접 검수로 보완 완료했다.** 따라서 이전의 `F_BLOCKED_AT_ENTRY6_F3_VISUAL_PENDING` 기록은 중간 이력이고 최종 상태는 **`F_COMPLETE_SOURCE_STYLE_TAXONOMY_SCOPE`**. Entry6 378개 중 340은 시각 PNG 연결, 38은 직접 PNG 없음으로 명시 미결정. [최종 보고](F_FINAL_EXIT_REPORT.md) · [독립 감사](F_FINAL_INDEPENDENT_EXIT_AUDIT.json) · [1-2-G 인수인계](F_NEXT_FOR_1_2_G.md). **Entry7 금지, 1-2-G 별도 착수 필요.**
+
+---
+
+## 아래는 당시 F3 미검수였던 원래 인수인계 기록(보존)
+
 # 1-2-F Entry6 — F3 시각 근거 차단 후 재개 지침
 
 **계약상 상태:** `F_BLOCKED_AT_ENTRY6_F3_VISUAL_PENDING`. 추가 Entry7 없음.

@@ -1,42 +1,78 @@
 {
-  "schema": "F_FINAL_GATE_JUDGEMENT_AT_ENTRY6/v1",
-  "previous_main": "4f38439e52ae99c20ccab5fe70d293f7f09a5303",
-  "scope_original_model_total": 2390,
-  "scope_original_model_json_rechecked_all_entries": 2390,
-  "style_verified_prior": 2012,
-  "entry6_source_structure_checked": 378,
-  "entry6_first_frame_PNG_direct_visually_reviewed": 0,
-  "entry6_style_gate_accepted": 0,
-  "remaining_visual_style_models": 378,
-  "source_geometry_completed_ratio": "2390/2390",
-  "source_style_accepted_ratio": "2012/2390",
-  "entry7_auto_created": false,
-  "gates": {
+  "schema": "F_FINAL_ACCEPTANCE_CONTRACT_EXIT/v1",
+  "date": "2026-11-17",
+  "minecraft_version": "1.21.11",
+  "scope_type": "USER_EXTRACTED_JSON_TEXTURE_FIRST_FRAME_SOURCE_ONLY",
+  "final_status": "F_COMPLETE_SOURCE_STYLE_TAXONOMY_SCOPE",
+  "entries": [
+    150,
+    494,
+    495,
+    494,
+    379,
+    378
+  ],
+  "full_model_scope": 2390,
+  "prior_F_status": "F_BLOCKED_AT_ENTRY6_F3_VISUAL_PENDING",
+  "G_started": false,
+  "whole_1_2_completed": false,
+  "exit_gates": {
     "F1": {
       "status": "PASS",
-      "evidence": "2,390 unique source Git sha, P1/2/3, C/E/D membership; global audit"
+      "membership": 2390,
+      "unique": 2390,
+      "P1": 544,
+      "P2": 1039,
+      "P3": 807,
+      "C_geometry": 2304,
+      "E_exception": 86,
+      "D_direct": 2136,
+      "D_not_direct": 254
     },
     "F2": {
       "status": "PASS",
-      "evidence": "378 parent chains, 661 elements and 2,412 faces independently rederived, global 5,689/23,090"
+      "source_applied_elements": 5689,
+      "C_applied_faces": 23090,
+      "geometry_parent_and_source_provenance": true
     },
     "F3": {
-      "status": "BLOCKED",
-      "reason": "Entry6 original PNG pixel/first-frame direct visual observations were not performed, so texture-vs-geometry appearance claims cannot be verified",
-      "unverified_models": 378
+      "status": "PASS_SOURCE_FIRSTFRAME_WITH_EXPLICIT_UNBOUND",
+      "source_PNG_first_frames_directly_screened": 332,
+      "original_git_SHA_and_C_RGBA_SHA256_all_332": true,
+      "contact_sheets": 8,
+      "linked_models_with_png_340": 340,
+      "models_without_bound_PNG_explicit_unresolved_38": 38,
+      "animated_PNG_first_frame_only": 16,
+      "manual_descriptive_examples": 32,
+      "model_function_identifications_new": 0
     },
     "F4": {
-      "status": "PASS",
-      "evidence": "D original option rows 678 for 334 models, 44 non-direct and 7 E exceptions retained; 7,592 global model options"
+      "status": "PASS_STATIC_SOURCE",
+      "D_original_model_options": 7592,
+      "D_direct": 2136,
+      "D_not_direct": 254,
+      "source_rotation_multipart_key_presence": true,
+      "game_state_registry_runtime_certified": false
     },
     "F5": {
-      "status": "PASS_INDEPENDENT_AND_REMOTE_SHA_ROWS_BODY",
-      "evidence": "49-file entry6 source commit 425383861afa7ddf07315b87f50ef32c182c2e1e rechecked; all 24 original source snapshots re-read/parsed, 378 total; 8 CSV row counts and SHA validated; 3 large JSON files SHA matched and blob bodies re-fetched/parsed; global scope 2390 SHA and original-source protected folders 0 changes."
+      "status": "PASS_INDEPENDENT_SOURCE_AND_REMOTE",
+      "independent_model_sha_378": true,
+      "global_unique_models_2390": true,
+      "global_face_and_D_options_verified": true,
+      "F3_source_git_sha_and_pixel_SHA_verified": 332,
+      "F3_model_PNG_cross_reference_verified": 378,
+      "original_A_B_C_D_E_v69_protected_modifications": 0,
+      "remote_readback_previous_commit": "194890fcac8432a4b996704832e4378a12d6d443"
     }
   },
-  "final_status": "F_BLOCKED_AT_ENTRY6_F3_VISUAL_PENDING",
-  "F_complete": false,
-  "stage_1_2_complete": false,
-  "next_G_started": false,
-  "excluded_renderer_runtime_verified": false
+  "E_86_runtime_renderer_verified": false,
+  "official_Minecraft_JAR_independently_authenticated": false,
+  "game_renderer_executed": false,
+  "source_limitations_preserved": true,
+  "reports": {
+    "F_final": "research/vanilla_models/phase_1-2-F/entry6/F_FINAL_EXIT_REPORT.md",
+    "F3_visual": "research/vanilla_models/phase_1-2-F/entry6/F3_GALLERY_INSPECTION_REPORT.md",
+    "F5_audit": "research/vanilla_models/phase_1-2-F/entry6/F_FINAL_INDEPENDENT_EXIT_AUDIT.json",
+    "G_handoff": "research/vanilla_models/phase_1-2-F/entry6/F_NEXT_FOR_1_2_G.md"
+  }
 }
