@@ -27,10 +27,10 @@ Entry4 보고서의 bare `"all"` 6면 미해결 판정은 **최종 판정에서 
 ## 게이트와 한계
 
 - **C1** 범위·선행 출처 PASS, **C2** face·UV·슬롯 PASS, **C3** 연결 PNG 전체 RGBA PASS: 원본 소스 범위.
-- **C4** 독립 로컬 감사 PASS, GitHub 원격 파일 SHA·행수·내용 재조회는 **커밋 후 판정**한다.
+- **C4** 독립 로컬 감사 PASS, GitHub 첫 커밋 `c53a8c7826abc2c1482d013c257f5c1f0b2569df`의 **31/31 파일 blob SHA 일치**, 주요 원장 6개의 원격 내용 재조회/행수 검산 PASS. `C_ENTRY5_REMOTE_READBACK.json` 참조. **C4 PASS**, 고정 계약의 **`C_COMPLETE_SOURCE_UV_TEXTURE_PNG_SCOPE`**로 C를 종료한다.
 
 이 결과는 사용자 제공 추출 클라이언트와 원본 자산의 **정적 소스 검증**이다. 공식 배포 JAR의 인증, 게임 런타임 렌더, 암시 UV 엔진 계산, blockstate 조립, 애니메이션 재생은 인증하지 않는다. E의 86개 예외, D/E/F/G 후속 소관도 그대로 유지한다. 고정 계약에 따라 Entry6을 생성하지 않는다.
 
 ## 재현 파일
 
-`C_SELECTION.json`, `MODEL_SOURCE_EVIDENCE.csv`, `FACE_UV_EVIDENCE.csv`, `TEXTURE_BINDINGS.csv`, `PNG_RGBA_EVIDENCE.csv`, `PNG_MCMETA_SOURCE.csv`, `UNRESOLVED.csv`, `UNBOUND_TEMPLATE_EVIDENCE.csv`, `UNRESOLVED_NON_TEMPLATE.csv`, `SELECTED_P1_PRIOR_C_FIELDS.csv`, `C_ENTRY5_AUDIT.json`, `C_SCOPE_2390_FINAL_STATUS.csv`, `C_PNG_UNIQUE_ALL.csv`, `C_UNBOUND_TEMPLATE_ALL.csv`, `C_HISTORICAL_P1_544_PROVENANCE.csv`, `C_ENTRY5_COMPILED_SUMMARY.json`, `C_ENTRY5_INDEPENDENT_SOURCE_EXIT_AUDIT.json`, `HEAVY_CORE_CLIENT_BYTECODE_EVIDENCE.txt`, `HEAVY_CORE_PNG_RGBA_EVIDENCE.json`, `HEAVY_CORE_FACE_ERRATUM.csv`. 실행: `scripts/phase_1_2_c_entry1.py`, `phase_1_2_c_entry4_support.py`, `phase_1_2_c_heavy_core_erratum.py`, `phase_1_2_c_exit_compile.py`, `phase_1_2_c_exit_audit.py`.
+`C_SELECTION.json`, `MODEL_SOURCE_EVIDENCE.csv`, `FACE_UV_EVIDENCE.csv`, `TEXTURE_BINDINGS.csv`, `PNG_RGBA_EVIDENCE.csv`, `PNG_MCMETA_SOURCE.csv`, `UNRESOLVED.csv`, `UNBOUND_TEMPLATE_EVIDENCE.csv`, `UNRESOLVED_NON_TEMPLATE.csv`, `SELECTED_P1_PRIOR_C_FIELDS.csv`, `C_ENTRY5_AUDIT.json`, `C_SCOPE_2390_FINAL_STATUS.csv`, `C_PNG_UNIQUE_ALL.csv`, `C_UNBOUND_TEMPLATE_ALL.csv`, `C_HISTORICAL_P1_544_PROVENANCE.csv`, `C_ENTRY5_COMPILED_SUMMARY.json`, `C_ENTRY5_INDEPENDENT_SOURCE_EXIT_AUDIT.json`, `C_ENTRY5_REMOTE_READBACK.json`, `HEAVY_CORE_CLIENT_BYTECODE_EVIDENCE.txt`, `HEAVY_CORE_PNG_RGBA_EVIDENCE.json`, `HEAVY_CORE_FACE_ERRATUM.csv`. 실행: `scripts/phase_1_2_c_entry1.py`, `phase_1_2_c_entry4_support.py`, `phase_1_2_c_heavy_core_erratum.py`, `phase_1_2_c_exit_compile.py`, `phase_1_2_c_exit_audit.py`.
