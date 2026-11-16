@@ -1,0 +1,134 @@
+{
+  "schema": "D_ENTRY2_REMOTE_SHA_LINE_CONTENT_READBACK/v1",
+  "date": "2026-11-16",
+  "verified_main_head": "cd5817d10195aab5814f3e8312e6feabe72b4373",
+  "previous_main_head": "89e6d53e9dd67987f6e203db9cc7578aefaf68fe",
+  "changed_file_count": 30,
+  "added_files": 26,
+  "modified_files": 4,
+  "remote_main_ref_equals_verified_main_head": true,
+  "original_source_snapshots": {
+    "batches": 6,
+    "files_per_batch": 16,
+    "source_JSON_reparsed": 96,
+    "expected_source_SHA_matches": 96,
+    "remote_body_and_sha_checked": true,
+    "snapshot_total_bytes": 141435,
+    "blob_shas": [
+      "1d5c6913d404063d908d5b8e58ca0d9902a6d4c6",
+      "d9a0a298381feef7e6dc0678482982b86f443537",
+      "a503c628ef3283e60c4b548379f7c42364e7a3bc",
+      "03c1c24c0b6725b7c698849be09ca538a502ce8d",
+      "4370fc0773e5b2bd2a7b43bd9ab61dd282327a47",
+      "2a468017bd3285b1864006193282d56cc35d1489"
+    ]
+  },
+  "states": {
+    "remote_parts_read": 6,
+    "rows_by_part": [
+      190,
+      115,
+      178,
+      164,
+      193,
+      44
+    ],
+    "reconstructed_state_rows": 884,
+    "reconstructed_bytes": 1069119,
+    "canonical_sha": "f92ada242db8c4350e82a569bf98cd6aa8ac472d",
+    "reconstructed_contents_created_blob_sha": "f92ada242db8c4350e82a569bf98cd6aa8ac472d",
+    "byte_identical_to_canonical": true,
+    "split_manifest_sha": "50e2fd7ef25ea336d4937ee30172739f9cd8c9b9"
+  },
+  "source_and_crosswalk_remote_files": [
+    {
+      "name": "D_SOURCE_RULES.csv",
+      "sha": "7cb1917de705ae66753f9cf718eb0ac0ed6fb9aa",
+      "data_rows": 809,
+      "content_checked": true
+    },
+    {
+      "name": "D_STATE_MODEL_BC_LINKS.csv",
+      "sha": "65dc4af6c55b3bda8316b541696c80e7a051def6",
+      "data_rows": 1274,
+      "content_checked": true
+    },
+    {
+      "name": "D_MODEL_BC_CROSSWALK.csv",
+      "sha": "69e6cb7aa7237b49fc9a972f81830ef7103e8a6d",
+      "data_rows": 211,
+      "content_checked": true
+    },
+    {
+      "name": "D_BLOCK_SUMMARY.csv",
+      "sha": "e58e584c53a8b8151569f7a32a49f44ad45180c5",
+      "data_rows": 96,
+      "content_checked": true
+    },
+    {
+      "name": "D_TEXTURE_C_LINKS.csv",
+      "sha": "0bdde7e7e8684b68fca7390f0eea96afece30f8a",
+      "data_rows": 707,
+      "content_checked": true
+    },
+    {
+      "name": "D_EXCEPTION_REGISTER.csv",
+      "sha": "dc55a651db00c43270483e75d497ef17842ffa6c",
+      "data_rows": 14,
+      "content_checked": true
+    },
+    {
+      "name": "D_ENTRY2_SOURCE_STATUS.csv",
+      "sha": "52f38fce741dfcfcd8bf287f26297072aad23fdb",
+      "data_rows": 96,
+      "content_checked": true
+    },
+    {
+      "name": "D_ENTRY2_INDEPENDENT_SOURCE_AUDIT.json",
+      "sha": "f7c56f4eb577283e91cc8f9131a4e5cf8ad5bd32",
+      "pass": true,
+      "content_checked": true
+    },
+    {
+      "name": "D_ENTRY2_C_SLOT_PNG_AUDIT.json",
+      "sha": "30e44cbac66e08ae1d6b246afea21e6b4f23c19f",
+      "pass": true,
+      "content_checked": true
+    },
+    {
+      "name": "D_ENTRY2_REPORT.md",
+      "sha": "c16a203e4ba3dab858269029da951c1b6e11503a",
+      "content_checked": true
+    },
+    {
+      "name": "D_NEXT.md",
+      "sha": "15560477e2f77bf99bc9ed1fa86341d728fde0bb",
+      "content_checked": true
+    }
+  ],
+  "next_entry_queue": {
+    "name": "entry3/D_ENTRY3_QUEUE_265.csv",
+    "sha": "e4d0c765de54d98848c0fed99e1efa2c465804d0",
+    "rows": 265,
+    "uninspected": true
+  },
+  "handoff_progress_existing_history_preserved": true,
+  "prior_state_contents_preserved_exactly_except_added_phase_1_2_D_entry2": true,
+  "protected_original_sources_A_B_C_v69_modified_count": 0,
+  "D_actual_source_JSON_inspected_cumulative": 108,
+  "D_total_fixed_source_JSON": 1168,
+  "D_source_JSON_uninspected": 1060,
+  "Entry2_source_and_independent_audit_complete": true,
+  "D_whole_stage_complete": false,
+  "D_status": "D_IN_PROGRESS_ENTRY2",
+  "stage_gates": {
+    "D1": "PASS",
+    "D2": "PARTIAL_108_1168",
+    "D3": "PARTIAL_108_1168",
+    "D4": "PARTIAL_108_1168",
+    "D5": "PENDING"
+  },
+  "official_JAR_authenticated": false,
+  "ingame_runtime_render_tested": false,
+  "all_remote_readback_checks_pass": true
+}
