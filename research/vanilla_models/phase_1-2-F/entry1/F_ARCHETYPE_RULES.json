@@ -1,5 +1,5 @@
 {
-  "schema": "F_ENTRY1_FIRST_PASS_ARCHETYPE_RULES/v1",
+  "schema": "F_ENTRY1_SOURCE_STYLE_ARCHETYPE_RULES/v2",
   "source_rows": 150,
   "rule_exact_full_cube": "one B applied element from=[0,0,0] to=[16,16,16] and unrotated",
   "rule_thin": "any absolute element axis thickness <=1 (study-specific)",
@@ -8,7 +8,7 @@
   "rule_rotation": "any source element rotation_present=true",
   "rule_inverted_outside": "outside [0,16] or from>to",
   "multi_label_nonexclusive": true,
-  "visual_texture_comparison_not_performed": true,
+  "visual_texture_comparison_not_performed": false,
   "primary_precedence": [
     "E_SOURCE_EXCEPTION",
     "EXACT_FULL_CUBE",
@@ -87,5 +87,90 @@
     "ROTATED_ELEMENT": 36,
     "INVERTED_OR_OUTSIDE_16": 16,
     "E_SOURCE_EXCEPTION": 8
-  }
+  },
+  "visual_comparison_scope": {
+    "source_PNG_unique_first_frames_seen": 195,
+    "models_linked_to_direct_PNG_first_frame": 141,
+    "unbound_template_models": 9,
+    "animated_PNG_later_frames_not_visually_inspected": true,
+    "game_runtime_render_verified": false
+  },
+  "D_source_rule_recheck": {
+    "original_blockstate_files": 151,
+    "original_model_rule_choices": 403,
+    "variants": 321,
+    "multipart": 82,
+    "x_explicit_choices": 82,
+    "y_explicit_choices": 221,
+    "uvlock_explicit_choices": 121,
+    "weight_explicit_choices": 0,
+    "D_prior_state_model_rows_reused": 1180
+  },
+  "transfer_rule_status": "MODELING_HYPOTHESIS_SEPARATED_FROM_SOURCE_OBSERVATION",
+  "representative_observations": [
+    {
+      "archetype": "THIN_TEXTURE_PANEL",
+      "model": "acacia_shelf_unconnected.json",
+      "geometry": "from [0,4,13] to [16,12,13], one north face, inherited from template_shelf_unconnected",
+      "PNG": "block/acacia_shelf.png 32x32 first frame visually shows horizontal divisions and compartments",
+      "transfer_hypothesis": "flat panel and drawn compartments for a low-depth shelf facade",
+      "limit": "no demonstrated 3D shelf interior or runtime double-sided rendering"
+    },
+    {
+      "archetype": "FRAME_SUPPORT",
+      "model": "birch_fence_gate.json",
+      "geometry": "8 inherited elements including left post [0,5,7] to [2,16,9] and right post [14,5,7] to [16,16,9]",
+      "PNG": "block/birch_planks.png first frame shows horizontal light bands",
+      "transfer_hypothesis": "separate narrow uprights and crosspieces for an open frame",
+      "limit": "not a claim that the source object is furniture; use variant rotations explicitly"
+    },
+    {
+      "archetype": "LOW_SLAB",
+      "model": "bamboo_slab.json",
+      "geometry": "one inherited cuboid [0,0,0] to [16,8,16]",
+      "PNG": "block/bamboo_planks.png first frame has light horizontal bands",
+      "transfer_hypothesis": "half-height top or platform as one element",
+      "limit": "no legs inferred from this model"
+    },
+    {
+      "archetype": "THICK_UPRIGHT_PANEL",
+      "model": "cherry_trapdoor_open.json",
+      "geometry": "one inherited cuboid [0,0,13] to [16,16,16], depth 3",
+      "PNG": "block/cherry_trapdoor.png first frame has transparent openings with colored perimeter",
+      "transfer_hypothesis": "3-unit panel with texture-cut openings for a cabinet front candidate",
+      "limit": "alpha holes and actual in-game appearance not engine authenticated"
+    },
+    {
+      "archetype": "SMALL_ROTATED_DETAIL",
+      "model": "lantern.json",
+      "geometry": "four inherited elements, two zero-depth pieces rotated about y by 45 degrees",
+      "PNG": "block/lantern.png first frame has transparent surround, luminous center and detached ring-shaped pixels",
+      "transfer_hypothesis": "small crossed planes for decorative silhouette on a compact body",
+      "limit": "not a validated lighting or emitter behavior"
+    },
+    {
+      "archetype": "FULL_CUBE_TEXTURE_DETAIL",
+      "model": "jukebox.json",
+      "geometry": "single inherited full cube [0,0,0] to [16,16,16]",
+      "PNG": "block/jukebox_side.png first frame shows a grid-like brown pattern",
+      "transfer_hypothesis": "large volume as one cube with graphic face detail",
+      "limit": "surface pattern does not prove inset geometry"
+    },
+    {
+      "archetype": "STATE_ROTATION_REUSE",
+      "model": "blackstone_stairs_inner.json",
+      "geometry": "three inherited cuboids, stepped silhouette",
+      "D": "16 original variants include explicit x 180, y 270 and uvlock true on selected options",
+      "transfer_hypothesis": "reuse a few shape pieces across facing and half states",
+      "limit": "syntactic states are not registered runtime state proof"
+    },
+    {
+      "archetype": "SOURCE_EXCEPTION",
+      "model": "purple_shulker_box.json",
+      "geometry": "no general elements",
+      "PNG": "block/purple_shulker_box.png first frame has purple field and boundary shading",
+      "transfer_hypothesis": "particle palette reference only",
+      "limit": "actual renderer, lid and physical surface unknown"
+    }
+  ]
 }
