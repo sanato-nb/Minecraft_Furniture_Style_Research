@@ -1,0 +1,13 @@
+{
+  "scope": "ENTRY4_P2_LAST_494",
+  "evidence_grade": "SOURCE_JSON_DIRECT_AND_PNG_FIRST_FRAME_CONTACT_SHEET",
+  "rules": [
+    {"pattern": "NARROW_SUPPORT", "source_example": "mangrove_fence_post.json", "bbox_original_coordinates": [4,16,4], "transfer_hypothesis": "단일 가는 입체로 다리나 세로 지지대 표현", "limit": "재질과 물리적 지지 기능 미인증"},
+    {"pattern": "OPEN_MULTI_ELEMENT_FRAME", "source_example": "scaffolding_stable.json", "elements": 9, "transfer_hypothesis": "입체 프레임과 투명한 격자 PNG를 분리", "limit": "게임 속 기능 미인증"},
+    {"pattern": "SHALLOW_PANEL", "source_example": "spruce_trapdoor_bottom.json", "bbox_original_coordinates": [16,3,16], "transfer_hypothesis": "얕은 단일 판과 표면의 작은 무늬 조합", "limit": "실제 상태 회전·투명 효과 별도"},
+    {"pattern": "FULL_CUBE_FACE_ART", "source_example": "observer.json", "bbox_original_coordinates": [16,16,16], "transfer_hypothesis": "단순 육면체의 면별 PNG로 방향성 있는 외형 구성", "limit": "표면 무늬로 게임 기능 추정 금지"},
+    {"pattern": "ROTATED_SMALL_DETAIL", "source_example": "tripwire_hook.json", "elements": 7, "transfer_hypothesis": "작은 장식의 입체 받침과 회전한 평면 결합", "limit": "회전 후 실제 경계와 렌더 미검증"}
+  ],
+  "source_and_sha_registers": ["F_MODEL_SOURCE_STATUS.csv", "F_GEOMETRY_ELEMENTS.csv", "F_PNG_DIRECT_VISUAL_OBSERVATIONS.csv"],
+  "comparison": "VANILLA_GEOMETRY_ARCHETYPES.md"
+}
