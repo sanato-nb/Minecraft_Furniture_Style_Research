@@ -1,3 +1,5 @@
+> **2026-11-16 고정 시행 범위:** [총 5 Entry·직접 대상 2,304/예외 86·Entry3~5 각 732개·종료 계약](1-2-C_FIXED_SCOPE_AND_EXIT_CONTRACT.md). 아래 내용은 시작 당시 계획이며, 구체적 분모·회차·완료 판정은 고정 계약을 따른다.
+
 # 1-2-C — UV·텍스처·PNG 원본 연구 계획
 
 작성 2026-11-16 KST · Minecraft Java 1.21.11 · 시작 기준 `main` `73571a9e1ab791e6ded46b6a01a1aae04fc8ffaf`.

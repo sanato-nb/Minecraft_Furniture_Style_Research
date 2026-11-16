@@ -1,3 +1,5 @@
+> **2026-11-16 고정 계획:** [1-2-C 총 5 Entry 범위·종료계약](1-2-C_FIXED_SCOPE_AND_EXIT_CONTRACT.md). Entry1/2에서 108개 실제 조사, Entry3~5에 732개씩 배정. 배정은 완료 실적이 아니며 C 진행 중.
+
 > **2026-11-16 현행 Entry2:** 1-2-C에서 Entry1 12개+Entry2 96개로 C 코호트 108/2,304 모델의 원본 UV·텍스처 조사를 수행했다. Entry2 [보고서](../../research/vanilla_models/phase_1-2-C/entry2/C_ENTRY2_REPORT.md), 이전 역사 상태 기록은 아래에 보존. C 완료 아님.
 
 > **2026-11-16 현행:** B Entry10에서 2,360/2,360 source geometry 완료. 1-2-C는 [작업계획](1-2-C_WORK_PLAN.md)에 따라 Entry1에서 12개 모델/96면/17 PNG 직접 실측을 시작했으며 전체 C 완료는 아니다. [실측 보고서](../../research/vanilla_models/phase_1-2-C/entry1/C_ENTRY1_REPORT.md). 아래의 Entry8 등 날짜별 기록은 당시 상태로 보존한다.
