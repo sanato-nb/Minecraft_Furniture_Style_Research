@@ -1,0 +1,106 @@
+{
+  "schema": "D_ENTRY5_ORIGINAL/v1",
+  "baseline_head": "5febebb97207ecee724725c272eefe2ea9c83481",
+  "queue_rows": [
+    225,
+    240
+  ],
+  "sources": [
+    {
+      "queue_row": 225,
+      "path": "1.21.11/assets/minecraft/blockstates/red_sandstone_wall.json",
+      "git_blob_sha": "91a72c896d3824571d71b7c5bcbe080310f37626",
+      "json_text": "{\n  \"multipart\": [\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/red_sandstone_wall_post\"\n      },\n      \"when\": {\n        \"up\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/red_sandstone_wall_side\",\n        \"uvlock\": true\n      },\n      \"when\": {\n        \"north\": \"low\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/red_sandstone_wall_side\",\n        \"uvlock\": true,\n        \"y\": 90\n      },\n      \"when\": {\n        \"east\": \"low\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/red_sandstone_wall_side\",\n        \"uvlock\": true,\n        \"y\": 180\n      },\n      \"when\": {\n        \"south\": \"low\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/red_sandstone_wall_side\",\n        \"uvlock\": true,\n        \"y\": 270\n      },\n      \"when\": {\n        \"west\": \"low\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/red_sandstone_wall_side_tall\",\n        \"uvlock\": true\n      },\n      \"when\": {\n        \"north\": \"tall\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/red_sandstone_wall_side_tall\",\n        \"uvlock\": true,\n        \"y\": 90\n      },\n      \"when\": {\n        \"east\": \"tall\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/red_sandstone_wall_side_tall\",\n        \"uvlock\": true,\n        \"y\": 180\n      },\n      \"when\": {\n        \"south\": \"tall\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/red_sandstone_wall_side_tall\",\n        \"uvlock\": true,\n        \"y\": 270\n      },\n      \"when\": {\n        \"west\": \"tall\"\n      }\n    }\n  ]\n}"
+    },
+    {
+      "queue_row": 226,
+      "path": "1.21.11/assets/minecraft/blockstates/red_shulker_box.json",
+      "git_blob_sha": "ce5bcc98d0e5aa16d407ecb558d6f4e124a6499f",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/red_shulker_box\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 227,
+      "path": "1.21.11/assets/minecraft/blockstates/red_stained_glass.json",
+      "git_blob_sha": "7e6ffba8a44ac942541ded91e354b3e594098df0",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/red_stained_glass\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 228,
+      "path": "1.21.11/assets/minecraft/blockstates/red_stained_glass_pane.json",
+      "git_blob_sha": "2bd8883a09d085b84881ff58149d567f8c665eb2",
+      "json_text": "{\n  \"multipart\": [\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/red_stained_glass_pane_post\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/red_stained_glass_pane_side\"\n      },\n      \"when\": {\n        \"north\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/red_stained_glass_pane_side\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"east\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/red_stained_glass_pane_side_alt\"\n      },\n      \"when\": {\n        \"south\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/red_stained_glass_pane_side_alt\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"west\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/red_stained_glass_pane_noside\"\n      },\n      \"when\": {\n        \"north\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/red_stained_glass_pane_noside_alt\"\n      },\n      \"when\": {\n        \"east\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/red_stained_glass_pane_noside_alt\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"south\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/red_stained_glass_pane_noside\",\n        \"y\": 270\n      },\n      \"when\": {\n        \"west\": \"false\"\n      }\n    }\n  ]\n}"
+    },
+    {
+      "queue_row": 229,
+      "path": "1.21.11/assets/minecraft/blockstates/red_terracotta.json",
+      "git_blob_sha": "78ac3ae6f470a22d7c3cbfafb64c10d33c603461",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/red_terracotta\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 230,
+      "path": "1.21.11/assets/minecraft/blockstates/red_tulip.json",
+      "git_blob_sha": "a2afbe183e96a03b147bcc3fee9e5e3b4a4c5dcb",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/red_tulip\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 231,
+      "path": "1.21.11/assets/minecraft/blockstates/red_wall_banner.json",
+      "git_blob_sha": "f5e2c87f4dd44db6086c0bbb3ffdd2de0055d8d2",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/banner\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 232,
+      "path": "1.21.11/assets/minecraft/blockstates/red_wool.json",
+      "git_blob_sha": "d756ff397b698ff62bf1af1322c107088cac4f0c",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/red_wool\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 233,
+      "path": "1.21.11/assets/minecraft/blockstates/redstone_block.json",
+      "git_blob_sha": "b0ff253e8aa3649aa5423a501a1d3e255a68ed16",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/redstone_block\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 234,
+      "path": "1.21.11/assets/minecraft/blockstates/redstone_lamp.json",
+      "git_blob_sha": "bbd9d93559cd35cb1f0f624c58417ebcd9be59a0",
+      "json_text": "{\n  \"variants\": {\n    \"lit=false\": {\n      \"model\": \"minecraft:block/redstone_lamp\"\n    },\n    \"lit=true\": {\n      \"model\": \"minecraft:block/redstone_lamp_on\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 235,
+      "path": "1.21.11/assets/minecraft/blockstates/redstone_ore.json",
+      "git_blob_sha": "cc4e3fa0617213a6230c6add9b06df4694881c86",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/redstone_ore\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 236,
+      "path": "1.21.11/assets/minecraft/blockstates/redstone_torch.json",
+      "git_blob_sha": "6c765135e04ddc812b9292da5f6adfba2af7c88d",
+      "json_text": "{\n  \"variants\": {\n    \"lit=false\": {\n      \"model\": \"minecraft:block/redstone_torch_off\"\n    },\n    \"lit=true\": {\n      \"model\": \"minecraft:block/redstone_torch\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 237,
+      "path": "1.21.11/assets/minecraft/blockstates/redstone_wall_torch.json",
+      "git_blob_sha": "de19925cbeb1683048f253e149d3b340d700b1bc",
+      "json_text": "{\n  \"variants\": {\n    \"facing=east,lit=false\": {\n      \"model\": \"minecraft:block/redstone_wall_torch_off\"\n    },\n    \"facing=east,lit=true\": {\n      \"model\": \"minecraft:block/redstone_wall_torch\"\n    },\n    \"facing=north,lit=false\": {\n      \"model\": \"minecraft:block/redstone_wall_torch_off\",\n      \"y\": 270\n    },\n    \"facing=north,lit=true\": {\n      \"model\": \"minecraft:block/redstone_wall_torch\",\n      \"y\": 270\n    },\n    \"facing=south,lit=false\": {\n      \"model\": \"minecraft:block/redstone_wall_torch_off\",\n      \"y\": 90\n    },\n    \"facing=south,lit=true\": {\n      \"model\": \"minecraft:block/redstone_wall_torch\",\n      \"y\": 90\n    },\n    \"facing=west,lit=false\": {\n      \"model\": \"minecraft:block/redstone_wall_torch_off\",\n      \"y\": 180\n    },\n    \"facing=west,lit=true\": {\n      \"model\": \"minecraft:block/redstone_wall_torch\",\n      \"y\": 180\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 238,
+      "path": "1.21.11/assets/minecraft/blockstates/redstone_wire.json",
+      "git_blob_sha": "2617c53affdf816a0199142004fde813f06f6641",
+      "json_text": "{\n  \"multipart\": [\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/redstone_dust_dot\"\n      },\n      \"when\": {\n        \"OR\": [\n          {\n            \"east\": \"none\",\n            \"north\": \"none\",\n            \"south\": \"none\",\n            \"west\": \"none\"\n          },\n          {\n            \"east\": \"side|up\",\n            \"north\": \"side|up\"\n          },\n          {\n            \"east\": \"side|up\",\n            \"south\": \"side|up\"\n          },\n          {\n            \"south\": \"side|up\",\n            \"west\": \"side|up\"\n          },\n          {\n            \"north\": \"side|up\",\n            \"west\": \"side|up\"\n          }\n        ]\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/redstone_dust_side0\"\n      },\n      \"when\": {\n        \"north\": \"side|up\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/redstone_dust_side_alt0\"\n      },\n      \"when\": {\n        \"south\": \"side|up\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/redstone_dust_side_alt1\",\n        \"y\": 270\n      },\n      \"when\": {\n        \"east\": \"side|up\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/redstone_dust_side1\",\n        \"y\": 270\n      },\n      \"when\": {\n        \"west\": \"side|up\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/redstone_dust_up\"\n      },\n      \"when\": {\n        \"north\": \"up\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/redstone_dust_up\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"east\": \"up\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/redstone_dust_up\",\n        \"y\": 180\n      },\n      \"when\": {\n        \"south\": \"up\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/redstone_dust_up\",\n        \"y\": 270\n      },\n      \"when\": {\n        \"west\": \"up\"\n      }\n    }\n  ]\n}"
+    },
+    {
+      "queue_row": 239,
+      "path": "1.21.11/assets/minecraft/blockstates/reinforced_deepslate.json",
+      "git_blob_sha": "6c196af1225b611fdc85c277e842120deaf5e7de",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/reinforced_deepslate\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 240,
+      "path": "1.21.11/assets/minecraft/blockstates/repeater.json",
+      "git_blob_sha": "4e0ab9ce62b7eda737da9647bf601a2cd865e654",
+      "json_text": "{\n  \"variants\": {\n    \"delay=1,facing=east,locked=false,powered=false\": {\n      \"model\": \"minecraft:block/repeater_1tick\",\n      \"y\": 270\n    },\n    \"delay=1,facing=east,locked=false,powered=true\": {\n      \"model\": \"minecraft:block/repeater_1tick_on\",\n      \"y\": 270\n    },\n    \"delay=1,facing=east,locked=true,powered=false\": {\n      \"model\": \"minecraft:block/repeater_1tick_locked\",\n      \"y\": 270\n    },\n    \"delay=1,facing=east,locked=true,powered=true\": {\n      \"model\": \"minecraft:block/repeater_1tick_on_locked\",\n      \"y\": 270\n    },\n    \"delay=1,facing=north,locked=false,powered=false\": {\n      \"model\": \"minecraft:block/repeater_1tick\",\n      \"y\": 180\n    },\n    \"delay=1,facing=north,locked=false,powered=true\": {\n      \"model\": \"minecraft:block/repeater_1tick_on\",\n      \"y\": 180\n    },\n    \"delay=1,facing=north,locked=true,powered=false\": {\n      \"model\": \"minecraft:block/repeater_1tick_locked\",\n      \"y\": 180\n    },\n    \"delay=1,facing=north,locked=true,powered=true\": {\n      \"model\": \"minecraft:block/repeater_1tick_on_locked\",\n      \"y\": 180\n    },\n    \"delay=1,facing=south,locked=false,powered=false\": {\n      \"model\": \"minecraft:block/repeater_1tick\"\n    },\n    \"delay=1,facing=south,locked=false,powered=true\": {\n      \"model\": \"minecraft:block/repeater_1tick_on\"\n    },\n    \"delay=1,facing=south,locked=true,powered=false\": {\n      \"model\": \"minecraft:block/repeater_1tick_locked\"\n    },\n    \"delay=1,facing=south,locked=true,powered=true\": {\n      \"model\": \"minecraft:block/repeater_1tick_on_locked\"\n    },\n    \"delay=1,facing=west,locked=false,powered=false\": {\n      \"model\": \"minecraft:block/repeater_1tick\",\n      \"y\": 90\n    },\n    \"delay=1,facing=west,locked=false,powered=true\": {\n      \"model\": \"minecraft:block/repeater_1tick_on\",\n      \"y\": 90\n    },\n    \"delay=1,facing=west,locked=true,powered=false\": {\n      \"model\": \"minecraft:block/repeater_1tick_locked\",\n      \"y\": 90\n    },\n    \"delay=1,facing=west,locked=true,powered=true\": {\n      \"model\": \"minecraft:block/repeater_1tick_on_locked\",\n      \"y\": 90\n    },\n    \"delay=2,facing=east,locked=false,powered=false\": {\n      \"model\": \"minecraft:block/repeater_2tick\",\n      \"y\": 270\n    },\n    \"delay=2,facing=east,locked=false,powered=true\": {\n      \"model\": \"minecraft:block/repeater_2tick_on\",\n      \"y\": 270\n    },\n    \"delay=2,facing=east,locked=true,powered=false\": {\n      \"model\": \"minecraft:block/repeater_2tick_locked\",\n      \"y\": 270\n    },\n    \"delay=2,facing=east,locked=true,powered=true\": {\n      \"model\": \"minecraft:block/repeater_2tick_on_locked\",\n      \"y\": 270\n    },\n    \"delay=2,facing=north,locked=false,powered=false\": {\n      \"model\": \"minecraft:block/repeater_2tick\",\n      \"y\": 180\n    },\n    \"delay=2,facing=north,locked=false,powered=true\": {\n      \"model\": \"minecraft:block/repeater_2tick_on\",\n      \"y\": 180\n    },\n    \"delay=2,facing=north,locked=true,powered=false\": {\n      \"model\": \"minecraft:block/repeater_2tick_locked\",\n      \"y\": 180\n    },\n    \"delay=2,facing=north,locked=true,powered=true\": {\n      \"model\": \"minecraft:block/repeater_2tick_on_locked\",\n      \"y\": 180\n    },\n    \"delay=2,facing=south,locked=false,powered=false\": {\n      \"model\": \"minecraft:block/repeater_2tick\"\n    },\n    \"delay=2,facing=south,locked=false,powered=true\": {\n      \"model\": \"minecraft:block/repeater_2tick_on\"\n    },\n    \"delay=2,facing=south,locked=true,powered=false\": {\n      \"model\": \"minecraft:block/repeater_2tick_locked\"\n    },\n    \"delay=2,facing=south,locked=true,powered=true\": {\n      \"model\": \"minecraft:block/repeater_2tick_on_locked\"\n    },\n    \"delay=2,facing=west,locked=false,powered=false\": {\n      \"model\": \"minecraft:block/repeater_2tick\",\n      \"y\": 90\n    },\n    \"delay=2,facing=west,locked=false,powered=true\": {\n      \"model\": \"minecraft:block/repeater_2tick_on\",\n      \"y\": 90\n    },\n    \"delay=2,facing=west,locked=true,powered=false\": {\n      \"model\": \"minecraft:block/repeater_2tick_locked\",\n      \"y\": 90\n    },\n    \"delay=2,facing=west,locked=true,powered=true\": {\n      \"model\": \"minecraft:block/repeater_2tick_on_locked\",\n      \"y\": 90\n    },\n    \"delay=3,facing=east,locked=false,powered=false\": {\n      \"model\": \"minecraft:block/repeater_3tick\",\n      \"y\": 270\n    },\n    \"delay=3,facing=east,locked=false,powered=true\": {\n      \"model\": \"minecraft:block/repeater_3tick_on\",\n      \"y\": 270\n    },\n    \"delay=3,facing=east,locked=true,powered=false\": {\n      \"model\": \"minecraft:block/repeater_3tick_locked\",\n      \"y\": 270\n    },\n    \"delay=3,facing=east,locked=true,powered=true\": {\n      \"model\": \"minecraft:block/repeater_3tick_on_locked\",\n      \"y\": 270\n    },\n    \"delay=3,facing=north,locked=false,powered=false\": {\n      \"model\": \"minecraft:block/repeater_3tick\",\n      \"y\": 180\n    },\n    \"delay=3,facing=north,locked=false,powered=true\": {\n      \"model\": \"minecraft:block/repeater_3tick_on\",\n      \"y\": 180\n    },\n    \"delay=3,facing=north,locked=true,powered=false\": {\n      \"model\": \"minecraft:block/repeater_3tick_locked\",\n      \"y\": 180\n    },\n    \"delay=3,facing=north,locked=true,powered=true\": {\n      \"model\": \"minecraft:block/repeater_3tick_on_locked\",\n      \"y\": 180\n    },\n    \"delay=3,facing=south,locked=false,powered=false\": {\n      \"model\": \"minecraft:block/repeater_3tick\"\n    },\n    \"delay=3,facing=south,locked=false,powered=true\": {\n      \"model\": \"minecraft:block/repeater_3tick_on\"\n    },\n    \"delay=3,facing=south,locked=true,powered=false\": {\n      \"model\": \"minecraft:block/repeater_3tick_locked\"\n    },\n    \"delay=3,facing=south,locked=true,powered=true\": {\n      \"model\": \"minecraft:block/repeater_3tick_on_locked\"\n    },\n    \"delay=3,facing=west,locked=false,powered=false\": {\n      \"model\": \"minecraft:block/repeater_3tick\",\n      \"y\": 90\n    },\n    \"delay=3,facing=west,locked=false,powered=true\": {\n      \"model\": \"minecraft:block/repeater_3tick_on\",\n      \"y\": 90\n    },\n    \"delay=3,facing=west,locked=true,powered=false\": {\n      \"model\": \"minecraft:block/repeater_3tick_locked\",\n      \"y\": 90\n    },\n    \"delay=3,facing=west,locked=true,powered=true\": {\n      \"model\": \"minecraft:block/repeater_3tick_on_locked\",\n      \"y\": 90\n    },\n    \"delay=4,facing=east,locked=false,powered=false\": {\n      \"model\": \"minecraft:block/repeater_4tick\",\n      \"y\": 270\n    },\n    \"delay=4,facing=east,locked=false,powered=true\": {\n      \"model\": \"minecraft:block/repeater_4tick_on\",\n      \"y\": 270\n    },\n    \"delay=4,facing=east,locked=true,powered=false\": {\n      \"model\": \"minecraft:block/repeater_4tick_locked\",\n      \"y\": 270\n    },\n    \"delay=4,facing=east,locked=true,powered=true\": {\n      \"model\": \"minecraft:block/repeater_4tick_on_locked\",\n      \"y\": 270\n    },\n    \"delay=4,facing=north,locked=false,powered=false\": {\n      \"model\": \"minecraft:block/repeater_4tick\",\n      \"y\": 180\n    },\n    \"delay=4,facing=north,locked=false,powered=true\": {\n      \"model\": \"minecraft:block/repeater_4tick_on\",\n      \"y\": 180\n    },\n    \"delay=4,facing=north,locked=true,powered=false\": {\n      \"model\": \"minecraft:block/repeater_4tick_locked\",\n      \"y\": 180\n    },\n    \"delay=4,facing=north,locked=true,powered=true\": {\n      \"model\": \"minecraft:block/repeater_4tick_on_locked\",\n      \"y\": 180\n    },\n    \"delay=4,facing=south,locked=false,powered=false\": {\n      \"model\": \"minecraft:block/repeater_4tick\"\n    },\n    \"delay=4,facing=south,locked=false,powered=true\": {\n      \"model\": \"minecraft:block/repeater_4tick_on\"\n    },\n    \"delay=4,facing=south,locked=true,powered=false\": {\n      \"model\": \"minecraft:block/repeater_4tick_locked\"\n    },\n    \"delay=4,facing=south,locked=true,powered=true\": {\n      \"model\": \"minecraft:block/repeater_4tick_on_locked\"\n    },\n    \"delay=4,facing=west,locked=false,powered=false\": {\n      \"model\": \"minecraft:block/repeater_4tick\",\n      \"y\": 90\n    },\n    \"delay=4,facing=west,locked=false,powered=true\": {\n      \"model\": \"minecraft:block/repeater_4tick_on\",\n      \"y\": 90\n    },\n    \"delay=4,facing=west,locked=true,powered=false\": {\n      \"model\": \"minecraft:block/repeater_4tick_locked\",\n      \"y\": 90\n    },\n    \"delay=4,facing=west,locked=true,powered=true\": {\n      \"model\": \"minecraft:block/repeater_4tick_on_locked\",\n      \"y\": 90\n    }\n  }\n}"
+    }
+  ]
+}

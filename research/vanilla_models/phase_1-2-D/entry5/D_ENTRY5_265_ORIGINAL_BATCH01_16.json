@@ -1,0 +1,106 @@
+{
+  "schema": "D_ENTRY5_ORIGINAL/v1",
+  "baseline_head": "5febebb97207ecee724725c272eefe2ea9c83481",
+  "queue_rows": [
+    1,
+    16
+  ],
+  "sources": [
+    {
+      "queue_row": 1,
+      "path": "1.21.11/assets/minecraft/blockstates/oak_fence.json",
+      "git_blob_sha": "394851e1883d0bda305aa0b47b04b0e04716200a",
+      "json_text": "{\n  \"multipart\": [\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/oak_fence_post\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/oak_fence_side\",\n        \"uvlock\": true\n      },\n      \"when\": {\n        \"north\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/oak_fence_side\",\n        \"uvlock\": true,\n        \"y\": 90\n      },\n      \"when\": {\n        \"east\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/oak_fence_side\",\n        \"uvlock\": true,\n        \"y\": 180\n      },\n      \"when\": {\n        \"south\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/oak_fence_side\",\n        \"uvlock\": true,\n        \"y\": 270\n      },\n      \"when\": {\n        \"west\": \"true\"\n      }\n    }\n  ]\n}"
+    },
+    {
+      "queue_row": 2,
+      "path": "1.21.11/assets/minecraft/blockstates/oak_hanging_sign.json",
+      "git_blob_sha": "b2c43dc30565df7450e5d82b9a1613ea1a8f325d",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/oak_hanging_sign\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 3,
+      "path": "1.21.11/assets/minecraft/blockstates/oak_leaves.json",
+      "git_blob_sha": "8d60eedb41f3b7342cd8612f1eadba7f6788b6d9",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/oak_leaves\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 4,
+      "path": "1.21.11/assets/minecraft/blockstates/oak_log.json",
+      "git_blob_sha": "9d3266ce008d17fba9dd4cc1869d8879951d60a5",
+      "json_text": "{\n  \"variants\": {\n    \"axis=x\": {\n      \"model\": \"minecraft:block/oak_log_horizontal\",\n      \"x\": 90,\n      \"y\": 90\n    },\n    \"axis=y\": {\n      \"model\": \"minecraft:block/oak_log\"\n    },\n    \"axis=z\": {\n      \"model\": \"minecraft:block/oak_log_horizontal\",\n      \"x\": 90\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 5,
+      "path": "1.21.11/assets/minecraft/blockstates/oak_planks.json",
+      "git_blob_sha": "02780929635818fd6254fdab86ea7e97a6440331",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/oak_planks\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 6,
+      "path": "1.21.11/assets/minecraft/blockstates/oak_pressure_plate.json",
+      "git_blob_sha": "6ecbfbc5fd703b033e05ff61fa05bb96be2afc30",
+      "json_text": "{\n  \"variants\": {\n    \"powered=false\": {\n      \"model\": \"minecraft:block/oak_pressure_plate\"\n    },\n    \"powered=true\": {\n      \"model\": \"minecraft:block/oak_pressure_plate_down\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 7,
+      "path": "1.21.11/assets/minecraft/blockstates/oak_sapling.json",
+      "git_blob_sha": "04d4cbe939990ab61e4202b6bc46a25d294a9b36",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/oak_sapling\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 8,
+      "path": "1.21.11/assets/minecraft/blockstates/oak_sign.json",
+      "git_blob_sha": "b9f38f4f7f38680ed0656ce1d62f5d076bf24559",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/oak_sign\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 9,
+      "path": "1.21.11/assets/minecraft/blockstates/oak_slab.json",
+      "git_blob_sha": "c503f74caa7dff5713280041366e628f9a7f8449",
+      "json_text": "{\n  \"variants\": {\n    \"type=bottom\": {\n      \"model\": \"minecraft:block/oak_slab\"\n    },\n    \"type=double\": {\n      \"model\": \"minecraft:block/oak_planks\"\n    },\n    \"type=top\": {\n      \"model\": \"minecraft:block/oak_slab_top\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 10,
+      "path": "1.21.11/assets/minecraft/blockstates/oak_stairs.json",
+      "git_blob_sha": "c20e7ef6c86dd57238f39cd51fc6b0c5bcc5b079",
+      "json_text": "{\n  \"variants\": {\n    \"facing=east,half=bottom,shape=inner_left\": {\n      \"model\": \"minecraft:block/oak_stairs_inner\",\n      \"uvlock\": true,\n      \"y\": 270\n    },\n    \"facing=east,half=bottom,shape=inner_right\": {\n      \"model\": \"minecraft:block/oak_stairs_inner\"\n    },\n    \"facing=east,half=bottom,shape=outer_left\": {\n      \"model\": \"minecraft:block/oak_stairs_outer\",\n      \"uvlock\": true,\n      \"y\": 270\n    },\n    \"facing=east,half=bottom,shape=outer_right\": {\n      \"model\": \"minecraft:block/oak_stairs_outer\"\n    },\n    \"facing=east,half=bottom,shape=straight\": {\n      \"model\": \"minecraft:block/oak_stairs\"\n    },\n    \"facing=east,half=top,shape=inner_left\": {\n      \"model\": \"minecraft:block/oak_stairs_inner\",\n      \"uvlock\": true,\n      \"x\": 180\n    },\n    \"facing=east,half=top,shape=inner_right\": {\n      \"model\": \"minecraft:block/oak_stairs_inner\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 90\n    },\n    \"facing=east,half=top,shape=outer_left\": {\n      \"model\": \"minecraft:block/oak_stairs_outer\",\n      \"uvlock\": true,\n      \"x\": 180\n    },\n    \"facing=east,half=top,shape=outer_right\": {\n      \"model\": \"minecraft:block/oak_stairs_outer\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 90\n    },\n    \"facing=east,half=top,shape=straight\": {\n      \"model\": \"minecraft:block/oak_stairs\",\n      \"uvlock\": true,\n      \"x\": 180\n    },\n    \"facing=north,half=bottom,shape=inner_left\": {\n      \"model\": \"minecraft:block/oak_stairs_inner\",\n      \"uvlock\": true,\n      \"y\": 180\n    },\n    \"facing=north,half=bottom,shape=inner_right\": {\n      \"model\": \"minecraft:block/oak_stairs_inner\",\n      \"uvlock\": true,\n      \"y\": 270\n    },\n    \"facing=north,half=bottom,shape=outer_left\": {\n      \"model\": \"minecraft:block/oak_stairs_outer\",\n      \"uvlock\": true,\n      \"y\": 180\n    },\n    \"facing=north,half=bottom,shape=outer_right\": {\n      \"model\": \"minecraft:block/oak_stairs_outer\",\n      \"uvlock\": true,\n      \"y\": 270\n    },\n    \"facing=north,half=bottom,shape=straight\": {\n      \"model\": \"minecraft:block/oak_stairs\",\n      \"uvlock\": true,\n      \"y\": 270\n    },\n    \"facing=north,half=top,shape=inner_left\": {\n      \"model\": \"minecraft:block/oak_stairs_inner\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 270\n    },\n    \"facing=north,half=top,shape=inner_right\": {\n      \"model\": \"minecraft:block/oak_stairs_inner\",\n      \"uvlock\": true,\n      \"x\": 180\n    },\n    \"facing=north,half=top,shape=outer_left\": {\n      \"model\": \"minecraft:block/oak_stairs_outer\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 270\n    },\n    \"facing=north,half=top,shape=outer_right\": {\n      \"model\": \"minecraft:block/oak_stairs_outer\",\n      \"uvlock\": true,\n      \"x\": 180\n    },\n    \"facing=north,half=top,shape=straight\": {\n      \"model\": \"minecraft:block/oak_stairs\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 270\n    },\n    \"facing=south,half=bottom,shape=inner_left\": {\n      \"model\": \"minecraft:block/oak_stairs_inner\"\n    },\n    \"facing=south,half=bottom,shape=inner_right\": {\n      \"model\": \"minecraft:block/oak_stairs_inner\",\n      \"uvlock\": true,\n      \"y\": 90\n    },\n    \"facing=south,half=bottom,shape=outer_left\": {\n      \"model\": \"minecraft:block/oak_stairs_outer\"\n    },\n    \"facing=south,half=bottom,shape=outer_right\": {\n      \"model\": \"minecraft:block/oak_stairs_outer\",\n      \"uvlock\": true,\n      \"y\": 90\n    },\n    \"facing=south,half=bottom,shape=straight\": {\n      \"model\": \"minecraft:block/oak_stairs\",\n      \"uvlock\": true,\n      \"y\": 90\n    },\n    \"facing=south,half=top,shape=inner_left\": {\n      \"model\": \"minecraft:block/oak_stairs_inner\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 90\n    },\n    \"facing=south,half=top,shape=inner_right\": {\n      \"model\": \"minecraft:block/oak_stairs_inner\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 180\n    },\n    \"facing=south,half=top,shape=outer_left\": {\n      \"model\": \"minecraft:block/oak_stairs_outer\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 90\n    },\n    \"facing=south,half=top,shape=outer_right\": {\n      \"model\": \"minecraft:block/oak_stairs_outer\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 180\n    },\n    \"facing=south,half=top,shape=straight\": {\n      \"model\": \"minecraft:block/oak_stairs\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 90\n    },\n    \"facing=west,half=bottom,shape=inner_left\": {\n      \"model\": \"minecraft:block/oak_stairs_inner\",\n      \"uvlock\": true,\n      \"y\": 90\n    },\n    \"facing=west,half=bottom,shape=inner_right\": {\n      \"model\": \"minecraft:block/oak_stairs_inner\",\n      \"uvlock\": true,\n      \"y\": 180\n    },\n    \"facing=west,half=bottom,shape=outer_left\": {\n      \"model\": \"minecraft:block/oak_stairs_outer\",\n      \"uvlock\": true,\n      \"y\": 90\n    },\n    \"facing=west,half=bottom,shape=outer_right\": {\n      \"model\": \"minecraft:block/oak_stairs_outer\",\n      \"uvlock\": true,\n      \"y\": 180\n    },\n    \"facing=west,half=bottom,shape=straight\": {\n      \"model\": \"minecraft:block/oak_stairs\",\n      \"uvlock\": true,\n      \"y\": 180\n    },\n    \"facing=west,half=top,shape=inner_left\": {\n      \"model\": \"minecraft:block/oak_stairs_inner\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 180\n    },\n    \"facing=west,half=top,shape=inner_right\": {\n      \"model\": \"minecraft:block/oak_stairs_inner\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 270\n    },\n    \"facing=west,half=top,shape=outer_left\": {\n      \"model\": \"minecraft:block/oak_stairs_outer\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 180\n    },\n    \"facing=west,half=top,shape=outer_right\": {\n      \"model\": \"minecraft:block/oak_stairs_outer\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 270\n    },\n    \"facing=west,half=top,shape=straight\": {\n      \"model\": \"minecraft:block/oak_stairs\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 180\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 11,
+      "path": "1.21.11/assets/minecraft/blockstates/oak_trapdoor.json",
+      "git_blob_sha": "168faf128975a6e34c0cf2035a464058d94072d8",
+      "json_text": "{\n  \"variants\": {\n    \"facing=east,half=bottom,open=false\": {\n      \"model\": \"minecraft:block/oak_trapdoor_bottom\"\n    },\n    \"facing=east,half=bottom,open=true\": {\n      \"model\": \"minecraft:block/oak_trapdoor_open\",\n      \"y\": 90\n    },\n    \"facing=east,half=top,open=false\": {\n      \"model\": \"minecraft:block/oak_trapdoor_top\"\n    },\n    \"facing=east,half=top,open=true\": {\n      \"model\": \"minecraft:block/oak_trapdoor_open\",\n      \"y\": 90\n    },\n    \"facing=north,half=bottom,open=false\": {\n      \"model\": \"minecraft:block/oak_trapdoor_bottom\"\n    },\n    \"facing=north,half=bottom,open=true\": {\n      \"model\": \"minecraft:block/oak_trapdoor_open\"\n    },\n    \"facing=north,half=top,open=false\": {\n      \"model\": \"minecraft:block/oak_trapdoor_top\"\n    },\n    \"facing=north,half=top,open=true\": {\n      \"model\": \"minecraft:block/oak_trapdoor_open\"\n    },\n    \"facing=south,half=bottom,open=false\": {\n      \"model\": \"minecraft:block/oak_trapdoor_bottom\"\n    },\n    \"facing=south,half=bottom,open=true\": {\n      \"model\": \"minecraft:block/oak_trapdoor_open\",\n      \"y\": 180\n    },\n    \"facing=south,half=top,open=false\": {\n      \"model\": \"minecraft:block/oak_trapdoor_top\"\n    },\n    \"facing=south,half=top,open=true\": {\n      \"model\": \"minecraft:block/oak_trapdoor_open\",\n      \"y\": 180\n    },\n    \"facing=west,half=bottom,open=false\": {\n      \"model\": \"minecraft:block/oak_trapdoor_bottom\"\n    },\n    \"facing=west,half=bottom,open=true\": {\n      \"model\": \"minecraft:block/oak_trapdoor_open\",\n      \"y\": 270\n    },\n    \"facing=west,half=top,open=false\": {\n      \"model\": \"minecraft:block/oak_trapdoor_top\"\n    },\n    \"facing=west,half=top,open=true\": {\n      \"model\": \"minecraft:block/oak_trapdoor_open\",\n      \"y\": 270\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 12,
+      "path": "1.21.11/assets/minecraft/blockstates/oak_wall_hanging_sign.json",
+      "git_blob_sha": "b2c43dc30565df7450e5d82b9a1613ea1a8f325d",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/oak_hanging_sign\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 13,
+      "path": "1.21.11/assets/minecraft/blockstates/oak_wall_sign.json",
+      "git_blob_sha": "b9f38f4f7f38680ed0656ce1d62f5d076bf24559",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/oak_sign\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 14,
+      "path": "1.21.11/assets/minecraft/blockstates/oak_wood.json",
+      "git_blob_sha": "1eb596b84c8a8fcd6ea2cc769d68ac6b0d6794dd",
+      "json_text": "{\n  \"variants\": {\n    \"axis=x\": {\n      \"model\": \"minecraft:block/oak_wood\",\n      \"x\": 90,\n      \"y\": 90\n    },\n    \"axis=y\": {\n      \"model\": \"minecraft:block/oak_wood\"\n    },\n    \"axis=z\": {\n      \"model\": \"minecraft:block/oak_wood\",\n      \"x\": 90\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 15,
+      "path": "1.21.11/assets/minecraft/blockstates/observer.json",
+      "git_blob_sha": "6f54ba51bb78cfe2ccb6d68a123f75c652357b94",
+      "json_text": "{\n  \"variants\": {\n    \"facing=down,powered=false\": {\n      \"model\": \"minecraft:block/observer\",\n      \"x\": 90\n    },\n    \"facing=down,powered=true\": {\n      \"model\": \"minecraft:block/observer_on\",\n      \"x\": 90\n    },\n    \"facing=east,powered=false\": {\n      \"model\": \"minecraft:block/observer\",\n      \"y\": 90\n    },\n    \"facing=east,powered=true\": {\n      \"model\": \"minecraft:block/observer_on\",\n      \"y\": 90\n    },\n    \"facing=north,powered=false\": {\n      \"model\": \"minecraft:block/observer\"\n    },\n    \"facing=north,powered=true\": {\n      \"model\": \"minecraft:block/observer_on\"\n    },\n    \"facing=south,powered=false\": {\n      \"model\": \"minecraft:block/observer\",\n      \"y\": 180\n    },\n    \"facing=south,powered=true\": {\n      \"model\": \"minecraft:block/observer_on\",\n      \"y\": 180\n    },\n    \"facing=up,powered=false\": {\n      \"model\": \"minecraft:block/observer\",\n      \"x\": 270\n    },\n    \"facing=up,powered=true\": {\n      \"model\": \"minecraft:block/observer_on\",\n      \"x\": 270\n    },\n    \"facing=west,powered=false\": {\n      \"model\": \"minecraft:block/observer\",\n      \"y\": 270\n    },\n    \"facing=west,powered=true\": {\n      \"model\": \"minecraft:block/observer_on\",\n      \"y\": 270\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 16,
+      "path": "1.21.11/assets/minecraft/blockstates/obsidian.json",
+      "git_blob_sha": "28d39dfdc29dcf889c9de139bf72b40a8620d05f",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/obsidian\"\n    }\n  }\n}"
+    }
+  ]
+}

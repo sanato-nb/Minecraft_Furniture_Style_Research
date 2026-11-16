@@ -1,0 +1,106 @@
+{
+  "schema": "D_ENTRY5_ORIGINAL/v1",
+  "baseline_head": "5febebb97207ecee724725c272eefe2ea9c83481",
+  "queue_rows": [
+    177,
+    192
+  ],
+  "sources": [
+    {
+      "queue_row": 177,
+      "path": "1.21.11/assets/minecraft/blockstates/prismarine_wall.json",
+      "git_blob_sha": "67f25927462e8d62020cf6b96be843451163d327",
+      "json_text": "{\n  \"multipart\": [\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/prismarine_wall_post\"\n      },\n      \"when\": {\n        \"up\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/prismarine_wall_side\",\n        \"uvlock\": true\n      },\n      \"when\": {\n        \"north\": \"low\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/prismarine_wall_side\",\n        \"uvlock\": true,\n        \"y\": 90\n      },\n      \"when\": {\n        \"east\": \"low\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/prismarine_wall_side\",\n        \"uvlock\": true,\n        \"y\": 180\n      },\n      \"when\": {\n        \"south\": \"low\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/prismarine_wall_side\",\n        \"uvlock\": true,\n        \"y\": 270\n      },\n      \"when\": {\n        \"west\": \"low\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/prismarine_wall_side_tall\",\n        \"uvlock\": true\n      },\n      \"when\": {\n        \"north\": \"tall\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/prismarine_wall_side_tall\",\n        \"uvlock\": true,\n        \"y\": 90\n      },\n      \"when\": {\n        \"east\": \"tall\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/prismarine_wall_side_tall\",\n        \"uvlock\": true,\n        \"y\": 180\n      },\n      \"when\": {\n        \"south\": \"tall\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/prismarine_wall_side_tall\",\n        \"uvlock\": true,\n        \"y\": 270\n      },\n      \"when\": {\n        \"west\": \"tall\"\n      }\n    }\n  ]\n}"
+    },
+    {
+      "queue_row": 178,
+      "path": "1.21.11/assets/minecraft/blockstates/pumpkin.json",
+      "git_blob_sha": "b64dee3dd67b7caa92a055ed38f753525675201b",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/pumpkin\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 179,
+      "path": "1.21.11/assets/minecraft/blockstates/pumpkin_stem.json",
+      "git_blob_sha": "536ed118001c285ac1128b166f3168774be8834c",
+      "json_text": "{\n  \"variants\": {\n    \"age=0\": {\n      \"model\": \"minecraft:block/pumpkin_stem_stage0\"\n    },\n    \"age=1\": {\n      \"model\": \"minecraft:block/pumpkin_stem_stage1\"\n    },\n    \"age=2\": {\n      \"model\": \"minecraft:block/pumpkin_stem_stage2\"\n    },\n    \"age=3\": {\n      \"model\": \"minecraft:block/pumpkin_stem_stage3\"\n    },\n    \"age=4\": {\n      \"model\": \"minecraft:block/pumpkin_stem_stage4\"\n    },\n    \"age=5\": {\n      \"model\": \"minecraft:block/pumpkin_stem_stage5\"\n    },\n    \"age=6\": {\n      \"model\": \"minecraft:block/pumpkin_stem_stage6\"\n    },\n    \"age=7\": {\n      \"model\": \"minecraft:block/pumpkin_stem_stage7\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 180,
+      "path": "1.21.11/assets/minecraft/blockstates/purple_banner.json",
+      "git_blob_sha": "f5e2c87f4dd44db6086c0bbb3ffdd2de0055d8d2",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/banner\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 181,
+      "path": "1.21.11/assets/minecraft/blockstates/purple_bed.json",
+      "git_blob_sha": "6577c90a27efb34a7099150253c0bf557d75214c",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/bed\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 182,
+      "path": "1.21.11/assets/minecraft/blockstates/purple_candle.json",
+      "git_blob_sha": "b6200c02aed54511e73ac851b8b7d96df8a341c3",
+      "json_text": "{\n  \"variants\": {\n    \"candles=1,lit=false\": {\n      \"model\": \"minecraft:block/purple_candle_one_candle\"\n    },\n    \"candles=1,lit=true\": {\n      \"model\": \"minecraft:block/purple_candle_one_candle_lit\"\n    },\n    \"candles=2,lit=false\": {\n      \"model\": \"minecraft:block/purple_candle_two_candles\"\n    },\n    \"candles=2,lit=true\": {\n      \"model\": \"minecraft:block/purple_candle_two_candles_lit\"\n    },\n    \"candles=3,lit=false\": {\n      \"model\": \"minecraft:block/purple_candle_three_candles\"\n    },\n    \"candles=3,lit=true\": {\n      \"model\": \"minecraft:block/purple_candle_three_candles_lit\"\n    },\n    \"candles=4,lit=false\": {\n      \"model\": \"minecraft:block/purple_candle_four_candles\"\n    },\n    \"candles=4,lit=true\": {\n      \"model\": \"minecraft:block/purple_candle_four_candles_lit\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 183,
+      "path": "1.21.11/assets/minecraft/blockstates/purple_candle_cake.json",
+      "git_blob_sha": "69002bd59eb3565ea574066fe081f057b0bf27dc",
+      "json_text": "{\n  \"variants\": {\n    \"lit=false\": {\n      \"model\": \"minecraft:block/purple_candle_cake\"\n    },\n    \"lit=true\": {\n      \"model\": \"minecraft:block/purple_candle_cake_lit\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 184,
+      "path": "1.21.11/assets/minecraft/blockstates/purple_carpet.json",
+      "git_blob_sha": "94bd741add05d0ab6fe4c2330e6742f84c5ce9ac",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/purple_carpet\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 185,
+      "path": "1.21.11/assets/minecraft/blockstates/purple_concrete.json",
+      "git_blob_sha": "06ecc28a54793034ca19f316c4331d778b8db78a",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/purple_concrete\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 186,
+      "path": "1.21.11/assets/minecraft/blockstates/purple_concrete_powder.json",
+      "git_blob_sha": "23291b9550a1ac567a824dba38b0e3ee9e375a4c",
+      "json_text": "{\n  \"variants\": {\n    \"\": [\n      {\n        \"model\": \"minecraft:block/purple_concrete_powder\"\n      },\n      {\n        \"model\": \"minecraft:block/purple_concrete_powder\",\n        \"y\": 90\n      },\n      {\n        \"model\": \"minecraft:block/purple_concrete_powder\",\n        \"y\": 180\n      },\n      {\n        \"model\": \"minecraft:block/purple_concrete_powder\",\n        \"y\": 270\n      }\n    ]\n  }\n}"
+    },
+    {
+      "queue_row": 187,
+      "path": "1.21.11/assets/minecraft/blockstates/purple_glazed_terracotta.json",
+      "git_blob_sha": "9f70fd4f699b9ead8b5d26a2f0e3bfa5ac321198",
+      "json_text": "{\n  \"variants\": {\n    \"facing=east\": {\n      \"model\": \"minecraft:block/purple_glazed_terracotta\",\n      \"y\": 270\n    },\n    \"facing=north\": {\n      \"model\": \"minecraft:block/purple_glazed_terracotta\",\n      \"y\": 180\n    },\n    \"facing=south\": {\n      \"model\": \"minecraft:block/purple_glazed_terracotta\"\n    },\n    \"facing=west\": {\n      \"model\": \"minecraft:block/purple_glazed_terracotta\",\n      \"y\": 90\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 188,
+      "path": "1.21.11/assets/minecraft/blockstates/purple_shulker_box.json",
+      "git_blob_sha": "880e3163a0b5006c8f7044b524b7136fb8384d45",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/purple_shulker_box\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 189,
+      "path": "1.21.11/assets/minecraft/blockstates/purple_stained_glass.json",
+      "git_blob_sha": "02662b50829a8b64f68bb447da2c5577e5fbced2",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/purple_stained_glass\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 190,
+      "path": "1.21.11/assets/minecraft/blockstates/purple_stained_glass_pane.json",
+      "git_blob_sha": "dfec43a55ebe45fcc687ab7b49bd3ac015317ee5",
+      "json_text": "{\n  \"multipart\": [\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/purple_stained_glass_pane_post\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/purple_stained_glass_pane_side\"\n      },\n      \"when\": {\n        \"north\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/purple_stained_glass_pane_side\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"east\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/purple_stained_glass_pane_side_alt\"\n      },\n      \"when\": {\n        \"south\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/purple_stained_glass_pane_side_alt\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"west\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/purple_stained_glass_pane_noside\"\n      },\n      \"when\": {\n        \"north\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/purple_stained_glass_pane_noside_alt\"\n      },\n      \"when\": {\n        \"east\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/purple_stained_glass_pane_noside_alt\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"south\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/purple_stained_glass_pane_noside\",\n        \"y\": 270\n      },\n      \"when\": {\n        \"west\": \"false\"\n      }\n    }\n  ]\n}"
+    },
+    {
+      "queue_row": 191,
+      "path": "1.21.11/assets/minecraft/blockstates/purple_terracotta.json",
+      "git_blob_sha": "b500566d83103d8a9124059833bb169cb73af993",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/purple_terracotta\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 192,
+      "path": "1.21.11/assets/minecraft/blockstates/purple_wall_banner.json",
+      "git_blob_sha": "f5e2c87f4dd44db6086c0bbb3ffdd2de0055d8d2",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/banner\"\n    }\n  }\n}"
+    }
+  ]
+}
