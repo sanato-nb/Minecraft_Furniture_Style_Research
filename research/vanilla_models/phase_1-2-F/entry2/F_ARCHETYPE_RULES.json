@@ -1,0 +1,83 @@
+{
+  "schema": "F_ENTRY2_SOURCE_STYLE_ARCHETYPES/v1",
+  "sample": 494,
+  "multi_label_nonexclusive": true,
+  "thresholds": {
+    "THIN_ELEMENT": "any axis absolute thickness <=1 source coordinate",
+    "ZERO_THICKNESS": "any axis exact zero",
+    "EXACT_FULL_CUBE": "one unrotated [0,0,0] to [16,16,16] element"
+  },
+  "primary_counts": {
+    "SPECIAL_RENDER_SOURCE": 47,
+    "THIN_OR_ZERO_THICKNESS": 95,
+    "MULTI_ELEMENT_GEOMETRY": 70,
+    "STRICT_FULL_CUBE": 35,
+    "OTHER_SIMPLE_CUBOID": 26,
+    "ROTATED_GEOMETRY": 221
+  },
+  "source_visual_scope": {
+    "unique_PNG_first_frames_directly_reviewed": 303,
+    "models_with_bound_source_PNG": 467,
+    "unbound_templates": 27,
+    "animated_later_frames_reviewed": false,
+    "game_runtime_render_verified": false
+  },
+  "representatives": [
+    {
+      "kind": "full cube with texture detail",
+      "model": "bookshelf.json",
+      "source_geometry": "one unrotated [0,0,0] to [16,16,16] inherited cube",
+      "source_image": "bookshelf.png first frame shows colored small stripes in horizontal compartments",
+      "transfer_hypothesis": "surface artwork can communicate stored-item detail without element-level books",
+      "limit": "texture pattern does not prove individual 3D books"
+    },
+    {
+      "kind": "frame and cavity",
+      "model": "cauldron.json",
+      "source_geometry": "13 source elements create a rim/wall structure",
+      "source_image": "cauldron_top.png has transparent central square",
+      "transfer_hypothesis": "a basin-like open frame can be modeled from narrow walls and a separate bottom",
+      "limit": "no game liquid or collision verification"
+    },
+    {
+      "kind": "shelf body and atlas",
+      "model": "acacia_shelf.json",
+      "source_geometry": "three inherited elements with depth 5",
+      "source_image": "acacia_shelf.png 32x32 shows compartment outlines",
+      "transfer_hypothesis": "small 3D projection plus drawn compartment divisions may simplify a shelf",
+      "limit": "visible interior and actual item storage not verified"
+    },
+    {
+      "kind": "small container construction",
+      "model": "flower_pot.json",
+      "source_geometry": "five source elements bbox 6x6x6",
+      "source_image": "flower_pot.png has outlined center",
+      "transfer_hypothesis": "separate narrow rim and walls for small decorative container",
+      "limit": "not a claim about game planting behavior"
+    },
+    {
+      "kind": "single block surface treatment",
+      "model": "crafting_table.json",
+      "source_geometry": "one inherited full cube",
+      "source_image": "crafting_table_front.png has frame and grid pixels",
+      "transfer_hypothesis": "cabinet facade graphics can live on a cube face",
+      "limit": "grid is not an actual modeled cavity"
+    },
+    {
+      "kind": "rotated surface support",
+      "model": "lectern.json",
+      "source_geometry": "three elements including a rotated element",
+      "source_image": "lectern_front.png has small contrasting details",
+      "transfer_hypothesis": "one inclined panel supported by a small stem and base",
+      "limit": "does not establish furniture function"
+    },
+    {
+      "kind": "source exception",
+      "model": "black_shulker_box.json",
+      "source_geometry": "no general elements in source chain",
+      "source_image": "particle PNG has dark field with boundary pixels",
+      "transfer_hypothesis": "palette reference only",
+      "limit": "actual E renderer surface unknown"
+    }
+  ]
+}
