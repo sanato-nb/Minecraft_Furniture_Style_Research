@@ -1,0 +1,106 @@
+{
+  "schema": "D_ENTRY6_ORIGINAL/v1",
+  "baseline_head": "818b018dfda561ac30cfa9f8573ece308d82c969",
+  "queue_rows": [
+    241,
+    256
+  ],
+  "sources": [
+    {
+      "queue_row": 241,
+      "path": "1.21.11/assets/minecraft/blockstates/white_stained_glass_pane.json",
+      "git_blob_sha": "247883a67cba48cd3f5e2b5b71731e7bcc98b5a4",
+      "json_text": "{\n  \"multipart\": [\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/white_stained_glass_pane_post\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/white_stained_glass_pane_side\"\n      },\n      \"when\": {\n        \"north\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/white_stained_glass_pane_side\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"east\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/white_stained_glass_pane_side_alt\"\n      },\n      \"when\": {\n        \"south\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/white_stained_glass_pane_side_alt\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"west\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/white_stained_glass_pane_noside\"\n      },\n      \"when\": {\n        \"north\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/white_stained_glass_pane_noside_alt\"\n      },\n      \"when\": {\n        \"east\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/white_stained_glass_pane_noside_alt\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"south\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/white_stained_glass_pane_noside\",\n        \"y\": 270\n      },\n      \"when\": {\n        \"west\": \"false\"\n      }\n    }\n  ]\n}"
+    },
+    {
+      "queue_row": 242,
+      "path": "1.21.11/assets/minecraft/blockstates/white_terracotta.json",
+      "git_blob_sha": "184ea80877d8a7c708fbf2705746e1a3613a449e",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/white_terracotta\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 243,
+      "path": "1.21.11/assets/minecraft/blockstates/white_tulip.json",
+      "git_blob_sha": "a5d01edbee0ace21942c6a474e82fcace4733c9f",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/white_tulip\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 244,
+      "path": "1.21.11/assets/minecraft/blockstates/white_wall_banner.json",
+      "git_blob_sha": "f5e2c87f4dd44db6086c0bbb3ffdd2de0055d8d2",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/banner\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 245,
+      "path": "1.21.11/assets/minecraft/blockstates/white_wool.json",
+      "git_blob_sha": "3c23fc0931b6dd1c3f802886656037743684761c",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/white_wool\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 246,
+      "path": "1.21.11/assets/minecraft/blockstates/wildflowers.json",
+      "git_blob_sha": "3a2829ef27cb70596e020a97aa1cc11dae6edd49",
+      "json_text": "{\n  \"multipart\": [\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/wildflowers_1\"\n      },\n      \"when\": {\n        \"facing\": \"north\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/wildflowers_1\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"facing\": \"east\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/wildflowers_1\",\n        \"y\": 180\n      },\n      \"when\": {\n        \"facing\": \"south\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/wildflowers_1\",\n        \"y\": 270\n      },\n      \"when\": {\n        \"facing\": \"west\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/wildflowers_2\"\n      },\n      \"when\": {\n        \"facing\": \"north\",\n        \"flower_amount\": \"2|3|4\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/wildflowers_2\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"facing\": \"east\",\n        \"flower_amount\": \"2|3|4\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/wildflowers_2\",\n        \"y\": 180\n      },\n      \"when\": {\n        \"facing\": \"south\",\n        \"flower_amount\": \"2|3|4\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/wildflowers_2\",\n        \"y\": 270\n      },\n      \"when\": {\n        \"facing\": \"west\",\n        \"flower_amount\": \"2|3|4\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/wildflowers_3\"\n      },\n      \"when\": {\n        \"facing\": \"north\",\n        \"flower_amount\": \"3|4\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/wildflowers_3\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"facing\": \"east\",\n        \"flower_amount\": \"3|4\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/wildflowers_3\",\n        \"y\": 180\n      },\n      \"when\": {\n        \"facing\": \"south\",\n        \"flower_amount\": \"3|4\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/wildflowers_3\",\n        \"y\": 270\n      },\n      \"when\": {\n        \"facing\": \"west\",\n        \"flower_amount\": \"3|4\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/wildflowers_4\"\n      },\n      \"when\": {\n        \"facing\": \"north\",\n        \"flower_amount\": \"4\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/wildflowers_4\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"facing\": \"east\",\n        \"flower_amount\": \"4\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/wildflowers_4\",\n        \"y\": 180\n      },\n      \"when\": {\n        \"facing\": \"south\",\n        \"flower_amount\": \"4\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/wildflowers_4\",\n        \"y\": 270\n      },\n      \"when\": {\n        \"facing\": \"west\",\n        \"flower_amount\": \"4\"\n      }\n    }\n  ]\n}"
+    },
+    {
+      "queue_row": 247,
+      "path": "1.21.11/assets/minecraft/blockstates/wither_rose.json",
+      "git_blob_sha": "f0175194a2608c630c2bc5ea12f074d5161dbf3d",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/wither_rose\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 248,
+      "path": "1.21.11/assets/minecraft/blockstates/wither_skeleton_skull.json",
+      "git_blob_sha": "3951e3eea59612d4049577042a176de31d1ed88c",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/skull\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 249,
+      "path": "1.21.11/assets/minecraft/blockstates/wither_skeleton_wall_skull.json",
+      "git_blob_sha": "3951e3eea59612d4049577042a176de31d1ed88c",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/skull\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 250,
+      "path": "1.21.11/assets/minecraft/blockstates/yellow_banner.json",
+      "git_blob_sha": "f5e2c87f4dd44db6086c0bbb3ffdd2de0055d8d2",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/banner\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 251,
+      "path": "1.21.11/assets/minecraft/blockstates/yellow_bed.json",
+      "git_blob_sha": "6577c90a27efb34a7099150253c0bf557d75214c",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/bed\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 252,
+      "path": "1.21.11/assets/minecraft/blockstates/yellow_candle.json",
+      "git_blob_sha": "afe85e3c81c309bad8bdffbee288ee29f64201be",
+      "json_text": "{\n  \"variants\": {\n    \"candles=1,lit=false\": {\n      \"model\": \"minecraft:block/yellow_candle_one_candle\"\n    },\n    \"candles=1,lit=true\": {\n      \"model\": \"minecraft:block/yellow_candle_one_candle_lit\"\n    },\n    \"candles=2,lit=false\": {\n      \"model\": \"minecraft:block/yellow_candle_two_candles\"\n    },\n    \"candles=2,lit=true\": {\n      \"model\": \"minecraft:block/yellow_candle_two_candles_lit\"\n    },\n    \"candles=3,lit=false\": {\n      \"model\": \"minecraft:block/yellow_candle_three_candles\"\n    },\n    \"candles=3,lit=true\": {\n      \"model\": \"minecraft:block/yellow_candle_three_candles_lit\"\n    },\n    \"candles=4,lit=false\": {\n      \"model\": \"minecraft:block/yellow_candle_four_candles\"\n    },\n    \"candles=4,lit=true\": {\n      \"model\": \"minecraft:block/yellow_candle_four_candles_lit\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 253,
+      "path": "1.21.11/assets/minecraft/blockstates/yellow_candle_cake.json",
+      "git_blob_sha": "c0e90bf148e21ea745d84ef72d57cf8dc40944ba",
+      "json_text": "{\n  \"variants\": {\n    \"lit=false\": {\n      \"model\": \"minecraft:block/yellow_candle_cake\"\n    },\n    \"lit=true\": {\n      \"model\": \"minecraft:block/yellow_candle_cake_lit\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 254,
+      "path": "1.21.11/assets/minecraft/blockstates/yellow_carpet.json",
+      "git_blob_sha": "3586a27743d93c8389603ccb9ac9825ae3941ea7",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/yellow_carpet\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 255,
+      "path": "1.21.11/assets/minecraft/blockstates/yellow_concrete.json",
+      "git_blob_sha": "92ca5a20204babfc86ad21f50879c9fa09cc4a12",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/yellow_concrete\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 256,
+      "path": "1.21.11/assets/minecraft/blockstates/yellow_concrete_powder.json",
+      "git_blob_sha": "7b103da42d1b18b290e4bb9b0610e5e87d39d23c",
+      "json_text": "{\n  \"variants\": {\n    \"\": [\n      {\n        \"model\": \"minecraft:block/yellow_concrete_powder\"\n      },\n      {\n        \"model\": \"minecraft:block/yellow_concrete_powder\",\n        \"y\": 90\n      },\n      {\n        \"model\": \"minecraft:block/yellow_concrete_powder\",\n        \"y\": 180\n      },\n      {\n        \"model\": \"minecraft:block/yellow_concrete_powder\",\n        \"y\": 270\n      }\n    ]\n  }\n}"
+    }
+  ]
+}

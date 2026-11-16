@@ -1,0 +1,64 @@
+{
+  "schema": "D_ENTRY6_ORIGINAL/v1",
+  "baseline_head": "818b018dfda561ac30cfa9f8573ece308d82c969",
+  "queue_rows": [
+    257,
+    265
+  ],
+  "sources": [
+    {
+      "queue_row": 257,
+      "path": "1.21.11/assets/minecraft/blockstates/yellow_glazed_terracotta.json",
+      "git_blob_sha": "d4f7be2c310df0331afc7320c8e314aa8bdd57a0",
+      "json_text": "{\n  \"variants\": {\n    \"facing=east\": {\n      \"model\": \"minecraft:block/yellow_glazed_terracotta\",\n      \"y\": 270\n    },\n    \"facing=north\": {\n      \"model\": \"minecraft:block/yellow_glazed_terracotta\",\n      \"y\": 180\n    },\n    \"facing=south\": {\n      \"model\": \"minecraft:block/yellow_glazed_terracotta\"\n    },\n    \"facing=west\": {\n      \"model\": \"minecraft:block/yellow_glazed_terracotta\",\n      \"y\": 90\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 258,
+      "path": "1.21.11/assets/minecraft/blockstates/yellow_shulker_box.json",
+      "git_blob_sha": "c2b02b98e632cddb4746d19b9d6ba056b4849841",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/yellow_shulker_box\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 259,
+      "path": "1.21.11/assets/minecraft/blockstates/yellow_stained_glass.json",
+      "git_blob_sha": "fdf0757ee9a87d7a2fb0cb7ce6575310cb6b0418",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/yellow_stained_glass\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 260,
+      "path": "1.21.11/assets/minecraft/blockstates/yellow_stained_glass_pane.json",
+      "git_blob_sha": "24cbfa52ecd58eb233b66831f4caca7e778d2c4c",
+      "json_text": "{\n  \"multipart\": [\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/yellow_stained_glass_pane_post\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/yellow_stained_glass_pane_side\"\n      },\n      \"when\": {\n        \"north\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/yellow_stained_glass_pane_side\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"east\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/yellow_stained_glass_pane_side_alt\"\n      },\n      \"when\": {\n        \"south\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/yellow_stained_glass_pane_side_alt\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"west\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/yellow_stained_glass_pane_noside\"\n      },\n      \"when\": {\n        \"north\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/yellow_stained_glass_pane_noside_alt\"\n      },\n      \"when\": {\n        \"east\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/yellow_stained_glass_pane_noside_alt\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"south\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/yellow_stained_glass_pane_noside\",\n        \"y\": 270\n      },\n      \"when\": {\n        \"west\": \"false\"\n      }\n    }\n  ]\n}"
+    },
+    {
+      "queue_row": 261,
+      "path": "1.21.11/assets/minecraft/blockstates/yellow_terracotta.json",
+      "git_blob_sha": "4a2aca6bd3af502ac2e2aa4277939d89e4ab3e67",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/yellow_terracotta\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 262,
+      "path": "1.21.11/assets/minecraft/blockstates/yellow_wall_banner.json",
+      "git_blob_sha": "f5e2c87f4dd44db6086c0bbb3ffdd2de0055d8d2",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/banner\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 263,
+      "path": "1.21.11/assets/minecraft/blockstates/yellow_wool.json",
+      "git_blob_sha": "1392ae5132567dd4de940b4c9ecbbed759143568",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/yellow_wool\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 264,
+      "path": "1.21.11/assets/minecraft/blockstates/zombie_head.json",
+      "git_blob_sha": "3951e3eea59612d4049577042a176de31d1ed88c",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/skull\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 265,
+      "path": "1.21.11/assets/minecraft/blockstates/zombie_wall_head.json",
+      "git_blob_sha": "3951e3eea59612d4049577042a176de31d1ed88c",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/skull\"\n    }\n  }\n}"
+    }
+  ]
+}
