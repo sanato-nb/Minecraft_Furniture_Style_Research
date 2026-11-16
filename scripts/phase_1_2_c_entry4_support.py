@@ -2,12 +2,14 @@
 import csv
 import hashlib
 import json
+import os
 import re
 from collections import Counter, defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "research/vanilla_models/phase_1-2-C/entry4"
+ENTRY = os.environ.get("C_ENTRY", "entry4")
+OUT = ROOT / f"research/vanilla_models/phase_1-2-C/{ENTRY}"
 MODEL = ROOT / "1.21.11/assets/minecraft/models/block"
 
 
@@ -67,6 +69,9 @@ def main():
                              status="unresolved_bare_face_ref_slot_candidate_not_authenticated"))
     if abnormal:
         write(OUT / "UNRESOLVED_NON_TEMPLATE.csv", abnormal)
+    else:
+        (OUT / "UNRESOLVED_NON_TEMPLATE.csv").write_text(
+            "model,issue,source_path,source_sha,face_ref,source_texture_slots,slot_name_match_candidate,candidate_png_path,candidate_png_sha,status\n")
 
     selected = {r["leaf_path"]: r for r in rows(OUT / "MODEL_SOURCE_EVIDENCE.csv") if r["priority"] == "P1"}
     v69 = rows(ROOT / "research/vanilla_models/v69/07_P1_544_EVIDENCE_LEDGER.csv")

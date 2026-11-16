@@ -1,3 +1,5 @@
+> **2026-11-16 · 1-2-C Entry5 전체 원본 감사:** [보고서](../../research/vanilla_models/phase_1-2-C/entry5/C_ENTRY5_REPORT.md) · [다음 단계 인계](../../research/vanilla_models/phase_1-2-C/entry5/C_NEXT.md). 고정 5회에서 C 직접 2,304/2,304, E 예외86. 적용 face23,090(명시UV18,808/원본키 부재4,282), PNG 연결21,590면/실제 자식 있는 템플릿 미바인딩1,500면, 고유 PNG1,073·전체 RGBA413,440픽셀, `.mcmeta`97. Entry4 `heavy_core` 6면은 원본 추출 클라이언트 bytecode로 슬롯 해석 정정. C1~C3 및 C4 로컬 감사 PASS, 원격 SHA/행수 재조회 대기. Entry6 없음; E·D/F/G 후속 소관.
+
 > **2026-11-16 현행 Entry4:** 고정 배정732개 원본 UV/texture/PNG 실측, C 누적1,572/2,304. [보고서](../../research/vanilla_models/phase_1-2-C/entry4/C_ENTRY4_REPORT.md). `heavy_core` bare `all` 6면 해석 미해결, Entry5 잔여732 및 최종감사 대기. C 완료 아님. 아래 날짜별 기록 보존.
 
 > **2026-11-16 현행 Entry3:** 고정 배정732개 원본 UV/texture/PNG 실측, C 누적 840/2,304. [보고서](../../research/vanilla_models/phase_1-2-C/entry3/C_ENTRY3_REPORT.md). Entry4·5 각732 잔여, C 완료 아님. 아래 날짜별 기록 보존.

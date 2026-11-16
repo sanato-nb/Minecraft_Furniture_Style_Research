@@ -83,14 +83,18 @@ def main():
             slots.update(source.get("textures", {}))
         def resolve(ref):
             trail, seen = [], set()
-            while isinstance(ref, str) and ref.startswith("#"):
-                key = ref[1:]
+            while isinstance(ref, str):
+                # 1.21.11 hqp.a(String) tests a slot key with or without a leading '#';
+                # iog.a(hqp,String,...) falls back to a direct resource only if no slot exists.
+                key = ref[1:] if ref.startswith("#") else ref
+                if key not in slots:
+                    if ref.startswith("#"):
+                        return None, trail + [key], "missing_slot"
+                    break
                 if key in seen:
                     return None, trail + [key], "cycle"
                 seen.add(key)
                 trail.append(key)
-                if key not in slots:
-                    return None, trail, "missing_slot"
                 ref = slots[key]
             if not isinstance(ref, str):
                 return None, trail, "invalid_texture_reference"
