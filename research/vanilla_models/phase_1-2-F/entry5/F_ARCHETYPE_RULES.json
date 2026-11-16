@@ -1,0 +1,14 @@
+{
+  "scope": "ENTRY5_P3_FIRST_379",
+  "evidence_grade": "SOURCE_JSON_DIRECT_AND_PNG_FIRST_FRAME_CONTACT_SHEET",
+  "rules": [
+    {"pattern": "CUBE_WITH_ALPHA_OR_PIXEL_DETAIL", "source_examples": ["acacia_leaves.json", "copper_grate.json"], "geometry": "ONE_EXACT_FULL_CUBE", "transfer_hypothesis": "단순 입체 표면의 복잡한 격자·실루엣을 이미지로 표현", "limit": "투명 처리와 실제 충돌 미인증"},
+    {"pattern": "MULTI_ELEMENT_IRREGULAR_SUPPORT", "source_examples": ["mangrove_roots.json"], "geometry": "EIGHT_ELEMENTS_WITH_TWO_ZERO_THICKNESS", "transfer_hypothesis": "지지대와 틀을 독립 요소로 배치하고 면 이미지를 결합", "limit": "가구 기능 미인증"},
+    {"pattern": "CROSSED_DECORATIVE_PLANES", "source_examples": ["amethyst_cluster.json", "cobweb.json"], "geometry": "TWO_ROTATED_ZERO_THICKNESS_ELEMENTS", "transfer_hypothesis": "작은 장식의 비정형 실루엣을 교차 평면으로 압축", "limit": "시점별 실제 외형 미인증"},
+    {"pattern": "SHALLOW_VOLUME_WITH_SURFACE_TRIM", "source_examples": ["end_portal_frame.json"], "geometry": "ONE_16x13x16_CUBOID", "transfer_hypothesis": "큰 돌출은 기하, 작은 선·색 변화는 면 PNG로 분리", "limit": "실제 재질·기능 미인증"}
+  ],
+  "E_special_models": 24,
+  "E_renderer_status": "UNVERIFIED_RUNTIME_RENDERER",
+  "source_and_sha_registers": ["F_MODEL_SOURCE_STATUS.csv", "F_GEOMETRY_ELEMENTS.csv", "F_PNG_DIRECT_VISUAL_OBSERVATIONS.csv"],
+  "comparison": "VANILLA_GEOMETRY_ARCHETYPES.md"
+}
