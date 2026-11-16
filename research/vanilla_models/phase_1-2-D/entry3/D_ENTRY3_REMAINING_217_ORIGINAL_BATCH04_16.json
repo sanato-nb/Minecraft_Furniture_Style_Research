@@ -1,0 +1,106 @@
+{
+  "schema": "D_ENTRY3_REMAINING_ORIGINAL/v1",
+  "baseline_head": "acbba0dcd9ba1085397fab44ad0c318e27daa62f",
+  "queue_rows": [
+    97,
+    112
+  ],
+  "sources": [
+    {
+      "queue_row": 97,
+      "path": "1.21.11/assets/minecraft/blockstates/chiseled_sandstone.json",
+      "git_blob_sha": "7a5de5693eba9993f83c15250011b1329c3fcc99",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/chiseled_sandstone\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 98,
+      "path": "1.21.11/assets/minecraft/blockstates/chiseled_stone_bricks.json",
+      "git_blob_sha": "4034c11b19b600ddf4688c3c39ca912716a2f087",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/chiseled_stone_bricks\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 99,
+      "path": "1.21.11/assets/minecraft/blockstates/chiseled_tuff.json",
+      "git_blob_sha": "d4afccd7bcf13fc91b8c3276011261b03d6b8607",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/chiseled_tuff\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 100,
+      "path": "1.21.11/assets/minecraft/blockstates/chiseled_tuff_bricks.json",
+      "git_blob_sha": "6c5654465e16228e4c5eba8ed3ea7125128467c7",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/chiseled_tuff_bricks\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 101,
+      "path": "1.21.11/assets/minecraft/blockstates/chorus_flower.json",
+      "git_blob_sha": "0bf058066455f82b50313d0d959976429c807800",
+      "json_text": "{\n  \"variants\": {\n    \"age=0\": {\n      \"model\": \"minecraft:block/chorus_flower\"\n    },\n    \"age=1\": {\n      \"model\": \"minecraft:block/chorus_flower\"\n    },\n    \"age=2\": {\n      \"model\": \"minecraft:block/chorus_flower\"\n    },\n    \"age=3\": {\n      \"model\": \"minecraft:block/chorus_flower\"\n    },\n    \"age=4\": {\n      \"model\": \"minecraft:block/chorus_flower\"\n    },\n    \"age=5\": {\n      \"model\": \"minecraft:block/chorus_flower_dead\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 102,
+      "path": "1.21.11/assets/minecraft/blockstates/chorus_plant.json",
+      "git_blob_sha": "c84cff188f099cf4ea08a6ffaf9d13ba2c74b26c",
+      "json_text": "{\n  \"multipart\": [\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/chorus_plant_side\"\n      },\n      \"when\": {\n        \"north\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/chorus_plant_side\",\n        \"uvlock\": true,\n        \"y\": 90\n      },\n      \"when\": {\n        \"east\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/chorus_plant_side\",\n        \"uvlock\": true,\n        \"y\": 180\n      },\n      \"when\": {\n        \"south\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/chorus_plant_side\",\n        \"uvlock\": true,\n        \"y\": 270\n      },\n      \"when\": {\n        \"west\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/chorus_plant_side\",\n        \"uvlock\": true,\n        \"x\": 270\n      },\n      \"when\": {\n        \"up\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/chorus_plant_side\",\n        \"uvlock\": true,\n        \"x\": 90\n      },\n      \"when\": {\n        \"down\": \"true\"\n      }\n    },\n    {\n      \"apply\": [\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside\",\n          \"weight\": 2\n        },\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside1\"\n        },\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside2\"\n        },\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside3\"\n        }\n      ],\n      \"when\": {\n        \"north\": \"false\"\n      }\n    },\n    {\n      \"apply\": [\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside1\",\n          \"uvlock\": true,\n          \"y\": 90\n        },\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside2\",\n          \"uvlock\": true,\n          \"y\": 90\n        },\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside3\",\n          \"uvlock\": true,\n          \"y\": 90\n        },\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside\",\n          \"uvlock\": true,\n          \"weight\": 2,\n          \"y\": 90\n        }\n      ],\n      \"when\": {\n        \"east\": \"false\"\n      }\n    },\n    {\n      \"apply\": [\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside2\",\n          \"uvlock\": true,\n          \"y\": 180\n        },\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside3\",\n          \"uvlock\": true,\n          \"y\": 180\n        },\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside\",\n          \"uvlock\": true,\n          \"weight\": 2,\n          \"y\": 180\n        },\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside1\",\n          \"uvlock\": true,\n          \"y\": 180\n        }\n      ],\n      \"when\": {\n        \"south\": \"false\"\n      }\n    },\n    {\n      \"apply\": [\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside3\",\n          \"uvlock\": true,\n          \"y\": 270\n        },\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside\",\n          \"uvlock\": true,\n          \"weight\": 2,\n          \"y\": 270\n        },\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside1\",\n          \"uvlock\": true,\n          \"y\": 270\n        },\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside2\",\n          \"uvlock\": true,\n          \"y\": 270\n        }\n      ],\n      \"when\": {\n        \"west\": \"false\"\n      }\n    },\n    {\n      \"apply\": [\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside\",\n          \"uvlock\": true,\n          \"weight\": 2,\n          \"x\": 270\n        },\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside3\",\n          \"uvlock\": true,\n          \"x\": 270\n        },\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside1\",\n          \"uvlock\": true,\n          \"x\": 270\n        },\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside2\",\n          \"uvlock\": true,\n          \"x\": 270\n        }\n      ],\n      \"when\": {\n        \"up\": \"false\"\n      }\n    },\n    {\n      \"apply\": [\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside3\",\n          \"uvlock\": true,\n          \"x\": 90\n        },\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside2\",\n          \"uvlock\": true,\n          \"x\": 90\n        },\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside1\",\n          \"uvlock\": true,\n          \"x\": 90\n        },\n        {\n          \"model\": \"minecraft:block/chorus_plant_noside\",\n          \"uvlock\": true,\n          \"weight\": 2,\n          \"x\": 90\n        }\n      ],\n      \"when\": {\n        \"down\": \"false\"\n      }\n    }\n  ]\n}"
+    },
+    {
+      "queue_row": 103,
+      "path": "1.21.11/assets/minecraft/blockstates/clay.json",
+      "git_blob_sha": "d22f313b4194b020542b7865f4f7470c4219a95f",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/clay\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 104,
+      "path": "1.21.11/assets/minecraft/blockstates/closed_eyeblossom.json",
+      "git_blob_sha": "7a39dcf379a1931c156c956f81a9d394bd11e05d",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/closed_eyeblossom\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 105,
+      "path": "1.21.11/assets/minecraft/blockstates/coal_block.json",
+      "git_blob_sha": "266adaad64604264c6c3a718a58f496d73245df1",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/coal_block\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 106,
+      "path": "1.21.11/assets/minecraft/blockstates/coal_ore.json",
+      "git_blob_sha": "9fa7c00d86667c84eb4d16a7aa432b399e87eb0c",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/coal_ore\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 107,
+      "path": "1.21.11/assets/minecraft/blockstates/coarse_dirt.json",
+      "git_blob_sha": "1f87e5c17d4da430721d133155eb7959655fe8b7",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/coarse_dirt\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 108,
+      "path": "1.21.11/assets/minecraft/blockstates/cobbled_deepslate.json",
+      "git_blob_sha": "d44144f1c26ae639c786702ee16c0cf4b69ef5f0",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/cobbled_deepslate\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 109,
+      "path": "1.21.11/assets/minecraft/blockstates/cobbled_deepslate_slab.json",
+      "git_blob_sha": "65a49dcc862553dd5b0c3aecf6b8be6c84fe958b",
+      "json_text": "{\n  \"variants\": {\n    \"type=bottom\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_slab\"\n    },\n    \"type=double\": {\n      \"model\": \"minecraft:block/cobbled_deepslate\"\n    },\n    \"type=top\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_slab_top\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 110,
+      "path": "1.21.11/assets/minecraft/blockstates/cobbled_deepslate_stairs.json",
+      "git_blob_sha": "1c243b1d51f75dfbccb1ba1887cbb63587fc907d",
+      "json_text": "{\n  \"variants\": {\n    \"facing=east,half=bottom,shape=inner_left\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_inner\",\n      \"uvlock\": true,\n      \"y\": 270\n    },\n    \"facing=east,half=bottom,shape=inner_right\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_inner\"\n    },\n    \"facing=east,half=bottom,shape=outer_left\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_outer\",\n      \"uvlock\": true,\n      \"y\": 270\n    },\n    \"facing=east,half=bottom,shape=outer_right\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_outer\"\n    },\n    \"facing=east,half=bottom,shape=straight\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs\"\n    },\n    \"facing=east,half=top,shape=inner_left\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_inner\",\n      \"uvlock\": true,\n      \"x\": 180\n    },\n    \"facing=east,half=top,shape=inner_right\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_inner\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 90\n    },\n    \"facing=east,half=top,shape=outer_left\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_outer\",\n      \"uvlock\": true,\n      \"x\": 180\n    },\n    \"facing=east,half=top,shape=outer_right\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_outer\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 90\n    },\n    \"facing=east,half=top,shape=straight\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs\",\n      \"uvlock\": true,\n      \"x\": 180\n    },\n    \"facing=north,half=bottom,shape=inner_left\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_inner\",\n      \"uvlock\": true,\n      \"y\": 180\n    },\n    \"facing=north,half=bottom,shape=inner_right\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_inner\",\n      \"uvlock\": true,\n      \"y\": 270\n    },\n    \"facing=north,half=bottom,shape=outer_left\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_outer\",\n      \"uvlock\": true,\n      \"y\": 180\n    },\n    \"facing=north,half=bottom,shape=outer_right\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_outer\",\n      \"uvlock\": true,\n      \"y\": 270\n    },\n    \"facing=north,half=bottom,shape=straight\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs\",\n      \"uvlock\": true,\n      \"y\": 270\n    },\n    \"facing=north,half=top,shape=inner_left\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_inner\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 270\n    },\n    \"facing=north,half=top,shape=inner_right\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_inner\",\n      \"uvlock\": true,\n      \"x\": 180\n    },\n    \"facing=north,half=top,shape=outer_left\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_outer\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 270\n    },\n    \"facing=north,half=top,shape=outer_right\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_outer\",\n      \"uvlock\": true,\n      \"x\": 180\n    },\n    \"facing=north,half=top,shape=straight\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 270\n    },\n    \"facing=south,half=bottom,shape=inner_left\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_inner\"\n    },\n    \"facing=south,half=bottom,shape=inner_right\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_inner\",\n      \"uvlock\": true,\n      \"y\": 90\n    },\n    \"facing=south,half=bottom,shape=outer_left\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_outer\"\n    },\n    \"facing=south,half=bottom,shape=outer_right\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_outer\",\n      \"uvlock\": true,\n      \"y\": 90\n    },\n    \"facing=south,half=bottom,shape=straight\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs\",\n      \"uvlock\": true,\n      \"y\": 90\n    },\n    \"facing=south,half=top,shape=inner_left\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_inner\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 90\n    },\n    \"facing=south,half=top,shape=inner_right\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_inner\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 180\n    },\n    \"facing=south,half=top,shape=outer_left\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_outer\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 90\n    },\n    \"facing=south,half=top,shape=outer_right\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_outer\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 180\n    },\n    \"facing=south,half=top,shape=straight\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 90\n    },\n    \"facing=west,half=bottom,shape=inner_left\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_inner\",\n      \"uvlock\": true,\n      \"y\": 90\n    },\n    \"facing=west,half=bottom,shape=inner_right\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_inner\",\n      \"uvlock\": true,\n      \"y\": 180\n    },\n    \"facing=west,half=bottom,shape=outer_left\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_outer\",\n      \"uvlock\": true,\n      \"y\": 90\n    },\n    \"facing=west,half=bottom,shape=outer_right\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_outer\",\n      \"uvlock\": true,\n      \"y\": 180\n    },\n    \"facing=west,half=bottom,shape=straight\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs\",\n      \"uvlock\": true,\n      \"y\": 180\n    },\n    \"facing=west,half=top,shape=inner_left\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_inner\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 180\n    },\n    \"facing=west,half=top,shape=inner_right\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_inner\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 270\n    },\n    \"facing=west,half=top,shape=outer_left\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_outer\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 180\n    },\n    \"facing=west,half=top,shape=outer_right\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs_outer\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 270\n    },\n    \"facing=west,half=top,shape=straight\": {\n      \"model\": \"minecraft:block/cobbled_deepslate_stairs\",\n      \"uvlock\": true,\n      \"x\": 180,\n      \"y\": 180\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 111,
+      "path": "1.21.11/assets/minecraft/blockstates/cobbled_deepslate_wall.json",
+      "git_blob_sha": "baa3cbb905bc134ce02b8cf9ff2121a446c81f1a",
+      "json_text": "{\n  \"multipart\": [\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/cobbled_deepslate_wall_post\"\n      },\n      \"when\": {\n        \"up\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/cobbled_deepslate_wall_side\",\n        \"uvlock\": true\n      },\n      \"when\": {\n        \"north\": \"low\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/cobbled_deepslate_wall_side\",\n        \"uvlock\": true,\n        \"y\": 90\n      },\n      \"when\": {\n        \"east\": \"low\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/cobbled_deepslate_wall_side\",\n        \"uvlock\": true,\n        \"y\": 180\n      },\n      \"when\": {\n        \"south\": \"low\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/cobbled_deepslate_wall_side\",\n        \"uvlock\": true,\n        \"y\": 270\n      },\n      \"when\": {\n        \"west\": \"low\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/cobbled_deepslate_wall_side_tall\",\n        \"uvlock\": true\n      },\n      \"when\": {\n        \"north\": \"tall\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/cobbled_deepslate_wall_side_tall\",\n        \"uvlock\": true,\n        \"y\": 90\n      },\n      \"when\": {\n        \"east\": \"tall\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/cobbled_deepslate_wall_side_tall\",\n        \"uvlock\": true,\n        \"y\": 180\n      },\n      \"when\": {\n        \"south\": \"tall\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/cobbled_deepslate_wall_side_tall\",\n        \"uvlock\": true,\n        \"y\": 270\n      },\n      \"when\": {\n        \"west\": \"tall\"\n      }\n    }\n  ]\n}"
+    },
+    {
+      "queue_row": 112,
+      "path": "1.21.11/assets/minecraft/blockstates/cobblestone.json",
+      "git_blob_sha": "e94cf88207951592dfcc259180f2f8956d83680c",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/cobblestone\"\n    }\n  }\n}"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "schema": "D_ENTRY3_REMAINING_ORIGINAL/v1",
+  "baseline_head": "acbba0dcd9ba1085397fab44ad0c318e27daa62f",
+  "queue_rows": [
+    177,
+    192
+  ],
+  "sources": [
+    {
+      "queue_row": 177,
+      "path": "1.21.11/assets/minecraft/blockstates/cyan_carpet.json",
+      "git_blob_sha": "0b0212c56606c759cfec8ee1145cf80e29318b02",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/cyan_carpet\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 178,
+      "path": "1.21.11/assets/minecraft/blockstates/cyan_concrete.json",
+      "git_blob_sha": "32935a3bd4372f6d69833c7078af1386694e84e6",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/cyan_concrete\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 179,
+      "path": "1.21.11/assets/minecraft/blockstates/cyan_concrete_powder.json",
+      "git_blob_sha": "cf7085ebec7b992545f42d918266cd10a5d0d7aa",
+      "json_text": "{\n  \"variants\": {\n    \"\": [\n      {\n        \"model\": \"minecraft:block/cyan_concrete_powder\"\n      },\n      {\n        \"model\": \"minecraft:block/cyan_concrete_powder\",\n        \"y\": 90\n      },\n      {\n        \"model\": \"minecraft:block/cyan_concrete_powder\",\n        \"y\": 180\n      },\n      {\n        \"model\": \"minecraft:block/cyan_concrete_powder\",\n        \"y\": 270\n      }\n    ]\n  }\n}"
+    },
+    {
+      "queue_row": 180,
+      "path": "1.21.11/assets/minecraft/blockstates/cyan_glazed_terracotta.json",
+      "git_blob_sha": "26276ef3bdcb350be3d3753face0306627bbfdb9",
+      "json_text": "{\n  \"variants\": {\n    \"facing=east\": {\n      \"model\": \"minecraft:block/cyan_glazed_terracotta\",\n      \"y\": 270\n    },\n    \"facing=north\": {\n      \"model\": \"minecraft:block/cyan_glazed_terracotta\",\n      \"y\": 180\n    },\n    \"facing=south\": {\n      \"model\": \"minecraft:block/cyan_glazed_terracotta\"\n    },\n    \"facing=west\": {\n      \"model\": \"minecraft:block/cyan_glazed_terracotta\",\n      \"y\": 90\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 181,
+      "path": "1.21.11/assets/minecraft/blockstates/cyan_shulker_box.json",
+      "git_blob_sha": "86214c0df41768ba3f60e06b7176fe32a33de835",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/cyan_shulker_box\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 182,
+      "path": "1.21.11/assets/minecraft/blockstates/cyan_stained_glass.json",
+      "git_blob_sha": "6645a5736ec154440a75d0e004d4c759a0d8f27a",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/cyan_stained_glass\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 183,
+      "path": "1.21.11/assets/minecraft/blockstates/cyan_stained_glass_pane.json",
+      "git_blob_sha": "e1fddf7e119509861f3f4da01f00c007cec5dc2b",
+      "json_text": "{\n  \"multipart\": [\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/cyan_stained_glass_pane_post\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/cyan_stained_glass_pane_side\"\n      },\n      \"when\": {\n        \"north\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/cyan_stained_glass_pane_side\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"east\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/cyan_stained_glass_pane_side_alt\"\n      },\n      \"when\": {\n        \"south\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/cyan_stained_glass_pane_side_alt\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"west\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/cyan_stained_glass_pane_noside\"\n      },\n      \"when\": {\n        \"north\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/cyan_stained_glass_pane_noside_alt\"\n      },\n      \"when\": {\n        \"east\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/cyan_stained_glass_pane_noside_alt\",\n        \"y\": 90\n      },\n      \"when\": {\n        \"south\": \"false\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/cyan_stained_glass_pane_noside\",\n        \"y\": 270\n      },\n      \"when\": {\n        \"west\": \"false\"\n      }\n    }\n  ]\n}"
+    },
+    {
+      "queue_row": 184,
+      "path": "1.21.11/assets/minecraft/blockstates/cyan_terracotta.json",
+      "git_blob_sha": "dca321fa0bd2f7bcc70178166c3e0290e2e4fa2a",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/cyan_terracotta\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 185,
+      "path": "1.21.11/assets/minecraft/blockstates/cyan_wall_banner.json",
+      "git_blob_sha": "f5e2c87f4dd44db6086c0bbb3ffdd2de0055d8d2",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/banner\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 186,
+      "path": "1.21.11/assets/minecraft/blockstates/cyan_wool.json",
+      "git_blob_sha": "48b12b5acd19714cfb6beda94bcdd7b9a173beef",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/cyan_wool\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 187,
+      "path": "1.21.11/assets/minecraft/blockstates/damaged_anvil.json",
+      "git_blob_sha": "cca2bca49e88a063c10eee3c52f80b7f290afdaa",
+      "json_text": "{\n  \"variants\": {\n    \"facing=east\": {\n      \"model\": \"minecraft:block/damaged_anvil\",\n      \"y\": 270\n    },\n    \"facing=north\": {\n      \"model\": \"minecraft:block/damaged_anvil\",\n      \"y\": 180\n    },\n    \"facing=south\": {\n      \"model\": \"minecraft:block/damaged_anvil\"\n    },\n    \"facing=west\": {\n      \"model\": \"minecraft:block/damaged_anvil\",\n      \"y\": 90\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 188,
+      "path": "1.21.11/assets/minecraft/blockstates/dandelion.json",
+      "git_blob_sha": "bf8a14b9797cb88c2413dec75fcd5f10b2b9a4d5",
+      "json_text": "{\n  \"variants\": {\n    \"\": {\n      \"model\": \"minecraft:block/dandelion\"\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 189,
+      "path": "1.21.11/assets/minecraft/blockstates/dark_oak_button.json",
+      "git_blob_sha": "fca3604104ca1049a83a5e044562a7a2e393258a",
+      "json_text": "{\n  \"variants\": {\n    \"face=ceiling,facing=east,powered=false\": {\n      \"model\": \"minecraft:block/dark_oak_button\",\n      \"x\": 180,\n      \"y\": 270\n    },\n    \"face=ceiling,facing=east,powered=true\": {\n      \"model\": \"minecraft:block/dark_oak_button_pressed\",\n      \"x\": 180,\n      \"y\": 270\n    },\n    \"face=ceiling,facing=north,powered=false\": {\n      \"model\": \"minecraft:block/dark_oak_button\",\n      \"x\": 180,\n      \"y\": 180\n    },\n    \"face=ceiling,facing=north,powered=true\": {\n      \"model\": \"minecraft:block/dark_oak_button_pressed\",\n      \"x\": 180,\n      \"y\": 180\n    },\n    \"face=ceiling,facing=south,powered=false\": {\n      \"model\": \"minecraft:block/dark_oak_button\",\n      \"x\": 180\n    },\n    \"face=ceiling,facing=south,powered=true\": {\n      \"model\": \"minecraft:block/dark_oak_button_pressed\",\n      \"x\": 180\n    },\n    \"face=ceiling,facing=west,powered=false\": {\n      \"model\": \"minecraft:block/dark_oak_button\",\n      \"x\": 180,\n      \"y\": 90\n    },\n    \"face=ceiling,facing=west,powered=true\": {\n      \"model\": \"minecraft:block/dark_oak_button_pressed\",\n      \"x\": 180,\n      \"y\": 90\n    },\n    \"face=floor,facing=east,powered=false\": {\n      \"model\": \"minecraft:block/dark_oak_button\",\n      \"y\": 90\n    },\n    \"face=floor,facing=east,powered=true\": {\n      \"model\": \"minecraft:block/dark_oak_button_pressed\",\n      \"y\": 90\n    },\n    \"face=floor,facing=north,powered=false\": {\n      \"model\": \"minecraft:block/dark_oak_button\"\n    },\n    \"face=floor,facing=north,powered=true\": {\n      \"model\": \"minecraft:block/dark_oak_button_pressed\"\n    },\n    \"face=floor,facing=south,powered=false\": {\n      \"model\": \"minecraft:block/dark_oak_button\",\n      \"y\": 180\n    },\n    \"face=floor,facing=south,powered=true\": {\n      \"model\": \"minecraft:block/dark_oak_button_pressed\",\n      \"y\": 180\n    },\n    \"face=floor,facing=west,powered=false\": {\n      \"model\": \"minecraft:block/dark_oak_button\",\n      \"y\": 270\n    },\n    \"face=floor,facing=west,powered=true\": {\n      \"model\": \"minecraft:block/dark_oak_button_pressed\",\n      \"y\": 270\n    },\n    \"face=wall,facing=east,powered=false\": {\n      \"model\": \"minecraft:block/dark_oak_button\",\n      \"uvlock\": true,\n      \"x\": 90,\n      \"y\": 90\n    },\n    \"face=wall,facing=east,powered=true\": {\n      \"model\": \"minecraft:block/dark_oak_button_pressed\",\n      \"uvlock\": true,\n      \"x\": 90,\n      \"y\": 90\n    },\n    \"face=wall,facing=north,powered=false\": {\n      \"model\": \"minecraft:block/dark_oak_button\",\n      \"uvlock\": true,\n      \"x\": 90\n    },\n    \"face=wall,facing=north,powered=true\": {\n      \"model\": \"minecraft:block/dark_oak_button_pressed\",\n      \"uvlock\": true,\n      \"x\": 90\n    },\n    \"face=wall,facing=south,powered=false\": {\n      \"model\": \"minecraft:block/dark_oak_button\",\n      \"uvlock\": true,\n      \"x\": 90,\n      \"y\": 180\n    },\n    \"face=wall,facing=south,powered=true\": {\n      \"model\": \"minecraft:block/dark_oak_button_pressed\",\n      \"uvlock\": true,\n      \"x\": 90,\n      \"y\": 180\n    },\n    \"face=wall,facing=west,powered=false\": {\n      \"model\": \"minecraft:block/dark_oak_button\",\n      \"uvlock\": true,\n      \"x\": 90,\n      \"y\": 270\n    },\n    \"face=wall,facing=west,powered=true\": {\n      \"model\": \"minecraft:block/dark_oak_button_pressed\",\n      \"uvlock\": true,\n      \"x\": 90,\n      \"y\": 270\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 190,
+      "path": "1.21.11/assets/minecraft/blockstates/dark_oak_door.json",
+      "git_blob_sha": "aa45d8caa0ad572fd3b78ae5d327977aa9e10240",
+      "json_text": "{\n  \"variants\": {\n    \"facing=east,half=lower,hinge=left,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_door_bottom_left\"\n    },\n    \"facing=east,half=lower,hinge=left,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_door_bottom_left_open\",\n      \"y\": 90\n    },\n    \"facing=east,half=lower,hinge=right,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_door_bottom_right\"\n    },\n    \"facing=east,half=lower,hinge=right,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_door_bottom_right_open\",\n      \"y\": 270\n    },\n    \"facing=east,half=upper,hinge=left,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_door_top_left\"\n    },\n    \"facing=east,half=upper,hinge=left,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_door_top_left_open\",\n      \"y\": 90\n    },\n    \"facing=east,half=upper,hinge=right,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_door_top_right\"\n    },\n    \"facing=east,half=upper,hinge=right,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_door_top_right_open\",\n      \"y\": 270\n    },\n    \"facing=north,half=lower,hinge=left,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_door_bottom_left\",\n      \"y\": 270\n    },\n    \"facing=north,half=lower,hinge=left,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_door_bottom_left_open\"\n    },\n    \"facing=north,half=lower,hinge=right,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_door_bottom_right\",\n      \"y\": 270\n    },\n    \"facing=north,half=lower,hinge=right,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_door_bottom_right_open\",\n      \"y\": 180\n    },\n    \"facing=north,half=upper,hinge=left,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_door_top_left\",\n      \"y\": 270\n    },\n    \"facing=north,half=upper,hinge=left,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_door_top_left_open\"\n    },\n    \"facing=north,half=upper,hinge=right,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_door_top_right\",\n      \"y\": 270\n    },\n    \"facing=north,half=upper,hinge=right,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_door_top_right_open\",\n      \"y\": 180\n    },\n    \"facing=south,half=lower,hinge=left,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_door_bottom_left\",\n      \"y\": 90\n    },\n    \"facing=south,half=lower,hinge=left,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_door_bottom_left_open\",\n      \"y\": 180\n    },\n    \"facing=south,half=lower,hinge=right,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_door_bottom_right\",\n      \"y\": 90\n    },\n    \"facing=south,half=lower,hinge=right,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_door_bottom_right_open\"\n    },\n    \"facing=south,half=upper,hinge=left,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_door_top_left\",\n      \"y\": 90\n    },\n    \"facing=south,half=upper,hinge=left,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_door_top_left_open\",\n      \"y\": 180\n    },\n    \"facing=south,half=upper,hinge=right,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_door_top_right\",\n      \"y\": 90\n    },\n    \"facing=south,half=upper,hinge=right,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_door_top_right_open\"\n    },\n    \"facing=west,half=lower,hinge=left,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_door_bottom_left\",\n      \"y\": 180\n    },\n    \"facing=west,half=lower,hinge=left,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_door_bottom_left_open\",\n      \"y\": 270\n    },\n    \"facing=west,half=lower,hinge=right,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_door_bottom_right\",\n      \"y\": 180\n    },\n    \"facing=west,half=lower,hinge=right,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_door_bottom_right_open\",\n      \"y\": 90\n    },\n    \"facing=west,half=upper,hinge=left,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_door_top_left\",\n      \"y\": 180\n    },\n    \"facing=west,half=upper,hinge=left,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_door_top_left_open\",\n      \"y\": 270\n    },\n    \"facing=west,half=upper,hinge=right,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_door_top_right\",\n      \"y\": 180\n    },\n    \"facing=west,half=upper,hinge=right,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_door_top_right_open\",\n      \"y\": 90\n    }\n  }\n}"
+    },
+    {
+      "queue_row": 191,
+      "path": "1.21.11/assets/minecraft/blockstates/dark_oak_fence.json",
+      "git_blob_sha": "59bdf154a05e26f903c235bc0b9654e7b411b5dc",
+      "json_text": "{\n  \"multipart\": [\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/dark_oak_fence_post\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/dark_oak_fence_side\",\n        \"uvlock\": true\n      },\n      \"when\": {\n        \"north\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/dark_oak_fence_side\",\n        \"uvlock\": true,\n        \"y\": 90\n      },\n      \"when\": {\n        \"east\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/dark_oak_fence_side\",\n        \"uvlock\": true,\n        \"y\": 180\n      },\n      \"when\": {\n        \"south\": \"true\"\n      }\n    },\n    {\n      \"apply\": {\n        \"model\": \"minecraft:block/dark_oak_fence_side\",\n        \"uvlock\": true,\n        \"y\": 270\n      },\n      \"when\": {\n        \"west\": \"true\"\n      }\n    }\n  ]\n}"
+    },
+    {
+      "queue_row": 192,
+      "path": "1.21.11/assets/minecraft/blockstates/dark_oak_fence_gate.json",
+      "git_blob_sha": "3b6d547fcc619065adeb9cdec05c621fc1f61ad2",
+      "json_text": "{\n  \"variants\": {\n    \"facing=east,in_wall=false,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_fence_gate\",\n      \"uvlock\": true,\n      \"y\": 270\n    },\n    \"facing=east,in_wall=false,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_fence_gate_open\",\n      \"uvlock\": true,\n      \"y\": 270\n    },\n    \"facing=east,in_wall=true,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_fence_gate_wall\",\n      \"uvlock\": true,\n      \"y\": 270\n    },\n    \"facing=east,in_wall=true,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_fence_gate_wall_open\",\n      \"uvlock\": true,\n      \"y\": 270\n    },\n    \"facing=north,in_wall=false,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_fence_gate\",\n      \"uvlock\": true,\n      \"y\": 180\n    },\n    \"facing=north,in_wall=false,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_fence_gate_open\",\n      \"uvlock\": true,\n      \"y\": 180\n    },\n    \"facing=north,in_wall=true,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_fence_gate_wall\",\n      \"uvlock\": true,\n      \"y\": 180\n    },\n    \"facing=north,in_wall=true,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_fence_gate_wall_open\",\n      \"uvlock\": true,\n      \"y\": 180\n    },\n    \"facing=south,in_wall=false,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_fence_gate\",\n      \"uvlock\": true\n    },\n    \"facing=south,in_wall=false,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_fence_gate_open\",\n      \"uvlock\": true\n    },\n    \"facing=south,in_wall=true,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_fence_gate_wall\",\n      \"uvlock\": true\n    },\n    \"facing=south,in_wall=true,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_fence_gate_wall_open\",\n      \"uvlock\": true\n    },\n    \"facing=west,in_wall=false,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_fence_gate\",\n      \"uvlock\": true,\n      \"y\": 90\n    },\n    \"facing=west,in_wall=false,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_fence_gate_open\",\n      \"uvlock\": true,\n      \"y\": 90\n    },\n    \"facing=west,in_wall=true,open=false\": {\n      \"model\": \"minecraft:block/dark_oak_fence_gate_wall\",\n      \"uvlock\": true,\n      \"y\": 90\n    },\n    \"facing=west,in_wall=true,open=true\": {\n      \"model\": \"minecraft:block/dark_oak_fence_gate_wall_open\",\n      \"uvlock\": true,\n      \"y\": 90\n    }\n  }\n}"
+    }
+  ]
+}
