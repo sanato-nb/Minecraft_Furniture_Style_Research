@@ -1,7 +1,7 @@
 # 마인크래프트 가구 스타일 연구 전체 계획서
 
 **기준일:** 2026-11-16 KST  
-**기준 저장소 상태:** `main` `2b689415f3e771bfe96b251b05ce71438a6b0451`  
+**상태 기준:** 1-2-D 종료 커밋 `2b689415f3e771bfe96b251b05ce71438a6b0451`; 1-2-E의 현재 진행은 `handoff/STATE.json` 참조
 **프로젝트:** 「좀보이드 → 마크 맵」의 선행 가구 스타일 연구  
 **원본 기준:** 사용자 제공 Minecraft Java Edition 1.21.11 추출 자산
 
@@ -32,11 +32,11 @@
 | **B 기하·부모 상속** | B-first 모델 2,360개의 원본 JSON·요소·부모 계보. E-first P1 30개 별도 | `B_COMPLETE_SOURCE_GEOMETRY_SCOPE`, Entry10에서 종료 |
 | **C 면·UV·텍스처·PNG** | 일반 기하가 있는 2,304개의 적용 face·텍스처 연결과 PNG. 일반 기하 없음 56 + E-first 30 = E 소관 86 | `C_COMPLETE_SOURCE_UV_TEXTURE_PNG_SCOPE`, 고정 Entry5에서 종료. 23,090 face, 고유 PNG 1,073의 소스 근거 |
 | **D blockstate 조립** | 원본 1,168/1,168 JSON의 variants/multipart, 선택 대안·회전·uvlock, 정적 상태별 모델 연결 | `D_COMPLETE_SOURCE_BLOCKSTATE_ASSEMBLY_SCOPE`, 고정 Entry6에서 종료. 9,193 정적 후보·19,440 모델 옵션. 게임 상태·런타임 인증 아님 |
-| **E 특수 렌더·예외** | C가 이관한 모델 **86개**의 일반 elements 부재/E 우선 배정과 엔진 특수 표현 | **다음 단계.** D가 직접 참조한 E 모델 84개는 E 전체 86개의 완료 실적이 아님. 원본 명단·소관·미검증을 대조해 정확한 범위와 유한 회차·게이트부터 고정 |
+| **E 특수 렌더·예외** | C가 이관한 모델 **86개**의 일반 elements 부재/E 우선 배정과 엔진 특수 표현 | **고정 4 Entry 진행 중, Entry1 30/86 원본 조사.** D가 직접 참조한 E 모델 84개는 E 완료 실적이 아님. [E 고정 계약](vanilla_models_1-2/1-2-E_FIXED_SCOPE_AND_EXIT_PLAN.md) |
 | **F 가구형 원형·스타일** | A~E의 검증된 구조·재질·상태를 가구 제작 관점에서 유형화 | E 근거와 예외를 연결한 뒤 유형·대표 사례·반례·측정치 표준 확정 |
 | **G 1-2 종합 감사** | A~F 원장 경로·SHA·중복·예외·근거 수준을 독립 대조 | 전체 1-2 종료 게이트와 후속 1-3 인수인계 작성. E/F의 미확인을 임의로 완료 처리하지 않음 |
 
-E~G의 **Entry 수·표본 분모·종료 게이트는 아직 확정되지 않았다.** 각 소단계 시작 전에 원본과 선행 원장에 대조한 고정 배정표·유한 종료 계약을 만들고, 그다음 실제 조사로 넘어간다. 앞선 A~D의 완료 수치를 신규 성과로 다시 집계하지 않는다. [A 후속 소관](vanilla_models_1-2/1-2-A_FIXED_SCOPE_AND_EXIT_PLAN.md), [E 인수인계](../research/vanilla_models/phase_1-2-D/entry6/D_NEXT.md).
+E는 **86개·고정 4 Entry**로 확정했고, F/G의 Entry 수·분모·종료 게이트는 아직 확정되지 않았다. F/G는 각 소단계 시작 전에 원본과 선행 원장에 대조한 고정 배정표·유한 종료 계약을 만들고, 그다음 실제 조사로 넘어간다. 앞선 A~D의 완료 수치를 신규 성과로 다시 집계하지 않는다. [A 후속 소관](vanilla_models_1-2/1-2-A_FIXED_SCOPE_AND_EXIT_PLAN.md), [E 인수인계](../research/vanilla_models/phase_1-2-D/entry6/D_NEXT.md).
 
 ### 바로 다음 실행: 1-2-E
 
