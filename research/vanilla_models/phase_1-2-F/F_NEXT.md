@@ -1,3 +1,9 @@
+# 1-2-F 최신 이어하기: Entry1 F3/F4 보완
+
+2026-11-16 현재 Entry1 고정 150개 원본 JSON 직접 SHA 확인150/150 및 기하 1차 유형화 150/150 완료. 이전 1-2-F 사전 범위 계획은 아래 이력으로 보존. **Entry1 최종 종료 아님.** 상세는 [Entry1 연구 결과](entry1/F_ENTRY1_REPORT.md)·[다음 잔여 연구](entry1/F_NEXT.md)·[원형 관찰](entry1/VANILLA_GEOMETRY_ARCHETYPES_DRAFT.md)·[독립 감사](entry1/F_ENTRY1_INDEPENDENT_AUDIT.json). 기존 C PNG 시각 직접 관찰 **0**, 남은 F3 이미지 대상150모델. D 후반 x/y/uvlock 명시 여부 원문 재확인 **115모델** 남음. E 예외8 엔진 runtime 미확정 소관 유지. 전체 F 최종 통과0/2,390, F 원본/기하 1차 작업150/2,390(6.28%). 고정 6회차/2,390/Entry7 금지, A~E·v69 보존.
+
+---
+
 # 1-2-F 다음 작업 — Entry1 150모델 실제 유형화 시작
 
 **2026-11-16 KST · F 계획·고정 범위 준비 완료, 개별 스타일 유형화 0/2,390.**
