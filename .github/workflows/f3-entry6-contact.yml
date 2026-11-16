@@ -1,0 +1,25 @@
+name: F3 Entry6 original PNG contact sheets
+on:
+  push:
+    paths:
+      - '.github/workflows/f3-entry6-contact.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit-original-pngs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Pillow
+        run: python -m pip install --disable-pip-version-check Pillow==11.3.0
+      - name: Verify original 332 textures and build contact sheets
+        run: python scripts/phase_1_2_f_entry6_visual_contact.py
+      - name: Upload visual review evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: F3-Entry6-original-PNG-contact-and-audit
+          path: research/vanilla_models/phase_1-2-F/entry6/visual_contact/
+          retention-days: 30
