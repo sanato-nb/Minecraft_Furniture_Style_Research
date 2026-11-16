@@ -1,0 +1,42 @@
+{
+  "schema": "F_FINAL_GATE_JUDGEMENT_AT_ENTRY6/v1",
+  "previous_main": "4f38439e52ae99c20ccab5fe70d293f7f09a5303",
+  "scope_original_model_total": 2390,
+  "scope_original_model_json_rechecked_all_entries": 2390,
+  "style_verified_prior": 2012,
+  "entry6_source_structure_checked": 378,
+  "entry6_first_frame_PNG_direct_visually_reviewed": 0,
+  "entry6_style_gate_accepted": 0,
+  "remaining_visual_style_models": 378,
+  "source_geometry_completed_ratio": "2390/2390",
+  "source_style_accepted_ratio": "2012/2390",
+  "entry7_auto_created": false,
+  "gates": {
+    "F1": {
+      "status": "PASS",
+      "evidence": "2,390 unique source Git sha, P1/2/3, C/E/D membership; global audit"
+    },
+    "F2": {
+      "status": "PASS",
+      "evidence": "378 parent chains, 661 elements and 2,412 faces independently rederived, global 5,689/23,090"
+    },
+    "F3": {
+      "status": "BLOCKED",
+      "reason": "Entry6 original PNG pixel/first-frame direct visual observations were not performed, so texture-vs-geometry appearance claims cannot be verified",
+      "unverified_models": 378
+    },
+    "F4": {
+      "status": "PASS",
+      "evidence": "D original option rows 678 for 334 models, 44 non-direct and 7 E exceptions retained; 7,592 global model options"
+    },
+    "F5": {
+      "status": "SOURCE_INDEPENDENT_AUDIT_PASS_REMOTE_READBACK_PENDING",
+      "evidence": "Entry6 168+210 independent passes; global 2390 uniqueness/face/element/D checks PASS. Remote commit SHA/rows must be checked after commit."
+    }
+  },
+  "final_status": "F_BLOCKED_AT_ENTRY6_F3_VISUAL_PENDING",
+  "F_complete": false,
+  "stage_1_2_complete": false,
+  "next_G_started": false,
+  "excluded_renderer_runtime_verified": false
+}

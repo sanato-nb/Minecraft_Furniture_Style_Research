@@ -1,0 +1,112 @@
+{
+  "schema": "F_ENTRY6_ARCHETYPE_STATIC_JSON_RULES/v1",
+  "baseline_main": "4f38439e52ae99c20ccab5fe70d293f7f09a5303",
+  "minecraft_version": "1.21.11",
+  "scope_models": 378,
+  "geometry_models": 371,
+  "E_exception_models": 7,
+  "source_geometry_tags": {
+    "EXACT_FULL_CUBE": 186,
+    "THIN_ELEMENT": 146,
+    "ZERO_THICKNESS": 145,
+    "AXIS_ALIGNED_CUBOIDS": 13,
+    "MULTI_ELEMENT": 155,
+    "ROTATED_ELEMENT": 94,
+    "INVERTED_OR_OUTSIDE_16": 65,
+    "E_SOURCE_EXCEPTION": 7
+  },
+  "tag_overlap": true,
+  "thin_threshold_model_units": 1,
+  "zero_thickness_exactly_0": true,
+  "bbox_source_coordinate_not_post_engine_rotation": true,
+  "visual_PNG_first_frame_actual_observations": 0,
+  "visual_style_conclusion": "PENDING_SOURCE_PNG_VIEW",
+  "observed_model_examples": [
+    {
+      "m": "mud.json",
+      "sha": "5cfbb594db2f750e5da00957edf8c6cfc7bc7d27",
+      "p": "cube.json",
+      "p_sha": "1b9780b479aee527f79bde950656b82f1524128b",
+      "tag": "EXACT_FULL_CUBE",
+      "elements": 1,
+      "faces": 6,
+      "bbox": "16×16×16",
+      "furniture": "단일 큐브형 몸체·표면 비례의 구조적 비교 기준",
+      "limits": "진흙 PNG 실제 색감/패턴 미관찰"
+    },
+    {
+      "m": "mushroom_block_inside.json",
+      "sha": "8c7b371346b178d8115d097dda372a2e70d7aa88",
+      "p": "template_single_face.json",
+      "p_sha": "d23e5f207cb87dc0fc95ca79ffd07bf8c56b5755",
+      "tag": "ZERO_THICKNESS",
+      "elements": 1,
+      "faces": 1,
+      "bbox": "16×16×0",
+      "furniture": "평면 문양/패널 표현을 구조적으로 비교할 후보",
+      "limits": "실제 투명/가림·렌더 방향 인증 안 됨"
+    },
+    {
+      "m": "nether_sprouts.json",
+      "sha": "a13485762a608e985085ca702c7c3c9291544c22",
+      "p": "cross.json",
+      "p_sha": "37c8b09f251c5f319905ee14787be1442775e816",
+      "tag": "ROTATED_ELEMENT|ZERO_THICKNESS",
+      "elements": 2,
+      "faces": 4,
+      "bbox": "약 14.4×16×14.4",
+      "furniture": "교차 평면형 장식을 최소 요소로 배치하는 구조 후보",
+      "limits": "원본 PNG의 불투명 영역/실루엣 미관찰"
+    },
+    {
+      "m": "template_two_candles.json",
+      "sha": "2abbb10c2906e1c26fc3036ac4cca7f1ad02e14",
+      "p": "template_two_candles.json",
+      "p_sha": "2abbb10c2906e1c26fc3036ac4cca7f1ad02e14",
+      "tag": "MULTI_ELEMENT",
+      "elements": 6,
+      "faces": 20,
+      "bbox": "6×7×3",
+      "furniture": "작은 물체 여러 개의 높이·두께 차이를 cuboid로 구성하는 예",
+      "limits": "촛불 특수 효과·실제 게임 시각 상태는 미확인"
+    },
+    {
+      "m": "template_three_candles.json",
+      "sha": "d9963dc7b60061dc18a9b3eb93809b7d43207ffc",
+      "p": "template_three_candles.json",
+      "p_sha": "d9963dc7b60061dc18a9b3eb93809b7d43207ffc",
+      "tag": "MULTI_ELEMENT",
+      "elements": 9,
+      "faces": 30,
+      "bbox": "5×7×5",
+      "furniture": "여러 좁은 부품 군집을 적은 블록 공간에 압축하는 구조 비교",
+      "limits": "비례가 가구 부품으로 바로 적합하다는 보장은 없음"
+    },
+    {
+      "m": "small_dripleaf_top.json",
+      "sha": "847edac305022c63a23302a01a8e39e4afb1a381",
+      "p": "small_dripleaf_top.json",
+      "p_sha": "847edac305022c63a23302a01a8e39e4afb1a381",
+      "tag": "MULTI_ELEMENT",
+      "elements": 8,
+      "faces": 22,
+      "bbox": "14×14×14",
+      "furniture": "얇은 상판 및 다중 지지 입체를 조합하는 방식의 후보",
+      "limits": "실제 PNG·게임 내 관찰 각도 미검증"
+    },
+    {
+      "m": "pink_petals_1.json",
+      "sha": "38dacd572f693d6d16503481ed3d210b43ff25cd",
+      "p": "flowerbed_1.json",
+      "p_sha": "5b7ba90dff0ba73259c8642117d23b362e0f5c2d",
+      "tag": "MULTI_ELEMENT",
+      "elements": 7,
+      "faces": 14,
+      "bbox": "9.65×2.99×10.6",
+      "furniture": "바닥에 낮게 깔린 장식층을 얇게 구성하는 예",
+      "limits": "부분 투명 PNG 윤곽은 미확인"
+    }
+  ],
+  "game_runtime_executed": false,
+  "E_runtime_renderer_verified": false
+}
