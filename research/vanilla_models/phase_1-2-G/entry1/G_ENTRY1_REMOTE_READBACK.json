@@ -1,0 +1,66 @@
+{
+  "schema": "G_ENTRY1_REMOTE_READBACK/v1",
+  "verified_at_KST": "2026-11-17",
+  "baseline_plan": "88d9da945953e80597faa6e91a7c79078a5da819",
+  "source_snapshot_commit": "de15e67cc284b8ae8ebb085a13475b1cccc633f7",
+  "analysis_commit": "f3061ceaf38727f62f0a68c47a6dd35e0df7b8d2",
+  "changed_paths_since_plan": 34,
+  "protected_A_B_C_D_E_F_v69_source_paths_modified": 0,
+  "verified_output_csv": [
+    {
+      "path": "research/vanilla_models/phase_1-2-G/entry1/G_SOURCE_CROSSWALK.csv",
+      "blob_sha": "d243fbc96890e8a657df19481bd36c20f74314cb",
+      "rows": 347,
+      "sha_and_row_readback": "PASS"
+    },
+    {
+      "path": "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_FACE_PNG_CROSS_LINKS.csv",
+      "blob_sha": "cde745235c7d5e0ed90c85132aa736b3754c3b31",
+      "rows": 1373,
+      "sha_and_row_readback": "PASS"
+    },
+    {
+      "path": "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_D_RULE_MODEL_LINKS.csv",
+      "blob_sha": "6f9c55c72b9e814e63766b8319e03d1d8ded639c",
+      "rows": 167,
+      "sha_and_row_readback": "PASS"
+    },
+    {
+      "path": "research/vanilla_models/phase_1-2-G/entry1/G_UNRESOLVED.csv",
+      "blob_sha": "b51f3058886c071c2b1b00d2b5d2d69a86154e5f",
+      "rows": 203,
+      "sha_and_row_readback": "PASS"
+    }
+  ],
+  "source_snapshots": {
+    "model_batches": 10,
+    "model_original_JSON_reparsed": 150,
+    "first_parent_batches": 5,
+    "first_parent_JSON_reparsed": 64,
+    "additional_ancestor_JSON_reparsed": 3,
+    "blockstate_JSON_reparsed": 12,
+    "all_sha_matched": true
+  },
+  "audit": {
+    "source_identity_path_git_blob_sha": 347,
+    "model_source_body": 150,
+    "blockstate_source_body": 12,
+    "PNG_direct_binary_body": 0,
+    "PNG_Git_tree_SHA_only": 185,
+    "source_face": 1373,
+    "source_D_rule_options": 167,
+    "independent_cross_stage_mismatches": 0
+  },
+  "status": {
+    "entry1_complete": false,
+    "entry2_started": false,
+    "G_global_gates_passed": 0,
+    "G_finished": false
+  },
+  "conclusion": "REMOTE_READBACK_PASSED_FOR_COMMITTED_TEXT_EVIDENCE_AND_GIT_SHA; PNG_BINARY_DIRECT_REINSPECTION_PENDING",
+  "not_claimed": [
+    "Original PNG 185 binary/pixels decoded in G",
+    "official Minecraft client JAR authentication",
+    "game runtime renderer or state registry verified"
+  ]
+}
