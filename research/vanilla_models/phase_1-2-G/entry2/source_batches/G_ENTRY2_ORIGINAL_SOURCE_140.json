@@ -1,0 +1,656 @@
+{
+  "schema": "G_ENTRY2_ORIGINAL_SOURCE_BATCH/v1",
+  "source_main_baseline": "ae1448906d4cb6f2aff4bdc43fbdc808024fd6bb",
+  "G_entry": "ENTRY2",
+  "G_fixed_scope": 775,
+  "offset": 140,
+  "expected": 14,
+  "success": 14,
+  "SHA_reopened": 14,
+  "model_inherited_geometry_pending": 12,
+  "external_C_RGBA_matches": 0,
+  "C_outside_reopened": 0,
+  "source_prior_reference_blob_sha": "9a2d35a3c81a8f6abe3b4491c50130758c9f18c0",
+  "records": [
+    {
+      "index": 488,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/crimson_hanging_sign.json",
+      "expected_git_sha": "5eeafe7d7e5570ed904425925f70cae0c38b62a3",
+      "connector_git_sha": "5eeafe7d7e5570ed904425925f70cae0c38b62a3",
+      "git_sha_computed": "5eeafe7d7e5570ed904425925f70cae0c38b62a3",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "minecraft:block/stripped_crimson_stem"
+        }
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle"
+        ],
+        "own_texture_defs": {
+          "particle": "minecraft:block/stripped_crimson_stem"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": null,
+        "E_exception": true,
+        "comparison_scope": "E_SPECIAL_RENDERER_NO_GENERAL_ELEMENTS",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 489,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/crimson_shelf_center.json",
+      "expected_git_sha": "b1412cb27b9a117c995005332d03507bcc363519",
+      "connector_git_sha": "b1412cb27b9a117c995005332d03507bcc363519",
+      "git_sha_computed": "b1412cb27b9a117c995005332d03507bcc363519",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_center",
+        "textures": {
+          "all": "minecraft:block/crimson_shelf",
+          "particle": "minecraft:block/stripped_crimson_stem"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_center",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_center.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/crimson_shelf",
+          "particle": "minecraft:block/stripped_crimson_stem"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_center.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 490,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/crimson_shelf_inventory.json",
+      "expected_git_sha": "7ccc51d092592bc46c9f5e97d1a6a0c35e8885df",
+      "connector_git_sha": "7ccc51d092592bc46c9f5e97d1a6a0c35e8885df",
+      "git_sha_computed": "7ccc51d092592bc46c9f5e97d1a6a0c35e8885df",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_inventory",
+        "textures": {
+          "all": "minecraft:block/crimson_shelf",
+          "particle": "minecraft:block/stripped_crimson_stem"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_inventory",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_inventory.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/crimson_shelf",
+          "particle": "minecraft:block/stripped_crimson_stem"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_inventory.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 491,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/crimson_shelf_right.json",
+      "expected_git_sha": "6f318f04585783638de351c077ed80d8bf1a2a40",
+      "connector_git_sha": "6f318f04585783638de351c077ed80d8bf1a2a40",
+      "git_sha_computed": "6f318f04585783638de351c077ed80d8bf1a2a40",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_right",
+        "textures": {
+          "all": "minecraft:block/crimson_shelf",
+          "particle": "minecraft:block/stripped_crimson_stem"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_right",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_right.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/crimson_shelf",
+          "particle": "minecraft:block/stripped_crimson_stem"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_right.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 492,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/crimson_shelf_unconnected.json",
+      "expected_git_sha": "8c36d577c88e8f0a2ad350effed3a76d7f63cfb3",
+      "connector_git_sha": "8c36d577c88e8f0a2ad350effed3a76d7f63cfb3",
+      "git_sha_computed": "8c36d577c88e8f0a2ad350effed3a76d7f63cfb3",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_unconnected",
+        "textures": {
+          "all": "minecraft:block/crimson_shelf",
+          "particle": "minecraft:block/stripped_crimson_stem"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_unconnected",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_unconnected.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/crimson_shelf",
+          "particle": "minecraft:block/stripped_crimson_stem"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_unconnected.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 493,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/crimson_shelf_unpowered.json",
+      "expected_git_sha": "35f5b659956fceec8be06b83ac28b9d8bc3127ac",
+      "connector_git_sha": "35f5b659956fceec8be06b83ac28b9d8bc3127ac",
+      "git_sha_computed": "35f5b659956fceec8be06b83ac28b9d8bc3127ac",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_unpowered",
+        "textures": {
+          "all": "minecraft:block/crimson_shelf",
+          "particle": "minecraft:block/stripped_crimson_stem"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_unpowered",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_unpowered.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/crimson_shelf",
+          "particle": "minecraft:block/stripped_crimson_stem"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_unpowered.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 494,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/crimson_shelf.json",
+      "expected_git_sha": "bd0137837eb8034b53c0f73347ad49f1ed6f63e6",
+      "connector_git_sha": "bd0137837eb8034b53c0f73347ad49f1ed6f63e6",
+      "git_sha_computed": "bd0137837eb8034b53c0f73347ad49f1ed6f63e6",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_body",
+        "textures": {
+          "all": "minecraft:block/crimson_shelf",
+          "particle": "minecraft:block/stripped_crimson_stem"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_body",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_body.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/crimson_shelf",
+          "particle": "minecraft:block/stripped_crimson_stem"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_body.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 495,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/crimson_sign.json",
+      "expected_git_sha": "1b9953d8d5f24a80db67c54eeebf775f9882c264",
+      "connector_git_sha": "1b9953d8d5f24a80db67c54eeebf775f9882c264",
+      "git_sha_computed": "1b9953d8d5f24a80db67c54eeebf775f9882c264",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "minecraft:block/crimson_planks"
+        }
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle"
+        ],
+        "own_texture_defs": {
+          "particle": "minecraft:block/crimson_planks"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": null,
+        "E_exception": true,
+        "comparison_scope": "E_SPECIAL_RENDERER_NO_GENERAL_ELEMENTS",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 496,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/cyan_candle_cake_lit.json",
+      "expected_git_sha": "26a307753eb7a7c3c484746bfc2cd4968f385d00",
+      "connector_git_sha": "26a307753eb7a7c3c484746bfc2cd4968f385d00",
+      "git_sha_computed": "26a307753eb7a7c3c484746bfc2cd4968f385d00",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "textures": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/cyan_candle_lit",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "bottom",
+          "candle",
+          "particle",
+          "side",
+          "top"
+        ],
+        "own_texture_defs": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/cyan_candle_lit",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 497,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/cyan_candle_cake.json",
+      "expected_git_sha": "81f1a771f6db5b10b2513ea00ede2bbfb6532e80",
+      "connector_git_sha": "81f1a771f6db5b10b2513ea00ede2bbfb6532e80",
+      "git_sha_computed": "81f1a771f6db5b10b2513ea00ede2bbfb6532e80",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "textures": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/cyan_candle",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "bottom",
+          "candle",
+          "particle",
+          "side",
+          "top"
+        ],
+        "own_texture_defs": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/cyan_candle",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 498,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/cyan_candle_four_candles_lit.json",
+      "expected_git_sha": "94c037b5c4e1d1b39ccc129b15c16139bbe14d6f",
+      "connector_git_sha": "94c037b5c4e1d1b39ccc129b15c16139bbe14d6f",
+      "git_sha_computed": "94c037b5c4e1d1b39ccc129b15c16139bbe14d6f",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_four_candles",
+        "textures": {
+          "all": "minecraft:block/cyan_candle_lit",
+          "particle": "minecraft:block/cyan_candle_lit"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_four_candles",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_four_candles.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/cyan_candle_lit",
+          "particle": "minecraft:block/cyan_candle_lit"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_four_candles.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 499,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/cyan_candle_four_candles.json",
+      "expected_git_sha": "aba78b65a4c51b399d03955e1edd60333ce3deff",
+      "connector_git_sha": "aba78b65a4c51b399d03955e1edd60333ce3deff",
+      "git_sha_computed": "aba78b65a4c51b399d03955e1edd60333ce3deff",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_four_candles",
+        "textures": {
+          "all": "minecraft:block/cyan_candle",
+          "particle": "minecraft:block/cyan_candle"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_four_candles",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_four_candles.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/cyan_candle",
+          "particle": "minecraft:block/cyan_candle"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_four_candles.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 500,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/cyan_candle_one_candle_lit.json",
+      "expected_git_sha": "26f7b1fca88da48a7936e8a523a748f7a2923111",
+      "connector_git_sha": "26f7b1fca88da48a7936e8a523a748f7a2923111",
+      "git_sha_computed": "26f7b1fca88da48a7936e8a523a748f7a2923111",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_candle",
+        "textures": {
+          "all": "minecraft:block/cyan_candle_lit",
+          "particle": "minecraft:block/cyan_candle_lit"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_candle",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_candle.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/cyan_candle_lit",
+          "particle": "minecraft:block/cyan_candle_lit"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_candle.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 501,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/cyan_candle_three_candles_lit.json",
+      "expected_git_sha": "8547cf3f5c3f7e38849a1aefc3a5347048d4a168",
+      "connector_git_sha": "8547cf3f5c3f7e38849a1aefc3a5347048d4a168",
+      "git_sha_computed": "8547cf3f5c3f7e38849a1aefc3a5347048d4a168",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_three_candles",
+        "textures": {
+          "all": "minecraft:block/cyan_candle_lit",
+          "particle": "minecraft:block/cyan_candle_lit"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_three_candles",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_three_candles.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/cyan_candle_lit",
+          "particle": "minecraft:block/cyan_candle_lit"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_three_candles.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    }
+  ]
+}
