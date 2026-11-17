@@ -1,0 +1,1391 @@
+{
+  "schema": "G_ENTRY2_ORIGINAL_SOURCE_BATCH/v1",
+  "source_main_baseline": "ae1448906d4cb6f2aff4bdc43fbdc808024fd6bb",
+  "G_entry": "ENTRY2",
+  "G_fixed_scope": 775,
+  "offset": 336,
+  "expected": 14,
+  "success": 14,
+  "SHA_reopened": 14,
+  "model_inherited_geometry_pending": 13,
+  "external_C_RGBA_matches": 0,
+  "C_outside_reopened": 0,
+  "source_prior_reference_blob_sha": "cf086e43751397c47efdafeece65dd1664336256",
+  "records": [
+    {
+      "index": 684,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/potted_azure_bluet.json",
+      "expected_git_sha": "175b4c046e66621fcee0a15f5758ec0f7f89024f",
+      "connector_git_sha": "175b4c046e66621fcee0a15f5758ec0f7f89024f",
+      "git_sha_computed": "175b4c046e66621fcee0a15f5758ec0f7f89024f",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "textures": {
+          "plant": "minecraft:block/azure_bluet"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "plant"
+        ],
+        "own_texture_defs": {
+          "plant": "minecraft:block/azure_bluet"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 685,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/potted_bamboo.json",
+      "expected_git_sha": "14ffcc2ae064bea91c3f73615ada22cb268d26e9",
+      "connector_git_sha": "14ffcc2ae064bea91c3f73615ada22cb268d26e9",
+      "git_sha_computed": "14ffcc2ae064bea91c3f73615ada22cb268d26e9",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "ambientocclusion": false,
+        "textures": {
+          "particle": "block/flower_pot",
+          "flowerpot": "block/flower_pot",
+          "dirt": "block/dirt",
+          "bamboo": "block/bamboo_stalk",
+          "leaf": "block/bamboo_singleleaf"
+        },
+        "elements": [
+          {
+            "from": [
+              5,
+              0,
+              5
+            ],
+            "to": [
+              6,
+              6,
+              11
+            ],
+            "faces": {
+              "down": {
+                "uv": [
+                  5,
+                  5,
+                  6,
+                  11
+                ],
+                "texture": "#flowerpot",
+                "cullface": "down"
+              },
+              "up": {
+                "uv": [
+                  5,
+                  5,
+                  6,
+                  11
+                ],
+                "texture": "#flowerpot"
+              },
+              "north": {
+                "uv": [
+                  10,
+                  10,
+                  11,
+                  16
+                ],
+                "texture": "#flowerpot"
+              },
+              "south": {
+                "uv": [
+                  5,
+                  10,
+                  6,
+                  16
+                ],
+                "texture": "#flowerpot"
+              },
+              "west": {
+                "uv": [
+                  5,
+                  10,
+                  11,
+                  16
+                ],
+                "texture": "#flowerpot"
+              },
+              "east": {
+                "uv": [
+                  5,
+                  10,
+                  11,
+                  16
+                ],
+                "texture": "#flowerpot"
+              }
+            }
+          },
+          {
+            "from": [
+              10,
+              0,
+              5
+            ],
+            "to": [
+              11,
+              6,
+              11
+            ],
+            "faces": {
+              "down": {
+                "uv": [
+                  10,
+                  5,
+                  11,
+                  11
+                ],
+                "texture": "#flowerpot",
+                "cullface": "down"
+              },
+              "up": {
+                "uv": [
+                  10,
+                  5,
+                  11,
+                  11
+                ],
+                "texture": "#flowerpot"
+              },
+              "north": {
+                "uv": [
+                  5,
+                  10,
+                  6,
+                  16
+                ],
+                "texture": "#flowerpot"
+              },
+              "south": {
+                "uv": [
+                  10,
+                  10,
+                  11,
+                  16
+                ],
+                "texture": "#flowerpot"
+              },
+              "west": {
+                "uv": [
+                  5,
+                  10,
+                  11,
+                  16
+                ],
+                "texture": "#flowerpot"
+              },
+              "east": {
+                "uv": [
+                  5,
+                  10,
+                  11,
+                  16
+                ],
+                "texture": "#flowerpot"
+              }
+            }
+          },
+          {
+            "from": [
+              6,
+              0,
+              5
+            ],
+            "to": [
+              10,
+              6,
+              6
+            ],
+            "faces": {
+              "down": {
+                "uv": [
+                  6,
+                  10,
+                  10,
+                  11
+                ],
+                "texture": "#flowerpot",
+                "cullface": "down"
+              },
+              "up": {
+                "uv": [
+                  6,
+                  5,
+                  10,
+                  6
+                ],
+                "texture": "#flowerpot"
+              },
+              "north": {
+                "uv": [
+                  6,
+                  10,
+                  10,
+                  16
+                ],
+                "texture": "#flowerpot"
+              },
+              "south": {
+                "uv": [
+                  6,
+                  10,
+                  10,
+                  16
+                ],
+                "texture": "#flowerpot"
+              }
+            }
+          },
+          {
+            "from": [
+              6,
+              0,
+              10
+            ],
+            "to": [
+              10,
+              6,
+              11
+            ],
+            "faces": {
+              "down": {
+                "uv": [
+                  6,
+                  5,
+                  10,
+                  6
+                ],
+                "texture": "#flowerpot",
+                "cullface": "down"
+              },
+              "up": {
+                "uv": [
+                  6,
+                  10,
+                  10,
+                  11
+                ],
+                "texture": "#flowerpot"
+              },
+              "north": {
+                "uv": [
+                  6,
+                  10,
+                  10,
+                  16
+                ],
+                "texture": "#flowerpot"
+              },
+              "south": {
+                "uv": [
+                  6,
+                  10,
+                  10,
+                  16
+                ],
+                "texture": "#flowerpot"
+              }
+            }
+          },
+          {
+            "from": [
+              6,
+              0,
+              6
+            ],
+            "to": [
+              10,
+              4,
+              10
+            ],
+            "faces": {
+              "down": {
+                "uv": [
+                  6,
+                  12,
+                  10,
+                  16
+                ],
+                "texture": "#flowerpot",
+                "cullface": "down"
+              },
+              "up": {
+                "uv": [
+                  6,
+                  6,
+                  10,
+                  10
+                ],
+                "texture": "#dirt"
+              }
+            }
+          },
+          {
+            "from": [
+              7,
+              0,
+              7
+            ],
+            "to": [
+              9,
+              16,
+              9
+            ],
+            "faces": {
+              "up": {
+                "uv": [
+                  13,
+                  0,
+                  15,
+                  2
+                ],
+                "texture": "#bamboo",
+                "cullface": "up"
+              },
+              "north": {
+                "uv": [
+                  6,
+                  0,
+                  8,
+                  16
+                ],
+                "texture": "#bamboo"
+              },
+              "south": {
+                "uv": [
+                  6,
+                  0,
+                  8,
+                  16
+                ],
+                "texture": "#bamboo"
+              },
+              "west": {
+                "uv": [
+                  6,
+                  0,
+                  8,
+                  16
+                ],
+                "texture": "#bamboo"
+              },
+              "east": {
+                "uv": [
+                  6,
+                  0,
+                  8,
+                  16
+                ],
+                "texture": "#bamboo"
+              }
+            }
+          },
+          {
+            "from": [
+              0,
+              2,
+              8
+            ],
+            "to": [
+              16,
+              18,
+              8
+            ],
+            "shade": false,
+            "faces": {
+              "north": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#leaf"
+              },
+              "south": {
+                "uv": [
+                  16,
+                  0,
+                  0,
+                  16
+                ],
+                "texture": "#leaf"
+              }
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": true,
+        "own_element_count": 7,
+        "own_face_count": 29,
+        "own_uv_explicit": 29,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle",
+          "flowerpot",
+          "dirt",
+          "bamboo",
+          "leaf"
+        ],
+        "own_texture_defs": {
+          "particle": "block/flower_pot",
+          "flowerpot": "block/flower_pot",
+          "dirt": "block/dirt",
+          "bamboo": "block/bamboo_stalk",
+          "leaf": "block/bamboo_singleleaf"
+        },
+        "texture_slot_refs": [
+          {
+            "element_index": 0,
+            "direction": "down",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              5,
+              5,
+              6,
+              11
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 0,
+            "direction": "up",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              5,
+              5,
+              6,
+              11
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "north",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              10,
+              10,
+              11,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "south",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              5,
+              10,
+              6,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "west",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              5,
+              10,
+              11,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "east",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              5,
+              10,
+              11,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "down",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              10,
+              5,
+              11,
+              11
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 1,
+            "direction": "up",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              10,
+              5,
+              11,
+              11
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "north",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              5,
+              10,
+              6,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "south",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              10,
+              10,
+              11,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "west",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              5,
+              10,
+              11,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "east",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              5,
+              10,
+              11,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 2,
+            "direction": "down",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              6,
+              10,
+              10,
+              11
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 2,
+            "direction": "up",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              6,
+              5,
+              10,
+              6
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 2,
+            "direction": "north",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              6,
+              10,
+              10,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 2,
+            "direction": "south",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              6,
+              10,
+              10,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 3,
+            "direction": "down",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              6,
+              5,
+              10,
+              6
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 3,
+            "direction": "up",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              6,
+              10,
+              10,
+              11
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 3,
+            "direction": "north",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              6,
+              10,
+              10,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 3,
+            "direction": "south",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              6,
+              10,
+              10,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 4,
+            "direction": "down",
+            "texture": "#flowerpot",
+            "uv_key_explicit": true,
+            "uv": [
+              6,
+              12,
+              10,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 4,
+            "direction": "up",
+            "texture": "#dirt",
+            "uv_key_explicit": true,
+            "uv": [
+              6,
+              6,
+              10,
+              10
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 5,
+            "direction": "up",
+            "texture": "#bamboo",
+            "uv_key_explicit": true,
+            "uv": [
+              13,
+              0,
+              15,
+              2
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 5,
+            "direction": "north",
+            "texture": "#bamboo",
+            "uv_key_explicit": true,
+            "uv": [
+              6,
+              0,
+              8,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 5,
+            "direction": "south",
+            "texture": "#bamboo",
+            "uv_key_explicit": true,
+            "uv": [
+              6,
+              0,
+              8,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 5,
+            "direction": "west",
+            "texture": "#bamboo",
+            "uv_key_explicit": true,
+            "uv": [
+              6,
+              0,
+              8,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 5,
+            "direction": "east",
+            "texture": "#bamboo",
+            "uv_key_explicit": true,
+            "uv": [
+              6,
+              0,
+              8,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 6,
+            "direction": "north",
+            "texture": "#leaf",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 6,
+            "direction": "south",
+            "texture": "#leaf",
+            "uv_key_explicit": true,
+            "uv": [
+              16,
+              0,
+              0,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          }
+        ],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": true,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/potted_bamboo.json",
+        "E_exception": false,
+        "comparison_scope": "SELF_OWNED_GEOMETRY",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 686,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/potted_birch_sapling.json",
+      "expected_git_sha": "b19246fbb8787dd73a20310701c382543a44beaf",
+      "connector_git_sha": "b19246fbb8787dd73a20310701c382543a44beaf",
+      "git_sha_computed": "b19246fbb8787dd73a20310701c382543a44beaf",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "textures": {
+          "plant": "minecraft:block/birch_sapling"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "plant"
+        ],
+        "own_texture_defs": {
+          "plant": "minecraft:block/birch_sapling"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 687,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/potted_blue_orchid.json",
+      "expected_git_sha": "f9b31badfc60b8aa38caf32ce9ea5f92f426e410",
+      "connector_git_sha": "f9b31badfc60b8aa38caf32ce9ea5f92f426e410",
+      "git_sha_computed": "f9b31badfc60b8aa38caf32ce9ea5f92f426e410",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "textures": {
+          "plant": "minecraft:block/blue_orchid"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "plant"
+        ],
+        "own_texture_defs": {
+          "plant": "minecraft:block/blue_orchid"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 688,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/potted_brown_mushroom.json",
+      "expected_git_sha": "3e837e62535e6acd8a049760989aa008b69f4e0b",
+      "connector_git_sha": "3e837e62535e6acd8a049760989aa008b69f4e0b",
+      "git_sha_computed": "3e837e62535e6acd8a049760989aa008b69f4e0b",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "textures": {
+          "plant": "minecraft:block/brown_mushroom"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "plant"
+        ],
+        "own_texture_defs": {
+          "plant": "minecraft:block/brown_mushroom"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 689,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/potted_cherry_sapling.json",
+      "expected_git_sha": "953170b7d184a78ee8203d61db3d2d4de6102d7e",
+      "connector_git_sha": "953170b7d184a78ee8203d61db3d2d4de6102d7e",
+      "git_sha_computed": "953170b7d184a78ee8203d61db3d2d4de6102d7e",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "textures": {
+          "plant": "minecraft:block/cherry_sapling"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "plant"
+        ],
+        "own_texture_defs": {
+          "plant": "minecraft:block/cherry_sapling"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 690,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/potted_closed_eyeblossom.json",
+      "expected_git_sha": "12f3acbec35f53875ed4f7de1f231d6f0c98b071",
+      "connector_git_sha": "12f3acbec35f53875ed4f7de1f231d6f0c98b071",
+      "git_sha_computed": "12f3acbec35f53875ed4f7de1f231d6f0c98b071",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "textures": {
+          "plant": "minecraft:block/closed_eyeblossom"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "plant"
+        ],
+        "own_texture_defs": {
+          "plant": "minecraft:block/closed_eyeblossom"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 691,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/potted_cornflower.json",
+      "expected_git_sha": "70d88359d458abc9b0c6d8ac00a965a340ee954c",
+      "connector_git_sha": "70d88359d458abc9b0c6d8ac00a965a340ee954c",
+      "git_sha_computed": "70d88359d458abc9b0c6d8ac00a965a340ee954c",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "textures": {
+          "plant": "minecraft:block/cornflower"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "plant"
+        ],
+        "own_texture_defs": {
+          "plant": "minecraft:block/cornflower"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 692,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/potted_crimson_fungus.json",
+      "expected_git_sha": "08aea2cbb4bed81d3e93f930c556ee4ae5c13f1f",
+      "connector_git_sha": "08aea2cbb4bed81d3e93f930c556ee4ae5c13f1f",
+      "git_sha_computed": "08aea2cbb4bed81d3e93f930c556ee4ae5c13f1f",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "textures": {
+          "plant": "minecraft:block/crimson_fungus"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "plant"
+        ],
+        "own_texture_defs": {
+          "plant": "minecraft:block/crimson_fungus"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 693,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/potted_crimson_roots.json",
+      "expected_git_sha": "b5b27112fbeb1a154d62ce1b6efc6562e095cc5c",
+      "connector_git_sha": "b5b27112fbeb1a154d62ce1b6efc6562e095cc5c",
+      "git_sha_computed": "b5b27112fbeb1a154d62ce1b6efc6562e095cc5c",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "textures": {
+          "plant": "minecraft:block/crimson_roots_pot"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "plant"
+        ],
+        "own_texture_defs": {
+          "plant": "minecraft:block/crimson_roots_pot"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 694,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/potted_dandelion.json",
+      "expected_git_sha": "c6c361331acd68d8c2b0d04378253fa60205abdc",
+      "connector_git_sha": "c6c361331acd68d8c2b0d04378253fa60205abdc",
+      "git_sha_computed": "c6c361331acd68d8c2b0d04378253fa60205abdc",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "textures": {
+          "plant": "minecraft:block/dandelion"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "plant"
+        ],
+        "own_texture_defs": {
+          "plant": "minecraft:block/dandelion"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 695,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/potted_dark_oak_sapling.json",
+      "expected_git_sha": "b269e87397443301fbfa9a34546885b70702f861",
+      "connector_git_sha": "b269e87397443301fbfa9a34546885b70702f861",
+      "git_sha_computed": "b269e87397443301fbfa9a34546885b70702f861",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "textures": {
+          "plant": "minecraft:block/dark_oak_sapling"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "plant"
+        ],
+        "own_texture_defs": {
+          "plant": "minecraft:block/dark_oak_sapling"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 696,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/potted_dead_bush.json",
+      "expected_git_sha": "e2f1fc5f90713076dd9aa064aaa7fa5c09e6cbe9",
+      "connector_git_sha": "e2f1fc5f90713076dd9aa064aaa7fa5c09e6cbe9",
+      "git_sha_computed": "e2f1fc5f90713076dd9aa064aaa7fa5c09e6cbe9",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "textures": {
+          "plant": "minecraft:block/dead_bush"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/flower_pot_cross",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "plant"
+        ],
+        "own_texture_defs": {
+          "plant": "minecraft:block/dead_bush"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/flower_pot_cross.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 697,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/potted_fern.json",
+      "expected_git_sha": "3076b6d1711891e9d75bd9e7faa21240bad6c558",
+      "connector_git_sha": "3076b6d1711891e9d75bd9e7faa21240bad6c558",
+      "git_sha_computed": "3076b6d1711891e9d75bd9e7faa21240bad6c558",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/tinted_flower_pot_cross",
+        "textures": {
+          "plant": "minecraft:block/fern"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/tinted_flower_pot_cross",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/tinted_flower_pot_cross.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "plant"
+        ],
+        "own_texture_defs": {
+          "plant": "minecraft:block/fern"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/tinted_flower_pot_cross.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    }
+  ]
+}
