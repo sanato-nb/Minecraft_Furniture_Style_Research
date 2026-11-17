@@ -27,3 +27,7 @@ A 게이트는 아직 모두 PASS가 아닙니다. **1-3-A 완료 선언 금지*
 ## 재배포·증거 등급
 
 원저자 JSON·PNG·JAR 파일 원문은 저장소에 복제하지 않았습니다. `PRIOR_SOURCE_VERIFIED`, `FILE_SHA_ONLY`, `ORIGINAL_REHASHED_IN_A`, `BLOCKED`, `OUT_OF_SCOPE_1_4`의 의미를 분리합니다.
+
+## A-06 원격 독립 재조회
+
+기준 `e1bc822b9491f78da823b0650ea2de6dd3b3c87f`: 결과 원장 11개 본문 전체 원격 재조회, 원격 blob SHA와 본문 직접 계산 Git blob SHA1 일치 11/11개; CSV 헤더·행수·앞뒤 본문 재조회 완료. GitHub 비교에서 신규 `phase_1-3/A/` 외 변경 0건. A6 **PASS_REMOTE_READBACK_AND_PROTECTED_ZERO_DIFF**. A0~A6 승인 **5/7**, A1·A3 본문 직접 재해시 미완료이므로 **1-3-A 전체 종료 아님**. 1-3 전체 M1~M6 0/6.

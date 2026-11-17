@@ -9,9 +9,9 @@
     "A3": "BLOCKED_PARTIAL_TEMPLATE_BYTES",
     "A4": "PASS_PRIOR_SCOPE",
     "A5": "PASS_UNRESOLVED_CLASSIFIED",
-    "A6": "PENDING_POST_COMMIT_READBACK"
+    "A6": "PASS_REMOTE_READBACK_AND_PROTECTED_ZERO_DIFF"
   },
-  "A_gates_passed": 4,
+  "A_gates_passed": 5,
   "A_gates_total": 7,
   "M_gates_passed": 0,
   "M_gates_total": 6,
@@ -25,7 +25,10 @@
   },
   "errors": 0,
   "prior_immutable_pre_final": true,
-  "remote_readback": "PENDING_FINAL",
+  "remote_readback": "11_FILES_FULL_BYTES_SHA1_AND_ROWS_VERIFIED",
   "A_completion": false,
-  "source_count_fixed_1_3_B": false
+  "source_count_fixed_1_3_B": false,
+  "protected_prior_immutability_final": true,
+  "A6_remote_snapshot_commit": "e1bc822b9491f78da823b0650ea2de6dd3b3c87f",
+  "A6_report_created_in_subsequent_commit": true
 }
