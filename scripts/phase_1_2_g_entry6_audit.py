@@ -163,7 +163,7 @@ def main():
     for row in d1+d2:dmap[row["blockstate_path"]].append(row)
     fvis=index(F_VIS,"original_PNG_path")
     identity=[];model_rows=[];state_rows=[];png_rows=[];options_all=[];face_rows=[];mcmeta=[]
-    orig_sources={};sha_by_path={}
+    orig_sources={};sha_by_path={};provenance_gaps=[]
     for r in queue:
         typ,path,sha=r["asset_type"],r["source_path"],r["git_blob_sha"]
         if typ=="BLOCK_TEXTURE_PNG":
@@ -204,9 +204,18 @@ def main():
                 errors.append(dict(path=path,kind="F_PARENT_DEPTH",prior=len(prior_chain),actual=len(nodes)))
             else:
                 for (p0,o,s),old in zip(nodes,prior_chain):
-                    if (p0,s,o.get("parent"),len(o["elements"]) if isinstance(o.get("elements"),list) else None)!=(
-                        old.get("path"),old.get("sha"),old.get("parent_ref"),old.get("own_elements")):
+                    own=len(o["elements"]) if isinstance(o.get("elements"),list) else None
+                    if (p0,o.get("parent"),own)!=(old.get("path"),old.get("parent_ref"),old.get("own_elements")):
                         errors.append(dict(path=path,kind="F_PARENT_CHAIN_VALUE",parent=p0));break
+                    oldsha=old.get("sha") or ""
+                    if oldsha!=s:
+                        # F6 originally omitted the source SHA of the shared geometry parent cube_mirrored.
+                        # Recompute from its real original bytes; preserve missing prior evidence explicitly.
+                        if not oldsha and p0=="1.21.11/assets/minecraft/models/block/cube_mirrored.json" and s=="38f44bda128d10a5e09614e5ac155c956237681e":
+                            provenance_gaps.append(dict(model=path,field="F_PARENT_CHAIN_sha",parent=p0,prior_F_sha="",G_recomputed_original_git_blob_sha=s,
+                               disposition="MISSING_PRIOR_SHA_SUPPLIED_WITH_NEW_G_ORIGINAL_BYTES_NOT_RETROACTIVE_F"))
+                        else:
+                            errors.append(dict(path=path,kind="F_PARENT_CHAIN_SHA_MISMATCH",parent=p0,prior_sha=oldsha,original_sha=s));break
             provider,elements,faces=resolved_faces(nodes)
             psha=next((s for p,o,s in nodes if p==provider),"")
             is_e=b(hist["E_exception"])
@@ -221,8 +230,16 @@ def main():
                 errors.append(dict(path=path,kind="F_ELEMENT_FACE_UV",actual=values,prior=f_expected))
             if [str(values[k]) for k in ["faces","explicit_uv","implicit_uv","bound","unbound"]]!=c_expected:
                 errors.append(dict(path=path,kind="C_FACE_UV_BINDING",actual=values,prior=c_expected))
-            if (provider or "")!=(hist["geometry_provider_path"] or "") or (psha or "")!=(hist["geometry_provider_sha"] or ""):
-                errors.append(dict(path=path,kind="F_GEOMETRY_PROVIDER_SHA"))
+            if (provider or "")!=(hist["geometry_provider_path"] or ""):
+                errors.append(dict(path=path,kind="F_GEOMETRY_PROVIDER_PATH"))
+            elif (hist["geometry_provider_sha"] or "")!=(psha or ""):
+                if provider=="1.21.11/assets/minecraft/models/block/cube_mirrored.json" and not hist["geometry_provider_sha"] and psha=="38f44bda128d10a5e09614e5ac155c956237681e" and path in (
+                    "1.21.11/assets/minecraft/models/block/sculk_mirrored.json",
+                    "1.21.11/assets/minecraft/models/block/stone_mirrored.json"):
+                    provenance_gaps.append(dict(model=path,field="F_GEOMETRY_PROVIDER_SHA",parent=provider,prior_F_sha="",G_recomputed_original_git_blob_sha=psha,
+                        disposition="MISSING_PRIOR_SHA_SUPPLIED_WITH_NEW_G_ORIGINAL_BYTES_NOT_RETROACTIVE_F"))
+                else:
+                    errors.append(dict(path=path,kind="F_GEOMETRY_PROVIDER_SHA",prior=hist["geometry_provider_sha"],actual=psha))
             if is_e and faces:errors.append(dict(path=path,kind="E_EXCEPTION_HAS_GENERAL_FACES"))
             record=dict(path=path,sha=sha,parents=len(nodes),parent_chain_json=json.dumps([dict(path=p,sha=s,parent=o.get("parent")) for p,o,s in nodes],ensure_ascii=False),
                provider_path=provider or "",provider_sha=psha,E_exception="YES" if is_e else "NO",**values)
@@ -304,7 +321,7 @@ def main():
         PNG_original_bytes=sum(x.get("bytes",0) for x in png_rows),
         mcmeta_json_direct_read=len(mcmeta),
         mcmeta_animation_static=sum(x.get("mcmeta_animation_static")=="YES" for x in mcmeta),
-        F_prior_visual_png=sum(x.get("F_prior_visual")=="YES" for x in png_rows),errors=len(errors))
+        F_prior_visual_png=sum(x.get("F_prior_visual")=="YES" for x in png_rows),F_prior_missing_SHA_provenance_gaps=len(provenance_gaps),errors=len(errors))
     fields=list(identity[0].keys())
     writecsv("G_ENTRY6_SOURCE_IDENTITY_829.csv",identity,fields)
     writecsv("G_ENTRY6_MODEL_GEOMETRY_RECOUNT.csv",model_rows,list(model_rows[0]))
@@ -315,10 +332,11 @@ def main():
         part=face_rows[start:start+2200]
         writecsv("G_ENTRY6_ORIGINAL_FACES_%02d.csv"%i,part,list(part[0]))
     dump("G_ENTRY6_INDEPENDENT_RECOUNT.json",dict(schema="G_ENTRY6_CHECKOUT_INDEPENDENT_AUDIT/v1",counts=counts,
-        original_source_830_expected=False,errors=errors,warnings=warnings,
+        original_source_830_expected=False,errors=errors,warnings=warnings,prior_F_missing_source_SHA_provenance_gaps=provenance_gaps,
         acceptance="ENTRY6_PASS" if not errors and source_good==829 else "ENTRY6_NOT_APPROVED",
         upstream_pinned_sha={p:gitsha(source(p)) for p in [Q,MODEL_C,PNG_C,F_STATUS,F_GEO,D_ONE,F_VIS]},
         caveats=["No Minecraft official JAR certification","No game runtime renderer/state space","No animation playback","No new image semantics: F visual is historical"]))
+    dump("G_ENTRY6_PROVENANCE_GAPS.json",dict(count=len(provenance_gaps),records=provenance_gaps,scope="F prior parent and geometry provider SHA missing for sculk_mirrored/stone_mirrored; G original source independently checked, NOT retroactive F"))
     report=["# 1-2-G Entry6 — 원본 829개 직접 소스 감사",
         "","GitHub Actions 체크아웃의 Minecraft Java 1.21.11 사용자 추출 파일 bytes로 검증.",
         "**Entry6 판정: "+("소스 감사 PASS (원격 readback·단계 승인 별도)" if not errors and source_good==829 else "미승인 — 오류·차단 확인 필요")+"**",
@@ -333,6 +351,7 @@ def main():
         "- mcmeta %d, 정적 애니메이션 메타 %d"%(counts["mcmeta_json_direct_read"],counts["mcmeta_animation_static"]),
         "- 선행 F 시각 관찰 증거 연결 %d (이번 G의 신규 육안 관찰은 아님)"%counts["F_prior_visual_png"],
         "- 기록된 오류 %d개"%len(errors),
+        "- 선행 F 원장의 공유 부모 SHA 누락 보완 증거 %d 필드 (원본 소급 수정 금지)"%len(provenance_gaps),
         "","## 한계","- 공식 JAR 인증·게임 렌더·state registry·애니메이션 재생은 범위 외 미검증.",
         "- E 특수 renderer, C 템플릿 미바인딩은 소관별로 계속 기록. PNG 내용 검증은 물체 정체/재질 확정이 아님.",
         "- **전체 G 게이트 G1~G6는 계속 0/6이며 Entry6은 마지막 회차이며 G 글로벌 종료 게이트 G1~G6 별도 통과 전 G 전체 완료 선언 금지.**",
