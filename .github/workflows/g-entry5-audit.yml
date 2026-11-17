@@ -26,22 +26,22 @@ jobs:
         with:
           name: G-Entry5-829-original-source-evidence
           path: |
-            research/vanilla_models/phase_1-2-G/entry5/G_ENTRY4_*.csv
-            research/vanilla_models/phase_1-2-G/entry5/G_ENTRY4_*.json
-            research/vanilla_models/phase_1-2-G/entry5/G_ENTRY4_REPORT.md
+            research/vanilla_models/phase_1-2-G/entry5/G_ENTRY5_*.csv
+            research/vanilla_models/phase_1-2-G/entry5/G_ENTRY5_*.json
+            research/vanilla_models/phase_1-2-G/entry5/G_ENTRY5_REPORT.md
           retention-days: 30
       - name: Commit only Entry5 generated audit evidence
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add research/vanilla_models/phase_1-2-G/entry5/G_ENTRY4_SOURCE_IDENTITY_829.csv
-          git add research/vanilla_models/phase_1-2-G/entry5/G_ENTRY4_MODEL_GEOMETRY_RECOUNT.csv
-          git add research/vanilla_models/phase_1-2-G/entry5/G_ENTRY4_D_ORIGINAL_OPTIONS.csv
-          git add research/vanilla_models/phase_1-2-G/entry5/G_ENTRY4_PNG_BINARY_AUDIT.csv
-          git add research/vanilla_models/phase_1-2-G/entry5/G_ENTRY4_ORIGINAL_FACES_*.csv
-          git add research/vanilla_models/phase_1-2-G/entry5/G_ENTRY4_INDEPENDENT_RECOUNT.json
-          git add research/vanilla_models/phase_1-2-G/entry5/G_ENTRY4_REPORT.md
+          git add research/vanilla_models/phase_1-2-G/entry5/G_ENTRY5_SOURCE_IDENTITY_829.csv
+          git add research/vanilla_models/phase_1-2-G/entry5/G_ENTRY5_MODEL_GEOMETRY_RECOUNT.csv
+          git add research/vanilla_models/phase_1-2-G/entry5/G_ENTRY5_D_ORIGINAL_OPTIONS.csv
+          git add research/vanilla_models/phase_1-2-G/entry5/G_ENTRY5_PNG_BINARY_AUDIT.csv
+          git add research/vanilla_models/phase_1-2-G/entry5/G_ENTRY5_ORIGINAL_FACES_*.csv
+          git add research/vanilla_models/phase_1-2-G/entry5/G_ENTRY5_INDEPENDENT_RECOUNT.json
+          git add research/vanilla_models/phase_1-2-G/entry5/G_ENTRY5_REPORT.md
           if ! git diff --cached --quiet; then
             git commit -m "1-2-G Entry5: 원본 829개 전체 독립 검증 증거 저장"
             git push origin HEAD:main
