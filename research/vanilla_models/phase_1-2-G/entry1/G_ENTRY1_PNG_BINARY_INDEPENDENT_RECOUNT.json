@@ -1,0 +1,49 @@
+{
+  "schema": "G_ENTRY1_PNG_BINARY_INDEPENDENT_RECOUNT/v1",
+  "date": "2026-11-17",
+  "source_baseline_head": "2d6c570e2a1406f603451faa35c4de5f4eb5ed18",
+  "counts": {
+    "Entry1_queued": 347,
+    "model_JSON_prior_verified": 150,
+    "blockstate_JSON_prior_verified": 12,
+    "PNG_files": 185,
+    "PNG_direct_binary": 185,
+    "PNG_sha_signature_crc_adler_raster_pass": 185,
+    "PNG_prior_C_overlap": 177,
+    "PNG_prior_C_full_rgba_sha_match": 177,
+    "PNG_outside_C_G_direct_verified_only": 8,
+    "F_prior_visual_PNG": 38,
+    "PNG_C_meta_sides_verified": 17,
+    "PNG_animated_sidecar": 7,
+    "png_binary_bytes_total": 40518,
+    "PNG_errors": 0
+  },
+  "identity_reconciled": true,
+  "errors": [],
+  "inputs": {
+    "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_PNG_BINARY_AUDIT.csv": "fb70b11f706236f0a2349794d741783e377db329",
+    "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_QUEUE_347.csv": "cbde7d788d9dc008f70d64deb980c731a2f2a061",
+    "research/vanilla_models/phase_1-2-G/entry1/G_SOURCE_CROSSWALK.csv": "d243fbc96890e8a657df19481bd36c20f74314cb",
+    "research/vanilla_models/phase_1-2-G/entry1/G_UNRESOLVED.csv": "b51f3058886c071c2b1b00d2b5d2d69a86154e5f",
+    "research/vanilla_models/phase_1-2-C/entry5/C_PNG_UNIQUE_ALL.csv": "9574557e9858db5677a002c0a8991150c043a2fa",
+    "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_PNG_MCMETA_AUDIT.json": "da5b0ebad190cf917546f9c26e286563d5157425"
+  },
+  "C_outside_exact_paths": [
+    "1.21.11/assets/minecraft/textures/block/bamboo_fence_gate_particle.png",
+    "1.21.11/assets/minecraft/textures/block/bamboo_fence_particle.png",
+    "1.21.11/assets/minecraft/textures/block/bell_bottom.png",
+    "1.21.11/assets/minecraft/textures/block/bell_side.png",
+    "1.21.11/assets/minecraft/textures/block/bell_top.png",
+    "1.21.11/assets/minecraft/textures/block/black_shulker_box.png",
+    "1.21.11/assets/minecraft/textures/block/blue_shulker_box.png",
+    "1.21.11/assets/minecraft/textures/block/brown_shulker_box.png"
+  ],
+  "independence": "Re-read persisted G binary audit CSV; recomputed population, SHA equality, all RGBA hash references against independently retrieved original C ledger, metadata/alpha counts and crosswalk/queue, and Git SHA from original; no reliance on prior summary only.",
+  "scope_limits": [
+    "A-F data and v69 are retained, not recredited as new verification.",
+    "RGBA decode is not personal visual interpretation, nor engine rendering.",
+    "Animated PNGs decoded as full raster and first raster-square hash only; no runtime sequence playback.",
+    "F first-frame prior 38 reference is not new G manual visual observation.",
+    "Entry2 not started and global G gates remain pending until subsequent Entry closeout/remote recheck."
+  ]
+}
