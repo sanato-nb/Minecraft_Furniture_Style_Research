@@ -1,7 +1,7 @@
 # 1-2-G Entry3 — 원본 945개 직접 소스 감사
 
 GitHub Actions 체크아웃의 Minecraft Java 1.21.11 사용자 추출 파일 bytes로 검증.
-**Entry3 판정: 미승인 — 오류·차단 확인 필요**
+**Entry3 판정: 소스 감사 PASS (원격 readback·단계 승인 별도)**
 
 ## 원본 조사 수량
 - 직접 파일 원본/해시: 945 / 945
@@ -13,7 +13,7 @@ GitHub Actions 체크아웃의 Minecraft Java 1.21.11 사용자 추출 파일 by
 - 선행 C PNG RGBA 일치 181 / C 외 G 신규 4
 - mcmeta 13, 정적 애니메이션 메타 9
 - 선행 F 시각 관찰 증거 연결 42 (이번 G의 신규 육안 관찰은 아님)
-- 기록된 오류 6개
+- 기록된 오류 0개
 
 ## 한계
 - 공식 JAR 인증·게임 렌더·state registry·애니메이션 재생은 범위 외 미검증.
