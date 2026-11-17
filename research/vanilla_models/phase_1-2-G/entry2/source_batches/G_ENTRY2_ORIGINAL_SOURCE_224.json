@@ -1,0 +1,675 @@
+{
+  "schema": "G_ENTRY2_ORIGINAL_SOURCE_BATCH/v1",
+  "source_main_baseline": "ae1448906d4cb6f2aff4bdc43fbdc808024fd6bb",
+  "G_entry": "ENTRY2",
+  "G_fixed_scope": 775,
+  "offset": 224,
+  "expected": 14,
+  "success": 14,
+  "SHA_reopened": 14,
+  "model_inherited_geometry_pending": 13,
+  "external_C_RGBA_matches": 0,
+  "C_outside_reopened": 0,
+  "source_prior_reference_blob_sha": "59604a069e3b83b407e7b66f786df88a5dbff243",
+  "records": [
+    {
+      "index": 572,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/light_blue_candle_cake_lit.json",
+      "expected_git_sha": "85fd0a8f897ccaccfa1fe57035f2857fdda213f0",
+      "connector_git_sha": "85fd0a8f897ccaccfa1fe57035f2857fdda213f0",
+      "git_sha_computed": "85fd0a8f897ccaccfa1fe57035f2857fdda213f0",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "textures": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/light_blue_candle_lit",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "bottom",
+          "candle",
+          "particle",
+          "side",
+          "top"
+        ],
+        "own_texture_defs": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/light_blue_candle_lit",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 573,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/light_blue_candle_cake.json",
+      "expected_git_sha": "8ffc42fea89375b16f0a8fcd74653a12bd02255a",
+      "connector_git_sha": "8ffc42fea89375b16f0a8fcd74653a12bd02255a",
+      "git_sha_computed": "8ffc42fea89375b16f0a8fcd74653a12bd02255a",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "textures": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/light_blue_candle",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "bottom",
+          "candle",
+          "particle",
+          "side",
+          "top"
+        ],
+        "own_texture_defs": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/light_blue_candle",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 574,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/light_blue_candle_four_candles_lit.json",
+      "expected_git_sha": "b7ee670c96d85c74e7d5fd9d92add9b653f93e8c",
+      "connector_git_sha": "b7ee670c96d85c74e7d5fd9d92add9b653f93e8c",
+      "git_sha_computed": "b7ee670c96d85c74e7d5fd9d92add9b653f93e8c",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_four_candles",
+        "textures": {
+          "all": "minecraft:block/light_blue_candle_lit",
+          "particle": "minecraft:block/light_blue_candle_lit"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_four_candles",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_four_candles.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/light_blue_candle_lit",
+          "particle": "minecraft:block/light_blue_candle_lit"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_four_candles.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 575,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/light_blue_candle_four_candles.json",
+      "expected_git_sha": "503ddb229e22bc920ee5d1f6c41ced3b8450024e",
+      "connector_git_sha": "503ddb229e22bc920ee5d1f6c41ced3b8450024e",
+      "git_sha_computed": "503ddb229e22bc920ee5d1f6c41ced3b8450024e",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_four_candles",
+        "textures": {
+          "all": "minecraft:block/light_blue_candle",
+          "particle": "minecraft:block/light_blue_candle"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_four_candles",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_four_candles.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/light_blue_candle",
+          "particle": "minecraft:block/light_blue_candle"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_four_candles.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 576,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/light_blue_candle_one_candle_lit.json",
+      "expected_git_sha": "be1f176831f98c14fc805486825c188b34e98049",
+      "connector_git_sha": "be1f176831f98c14fc805486825c188b34e98049",
+      "git_sha_computed": "be1f176831f98c14fc805486825c188b34e98049",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_candle",
+        "textures": {
+          "all": "minecraft:block/light_blue_candle_lit",
+          "particle": "minecraft:block/light_blue_candle_lit"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_candle",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_candle.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/light_blue_candle_lit",
+          "particle": "minecraft:block/light_blue_candle_lit"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_candle.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 577,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/light_blue_candle_one_candle.json",
+      "expected_git_sha": "37d165d6acea9f67edc7bfffaf76423099d611c6",
+      "connector_git_sha": "37d165d6acea9f67edc7bfffaf76423099d611c6",
+      "git_sha_computed": "37d165d6acea9f67edc7bfffaf76423099d611c6",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_candle",
+        "textures": {
+          "all": "minecraft:block/light_blue_candle",
+          "particle": "minecraft:block/light_blue_candle"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_candle",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_candle.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/light_blue_candle",
+          "particle": "minecraft:block/light_blue_candle"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_candle.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 578,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/light_blue_candle_three_candles_lit.json",
+      "expected_git_sha": "4a4818437f8239e95993bd8315a74be3d41d2c0c",
+      "connector_git_sha": "4a4818437f8239e95993bd8315a74be3d41d2c0c",
+      "git_sha_computed": "4a4818437f8239e95993bd8315a74be3d41d2c0c",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_three_candles",
+        "textures": {
+          "all": "minecraft:block/light_blue_candle_lit",
+          "particle": "minecraft:block/light_blue_candle_lit"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_three_candles",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_three_candles.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/light_blue_candle_lit",
+          "particle": "minecraft:block/light_blue_candle_lit"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_three_candles.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 579,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/light_blue_candle_three_candles.json",
+      "expected_git_sha": "d735cda711130e453ba701b1a39cf27db3c36149",
+      "connector_git_sha": "d735cda711130e453ba701b1a39cf27db3c36149",
+      "git_sha_computed": "d735cda711130e453ba701b1a39cf27db3c36149",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_three_candles",
+        "textures": {
+          "all": "minecraft:block/light_blue_candle",
+          "particle": "minecraft:block/light_blue_candle"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_three_candles",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_three_candles.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/light_blue_candle",
+          "particle": "minecraft:block/light_blue_candle"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_three_candles.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 580,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/light_blue_candle_two_candles.json",
+      "expected_git_sha": "ec4da5666cdee80a2ac4ce759695bf0818bf445c",
+      "connector_git_sha": "ec4da5666cdee80a2ac4ce759695bf0818bf445c",
+      "git_sha_computed": "ec4da5666cdee80a2ac4ce759695bf0818bf445c",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_two_candles",
+        "textures": {
+          "all": "minecraft:block/light_blue_candle",
+          "particle": "minecraft:block/light_blue_candle"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_two_candles",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_two_candles.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/light_blue_candle",
+          "particle": "minecraft:block/light_blue_candle"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_two_candles.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 581,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/light_blue_carpet.json",
+      "expected_git_sha": "e1949fe869d58a89e58ce19ef53145451f4f95a2",
+      "connector_git_sha": "e1949fe869d58a89e58ce19ef53145451f4f95a2",
+      "git_sha_computed": "e1949fe869d58a89e58ce19ef53145451f4f95a2",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/carpet",
+        "textures": {
+          "wool": "minecraft:block/light_blue_wool"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/carpet",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/carpet.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "wool"
+        ],
+        "own_texture_defs": {
+          "wool": "minecraft:block/light_blue_wool"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/carpet.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 582,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/light_blue_shulker_box.json",
+      "expected_git_sha": "41f67725d7d49154e036060a9ffbd1ca5d170741",
+      "connector_git_sha": "41f67725d7d49154e036060a9ffbd1ca5d170741",
+      "git_sha_computed": "41f67725d7d49154e036060a9ffbd1ca5d170741",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "minecraft:block/light_blue_shulker_box"
+        }
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle"
+        ],
+        "own_texture_defs": {
+          "particle": "minecraft:block/light_blue_shulker_box"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": null,
+        "E_exception": true,
+        "comparison_scope": "E_SPECIAL_RENDERER_NO_GENERAL_ELEMENTS",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 583,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/light_gray_candle_cake_lit.json",
+      "expected_git_sha": "332eb93d1007f4d0854d1c6e3bb8cc331c8fa065",
+      "connector_git_sha": "332eb93d1007f4d0854d1c6e3bb8cc331c8fa065",
+      "git_sha_computed": "332eb93d1007f4d0854d1c6e3bb8cc331c8fa065",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "textures": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/light_gray_candle_lit",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "bottom",
+          "candle",
+          "particle",
+          "side",
+          "top"
+        ],
+        "own_texture_defs": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/light_gray_candle_lit",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 584,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/light_gray_candle_cake.json",
+      "expected_git_sha": "119a3bcd7b5602da4421b005a16db828fefe6baf",
+      "connector_git_sha": "119a3bcd7b5602da4421b005a16db828fefe6baf",
+      "git_sha_computed": "119a3bcd7b5602da4421b005a16db828fefe6baf",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "textures": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/light_gray_candle",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "bottom",
+          "candle",
+          "particle",
+          "side",
+          "top"
+        ],
+        "own_texture_defs": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/light_gray_candle",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 585,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/light_gray_candle_four_candles_lit.json",
+      "expected_git_sha": "24912bfb37e22de120c3d0908938680e75efc1f2",
+      "connector_git_sha": "24912bfb37e22de120c3d0908938680e75efc1f2",
+      "git_sha_computed": "24912bfb37e22de120c3d0908938680e75efc1f2",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_four_candles",
+        "textures": {
+          "all": "minecraft:block/light_gray_candle_lit",
+          "particle": "minecraft:block/light_gray_candle_lit"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_four_candles",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_four_candles.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/light_gray_candle_lit",
+          "particle": "minecraft:block/light_gray_candle_lit"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_four_candles.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    }
+  ]
+}
