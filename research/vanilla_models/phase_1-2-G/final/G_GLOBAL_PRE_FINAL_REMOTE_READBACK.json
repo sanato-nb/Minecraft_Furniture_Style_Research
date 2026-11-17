@@ -1,0 +1,74 @@
+{
+  "schema": "G_GLOBAL_G6_PRE_FINAL_REMOTE_READBACK/v1",
+  "date_kst": "2026-11-17",
+  "scope": "USER_EXTRACTED_MINECRAFT_JAVA_1_21_11",
+  "main_head_before_this_commit": "6de40078b3a08fdfd00335e5089bc0dfd0e23666",
+  "source_baseline": "4c3c0426d991fa11412871f413057a9753ec552d",
+  "remote_files": [
+    {
+      "path": "research/vanilla_models/phase_1-2-G/final/G_GLOBAL_INDEPENDENT_RECOUNT.json",
+      "sha": "a300e03d970588fff3ca828554340695b6708eb4",
+      "lines": 730,
+      "first": "{\n  \"schema\": \"G_GLOBAL_4669_INDEPENDENT_CLOSEOUT/v1\",\n  \"scope\": \"USER_EXTRACTED_MINECRAFT_JAVA_1_21_11\",\n  \"contract_sha\": \"5692b29ee9ee78",
+      "last": "\"game runtime state and E renderer\",\n    \"full animation playback\",\n    \"PZ furniture identity\",\n    \"Minecraft map/world generation\"\n  ]\n}\n"
+    },
+    {
+      "path": "research/vanilla_models/phase_1-2-G/final/G_FINAL_SOURCE_SHA_4669.csv",
+      "sha": "e762ccb33e1e06b8aa0b5a33ce78f761efd5054f",
+      "lines": 4670,
+      "first": "type,path,sha,source_sha_match,bytes\r\nBLOCK_MODEL_JSON,1.21.11/assets/minecraft/models/block/acacia_shelf_unconnected.json,772123a2efcb53ad0",
+      "last": "02c7,True,418\r\nBLOCK_TEXTURE_PNG,1.21.11/assets/minecraft/textures/block/yellow_wool.png,aab1cb2e10184d28b418829789a47277aa144d73,True,398\r\n"
+    },
+    {
+      "path": "research/vanilla_models/phase_1-2-G/final/G_FINAL_MCMETA_99.csv",
+      "sha": "2805890305772b30354cf9653b6aec0a7efd5c44",
+      "lines": 100,
+      "first": "png_path,mcmeta_path,git_sha,bytes,animated\r\n1.21.11/assets/minecraft/textures/block/acacia_leaves.png,1.21.11/assets/minecraft/textures/blo",
+      "last": "res/block/wither_rose.png,1.21.11/assets/minecraft/textures/block/wither_rose.png.mcmeta,e2d357b7c845734fdc176842d9e05a6fcb3eff89,70,False\r\n"
+    },
+    {
+      "path": "research/vanilla_models/phase_1-2-G/final/G_GLOBAL_GATE_REPORT.md",
+      "sha": "fc790c11eff832111cd210108c2dc2bdb71d92bc",
+      "lines": 42,
+      "first": "# Minecraft Java 1.21.11 — 1-2-G 6개 Entry 독립 종료 감사\n\n**사용자가 추출한 원본** 4,669개 파일 재개방·SHA 및 선행 B~F 원장 교차. 공식 JAR·게임 runtime 인증은 범위 밖.\n**원본 통합 감사",
+      "last": "NG 불명38, C 바깥 PNG38, D 미직접254는 서로 다른 분모.\n- F3 332개는 첫 프레임 화면 확인, 애니메이션 전체 재생 아님.\n- 1-2 전체 종료는 G 종료와 별도 단계에서 심사. A~F/v69 원본 수정 금지.\n\n## 오류 목록\n"
+    },
+    {
+      "path": "research/vanilla_models/phase_1-2-G/entry6/G_ENTRY6_SOURCE_IDENTITY_829.csv",
+      "sha": "41f2245bc599d8ec48bfcb89cba9d86dd1a5e708",
+      "lines": 830,
+      "first": "type,path,expected_sha,actual_sha,direct_bytes_read,source_SHA_match,prior_stage\r\nBLOCK_MODEL_JSON,1.21.11/assets/minecraft/models/block/mud",
+      "last": "sets/minecraft/textures/block/yellow_wool.png,aab1cb2e10184d28b418829789a47277aa144d73,aab1cb2e10184d28b418829789a47277aa144d73,YES,PASS,C\r\n"
+    },
+    {
+      "path": "research/vanilla_models/phase_1-2-G/entry6/G_ENTRY6_INDEPENDENT_RECOUNT.json",
+      "sha": "89b1a3c62e183cf018f70c3a15fd19d8df675768",
+      "lines": 81,
+      "first": "{\n  \"schema\": \"G_ENTRY6_CHECKOUT_INDEPENDENT_AUDIT/v1\",\n  \"counts\": {\n    \"source_paths\": 829,\n    \"model_JSON\": 378,\n    \"blockstate_JSON\":",
+      "last": "ation\",\n    \"No game runtime renderer/state space\",\n    \"No animation playback\",\n    \"No new image semantics: F visual is historical\"\n  ]\n}\n"
+    },
+    {
+      "path": "research/vanilla_models/phase_1-2-G/entry6/G_ENTRY6_PROVENANCE_GAPS.json",
+      "sha": "69bb0a22491c85eaa4a32dfbf122ab85b7889dcb",
+      "lines": 38,
+      "first": "{\n  \"count\": 4,\n  \"records\": [\n    {\n      \"model\": \"1.21.11/assets/minecraft/models/block/sculk_mirrored.json\",\n      \"field\": \"F_PARENT_CH",
+      "last": "r parent and geometry provider SHA missing for sculk_mirrored/stone_mirrored; G original source independently checked, NOT retroactive F\"\n}\n"
+    }
+  ],
+  "global_action": {
+    "run": 44090818527,
+    "conclusion": "success",
+    "url": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/44090818527"
+  },
+  "source_4669_sha_pass": true,
+  "sidecar_99_sha_pass": true,
+  "global_G1_G5_independent_pass": true,
+  "protected_A_to_F_v69_changed": false,
+  "files_changed_count": 17,
+  "unexpected_paths": [],
+  "F_prior_2models_4fields_sha_missing_G_original_verified": true,
+  "G6_status": "REMOTE_SOURCE_PRE_FINAL_PASS_FINAL_TRACKER_READBACK_PENDING",
+  "one_two_exit_separate": true,
+  "official_JAR_authenticated": false,
+  "game_runtime_renderer_verified": false
+}
