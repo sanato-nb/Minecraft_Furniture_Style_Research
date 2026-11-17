@@ -1,0 +1,75 @@
+{
+  "schema": "A03_TEMPLATES_AND_CHAIR/v1",
+  "baseline_commit": "26fc5d3b6e590ede8dd23dcc466539a75f92a40a",
+  "counts": {
+    "template69": 69,
+    "v18_selected_30": 30,
+    "template_source_tree_sha_matches": 69,
+    "template_v11_sha_matches": 69,
+    "chair39": 39,
+    "chair19": 19,
+    "chair20_tucked": 20,
+    "chair_leaf_tree_sha_matches": 39,
+    "chair_parent_sha_matches": 39,
+    "v23_chair_source_refs": 44,
+    "prior5_refs": [
+      "another_furniture:block/chair/birch_1",
+      "another_furniture:block/chair/birch_2",
+      "another_furniture:block/chair/birch_2_tucked",
+      "another_furniture:block/chair/spruce_2",
+      "another_furniture:block/chair/spruce_2_tucked"
+    ],
+    "chair_own_elements": 0,
+    "inherited_elements": 390,
+    "inherited_faces": 1794,
+    "inherited_bottom_faces": 1131,
+    "inherited_seat_faces": 195,
+    "inherited_back_faces": 468,
+    "parent_original_bytes_rehashed": 2,
+    "template_original_bytes_rehashed": 2,
+    "chair_leaf_original_bytes_rehashed": 0
+  },
+  "chair_parent_source_json": [
+    {
+      "path": "common/src/main/resources/assets/another_furniture/models/block/template/chair.json",
+      "sha": "d9b64a818021f1a64b0cba13d16d18d6fea65d01",
+      "verified": true,
+      "elements": 10,
+      "faces": 46,
+      "zmin": 2,
+      "zmax": 14,
+      "has_z_minus9": false,
+      "raw_geometry_model_local_only": true
+    },
+    {
+      "path": "common/src/main/resources/assets/another_furniture/models/block/template/chair_tucked.json",
+      "sha": "ebcd7af6545ada207ad31720cb831b9ec5eb1dde",
+      "verified": true,
+      "elements": 10,
+      "faces": 46,
+      "zmin": -7,
+      "zmax": 5,
+      "has_z_minus9": false,
+      "raw_geometry_model_local_only": true
+    }
+  ],
+  "discrepancy_records": [
+    {
+      "blockstate": "birch_chair",
+      "variant_key": "facing=south,tucked=false,variant=3",
+      "actual_model": "another_furniture:block/chair/birch_1",
+      "source_git_sha": "fb91fe6fca469381b200fd080a671b5a09e77399"
+    },
+    {
+      "blockstate": "spruce_chair",
+      "variant_key": "facing=south,tucked=false,variant=3",
+      "actual_model": "another_furniture:block/chair/spruce_1",
+      "source_git_sha": "c8a57ceb9f34c255cd6b098deca6628c595be0df"
+    }
+  ],
+  "errors": [],
+  "prior_counts_and_upstream_tree_checked": true,
+  "original_template_rehash_only": 2,
+  "gate_A3": "PASS_PRIOR_SCOPE",
+  "runtime_rendering_verified": false
+}
