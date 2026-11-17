@@ -1,7 +1,9 @@
+> **2026-11-17 최종 판정: Entry3 PASS — 원본 945/945, 독립 감사 오류0, GitHub Actions 실행 success, 주요 파일 원격 SHA·행수·본문 검증 PASS.** [원격 검산](G_ENTRY3_REMOTE_READBACK.json) · [독립 감사](G_ENTRY3_INDEPENDENT_RECOUNT.json) · [multipart 조건 정규화 이력](G_ENTRY3_CONDITION_ERRATA.md). Entry4는 착수 허용하지만 현재 미착수이며 전체 G1~G6 글로벌 종료 게이트는 0/6이다. 
+
 # 1-2-G Entry3 — 원본 945개 직접 소스 감사
 
 GitHub Actions 체크아웃의 Minecraft Java 1.21.11 사용자 추출 파일 bytes로 검증.
-**Entry3 판정: 소스 감사 PASS (원격 readback·단계 승인 별도)**
+**Entry3 판정: PASS — 원격 SHA/행수/본문 재확인 및 단계 승인 완료**
 
 ## 원본 조사 수량
 - 직접 파일 원본/해시: 945 / 945
