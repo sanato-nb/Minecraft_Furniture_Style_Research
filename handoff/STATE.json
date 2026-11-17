@@ -6042,7 +6042,7 @@
   },
   "phase_1_3_detailed_plan": {
     "date_kst": "2026-11-17",
-    "status": "1_3_A_IN_PROGRESS_OTHERS_NOT_STARTED",
+    "status": "1_3_A_FINISHED_B_TO_G_NOT_STARTED",
     "work_started": true,
     "original_mod_model_new_analysis_since_plan": 0,
     "fixed_source_population_verified": false,
@@ -6072,14 +6072,15 @@
     "prior_1_1_approved": 150,
     "top_level_tasks_completed": 1,
     "top_level_tasks_total": 5,
-    "next_action": "A-06 final remote gate readback; then 1-3-B"
+    "next_action": "Start 1-3-B: freeze official source population and provenance",
+    "prerequisite_A_complete": true
   },
   "phase_1_3_A_plan": {
     "date_kst": "2026-11-18",
-    "status": "A_FINAL_REMOTE_READBACK_PENDING",
+    "status": "A_PRIOR_EVIDENCE_RECONCILIATION_PASS",
     "plan_prepared": true,
     "execution_started": true,
-    "A_gates_passed": 6,
+    "A_gates_passed": 7,
     "A_gates_total": 7,
     "upper_1_3_M_gates_passed": 0,
     "upper_1_3_M_total": 6,
@@ -6104,14 +6105,14 @@
     "prior_original_rehash_in_A": 297,
     "source_population_fixed_by_B": false,
     "prior_v11_v24_modified": false,
-    "next_action": "A6 final remote SHA/body/readback then 1-3-B official source census"
+    "next_action": "Proceed to 1-3-B official source census; keep entire 1-3 M gates 0/6"
   },
   "phase_1_3_A_execution": {
     "date_kst": "2026-11-18",
-    "status": "A_FINAL_REMOTE_READBACK_PENDING",
+    "status": "A_PRIOR_EVIDENCE_RECONCILIATION_PASS",
     "original_main_head": "638d9e2889838ae75048104f02abc604de50f9d6",
     "baseline_before_A": "0542fb2b713fcaa5217ddb20a5273c02e1940b01",
-    "gates_passed": 6,
+    "gates_passed": 7,
     "gates_total": 7,
     "upper_1_3_gates_passed": 0,
     "upper_1_3_gates_total": 6,
@@ -6125,6 +6126,10 @@
     "new_models_discovered": 0,
     "phase_1_3_B_fixed_population": false,
     "report": "research/furniture_mods/phase_1-3/A/A_REPORT.md",
-    "next_step": "remote readback then B source census"
+    "next_step": "1-3-B official source census",
+    "final_remote_sha_verified": true,
+    "final_protected_file_diff": 0,
+    "post_status_readback_files": 15,
+    "proof_readback_files": 19
   }
 }

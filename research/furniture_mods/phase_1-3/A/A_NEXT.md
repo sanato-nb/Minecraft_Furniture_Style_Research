@@ -1,8 +1,15 @@
-# 1-3-A 실행 인수인계 — 2026-11-18
+# 1-3-A 종료 후 1-3-B 인수인계 (2026-11-18)
 
-1. **즉시** A6 최종 상태파일 커밋 후 GitHub에서 `A_REPORT.md`, `A_PRIOR_COHORT_RECOUNT.json`, `A_INDEPENDENT_AUDIT.json`, CSV 5개 원장, `HANDOFF.md`, `PROGRESS.md`, `handoff/STATE.json`의 blob SHA·행수·본문을 다시 읽고 본문 재해시 검증. baseline `0542fb2b713fcaa5217ddb20a5273c02e1940b01`과 Git 비교해 v11~v24·1-1·1-2 등 보호자료 변경 0 확인.
-2. A1과 A3의 필수 원본 bytes 재해시 차단은 이번에 해결: Another leaf 204/204 및 템플릿 69/69, 의자39는 204 포함.
-3. A6 통과 시에만 A0~A6 7/7 및 `A_PRIOR_EVIDENCE_RECONCILIATION_PASS` 선언. 1-3 전체 M 0/6 유지.
-4. **B 인계**: Another 미조사 blockstate 155/177, Handcrafted 전체 census와 잔여 원문 검증 필요성, Macaw 공식 JAR·라이선스·버전 고정, 모드 원본 고정 분모 결정.
-5. **1-4 인계**: PNG24/175, RGBA face784/4113은 A 모델 원장·face 인스턴스와 분리. A 신규 PNG 디코딩 0.
-6. 원저자 자산을 GitHub에 복제하지 않음. 모든 결과는 원본 경로·SHA·검증 상태만 저장.
+**A0~A6 7/7 PASS**, 범위 `A_PRIOR_EVIDENCE_RECONCILIATION_PASS`. 원본 JSON 273건(Another leaf204 + template69) 본문 재검산 완료; A 전체 관련 source JSON 297건(이전 상태22 + Handcrafted 표본2 포함), 전수 모드 모집단 의미 아님. Git SHA 및 원격 CSV/본문 readback 완료. 보호 v11~v24·1-1·1-2 변경 0.
+
+## 다음 1-3-B에서 실제 수행할 것
+
+1. Another 과거 트리 177 blockstate 중 미조사 **155개**의 원저자 원본 상태 및 선택 모델 전수 조사.
+2. Handcrafted authored120/generated16은 당시 원장 기록일 뿐; 현행 전체 모델 census 및 원저자 버전/라이선스/원본 경로 고정 필요. 기존 134개 JSON 본문 미재해시도 별도 계승.
+3. Macaw's Furniture 공식 원본 JAR 확보·라이선스·버전 고정과 모델 전체 모집단 독립 검사(이전 직접 원본 0).
+4. 모드별 전체 고정 분모는 B에서만 확정. A의 204 leaf·69 template·22 state·39 chair·PNG24/RGBA784를 서로 더해 전체 모델 수로 사용 금지.
+5. 외형·실게임 renderer/collision 및 마크 가구 실제 제작, 좀보이드 맵 변환은 이번 A 범위 밖. PNG/UV/face RGBA는 1-4 소관.
+
+## 근거와 파일
+
+`A_REPORT.md`, `A_INDEPENDENT_AUDIT.json`, `A_A01_INDEPENDENT_204_AUDIT.json`, `A_A03_INDEPENDENT_69_AUDIT.json`, `A_A06_REMOTE_PROOF_READBACK.json`, `A_A06_POST_STATUS_REMOTE_READBACK.json`, `A_UNRESOLVED.csv`. 원저자 원본 JSON·PNG·JAR 재배포 없음.

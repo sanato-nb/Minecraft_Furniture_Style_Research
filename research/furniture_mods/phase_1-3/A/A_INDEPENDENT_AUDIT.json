@@ -1,7 +1,7 @@
 {
   "schema": "A_INDEPENDENT_AUDIT/v1",
   "date_kst": "2026-11-18",
-  "status": "A_PENDING_FINAL_STATUS_FILES_REMOTE_READBACK",
+  "status": "A_PRIOR_EVIDENCE_RECONCILIATION_PASS",
   "gates": {
     "A0": "PASS_METADATA_AND_REQUIRED_FILES",
     "A1": "PASS_DIRECT_204_JSON_SOURCE_SHA",
@@ -9,9 +9,9 @@
     "A3": "PASS_DIRECT_69_TEMPLATES_39_CHAIRS",
     "A4": "PASS_PRIOR_SCOPE",
     "A5": "PASS_UNRESOLVED_CLASSIFIED",
-    "A6": "PENDING_FINAL_STATUS_COMMIT_READBACK"
+    "A6": "PASS_POST_COMMIT_REMOTE_SHA_ROWS_BODY_AND_PROTECTED_ZERO_DIFF"
   },
-  "A_gates_passed": 6,
+  "A_gates_passed": 7,
   "A_gates_total": 7,
   "M_gates_passed": 0,
   "M_gates_total": 6,
@@ -25,8 +25,8 @@
   },
   "errors": 0,
   "prior_immutable_pre_final": true,
-  "remote_readback": "11_FILES_FULL_BYTES_SHA1_AND_ROWS_VERIFIED",
-  "A_completion": false,
+  "remote_readback": "19_PROOF_FILES_15_STATUS_AND_LEDGER_FILES_GIT_BLOB_SHA1_PASS",
+  "A_completion": true,
   "source_count_fixed_1_3_B": false,
   "protected_prior_immutability_final": true,
   "A6_remote_snapshot_commit": "e1bc822b9491f78da823b0650ea2de6dd3b3c87f",
@@ -37,10 +37,14 @@
   "direct_template_sha_matches": 69,
   "protected_old_files_unchanged_so_far": true,
   "remote_proof_sha_readback": "19_OF_19_SOURCE_PROOF_FILES_PASS",
-  "post_status_commit_readback": "PENDING",
+  "post_status_commit_readback": "15_OF_15_SHA1_PASS",
   "original_source_references": [
     "A_A01_INDEPENDENT_204_AUDIT.json",
     "A_A03_INDEPENDENT_69_AUDIT.json",
     "A_A06_REMOTE_PROOF_READBACK.json"
-  ]
+  ],
+  "A6_remote_evidence": "A_A06_POST_STATUS_REMOTE_READBACK.json",
+  "source_population_fixed_1_3_B": false,
+  "whole_1_3_M_gates_passed": 0,
+  "original_mod_assets_republished": false
 }
