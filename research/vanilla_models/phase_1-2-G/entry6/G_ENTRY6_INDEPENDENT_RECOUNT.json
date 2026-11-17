@@ -22,31 +22,47 @@
     "mcmeta_json_direct_read": 12,
     "mcmeta_animation_static": 7,
     "F_prior_visual_png": 135,
-    "errors": 4
+    "F_prior_missing_SHA_provenance_gaps": 4,
+    "errors": 0
   },
   "original_source_830_expected": false,
-  "errors": [
+  "errors": [],
+  "warnings": [],
+  "prior_F_missing_source_SHA_provenance_gaps": [
     {
-      "path": "1.21.11/assets/minecraft/models/block/sculk_mirrored.json",
-      "kind": "F_PARENT_CHAIN_VALUE",
-      "parent": "1.21.11/assets/minecraft/models/block/cube_mirrored.json"
+      "model": "1.21.11/assets/minecraft/models/block/sculk_mirrored.json",
+      "field": "F_PARENT_CHAIN_sha",
+      "parent": "1.21.11/assets/minecraft/models/block/cube_mirrored.json",
+      "prior_F_sha": "",
+      "G_recomputed_original_git_blob_sha": "38f44bda128d10a5e09614e5ac155c956237681e",
+      "disposition": "MISSING_PRIOR_SHA_SUPPLIED_WITH_NEW_G_ORIGINAL_BYTES_NOT_RETROACTIVE_F"
     },
     {
-      "path": "1.21.11/assets/minecraft/models/block/sculk_mirrored.json",
-      "kind": "F_GEOMETRY_PROVIDER_SHA"
+      "model": "1.21.11/assets/minecraft/models/block/sculk_mirrored.json",
+      "field": "F_GEOMETRY_PROVIDER_SHA",
+      "parent": "1.21.11/assets/minecraft/models/block/cube_mirrored.json",
+      "prior_F_sha": "",
+      "G_recomputed_original_git_blob_sha": "38f44bda128d10a5e09614e5ac155c956237681e",
+      "disposition": "MISSING_PRIOR_SHA_SUPPLIED_WITH_NEW_G_ORIGINAL_BYTES_NOT_RETROACTIVE_F"
     },
     {
-      "path": "1.21.11/assets/minecraft/models/block/stone_mirrored.json",
-      "kind": "F_PARENT_CHAIN_VALUE",
-      "parent": "1.21.11/assets/minecraft/models/block/cube_mirrored.json"
+      "model": "1.21.11/assets/minecraft/models/block/stone_mirrored.json",
+      "field": "F_PARENT_CHAIN_sha",
+      "parent": "1.21.11/assets/minecraft/models/block/cube_mirrored.json",
+      "prior_F_sha": "",
+      "G_recomputed_original_git_blob_sha": "38f44bda128d10a5e09614e5ac155c956237681e",
+      "disposition": "MISSING_PRIOR_SHA_SUPPLIED_WITH_NEW_G_ORIGINAL_BYTES_NOT_RETROACTIVE_F"
     },
     {
-      "path": "1.21.11/assets/minecraft/models/block/stone_mirrored.json",
-      "kind": "F_GEOMETRY_PROVIDER_SHA"
+      "model": "1.21.11/assets/minecraft/models/block/stone_mirrored.json",
+      "field": "F_GEOMETRY_PROVIDER_SHA",
+      "parent": "1.21.11/assets/minecraft/models/block/cube_mirrored.json",
+      "prior_F_sha": "",
+      "G_recomputed_original_git_blob_sha": "38f44bda128d10a5e09614e5ac155c956237681e",
+      "disposition": "MISSING_PRIOR_SHA_SUPPLIED_WITH_NEW_G_ORIGINAL_BYTES_NOT_RETROACTIVE_F"
     }
   ],
-  "warnings": [],
-  "acceptance": "ENTRY6_NOT_APPROVED",
+  "acceptance": "ENTRY6_PASS",
   "upstream_pinned_sha": {
     "research/vanilla_models/phase_1-2-G/entry6/G_ENTRY6_QUEUE_829.csv": "2f1f33520d49f61d7e9b980bf3a4cd258736aee1",
     "research/vanilla_models/phase_1-2-C/entry5/C_SCOPE_2390_FINAL_STATUS.csv": "0950bae4293eaaf455f91073981c30bc7e563b05",
