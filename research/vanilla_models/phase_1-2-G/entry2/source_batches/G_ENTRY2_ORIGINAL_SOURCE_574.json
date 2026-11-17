@@ -1,0 +1,1350 @@
+{
+  "schema": "G_ENTRY2_ORIGINAL_SOURCE_BATCH/v1",
+  "source_main_baseline": "ae1448906d4cb6f2aff4bdc43fbdc808024fd6bb",
+  "G_entry": "ENTRY2",
+  "G_fixed_scope": 775,
+  "offset": 574,
+  "expected": 14,
+  "success": 14,
+  "SHA_reopened": 14,
+  "model_inherited_geometry_pending": 0,
+  "external_C_RGBA_matches": 0,
+  "C_outside_reopened": 0,
+  "source_prior_reference_blob_sha": "2d13dc8ea0adbcf8d6860536002c592e43f4ee8b",
+  "records": [
+    {
+      "index": 922,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/birch_wall_hanging_sign.json",
+      "expected_git_sha": "f5173003b2f6be81774830c52921d5e1a98d3aca",
+      "connector_git_sha": "f5173003b2f6be81774830c52921d5e1a98d3aca",
+      "git_sha_computed": "f5173003b2f6be81774830c52921d5e1a98d3aca",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/birch_hanging_sign"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/birch_hanging_sign.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_hanging_sign"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_hanging_sign.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 923,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/birch_wall_sign.json",
+      "expected_git_sha": "dec6f07d2b9a59d4eebfcaee272113d936c6fe4c",
+      "connector_git_sha": "dec6f07d2b9a59d4eebfcaee272113d936c6fe4c",
+      "git_sha_computed": "dec6f07d2b9a59d4eebfcaee272113d936c6fe4c",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/birch_sign"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/birch_sign.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_sign"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_sign.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 924,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/birch_wood.json",
+      "expected_git_sha": "4bda7ed35005ceca00466b2d6686e0da2eb8d557",
+      "connector_git_sha": "4bda7ed35005ceca00466b2d6686e0da2eb8d557",
+      "git_sha_computed": "4bda7ed35005ceca00466b2d6686e0da2eb8d557",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "axis=x": {
+            "model": "minecraft:block/birch_wood",
+            "x": 90,
+            "y": 90
+          },
+          "axis=y": {
+            "model": "minecraft:block/birch_wood"
+          },
+          "axis=z": {
+            "model": "minecraft:block/birch_wood",
+            "x": 90
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 3,
+        "multipart_rules": 0,
+        "original_choice_count": 3,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/birch_wood.json"
+        ],
+        "explicit_flags": {
+          "x": 2,
+          "y": 1,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 3,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "axis=x",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_wood",
+              "x": 90,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_wood.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "axis=y",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_wood"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_wood.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "axis=z",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_wood",
+              "x": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_wood.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 925,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/black_banner.json",
+      "expected_git_sha": "f5e2c87f4dd44db6086c0bbb3ffdd2de0055d8d2",
+      "connector_git_sha": "f5e2c87f4dd44db6086c0bbb3ffdd2de0055d8d2",
+      "git_sha_computed": "f5e2c87f4dd44db6086c0bbb3ffdd2de0055d8d2",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/banner"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/banner.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/banner"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/banner.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 926,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/black_bed.json",
+      "expected_git_sha": "6577c90a27efb34a7099150253c0bf557d75214c",
+      "connector_git_sha": "6577c90a27efb34a7099150253c0bf557d75214c",
+      "git_sha_computed": "6577c90a27efb34a7099150253c0bf557d75214c",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/bed"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/bed.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bed"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bed.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 927,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/black_candle.json",
+      "expected_git_sha": "3fcbe004e458e3558a779b61e0810caaa58e14c2",
+      "connector_git_sha": "3fcbe004e458e3558a779b61e0810caaa58e14c2",
+      "git_sha_computed": "3fcbe004e458e3558a779b61e0810caaa58e14c2",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "candles=1,lit=false": {
+            "model": "minecraft:block/black_candle_one_candle"
+          },
+          "candles=1,lit=true": {
+            "model": "minecraft:block/black_candle_one_candle_lit"
+          },
+          "candles=2,lit=false": {
+            "model": "minecraft:block/black_candle_two_candles"
+          },
+          "candles=2,lit=true": {
+            "model": "minecraft:block/black_candle_two_candles_lit"
+          },
+          "candles=3,lit=false": {
+            "model": "minecraft:block/black_candle_three_candles"
+          },
+          "candles=3,lit=true": {
+            "model": "minecraft:block/black_candle_three_candles_lit"
+          },
+          "candles=4,lit=false": {
+            "model": "minecraft:block/black_candle_four_candles"
+          },
+          "candles=4,lit=true": {
+            "model": "minecraft:block/black_candle_four_candles_lit"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 8,
+        "multipart_rules": 0,
+        "original_choice_count": 8,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/black_candle_one_candle.json",
+          "1.21.11/assets/minecraft/models/block/black_candle_one_candle_lit.json",
+          "1.21.11/assets/minecraft/models/block/black_candle_two_candles.json",
+          "1.21.11/assets/minecraft/models/block/black_candle_two_candles_lit.json",
+          "1.21.11/assets/minecraft/models/block/black_candle_three_candles.json",
+          "1.21.11/assets/minecraft/models/block/black_candle_three_candles_lit.json",
+          "1.21.11/assets/minecraft/models/block/black_candle_four_candles.json",
+          "1.21.11/assets/minecraft/models/block/black_candle_four_candles_lit.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 8,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "candles=1,lit=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_candle_one_candle"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_candle_one_candle.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "candles=1,lit=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_candle_one_candle_lit"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_candle_one_candle_lit.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "candles=2,lit=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_candle_two_candles"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_candle_two_candles.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 3,
+            "condition": "candles=2,lit=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_candle_two_candles_lit"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_candle_two_candles_lit.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 4,
+            "condition": "candles=3,lit=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_candle_three_candles"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_candle_three_candles.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 5,
+            "condition": "candles=3,lit=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_candle_three_candles_lit"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_candle_three_candles_lit.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 6,
+            "condition": "candles=4,lit=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_candle_four_candles"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_candle_four_candles.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 7,
+            "condition": "candles=4,lit=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_candle_four_candles_lit"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_candle_four_candles_lit.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 928,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/black_candle_cake.json",
+      "expected_git_sha": "f02ecb765652d41ecc03f1ddeb07d67b1969d31d",
+      "connector_git_sha": "f02ecb765652d41ecc03f1ddeb07d67b1969d31d",
+      "git_sha_computed": "f02ecb765652d41ecc03f1ddeb07d67b1969d31d",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "lit=false": {
+            "model": "minecraft:block/black_candle_cake"
+          },
+          "lit=true": {
+            "model": "minecraft:block/black_candle_cake_lit"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 2,
+        "multipart_rules": 0,
+        "original_choice_count": 2,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/black_candle_cake.json",
+          "1.21.11/assets/minecraft/models/block/black_candle_cake_lit.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 2,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "lit=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_candle_cake"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_candle_cake.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "lit=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_candle_cake_lit"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_candle_cake_lit.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 929,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/black_carpet.json",
+      "expected_git_sha": "043c7fc55da67e0e3c2d99ac391cf421edbf1f49",
+      "connector_git_sha": "043c7fc55da67e0e3c2d99ac391cf421edbf1f49",
+      "git_sha_computed": "043c7fc55da67e0e3c2d99ac391cf421edbf1f49",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/black_carpet"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/black_carpet.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_carpet"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_carpet.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 930,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/black_concrete.json",
+      "expected_git_sha": "797f0358ea5e32be5d9502cc2d388f2227b57cba",
+      "connector_git_sha": "797f0358ea5e32be5d9502cc2d388f2227b57cba",
+      "git_sha_computed": "797f0358ea5e32be5d9502cc2d388f2227b57cba",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/black_concrete"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/black_concrete.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_concrete"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_concrete.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 931,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/black_concrete_powder.json",
+      "expected_git_sha": "56a53d03a8bbb64afe3f8b91c292527f93249347",
+      "connector_git_sha": "56a53d03a8bbb64afe3f8b91c292527f93249347",
+      "git_sha_computed": "56a53d03a8bbb64afe3f8b91c292527f93249347",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": [
+            {
+              "model": "minecraft:block/black_concrete_powder"
+            },
+            {
+              "model": "minecraft:block/black_concrete_powder",
+              "y": 90
+            },
+            {
+              "model": "minecraft:block/black_concrete_powder",
+              "y": 180
+            },
+            {
+              "model": "minecraft:block/black_concrete_powder",
+              "y": 270
+            }
+          ]
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 4,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/black_concrete_powder.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 3,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 4,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 4,
+            "apply": {
+              "model": "minecraft:block/black_concrete_powder"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_concrete_powder.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 1,
+            "alternative_count": 4,
+            "apply": {
+              "model": "minecraft:block/black_concrete_powder",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_concrete_powder.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 2,
+            "alternative_count": 4,
+            "apply": {
+              "model": "minecraft:block/black_concrete_powder",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_concrete_powder.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 3,
+            "alternative_count": 4,
+            "apply": {
+              "model": "minecraft:block/black_concrete_powder",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_concrete_powder.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 932,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/black_glazed_terracotta.json",
+      "expected_git_sha": "e20988dcdafdba18006a35e6a4437bb7d2e78f3f",
+      "connector_git_sha": "e20988dcdafdba18006a35e6a4437bb7d2e78f3f",
+      "git_sha_computed": "e20988dcdafdba18006a35e6a4437bb7d2e78f3f",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "facing=east": {
+            "model": "minecraft:block/black_glazed_terracotta",
+            "y": 270
+          },
+          "facing=north": {
+            "model": "minecraft:block/black_glazed_terracotta",
+            "y": 180
+          },
+          "facing=south": {
+            "model": "minecraft:block/black_glazed_terracotta"
+          },
+          "facing=west": {
+            "model": "minecraft:block/black_glazed_terracotta",
+            "y": 90
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 4,
+        "multipart_rules": 0,
+        "original_choice_count": 4,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/black_glazed_terracotta.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 3,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 4,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "facing=east",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_glazed_terracotta",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_glazed_terracotta.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "facing=north",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_glazed_terracotta",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_glazed_terracotta.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "facing=south",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_glazed_terracotta"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_glazed_terracotta.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 3,
+            "condition": "facing=west",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_glazed_terracotta",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_glazed_terracotta.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 933,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/black_shulker_box.json",
+      "expected_git_sha": "289aec047f74189dc88ed4dad8cd2ce64d1a9329",
+      "connector_git_sha": "289aec047f74189dc88ed4dad8cd2ce64d1a9329",
+      "git_sha_computed": "289aec047f74189dc88ed4dad8cd2ce64d1a9329",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/black_shulker_box"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/black_shulker_box.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_shulker_box"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_shulker_box.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 934,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/black_stained_glass.json",
+      "expected_git_sha": "728f216b222de2df630e80f974ebfce10147f8bc",
+      "connector_git_sha": "728f216b222de2df630e80f974ebfce10147f8bc",
+      "git_sha_computed": "728f216b222de2df630e80f974ebfce10147f8bc",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/black_stained_glass"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/black_stained_glass.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_stained_glass"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_stained_glass.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 935,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/black_stained_glass_pane.json",
+      "expected_git_sha": "655588da765ce42d5b9b955ae7170d1cda3ee8c1",
+      "connector_git_sha": "655588da765ce42d5b9b955ae7170d1cda3ee8c1",
+      "git_sha_computed": "655588da765ce42d5b9b955ae7170d1cda3ee8c1",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "multipart": [
+          {
+            "apply": {
+              "model": "minecraft:block/black_stained_glass_pane_post"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/black_stained_glass_pane_side"
+            },
+            "when": {
+              "north": "true"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/black_stained_glass_pane_side",
+              "y": 90
+            },
+            "when": {
+              "east": "true"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/black_stained_glass_pane_side_alt"
+            },
+            "when": {
+              "south": "true"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/black_stained_glass_pane_side_alt",
+              "y": 90
+            },
+            "when": {
+              "west": "true"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/black_stained_glass_pane_noside"
+            },
+            "when": {
+              "north": "false"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/black_stained_glass_pane_noside_alt"
+            },
+            "when": {
+              "east": "false"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/black_stained_glass_pane_noside_alt",
+              "y": 90
+            },
+            "when": {
+              "south": "false"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/black_stained_glass_pane_noside",
+              "y": 270
+            },
+            "when": {
+              "west": "false"
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "structure": "multipart",
+        "variants_rules": 0,
+        "multipart_rules": 9,
+        "original_choice_count": 9,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/black_stained_glass_pane_post.json",
+          "1.21.11/assets/minecraft/models/block/black_stained_glass_pane_side.json",
+          "1.21.11/assets/minecraft/models/block/black_stained_glass_pane_side_alt.json",
+          "1.21.11/assets/minecraft/models/block/black_stained_glass_pane_noside.json",
+          "1.21.11/assets/minecraft/models/block/black_stained_glass_pane_noside_alt.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 4,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 9,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "multipart",
+            "rule_index": 0,
+            "condition": null,
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_stained_glass_pane_post"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_stained_glass_pane_post.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 1,
+            "condition": {
+              "north": "true"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_stained_glass_pane_side"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_stained_glass_pane_side.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 2,
+            "condition": {
+              "east": "true"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_stained_glass_pane_side",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_stained_glass_pane_side.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 3,
+            "condition": {
+              "south": "true"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_stained_glass_pane_side_alt"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_stained_glass_pane_side_alt.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 4,
+            "condition": {
+              "west": "true"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_stained_glass_pane_side_alt",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_stained_glass_pane_side_alt.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 5,
+            "condition": {
+              "north": "false"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_stained_glass_pane_noside"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_stained_glass_pane_noside.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 6,
+            "condition": {
+              "east": "false"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_stained_glass_pane_noside_alt"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_stained_glass_pane_noside_alt.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 7,
+            "condition": {
+              "south": "false"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_stained_glass_pane_noside_alt",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_stained_glass_pane_noside_alt.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 8,
+            "condition": {
+              "west": "false"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/black_stained_glass_pane_noside",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/black_stained_glass_pane_noside.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    }
+  ]
+}
