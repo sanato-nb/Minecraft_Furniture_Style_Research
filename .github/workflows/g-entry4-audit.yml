@@ -1,0 +1,51 @@
+name: G Entry4 source cross-stage audit
+on:
+  push:
+    paths:
+      - '.github/workflows/g-entry4-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Install PNG decoder
+        run: python -m pip install --disable-pip-version-check Pillow==11.3.0
+      - name: Reopen 944 originals and independently cross-audit
+        id: evidence
+        continue-on-error: true
+        run: python scripts/phase_1_2_g_entry4_audit.py
+      - name: Upload original and independent evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: G-Entry4-944-original-source-evidence
+          path: |
+            research/vanilla_models/phase_1-2-G/entry4/G_ENTRY4_*.csv
+            research/vanilla_models/phase_1-2-G/entry4/G_ENTRY4_*.json
+            research/vanilla_models/phase_1-2-G/entry4/G_ENTRY4_REPORT.md
+          retention-days: 30
+      - name: Commit only Entry4 generated audit evidence
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/vanilla_models/phase_1-2-G/entry4/G_ENTRY4_SOURCE_IDENTITY_944.csv
+          git add research/vanilla_models/phase_1-2-G/entry4/G_ENTRY4_MODEL_GEOMETRY_RECOUNT.csv
+          git add research/vanilla_models/phase_1-2-G/entry4/G_ENTRY4_D_ORIGINAL_OPTIONS.csv
+          git add research/vanilla_models/phase_1-2-G/entry4/G_ENTRY4_PNG_BINARY_AUDIT.csv
+          git add research/vanilla_models/phase_1-2-G/entry4/G_ENTRY4_ORIGINAL_FACES_*.csv
+          git add research/vanilla_models/phase_1-2-G/entry4/G_ENTRY4_INDEPENDENT_RECOUNT.json
+          git add research/vanilla_models/phase_1-2-G/entry4/G_ENTRY4_REPORT.md
+          if ! git diff --cached --quiet; then
+            git commit -m "1-2-G Entry4: 원본 944개 전체 독립 검증 증거 저장"
+            git push origin HEAD:main
+          fi
+      - name: Fail closed on any independent audit error
+        if: steps.evidence.outcome != 'success'
+        run: exit 1
