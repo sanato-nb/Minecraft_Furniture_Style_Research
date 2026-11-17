@@ -266,7 +266,10 @@ def main():
                 elif d.get("multipart_when_json"):
                     try:old=json.loads(d["multipart_when_json"])
                     except Exception:old=None
-                    if old!=json.loads(x["condition_json"]):errors.append(dict(path=path,kind="D_MULTIPART_CONDITION",key=key))
+                    # A missing 'when' and a D prior '{}' both encode an unconditional multipart base.
+                    source_cond=json.loads(x["condition_json"])
+                    if old!=source_cond and not (old=={} and source_cond is None):
+                        errors.append(dict(path=path,kind="D_MULTIPART_CONDITION",key=key))
                 if int(d.get("options_in_rule",d.get("alternative_count","1")))!=x["alternative_count"]:
                     errors.append(dict(path=path,kind="D_ALTERNATIVE_COUNT",key=key))
             if len(newrules)!=len(drows):errors.append(dict(path=path,kind="D_OPTION_COUNT",new=len(newrules),prior=len(drows)))
