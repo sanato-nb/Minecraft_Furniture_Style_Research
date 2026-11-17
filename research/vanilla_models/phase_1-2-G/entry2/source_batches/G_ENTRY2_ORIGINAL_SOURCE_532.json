@@ -1,0 +1,4601 @@
+{
+  "schema": "G_ENTRY2_ORIGINAL_SOURCE_BATCH/v1",
+  "source_main_baseline": "ae1448906d4cb6f2aff4bdc43fbdc808024fd6bb",
+  "G_entry": "ENTRY2",
+  "G_fixed_scope": 775,
+  "offset": 532,
+  "expected": 14,
+  "success": 14,
+  "SHA_reopened": 14,
+  "model_inherited_geometry_pending": 0,
+  "external_C_RGBA_matches": 0,
+  "C_outside_reopened": 0,
+  "source_prior_reference_blob_sha": "2d13dc8ea0adbcf8d6860536002c592e43f4ee8b",
+  "records": [
+    {
+      "index": 880,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/bamboo_fence.json",
+      "expected_git_sha": "fe47ca8fa24e3b7a163ec2f8e2058389e34a3cfe",
+      "connector_git_sha": "fe47ca8fa24e3b7a163ec2f8e2058389e34a3cfe",
+      "git_sha_computed": "fe47ca8fa24e3b7a163ec2f8e2058389e34a3cfe",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "multipart": [
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_post"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_side_north"
+            },
+            "when": {
+              "north": "true"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_side_east"
+            },
+            "when": {
+              "east": "true"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_side_south"
+            },
+            "when": {
+              "south": "true"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_side_west"
+            },
+            "when": {
+              "west": "true"
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "structure": "multipart",
+        "variants_rules": 0,
+        "multipart_rules": 5,
+        "original_choice_count": 5,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/bamboo_fence_post.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_fence_side_north.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_fence_side_east.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_fence_side_south.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_fence_side_west.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 5,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "multipart",
+            "rule_index": 0,
+            "condition": null,
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_post"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_post.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 1,
+            "condition": {
+              "north": "true"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_side_north"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_side_north.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 2,
+            "condition": {
+              "east": "true"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_side_east"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_side_east.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 3,
+            "condition": {
+              "south": "true"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_side_south"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_side_south.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 4,
+            "condition": {
+              "west": "true"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_side_west"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_side_west.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 881,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/bamboo_fence_gate.json",
+      "expected_git_sha": "f989df6cb2d8883a5dc831adf2207dc9bbe11143",
+      "connector_git_sha": "f989df6cb2d8883a5dc831adf2207dc9bbe11143",
+      "git_sha_computed": "f989df6cb2d8883a5dc831adf2207dc9bbe11143",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "facing=east,in_wall=false,open=false": {
+            "model": "minecraft:block/bamboo_fence_gate",
+            "y": 270
+          },
+          "facing=east,in_wall=false,open=true": {
+            "model": "minecraft:block/bamboo_fence_gate_open",
+            "y": 270
+          },
+          "facing=east,in_wall=true,open=false": {
+            "model": "minecraft:block/bamboo_fence_gate_wall",
+            "y": 270
+          },
+          "facing=east,in_wall=true,open=true": {
+            "model": "minecraft:block/bamboo_fence_gate_wall_open",
+            "y": 270
+          },
+          "facing=north,in_wall=false,open=false": {
+            "model": "minecraft:block/bamboo_fence_gate",
+            "y": 180
+          },
+          "facing=north,in_wall=false,open=true": {
+            "model": "minecraft:block/bamboo_fence_gate_open",
+            "y": 180
+          },
+          "facing=north,in_wall=true,open=false": {
+            "model": "minecraft:block/bamboo_fence_gate_wall",
+            "y": 180
+          },
+          "facing=north,in_wall=true,open=true": {
+            "model": "minecraft:block/bamboo_fence_gate_wall_open",
+            "y": 180
+          },
+          "facing=south,in_wall=false,open=false": {
+            "model": "minecraft:block/bamboo_fence_gate"
+          },
+          "facing=south,in_wall=false,open=true": {
+            "model": "minecraft:block/bamboo_fence_gate_open"
+          },
+          "facing=south,in_wall=true,open=false": {
+            "model": "minecraft:block/bamboo_fence_gate_wall"
+          },
+          "facing=south,in_wall=true,open=true": {
+            "model": "minecraft:block/bamboo_fence_gate_wall_open"
+          },
+          "facing=west,in_wall=false,open=false": {
+            "model": "minecraft:block/bamboo_fence_gate",
+            "y": 90
+          },
+          "facing=west,in_wall=false,open=true": {
+            "model": "minecraft:block/bamboo_fence_gate_open",
+            "y": 90
+          },
+          "facing=west,in_wall=true,open=false": {
+            "model": "minecraft:block/bamboo_fence_gate_wall",
+            "y": 90
+          },
+          "facing=west,in_wall=true,open=true": {
+            "model": "minecraft:block/bamboo_fence_gate_wall_open",
+            "y": 90
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 16,
+        "multipart_rules": 0,
+        "original_choice_count": 16,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/bamboo_fence_gate.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_fence_gate_open.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_fence_gate_wall.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_fence_gate_wall_open.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 12,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 16,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "facing=east,in_wall=false,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_gate",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_gate.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "facing=east,in_wall=false,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_gate_open",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_gate_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "facing=east,in_wall=true,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_gate_wall",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_gate_wall.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 3,
+            "condition": "facing=east,in_wall=true,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_gate_wall_open",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_gate_wall_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 4,
+            "condition": "facing=north,in_wall=false,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_gate",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_gate.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 5,
+            "condition": "facing=north,in_wall=false,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_gate_open",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_gate_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 6,
+            "condition": "facing=north,in_wall=true,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_gate_wall",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_gate_wall.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 7,
+            "condition": "facing=north,in_wall=true,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_gate_wall_open",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_gate_wall_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 8,
+            "condition": "facing=south,in_wall=false,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_gate"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_gate.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 9,
+            "condition": "facing=south,in_wall=false,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_gate_open"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_gate_open.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 10,
+            "condition": "facing=south,in_wall=true,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_gate_wall"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_gate_wall.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 11,
+            "condition": "facing=south,in_wall=true,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_gate_wall_open"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_gate_wall_open.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 12,
+            "condition": "facing=west,in_wall=false,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_gate",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_gate.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 13,
+            "condition": "facing=west,in_wall=false,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_gate_open",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_gate_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 14,
+            "condition": "facing=west,in_wall=true,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_gate_wall",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_gate_wall.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 15,
+            "condition": "facing=west,in_wall=true,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_fence_gate_wall_open",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_fence_gate_wall_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 882,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/bamboo_hanging_sign.json",
+      "expected_git_sha": "281454077f4d08641e88bf60dde5797af79346a9",
+      "connector_git_sha": "281454077f4d08641e88bf60dde5797af79346a9",
+      "git_sha_computed": "281454077f4d08641e88bf60dde5797af79346a9",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/bamboo_hanging_sign"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/bamboo_hanging_sign.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_hanging_sign"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_hanging_sign.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 883,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/bamboo_mosaic.json",
+      "expected_git_sha": "c9b6ece45c3bb39712fc384a5633097694499c87",
+      "connector_git_sha": "c9b6ece45c3bb39712fc384a5633097694499c87",
+      "git_sha_computed": "c9b6ece45c3bb39712fc384a5633097694499c87",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/bamboo_mosaic"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/bamboo_mosaic.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 884,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/bamboo_mosaic_slab.json",
+      "expected_git_sha": "1b743dfa9a598bab15ffea502030b1c1e5b565fc",
+      "connector_git_sha": "1b743dfa9a598bab15ffea502030b1c1e5b565fc",
+      "git_sha_computed": "1b743dfa9a598bab15ffea502030b1c1e5b565fc",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "type=bottom": {
+            "model": "minecraft:block/bamboo_mosaic_slab"
+          },
+          "type=double": {
+            "model": "minecraft:block/bamboo_mosaic"
+          },
+          "type=top": {
+            "model": "minecraft:block/bamboo_mosaic_slab_top"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 3,
+        "multipart_rules": 0,
+        "original_choice_count": 3,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/bamboo_mosaic_slab.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_mosaic.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_mosaic_slab_top.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 3,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "type=bottom",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_slab"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_slab.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "type=double",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "type=top",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_slab_top"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_slab_top.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 885,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/bamboo_mosaic_stairs.json",
+      "expected_git_sha": "79036430c3aca82fafd9148888a7e185608bae46",
+      "connector_git_sha": "79036430c3aca82fafd9148888a7e185608bae46",
+      "git_sha_computed": "79036430c3aca82fafd9148888a7e185608bae46",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "facing=east,half=bottom,shape=inner_left": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=east,half=bottom,shape=inner_right": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_inner"
+          },
+          "facing=east,half=bottom,shape=outer_left": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=east,half=bottom,shape=outer_right": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_outer"
+          },
+          "facing=east,half=bottom,shape=straight": {
+            "model": "minecraft:block/bamboo_mosaic_stairs"
+          },
+          "facing=east,half=top,shape=inner_left": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=east,half=top,shape=inner_right": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=east,half=top,shape=outer_left": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=east,half=top,shape=outer_right": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=east,half=top,shape=straight": {
+            "model": "minecraft:block/bamboo_mosaic_stairs",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=north,half=bottom,shape=inner_left": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=north,half=bottom,shape=inner_right": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=north,half=bottom,shape=outer_left": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=north,half=bottom,shape=outer_right": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=north,half=bottom,shape=straight": {
+            "model": "minecraft:block/bamboo_mosaic_stairs",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=north,half=top,shape=inner_left": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=north,half=top,shape=inner_right": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=north,half=top,shape=outer_left": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=north,half=top,shape=outer_right": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=north,half=top,shape=straight": {
+            "model": "minecraft:block/bamboo_mosaic_stairs",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=south,half=bottom,shape=inner_left": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_inner"
+          },
+          "facing=south,half=bottom,shape=inner_right": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=south,half=bottom,shape=outer_left": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_outer"
+          },
+          "facing=south,half=bottom,shape=outer_right": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=south,half=bottom,shape=straight": {
+            "model": "minecraft:block/bamboo_mosaic_stairs",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=south,half=top,shape=inner_left": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=south,half=top,shape=inner_right": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          },
+          "facing=south,half=top,shape=outer_left": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=south,half=top,shape=outer_right": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          },
+          "facing=south,half=top,shape=straight": {
+            "model": "minecraft:block/bamboo_mosaic_stairs",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=west,half=bottom,shape=inner_left": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=west,half=bottom,shape=inner_right": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=west,half=bottom,shape=outer_left": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=west,half=bottom,shape=outer_right": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=west,half=bottom,shape=straight": {
+            "model": "minecraft:block/bamboo_mosaic_stairs",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=west,half=top,shape=inner_left": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          },
+          "facing=west,half=top,shape=inner_right": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=west,half=top,shape=outer_left": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          },
+          "facing=west,half=top,shape=outer_right": {
+            "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=west,half=top,shape=straight": {
+            "model": "minecraft:block/bamboo_mosaic_stairs",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 40,
+        "multipart_rules": 0,
+        "original_choice_count": 40,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_inner.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_outer.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs.json"
+        ],
+        "explicit_flags": {
+          "x": 20,
+          "y": 30,
+          "uvlock": 35,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 40,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "facing=east,half=bottom,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "facing=east,half=bottom,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_inner"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "facing=east,half=bottom,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 3,
+            "condition": "facing=east,half=bottom,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_outer"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 4,
+            "condition": "facing=east,half=bottom,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 5,
+            "condition": "facing=east,half=top,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 6,
+            "condition": "facing=east,half=top,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 7,
+            "condition": "facing=east,half=top,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 8,
+            "condition": "facing=east,half=top,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 9,
+            "condition": "facing=east,half=top,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 10,
+            "condition": "facing=north,half=bottom,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 11,
+            "condition": "facing=north,half=bottom,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 12,
+            "condition": "facing=north,half=bottom,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 13,
+            "condition": "facing=north,half=bottom,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 14,
+            "condition": "facing=north,half=bottom,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 15,
+            "condition": "facing=north,half=top,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 16,
+            "condition": "facing=north,half=top,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 17,
+            "condition": "facing=north,half=top,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 18,
+            "condition": "facing=north,half=top,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 19,
+            "condition": "facing=north,half=top,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 20,
+            "condition": "facing=south,half=bottom,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_inner"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 21,
+            "condition": "facing=south,half=bottom,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 22,
+            "condition": "facing=south,half=bottom,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_outer"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 23,
+            "condition": "facing=south,half=bottom,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 24,
+            "condition": "facing=south,half=bottom,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 25,
+            "condition": "facing=south,half=top,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 26,
+            "condition": "facing=south,half=top,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 27,
+            "condition": "facing=south,half=top,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 28,
+            "condition": "facing=south,half=top,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 29,
+            "condition": "facing=south,half=top,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 30,
+            "condition": "facing=west,half=bottom,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 31,
+            "condition": "facing=west,half=bottom,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 32,
+            "condition": "facing=west,half=bottom,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 33,
+            "condition": "facing=west,half=bottom,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 34,
+            "condition": "facing=west,half=bottom,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 35,
+            "condition": "facing=west,half=top,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 36,
+            "condition": "facing=west,half=top,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 37,
+            "condition": "facing=west,half=top,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 38,
+            "condition": "facing=west,half=top,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 39,
+            "condition": "facing=west,half=top,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_mosaic_stairs",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_mosaic_stairs.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 886,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/bamboo_planks.json",
+      "expected_git_sha": "f4f47811c758d38285f7faf57f60ec501e9c1c19",
+      "connector_git_sha": "f4f47811c758d38285f7faf57f60ec501e9c1c19",
+      "git_sha_computed": "f4f47811c758d38285f7faf57f60ec501e9c1c19",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/bamboo_planks"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/bamboo_planks.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_planks"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_planks.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 887,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/bamboo_pressure_plate.json",
+      "expected_git_sha": "6d4c18a90f0b2e3bd6d905862a51de22cea0ff20",
+      "connector_git_sha": "6d4c18a90f0b2e3bd6d905862a51de22cea0ff20",
+      "git_sha_computed": "6d4c18a90f0b2e3bd6d905862a51de22cea0ff20",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "powered=false": {
+            "model": "minecraft:block/bamboo_pressure_plate"
+          },
+          "powered=true": {
+            "model": "minecraft:block/bamboo_pressure_plate_down"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 2,
+        "multipart_rules": 0,
+        "original_choice_count": 2,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/bamboo_pressure_plate.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_pressure_plate_down.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 2,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "powered=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_pressure_plate"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_pressure_plate.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "powered=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_pressure_plate_down"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_pressure_plate_down.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 888,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/bamboo_sapling.json",
+      "expected_git_sha": "b16a0c27498c3f87c5cd7147bb757314c144d452",
+      "connector_git_sha": "b16a0c27498c3f87c5cd7147bb757314c144d452",
+      "git_sha_computed": "b16a0c27498c3f87c5cd7147bb757314c144d452",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/bamboo_sapling"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/bamboo_sapling.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_sapling"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_sapling.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 889,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/bamboo_shelf.json",
+      "expected_git_sha": "c92ee3ed74adbe7bf2e3b4c278998ceb1b74e336",
+      "connector_git_sha": "c92ee3ed74adbe7bf2e3b4c278998ceb1b74e336",
+      "git_sha_computed": "c92ee3ed74adbe7bf2e3b4c278998ceb1b74e336",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "multipart": [
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf"
+            },
+            "when": {
+              "facing": "north"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf",
+              "y": 90
+            },
+            "when": {
+              "facing": "east"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf",
+              "y": 180
+            },
+            "when": {
+              "facing": "south"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf",
+              "y": 270
+            },
+            "when": {
+              "facing": "west"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_unpowered"
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_unpowered",
+              "y": 90
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_unpowered",
+              "y": 180
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_unpowered",
+              "y": 270
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_unconnected"
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_unconnected",
+              "y": 90
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_unconnected",
+              "y": 180
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_unconnected",
+              "y": 270
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_left"
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_left",
+              "y": 90
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_left",
+              "y": 180
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_left",
+              "y": 270
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_center"
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_center",
+              "y": 90
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_center",
+              "y": 180
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_center",
+              "y": 270
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_right"
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_right",
+              "y": 90
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_right",
+              "y": 180
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_right",
+              "y": 270
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "structure": "multipart",
+        "variants_rules": 0,
+        "multipart_rules": 24,
+        "original_choice_count": 24,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/bamboo_shelf.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_shelf_unpowered.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_shelf_unconnected.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_shelf_left.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_shelf_center.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_shelf_right.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 18,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 24,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "multipart",
+            "rule_index": 0,
+            "condition": {
+              "facing": "north"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 1,
+            "condition": {
+              "facing": "east"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 2,
+            "condition": {
+              "facing": "south"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 3,
+            "condition": {
+              "facing": "west"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 4,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_unpowered"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_unpowered.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 5,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_unpowered",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_unpowered.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 6,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_unpowered",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_unpowered.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 7,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_unpowered",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_unpowered.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 8,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_unconnected"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_unconnected.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 9,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_unconnected",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_unconnected.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 10,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_unconnected",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_unconnected.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 11,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_unconnected",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_unconnected.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 12,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_left"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_left.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 13,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_left",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_left.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 14,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_left",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_left.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 15,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_left",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_left.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 16,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_center"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_center.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 17,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_center",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_center.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 18,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_center",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_center.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 19,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_center",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_center.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 20,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_right"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_right.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 21,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_right",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_right.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 22,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_right",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_right.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 23,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_shelf_right",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_right.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 890,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/bamboo_sign.json",
+      "expected_git_sha": "0648ee3c0c3e03b82c03d38f6f1da0eca552e3a0",
+      "connector_git_sha": "0648ee3c0c3e03b82c03d38f6f1da0eca552e3a0",
+      "git_sha_computed": "0648ee3c0c3e03b82c03d38f6f1da0eca552e3a0",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/bamboo_sign"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/bamboo_sign.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_sign"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_sign.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 891,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/bamboo_slab.json",
+      "expected_git_sha": "0888e77181c55abe16818c63f6fef4537304db7a",
+      "connector_git_sha": "0888e77181c55abe16818c63f6fef4537304db7a",
+      "git_sha_computed": "0888e77181c55abe16818c63f6fef4537304db7a",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "type=bottom": {
+            "model": "minecraft:block/bamboo_slab"
+          },
+          "type=double": {
+            "model": "minecraft:block/bamboo_planks"
+          },
+          "type=top": {
+            "model": "minecraft:block/bamboo_slab_top"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 3,
+        "multipart_rules": 0,
+        "original_choice_count": 3,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/bamboo_slab.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_planks.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_slab_top.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 3,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "type=bottom",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_slab"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_slab.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "type=double",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_planks"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_planks.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "type=top",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_slab_top"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_slab_top.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 892,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/bamboo_stairs.json",
+      "expected_git_sha": "649d2b70357c11f5095e06111091248a0d3c5f29",
+      "connector_git_sha": "649d2b70357c11f5095e06111091248a0d3c5f29",
+      "git_sha_computed": "649d2b70357c11f5095e06111091248a0d3c5f29",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "facing=east,half=bottom,shape=inner_left": {
+            "model": "minecraft:block/bamboo_stairs_inner",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=east,half=bottom,shape=inner_right": {
+            "model": "minecraft:block/bamboo_stairs_inner"
+          },
+          "facing=east,half=bottom,shape=outer_left": {
+            "model": "minecraft:block/bamboo_stairs_outer",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=east,half=bottom,shape=outer_right": {
+            "model": "minecraft:block/bamboo_stairs_outer"
+          },
+          "facing=east,half=bottom,shape=straight": {
+            "model": "minecraft:block/bamboo_stairs"
+          },
+          "facing=east,half=top,shape=inner_left": {
+            "model": "minecraft:block/bamboo_stairs_inner",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=east,half=top,shape=inner_right": {
+            "model": "minecraft:block/bamboo_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=east,half=top,shape=outer_left": {
+            "model": "minecraft:block/bamboo_stairs_outer",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=east,half=top,shape=outer_right": {
+            "model": "minecraft:block/bamboo_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=east,half=top,shape=straight": {
+            "model": "minecraft:block/bamboo_stairs",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=north,half=bottom,shape=inner_left": {
+            "model": "minecraft:block/bamboo_stairs_inner",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=north,half=bottom,shape=inner_right": {
+            "model": "minecraft:block/bamboo_stairs_inner",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=north,half=bottom,shape=outer_left": {
+            "model": "minecraft:block/bamboo_stairs_outer",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=north,half=bottom,shape=outer_right": {
+            "model": "minecraft:block/bamboo_stairs_outer",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=north,half=bottom,shape=straight": {
+            "model": "minecraft:block/bamboo_stairs",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=north,half=top,shape=inner_left": {
+            "model": "minecraft:block/bamboo_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=north,half=top,shape=inner_right": {
+            "model": "minecraft:block/bamboo_stairs_inner",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=north,half=top,shape=outer_left": {
+            "model": "minecraft:block/bamboo_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=north,half=top,shape=outer_right": {
+            "model": "minecraft:block/bamboo_stairs_outer",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=north,half=top,shape=straight": {
+            "model": "minecraft:block/bamboo_stairs",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=south,half=bottom,shape=inner_left": {
+            "model": "minecraft:block/bamboo_stairs_inner"
+          },
+          "facing=south,half=bottom,shape=inner_right": {
+            "model": "minecraft:block/bamboo_stairs_inner",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=south,half=bottom,shape=outer_left": {
+            "model": "minecraft:block/bamboo_stairs_outer"
+          },
+          "facing=south,half=bottom,shape=outer_right": {
+            "model": "minecraft:block/bamboo_stairs_outer",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=south,half=bottom,shape=straight": {
+            "model": "minecraft:block/bamboo_stairs",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=south,half=top,shape=inner_left": {
+            "model": "minecraft:block/bamboo_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=south,half=top,shape=inner_right": {
+            "model": "minecraft:block/bamboo_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          },
+          "facing=south,half=top,shape=outer_left": {
+            "model": "minecraft:block/bamboo_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=south,half=top,shape=outer_right": {
+            "model": "minecraft:block/bamboo_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          },
+          "facing=south,half=top,shape=straight": {
+            "model": "minecraft:block/bamboo_stairs",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=west,half=bottom,shape=inner_left": {
+            "model": "minecraft:block/bamboo_stairs_inner",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=west,half=bottom,shape=inner_right": {
+            "model": "minecraft:block/bamboo_stairs_inner",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=west,half=bottom,shape=outer_left": {
+            "model": "minecraft:block/bamboo_stairs_outer",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=west,half=bottom,shape=outer_right": {
+            "model": "minecraft:block/bamboo_stairs_outer",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=west,half=bottom,shape=straight": {
+            "model": "minecraft:block/bamboo_stairs",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=west,half=top,shape=inner_left": {
+            "model": "minecraft:block/bamboo_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          },
+          "facing=west,half=top,shape=inner_right": {
+            "model": "minecraft:block/bamboo_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=west,half=top,shape=outer_left": {
+            "model": "minecraft:block/bamboo_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          },
+          "facing=west,half=top,shape=outer_right": {
+            "model": "minecraft:block/bamboo_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=west,half=top,shape=straight": {
+            "model": "minecraft:block/bamboo_stairs",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 40,
+        "multipart_rules": 0,
+        "original_choice_count": 40,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/bamboo_stairs_inner.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_stairs_outer.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_stairs.json"
+        ],
+        "explicit_flags": {
+          "x": 20,
+          "y": 30,
+          "uvlock": 35,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 40,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "facing=east,half=bottom,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_inner",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "facing=east,half=bottom,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_inner"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "facing=east,half=bottom,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_outer",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 3,
+            "condition": "facing=east,half=bottom,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_outer"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 4,
+            "condition": "facing=east,half=bottom,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 5,
+            "condition": "facing=east,half=top,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_inner",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 6,
+            "condition": "facing=east,half=top,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 7,
+            "condition": "facing=east,half=top,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_outer",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 8,
+            "condition": "facing=east,half=top,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 9,
+            "condition": "facing=east,half=top,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 10,
+            "condition": "facing=north,half=bottom,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_inner",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 11,
+            "condition": "facing=north,half=bottom,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_inner",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 12,
+            "condition": "facing=north,half=bottom,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_outer",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 13,
+            "condition": "facing=north,half=bottom,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_outer",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 14,
+            "condition": "facing=north,half=bottom,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 15,
+            "condition": "facing=north,half=top,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 16,
+            "condition": "facing=north,half=top,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_inner",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 17,
+            "condition": "facing=north,half=top,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 18,
+            "condition": "facing=north,half=top,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_outer",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 19,
+            "condition": "facing=north,half=top,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 20,
+            "condition": "facing=south,half=bottom,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_inner"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 21,
+            "condition": "facing=south,half=bottom,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_inner",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 22,
+            "condition": "facing=south,half=bottom,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_outer"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 23,
+            "condition": "facing=south,half=bottom,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_outer",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 24,
+            "condition": "facing=south,half=bottom,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 25,
+            "condition": "facing=south,half=top,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 26,
+            "condition": "facing=south,half=top,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 27,
+            "condition": "facing=south,half=top,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 28,
+            "condition": "facing=south,half=top,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 29,
+            "condition": "facing=south,half=top,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 30,
+            "condition": "facing=west,half=bottom,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_inner",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 31,
+            "condition": "facing=west,half=bottom,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_inner",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 32,
+            "condition": "facing=west,half=bottom,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_outer",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 33,
+            "condition": "facing=west,half=bottom,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_outer",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 34,
+            "condition": "facing=west,half=bottom,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 35,
+            "condition": "facing=west,half=top,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 36,
+            "condition": "facing=west,half=top,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 37,
+            "condition": "facing=west,half=top,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 38,
+            "condition": "facing=west,half=top,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 39,
+            "condition": "facing=west,half=top,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_stairs",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_stairs.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 893,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/bamboo_trapdoor.json",
+      "expected_git_sha": "e1b5bd14d0694ea851bea7157cadd9c36e3fc03c",
+      "connector_git_sha": "e1b5bd14d0694ea851bea7157cadd9c36e3fc03c",
+      "git_sha_computed": "e1b5bd14d0694ea851bea7157cadd9c36e3fc03c",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "facing=east,half=bottom,open=false": {
+            "model": "minecraft:block/bamboo_trapdoor_bottom",
+            "y": 90
+          },
+          "facing=east,half=bottom,open=true": {
+            "model": "minecraft:block/bamboo_trapdoor_open",
+            "y": 90
+          },
+          "facing=east,half=top,open=false": {
+            "model": "minecraft:block/bamboo_trapdoor_top",
+            "y": 90
+          },
+          "facing=east,half=top,open=true": {
+            "model": "minecraft:block/bamboo_trapdoor_open",
+            "x": 180,
+            "y": 270
+          },
+          "facing=north,half=bottom,open=false": {
+            "model": "minecraft:block/bamboo_trapdoor_bottom"
+          },
+          "facing=north,half=bottom,open=true": {
+            "model": "minecraft:block/bamboo_trapdoor_open"
+          },
+          "facing=north,half=top,open=false": {
+            "model": "minecraft:block/bamboo_trapdoor_top"
+          },
+          "facing=north,half=top,open=true": {
+            "model": "minecraft:block/bamboo_trapdoor_open",
+            "x": 180,
+            "y": 180
+          },
+          "facing=south,half=bottom,open=false": {
+            "model": "minecraft:block/bamboo_trapdoor_bottom",
+            "y": 180
+          },
+          "facing=south,half=bottom,open=true": {
+            "model": "minecraft:block/bamboo_trapdoor_open",
+            "y": 180
+          },
+          "facing=south,half=top,open=false": {
+            "model": "minecraft:block/bamboo_trapdoor_top",
+            "y": 180
+          },
+          "facing=south,half=top,open=true": {
+            "model": "minecraft:block/bamboo_trapdoor_open",
+            "x": 180
+          },
+          "facing=west,half=bottom,open=false": {
+            "model": "minecraft:block/bamboo_trapdoor_bottom",
+            "y": 270
+          },
+          "facing=west,half=bottom,open=true": {
+            "model": "minecraft:block/bamboo_trapdoor_open",
+            "y": 270
+          },
+          "facing=west,half=top,open=false": {
+            "model": "minecraft:block/bamboo_trapdoor_top",
+            "y": 270
+          },
+          "facing=west,half=top,open=true": {
+            "model": "minecraft:block/bamboo_trapdoor_open",
+            "x": 180,
+            "y": 90
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 16,
+        "multipart_rules": 0,
+        "original_choice_count": 16,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/bamboo_trapdoor_bottom.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_trapdoor_open.json",
+          "1.21.11/assets/minecraft/models/block/bamboo_trapdoor_top.json"
+        ],
+        "explicit_flags": {
+          "x": 4,
+          "y": 12,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 16,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "facing=east,half=bottom,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_trapdoor_bottom",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_trapdoor_bottom.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "facing=east,half=bottom,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_trapdoor_open",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_trapdoor_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "facing=east,half=top,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_trapdoor_top",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_trapdoor_top.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 3,
+            "condition": "facing=east,half=top,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_trapdoor_open",
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_trapdoor_open.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 4,
+            "condition": "facing=north,half=bottom,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_trapdoor_bottom"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_trapdoor_bottom.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 5,
+            "condition": "facing=north,half=bottom,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_trapdoor_open"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_trapdoor_open.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 6,
+            "condition": "facing=north,half=top,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_trapdoor_top"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_trapdoor_top.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 7,
+            "condition": "facing=north,half=top,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_trapdoor_open",
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_trapdoor_open.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 8,
+            "condition": "facing=south,half=bottom,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_trapdoor_bottom",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_trapdoor_bottom.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 9,
+            "condition": "facing=south,half=bottom,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_trapdoor_open",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_trapdoor_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 10,
+            "condition": "facing=south,half=top,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_trapdoor_top",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_trapdoor_top.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 11,
+            "condition": "facing=south,half=top,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_trapdoor_open",
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_trapdoor_open.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 12,
+            "condition": "facing=west,half=bottom,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_trapdoor_bottom",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_trapdoor_bottom.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 13,
+            "condition": "facing=west,half=bottom,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_trapdoor_open",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_trapdoor_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 14,
+            "condition": "facing=west,half=top,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_trapdoor_top",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_trapdoor_top.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 15,
+            "condition": "facing=west,half=top,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/bamboo_trapdoor_open",
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/bamboo_trapdoor_open.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    }
+  ]
+}
