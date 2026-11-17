@@ -38,11 +38,11 @@
     "PNG_source_bytes_total": 40518
   },
   "source_provenance_errors": [],
-  "G_entry1_acceptance": "G_ENTRY1_BINARY_PASS_REMOTE_CLOSEOUT_PENDING",
-  "G_entry1_complete": false,
-  "G_entry2_allowed_under_sequential_gate": false,
+  "G_entry1_acceptance": "G_ENTRY1_COMPLETE_SOURCE_CROSSSTAGE_ENTRY_GATE_PASS",
+  "G_entry1_complete": true,
+  "G_entry2_allowed_under_sequential_gate": true,
   "G_current_completed_assets_by_direct_content": 347,
-  "G_new_approved_entry_count": 0,
+  "G_new_approved_entry_count": 1,
   "G_gates_exit_passed": 0,
   "G_stage_complete": false,
   "source_identity_and_json_recomputation_pass": true,
@@ -58,5 +58,21 @@
     "mcmeta": "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_PNG_MCMETA_AUDIT.json",
     "disposition": "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_UNRESOLVED_DISPOSITION.csv",
     "code": "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_PNG_AUDITOR.js"
-  }
+  },
+  "G_remote_closeout_before_main": "72d23e53deb5da004f93c2fef97e3ac2d17f53ad",
+  "G_remote_readback_expected_path": "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_REMOTE_READBACK.json",
+  "G_Entry1_only_checks": {
+    "entry_identity_347": "PASS_GIT_SOURCE_SHA_347",
+    "entry_original_content_347": "PASS_JSON_162_PNG_185",
+    "entry_geometry_and_face": "PASS_PRIOR_G_JSON_371_ELEMENTS_1373_FACES",
+    "entry_D_model_choice": "PASS_PRIOR_G_167_OPTIONS_49_MODELS",
+    "entry_PNG_binary": "PASS_185_BLOB_SHA1_CRC32_ADLER_RGBA_SHA256",
+    "entry_C_overlap": "PASS_177_PRIOR_RGBA_AND_DIMENSIONS",
+    "entry_C_outside": "PASS_8_G_DIRECT_ONLY_NOT_RETROACTIVE_C",
+    "entry_mcmeta": "PASS_17_DIRECT_SHA_JSON_7_ANIM_STATIC_METADATA",
+    "entry_exceptions": "PASS_185_BINARY_ISSUES_RESOLVED_18_SCOPE_LIMITATIONS_PRESERVED",
+    "entry_prior_remote_readback": "PASS_8_CORE_EVIDENCE_FILES_REOPENED",
+    "entry_final_state_remote_readback": "WILL_BE_RECORDED_SEPARATELY"
+  },
+  "G_Entry2_started": false
 }
