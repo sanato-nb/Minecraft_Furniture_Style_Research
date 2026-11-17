@@ -1,33 +1,30 @@
-# Minecraft 가구 스타일 연구 1-3-A 실제 감사 보고
+# Minecraft Furniture Style Research — 1-3-A 재정합 감사 (2026-11-18)
 
-**기준일:** 2026-11-17. **시작 main:** `0542fb2b713fcaa5217ddb20a5273c02e1940b01`. **작업 중간 HEAD:** `9b1db3b61dd421dba3d24713e5a4a276f149c33a`.
+## 기준 및 실제 검증
 
-## 실제 재검증한 증거
+- 작업 시작 main: `638d9e2889838ae75048104f02abc604de50f9d6`; A 작업 이전 baseline: `0542fb2b713fcaa5217ddb20a5273c02e1940b01`.
+- A-00: v11~v24 14개 폴더, 195개 Git blob 경로·크기·SHA 목록 검증. `A_INPUT_MANIFEST.csv` 보존.
+- A-01: 기존 Another leaf **204/204** 고정 원저자 JSON 직접 재열람 및 Git blob SHA-1 별도 계산, 원장·모델 ID·parent 204/204 일치. v18 33 + v21 38 + v22 43 + v23 51 + v24 39. 신규 발견 0, 중복 0, 원본 누락 0.
+- A-02: 기존 선행 blockstate **22/22** 원본 SHA 직접 검산 증거 유지 (v21 12 + v23 10), 적용 1,188회. prior tree 177개와 미조사 155개 별도 관리; birch/spruce south 의자 예외 2건 유지.
+- A-03: 부모 템플릿 **69/69** 원본 JSON 독립 SHA-1, parent·요소·face 대조 성공. 의자 39는 204의 부분집합. 일반19/tucked20, 상속 요소390·면1,794. 정상·tucked의 10요소/46면 및 로컬 Z 범위 직접 확인.
+- A-04: Handcrafted authored120/generated16 경로·원장과 원저자 트리 대조 유지; 이전 실제 JSON 재해시 2, PNG24/면별 RGBA784는 별도 1-4 단위. Macaw 공식 JAR 과거 미확보·원본 모델 0은 현시점 새 검증으로 승격하지 않음.
+- A-05: A1·A3의 차단 3건 해결. Handcrafted 잔여 134 원문·Macaw·버전·라이선스·미조사 state155·게임 렌더 등은 `A_UNRESOLVED.csv`에 미해결 및 B/1-4 책임 구분.
+- A-06: 새 원본 SHA 증거 17조각과 통합 감사 2개, 총 **19파일 원격 본문·Git SHA1 재계산 일치**, 총 원본 JSON 273(204+69)개. A2 22 + Handcrafted 2 포함 A 범위 재해시 대상 합계 297(서로 다른 JSON 경로). Git compare에서 이전 연구 v11~v24 / vanilla / 1-1 / 1-2 변경 0. 최종 상태 파일 원격 재조회 전이므로 **A6 최종 승인 보류**.
 
-- A-00: 기존 `v11~v24` **195 blob / 14 directories** 경로·크기·Git blob SHA 전수 기준 고정. 핵심 근거 본문 열람 및 파싱은 `A_INPUT_MANIFEST.csv`에 표시, 나머지는 트리 메타데이터 등급 유지.
-- A-01: 원장 204 leaf (33+38+43+51+39), **204개 고유 경로·SHA/모델 ID**, 원저자 pinned Git 트리 **204/204** 일치, 중복 0. **모델 본문 직접 재해시 0/204**이므로 A1 최종 승인은 보류. 신규 발견 모델 0.
-- A-02: 상태 22 JSON 원본 직접 재해시 **22/22**, 실제 상태 적용 1188건, 독립 오류 0, birch/spruce 의자 반례 2건 재현. 선행 원본 트리 177 중 미조사 후보 155를 분리.
-- A-03: 템플릿 69/69 원저자 트리 SHA, 직접 원문 검산 2/69(두 의자 부모). 의자 39개, 부모 SHA 39/39, 정상 19/tucked 20, 상속 **390 요소, 1,794 면 인스턴스**. tucked의 음수 z 값은 일반형 대비 로컬 좌표 이동이며 실제 게임 렌더·collision 아님.
-- A-04: Handcrafted authored 120, generated 16 고정 경로/SHA **136/136**, 원본문서 직접 재해시 2/136. 이전 PNG24·면RGBA784, 두 모드 합산 PNG175·면RGBA4113은 다른 분모(1-4). Macaw 과거 JAR 미확보·모델 직접 검증0을 새 검증으로 승격하지 않음.
-- 원본 JSON 직접 재해시 합계 **undefined/431 (22 state + 2 template + 2 Handcrafted)**. 이는 동일 leaf와 부모/상태/모드를 합한 비중이 아니라 단지 서로 다른 고정 원본 JSON 파일 수.
-- 이전 `v11~v24`, `1-1`, `1-2` 파일 Git 비교에서 **비A 변경 0건**(9b1db3b61dd421dba3d24713e5a4a276f149c33a 시점). 다음 A6에서 최종 다시 확인.
+## 게이트 판정 — 최종 메타데이터 readback 전
 
-## 게이트 판정 (A6 최종 원격 검증 전)
+| 게이트 | 상태 |
+|---|---|
+| A0 | PASS |
+| A1 | PASS |
+| A2 | PASS |
+| A3 | PASS |
+| A4 | PASS_PRIOR_SCOPE |
+| A5 | PASS |
+| A6 | PENDING_FINAL_STATUS_READBACK |
 
-- **A0** PASS_METADATA_AND_REQUIRED_FILES
-- **A1** BLOCKED_A_DIRECT_LEAF_REHASH
-- **A2** PASS
-- **A3** BLOCKED_PARTIAL_TEMPLATE_BYTES
-- **A4** PASS_PRIOR_SCOPE
-- **A5** PASS_UNRESOLVED_CLASSIFIED
-- **A6** PENDING_POST_COMMIT_READBACK
+**승인 6/7 — 1-3-A 전체 완료 선언 금지**. 최종 상태 파일 원격 SHA·행수·본문 및 보호 범위를 검증해야 A6 승인 가능. 상위 1-3 M1~M6 = 0/6, 1-3-B 고정 모집단 미결정, Minecraft 가구 실제 제작/실게임 모델 렌더/좀보이드 맵 생성 미완료.
 
-A 게이트는 아직 모두 PASS가 아닙니다. **1-3-A 완료 선언 금지**. 상위 1-3 M1~M6 = 0/6; 1-3-B 전체 고정 모집단 미결정. 세부 차단·B 인계는 `A_UNRESOLVED.csv`.
+## 사용 근거
 
-## 재배포·증거 등급
-
-원저자 JSON·PNG·JAR 파일 원문은 저장소에 복제하지 않았습니다. `PRIOR_SOURCE_VERIFIED`, `FILE_SHA_ONLY`, `ORIGINAL_REHASHED_IN_A`, `BLOCKED`, `OUT_OF_SCOPE_1_4`의 의미를 분리합니다.
-
-## A-06 원격 독립 재조회
-
-기준 `e1bc822b9491f78da823b0650ea2de6dd3b3c87f`: 결과 원장 11개 본문 전체 원격 재조회, 원격 blob SHA와 본문 직접 계산 Git blob SHA1 일치 11/11개; CSV 헤더·행수·앞뒤 본문 재조회 완료. GitHub 비교에서 신규 `phase_1-3/A/` 외 변경 0건. A6 **PASS_REMOTE_READBACK_AND_PROTECTED_ZERO_DIFF**. A0~A6 승인 **5/7**, A1·A3 본문 직접 재해시 미완료이므로 **1-3-A 전체 종료 아님**. 1-3 전체 M1~M6 0/6.
+`A_A01_INDEPENDENT_204_AUDIT.json`, `A_A03_INDEPENDENT_69_AUDIT.json`, `A_A06_REMOTE_PROOF_READBACK.json`, `A_INPUT_MANIFEST.csv`, `A_PRIOR_COHORT_RECOUNT.json`, `A_UNRESOLVED.csv`. 원저자 JSON·PNG·JAR 원문은 재배포하지 않음.

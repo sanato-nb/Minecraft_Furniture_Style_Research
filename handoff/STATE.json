@@ -772,7 +772,7 @@
     "next": "research/vanilla_models/phase_1-2-D/entry3/D_ENTRY3_SUBBATCH1_48_NEXT.md"
   },
   "schema": "mc-furniture-handoff/v1",
-  "updated_at": "2026-11-16",
+  "updated_at": "2026-11-18",
   "timezone": "Asia/Seoul",
   "current_checkpoint": "v69",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
@@ -6042,8 +6042,8 @@
   },
   "phase_1_3_detailed_plan": {
     "date_kst": "2026-11-17",
-    "status": "1_3_PLAN_READY_NOT_STARTED",
-    "work_started": false,
+    "status": "1_3_A_IN_PROGRESS_OTHERS_NOT_STARTED",
+    "work_started": true,
     "original_mod_model_new_analysis_since_plan": 0,
     "fixed_source_population_verified": false,
     "fixed_population_total": null,
@@ -6072,14 +6072,14 @@
     "prior_1_1_approved": 150,
     "top_level_tasks_completed": 1,
     "top_level_tasks_total": 5,
-    "next_action": "Start 1-3-A: reopen v11-v24 source paths/SHA, reconcile prior204 models and 22 states, classify Handcrafted historic 3D evidence; then 1-3-B officially source-pin mods and freeze exact population."
+    "next_action": "A-06 final remote gate readback; then 1-3-B"
   },
   "phase_1_3_A_plan": {
-    "date_kst": "2026-11-17",
-    "status": "A_PLAN_READY_NOT_EXECUTED",
+    "date_kst": "2026-11-18",
+    "status": "A_FINAL_REMOTE_READBACK_PENDING",
     "plan_prepared": true,
-    "execution_started": false,
-    "A_gates_passed": 0,
+    "execution_started": true,
+    "A_gates_passed": 6,
     "A_gates_total": 7,
     "upper_1_3_M_gates_passed": 0,
     "upper_1_3_M_total": 6,
@@ -6101,9 +6101,30 @@
     "prior_chair39": 39,
     "prior_handcrafted_authored120": 120,
     "prior_handcrafted_generated_sample16": 16,
-    "prior_original_rehash_in_A": 0,
+    "prior_original_rehash_in_A": 297,
     "source_population_fixed_by_B": false,
     "prior_v11_v24_modified": false,
-    "next_action": "Start 1-3-A A-00 reopen all v11-v24 Git trees/input manifests and A-01 source path/SHA dedupe cohorts 33/38/43/51/39. Plan is not audit completion."
+    "next_action": "A6 final remote SHA/body/readback then 1-3-B official source census"
+  },
+  "phase_1_3_A_execution": {
+    "date_kst": "2026-11-18",
+    "status": "A_FINAL_REMOTE_READBACK_PENDING",
+    "original_main_head": "638d9e2889838ae75048104f02abc604de50f9d6",
+    "baseline_before_A": "0542fb2b713fcaa5217ddb20a5273c02e1940b01",
+    "gates_passed": 6,
+    "gates_total": 7,
+    "upper_1_3_gates_passed": 0,
+    "upper_1_3_gates_total": 6,
+    "another_leaf_direct_rehash": 204,
+    "another_templates_direct_rehash": 69,
+    "chair_leaf_subset_verified": 39,
+    "another_state_prior_direct": 22,
+    "handcrafted_original_prior_direct": 2,
+    "source_json_distinct_paths_rehashed_in_A": 297,
+    "original_research_files_modified": 0,
+    "new_models_discovered": 0,
+    "phase_1_3_B_fixed_population": false,
+    "report": "research/furniture_mods/phase_1-3/A/A_REPORT.md",
+    "next_step": "remote readback then B source census"
   }
 }

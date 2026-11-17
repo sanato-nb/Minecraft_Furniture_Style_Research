@@ -26,7 +26,7 @@
     "leaf_unique_paths": 204,
     "leaf_unique_model_refs": 204,
     "leaf_prior_tree_sha_matched": 204,
-    "leaf_direct_bytes_rehashed": 0,
+    "leaf_direct_bytes_rehashed": 204,
     "states": 22,
     "states_direct_sha_verified": 22,
     "states_apply_records": 1188,
@@ -34,7 +34,7 @@
     "states_v23": 10,
     "template_rows": 69,
     "templates_git_tree_matched": 69,
-    "templates_source_direct_sha": 2,
+    "templates_source_direct_sha": 69,
     "v18_template_subset": 30,
     "chairs": 39,
     "chair_parent_sha_matched": 39,
@@ -47,8 +47,9 @@
     "hc_authored_tree_verified": 120,
     "hc_generated_tree_verified": 16,
     "hc_source_direct": 2,
-    "original_source_json_bytes_rehashed_A": 26,
-    "protected_source_files_changed_before_final": 0
+    "original_source_json_bytes_rehashed_A": 297,
+    "protected_source_files_changed_before_final": 0,
+    "chair_leaf_original_bytes_rehashed": 39
   },
   "independent_tests": {
     "A0_manifest": true,
@@ -71,5 +72,8 @@
     "INHERITED_FACE_INSTANCE",
     "PNG_PIXEL_SOURCE",
     "RGBA_FACE_REGION"
-  ]
+  ],
+  "recount_updated_kst": "2026-11-18",
+  "note_297_denominator": "Another leaf204 + Another parent templates69 + Another states22 + Handcrafted sample2 = 297 unique upstream JSON; chair39 is contained in leaf204 and not added again",
+  "A1_A3_independent_rechecked": true
 }

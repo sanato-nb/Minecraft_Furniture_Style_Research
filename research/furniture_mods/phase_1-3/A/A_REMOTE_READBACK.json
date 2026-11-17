@@ -425,5 +425,16 @@
     }
   ],
   "gate_A6": "PASS_REMOTE_READBACK_AND_PROTECTED_ZERO_DIFF",
-  "scope_note": "이 원격 readback은 snapshot_main_head 기준; A_REMOTE_READBACK 자체와 이후 수정되는 A_REPORT/A_INDEPENDENT_AUDIT은 새 커밋 후 따로 재조회해야 함"
+  "scope_note": "이 원격 readback은 snapshot_main_head 기준; A_REMOTE_READBACK 자체와 이후 수정되는 A_REPORT/A_INDEPENDENT_AUDIT은 새 커밋 후 따로 재조회해야 함",
+  "additional_2026_11_18": {
+    "source_proof_evidence_file": "A_A06_REMOTE_PROOF_READBACK.json",
+    "proof_remote_files_reopened": 19,
+    "proof_remote_files_git_sha1_rehashed_ok": 19,
+    "another_source_json_direct_sha": 204,
+    "template_source_json_direct_sha": 69,
+    "total_new_independent_original_sha_verification": 273,
+    "protected_files_changed_pre_status_commit": 0,
+    "final_status_files_remote_readback": "PENDING",
+    "reason": "A6 final gating requires post-status-commit remote SHA/rows/body recheck"
+  }
 }
