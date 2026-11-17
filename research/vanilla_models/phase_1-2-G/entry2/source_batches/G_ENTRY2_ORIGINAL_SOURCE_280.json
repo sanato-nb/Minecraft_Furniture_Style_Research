@@ -1,0 +1,718 @@
+{
+  "schema": "G_ENTRY2_ORIGINAL_SOURCE_BATCH/v1",
+  "source_main_baseline": "ae1448906d4cb6f2aff4bdc43fbdc808024fd6bb",
+  "G_entry": "ENTRY2",
+  "G_fixed_scope": 775,
+  "offset": 280,
+  "expected": 14,
+  "success": 14,
+  "SHA_reopened": 14,
+  "model_inherited_geometry_pending": 12,
+  "external_C_RGBA_matches": 0,
+  "C_outside_reopened": 0,
+  "source_prior_reference_blob_sha": "59604a069e3b83b407e7b66f786df88a5dbff243",
+  "records": [
+    {
+      "index": 628,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/mossy_carpet_side.json",
+      "expected_git_sha": "e63ad2dd219dc3c15ab4cfed63ef8de1360159d0",
+      "connector_git_sha": "e63ad2dd219dc3c15ab4cfed63ef8de1360159d0",
+      "git_sha_computed": "e63ad2dd219dc3c15ab4cfed63ef8de1360159d0",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "ambientocclusion": true,
+        "textures": {
+          "particle": "#side"
+        },
+        "elements": [
+          {
+            "from": [
+              0,
+              0,
+              0.1
+            ],
+            "to": [
+              16,
+              16,
+              0.1
+            ],
+            "shade": true,
+            "faces": {
+              "north": {
+                "uv": [
+                  16,
+                  0,
+                  0,
+                  16
+                ],
+                "texture": "#side"
+              },
+              "south": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#side"
+              }
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": true,
+        "own_element_count": 1,
+        "own_face_count": 2,
+        "own_uv_explicit": 2,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle"
+        ],
+        "own_texture_defs": {
+          "particle": "#side"
+        },
+        "texture_slot_refs": [
+          {
+            "element_index": 0,
+            "direction": "north",
+            "texture": "#side",
+            "uv_key_explicit": true,
+            "uv": [
+              16,
+              0,
+              0,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "south",
+            "texture": "#side",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          }
+        ],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": true,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/mossy_carpet_side.json",
+        "E_exception": false,
+        "comparison_scope": "SELF_OWNED_GEOMETRY",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 629,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/note_block.json",
+      "expected_git_sha": "5d7671bdac4bf7dd1f842e25234055448099338c",
+      "connector_git_sha": "5d7671bdac4bf7dd1f842e25234055448099338c",
+      "git_sha_computed": "5d7671bdac4bf7dd1f842e25234055448099338c",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/cube_all",
+        "textures": {
+          "all": "minecraft:block/note_block"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/cube_all",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/cube_all.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/note_block"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/cube.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 630,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/oak_shelf_center.json",
+      "expected_git_sha": "81892d5c8594124365625adfcffe321d4b9403f1",
+      "connector_git_sha": "81892d5c8594124365625adfcffe321d4b9403f1",
+      "git_sha_computed": "81892d5c8594124365625adfcffe321d4b9403f1",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_center",
+        "textures": {
+          "all": "minecraft:block/oak_shelf",
+          "particle": "minecraft:block/stripped_oak_log"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_center",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_center.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/oak_shelf",
+          "particle": "minecraft:block/stripped_oak_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_center.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 631,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/oak_shelf_inventory.json",
+      "expected_git_sha": "bf0054f045938fca739377a6e93ef910b0f88f6f",
+      "connector_git_sha": "bf0054f045938fca739377a6e93ef910b0f88f6f",
+      "git_sha_computed": "bf0054f045938fca739377a6e93ef910b0f88f6f",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_inventory",
+        "textures": {
+          "all": "minecraft:block/oak_shelf",
+          "particle": "minecraft:block/stripped_oak_log"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_inventory",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_inventory.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/oak_shelf",
+          "particle": "minecraft:block/stripped_oak_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_inventory.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 632,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/oak_shelf_left.json",
+      "expected_git_sha": "f93de7bab0f31486dc88528dd30f9991d06c1c66",
+      "connector_git_sha": "f93de7bab0f31486dc88528dd30f9991d06c1c66",
+      "git_sha_computed": "f93de7bab0f31486dc88528dd30f9991d06c1c66",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_left",
+        "textures": {
+          "all": "minecraft:block/oak_shelf",
+          "particle": "minecraft:block/stripped_oak_log"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_left",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_left.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/oak_shelf",
+          "particle": "minecraft:block/stripped_oak_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_left.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 633,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/oak_shelf_right.json",
+      "expected_git_sha": "8d21a41bfe2b341c45d4d4e94bb780b61ea8e5d2",
+      "connector_git_sha": "8d21a41bfe2b341c45d4d4e94bb780b61ea8e5d2",
+      "git_sha_computed": "8d21a41bfe2b341c45d4d4e94bb780b61ea8e5d2",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_right",
+        "textures": {
+          "all": "minecraft:block/oak_shelf",
+          "particle": "minecraft:block/stripped_oak_log"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_right",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_right.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/oak_shelf",
+          "particle": "minecraft:block/stripped_oak_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_right.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 634,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/oak_shelf_unconnected.json",
+      "expected_git_sha": "f7e0246635a353d0e16784ad1445a4c8e6685e2a",
+      "connector_git_sha": "f7e0246635a353d0e16784ad1445a4c8e6685e2a",
+      "git_sha_computed": "f7e0246635a353d0e16784ad1445a4c8e6685e2a",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_unconnected",
+        "textures": {
+          "all": "minecraft:block/oak_shelf",
+          "particle": "minecraft:block/stripped_oak_log"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_unconnected",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_unconnected.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/oak_shelf",
+          "particle": "minecraft:block/stripped_oak_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_unconnected.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 635,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/oak_shelf_unpowered.json",
+      "expected_git_sha": "0d536cc45ac2bc311ff1b1fc44651dbc43492c47",
+      "connector_git_sha": "0d536cc45ac2bc311ff1b1fc44651dbc43492c47",
+      "git_sha_computed": "0d536cc45ac2bc311ff1b1fc44651dbc43492c47",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_unpowered",
+        "textures": {
+          "all": "minecraft:block/oak_shelf",
+          "particle": "minecraft:block/stripped_oak_log"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_unpowered",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_unpowered.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/oak_shelf",
+          "particle": "minecraft:block/stripped_oak_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_unpowered.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 636,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/oak_shelf.json",
+      "expected_git_sha": "4b0f3db311717ef740c50638ea1d252256310180",
+      "connector_git_sha": "4b0f3db311717ef740c50638ea1d252256310180",
+      "git_sha_computed": "4b0f3db311717ef740c50638ea1d252256310180",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_body",
+        "textures": {
+          "all": "minecraft:block/oak_shelf",
+          "particle": "minecraft:block/stripped_oak_log"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_body",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_body.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/oak_shelf",
+          "particle": "minecraft:block/stripped_oak_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_body.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 637,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/oak_sign.json",
+      "expected_git_sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+      "connector_git_sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+      "git_sha_computed": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "minecraft:block/oak_planks"
+        }
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle"
+        ],
+        "own_texture_defs": {
+          "particle": "minecraft:block/oak_planks"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": null,
+        "E_exception": true,
+        "comparison_scope": "E_SPECIAL_RENDERER_NO_GENERAL_ELEMENTS",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 638,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/ochre_froglight_horizontal.json",
+      "expected_git_sha": "a11db54e70c2b3ba2f3145aac7dfac42ed3d32b1",
+      "connector_git_sha": "a11db54e70c2b3ba2f3145aac7dfac42ed3d32b1",
+      "git_sha_computed": "a11db54e70c2b3ba2f3145aac7dfac42ed3d32b1",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/cube_column_horizontal",
+        "textures": {
+          "end": "minecraft:block/ochre_froglight_top",
+          "side": "minecraft:block/ochre_froglight_side"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/cube_column_horizontal",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/cube_column_horizontal.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "end",
+          "side"
+        ],
+        "own_texture_defs": {
+          "end": "minecraft:block/ochre_froglight_top",
+          "side": "minecraft:block/ochre_froglight_side"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/cube_column_horizontal.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 639,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/orange_candle_cake_lit.json",
+      "expected_git_sha": "44210f34f0796c44f409cd669b8b55ebe2c457c4",
+      "connector_git_sha": "44210f34f0796c44f409cd669b8b55ebe2c457c4",
+      "git_sha_computed": "44210f34f0796c44f409cd669b8b55ebe2c457c4",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "textures": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/orange_candle_lit",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "bottom",
+          "candle",
+          "particle",
+          "side",
+          "top"
+        ],
+        "own_texture_defs": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/orange_candle_lit",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 640,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/orange_candle_cake.json",
+      "expected_git_sha": "9e2b183882eef821b4c601df778a9561ac2c3755",
+      "connector_git_sha": "9e2b183882eef821b4c601df778a9561ac2c3755",
+      "git_sha_computed": "9e2b183882eef821b4c601df778a9561ac2c3755",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "textures": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/orange_candle",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "bottom",
+          "candle",
+          "particle",
+          "side",
+          "top"
+        ],
+        "own_texture_defs": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/orange_candle",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 641,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/orange_candle_four_candles_lit.json",
+      "expected_git_sha": "eb3290683d3c8b9b64a532f6c5c3cd92304f9284",
+      "connector_git_sha": "eb3290683d3c8b9b64a532f6c5c3cd92304f9284",
+      "git_sha_computed": "eb3290683d3c8b9b64a532f6c5c3cd92304f9284",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_four_candles",
+        "textures": {
+          "all": "minecraft:block/orange_candle_lit",
+          "particle": "minecraft:block/orange_candle_lit"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_four_candles",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_four_candles.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/orange_candle_lit",
+          "particle": "minecraft:block/orange_candle_lit"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_four_candles.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    }
+  ]
+}
