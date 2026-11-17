@@ -1,0 +1,45 @@
+{
+  "schema": "A02_SOURCE_STATE_DIRECT_RECOUNT/v1",
+  "date_kst": "2026-11-17",
+  "source_pin": "57eb624cbb7f408d43398c7434b0d38d312cb55d",
+  "counts": {
+    "cohort_12": 12,
+    "cohort_10": 10,
+    "unique_state_paths": 22,
+    "source_rehashed": 22,
+    "state_prior_applies": 1188,
+    "A_original_applies": 1188,
+    "unique_referenced_model_refs": 205,
+    "external_minecraft_model_refs": [
+      "minecraft:block/air"
+    ],
+    "variants_original_tuple_matched": 17,
+    "variant_rows": 17,
+    "exception_reproduced": 2,
+    "errors": 0,
+    "upstream_prior_tree_states": 177,
+    "prior_uninspected": 155
+  },
+  "exceptions": [
+    {
+      "blockstate": "birch_chair",
+      "variant_key": "facing=south,tucked=false,variant=3",
+      "actual_model": "another_furniture:block/chair/birch_1",
+      "source_git_sha": "fb91fe6fca469381b200fd080a671b5a09e77399",
+      "A_actual_model": "another_furniture:block/chair/birch_1",
+      "A_original_match": true
+    },
+    {
+      "blockstate": "spruce_chair",
+      "variant_key": "facing=south,tucked=false,variant=3",
+      "actual_model": "another_furniture:block/chair/spruce_1",
+      "source_git_sha": "c8a57ceb9f34c255cd6b098deca6628c595be0df",
+      "A_actual_model": "another_furniture:block/chair/spruce_1",
+      "A_original_match": true
+    }
+  ],
+  "errors": [],
+  "source_rule_scope": "Direct source variants/multipart/apply/rotation + Git SHA1. Multipart original condition object not fully semantically normalized to old textual when; checked model count/set",
+  "gate_A2": "PASS",
+  "prior_tree_candidates_177_is_not_all_rehashed": true
+}
