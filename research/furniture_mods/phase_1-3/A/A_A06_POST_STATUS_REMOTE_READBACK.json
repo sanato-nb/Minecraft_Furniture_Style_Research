@@ -1,0 +1,144 @@
+{
+  "schema": "A_A06_POST_STATUS_REMOTE_READBACK/v1",
+  "date_kst": "2026-11-18",
+  "audited_head": "99d1746bedcb0a5d4d154fbf555012e5d16486b0",
+  "baseline_before_A": "0542fb2b713fcaa5217ddb20a5273c02e1940b01",
+  "remote_read_file_count": 15,
+  "remote_git_blob_sha1_calculated": 15,
+  "remote_git_blob_sha1_pass": 15,
+  "csv_expected_rows": {
+    "A_INPUT_MANIFEST.csv": 195,
+    "A_ANOTHER_204_PRIOR_CROSSWALK.csv": 204,
+    "A_ANOTHER_22_BLOCKSTATES.csv": 22,
+    "A_ANOTHER_69_TEMPLATES.csv": 69,
+    "A_CHAIR_39_RELATIONS.csv": 39
+  },
+  "protected_existing_research_changed": 0,
+  "changed_file_count": 61,
+  "unexpected_changes": [],
+  "errors": [],
+  "files": [
+    {
+      "path": "research/furniture_mods/phase_1-3/A/A_INPUT_MANIFEST.csv",
+      "github_sha": "728c74f3783ee23dea8f060497df92d254643b9a",
+      "independent_sha": "728c74f3783ee23dea8f060497df92d254643b9a",
+      "bytes": 31974,
+      "rows": 195,
+      "first_line": "prior_version,repo_path,git_blob_sha,bytes,file_kind,reads_ok,evidence_scope,unit"
+    },
+    {
+      "path": "research/furniture_mods/phase_1-3/A/A_ANOTHER_204_PRIOR_CROSSWALK.csv",
+      "github_sha": "6ab4e8045802fa86dfee441e7025cd836ee7b59e",
+      "independent_sha": "6ab4e8045802fa86dfee441e7025cd836ee7b59e",
+      "bytes": 126956,
+      "rows": 204,
+      "first_line": "cohort,model_ref,normalized_source_path,source_path,source_sha,source_pin,parent_ref,parent_sha,source_ledger,pinned_upstream_tree_sha,pinned_upstream_bytes,A_tree_sha_match,model_ref_path_match,duplicate_group,prior_evidence,A_direct_bytes_read,A_original_blob_sha,A_rehash_status,denominator"
+    },
+    {
+      "path": "research/furniture_mods/phase_1-3/A/A_ANOTHER_22_BLOCKSTATES.csv",
+      "github_sha": "ed8aedff28481d71936878f1f5e193866df92935",
+      "independent_sha": "ed8aedff28481d71936878f1f5e193866df92935",
+      "bytes": 6616,
+      "rows": 22,
+      "first_line": "cohort,state,source_path,source_sha,A_git_sha_computed,A_direct_bytes_read,kind,variants_or_multipart_count,model_apply_records,unique_model_refs,prior_applied_csv_records,prior_applied_unique_refs,original_ref_set_match,original_variant_tuple_match,v11_prior_overlap,external_minecraft_refs,state_model_refs_in_prior_204,exception_keys,source_verified,denominator"
+    },
+    {
+      "path": "research/furniture_mods/phase_1-3/A/A_ANOTHER_69_TEMPLATES.csv",
+      "github_sha": "cdde97a730f1d0de3e7126f732a692f0069fa7d5",
+      "independent_sha": "cdde97a730f1d0de3e7126f732a692f0069fa7d5",
+      "bytes": 25218,
+      "rows": 69,
+      "first_line": "template_ref,model_path,source_sha,A_upstream_tree_sha,A_tree_sha_match,v11_same_sha,v18_selected,v18_same_sha,own_elements,own_faces,parent_ref,prior_evidence,A_direct_bytes_read,A_original_sha1,denominator"
+    },
+    {
+      "path": "research/furniture_mods/phase_1-3/A/A_CHAIR_39_RELATIONS.csv",
+      "github_sha": "ff6ecc9237315fe72e4ca319f8229ae4ed8e778c",
+      "independent_sha": "ff6ecc9237315fe72e4ca319f8229ae4ed8e778c",
+      "bytes": 18252,
+      "rows": 39,
+      "first_line": "leaf,source_path,source_sha,A_upstream_tree_sha,A_leaf_sha_match,parent_template,parent_sha,A_parent_tree_sha,A_parent_sha_match,own_elements,inherited_elements,inherited_faces,face_bottom,face_seat,face_back,variant_ref,apply_records_from_v23,coordinate_note,A_leaf_bytes_read,denominator"
+    },
+    {
+      "path": "research/furniture_mods/phase_1-3/A/A_HANDCRAFTED_PRIOR_SCOPE.csv",
+      "github_sha": "4ef7feac90382bf77ba6d1b64546fccceaa9fd4d",
+      "independent_sha": "4ef7feac90382bf77ba6d1b64546fccceaa9fd4d",
+      "bytes": 44808,
+      "rows": 139,
+      "first_line": "record_type,source_pin,path,source_sha,model_id,parent_ref,own_elements,scope,prior_grade,A_tree_sha,A_tree_match,A_original_bytes_read,A_original_sha1,A_evidence,unresolved"
+    },
+    {
+      "path": "research/furniture_mods/phase_1-3/A/A_PRIOR_COHORT_RECOUNT.json",
+      "github_sha": "e5148a5d6fe99207d3a00c438bf4edd9d73077af",
+      "independent_sha": "e5148a5d6fe99207d3a00c438bf4edd9d73077af",
+      "bytes": 2283,
+      "rows": null,
+      "first_line": "{"
+    },
+    {
+      "path": "research/furniture_mods/phase_1-3/A/A_UNRESOLVED.csv",
+      "github_sha": "f4b9fcf7213b44b2215d115bdf0dbb9e8fa0af58",
+      "independent_sha": "f4b9fcf7213b44b2215d115bdf0dbb9e8fa0af58",
+      "bytes": 2920,
+      "rows": 10,
+      "first_line": "issue_id,evidence_path,expected,actual,affected_rows,severity,owner,reason,blocks_A_gate,recheck_method,a_original_bytes_read,status"
+    },
+    {
+      "path": "research/furniture_mods/phase_1-3/A/A_INDEPENDENT_AUDIT.json",
+      "github_sha": "2d099aaeae74da346c2559e122e809c996bbabd2",
+      "independent_sha": "2d099aaeae74da346c2559e122e809c996bbabd2",
+      "bytes": 1542,
+      "rows": null,
+      "first_line": "{"
+    },
+    {
+      "path": "research/furniture_mods/phase_1-3/A/A_REPORT.md",
+      "github_sha": "4c516a613ce99a553c9187588e109aa0e4226895",
+      "independent_sha": "4c516a613ce99a553c9187588e109aa0e4226895",
+      "bytes": 2720,
+      "rows": null,
+      "first_line": "# Minecraft Furniture Style Research — 1-3-A 재정합 감사 (2026-11-18)"
+    },
+    {
+      "path": "research/furniture_mods/phase_1-3/A/A_REMOTE_READBACK.json",
+      "github_sha": "de96ece2dcc5c64ef6024aa46480dc761cc75650",
+      "independent_sha": "de96ece2dcc5c64ef6024aa46480dc761cc75650",
+      "bytes": 23009,
+      "rows": null,
+      "first_line": "{"
+    },
+    {
+      "path": "research/furniture_mods/phase_1-3/A/A_NEXT.md",
+      "github_sha": "76057503a1bae1c6171316626a504359133ca069",
+      "independent_sha": "76057503a1bae1c6171316626a504359133ca069",
+      "bytes": 1123,
+      "rows": null,
+      "first_line": "# 1-3-A 실행 인수인계 — 2026-11-18"
+    },
+    {
+      "path": "HANDOFF.md",
+      "github_sha": "7797c21050f6d7f5c9534254ed91821dbe264e7f",
+      "independent_sha": "7797c21050f6d7f5c9534254ed91821dbe264e7f",
+      "bytes": 181886,
+      "rows": null,
+      "first_line": "> **2026-11-18 · 1-3-A A1·A3 원본 독립 재해시 완료, A6 최종 상태 파일 readback 대기** — Another leaf 204/204, 부모 원형 69/69, 의자39/39(204 부분집합), Git blob SHA-1 재계산/부모/기하 일치, 오류0. 원격 증거 19파일 SHA 재조회 성공. A0~A5 기존/갱신 결과 PASS, **A 게이트 6/7(최종 readback 전)**, 1-3 전체 M1~M6 0/6. 선행 v11~v24·vanilla·1-1/1-2 소스 변경0. [A 보고](research/furniture_mods/phase_1-3/A/A_REPORT.md) · [원본 204 감사](research/furniture_mods/phase_1-3/A/A_A01_INDEPENDENT_204_AUDIT.json) · [원형69 감사](research/furniture_mods/phase_1-3/A/A_A03_INDEPENDENT_69_AUDIT.json)."
+    },
+    {
+      "path": "PROGRESS.md",
+      "github_sha": "ab10cf1e530c9c1d9b3a6c26c545e6ea968e0d1c",
+      "independent_sha": "ab10cf1e530c9c1d9b3a6c26c545e6ea968e0d1c",
+      "bytes": 142800,
+      "rows": null,
+      "first_line": "> **2026-11-18 · 1-3-A A1·A3 원본 독립 재해시 완료, A6 최종 상태 파일 readback 대기** — Another leaf 204/204, 부모 원형 69/69, 의자39/39(204 부분집합), Git blob SHA-1 재계산/부모/기하 일치, 오류0. 원격 증거 19파일 SHA 재조회 성공. A0~A5 기존/갱신 결과 PASS, **A 게이트 6/7(최종 readback 전)**, 1-3 전체 M1~M6 0/6. 선행 v11~v24·vanilla·1-1/1-2 소스 변경0. [A 보고](research/furniture_mods/phase_1-3/A/A_REPORT.md) · [원본 204 감사](research/furniture_mods/phase_1-3/A/A_A01_INDEPENDENT_204_AUDIT.json) · [원형69 감사](research/furniture_mods/phase_1-3/A/A_A03_INDEPENDENT_69_AUDIT.json)."
+    },
+    {
+      "path": "handoff/STATE.json",
+      "github_sha": "ffa28b62caf425c27dcbd11e66a8c04bf4266825",
+      "independent_sha": "ffa28b62caf425c27dcbd11e66a8c04bf4266825",
+      "bytes": 282692,
+      "rows": null,
+      "first_line": "{"
+    }
+  ],
+  "A6_gate_ready": true,
+  "full_A_completion_only_after_final_state_readback": true
+}
