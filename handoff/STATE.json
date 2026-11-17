@@ -1,8 +1,8 @@
 {
   "phase_1_2_G_entry1_execution": {
     "updated_kst": "2026-11-17",
-    "status": "G_ENTRY1_PARTIAL_JSON_COMPLETE_PNG_BINARY_PENDING",
-    "baseline_main": "88d9da945953e80597faa6e91a7c79078a5da819",
+    "status": "G_ENTRY1_COMPLETE_SOURCE_CROSSSTAGE_ENTRY_GATE_PASS",
+    "baseline_main": "2d6c570e2a1406f603451faa35c4de5f4eb5ed18",
     "source_scope_total": 4669,
     "entry1_assigned": 347,
     "entry1_model_JSON": 150,
@@ -10,7 +10,7 @@
     "entry1_block_texture_PNG": 185,
     "tree_source_path_sha_rechecked": 347,
     "G_original_JSON_sources_direct_reopened": 162,
-    "G_original_PNG_bytes_direct_reopened": 0,
+    "G_original_PNG_bytes_direct_reopened": 185,
     "G_PNG_git_blob_sha_verified_in_tree": 185,
     "G_PNG_C_prior_RGBA_sha_linked": 177,
     "G_PNG_outside_C_verified_set": 8,
@@ -29,10 +29,10 @@
     "G_source_scope_crossstage_identity_mismatches": 0,
     "G_original_face_slot_recalculation_mismatches": 0,
     "G_state_D_source_choice_mismatches": 0,
-    "G_entry1_accepted": false,
+    "G_entry1_accepted": true,
     "G_entry2_started": false,
     "G_entry7_allowed": false,
-    "G_accepted_entries": 0,
+    "G_accepted_entries": 1,
     "G_independent_global_exit_gates_passed": 0,
     "G_complete": false,
     "whole_stage_1_2_complete": false,
@@ -46,7 +46,19 @@
     "audit": "research/vanilla_models/phase_1-2-G/entry1/G_INDEPENDENT_AUDIT.json",
     "next": "research/vanilla_models/phase_1-2-G/entry1/G_NEXT.md",
     "source_index": "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_SOURCE_INDEX.json",
-    "next_action": "Continue Entry1 185 original PNG binary read independently; keep 8 C-outside exceptions separate; then rerun independent audit and remote readback before Entry2."
+    "next_action": "Entry1 PASS; Entry2 775 fixed assets may start in subsequent execution; 6 Entries only; G global exits 0/6",
+    "G_PNG_source_sha_crc_adler_rgba_verified": 185,
+    "G_PNG_C_prior_RGBA_newly_rechecked_match": 177,
+    "G_PNG_outside_C_newly_verified_in_G_only": 8,
+    "G_PNG_original_bytes_total": 40518,
+    "G_Entry1_mcmeta_original_source_read": 17,
+    "G_Entry1_mcmeta_animation_metadata_parsed": 7,
+    "G_original_entry1_direct_content_total": 347,
+    "G_entry2_allowed": true,
+    "entry1_remote_readback": "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_REMOTE_READBACK.json",
+    "png_audit": "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_PNG_BINARY_AUDIT.csv",
+    "png_recount": "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_PNG_BINARY_INDEPENDENT_RECOUNT.json",
+    "unresolved_disposition": "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_UNRESOLVED_DISPOSITION.csv"
   },
   "phase_1_2_G_preparation": {
     "date": "2026-11-17",
@@ -124,7 +136,8 @@
     "allocation": "research/vanilla_models/phase_1-2-G/G_ENTRY_EXECUTION_MATRIX.csv",
     "preparation_audit": "research/vanilla_models/phase_1-2-G/G_SCOPE_PREP_AUDIT.json",
     "entry1_queue": "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_QUEUE_347.csv",
-    "entry1_prep": "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_PREP.md"
+    "entry1_prep": "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_PREP.md",
+    "latest_entry1_execution_status": "ENTRY1_PASS_ENTRY2_ALLOWED_NOT_STARTED"
   },
   "phase_1_2_F_completed": {
     "date": "2026-11-17",
