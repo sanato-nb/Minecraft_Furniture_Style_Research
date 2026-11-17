@@ -1,0 +1,1842 @@
+{
+  "schema": "G_ENTRY2_ORIGINAL_SOURCE_BATCH/v1",
+  "source_main_baseline": "ae1448906d4cb6f2aff4bdc43fbdc808024fd6bb",
+  "G_entry": "ENTRY2",
+  "G_fixed_scope": 775,
+  "offset": 14,
+  "expected": 14,
+  "success": 14,
+  "SHA_reopened": 14,
+  "model_inherited_geometry_pending": 7,
+  "external_C_RGBA_matches": 0,
+  "C_outside_reopened": 0,
+  "source_prior_reference_blob_sha": "c94bd064aa6789bcb2e6ed9db5988d92e5d35d2d",
+  "records": [
+    {
+      "index": 362,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_unconnected.json",
+      "expected_git_sha": "d21fe50b4913bfeac63e419685654b3abef29ace",
+      "connector_git_sha": "d21fe50b4913bfeac63e419685654b3abef29ace",
+      "git_sha_computed": "d21fe50b4913bfeac63e419685654b3abef29ace",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_unconnected",
+        "textures": {
+          "all": "minecraft:block/bamboo_shelf",
+          "particle": "minecraft:block/stripped_bamboo_block"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_unconnected",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_unconnected.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/bamboo_shelf",
+          "particle": "minecraft:block/stripped_bamboo_block"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_unconnected.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 363,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/bamboo_shelf.json",
+      "expected_git_sha": "6811ea5164ecc6793e045aae58d11b1ab5c01d92",
+      "connector_git_sha": "6811ea5164ecc6793e045aae58d11b1ab5c01d92",
+      "git_sha_computed": "6811ea5164ecc6793e045aae58d11b1ab5c01d92",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_body",
+        "textures": {
+          "all": "minecraft:block/bamboo_shelf",
+          "particle": "minecraft:block/stripped_bamboo_block"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_body",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_body.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/bamboo_shelf",
+          "particle": "minecraft:block/stripped_bamboo_block"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_body.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 364,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/bamboo_sign.json",
+      "expected_git_sha": "00c837bfb2e49f00dff93ac37be1b3d17f9f9369",
+      "connector_git_sha": "00c837bfb2e49f00dff93ac37be1b3d17f9f9369",
+      "git_sha_computed": "00c837bfb2e49f00dff93ac37be1b3d17f9f9369",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "minecraft:block/bamboo_planks"
+        }
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle"
+        ],
+        "own_texture_defs": {
+          "particle": "minecraft:block/bamboo_planks"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": null,
+        "E_exception": true,
+        "comparison_scope": "E_SPECIAL_RENDERER_NO_GENERAL_ELEMENTS",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 365,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/banner.json",
+      "expected_git_sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+      "connector_git_sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+      "git_sha_computed": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "minecraft:block/oak_planks"
+        }
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle"
+        ],
+        "own_texture_defs": {
+          "particle": "minecraft:block/oak_planks"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": null,
+        "E_exception": true,
+        "comparison_scope": "E_SPECIAL_RENDERER_NO_GENERAL_ELEMENTS",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 366,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/barrel_open.json",
+      "expected_git_sha": "c7d013e7b442624011ab4a0bef8b4e9ac5570ea9",
+      "connector_git_sha": "c7d013e7b442624011ab4a0bef8b4e9ac5570ea9",
+      "git_sha_computed": "c7d013e7b442624011ab4a0bef8b4e9ac5570ea9",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/cube_bottom_top",
+        "textures": {
+          "bottom": "minecraft:block/barrel_bottom",
+          "side": "minecraft:block/barrel_side",
+          "top": "minecraft:block/barrel_top_open"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/cube_bottom_top",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/cube_bottom_top.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "bottom",
+          "side",
+          "top"
+        ],
+        "own_texture_defs": {
+          "bottom": "minecraft:block/barrel_bottom",
+          "side": "minecraft:block/barrel_side",
+          "top": "minecraft:block/barrel_top_open"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/cube.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 367,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/barrel.json",
+      "expected_git_sha": "cff930084d47d226817f274616d14f4b07c0a9d4",
+      "connector_git_sha": "cff930084d47d226817f274616d14f4b07c0a9d4",
+      "git_sha_computed": "cff930084d47d226817f274616d14f4b07c0a9d4",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/cube_bottom_top",
+        "textures": {
+          "bottom": "minecraft:block/barrel_bottom",
+          "side": "minecraft:block/barrel_side",
+          "top": "minecraft:block/barrel_top"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/cube_bottom_top",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/cube_bottom_top.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "bottom",
+          "side",
+          "top"
+        ],
+        "own_texture_defs": {
+          "bottom": "minecraft:block/barrel_bottom",
+          "side": "minecraft:block/barrel_side",
+          "top": "minecraft:block/barrel_top"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/cube.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 368,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/beacon.json",
+      "expected_git_sha": "de4bca2e18d4a9fa2045562cdec4a0d6e1957289",
+      "connector_git_sha": "de4bca2e18d4a9fa2045562cdec4a0d6e1957289",
+      "git_sha_computed": "de4bca2e18d4a9fa2045562cdec4a0d6e1957289",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "block/block",
+        "textures": {
+          "particle": "block/glass",
+          "glass": "block/glass",
+          "obsidian": "block/obsidian",
+          "beacon": "block/beacon"
+        },
+        "elements": [
+          {
+            "__comment": "Glass shell",
+            "from": [
+              0,
+              0,
+              0
+            ],
+            "to": [
+              16,
+              16,
+              16
+            ],
+            "faces": {
+              "down": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#glass"
+              },
+              "up": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#glass"
+              },
+              "north": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#glass"
+              },
+              "south": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#glass"
+              },
+              "west": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#glass"
+              },
+              "east": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#glass"
+              }
+            }
+          },
+          {
+            "__comment": "Obsidian base",
+            "from": [
+              2,
+              0.1,
+              2
+            ],
+            "to": [
+              14,
+              3,
+              14
+            ],
+            "faces": {
+              "down": {
+                "uv": [
+                  2,
+                  2,
+                  14,
+                  14
+                ],
+                "texture": "#obsidian"
+              },
+              "up": {
+                "uv": [
+                  2,
+                  2,
+                  14,
+                  14
+                ],
+                "texture": "#obsidian"
+              },
+              "north": {
+                "uv": [
+                  2,
+                  13,
+                  14,
+                  16
+                ],
+                "texture": "#obsidian"
+              },
+              "south": {
+                "uv": [
+                  2,
+                  13,
+                  14,
+                  16
+                ],
+                "texture": "#obsidian"
+              },
+              "west": {
+                "uv": [
+                  2,
+                  13,
+                  14,
+                  16
+                ],
+                "texture": "#obsidian"
+              },
+              "east": {
+                "uv": [
+                  2,
+                  13,
+                  14,
+                  16
+                ],
+                "texture": "#obsidian"
+              }
+            }
+          },
+          {
+            "__comment": "Inner beacon texture",
+            "from": [
+              3,
+              3,
+              3
+            ],
+            "to": [
+              13,
+              14,
+              13
+            ],
+            "faces": {
+              "down": {
+                "uv": [
+                  3,
+                  3,
+                  13,
+                  13
+                ],
+                "texture": "#beacon"
+              },
+              "up": {
+                "uv": [
+                  3,
+                  3,
+                  13,
+                  13
+                ],
+                "texture": "#beacon"
+              },
+              "north": {
+                "uv": [
+                  3,
+                  2,
+                  13,
+                  13
+                ],
+                "texture": "#beacon"
+              },
+              "south": {
+                "uv": [
+                  3,
+                  2,
+                  13,
+                  13
+                ],
+                "texture": "#beacon"
+              },
+              "west": {
+                "uv": [
+                  3,
+                  2,
+                  13,
+                  13
+                ],
+                "texture": "#beacon"
+              },
+              "east": {
+                "uv": [
+                  3,
+                  2,
+                  13,
+                  13
+                ],
+                "texture": "#beacon"
+              }
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "parent": "block/block",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/block.json",
+        "parent_match": true,
+        "own_elements_key_explicit": true,
+        "own_element_count": 3,
+        "own_face_count": 18,
+        "own_uv_explicit": 18,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle",
+          "glass",
+          "obsidian",
+          "beacon"
+        ],
+        "own_texture_defs": {
+          "particle": "block/glass",
+          "glass": "block/glass",
+          "obsidian": "block/obsidian",
+          "beacon": "block/beacon"
+        },
+        "texture_slot_refs": [
+          {
+            "element_index": 0,
+            "direction": "down",
+            "texture": "#glass",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "up",
+            "texture": "#glass",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "north",
+            "texture": "#glass",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "south",
+            "texture": "#glass",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "west",
+            "texture": "#glass",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "east",
+            "texture": "#glass",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "down",
+            "texture": "#obsidian",
+            "uv_key_explicit": true,
+            "uv": [
+              2,
+              2,
+              14,
+              14
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "up",
+            "texture": "#obsidian",
+            "uv_key_explicit": true,
+            "uv": [
+              2,
+              2,
+              14,
+              14
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "north",
+            "texture": "#obsidian",
+            "uv_key_explicit": true,
+            "uv": [
+              2,
+              13,
+              14,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "south",
+            "texture": "#obsidian",
+            "uv_key_explicit": true,
+            "uv": [
+              2,
+              13,
+              14,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "west",
+            "texture": "#obsidian",
+            "uv_key_explicit": true,
+            "uv": [
+              2,
+              13,
+              14,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "east",
+            "texture": "#obsidian",
+            "uv_key_explicit": true,
+            "uv": [
+              2,
+              13,
+              14,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 2,
+            "direction": "down",
+            "texture": "#beacon",
+            "uv_key_explicit": true,
+            "uv": [
+              3,
+              3,
+              13,
+              13
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 2,
+            "direction": "up",
+            "texture": "#beacon",
+            "uv_key_explicit": true,
+            "uv": [
+              3,
+              3,
+              13,
+              13
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 2,
+            "direction": "north",
+            "texture": "#beacon",
+            "uv_key_explicit": true,
+            "uv": [
+              3,
+              2,
+              13,
+              13
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 2,
+            "direction": "south",
+            "texture": "#beacon",
+            "uv_key_explicit": true,
+            "uv": [
+              3,
+              2,
+              13,
+              13
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 2,
+            "direction": "west",
+            "texture": "#beacon",
+            "uv_key_explicit": true,
+            "uv": [
+              3,
+              2,
+              13,
+              13
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 2,
+            "direction": "east",
+            "texture": "#beacon",
+            "uv_key_explicit": true,
+            "uv": [
+              3,
+              2,
+              13,
+              13
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          }
+        ],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/beacon.json",
+        "E_exception": false,
+        "comparison_scope": "SELF_OWNED_GEOMETRY",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 369,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/bed.json",
+      "expected_git_sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+      "connector_git_sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+      "git_sha_computed": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "minecraft:block/oak_planks"
+        }
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle"
+        ],
+        "own_texture_defs": {
+          "particle": "minecraft:block/oak_planks"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": null,
+        "E_exception": true,
+        "comparison_scope": "E_SPECIAL_RENDERER_NO_GENERAL_ELEMENTS",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 370,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/bee_nest_empty.json",
+      "expected_git_sha": "ac0aa623614cedc8c446ad29f88499f7c5b8d763",
+      "connector_git_sha": "ac0aa623614cedc8c446ad29f88499f7c5b8d763",
+      "git_sha_computed": "ac0aa623614cedc8c446ad29f88499f7c5b8d763",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/orientable_with_bottom",
+        "textures": {
+          "bottom": "minecraft:block/bee_nest_bottom",
+          "front": "minecraft:block/bee_nest_front",
+          "particle": "minecraft:block/bee_nest_side",
+          "side": "minecraft:block/bee_nest_side",
+          "top": "minecraft:block/bee_nest_top"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/orientable_with_bottom",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/orientable_with_bottom.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "bottom",
+          "front",
+          "particle",
+          "side",
+          "top"
+        ],
+        "own_texture_defs": {
+          "bottom": "minecraft:block/bee_nest_bottom",
+          "front": "minecraft:block/bee_nest_front",
+          "particle": "minecraft:block/bee_nest_side",
+          "side": "minecraft:block/bee_nest_side",
+          "top": "minecraft:block/bee_nest_top"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/cube.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 371,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/bee_nest_honey.json",
+      "expected_git_sha": "25850dbf4073b9b21c316793b9f8a5b581c45c2a",
+      "connector_git_sha": "25850dbf4073b9b21c316793b9f8a5b581c45c2a",
+      "git_sha_computed": "25850dbf4073b9b21c316793b9f8a5b581c45c2a",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/orientable_with_bottom",
+        "textures": {
+          "bottom": "minecraft:block/bee_nest_bottom",
+          "front": "minecraft:block/bee_nest_front_honey",
+          "particle": "minecraft:block/bee_nest_side",
+          "side": "minecraft:block/bee_nest_side",
+          "top": "minecraft:block/bee_nest_top"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/orientable_with_bottom",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/orientable_with_bottom.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "bottom",
+          "front",
+          "particle",
+          "side",
+          "top"
+        ],
+        "own_texture_defs": {
+          "bottom": "minecraft:block/bee_nest_bottom",
+          "front": "minecraft:block/bee_nest_front_honey",
+          "particle": "minecraft:block/bee_nest_side",
+          "side": "minecraft:block/bee_nest_side",
+          "top": "minecraft:block/bee_nest_top"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/cube.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 372,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/beehive_empty.json",
+      "expected_git_sha": "4c875e63acc22f09d7bef3d1eeb8fada093b9ada",
+      "connector_git_sha": "4c875e63acc22f09d7bef3d1eeb8fada093b9ada",
+      "git_sha_computed": "4c875e63acc22f09d7bef3d1eeb8fada093b9ada",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/orientable_with_bottom",
+        "textures": {
+          "bottom": "minecraft:block/beehive_end",
+          "front": "minecraft:block/beehive_front",
+          "particle": "minecraft:block/beehive_side",
+          "side": "minecraft:block/beehive_side",
+          "top": "minecraft:block/beehive_end"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/orientable_with_bottom",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/orientable_with_bottom.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "bottom",
+          "front",
+          "particle",
+          "side",
+          "top"
+        ],
+        "own_texture_defs": {
+          "bottom": "minecraft:block/beehive_end",
+          "front": "minecraft:block/beehive_front",
+          "particle": "minecraft:block/beehive_side",
+          "side": "minecraft:block/beehive_side",
+          "top": "minecraft:block/beehive_end"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/cube.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 373,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/bell_between_walls.json",
+      "expected_git_sha": "8e7903f36de47960cba22c5377de17438db8d9ef",
+      "connector_git_sha": "8e7903f36de47960cba22c5377de17438db8d9ef",
+      "git_sha_computed": "8e7903f36de47960cba22c5377de17438db8d9ef",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "block/bell_bottom",
+          "bar": "block/dark_oak_planks"
+        },
+        "elements": [
+          {
+            "from": [
+              0,
+              13,
+              7
+            ],
+            "to": [
+              16,
+              15,
+              9
+            ],
+            "faces": {
+              "north": {
+                "uv": [
+                  2,
+                  2,
+                  14,
+                  4
+                ],
+                "texture": "#bar"
+              },
+              "east": {
+                "uv": [
+                  5,
+                  4,
+                  7,
+                  6
+                ],
+                "texture": "#bar",
+                "cullface": "east"
+              },
+              "south": {
+                "uv": [
+                  2,
+                  3,
+                  14,
+                  5
+                ],
+                "texture": "#bar"
+              },
+              "west": {
+                "uv": [
+                  5,
+                  4,
+                  7,
+                  6
+                ],
+                "texture": "#bar",
+                "cullface": "west"
+              },
+              "up": {
+                "uv": [
+                  2,
+                  3,
+                  14,
+                  5
+                ],
+                "texture": "#bar"
+              },
+              "down": {
+                "uv": [
+                  2,
+                  3,
+                  14,
+                  5
+                ],
+                "texture": "#bar"
+              }
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": true,
+        "own_element_count": 1,
+        "own_face_count": 6,
+        "own_uv_explicit": 6,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle",
+          "bar"
+        ],
+        "own_texture_defs": {
+          "particle": "block/bell_bottom",
+          "bar": "block/dark_oak_planks"
+        },
+        "texture_slot_refs": [
+          {
+            "element_index": 0,
+            "direction": "north",
+            "texture": "#bar",
+            "uv_key_explicit": true,
+            "uv": [
+              2,
+              2,
+              14,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "east",
+            "texture": "#bar",
+            "uv_key_explicit": true,
+            "uv": [
+              5,
+              4,
+              7,
+              6
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 0,
+            "direction": "south",
+            "texture": "#bar",
+            "uv_key_explicit": true,
+            "uv": [
+              2,
+              3,
+              14,
+              5
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "west",
+            "texture": "#bar",
+            "uv_key_explicit": true,
+            "uv": [
+              5,
+              4,
+              7,
+              6
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 0,
+            "direction": "up",
+            "texture": "#bar",
+            "uv_key_explicit": true,
+            "uv": [
+              2,
+              3,
+              14,
+              5
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "down",
+            "texture": "#bar",
+            "uv_key_explicit": true,
+            "uv": [
+              2,
+              3,
+              14,
+              5
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          }
+        ],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/bell_between_walls.json",
+        "E_exception": false,
+        "comparison_scope": "SELF_OWNED_GEOMETRY",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 374,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/bell_ceiling.json",
+      "expected_git_sha": "a105fb98ac2122f4241f6a137c5b14f3d00eddd8",
+      "connector_git_sha": "a105fb98ac2122f4241f6a137c5b14f3d00eddd8",
+      "git_sha_computed": "a105fb98ac2122f4241f6a137c5b14f3d00eddd8",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "block/bell_bottom",
+          "bar": "block/dark_oak_planks"
+        },
+        "elements": [
+          {
+            "from": [
+              7,
+              13,
+              7
+            ],
+            "to": [
+              9,
+              16,
+              9
+            ],
+            "faces": {
+              "north": {
+                "uv": [
+                  7,
+                  2,
+                  9,
+                  5
+                ],
+                "texture": "#bar"
+              },
+              "east": {
+                "uv": [
+                  1,
+                  2,
+                  3,
+                  5
+                ],
+                "texture": "#bar"
+              },
+              "south": {
+                "uv": [
+                  6,
+                  2,
+                  8,
+                  5
+                ],
+                "texture": "#bar"
+              },
+              "west": {
+                "uv": [
+                  4,
+                  2,
+                  6,
+                  5
+                ],
+                "texture": "#bar"
+              },
+              "up": {
+                "uv": [
+                  1,
+                  3,
+                  3,
+                  5
+                ],
+                "texture": "#bar",
+                "cullface": "up"
+              }
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": true,
+        "own_element_count": 1,
+        "own_face_count": 5,
+        "own_uv_explicit": 5,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle",
+          "bar"
+        ],
+        "own_texture_defs": {
+          "particle": "block/bell_bottom",
+          "bar": "block/dark_oak_planks"
+        },
+        "texture_slot_refs": [
+          {
+            "element_index": 0,
+            "direction": "north",
+            "texture": "#bar",
+            "uv_key_explicit": true,
+            "uv": [
+              7,
+              2,
+              9,
+              5
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "east",
+            "texture": "#bar",
+            "uv_key_explicit": true,
+            "uv": [
+              1,
+              2,
+              3,
+              5
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "south",
+            "texture": "#bar",
+            "uv_key_explicit": true,
+            "uv": [
+              6,
+              2,
+              8,
+              5
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "west",
+            "texture": "#bar",
+            "uv_key_explicit": true,
+            "uv": [
+              4,
+              2,
+              6,
+              5
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "up",
+            "texture": "#bar",
+            "uv_key_explicit": true,
+            "uv": [
+              1,
+              3,
+              3,
+              5
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          }
+        ],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/bell_ceiling.json",
+        "E_exception": false,
+        "comparison_scope": "SELF_OWNED_GEOMETRY",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 375,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/bell_floor.json",
+      "expected_git_sha": "c2abfcbd5859121bf7c901822509b8c642ca9c14",
+      "connector_git_sha": "c2abfcbd5859121bf7c901822509b8c642ca9c14",
+      "git_sha_computed": "c2abfcbd5859121bf7c901822509b8c642ca9c14",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "block/bell_bottom",
+          "bar": "block/dark_oak_planks",
+          "post": "block/stone"
+        },
+        "elements": [
+          {
+            "from": [
+              2,
+              13,
+              7
+            ],
+            "to": [
+              14,
+              15,
+              9
+            ],
+            "faces": {
+              "north": {
+                "uv": [
+                  2,
+                  2,
+                  14,
+                  4
+                ],
+                "texture": "#bar"
+              },
+              "south": {
+                "uv": [
+                  2,
+                  3,
+                  14,
+                  5
+                ],
+                "texture": "#bar"
+              },
+              "up": {
+                "uv": [
+                  2,
+                  3,
+                  14,
+                  5
+                ],
+                "texture": "#bar"
+              },
+              "down": {
+                "uv": [
+                  2,
+                  3,
+                  14,
+                  5
+                ],
+                "texture": "#bar"
+              }
+            }
+          },
+          {
+            "from": [
+              14,
+              0,
+              6
+            ],
+            "to": [
+              16,
+              16,
+              10
+            ],
+            "faces": {
+              "north": {
+                "uv": [
+                  0,
+                  1,
+                  2,
+                  16
+                ],
+                "texture": "#post"
+              },
+              "east": {
+                "uv": [
+                  0,
+                  1,
+                  4,
+                  16
+                ],
+                "texture": "#post"
+              },
+              "south": {
+                "uv": [
+                  0,
+                  1,
+                  2,
+                  16
+                ],
+                "texture": "#post"
+              },
+              "west": {
+                "uv": [
+                  0,
+                  1,
+                  4,
+                  16
+                ],
+                "texture": "#post"
+              },
+              "up": {
+                "uv": [
+                  0,
+                  0,
+                  2,
+                  4
+                ],
+                "texture": "#post",
+                "cullface": "up"
+              },
+              "down": {
+                "uv": [
+                  0,
+                  0,
+                  2,
+                  4
+                ],
+                "texture": "#post",
+                "cullface": "down"
+              }
+            }
+          },
+          {
+            "from": [
+              0,
+              0,
+              6
+            ],
+            "to": [
+              2,
+              16,
+              10
+            ],
+            "faces": {
+              "north": {
+                "uv": [
+                  0,
+                  1,
+                  2,
+                  16
+                ],
+                "texture": "#post"
+              },
+              "east": {
+                "uv": [
+                  0,
+                  1,
+                  4,
+                  16
+                ],
+                "texture": "#post"
+              },
+              "south": {
+                "uv": [
+                  0,
+                  1,
+                  2,
+                  16
+                ],
+                "texture": "#post"
+              },
+              "west": {
+                "uv": [
+                  0,
+                  1,
+                  4,
+                  16
+                ],
+                "texture": "#post"
+              },
+              "up": {
+                "uv": [
+                  0,
+                  0,
+                  2,
+                  4
+                ],
+                "texture": "#post",
+                "cullface": "up"
+              },
+              "down": {
+                "uv": [
+                  0,
+                  0,
+                  2,
+                  4
+                ],
+                "texture": "#post",
+                "cullface": "down"
+              }
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": true,
+        "own_element_count": 3,
+        "own_face_count": 16,
+        "own_uv_explicit": 16,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle",
+          "bar",
+          "post"
+        ],
+        "own_texture_defs": {
+          "particle": "block/bell_bottom",
+          "bar": "block/dark_oak_planks",
+          "post": "block/stone"
+        },
+        "texture_slot_refs": [
+          {
+            "element_index": 0,
+            "direction": "north",
+            "texture": "#bar",
+            "uv_key_explicit": true,
+            "uv": [
+              2,
+              2,
+              14,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "south",
+            "texture": "#bar",
+            "uv_key_explicit": true,
+            "uv": [
+              2,
+              3,
+              14,
+              5
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "up",
+            "texture": "#bar",
+            "uv_key_explicit": true,
+            "uv": [
+              2,
+              3,
+              14,
+              5
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "down",
+            "texture": "#bar",
+            "uv_key_explicit": true,
+            "uv": [
+              2,
+              3,
+              14,
+              5
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "north",
+            "texture": "#post",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              1,
+              2,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "east",
+            "texture": "#post",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              1,
+              4,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "south",
+            "texture": "#post",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              1,
+              2,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "west",
+            "texture": "#post",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              1,
+              4,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "up",
+            "texture": "#post",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              2,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 1,
+            "direction": "down",
+            "texture": "#post",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              2,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 2,
+            "direction": "north",
+            "texture": "#post",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              1,
+              2,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 2,
+            "direction": "east",
+            "texture": "#post",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              1,
+              4,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 2,
+            "direction": "south",
+            "texture": "#post",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              1,
+              2,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 2,
+            "direction": "west",
+            "texture": "#post",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              1,
+              4,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 2,
+            "direction": "up",
+            "texture": "#post",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              2,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 2,
+            "direction": "down",
+            "texture": "#post",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              2,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          }
+        ],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/bell_floor.json",
+        "E_exception": false,
+        "comparison_scope": "SELF_OWNED_GEOMETRY",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    }
+  ]
+}
