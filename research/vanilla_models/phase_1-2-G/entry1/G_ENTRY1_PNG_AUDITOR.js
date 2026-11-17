@@ -101,3 +101,86 @@ function png(b){
 }
 return {fromBase64,hash,gitSHA,png,readFileBase64:s=>{const b=fromBase64(s);return {byte_length:b.length,git_blob_sha:gitSHA(b),file_sha256:hash(b,"sha256"),...png(b)}}};
 })();
+
+/* Connector batch entrypoint. Execute from a code-mode session with:
+   (0,eval)(await fetch_file(...).result.content);
+   await G_ENTRY1_PNG.runBatch(tools, 0); // then starts 18, 36, ..., 180
+   Each batch writes a provenance-stamped JSON evidence checkpoint.
+   The script deliberately does not approve Entry1 by itself.
+*/
+G_ENTRY1_PNG.csvObjects=function(s){
+ const lines=[],row=[],h=[];let out=[],cur="",quot=false;
+ for(let i=0;i<s.length;i++){const c=s[i];if(c==='"'){if(quot&&s[i+1]==='"'){cur+='"';i++}else quot=!quot}
+ else if(c===','&&!quot){row.push(cur);cur=""}
+ else if((c==='\n'||c==='\r')&&!quot){if(c==='\r'&&s[i+1]==='\n')i++;row.push(cur);if(row.some(x=>x!==""))out.push(row.splice(0));else row.length=0;cur=""}
+ else cur+=c}
+ if(row.length||cur){row.push(cur);out.push(row.slice())}
+ const header=out.shift()||[];
+ return out.map(x=>Object.fromEntries(header.map((key,i)=>[key,x[i]??""])));
+};
+G_ENTRY1_PNG.runBatch=async function(tools,start){
+ const repo="sanato-nb/Minecraft_Furniture_Style_Research";
+ const root="research/vanilla_models/phase_1-2-G/entry1/";
+ const get=async path=>(await tools.mcp__GitHub__fetch_file({repository_full_name:repo,path})).result;
+ const [queue,prior,cross]=await Promise.all([
+   get(root+"G_ENTRY1_QUEUE_347.csv"),
+   get("research/vanilla_models/phase_1-2-C/entry5/C_PNG_UNIQUE_ALL.csv"),
+   get(root+"G_SOURCE_CROSSWALK.csv")
+ ]);
+ const all=this.csvObjects(queue.content).filter(x=>x.asset_type==="BLOCK_TEXTURE_PNG");
+ if(all.length!==185)throw Error("unexpected number of Entry1 PNG paths: "+all.length);
+ const C=new Map(this.csvObjects(prior.content).map(x=>[x.png_path,x]));
+ const G=new Map(this.csvObjects(cross.content).map(x=>[x.source_path,x]));
+ const input=all.slice(start,start+18),results=[];
+ for(const row of await Promise.all(input.map(async q=>{
+   try{return {q,remote:(await tools.mcp__GitHub__fetch_file({repository_full_name:repo,path:q.source_path,encoding:"base64"})).result}}
+   catch(e){return {q,error:String(e)}}
+ }))){
+  const {q,remote,error}=row,c=C.get(q.source_path),g=G.get(q.source_path);
+  const r={index:Number(q.G_global_index),source_path:q.source_path,expected_git_blob_sha:q.git_blob_sha,
+  bytes:0,binary_fetched:false,signature_valid:false,git_blob_sha_computed:"",github_content_sha:"",
+  git_sha_match:false,file_sha256:"",png_crc_and_zlib_adler32:"NOT_CHECKED",png_decode:"NOT_CHECKED",
+  width:null,height:null,mode:"",bit_depth:null,color_type:null,interlace:null,
+  rgba_sha256:"",opaque_pixels:null,transparent_pixels:null,partial_alpha_pixels:null,unique_alpha_values:null,
+  C_status:c?"C_PRIOR_RGBA_VERIFIED":"C_OUTSIDE_PRIOR_1073",
+  C_expected_rgba_sha256:c?.rgba_sha256??"",C_rgba_match:c?false:null,C_dimensions_mode_alpha_match:c?false:null,
+  C_mcmeta_path:c?.mcmeta_path??"",C_mcmeta_git_sha:c?.mcmeta_sha??"",
+  F_visual_prior:g?.F_visual_prior??"",first_square_raster_rgba_sha256:"",
+  error:""};
+  try{
+   if(error)throw Error("base64 fetch: "+error);
+   const data=this.readFileBase64(remote.content);
+   r.binary_fetched=true;r.bytes=data.byte_length;r.signature_valid=true;
+   r.git_blob_sha_computed=data.git_blob_sha;r.github_content_sha=remote.sha;
+   r.git_sha_match=data.git_blob_sha===q.git_blob_sha&&remote.sha===q.git_blob_sha;
+   r.file_sha256=data.file_sha256;r.png_crc_and_zlib_adler32="PASS_FULL_CRC_ADLER";
+   r.png_decode="PASS_FULL_RASTER_RGBA";r.width=data.width;r.height=data.height;
+   r.mode=data.mode;r.bit_depth=data.bit_depth;r.color_type=data.color_type;r.interlace=data.interlace;
+   r.rgba_sha256=data.rgba_sha256;r.opaque_pixels=data.alpha.opaque;
+   r.transparent_pixels=data.alpha.transparent;r.partial_alpha_pixels=data.alpha.partial;
+   r.unique_alpha_values=data.unique_alpha_values;
+   r.first_square_raster_rgba_sha256=data.first_square_raster_rgba_sha256;
+   if(c){
+    r.C_rgba_match=r.rgba_sha256===c.rgba_sha256;
+    r.C_dimensions_mode_alpha_match=[
+     r.width,r.height,r.mode,r.opaque_pixels,r.transparent_pixels,r.partial_alpha_pixels,r.unique_alpha_values
+    ].join("|") === [
+     c.width,c.height,c.mode,c.opaque_pixels,c.transparent_pixels,c.partial_alpha_pixels,c.unique_alpha_values
+    ].join("|");
+   }
+   if(!r.git_sha_match||r.C_rgba_match===false||r.C_dimensions_mode_alpha_match===false)
+    throw Error("Independent Git SHA / C RGBA / C dimension-mode-alpha mismatch");
+  }catch(e){r.error=String(e)}
+  results.push(r);
+ }
+ const body={schema:"G_ENTRY1_PNG_BINARY_BATCH/v1",baseline_head:"2d6c570e2a1406f603451faa35c4de5f4eb5ed18",
+  source_queue_blob_sha:queue.sha,prior_C_blob_sha:prior.sha,prior_crosswalk_blob_sha:cross.sha,
+  start_index:start,end_index_exclusive:start+input.length,
+  count:results.length,success_count:results.filter(x=>x.binary_fetched&&x.git_sha_match&&x.png_decode==="PASS_FULL_RASTER_RGBA"&&!x.error).length,
+  records:results};
+ const fileName=root+"binary_batches/G_ENTRY1_PNG_BINARY_BATCH_"+String(start).padStart(3,"0")+".json";
+ const commit=await tools.mcp__GitHub__create_file({repository_full_name:repo,path:fileName,
+   content:JSON.stringify(body,null,2)+"\n",message:"1-2-G Entry1: PNG 원본 바이너리 배치 "+start+"~"+(start+input.length-1)+" 검증",branch:"main"});
+ return {start,number:results.length,success:body.success_count,errors:results.filter(x=>x.error).map(x=>({path:x.source_path,error:x.error})),file:fileName,commit:commit.result.commit_sha,
+  C_matched:results.filter(x=>x.C_rgba_match).length,C_outside:results.filter(x=>x.C_status==="C_OUTSIDE_PRIOR_1073").length};
+};
