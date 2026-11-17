@@ -1,0 +1,631 @@
+{
+  "schema": "G_ENTRY2_ORIGINAL_SOURCE_BATCH/v1",
+  "source_main_baseline": "ae1448906d4cb6f2aff4bdc43fbdc808024fd6bb",
+  "G_entry": "ENTRY2",
+  "G_fixed_scope": 775,
+  "offset": 0,
+  "expected": 14,
+  "success": 14,
+  "SHA_reopened": 14,
+  "model_inherited_geometry_pending": 11,
+  "external_C_RGBA_matches": 0,
+  "C_outside_reopened": 0,
+  "source_prior_reference_blob_sha": "c94bd064aa6789bcb2e6ed9db5988d92e5d35d2d",
+  "records": [
+    {
+      "index": 348,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/acacia_hanging_sign.json",
+      "expected_git_sha": "9d088d1113dd0241d1a01687374c79ac534b86e5",
+      "connector_git_sha": "9d088d1113dd0241d1a01687374c79ac534b86e5",
+      "git_sha_computed": "9d088d1113dd0241d1a01687374c79ac534b86e5",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "minecraft:block/stripped_acacia_log"
+        }
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle"
+        ],
+        "own_texture_defs": {
+          "particle": "minecraft:block/stripped_acacia_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": null,
+        "E_exception": true,
+        "comparison_scope": "E_SPECIAL_RENDERER_NO_GENERAL_ELEMENTS",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 349,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/acacia_shelf_center.json",
+      "expected_git_sha": "fc1956f8d4188449eca3a27d7ba9c88df6334bc7",
+      "connector_git_sha": "fc1956f8d4188449eca3a27d7ba9c88df6334bc7",
+      "git_sha_computed": "fc1956f8d4188449eca3a27d7ba9c88df6334bc7",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_center",
+        "textures": {
+          "all": "minecraft:block/acacia_shelf",
+          "particle": "minecraft:block/stripped_acacia_log"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_center",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_center.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/acacia_shelf",
+          "particle": "minecraft:block/stripped_acacia_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_center.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 350,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/acacia_shelf_inventory.json",
+      "expected_git_sha": "68bdd5b9cbc95d3a58fd89c7078805db62da4879",
+      "connector_git_sha": "68bdd5b9cbc95d3a58fd89c7078805db62da4879",
+      "git_sha_computed": "68bdd5b9cbc95d3a58fd89c7078805db62da4879",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_inventory",
+        "textures": {
+          "all": "minecraft:block/acacia_shelf",
+          "particle": "minecraft:block/stripped_acacia_log"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_inventory",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_inventory.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/acacia_shelf",
+          "particle": "minecraft:block/stripped_acacia_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_inventory.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 351,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/acacia_shelf_left.json",
+      "expected_git_sha": "df5b2770ca9969b6d43f78ac91377da5d576d417",
+      "connector_git_sha": "df5b2770ca9969b6d43f78ac91377da5d576d417",
+      "git_sha_computed": "df5b2770ca9969b6d43f78ac91377da5d576d417",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_left",
+        "textures": {
+          "all": "minecraft:block/acacia_shelf",
+          "particle": "minecraft:block/stripped_acacia_log"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_left",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_left.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/acacia_shelf",
+          "particle": "minecraft:block/stripped_acacia_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_left.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 352,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/acacia_shelf_right.json",
+      "expected_git_sha": "29852132c4ee79dcfa8749889a1990b246ed1793",
+      "connector_git_sha": "29852132c4ee79dcfa8749889a1990b246ed1793",
+      "git_sha_computed": "29852132c4ee79dcfa8749889a1990b246ed1793",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_right",
+        "textures": {
+          "all": "minecraft:block/acacia_shelf",
+          "particle": "minecraft:block/stripped_acacia_log"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_right",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_right.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/acacia_shelf",
+          "particle": "minecraft:block/stripped_acacia_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_right.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 353,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/acacia_shelf_unpowered.json",
+      "expected_git_sha": "68312be2feeaf04a5c942d5fe54aff04d14998be",
+      "connector_git_sha": "68312be2feeaf04a5c942d5fe54aff04d14998be",
+      "git_sha_computed": "68312be2feeaf04a5c942d5fe54aff04d14998be",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_unpowered",
+        "textures": {
+          "all": "minecraft:block/acacia_shelf",
+          "particle": "minecraft:block/stripped_acacia_log"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_unpowered",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_unpowered.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/acacia_shelf",
+          "particle": "minecraft:block/stripped_acacia_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_unpowered.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 354,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/acacia_shelf.json",
+      "expected_git_sha": "abcf33667fbcad9897863a5345cdd0457bc2905d",
+      "connector_git_sha": "abcf33667fbcad9897863a5345cdd0457bc2905d",
+      "git_sha_computed": "abcf33667fbcad9897863a5345cdd0457bc2905d",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_body",
+        "textures": {
+          "all": "minecraft:block/acacia_shelf",
+          "particle": "minecraft:block/stripped_acacia_log"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_body",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_body.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/acacia_shelf",
+          "particle": "minecraft:block/stripped_acacia_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_body.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 355,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/acacia_sign.json",
+      "expected_git_sha": "700d9b8a19aacb7d25e329b7aadce99138a8b54d",
+      "connector_git_sha": "700d9b8a19aacb7d25e329b7aadce99138a8b54d",
+      "git_sha_computed": "700d9b8a19aacb7d25e329b7aadce99138a8b54d",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "minecraft:block/acacia_planks"
+        }
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle"
+        ],
+        "own_texture_defs": {
+          "particle": "minecraft:block/acacia_planks"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": null,
+        "E_exception": true,
+        "comparison_scope": "E_SPECIAL_RENDERER_NO_GENERAL_ELEMENTS",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 356,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/anvil.json",
+      "expected_git_sha": "dc9d2555669a31984f3d0e221f778ca170d7f533",
+      "connector_git_sha": "dc9d2555669a31984f3d0e221f778ca170d7f533",
+      "git_sha_computed": "dc9d2555669a31984f3d0e221f778ca170d7f533",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_anvil",
+        "textures": {
+          "top": "minecraft:block/anvil_top"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_anvil",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_anvil.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "top"
+        ],
+        "own_texture_defs": {
+          "top": "minecraft:block/anvil_top"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_anvil.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 357,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/bamboo_hanging_sign.json",
+      "expected_git_sha": "00c837bfb2e49f00dff93ac37be1b3d17f9f9369",
+      "connector_git_sha": "00c837bfb2e49f00dff93ac37be1b3d17f9f9369",
+      "git_sha_computed": "00c837bfb2e49f00dff93ac37be1b3d17f9f9369",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "minecraft:block/bamboo_planks"
+        }
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle"
+        ],
+        "own_texture_defs": {
+          "particle": "minecraft:block/bamboo_planks"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": null,
+        "E_exception": true,
+        "comparison_scope": "E_SPECIAL_RENDERER_NO_GENERAL_ELEMENTS",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 358,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_center.json",
+      "expected_git_sha": "d16d1d6ca0a091d3ac7d1821b2cbc4497c4e130c",
+      "connector_git_sha": "d16d1d6ca0a091d3ac7d1821b2cbc4497c4e130c",
+      "git_sha_computed": "d16d1d6ca0a091d3ac7d1821b2cbc4497c4e130c",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_center",
+        "textures": {
+          "all": "minecraft:block/bamboo_shelf",
+          "particle": "minecraft:block/stripped_bamboo_block"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_center",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_center.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/bamboo_shelf",
+          "particle": "minecraft:block/stripped_bamboo_block"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_center.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 359,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_inventory.json",
+      "expected_git_sha": "760cf5c676867c78d9484840aaeec30ec3d497b0",
+      "connector_git_sha": "760cf5c676867c78d9484840aaeec30ec3d497b0",
+      "git_sha_computed": "760cf5c676867c78d9484840aaeec30ec3d497b0",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_inventory",
+        "textures": {
+          "all": "minecraft:block/bamboo_shelf",
+          "particle": "minecraft:block/stripped_bamboo_block"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_inventory",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_inventory.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/bamboo_shelf",
+          "particle": "minecraft:block/stripped_bamboo_block"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_inventory.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 360,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_left.json",
+      "expected_git_sha": "ef6c5f36e913155e598585eac42b57b63656b4f3",
+      "connector_git_sha": "ef6c5f36e913155e598585eac42b57b63656b4f3",
+      "git_sha_computed": "ef6c5f36e913155e598585eac42b57b63656b4f3",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_left",
+        "textures": {
+          "all": "minecraft:block/bamboo_shelf",
+          "particle": "minecraft:block/stripped_bamboo_block"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_left",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_left.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/bamboo_shelf",
+          "particle": "minecraft:block/stripped_bamboo_block"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_left.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 361,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/bamboo_shelf_right.json",
+      "expected_git_sha": "cf2564749eb32da6d7154645a58d1327874f2c6e",
+      "connector_git_sha": "cf2564749eb32da6d7154645a58d1327874f2c6e",
+      "git_sha_computed": "cf2564749eb32da6d7154645a58d1327874f2c6e",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_right",
+        "textures": {
+          "all": "minecraft:block/bamboo_shelf",
+          "particle": "minecraft:block/stripped_bamboo_block"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_right",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_right.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/bamboo_shelf",
+          "particle": "minecraft:block/stripped_bamboo_block"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_right.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    }
+  ]
+}
