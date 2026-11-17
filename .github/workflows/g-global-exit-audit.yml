@@ -1,0 +1,47 @@
+name: G 4669 full source cross-stage exit audit
+on:
+  push:
+    paths:
+      - '.github/workflows/g-global-exit-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  g-global-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Independently rehash all 4669 assets and adjudicate global G1-G5
+        id: audit
+        continue-on-error: true
+        run: python scripts/phase_1_2_g_global_exit_audit.py
+      - name: Upload all evidence regardless of audit status
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: G-Global-4669-Exit-Evidence
+          path: research/vanilla_models/phase_1-2-G/final/
+          retention-days: 30
+      - name: Commit only G final evidence
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -f research/vanilla_models/phase_1-2-G/final/G_GLOBAL_INDEPENDENT_RECOUNT.json ]; then
+            git add research/vanilla_models/phase_1-2-G/final/G_GLOBAL_INDEPENDENT_RECOUNT.json
+            git add research/vanilla_models/phase_1-2-G/final/G_FINAL_SOURCE_SHA_4669.csv
+            git add research/vanilla_models/phase_1-2-G/final/G_FINAL_MCMETA_99.csv
+            git add research/vanilla_models/phase_1-2-G/final/G_GLOBAL_GATE_REPORT.md
+            if ! git diff --cached --quiet; then
+              git commit -m "1-2-G: 고정 4669 원본 및 G1~G5 독립 종료 검증 증거"
+              git push origin HEAD:main
+            fi
+          else
+            echo "No complete independent evidence generated. Exits remain blocked."
+          fi
+      - name: Require independent audit success
+        if: steps.audit.outcome != 'success'
+        run: exit 1
