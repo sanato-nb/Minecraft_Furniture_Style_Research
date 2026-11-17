@@ -1,0 +1,31 @@
+{
+  "schema": "A_INDEPENDENT_AUDIT/v1",
+  "date_kst": "2026-11-17",
+  "status": "A_PARTIAL_A1_A3_SOURCE_BYTES_PENDING",
+  "gates": {
+    "A0": "PASS_METADATA_AND_REQUIRED_FILES",
+    "A1": "BLOCKED_A_DIRECT_LEAF_REHASH",
+    "A2": "PASS",
+    "A3": "BLOCKED_PARTIAL_TEMPLATE_BYTES",
+    "A4": "PASS_PRIOR_SCOPE",
+    "A5": "PASS_UNRESOLVED_CLASSIFIED",
+    "A6": "PENDING_POST_COMMIT_READBACK"
+  },
+  "A_gates_passed": 4,
+  "A_gates_total": 7,
+  "M_gates_passed": 0,
+  "M_gates_total": 6,
+  "independent_tests": {
+    "A0_manifest": true,
+    "A1_leaf": true,
+    "A2_states": true,
+    "A3_templates": true,
+    "A4_other": true,
+    "protected_old_files_unchanged_so_far": true
+  },
+  "errors": 0,
+  "prior_immutable_pre_final": true,
+  "remote_readback": "PENDING_FINAL",
+  "A_completion": false,
+  "source_count_fixed_1_3_B": false
+}

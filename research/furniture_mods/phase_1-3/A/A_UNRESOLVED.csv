@@ -1,0 +1,11 @@
+issue_id,evidence_path,expected,actual,affected_rows,severity,owner,reason,blocks_A_gate,recheck_method,a_original_bytes_read,status
+A-LEAF-BYTE-204,A_ANOTHER_204_PRIOR_CROSSWALK.csv,204 original JSON bytes rehashed,0 original bytes; 204/204 pinned Git tree objects confirmed,204,HIGH,1-3-A,원저자 모델 본문을 이번 A에서 독립 SHA 재계산하지 못함,true,원저자 고정 경로 204개 원본 JSON 본문 읽고 git blob SHA-1 재해시,false,UNRESOLVED
+A-TEMPLATE-BYTE-67,A_ANOTHER_69_TEMPLATES.csv,69 parent JSON bytes rehashed,2 direct; 67 tree-SHA-only,67,HIGH,1-3-A,부모 원형 69개 중 의자 부모 두 개만 실제 JSON 본문 재계산,true,남은 템플릿 67개 모델 JSON 직접 재읽어 요소/face SHA 감사,false,UNRESOLVED
+A-CHAIR-BYTE-39,A_CHAIR_39_RELATIONS.csv,39 chair leaf bytes rehashed,39 upstream tree SHA match; 0 A bytes,39,MEDIUM,1-3-A,의자39는 204 원장의 부분집합; leaf 직접 JSON 재해시 미실시,true,A-LEAF-BYTE-204와 중복 집계하지 않고 같은 원본 경로 재검산,false,UNRESOLVED
+A-HC-BYTE-134,A_HANDCRAFTED_PRIOR_SCOPE.csv,136 model JSON bytes rehashed,2 direct; 134 tree-SHA-only,134,MEDIUM,1-3-A,Handcrafted authored+generated 소스 JSON 전수 재해시는 아직 미실시,false,원저자 고정 pin 134개 JSON 원문 재검산; 현행 모집단 판단 금지,false,UNRESOLVED
+B-ANOTHER-STATE-155,A_ANOTHER_22_BLOCKSTATES.csv,177 prior tree candidates / 22 rehashed,155 unexamined prior candidates,155,MEDIUM,1-3-B,이전 전체 트리 177개 중 22개만 선행 scope,false,B 단계에서 원본 155 JSON/참조 전수 조사,false,UNRESOLVED
+B-HC-POPULATION,A_HANDCRAFTED_PRIOR_SCOPE.csv,current full model population,UNKNOWN,1,MEDIUM,1-3-B,authored120/16 표본을 최신 전체 모집단으로 볼 수 없음,false,모드 버전 고정 및 전체 모델 census,false,UNRESOLVED
+B-MACAW-SOURCE,A_HANDCRAFTED_PRIOR_SCOPE.csv,official source JAR,"PRIOR_BLOCKED, 0 models",1,HIGH,1-3-B,과거 공식 Macaw JAR 원본 미확보 이력,false,현행 원본 다운로드·해시·라이선스 검토,false,UNRESOLVED
+B-VERSION-LICENSE,1-3-A_ACCEPTANCE_CONTRACT.json,frozen versions and licenses,UNKNOWN_THIS_A,3,MEDIUM,1-3-B,현재 버전·라이선스/재배포 가능성 재검토 미실시,false,공식 배포 메타데이터·원저자 LICENSE 고정,false,UNRESOLVED
+C-RUNTIME-RENDER,A_CHAIR_39_RELATIONS.csv,game renderer/collision geometry,UNVERIFIED,39,LOW,1-3-C,원본 로컬 좌표 및 상속면은 인게임 렌더/충돌 확정 증거가 아님,false,지원 Minecraft 및 모드 버전으로 실제 렌더 실행,false,UNRESOLVED
+OUT-1-4-PIXELS,A_HANDCRAFTED_PRIOR_SCOPE.csv,A new PNG pixels and face RGBA,0 new; prior Handcrafted24/784; two mod175/4113,1,LOW,1-4,원본 PNG 픽셀 근거는 1-4 별도 분모,false,1-4 원본 UV PNG 연구와만 연결,false,UNRESOLVED
