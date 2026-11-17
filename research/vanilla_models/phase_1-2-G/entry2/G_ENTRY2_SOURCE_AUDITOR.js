@@ -80,9 +80,9 @@ C_mcmeta_path:c.C_mcmeta_path||null,C_mcmeta_SHA:c.C_mcmeta_sha||null,
 F_prior_visual:c.F_prior_visual===true,original_raw_base64_not_persisted_for_repo_size:true};
 };
 async function auditBatch(tools,offset){
-const prior=(await tools.mcp__GitHub__fetch_file({repository_full_name:repo,path:base+"G_ENTRY2_PRIOR_EVIDENCE_REFERENCE.json"})).result;
-const x=JSON.parse(prior.content);if(x.assets.length!==775)throw Error("fixed scope manifest is not 775");
-const input=x.assets.slice(offset,offset+14);
+const prior=(await tools.mcp__GitHub__fetch_file({repository_full_name:repo,path:base+"references/G_ENTRY2_PRIOR_SHARD_"+String(Math.floor(offset/98)).padStart(2,"0")+".json"})).result;
+const x=JSON.parse(prior.content);if(x.global_offset!==Math.floor(offset/98)*98 || !x.assets.length)throw Error("fixed shard offset/rows invalid");
+const input=x.assets.slice(offset%98,offset%98+14);
 const source=await Promise.all(input.map(async q=>{try{const r=(await tools.mcp__GitHub__fetch_file({repository_full_name:repo,path:q.path,encoding:q.type==="BLOCK_TEXTURE_PNG"?"base64":"utf-8"})).result;return{q,r}}catch(e){return{q,error:String(e)}}}));
 const records=source.map(({q,r,error})=>{
 const out={index:q.index,type:q.type,path:q.path,expected_git_sha:q.sha,connector_git_sha:r?.sha??null,
