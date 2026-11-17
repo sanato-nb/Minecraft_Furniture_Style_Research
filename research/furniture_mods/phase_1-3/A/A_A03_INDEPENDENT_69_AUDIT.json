@@ -1,0 +1,85 @@
+{
+  "schema": "A_A03_INDEPENDENT_69_AUDIT/v1",
+  "date_kst": "2026-11-18",
+  "source_repo": "crispytwig/AnotherFurniture",
+  "source_pin": "57eb624cbb7f408d43398c7434b0d38d312cb55d",
+  "template_batches": [
+    {
+      "path": "A_A03_INDEPENDENT_TEMPLATE_REHASH_01.json",
+      "sha": "d56cff91ac61414cdb2c037978c43489fe1ea231",
+      "rows": 14,
+      "pass": 14
+    },
+    {
+      "path": "A_A03_INDEPENDENT_TEMPLATE_REHASH_02.json",
+      "sha": "afa51d4e29148ef40d7179b3b28f1b71cc9528f7",
+      "rows": 14,
+      "pass": 14
+    },
+    {
+      "path": "A_A03_INDEPENDENT_TEMPLATE_REHASH_03.json",
+      "sha": "ea7391c75a54eb45e3b3316b85c49334feeae9ef",
+      "rows": 14,
+      "pass": 14
+    },
+    {
+      "path": "A_A03_INDEPENDENT_TEMPLATE_REHASH_04.json",
+      "sha": "91b18c1e019ab3a3ccf36ea647bc189b2815f40b",
+      "rows": 14,
+      "pass": 14
+    },
+    {
+      "path": "A_A03_INDEPENDENT_TEMPLATE_REHASH_05.json",
+      "sha": "31799c56ec396d6e1c073c1cde2a31d602c8adad",
+      "rows": 13,
+      "pass": 13
+    }
+  ],
+  "templates": 69,
+  "templates_verified_bytes": 69,
+  "chairs": {
+    "normal": 19,
+    "tucked": 20,
+    "elements": 390,
+    "faces": 1794,
+    "bottom": 1131,
+    "seat": 195,
+    "back": 468,
+    "leaf_verified": 39
+  },
+  "original_chair_parent_geometry": [
+    {
+      "ref": "another_furniture:block/template/chair",
+      "source_sha": "d9b64a818021f1a64b0cba13d16d18d6fea65d01",
+      "elements": 10,
+      "faces": 46,
+      "groups": {
+        "#bottom": 29,
+        "#seat": 5,
+        "#back": 12
+      },
+      "z_min": 2,
+      "z_max": 14
+    },
+    {
+      "ref": "another_furniture:block/template/chair_tucked",
+      "source_sha": "ebcd7af6545ada207ad31720cb831b9ec5eb1dde",
+      "elements": 10,
+      "faces": 46,
+      "groups": {
+        "#bottom": 29,
+        "#seat": 5,
+        "#back": 12
+      },
+      "z_min": -7,
+      "z_max": 5
+    }
+  ],
+  "original_69_unique_paths": 69,
+  "prior_v18_subset_30": 30,
+  "issues": [],
+  "update_template_commit": "6a9dadc8d4c05566d1176b8586fc1e2b74f4503d",
+  "update_chair_commit": "19f5ac9ce7b93541a8634701b04019007f221c5b",
+  "original_assets_reproduced": false,
+  "gate": "A3_DIRECT_SOURCE_BODY_AND_GEOMETRY_PASS"
+}
