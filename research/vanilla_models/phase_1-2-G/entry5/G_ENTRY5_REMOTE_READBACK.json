@@ -170,5 +170,89 @@
     "No actual animation playback or game state registry test",
     "No new G texture-object semantic manual visual identification",
     "Entry6 not started, global G1-G6 exits 0/6"
-  ]
+  ],
+  "post_closeout_final_tracker_remote_readback": {
+    "schema": "G_ENTRY5_FINAL_REMOTE_READBACK/v2",
+    "date": "2026-11-17",
+    "main_head_before_readback_commit": "e2ff7cc810b47258b88c5847ea7873ff74c9faf2",
+    "files": [
+      {
+        "path": "HANDOFF.md",
+        "git_blob_sha": "e9fb403c1b22462309f73f75d330d48a23758bcb",
+        "remote_line_count": 625,
+        "content_first": "> **2026-11-17 · 1-2-G Entry5 원본 829/829·독립감사·원격 재조회 PASS, Entry6 허용(미착수)** — [보고서](https://github.com/sanato-nb/Minecraft_Fu",
+        "content_last": "HAT_START.md`.\n- **기계 판독 상태:** `handoff/STATE.json`.\n- 다음 체크포인트에서는 해당 파일을 실제로 업데이트하고 **날짜/버전/새로운 실측값/원본 링크/미완료**를 빠짐없이 남긴다.\n\n"
+      },
+      {
+        "path": "PROGRESS.md",
+        "git_blob_sha": "c5c62bf741373350fe33378c6e4c1288580a4790",
+        "remote_line_count": 468,
+        "content_first": "> **2026-11-17 · 1-2-G Entry5 원본 829/829·독립감사·원격 재조회 PASS, Entry6 허용(미착수)** — [보고서](https://github.com/sanato-nb/Minecraft_Fu",
+        "content_last": "niture_mods/v12/another_vs_handcrafted_5_category_pairs.csv).\n- 원본 모드 버전은 바닐라 1.21.11과 **상이**. 공식 클라이언트/인게임 검증을 완료 처리하지 않는다.\n"
+      },
+      {
+        "path": "docs/vanilla_models_1-2/CURRENT_STATUS.md",
+        "git_blob_sha": "d2c24776b0980f7fec911900e9b4539e3fbd9b0f",
+        "remote_line_count": 195,
+        "content_first": "> **2026-11-17 · 1-2-G Entry5 원본 829/829·독립감사·원격 재조회 PASS, Entry6 허용(미착수)** — [보고서](https://github.com/sanato-nb/Minecraft_Fu",
+        "content_last": "/P3 검토 범위를 확정.\n\n**현재 확정 불가능한 것:** 544개 중 전체 중복 제거된 실제 심층 분석 완료 수, 전체 1-2 완료율 %, 실제 게임 렌더 정밀 재현. 근거 없이 1-2 완료나 완료율을 선언하지 말 것.\n"
+      },
+      {
+        "path": "handoff/STATE.json",
+        "git_blob_sha": "e7c78abd4f7368fb052574b8dedcfe36a5df7512",
+        "remote_line_count": 5926,
+        "content_first": "{\n  \"phase_1_2_G_entry1_execution\": {\n    \"updated_kst\": \"2026-11-17\",\n    \"status\": \"G_ENTRY1_COMPLETE_SOURCE_CROSSSTAGE_ENT",
+        "content_last": "ssets: model JSON378 + blockstate JSON265 + PNG186; independent global G1-G6 exits required after Entry6 direct audit\"\n  }\n}\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry5/G_ENTRY5_REPORT.md",
+        "git_blob_sha": "ca2a06dc9b6549800ba34637133ffe291e3dc17f",
+        "remote_line_count": 36,
+        "content_first": "> **2026-11-17 최종 판정: Entry5 PASS.** 원본 829/829 bytes/Git SHA와 JSON/PNG 정적 검사, C/F/D 교차감사 오차 0. [성공 Actions 실행](https://githu",
+        "content_last": " 완료1/5 불변. 원본은 사용자가 추출한 Minecraft Java 1.21.11 자산이며 공식 JAR 인증, 게임 엔진 renderer, 애니메이션 재생, 좀보이드 객체 정체, 마크 맵 생성은 이 검증에 포함되지 않음.\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry5/G_NEXT.md",
+        "git_blob_sha": "6f25befb4acc335d4a4109587f2aa3c161d011e8",
+        "remote_line_count": 21,
+        "content_first": "# 1-2-G Entry5 최종 PASS — Entry6 허용, **아직 미착수**\n\n2026-11-17 기준 Minecraft Java 1.21.11 사용자 추출 자산. 고정 큐 **829 = 모델 JSON379 + blo",
+        "content_last": "집계·원격 SHA·행수·본문 검증을 완료했을 때만 종료를 허용한다. 공식 Minecraft JAR, 런타임 state registry, 애니메이션 재생, 좀보이드 객체 정체 및 실제 마인크래프트 맵 재현은 별도 인증 소관.\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry5/G_ENTRY5_INDEPENDENT_RECOUNT.json",
+        "git_blob_sha": "4c139208c84efba5b09f6e7118d1ca2edfaffa78",
+        "remote_line_count": 46,
+        "content_first": "{\n  \"schema\": \"G_ENTRY5_CHECKOUT_INDEPENDENT_AUDIT/v1\",\n  \"counts\": {\n    \"source_paths\": 829,\n    \"model_JSON\": 379,\n    \"bl",
+        "content_last": " game runtime renderer/state space\",\n    \"No animation playback\",\n    \"No new image semantics: F visual is historical\"\n  ]\n}\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry5/G_ENTRY5_SOURCE_IDENTITY_829.csv",
+        "git_blob_sha": "0169a60bcb46d52011ffb62d40e9ed30db05acc4",
+        "remote_line_count": 830,
+        "content_first": "type,path,expected_sha,actual_sha,direct_bytes_read,source_SHA_match,prior_stage\r\nBLOCK_MODEL_JSON,1.21.11/assets/minecraft/m",
+        "content_last": "tures/block/spruce_log_top.png,fcf8c66f6f70dd949b165ef6c9fc5007201ca3ef,fcf8c66f6f70dd949b165ef6c9fc5007201ca3ef,YES,PASS,C\r\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry5/G_ENTRY5_UNRESOLVED_SCOPE.csv",
+        "git_blob_sha": "0ca2c9a7f18e7dc803c16935e0db5a4c48104ae1",
+        "remote_line_count": 125,
+        "content_first": "issue_type,source_path,expected_git_sha,element_index,face_direction,quantity,owner,status,notes\nFACE_TEXTURE_ALIAS_UNBOUND,1",
+        "content_last": "K_UNVERIFIED,ENTRY5_ANIMATED_MCMETA,,,,22,MINECRAFT_RUNTIME,STATIC_MCMETA_ONLY,mcmeta 22개 애니메이션 항목 정적 JSON 판독. 실제 게임 재생 미시험.\n"
+      }
+    ],
+    "protected_A_to_F_v69_changes": [],
+    "files_changed_count": 17,
+    "entry5_accepted": true,
+    "approved_entries": 5,
+    "verified_assets": 3840,
+    "remaining": 829,
+    "entry6_allowed_not_started": true,
+    "global_G1_to_G6_exit_pass": 0,
+    "all_checks_pass": true,
+    "limits": [
+      "No official jar renderer or animation runtime certification",
+      "Earlier failed workflow run was only an output path issue; later full run passed",
+      "This manifest omits own SHA to avoid self-referential hash"
+    ]
+  }
 }
