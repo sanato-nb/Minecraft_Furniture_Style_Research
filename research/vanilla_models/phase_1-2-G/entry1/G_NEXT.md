@@ -1,3 +1,17 @@
+# 1-2-G Entry1 종료 PASS — Entry2 작업 허용, **아직 미착수**
+
+2026-11-17 원본 PNG **185/185**의 실제 bytes·Git SHA-1·PNG CRC·zlib Adler32·전체 RGBA SHA-256 검증 완료. 기존 C 이전 검증 177종 모두 RGBA/치수/모드/알파 일치. **C 검증 범위 밖 8개는 G 새 실증만 인정**; C에 소급 포함하지 않음. mcmeta 17종 원문/SHA 검증, 애니메이션 메타데이터 7종 정적 판독. F 시각 선행 38종 별도 유지. 과거 PNG 접근 차단 185행은 후속 처분 원장에서 해결, 남은 소관별 제한 18행(8 PNG C 밖, E 특수 8 모델, face 집계 1, F 렌더 구분 1) 보존.
+
+Entry1 고정 347 = 모델 JSON150 + blockstate JSON12 + PNG185 원본 본문 검증 범위 **347/347**. 기존 기하·face·D 검산은 원본과 일치한 선행 G Entry1 증거를 재사용. **Entry1 PASS(1/6회 승인), Entry2 허용(미착수), 글로벌 G1~G6 0/6, G 전체 4,669개 중 직접 본문 감사 347개(7.43%)**. 공식 JAR·게임 렌더·특수 E renderer·애니메이션 플레이백 미시험. 기존 A~F/v69·150/150·상위1/5 변함 없음.
+
+다음 실행은 고정 `research/vanilla_models/phase_1-2-G/entry2/G_ENTRY2_QUEUE_775.csv` **775개 (모델494 + blockstate96 + PNG185)**만 허용. 모델/PNG/blockstate 전체 파일의 직접 본문·SHA를 다룰 것. Entry1/G 이전 결과 재검증 실적 중복 계산 금지, Entry7 없음.
+
+증거: `G_ENTRY1_PNG_BINARY_AUDIT.csv` 185행, `G_ENTRY1_PNG_BINARY_INDEPENDENT_RECOUNT.json`, `G_ENTRY1_PNG_MCMETA_AUDIT.json`, `G_ENTRY1_UNRESOLVED_DISPOSITION.csv` 203행, `G_SOURCE_CROSSWALK.csv` 347행, `G_INDEPENDENT_AUDIT.json`, `G_ENTRY1_REPORT.md`, `G_ENTRY1_REMOTE_READBACK.json` (원격 검산 별도 기록).
+
+---
+
+## 이전 부분 인수인계 (바이너리 접근 차단 — 역사 기록, 현재 미해당)
+
 # 1-2-G Entry1 PNG 후속 실검증 종료 단계 — 최종 원격 재조회 대기
 
 2026-11-17 신규 원본 PNG 185/185 Base64 바이너리, Git blob SHA/PNG CRC/zlib/RGBA가 전부 PASS. C 원장 177/177 독립 해시 및 치수 비교 PASS, C 밖 8은 새로운 G 실증, mcmeta 17/17 SHA 확인(애니메이션 7), F 기존 38 시각 근거 유지. G 소스 감사 대상 347/347 직접 본문 확인. 기존 E8 특수 renderer/135 템플릿 미바인딩/게임 상태 검증 제외 보존. **Entry1 정식 승인 선언은 신규 보고서·상태 파일 원격 SHA/행수 재검사를 통과한 다음에만 진행**. 그 전에는 Entry2 미착수.
