@@ -46,7 +46,7 @@
 - 실행 코드: `G_ENTRY2_SOURCE_AUDITOR.js`, `G_ENTRY2_INDEPENDENT_AUDITOR.js`, `G_ENTRY2_FACE_LINK_AUDITOR.js`; PNG 바이너리 디코더는 **Entry1 검증기를 재사용**.
 - 원장: `G_SOURCE_CROSSWALK.csv` **775행**, `G_ENTRY2_MODEL_GEOMETRY_RECOUNT.csv` **494행**, `G_ENTRY2_D_RULE_MODEL_LINKS.csv` **809행**, `G_ENTRY2_PNG_BINARY_AUDIT.csv` **185행**, `G_UNRESOLVED.csv` **98행**.
 - 검증: `G_ENTRY2_INDEPENDENT_AUDIT.json`, `G_ENTRY2_D_CONDITION_INDEPENDENT_AUDIT.json`, `G_ENTRY2_PNG_MCMETA_AUDIT.json`, `G_ENTRY2_FACE_SHARD_MANIFEST.json`, `G_ENTRY2_PRE_CLOSEOUT_REMOTE_READBACK.json`.
-- 모든 56 원본 배치의 Git SHA·행수·본문을 다시 열어 `remote_batch_readback/` 4개 파일로 독립 기록. 주요 13개 원격 대상의 SHA·본문/행수 및 원본 A~F/v69 보호 파일 diff 사전 검증 PASS. 최종 승인 readback 파일은 `G_ENTRY2_REMOTE_READBACK.json`에 별도 기록한다.
+- 모든 56 원본 배치의 Git SHA·행수·본문을 다시 열어 `remote_batch_readback/` 4개 파일로 독립 기록. 주요 13개 원격 대상의 SHA·본문/행수 및 원본 A~F/v69 보호 파일 diff 사전 검증 PASS. 최종 원격 검산 PASS는 `G_ENTRY2_REMOTE_READBACK.json`에 기록했다.
 
 ## 상태 경계
 
