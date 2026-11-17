@@ -1,3 +1,13 @@
+# 1-2-G Entry1 PNG 후속 실검증 종료 단계 — 최종 원격 재조회 대기
+
+2026-11-17 신규 원본 PNG 185/185 Base64 바이너리, Git blob SHA/PNG CRC/zlib/RGBA가 전부 PASS. C 원장 177/177 독립 해시 및 치수 비교 PASS, C 밖 8은 새로운 G 실증, mcmeta 17/17 SHA 확인(애니메이션 7), F 기존 38 시각 근거 유지. G 소스 감사 대상 347/347 직접 본문 확인. 기존 E8 특수 renderer/135 템플릿 미바인딩/게임 상태 검증 제외 보존. **Entry1 정식 승인 선언은 신규 보고서·상태 파일 원격 SHA/행수 재검사를 통과한 다음에만 진행**. 그 전에는 Entry2 미착수.
+
+다음 단계는 1) 새 보고서·독립감사·상태/원장 원격 readback; 2) 이상 없을 때 Entry1 APPROVED, Entry2 허용하지만 아직 실행하지 않음; 3) 그 후 기존 고정 큐 `entry2/G_ENTRY2_QUEUE_775.csv`에 배정된 775개만 진행. 6 Entry와 원본 A~F/v69은 불변.
+
+---
+
+## 이전 인수인계 (당시 바이너리 차단, 현재 해소된 이력)
+
 # 1-2-G Entry1 후속 인수인계 — 185 PNG 원본 바이너리 직접 확인 차단
 
 **현재 상태:** `G_ENTRY1_PARTIAL_JSON_COMPLETE_PNG_BINARY_PENDING`. **Entry2 시작 금지**(Entry1 미종료). 기준 `main` `88d9da945953e80597faa6e91a7c79078a5da819`; 실행 재개 시 최신 HEAD를 다시 확인하라.
