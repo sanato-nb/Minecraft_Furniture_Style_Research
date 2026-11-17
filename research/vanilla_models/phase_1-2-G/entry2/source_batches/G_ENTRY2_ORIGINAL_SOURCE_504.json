@@ -1,0 +1,3544 @@
+{
+  "schema": "G_ENTRY2_ORIGINAL_SOURCE_BATCH/v1",
+  "source_main_baseline": "ae1448906d4cb6f2aff4bdc43fbdc808024fd6bb",
+  "G_entry": "ENTRY2",
+  "G_fixed_scope": 775,
+  "offset": 504,
+  "expected": 14,
+  "success": 14,
+  "SHA_reopened": 14,
+  "model_inherited_geometry_pending": 0,
+  "external_C_RGBA_matches": 0,
+  "C_outside_reopened": 0,
+  "source_prior_reference_blob_sha": "2d13dc8ea0adbcf8d6860536002c592e43f4ee8b",
+  "records": [
+    {
+      "index": 852,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/acacia_shelf.json",
+      "expected_git_sha": "b622ec8a2c3755ce2fdbfb1dc44cf9017902924c",
+      "connector_git_sha": "b622ec8a2c3755ce2fdbfb1dc44cf9017902924c",
+      "git_sha_computed": "b622ec8a2c3755ce2fdbfb1dc44cf9017902924c",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "multipart": [
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf"
+            },
+            "when": {
+              "facing": "north"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf",
+              "y": 90
+            },
+            "when": {
+              "facing": "east"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf",
+              "y": 180
+            },
+            "when": {
+              "facing": "south"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf",
+              "y": 270
+            },
+            "when": {
+              "facing": "west"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_unpowered"
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_unpowered",
+              "y": 90
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_unpowered",
+              "y": 180
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_unpowered",
+              "y": 270
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_unconnected"
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_unconnected",
+              "y": 90
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_unconnected",
+              "y": 180
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_unconnected",
+              "y": 270
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_left"
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_left",
+              "y": 90
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_left",
+              "y": 180
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_left",
+              "y": 270
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_center"
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_center",
+              "y": 90
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_center",
+              "y": 180
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_center",
+              "y": 270
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_right"
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_right",
+              "y": 90
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_right",
+              "y": 180
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_right",
+              "y": 270
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "structure": "multipart",
+        "variants_rules": 0,
+        "multipart_rules": 24,
+        "original_choice_count": 24,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/acacia_shelf.json",
+          "1.21.11/assets/minecraft/models/block/acacia_shelf_unpowered.json",
+          "1.21.11/assets/minecraft/models/block/acacia_shelf_unconnected.json",
+          "1.21.11/assets/minecraft/models/block/acacia_shelf_left.json",
+          "1.21.11/assets/minecraft/models/block/acacia_shelf_center.json",
+          "1.21.11/assets/minecraft/models/block/acacia_shelf_right.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 18,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 24,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "multipart",
+            "rule_index": 0,
+            "condition": {
+              "facing": "north"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 1,
+            "condition": {
+              "facing": "east"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 2,
+            "condition": {
+              "facing": "south"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 3,
+            "condition": {
+              "facing": "west"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 4,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_unpowered"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_unpowered.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 5,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_unpowered",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_unpowered.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 6,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_unpowered",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_unpowered.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 7,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_unpowered",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_unpowered.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 8,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_unconnected"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_unconnected.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 9,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_unconnected",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_unconnected.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 10,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_unconnected",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_unconnected.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 11,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_unconnected",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_unconnected.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 12,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_left"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_left.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 13,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_left",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_left.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 14,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_left",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_left.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 15,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_left",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_left.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 16,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_center"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_center.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 17,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_center",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_center.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 18,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_center",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_center.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 19,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_center",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_center.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 20,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_right"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_right.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 21,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_right",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_right.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 22,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_right",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_right.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 23,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_shelf_right",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_shelf_right.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 853,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/acacia_sign.json",
+      "expected_git_sha": "c663452f5cfa887796d502371afc91eeffe2a069",
+      "connector_git_sha": "c663452f5cfa887796d502371afc91eeffe2a069",
+      "git_sha_computed": "c663452f5cfa887796d502371afc91eeffe2a069",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/acacia_sign"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/acacia_sign.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_sign"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_sign.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 854,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/acacia_slab.json",
+      "expected_git_sha": "4816cdb8fc2da527907ed21cccd13546742b36fc",
+      "connector_git_sha": "4816cdb8fc2da527907ed21cccd13546742b36fc",
+      "git_sha_computed": "4816cdb8fc2da527907ed21cccd13546742b36fc",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "type=bottom": {
+            "model": "minecraft:block/acacia_slab"
+          },
+          "type=double": {
+            "model": "minecraft:block/acacia_planks"
+          },
+          "type=top": {
+            "model": "minecraft:block/acacia_slab_top"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 3,
+        "multipart_rules": 0,
+        "original_choice_count": 3,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/acacia_slab.json",
+          "1.21.11/assets/minecraft/models/block/acacia_planks.json",
+          "1.21.11/assets/minecraft/models/block/acacia_slab_top.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 3,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "type=bottom",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_slab"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_slab.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "type=double",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_planks"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_planks.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "type=top",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_slab_top"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_slab_top.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 855,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/acacia_stairs.json",
+      "expected_git_sha": "fb8b6e13f36e89bac8c558f8e622d50a48d39440",
+      "connector_git_sha": "fb8b6e13f36e89bac8c558f8e622d50a48d39440",
+      "git_sha_computed": "fb8b6e13f36e89bac8c558f8e622d50a48d39440",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "facing=east,half=bottom,shape=inner_left": {
+            "model": "minecraft:block/acacia_stairs_inner",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=east,half=bottom,shape=inner_right": {
+            "model": "minecraft:block/acacia_stairs_inner"
+          },
+          "facing=east,half=bottom,shape=outer_left": {
+            "model": "minecraft:block/acacia_stairs_outer",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=east,half=bottom,shape=outer_right": {
+            "model": "minecraft:block/acacia_stairs_outer"
+          },
+          "facing=east,half=bottom,shape=straight": {
+            "model": "minecraft:block/acacia_stairs"
+          },
+          "facing=east,half=top,shape=inner_left": {
+            "model": "minecraft:block/acacia_stairs_inner",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=east,half=top,shape=inner_right": {
+            "model": "minecraft:block/acacia_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=east,half=top,shape=outer_left": {
+            "model": "minecraft:block/acacia_stairs_outer",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=east,half=top,shape=outer_right": {
+            "model": "minecraft:block/acacia_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=east,half=top,shape=straight": {
+            "model": "minecraft:block/acacia_stairs",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=north,half=bottom,shape=inner_left": {
+            "model": "minecraft:block/acacia_stairs_inner",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=north,half=bottom,shape=inner_right": {
+            "model": "minecraft:block/acacia_stairs_inner",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=north,half=bottom,shape=outer_left": {
+            "model": "minecraft:block/acacia_stairs_outer",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=north,half=bottom,shape=outer_right": {
+            "model": "minecraft:block/acacia_stairs_outer",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=north,half=bottom,shape=straight": {
+            "model": "minecraft:block/acacia_stairs",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=north,half=top,shape=inner_left": {
+            "model": "minecraft:block/acacia_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=north,half=top,shape=inner_right": {
+            "model": "minecraft:block/acacia_stairs_inner",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=north,half=top,shape=outer_left": {
+            "model": "minecraft:block/acacia_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=north,half=top,shape=outer_right": {
+            "model": "minecraft:block/acacia_stairs_outer",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=north,half=top,shape=straight": {
+            "model": "minecraft:block/acacia_stairs",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=south,half=bottom,shape=inner_left": {
+            "model": "minecraft:block/acacia_stairs_inner"
+          },
+          "facing=south,half=bottom,shape=inner_right": {
+            "model": "minecraft:block/acacia_stairs_inner",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=south,half=bottom,shape=outer_left": {
+            "model": "minecraft:block/acacia_stairs_outer"
+          },
+          "facing=south,half=bottom,shape=outer_right": {
+            "model": "minecraft:block/acacia_stairs_outer",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=south,half=bottom,shape=straight": {
+            "model": "minecraft:block/acacia_stairs",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=south,half=top,shape=inner_left": {
+            "model": "minecraft:block/acacia_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=south,half=top,shape=inner_right": {
+            "model": "minecraft:block/acacia_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          },
+          "facing=south,half=top,shape=outer_left": {
+            "model": "minecraft:block/acacia_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=south,half=top,shape=outer_right": {
+            "model": "minecraft:block/acacia_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          },
+          "facing=south,half=top,shape=straight": {
+            "model": "minecraft:block/acacia_stairs",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=west,half=bottom,shape=inner_left": {
+            "model": "minecraft:block/acacia_stairs_inner",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=west,half=bottom,shape=inner_right": {
+            "model": "minecraft:block/acacia_stairs_inner",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=west,half=bottom,shape=outer_left": {
+            "model": "minecraft:block/acacia_stairs_outer",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=west,half=bottom,shape=outer_right": {
+            "model": "minecraft:block/acacia_stairs_outer",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=west,half=bottom,shape=straight": {
+            "model": "minecraft:block/acacia_stairs",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=west,half=top,shape=inner_left": {
+            "model": "minecraft:block/acacia_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          },
+          "facing=west,half=top,shape=inner_right": {
+            "model": "minecraft:block/acacia_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=west,half=top,shape=outer_left": {
+            "model": "minecraft:block/acacia_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          },
+          "facing=west,half=top,shape=outer_right": {
+            "model": "minecraft:block/acacia_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=west,half=top,shape=straight": {
+            "model": "minecraft:block/acacia_stairs",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 40,
+        "multipart_rules": 0,
+        "original_choice_count": 40,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/acacia_stairs_inner.json",
+          "1.21.11/assets/minecraft/models/block/acacia_stairs_outer.json",
+          "1.21.11/assets/minecraft/models/block/acacia_stairs.json"
+        ],
+        "explicit_flags": {
+          "x": 20,
+          "y": 30,
+          "uvlock": 35,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 40,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "facing=east,half=bottom,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_inner",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "facing=east,half=bottom,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_inner"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "facing=east,half=bottom,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_outer",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 3,
+            "condition": "facing=east,half=bottom,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_outer"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 4,
+            "condition": "facing=east,half=bottom,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 5,
+            "condition": "facing=east,half=top,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_inner",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 6,
+            "condition": "facing=east,half=top,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 7,
+            "condition": "facing=east,half=top,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_outer",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 8,
+            "condition": "facing=east,half=top,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 9,
+            "condition": "facing=east,half=top,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 10,
+            "condition": "facing=north,half=bottom,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_inner",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 11,
+            "condition": "facing=north,half=bottom,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_inner",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 12,
+            "condition": "facing=north,half=bottom,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_outer",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 13,
+            "condition": "facing=north,half=bottom,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_outer",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 14,
+            "condition": "facing=north,half=bottom,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 15,
+            "condition": "facing=north,half=top,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 16,
+            "condition": "facing=north,half=top,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_inner",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 17,
+            "condition": "facing=north,half=top,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 18,
+            "condition": "facing=north,half=top,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_outer",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 19,
+            "condition": "facing=north,half=top,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 20,
+            "condition": "facing=south,half=bottom,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_inner"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 21,
+            "condition": "facing=south,half=bottom,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_inner",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 22,
+            "condition": "facing=south,half=bottom,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_outer"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 23,
+            "condition": "facing=south,half=bottom,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_outer",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 24,
+            "condition": "facing=south,half=bottom,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 25,
+            "condition": "facing=south,half=top,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 26,
+            "condition": "facing=south,half=top,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 27,
+            "condition": "facing=south,half=top,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 28,
+            "condition": "facing=south,half=top,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 29,
+            "condition": "facing=south,half=top,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 30,
+            "condition": "facing=west,half=bottom,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_inner",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 31,
+            "condition": "facing=west,half=bottom,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_inner",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 32,
+            "condition": "facing=west,half=bottom,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_outer",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 33,
+            "condition": "facing=west,half=bottom,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_outer",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 34,
+            "condition": "facing=west,half=bottom,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 35,
+            "condition": "facing=west,half=top,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 36,
+            "condition": "facing=west,half=top,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 37,
+            "condition": "facing=west,half=top,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 38,
+            "condition": "facing=west,half=top,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 39,
+            "condition": "facing=west,half=top,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_stairs",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_stairs.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 856,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/acacia_trapdoor.json",
+      "expected_git_sha": "3518fc7a41eb79841468bd3d7c9d66154f9ae636",
+      "connector_git_sha": "3518fc7a41eb79841468bd3d7c9d66154f9ae636",
+      "git_sha_computed": "3518fc7a41eb79841468bd3d7c9d66154f9ae636",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "facing=east,half=bottom,open=false": {
+            "model": "minecraft:block/acacia_trapdoor_bottom",
+            "y": 90
+          },
+          "facing=east,half=bottom,open=true": {
+            "model": "minecraft:block/acacia_trapdoor_open",
+            "y": 90
+          },
+          "facing=east,half=top,open=false": {
+            "model": "minecraft:block/acacia_trapdoor_top",
+            "y": 90
+          },
+          "facing=east,half=top,open=true": {
+            "model": "minecraft:block/acacia_trapdoor_open",
+            "x": 180,
+            "y": 270
+          },
+          "facing=north,half=bottom,open=false": {
+            "model": "minecraft:block/acacia_trapdoor_bottom"
+          },
+          "facing=north,half=bottom,open=true": {
+            "model": "minecraft:block/acacia_trapdoor_open"
+          },
+          "facing=north,half=top,open=false": {
+            "model": "minecraft:block/acacia_trapdoor_top"
+          },
+          "facing=north,half=top,open=true": {
+            "model": "minecraft:block/acacia_trapdoor_open",
+            "x": 180,
+            "y": 180
+          },
+          "facing=south,half=bottom,open=false": {
+            "model": "minecraft:block/acacia_trapdoor_bottom",
+            "y": 180
+          },
+          "facing=south,half=bottom,open=true": {
+            "model": "minecraft:block/acacia_trapdoor_open",
+            "y": 180
+          },
+          "facing=south,half=top,open=false": {
+            "model": "minecraft:block/acacia_trapdoor_top",
+            "y": 180
+          },
+          "facing=south,half=top,open=true": {
+            "model": "minecraft:block/acacia_trapdoor_open",
+            "x": 180
+          },
+          "facing=west,half=bottom,open=false": {
+            "model": "minecraft:block/acacia_trapdoor_bottom",
+            "y": 270
+          },
+          "facing=west,half=bottom,open=true": {
+            "model": "minecraft:block/acacia_trapdoor_open",
+            "y": 270
+          },
+          "facing=west,half=top,open=false": {
+            "model": "minecraft:block/acacia_trapdoor_top",
+            "y": 270
+          },
+          "facing=west,half=top,open=true": {
+            "model": "minecraft:block/acacia_trapdoor_open",
+            "x": 180,
+            "y": 90
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 16,
+        "multipart_rules": 0,
+        "original_choice_count": 16,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/acacia_trapdoor_bottom.json",
+          "1.21.11/assets/minecraft/models/block/acacia_trapdoor_open.json",
+          "1.21.11/assets/minecraft/models/block/acacia_trapdoor_top.json"
+        ],
+        "explicit_flags": {
+          "x": 4,
+          "y": 12,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 16,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "facing=east,half=bottom,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_trapdoor_bottom",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_trapdoor_bottom.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "facing=east,half=bottom,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_trapdoor_open",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_trapdoor_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "facing=east,half=top,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_trapdoor_top",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_trapdoor_top.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 3,
+            "condition": "facing=east,half=top,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_trapdoor_open",
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_trapdoor_open.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 4,
+            "condition": "facing=north,half=bottom,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_trapdoor_bottom"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_trapdoor_bottom.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 5,
+            "condition": "facing=north,half=bottom,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_trapdoor_open"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_trapdoor_open.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 6,
+            "condition": "facing=north,half=top,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_trapdoor_top"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_trapdoor_top.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 7,
+            "condition": "facing=north,half=top,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_trapdoor_open",
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_trapdoor_open.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 8,
+            "condition": "facing=south,half=bottom,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_trapdoor_bottom",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_trapdoor_bottom.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 9,
+            "condition": "facing=south,half=bottom,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_trapdoor_open",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_trapdoor_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 10,
+            "condition": "facing=south,half=top,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_trapdoor_top",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_trapdoor_top.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 11,
+            "condition": "facing=south,half=top,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_trapdoor_open",
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_trapdoor_open.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 12,
+            "condition": "facing=west,half=bottom,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_trapdoor_bottom",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_trapdoor_bottom.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 13,
+            "condition": "facing=west,half=bottom,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_trapdoor_open",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_trapdoor_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 14,
+            "condition": "facing=west,half=top,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_trapdoor_top",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_trapdoor_top.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 15,
+            "condition": "facing=west,half=top,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_trapdoor_open",
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_trapdoor_open.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 857,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/acacia_wall_hanging_sign.json",
+      "expected_git_sha": "57024f8fba481a1b535944f30daac8b96fee354d",
+      "connector_git_sha": "57024f8fba481a1b535944f30daac8b96fee354d",
+      "git_sha_computed": "57024f8fba481a1b535944f30daac8b96fee354d",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/acacia_hanging_sign"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/acacia_hanging_sign.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_hanging_sign"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_hanging_sign.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 858,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/acacia_wall_sign.json",
+      "expected_git_sha": "c663452f5cfa887796d502371afc91eeffe2a069",
+      "connector_git_sha": "c663452f5cfa887796d502371afc91eeffe2a069",
+      "git_sha_computed": "c663452f5cfa887796d502371afc91eeffe2a069",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/acacia_sign"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/acacia_sign.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_sign"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_sign.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 859,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/acacia_wood.json",
+      "expected_git_sha": "f064d5c60f6be5e8b4333c86ecb1c0e6b57ea860",
+      "connector_git_sha": "f064d5c60f6be5e8b4333c86ecb1c0e6b57ea860",
+      "git_sha_computed": "f064d5c60f6be5e8b4333c86ecb1c0e6b57ea860",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "axis=x": {
+            "model": "minecraft:block/acacia_wood",
+            "x": 90,
+            "y": 90
+          },
+          "axis=y": {
+            "model": "minecraft:block/acacia_wood"
+          },
+          "axis=z": {
+            "model": "minecraft:block/acacia_wood",
+            "x": 90
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 3,
+        "multipart_rules": 0,
+        "original_choice_count": 3,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/acacia_wood.json"
+        ],
+        "explicit_flags": {
+          "x": 2,
+          "y": 1,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 3,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "axis=x",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_wood",
+              "x": 90,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_wood.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "axis=y",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_wood"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_wood.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "axis=z",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/acacia_wood",
+              "x": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/acacia_wood.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 860,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/activator_rail.json",
+      "expected_git_sha": "5c5354b563a49be55e5708a1c17b90730c105553",
+      "connector_git_sha": "5c5354b563a49be55e5708a1c17b90730c105553",
+      "git_sha_computed": "5c5354b563a49be55e5708a1c17b90730c105553",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "powered=false,shape=ascending_east": {
+            "model": "minecraft:block/activator_rail_raised_ne",
+            "y": 90
+          },
+          "powered=false,shape=ascending_north": {
+            "model": "minecraft:block/activator_rail_raised_ne"
+          },
+          "powered=false,shape=ascending_south": {
+            "model": "minecraft:block/activator_rail_raised_sw"
+          },
+          "powered=false,shape=ascending_west": {
+            "model": "minecraft:block/activator_rail_raised_sw",
+            "y": 90
+          },
+          "powered=false,shape=east_west": {
+            "model": "minecraft:block/activator_rail",
+            "y": 90
+          },
+          "powered=false,shape=north_south": {
+            "model": "minecraft:block/activator_rail"
+          },
+          "powered=true,shape=ascending_east": {
+            "model": "minecraft:block/activator_rail_on_raised_ne",
+            "y": 90
+          },
+          "powered=true,shape=ascending_north": {
+            "model": "minecraft:block/activator_rail_on_raised_ne"
+          },
+          "powered=true,shape=ascending_south": {
+            "model": "minecraft:block/activator_rail_on_raised_sw"
+          },
+          "powered=true,shape=ascending_west": {
+            "model": "minecraft:block/activator_rail_on_raised_sw",
+            "y": 90
+          },
+          "powered=true,shape=east_west": {
+            "model": "minecraft:block/activator_rail_on",
+            "y": 90
+          },
+          "powered=true,shape=north_south": {
+            "model": "minecraft:block/activator_rail_on"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 12,
+        "multipart_rules": 0,
+        "original_choice_count": 12,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/activator_rail_raised_ne.json",
+          "1.21.11/assets/minecraft/models/block/activator_rail_raised_sw.json",
+          "1.21.11/assets/minecraft/models/block/activator_rail.json",
+          "1.21.11/assets/minecraft/models/block/activator_rail_on_raised_ne.json",
+          "1.21.11/assets/minecraft/models/block/activator_rail_on_raised_sw.json",
+          "1.21.11/assets/minecraft/models/block/activator_rail_on.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 6,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 12,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "powered=false,shape=ascending_east",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/activator_rail_raised_ne",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/activator_rail_raised_ne.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "powered=false,shape=ascending_north",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/activator_rail_raised_ne"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/activator_rail_raised_ne.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "powered=false,shape=ascending_south",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/activator_rail_raised_sw"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/activator_rail_raised_sw.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 3,
+            "condition": "powered=false,shape=ascending_west",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/activator_rail_raised_sw",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/activator_rail_raised_sw.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 4,
+            "condition": "powered=false,shape=east_west",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/activator_rail",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/activator_rail.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 5,
+            "condition": "powered=false,shape=north_south",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/activator_rail"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/activator_rail.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 6,
+            "condition": "powered=true,shape=ascending_east",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/activator_rail_on_raised_ne",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/activator_rail_on_raised_ne.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 7,
+            "condition": "powered=true,shape=ascending_north",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/activator_rail_on_raised_ne"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/activator_rail_on_raised_ne.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 8,
+            "condition": "powered=true,shape=ascending_south",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/activator_rail_on_raised_sw"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/activator_rail_on_raised_sw.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 9,
+            "condition": "powered=true,shape=ascending_west",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/activator_rail_on_raised_sw",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/activator_rail_on_raised_sw.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 10,
+            "condition": "powered=true,shape=east_west",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/activator_rail_on",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/activator_rail_on.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 11,
+            "condition": "powered=true,shape=north_south",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/activator_rail_on"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/activator_rail_on.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 861,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/air.json",
+      "expected_git_sha": "2c8f02f0674310f92c0be9fb5697b9af51062f31",
+      "connector_git_sha": "2c8f02f0674310f92c0be9fb5697b9af51062f31",
+      "git_sha_computed": "2c8f02f0674310f92c0be9fb5697b9af51062f31",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/air"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/air.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/air"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/air.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 862,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/allium.json",
+      "expected_git_sha": "6c0aa83550081284379dc1816423251ce94c5e24",
+      "connector_git_sha": "6c0aa83550081284379dc1816423251ce94c5e24",
+      "git_sha_computed": "6c0aa83550081284379dc1816423251ce94c5e24",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/allium"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/allium.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/allium"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/allium.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 863,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/amethyst_block.json",
+      "expected_git_sha": "388d6a42772905584496e6816303daafc9c75151",
+      "connector_git_sha": "388d6a42772905584496e6816303daafc9c75151",
+      "git_sha_computed": "388d6a42772905584496e6816303daafc9c75151",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/amethyst_block"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/amethyst_block.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/amethyst_block"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/amethyst_block.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 864,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/amethyst_cluster.json",
+      "expected_git_sha": "09e6b985cefe2d2d7ba10a0b8406983b6ba39b34",
+      "connector_git_sha": "09e6b985cefe2d2d7ba10a0b8406983b6ba39b34",
+      "git_sha_computed": "09e6b985cefe2d2d7ba10a0b8406983b6ba39b34",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "facing=down": {
+            "model": "minecraft:block/amethyst_cluster",
+            "x": 180
+          },
+          "facing=east": {
+            "model": "minecraft:block/amethyst_cluster",
+            "x": 90,
+            "y": 90
+          },
+          "facing=north": {
+            "model": "minecraft:block/amethyst_cluster",
+            "x": 90
+          },
+          "facing=south": {
+            "model": "minecraft:block/amethyst_cluster",
+            "x": 90,
+            "y": 180
+          },
+          "facing=up": {
+            "model": "minecraft:block/amethyst_cluster"
+          },
+          "facing=west": {
+            "model": "minecraft:block/amethyst_cluster",
+            "x": 90,
+            "y": 270
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 6,
+        "multipart_rules": 0,
+        "original_choice_count": 6,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/amethyst_cluster.json"
+        ],
+        "explicit_flags": {
+          "x": 5,
+          "y": 3,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 6,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "facing=down",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/amethyst_cluster",
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/amethyst_cluster.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "facing=east",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/amethyst_cluster",
+              "x": 90,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/amethyst_cluster.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "facing=north",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/amethyst_cluster",
+              "x": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/amethyst_cluster.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 3,
+            "condition": "facing=south",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/amethyst_cluster",
+              "x": 90,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/amethyst_cluster.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 4,
+            "condition": "facing=up",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/amethyst_cluster"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/amethyst_cluster.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 5,
+            "condition": "facing=west",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/amethyst_cluster",
+              "x": 90,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/amethyst_cluster.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 865,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/ancient_debris.json",
+      "expected_git_sha": "dd6b059450404b61b8d1cfa738e678be9942be29",
+      "connector_git_sha": "dd6b059450404b61b8d1cfa738e678be9942be29",
+      "git_sha_computed": "dd6b059450404b61b8d1cfa738e678be9942be29",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/ancient_debris"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/ancient_debris.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/ancient_debris"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/ancient_debris.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    }
+  ]
+}
