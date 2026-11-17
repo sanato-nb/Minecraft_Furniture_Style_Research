@@ -1,6 +1,6 @@
 # 1-2-G Entry1 — PNG 원본 바이너리 후속 실검증 (2026-11-17)
 
-**후속 판정(원격 마감 전): PNG 바이너리/독립 검산 PASS, Entry1 최종 remote readback 승인 절차 남음.** 이전 부분 보고서의 `0/185`는 아래에 이력으로 보존했으며 현재 수치가 아니다. 기존 150 model JSON + 12 blockstate JSON 및 face/기하/D 재검산은 재작업하거나 중복 실적으로 계산하지 않았다.
+**최종 Entry1 판정: PASS — 원본 347/347 직접 내용 감사 및 185/185 PNG 원본 바이너리·독립 RGBA 재검산 PASS, 원격 증거 파일 선행 readback PASS. Entry2 진행 허용(미착수), 전체 G는 여전히 진행 중.** 이전 부분 보고서의 `0/185`는 아래에 이력으로 보존했으며 현재 수치가 아니다. 기존 150 model JSON + 12 blockstate JSON 및 face/기하/D 재검산은 재작업하거나 중복 실적으로 계산하지 않았다.
 
 ## 신규 실행 근거
 - **바이너리 차단 해결:** GitHub `fetch_file(encoding="base64")`로 **185/185 PNG 원본 bytes**를 직접 받고, Base64 → 원본 bytes를 복원. 텍스트 방식 `fetch_blob` 및 `fetch` API는 `UnicodeDecodeError` 및 UTF-8 전용 오류였고 로컬 `git ls-remote`/curl은 DNS 해석 불가였음. 바이너리 접근은 별도 인코딩 반환 방식으로 실제 우회 성공.
@@ -18,7 +18,7 @@
 - `G_ENTRY1_PNG_BINARY_INDEPENDENT_RECOUNT.json`: 완성 CSV를 다시 읽고 고정 큐·G 교차 원장·C 원본 검증 집합에 재교차하는 별도 검산 (**오차 0**).
 - `G_ENTRY1_UNRESOLVED_DISPOSITION.csv`: 이력 203행에 후속 해결/소관 상태를 추가해 덮어쓰기 없이 보존. `G_SOURCE_CROSSWALK.csv`는 G PNG 직접 검증 필드만 185개 갱신.
 
-**불변/범위:** G Entry1 **347 = 150 model JSON + 12 blockstate JSON + 185 PNG** 원본 본문 확인. 일반 기하142/E특수8, 371요소, 1,373면(PNG연결1,238/템플릿 미바인딩135), UV1,142, D원본 선택167/고유 모델49는 기존 G 원본 재검산을 계승. G 전체 4,669개, 6 Entry, 글로벌 G1~G6 0/6, A~F 및 v69 원본·승인150/150·상위 1/5 불변. **공식 JAR·엔진 renderer·전체 애니메이션 재생·가구 기능을 인증하지 않음.** 원격 최종 SHA/행수/본문 재조회 후 Entry1 승인 플래그만 변경하며, Entry2 실작업은 이 보고서 단계에서 시작하지 않음.
+**불변/범위:** G Entry1 **347 = 150 model JSON + 12 blockstate JSON + 185 PNG** 원본 본문 확인. 일반 기하142/E특수8, 371요소, 1,373면(PNG연결1,238/템플릿 미바인딩135), UV1,142, D원본 선택167/고유 모델49는 기존 G 원본 재검산을 계승. G 전체 4,669개, 6 Entry, 글로벌 G1~G6 0/6, A~F 및 v69 원본·승인150/150·상위 1/5 불변. **공식 JAR·엔진 renderer·전체 애니메이션 재생·가구 기능을 인증하지 않음.** 원격 선행 SHA/행수/본문 재조회는 8개 주요 파일에서 PASS; 이 최종 보고서 및 상태 갱신도 별도 readback을 수행하며 기록은 G_ENTRY1_REMOTE_READBACK.json을 참조. Entry2는 진행 허용되지만 이 회차에서 시작하지 않음.
 
 ---
 
