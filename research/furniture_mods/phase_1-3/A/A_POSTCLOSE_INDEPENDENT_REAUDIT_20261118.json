@@ -1,0 +1,127 @@
+{
+  "schema": "A_POSTCLOSE_INDEPENDENT_REAUDIT/v1",
+  "verified_at_kst": "2026-11-18",
+  "source_main_head": "702a2a62d4399438e64c6e90e7bd24f3d6809300",
+  "original_study_baseline": "0542fb2b713fcaa5217ddb20a5273c02e1940b01",
+  "status": "PASS_POSTCLOSE_INDEPENDENT_REAUDIT",
+  "does_not_reopen_completed_gates": true,
+  "evidence_scope": "기존 A 감사 CSV와 현재 Git tree를 독립 파싱·재집계. 이번 재감사는 원저자 JSON 297개를 새로 다운로드하거나 원문 SHA를 재계산한 검증이 아니다.",
+  "A_gate_status_from_prior": "7/7_PASS",
+  "upper_1_3_M_gates_from_prior": "0/6",
+  "manifest": {
+    "git_tree_sha": "8f5181df72304926e12f6a9738caec5e71af7979",
+    "tree_truncated": false,
+    "version_count": 14,
+    "blob_count": 195,
+    "rows": 195,
+    "total_bytes": 5321808,
+    "version_counts": {
+      "v11": 13,
+      "v12": 14,
+      "v13": 4,
+      "v14": 5,
+      "v15": 4,
+      "v16": 8,
+      "v17": 9,
+      "v18": 21,
+      "v19": 21,
+      "v20": 17,
+      "v21": 25,
+      "v22": 21,
+      "v23": 30,
+      "v24": 3
+    },
+    "git_sha_and_size_matched": 195
+  },
+  "another_leaf": {
+    "rows": 204,
+    "cohorts": {
+      "v18": 33,
+      "v21": 38,
+      "v22": 43,
+      "v23": 51,
+      "v24": 39
+    },
+    "unique_source_paths": 204,
+    "unique_model_refs": 204,
+    "sha_and_parent_alignment_from_A_ledger": true,
+    "pinned_commit": "57eb624cbb7f408d43398c7434b0d38d312cb55d",
+    "newly_discovered_models_this_reaudit": 0
+  },
+  "blockstate": {
+    "rows": 22,
+    "cohorts": {
+      "v21": 12,
+      "v23": 10
+    },
+    "prior_177_candidates": 177,
+    "prior_not_examined": 155,
+    "model_apply_records": 1188,
+    "exception_count": 2,
+    "exceptions": [
+      {
+        "blockstate": "birch_chair",
+        "exception": "facing=south,tucked=false,variant=3 => another_furniture:block/chair/birch_1"
+      },
+      {
+        "blockstate": "spruce_chair",
+        "exception": "facing=south,tucked=false,variant=3 => another_furniture:block/chair/spruce_1"
+      }
+    ]
+  },
+  "parent_templates": {
+    "rows": 69,
+    "selected_v18_subset": 30,
+    "sha_from_A_ledger_consistent": true
+  },
+  "chairs": {
+    "rows": 39,
+    "normal": 19,
+    "tucked": 20,
+    "element_instances": 390,
+    "face_instances": 1794,
+    "bottom_faces": 1131,
+    "seat_faces": 195,
+    "back_faces": 468,
+    "leaf_subset_of_204": true
+  },
+  "handcrafted_macaw": {
+    "scope_rows": 139,
+    "record_types": {
+      "AUTHORED": 120,
+      "GENERATED_LEAF": 16,
+      "PRIOR_PNG_METRIC": 1,
+      "PRIOR_FACE_RGBA_METRIC": 1,
+      "PRIOR_MACAW_BLOCKED": 1
+    },
+    "prior_macaw_not_acquired": true,
+    "mod_population_fixed": false
+  },
+  "unresolved": {
+    "records": 10,
+    "status_counts": {
+      "RESOLVED_2026_11_18": 3,
+      "UNRESOLVED": 7
+    },
+    "remaining_followups_for_B_C_1_4": 7
+  },
+  "protected_source": {
+    "compare_base": "0542fb2b713fcaa5217ddb20a5273c02e1940b01",
+    "compare_head": "702a2a62d4399438e64c6e90e7bd24f3d6809300",
+    "non_A_modifications": 0,
+    "non_A_modification_paths": []
+  },
+  "source_evidence_blobs": {
+    "A_INPUT_MANIFEST.csv": "728c74f3783ee23dea8f060497df92d254643b9a",
+    "A_ANOTHER_204_PRIOR_CROSSWALK.csv": "6ab4e8045802fa86dfee441e7025cd836ee7b59e",
+    "A_ANOTHER_22_BLOCKSTATES.csv": "ed8aedff28481d71936878f1f5e193866df92935",
+    "A_ANOTHER_69_TEMPLATES.csv": "cdde97a730f1d0de3e7126f732a692f0069fa7d5",
+    "A_CHAIR_39_RELATIONS.csv": "ff6ecc9237315fe72e4ca319f8229ae4ed8e778c",
+    "A_HANDCRAFTED_PRIOR_SCOPE.csv": "4ef7feac90382bf77ba6d1b64546fccceaa9fd4d",
+    "A_UNRESOLVED.csv": "f4b9fcf7213b44b2215d115bdf0dbb9e8fa0af58",
+    "A_PRIOR_COHORT_RECOUNT.json": "5899944c24d2c491863349ca5d9f1f802929befb",
+    "A_INDEPENDENT_AUDIT.json": "446904b347c5086d9040d913d2dcf88ca4e15ac1"
+  },
+  "errors": [],
+  "issue_count": 0
+}
