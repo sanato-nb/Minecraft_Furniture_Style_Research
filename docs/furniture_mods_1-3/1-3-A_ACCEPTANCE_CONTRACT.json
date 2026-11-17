@@ -1,0 +1,123 @@
+{
+  "schema": "MOD_FURNITURE_1_3_A_PRIOR_EVIDENCE_RECONCILIATION_PLAN/v1",
+  "date_kst": "2026-11-17",
+  "stage": "1-3-A",
+  "status": "A_PLAN_READY_NOT_EXECUTED",
+  "execution_started": false,
+  "source_audit_complete": false,
+  "A_gates_passed": 0,
+  "A_gates_total": 7,
+  "global_1_3_M_gates_passed": 0,
+  "global_1_3_M_gates_total": 6,
+  "baseline_source": "research/furniture_mods/v11-v24",
+  "baseline_upstream": {
+    "another": {
+      "repo": "crispytwig/AnotherFurniture",
+      "commit": "57eb624cbb7f408d43398c7434b0d38d312cb55d",
+      "minecraft_version": "1.21.1"
+    },
+    "handcrafted": {
+      "repo": "terrarium-earth/Handcrafted",
+      "prior_commit": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035",
+      "current_official_release_not_checked": true
+    }
+  },
+  "prior_reference_counts": {
+    "another_leaf_cohorts_v18_v21_v22_v23_v24": [
+      33,
+      38,
+      43,
+      51,
+      39
+    ],
+    "another_leaf_total_reported": 204,
+    "another_templates_v20_reported": 69,
+    "another_templates_v18_subset": 30,
+    "another_states_v21_v23": [
+      12,
+      10
+    ],
+    "another_states_reported_checked": 22,
+    "another_states_prior_tree_population_not_yet_refrozen": 177,
+    "another_states_prior_not_examined": 155,
+    "chair_v24_selected_prior_44_minus_already_checked_5": 39,
+    "chair_template_normal": 19,
+    "chair_template_tucked": 20,
+    "chair_inherited_element_instances": 390,
+    "chair_inherited_face_instances": 1794,
+    "handcrafted_v12_authored_records": 120,
+    "handcrafted_generated_sample_leaf": 16,
+    "handcrafted_prior_png_pixel_verified": 24,
+    "handcrafted_prior_rgba_face_regions": 784,
+    "crossmod_prior_png": 175,
+    "crossmod_prior_rgba_regions": 4113,
+    "macaw_prior_official_jar_acquired": false,
+    "macaw_prior_direct_models": 0
+  },
+  "audit_packages": [
+    "A-00 input manifest immutable git tree",
+    "A-01 Another 204 source path/blob cohort crosswalk",
+    "A-02 blockstates 22 of previous 177 and two original mapping exceptions",
+    "A-03 templates69 and chair39 geometry denominators",
+    "A-04 Handcrafted and Macaw evidence access limitations",
+    "A-05 unresolved and evidence-grade separation",
+    "A-06 independent recount and GitHub readback"
+  ],
+  "gate_conditions": {
+    "A0": "List v11-v24 original project files including blob SHA, reopen required inputs, preserve original paths.",
+    "A1": "Independently parse and deduplicate five Another leaf cohorts totaling 204 with path+SHA+source-pin evidence; distinguish A byte rehash from inherited SHA.",
+    "A2": "Independently reconcile 12+10=22 prior state JSON rows; 177 is prior tree size not new examined; preserve two v24 south variant exceptions.",
+    "A3": "Parent templates69 and v24 chair39 counts, model inheritance elements390/face instances1794; do not count inherited faces as PNG pixels.",
+    "A4": "Handcrafted 120 authored/16 generated/24 PNG/784 face RGBA and Macaw prior source-blocked split by type, provenance and version.",
+    "A5": "List conflicting, inaccessible or missing source as unresolved with grade and B owner; do not mark unverified source PASS.",
+    "A6": "Separate independent recount errors0, compare protected files no changes, GitHub commit and remote SHA/line/body readback PASS."
+  },
+  "denominator_unit_keys": [
+    "LEAF_SOURCE_PATH",
+    "TEMPLATE_SOURCE_PATH",
+    "BLOCKSTATE_SOURCE_PATH",
+    "DECLARED_FACE",
+    "INHERITED_FACE_INSTANCE",
+    "TEXTURE_REFERENCE_PATH",
+    "PNG_PIXEL_SOURCE",
+    "RGBA_FACE_REGION"
+  ],
+  "grade_labels": [
+    "ORIGINAL_REHASHED_IN_A",
+    "PRIOR_SOURCE_VERIFIED",
+    "PRIOR_DERIVED",
+    "FILE_SHA_ONLY",
+    "SOURCE_MISSING",
+    "CONFLICT",
+    "BLOCKED",
+    "OUT_OF_SCOPE_1_4"
+  ],
+  "new_source_population_fixed": false,
+  "new_original_leaf_verified_in_A": 0,
+  "required_source_access_policy": "No prior reported SHA may be upgraded to newly rehashed without actual original bytes",
+  "protected_paths": [
+    "research/furniture_mods/v11-v24/",
+    "research/vanilla_models/",
+    "research/furniture_mods prior v11-v24 source originals"
+  ],
+  "planned_output_dir": "research/furniture_mods/phase_1-3/A",
+  "expected_reports": [
+    "A_INPUT_MANIFEST.csv",
+    "A_ANOTHER_204_PRIOR_CROSSWALK.csv",
+    "A_ANOTHER_22_BLOCKSTATES.csv",
+    "A_ANOTHER_69_TEMPLATES.csv",
+    "A_CHAIR_39_RELATIONS.csv",
+    "A_HANDCRAFTED_PRIOR_SCOPE.csv",
+    "A_PRIOR_COHORT_RECOUNT.json",
+    "A_UNRESOLVED.csv",
+    "A_INDEPENDENT_AUDIT.json",
+    "A_REPORT.md",
+    "A_REMOTE_READBACK.json",
+    "A_NEXT.md"
+  ],
+  "parent_plan": "docs/furniture_mods_1-3/1-3_DETAILED_EXECUTION_PLAN.md",
+  "detailed_plan": "docs/furniture_mods_1-3/1-3-A_DETAILED_EXECUTION_PLAN.md",
+  "first_execution_step": "A-00: read main, v11-v24 Git tree+all required evidence, then A-01 normalize 5 Another original leaf cohorts",
+  "upper_1_3_scope_completion": false,
+  "upper_1_2_separate_exit_approved": false
+}
