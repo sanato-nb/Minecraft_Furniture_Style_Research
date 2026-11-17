@@ -1,0 +1,65 @@
+{
+  "schema": "G_ENTRY6_CHECKOUT_INDEPENDENT_AUDIT/v1",
+  "counts": {
+    "source_paths": 829,
+    "model_JSON": 378,
+    "blockstate_JSON": 265,
+    "PNG": 186,
+    "source_direct_bytes_and_sha_pass": 829,
+    "models_E": 7,
+    "models_general": 371,
+    "elements": 661,
+    "faces": 2412,
+    "face_explicit_UV": 1352,
+    "face_implicit_UV": 1060,
+    "face_PNG_bound": 2178,
+    "face_template_unbound": 234,
+    "D_options": 1836,
+    "D_distinct_model_targets": 522,
+    "PNG_C_prior_and_RGBA_matched": 182,
+    "PNG_C_outside_new_G_only": 4,
+    "PNG_original_bytes": 44847,
+    "mcmeta_json_direct_read": 12,
+    "mcmeta_animation_static": 7,
+    "F_prior_visual_png": 135,
+    "errors": 4
+  },
+  "original_source_830_expected": false,
+  "errors": [
+    {
+      "path": "1.21.11/assets/minecraft/models/block/sculk_mirrored.json",
+      "kind": "F_PARENT_CHAIN_VALUE",
+      "parent": "1.21.11/assets/minecraft/models/block/cube_mirrored.json"
+    },
+    {
+      "path": "1.21.11/assets/minecraft/models/block/sculk_mirrored.json",
+      "kind": "F_GEOMETRY_PROVIDER_SHA"
+    },
+    {
+      "path": "1.21.11/assets/minecraft/models/block/stone_mirrored.json",
+      "kind": "F_PARENT_CHAIN_VALUE",
+      "parent": "1.21.11/assets/minecraft/models/block/cube_mirrored.json"
+    },
+    {
+      "path": "1.21.11/assets/minecraft/models/block/stone_mirrored.json",
+      "kind": "F_GEOMETRY_PROVIDER_SHA"
+    }
+  ],
+  "warnings": [],
+  "acceptance": "ENTRY6_NOT_APPROVED",
+  "upstream_pinned_sha": {
+    "research/vanilla_models/phase_1-2-G/entry6/G_ENTRY6_QUEUE_829.csv": "2f1f33520d49f61d7e9b980bf3a4cd258736aee1",
+    "research/vanilla_models/phase_1-2-C/entry5/C_SCOPE_2390_FINAL_STATUS.csv": "0950bae4293eaaf455f91073981c30bc7e563b05",
+    "research/vanilla_models/phase_1-2-C/entry5/C_PNG_UNIQUE_ALL.csv": "9574557e9858db5677a002c0a8991150c043a2fa",
+    "research/vanilla_models/phase_1-2-F/entry6/F_MODEL_SOURCE_STATUS.csv": "9c8f35994eaa798cbdce2d13f2e8e867073c593d",
+    "research/vanilla_models/phase_1-2-F/entry6/F_GEOMETRY_FEATURES.csv": "3d590e51f02e97d0511c9a92e66b346b6accb9a1",
+    "research/vanilla_models/phase_1-2-D/entry6/D_ENTRY6_265_RULES.csv": "23f0210bc386e1cf165fb43fe170417c8ebad165",
+    "research/vanilla_models/phase_1-2-F/entry6/F3_PNG_FIRST_FRAME_332.csv": "5d6a98f7ca88369f633b6a10d1681b598c3a0098"
+  },
+  "caveats": [
+    "No Minecraft official JAR certification",
+    "No game runtime renderer/state space",
+    "No animation playback",
+    "No new image semantics: F visual is historical"
+  ]
+}
