@@ -265,5 +265,43 @@
     "Record excludes own Git SHA to avoid self-reference.",
     "Global G1-G6 remain 0/6 until 6 entries and global audit.",
     "A-F/v69 unchanged by comparison."
-  ]
+  ],
+  "final_postcloseout_content_readback": {
+    "date": "2026-11-17",
+    "postcloseout_HEAD": "66dfeee7fb853302c594a41b171c93dfdde2ec41",
+    "files": [
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry2/G_ENTRY2_REPORT.md",
+        "git_blob_sha": "8f1d308cadda158d2b9f9bf6ecc3be1845868598",
+        "lines": 53,
+        "first": "# 1-2-G Entry2 — 원본 775개 실제 교차 감사 및 독립 검산 보고서\n\n**2026-11-17 · Minecraft Java 1.21.11 사용자 추출 원본 · Ent",
+        "last": "본, 기존 승인150/150 및 상위 완료1/5 보존. **공식 게임 배포 JAR, 런타임 state/renderer, 물리 재질·좀보이드 가구 정체·실제 맵 변환은 미인증**.\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry2/G_NEXT.md",
+        "git_blob_sha": "d0414d932c05f0bda5644240e6500da506fafb06",
+        "lines": 9,
+        "first": "# 1-2-G Entry2 인수인계 — 전체 775개 직접 감사 PASS, Entry3 진행 게이트\n\n기준: 2026-11-17. Entry2 model JSON **494**, ",
+        "last": "y, 1,122/4,669 직접 본문 감사, 전역 G1~G6 0/6, 전체 G/상위1-2 미완료. A~F/v69 원본과 승인150/150, 상위 1/5 보존, Entry7 없음.\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry2/G_ENTRY2_INDEPENDENT_AUDIT.json",
+        "git_blob_sha": "4a891ea8ab80d3c42481e1d3dd79b43da1921fc2",
+        "lines": 109,
+        "first": "{\n  \"schema\": \"G_ENTRY2_INDEPENDENT_CROSSSTAGE_AUDIT/v1\",\n  \"date\": \"2026-11-17\",\n  \"source_baseline",
+        "last": "otation\": \"a5fda39e19fc096c08a8e22e091af096116f8d53\",\n  \"G_entry2_remote_confirmation_pass\": true\n}\n"
+      },
+      {
+        "path": "handoff/STATE.json",
+        "git_blob_sha": "7cd71a2067c0c60d582c3ff2afc7553c6a01c0c7",
+        "lines": 5734,
+        "first": "{\n  \"phase_1_2_G_entry1_execution\": {\n    \"updated_kst\": \"2026-11-17\",\n    \"status\": \"G_ENTRY1_COMPL",
+        "last": "ently inspect original bytes, compare upstream, then remote readback; G exit gates still 0/6\"\n  }\n}\n"
+      }
+    ],
+    "entry2_gate_PASS": true,
+    "entry3_allowed_not_started": true,
+    "global_G1_G6_passed": 0,
+    "notes": "Record itself excluded from its own SHA inventory to avoid self-referential hash."
+  }
 }
