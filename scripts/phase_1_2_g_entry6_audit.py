@@ -16,8 +16,8 @@ ROOT = Path(__file__).resolve().parents[1]
 G = "research/vanilla_models/phase_1-2-G/entry6/"
 OUT = ROOT / G
 OUT.mkdir(parents=True, exist_ok=True)
-PNG_C = "research/vanilla_models/phase_1-2-C/entry6/C_PNG_UNIQUE_ALL.csv"
-MODEL_C = "research/vanilla_models/phase_1-2-C/entry6/C_SCOPE_2390_FINAL_STATUS.csv"
+PNG_C = "research/vanilla_models/phase_1-2-C/entry5/C_PNG_UNIQUE_ALL.csv"
+MODEL_C = "research/vanilla_models/phase_1-2-C/entry5/C_SCOPE_2390_FINAL_STATUS.csv"
 F_STATUS = "research/vanilla_models/phase_1-2-F/entry6/F_MODEL_SOURCE_STATUS.csv"
 F_GEO = "research/vanilla_models/phase_1-2-F/entry6/F_GEOMETRY_FEATURES.csv"
 D_ONE = "research/vanilla_models/phase_1-2-D/entry6/D_ENTRY6_265_RULES.csv"
