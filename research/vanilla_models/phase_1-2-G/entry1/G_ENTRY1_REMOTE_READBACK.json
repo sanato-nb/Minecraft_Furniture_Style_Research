@@ -62,5 +62,165 @@
     "Original PNG 185 binary/pixels decoded in G",
     "official Minecraft client JAR authentication",
     "game runtime renderer or state registry verified"
-  ]
+  ],
+  "PNG_binary_followup_2026_11_17": {
+    "schema": "G_ENTRY1_PNG_BINARY_CLOSEOUT_REMOTE_READBACK/v2",
+    "verified_at_KST": "2026-11-17",
+    "pre_followup_baseline_main": "2d6c570e2a1406f603451faa35c4de5f4eb5ed18",
+    "post_closeout_main_head": "bef69b20894c42ea2be67ec32026f214434fa1fe",
+    "compare_status": "ahead",
+    "changed_files_since_baseline": [
+      "HANDOFF.md",
+      "PROGRESS.md",
+      "docs/vanilla_models_1-2/CURRENT_STATUS.md",
+      "handoff/STATE.json",
+      "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_PNG_AUDITOR.js",
+      "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_PNG_BINARY_AUDIT.csv",
+      "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_PNG_BINARY_INDEPENDENT_RECOUNT.json",
+      "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_PNG_MCMETA_AUDIT.json",
+      "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_REPORT.md",
+      "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_UNRESOLVED_DISPOSITION.csv",
+      "research/vanilla_models/phase_1-2-G/entry1/G_INDEPENDENT_AUDIT.json",
+      "research/vanilla_models/phase_1-2-G/entry1/G_NEXT.md",
+      "research/vanilla_models/phase_1-2-G/entry1/G_SOURCE_CROSSWALK.csv",
+      "research/vanilla_models/phase_1-2-G/entry1/binary_batches/G_ENTRY1_PNG_BINARY_BATCH_000.json",
+      "research/vanilla_models/phase_1-2-G/entry1/binary_batches/G_ENTRY1_PNG_BINARY_BATCH_014.json",
+      "research/vanilla_models/phase_1-2-G/entry1/binary_batches/G_ENTRY1_PNG_BINARY_BATCH_028.json",
+      "research/vanilla_models/phase_1-2-G/entry1/binary_batches/G_ENTRY1_PNG_BINARY_BATCH_042.json",
+      "research/vanilla_models/phase_1-2-G/entry1/binary_batches/G_ENTRY1_PNG_BINARY_BATCH_056.json",
+      "research/vanilla_models/phase_1-2-G/entry1/binary_batches/G_ENTRY1_PNG_BINARY_BATCH_070.json",
+      "research/vanilla_models/phase_1-2-G/entry1/binary_batches/G_ENTRY1_PNG_BINARY_BATCH_084.json",
+      "research/vanilla_models/phase_1-2-G/entry1/binary_batches/G_ENTRY1_PNG_BINARY_BATCH_098.json",
+      "research/vanilla_models/phase_1-2-G/entry1/binary_batches/G_ENTRY1_PNG_BINARY_BATCH_112.json",
+      "research/vanilla_models/phase_1-2-G/entry1/binary_batches/G_ENTRY1_PNG_BINARY_BATCH_126.json",
+      "research/vanilla_models/phase_1-2-G/entry1/binary_batches/G_ENTRY1_PNG_BINARY_BATCH_140.json",
+      "research/vanilla_models/phase_1-2-G/entry1/binary_batches/G_ENTRY1_PNG_BINARY_BATCH_154.json",
+      "research/vanilla_models/phase_1-2-G/entry1/binary_batches/G_ENTRY1_PNG_BINARY_BATCH_168.json",
+      "research/vanilla_models/phase_1-2-G/entry1/binary_batches/G_ENTRY1_PNG_BINARY_BATCH_182.json"
+    ],
+    "protected_A_to_F_or_v69_mutation_detected": false,
+    "files": [
+      {
+        "path": "HANDOFF.md",
+        "git_blob_sha": "e4806b0b2957ba8b799dd5fec840314dd5ace4eb",
+        "utf8_text_chars": 114046,
+        "remote_lines": 617,
+        "content_start": "> **2026-11-17 · 1-2-G Entry1 최종 게이트 PASS (신규 바이너리 185/185, ",
+        "content_end": "는 해당 파일을 실제로 업데이트하고 **날짜/버전/새로운 실측값/원본 링크/미완료**를 빠짐없이 남긴다.\n\n"
+      },
+      {
+        "path": "PROGRESS.md",
+        "git_blob_sha": "42b4b45eebe0c8e8235f98aa5d2470a6f9a72334",
+        "utf8_text_chars": 87123,
+        "remote_lines": 460,
+        "content_start": "> **2026-11-17 · 1-2-G Entry1 최종 게이트 PASS (신규 바이너리 185/185, ",
+        "content_end": "본 모드 버전은 바닐라 1.21.11과 **상이**. 공식 클라이언트/인게임 검증을 완료 처리하지 않는다.\n"
+      },
+      {
+        "path": "docs/vanilla_models_1-2/CURRENT_STATUS.md",
+        "git_blob_sha": "afa78f9f29857983f1f0b935988f5e3937910234",
+        "utf8_text_chars": 45434,
+        "remote_lines": 187,
+        "content_start": "> **2026-11-17 · 1-2-G Entry1 최종 게이트 PASS (신규 바이너리 185/185, ",
+        "content_end": " 전체 1-2 완료율 %, 실제 게임 렌더 정밀 재현. 근거 없이 1-2 완료나 완료율을 선언하지 말 것.\n"
+      },
+      {
+        "path": "handoff/STATE.json",
+        "git_blob_sha": "2b095d7143ded359e61ebf1f8fe68e006fa80755",
+        "utf8_text_chars": 261202,
+        "remote_lines": 5671,
+        "content_start": "{\n  \"phase_1_2_G_entry1_execution\": {\n    \"updated_kst\": \"20",
+        "content_end": " false,\n    \"actual_furniture_or_PZ_map_built\": false\n  }\n}\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry1/G_NEXT.md",
+        "git_blob_sha": "52832fedc2c922aa0087d6406e0d6269a8b4be74",
+        "utf8_text_chars": 3123,
+        "remote_lines": 35,
+        "content_start": "# 1-2-G Entry1 종료 PASS — Entry2 작업 허용, **아직 미착수**\n\n2026-11-1",
+        "content_end": "게이트 G1~G6 **0/6**, G 전체 완료 **금지**. 모든 Entry는 당초 계획의 6회만 허용.\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_REPORT.md",
+        "git_blob_sha": "b17d92a0ced3d9ec3dc11a09be8e9b3999e9ea5e",
+        "utf8_text_chars": 6264,
+        "remote_lines": 65,
+        "content_start": "# 1-2-G Entry1 — PNG 원본 바이너리 후속 실검증 (2026-11-17)\n\n**최종 Entry",
+        "content_end": "INDEPENDENT_AUDIT.json` 참조. 원격 커밋 이후 검증 내역은 추가 감사 파일에 기록한다.\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry1/G_INDEPENDENT_AUDIT.json",
+        "git_blob_sha": "0ba0baee41594d53f568a1e86dd7c721745fb28e",
+        "utf8_text_chars": 3799,
+        "remote_lines": 78,
+        "content_start": "{\n  \"schema\": \"G_ENTRY1_INDEPENDENT_RECOUNT_AND_SCOPE_GATE/v",
+        "content_end": "_BE_RECORDED_SEPARATELY\"\n  },\n  \"G_Entry2_started\": false\n}\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_PNG_BINARY_AUDIT.csv",
+        "git_blob_sha": "fb70b11f706236f0a2349794d741783e377db329",
+        "utf8_text_chars": 111469,
+        "remote_lines": 186,
+        "content_start": "index,source_path,expected_git_blob_sha,git_blob_sha_compute",
+        "content_end": "adata validated; no in-game renderer or animation playback,\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_PNG_BINARY_INDEPENDENT_RECOUNT.json",
+        "git_blob_sha": "7dd4e107310666bbc9631a8edcbb6545a321b76a",
+        "utf8_text_chars": 2762,
+        "remote_lines": 49,
+        "content_start": "{\n  \"schema\": \"G_ENTRY1_PNG_BINARY_INDEPENDENT_RECOUNT/v1\",\n",
+        "content_end": "ding until subsequent Entry closeout/remote recheck.\"\n  ]\n}\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_PNG_MCMETA_AUDIT.json",
+        "git_blob_sha": "da5b0ebad190cf917546f9c26e286563d5157425",
+        "utf8_text_chars": 8784,
+        "remote_lines": 258,
+        "content_start": "{\n  \"schema\": \"G_ENTRY1_ORIGINAL_PNG_MCMETA_DIRECT_AUDIT/v1\"",
+        "content_end": "arately verified in G_ENTRY1_PNG_BINARY_BATCH_*.json\"\n  ]\n}\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry1/G_SOURCE_CROSSWALK.csv",
+        "git_blob_sha": "aeed5583dd226d57f088b031b8097a0c8c759a89",
+        "utf8_text_chars": 231366,
+        "remote_lines": 348,
+        "content_start": "G_entry,asset_type,source_path,source_git_sha,tree_git_sha,t",
+        "content_end": "lla_models/phase_1-2-G/entry1/G_ENTRY1_PNG_BINARY_AUDIT.csv\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry1/G_ENTRY1_UNRESOLVED_DISPOSITION.csv",
+        "git_blob_sha": "9f844ff0515847f9aa9a33b5a6764e3209ca8ed0",
+        "utf8_text_chars": 119342,
+        "remote_lines": 204,
+        "content_start": "issue,asset_type,source_path,source_git_sha,affected_count,o",
+        "content_end": "ify game runtime, physical material, or render correctness\"\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry1/G_UNRESOLVED.csv",
+        "git_blob_sha": "b51f3058886c071c2b1b00d2b5d2d69a86154e5f",
+        "utf8_text_chars": 72163,
+        "remote_lines": 204,
+        "content_start": "issue,asset_type,source_path,source_git_sha,affected_count,o",
+        "content_end": "ify game runtime, physical material, or render correctness\"\n"
+      }
+    ],
+    "rows": {
+      "PNG_rows": 185,
+      "crosswalk_rows": 347,
+      "disposition_rows": 203,
+      "old_unresolved_rows": 203
+    },
+    "entry1_accepted": true,
+    "entry2_allowed": true,
+    "entry2_started": false,
+    "global_G_gates_passed": 0,
+    "png_independent_recount_pass": true,
+    "final_readback_pass": true,
+    "limits": [
+      "This is latest GitHub remote readback; previous verification history in this file retained.",
+      "Record excludes own SHA to avoid recursive self hash",
+      "Official JAR / game runtime rendering / animation playback excluded"
+    ]
+  }
 }
