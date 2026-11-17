@@ -1,4 +1,4 @@
-globalThis.G_ENTRY2_FACES=async function(tools,part){
+globalThis.G_ENTRY2_FACES=async function(tools,part,sub=null){
 const repo="sanato-nb/Minecraft_Furniture_Style_Research",root="research/vanilla_models/phase_1-2-G/entry2/";
 const ps=[...Array.from({length:4},(_,i)=>root+"rollup/G_ENTRY2_RECHECK_PART_"+String(i).padStart(2,"0")+".json"),
 root+"parents/G_ENTRY2_PARENT_AUX_BATCH_00.json",root+"parents/G_ENTRY2_PARENT_AUX_BATCH_01.json"];
@@ -8,7 +8,7 @@ for(const r of raw.slice(4).flatMap(x=>JSON.parse(x.result.content).rows))models
 const mpath=ref=>{if(!ref)return null;const s=ref.includes(":")?ref.split(":")[1]:ref;return "1.21.11/assets/minecraft/models/"+(s.startsWith("block/")?s:"block/"+s)+".json"};
 const texpath=ref=>{if(!ref)return"";const s=ref.includes(":")?ref.split(":")[1]:ref;return "1.21.11/assets/minecraft/textures/"+s+".png"};
 const out=[],modelSummary=[],errors=[];
-for(const r of groups[part].filter(x=>x.type==="BLOCK_MODEL_JSON")){
+for(const r of groups[part].filter(x=>x.type==="BLOCK_MODEL_JSON").slice(sub==="a"?0:sub==="b"?98:0,sub==="a"?98:sub==="b"?196:undefined)){
  const chain=[],used=new Set();let at=r.path;while(at){if(used.has(at)||!models.has(at)){errors.push({path:r.path,issue:"MISSING_OR_CYCLIC_PARENT:"+at});break}used.add(at);chain.push({path:at,...models.get(at)});at=mpath(models.get(at).json.parent??null)}
  const provider=chain.find(x=>Array.isArray(x.json.elements)&&x.json.elements.length>0);
  const textures={};for(let k=chain.length-1;k>=0;k--)Object.assign(textures,chain[k].json.textures||{});
@@ -28,7 +28,7 @@ for(const r of groups[part].filter(x=>x.type==="BLOCK_MODEL_JSON")){
 }
 const fields=Object.keys(out[0]||{});const esc=x=>{let s=String(x??"");return /[,"\r\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s};
 const csv=fields.join(",")+"\n"+out.map(x=>fields.map(k=>esc(x[k])).join(",")).join("\n")+"\n";
-const name=root+"face_shards/G_ENTRY2_SOURCE_FACE_TEXTURE_PART_"+String(part).padStart(2,"0")+".csv";
+const name=root+"face_shards/G_ENTRY2_SOURCE_FACE_TEXTURE_PART_"+String(part).padStart(2,"0")+(sub||"")+".csv";
 const created=await tools.mcp__GitHub__create_file({repository_full_name:repo,path:name,content:csv,message:"1-2-G Entry2: 실제 부모 모델 기반 face·UV·텍스처 독립 원장 "+(part+1)+"/4",branch:"main"});
 return{part,models:modelSummary.length,faces:out.length,UV:modelSummary.reduce((a,x)=>a+x.UV,0),bound:modelSummary.reduce((a,x)=>a+x.bound,0),unbound:modelSummary.reduce((a,x)=>a+x.unbound,0),errors,bytes:csv.length,path:name,commit:created.result.commit_sha};
 };
