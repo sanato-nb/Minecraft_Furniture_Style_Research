@@ -1,0 +1,730 @@
+{
+  "schema": "G_GLOBAL_4669_INDEPENDENT_CLOSEOUT/v1",
+  "scope": "USER_EXTRACTED_MINECRAFT_JAVA_1_21_11",
+  "contract_sha": "5692b29ee9ee785f6856902725f581c11bb4fa22",
+  "counts": {
+    "raw_assets": 4669,
+    "by_type": {
+      "BLOCK_MODEL_JSON": 2390,
+      "BLOCKSTATE_JSON": 1168,
+      "BLOCK_TEXTURE_PNG": 1111
+    },
+    "model_elements": 5689,
+    "faces": 23090,
+    "C_uv_explicit": 18808,
+    "C_uv_implicit": 4282,
+    "C_faces_PNG_bound": 21590,
+    "C_face_template_unbound": 1500,
+    "D_rules": 7592,
+    "D_syntactic_state_cases": 9193,
+    "D_model_option_applications": 19440,
+    "E_special": 86,
+    "PNG_C_prior_matches": 1073,
+    "PNG_outside_C": 38,
+    "mcmeta_sidecars": 99,
+    "F3_PNG": 332,
+    "G_entries_accepted": 6,
+    "F_prior_parent_sha_gaps": 4,
+    "source_errors": 0
+  },
+  "per_entry": [
+    {
+      "entry": 1,
+      "count": 347,
+      "approval": true,
+      "elements": 371,
+      "faces": 1373,
+      "uv": 1142,
+      "bound": 1238,
+      "unbound": 135,
+      "E": 8,
+      "D": 167,
+      "Cpng": 177,
+      "Gnew": 8,
+      "mcmeta": 17
+    },
+    {
+      "entry": 2,
+      "count": 775,
+      "approval": true,
+      "elements": 1944,
+      "faces": 7131,
+      "uv": 5986,
+      "bound": 6884,
+      "unbound": 247,
+      "E": 47,
+      "D": 809,
+      "Cpng": 171,
+      "Gnew": 14,
+      "mcmeta": 11
+    },
+    {
+      "entry": 3,
+      "count": 945,
+      "approval": true,
+      "elements": 971,
+      "faces": 4662,
+      "uv": 4348,
+      "bound": 4328,
+      "unbound": 334,
+      "E": 0,
+      "D": 1573,
+      "Cpng": 181,
+      "Gnew": 4,
+      "mcmeta": 13
+    },
+    {
+      "entry": 4,
+      "count": 944,
+      "approval": true,
+      "elements": 1067,
+      "faces": 4811,
+      "uv": 4404,
+      "bound": 4355,
+      "unbound": 456,
+      "E": 0,
+      "D": 1496,
+      "Cpng": 180,
+      "Gnew": 5,
+      "mcmeta": 15
+    },
+    {
+      "entry": 5,
+      "count": 829,
+      "approval": true,
+      "elements": 675,
+      "faces": 2701,
+      "uv": 1576,
+      "bound": 2607,
+      "unbound": 94,
+      "E": 24,
+      "D": 1711,
+      "Cpng": 182,
+      "Gnew": 3,
+      "mcmeta": 31
+    },
+    {
+      "entry": 6,
+      "count": 829,
+      "approval": true,
+      "elements": 661,
+      "faces": 2412,
+      "uv": 1352,
+      "bound": 2178,
+      "unbound": 234,
+      "E": 7,
+      "D": 1836,
+      "Cpng": 182,
+      "Gnew": 4,
+      "mcmeta": 12
+    }
+  ],
+  "gate_results": {
+    "G1": {
+      "checks": [
+        {
+          "name": "G1_4669_RAW_BYTES_DIRECT_GIT_SHA",
+          "pass_": true,
+          "checked": 4669,
+          "source_sha_mismatches": 0
+        },
+        {
+          "name": "G1_MCMETA_SIDECARS_99",
+          "pass_": true,
+          "actual": 99
+        },
+        {
+          "name": "G1_C_MCMETA_97_IN_G99",
+          "pass_": true,
+          "C_with_sidecar": 97
+        }
+      ],
+      "status": "PASS"
+    },
+    "G2": {
+      "checks": [
+        {
+          "name": "G2_C_GENERAL_2304_E86",
+          "pass_": true,
+          "prior_C_general": 2304,
+          "prior_E": 86
+        },
+        {
+          "name": "G2_G_DIRECT_ELEMENTS_5689",
+          "pass_": true,
+          "actual": 5689
+        },
+        {
+          "name": "G2_G_FACE_23090_C_FACE_23090",
+          "pass_": true,
+          "G_face": 23090,
+          "C_face": 23090
+        },
+        {
+          "name": "G2_C_UV_EXPLICIT_18808_IMPLICIT_4282",
+          "pass_": true,
+          "C_explicit": 18808,
+          "C_implicit": 4282,
+          "G_explicit": 18808
+        },
+        {
+          "name": "G2_C_PNGBOUND_21590_TEMPLATE_1500",
+          "pass_": true,
+          "C_bound": 21590,
+          "C_unbound": 1500
+        },
+        {
+          "name": "G2_HEAVY_CORE_CORRECTED_FACE_6",
+          "pass_": true
+        },
+        {
+          "name": "G2_E_EXCEPTION_BY_ENTRIES_86",
+          "pass_": true,
+          "by_entry": [
+            8,
+            47,
+            0,
+            0,
+            24,
+            7
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    "G3": {
+      "checks": [
+        {
+          "name": "G3_D1168_AND_G_RULES7592",
+          "pass_": true
+        },
+        {
+          "name": "G3_D_SYNTAX_9193_APPLICATIONS_19440",
+          "pass_": true,
+          "syntax": 9193,
+          "applications": 19440
+        },
+        {
+          "name": "G3_D_DIRECT2136_NON254_E84_NON2",
+          "pass_": true,
+          "D_direct": 2136,
+          "D_not_direct": 254,
+          "E_D_selected": 84
+        }
+      ],
+      "status": "PASS"
+    },
+    "G4": {
+      "checks": [
+        {
+          "name": "G4_C_PNG_1073_NEW38",
+          "pass_": true,
+          "C": 1073,
+          "prior_link": 1073,
+          "new_G": 38
+        },
+        {
+          "name": "G4_SIDECAR99_C97",
+          "pass_": true
+        },
+        {
+          "name": "G4_F_FIRSTFRAME332_CONTACT8",
+          "pass_": true,
+          "F3_PNG": 332,
+          "contacts": 8,
+          "source_path_SHA_RGBA": true,
+          "contact_SHA_match": true
+        },
+        {
+          "name": "G4_F_MODELS340_UNBOUND38_ANIM16",
+          "pass_": true,
+          "linked_models": 340,
+          "unbound_models": 38,
+          "animated_frame_only": 16
+        }
+      ],
+      "status": "PASS"
+    },
+    "G5": {
+      "checks": [
+        {
+          "name": "G5_INCOMPATIBLE_DENOMINATORS_DISTINCT",
+          "pass_": true
+        },
+        {
+          "name": "G5_PROTECTED_PIN_SHA_F",
+          "pass_": true,
+          "actual": "1c8c3e094fb18e570ac25eb28376eac3837133b4",
+          "expected": "1c8c3e094fb18e570ac25eb28376eac3837133b4"
+        },
+        {
+          "name": "G5_PROTECTED_PIN_SHA_D",
+          "pass_": true,
+          "actual": "a9e25893465810bf1386dddf4cf7a4f755b28fa1",
+          "expected": "a9e25893465810bf1386dddf4cf7a4f755b28fa1"
+        },
+        {
+          "name": "G5_PROTECTED_PIN_SHA_E",
+          "pass_": true,
+          "actual": "6e6c5c7e92de8a7006f125697573e9202b50a75e",
+          "expected": "6e6c5c7e92de8a7006f125697573e9202b50a75e"
+        },
+        {
+          "name": "G5_PROTECTED_PIN_SHA_Cpng",
+          "pass_": true,
+          "actual": "9574557e9858db5677a002c0a8991150c043a2fa",
+          "expected": "9574557e9858db5677a002c0a8991150c043a2fa"
+        },
+        {
+          "name": "G5_F_V69_BASELINE_PRIOR150_TOP1",
+          "pass_": true
+        },
+        {
+          "name": "G5_F_PARENT_MISSING_SHA_2_MODELS_4_FIELDS_G_EXPLICIT_RECHECK",
+          "pass_": true,
+          "records": 4
+        }
+      ],
+      "status": "PASS"
+    },
+    "G6": {
+      "checks": [
+        {
+          "name": "ALL_SUBGATES_AND_SOURCE_RECOUNT",
+          "pass_": true
+        },
+        {
+          "name": "POST_COMMIT_REMOTE_SHA_READBACK",
+          "pass_": false,
+          "reason": "PENDING_FINAL_POST_COMMIT_REMOTE_READBACK"
+        }
+      ],
+      "status": "PENDING_REMOTE_FINAL_READBACK"
+    }
+  },
+  "all_subgate_checks": [
+    {
+      "name": "A_SOURCE_INVENTORIES_2390_1168_1111",
+      "pass_": true,
+      "counts": [
+        2390,
+        1168,
+        1111
+      ]
+    },
+    {
+      "name": "A_SOURCE_UNIQUE_PATH_SHA_4669",
+      "pass_": true,
+      "actual": 4669
+    },
+    {
+      "name": "A_PINNED_SHA_origM",
+      "pass_": true,
+      "actual": "cb5771bfe047829aa7f2ca27da7a9e44ebe05da8",
+      "expected": "cb5771bfe047829aa7f2ca27da7a9e44ebe05da8"
+    },
+    {
+      "name": "A_PINNED_SHA_origS",
+      "pass_": true,
+      "actual": "48f385ea06f5e100331cc41bbc24da082adbfb2e",
+      "expected": "48f385ea06f5e100331cc41bbc24da082adbfb2e"
+    },
+    {
+      "name": "A_PINNED_SHA_origP",
+      "pass_": true,
+      "actual": "ae7a9a35f2fc012fc205c757bc46f6553c2bbb42",
+      "expected": "ae7a9a35f2fc012fc205c757bc46f6553c2bbb42"
+    },
+    {
+      "name": "ENTRY1_QUEUE_AND_TYPE_COUNTS",
+      "pass_": true,
+      "rows": 347,
+      "types": {
+        "BLOCK_MODEL_JSON": 150,
+        "BLOCKSTATE_JSON": 12,
+        "BLOCK_TEXTURE_PNG": 185
+      },
+      "expected": {
+        "BLOCK_MODEL_JSON": 150,
+        "BLOCKSTATE_JSON": 12,
+        "BLOCK_TEXTURE_PNG": 185
+      }
+    },
+    {
+      "name": "ENTRY1_GLOBAL_INDEX_CONTINUITY",
+      "pass_": true,
+      "start": 1,
+      "end": 347
+    },
+    {
+      "name": "ENTRY2_QUEUE_AND_TYPE_COUNTS",
+      "pass_": true,
+      "rows": 775,
+      "types": {
+        "BLOCK_MODEL_JSON": 494,
+        "BLOCKSTATE_JSON": 96,
+        "BLOCK_TEXTURE_PNG": 185
+      },
+      "expected": {
+        "BLOCK_MODEL_JSON": 494,
+        "BLOCKSTATE_JSON": 96,
+        "BLOCK_TEXTURE_PNG": 185
+      }
+    },
+    {
+      "name": "ENTRY2_GLOBAL_INDEX_CONTINUITY",
+      "pass_": true,
+      "start": 348,
+      "end": 1122
+    },
+    {
+      "name": "ENTRY3_QUEUE_AND_TYPE_COUNTS",
+      "pass_": true,
+      "rows": 945,
+      "types": {
+        "BLOCK_MODEL_JSON": 495,
+        "BLOCKSTATE_JSON": 265,
+        "BLOCK_TEXTURE_PNG": 185
+      },
+      "expected": {
+        "BLOCK_MODEL_JSON": 495,
+        "BLOCKSTATE_JSON": 265,
+        "BLOCK_TEXTURE_PNG": 185
+      }
+    },
+    {
+      "name": "ENTRY3_GLOBAL_INDEX_CONTINUITY",
+      "pass_": true,
+      "start": 1123,
+      "end": 2067
+    },
+    {
+      "name": "ENTRY4_QUEUE_AND_TYPE_COUNTS",
+      "pass_": true,
+      "rows": 944,
+      "types": {
+        "BLOCK_MODEL_JSON": 494,
+        "BLOCKSTATE_JSON": 265,
+        "BLOCK_TEXTURE_PNG": 185
+      },
+      "expected": {
+        "BLOCK_MODEL_JSON": 494,
+        "BLOCKSTATE_JSON": 265,
+        "BLOCK_TEXTURE_PNG": 185
+      }
+    },
+    {
+      "name": "ENTRY4_GLOBAL_INDEX_CONTINUITY",
+      "pass_": true,
+      "start": 2068,
+      "end": 3011
+    },
+    {
+      "name": "ENTRY5_QUEUE_AND_TYPE_COUNTS",
+      "pass_": true,
+      "rows": 829,
+      "types": {
+        "BLOCK_MODEL_JSON": 379,
+        "BLOCKSTATE_JSON": 265,
+        "BLOCK_TEXTURE_PNG": 185
+      },
+      "expected": {
+        "BLOCK_MODEL_JSON": 379,
+        "BLOCKSTATE_JSON": 265,
+        "BLOCK_TEXTURE_PNG": 185
+      }
+    },
+    {
+      "name": "ENTRY5_GLOBAL_INDEX_CONTINUITY",
+      "pass_": true,
+      "start": 3012,
+      "end": 3840
+    },
+    {
+      "name": "ENTRY6_QUEUE_AND_TYPE_COUNTS",
+      "pass_": true,
+      "rows": 829,
+      "types": {
+        "BLOCK_MODEL_JSON": 378,
+        "BLOCKSTATE_JSON": 265,
+        "BLOCK_TEXTURE_PNG": 186
+      },
+      "expected": {
+        "BLOCK_MODEL_JSON": 378,
+        "BLOCKSTATE_JSON": 265,
+        "BLOCK_TEXTURE_PNG": 186
+      }
+    },
+    {
+      "name": "ENTRY6_GLOBAL_INDEX_CONTINUITY",
+      "pass_": true,
+      "start": 3841,
+      "end": 4669
+    },
+    {
+      "name": "G_QUEUE_ALL_SIX_UNIQUE_4669",
+      "pass_": true,
+      "actual": 4669
+    },
+    {
+      "name": "G_FIXED_4669_EQUAL_A_PATH_SHA",
+      "pass_": true,
+      "count": 4669,
+      "missing_or_sha_error": 0
+    },
+    {
+      "name": "G_FIXED_CSV_4669_ROWS",
+      "pass_": true,
+      "actual": 4669,
+      "columns": [
+        "C_png_used",
+        "D_direct_selected",
+        "G_entry",
+        "G_execution_status",
+        "G_global_index",
+        "asset_type",
+        "geometry_owner",
+        "git_blob_sha",
+        "priority",
+        "source_path",
+        "source_sha_current_tree_G_checked",
+        "source_v34_inventory_blob_sha",
+        "upstream_entry",
+        "upstream_phase",
+        "upstream_scope_blob_sha"
+      ]
+    },
+    {
+      "name": "G_FIXED_CSV_TYPED_PATH_SHA_EQUAL_A",
+      "pass_": true
+    },
+    {
+      "name": "G1_4669_RAW_BYTES_DIRECT_GIT_SHA",
+      "pass_": true,
+      "checked": 4669,
+      "source_sha_mismatches": 0
+    },
+    {
+      "name": "G1_MCMETA_SIDECARS_99",
+      "pass_": true,
+      "actual": 99
+    },
+    {
+      "name": "G1_C_MCMETA_97_IN_G99",
+      "pass_": true,
+      "C_with_sidecar": 97
+    },
+    {
+      "name": "G_ENTRY1_REMOTE_LEDGER_REOPENED_AND_RAW_SOURCE_MATCH",
+      "pass_": true,
+      "rows": 347,
+      "membership": true,
+      "source_rehash_matches": true,
+      "accepted": true
+    },
+    {
+      "name": "G_ENTRY2_REMOTE_LEDGER_REOPENED_AND_RAW_SOURCE_MATCH",
+      "pass_": true,
+      "rows": 775,
+      "membership": true,
+      "source_rehash_matches": true,
+      "accepted": true
+    },
+    {
+      "name": "G_ENTRY3_REMOTE_LEDGER_REOPENED_AND_RAW_SOURCE_MATCH",
+      "pass_": true,
+      "rows": 945,
+      "membership": true,
+      "source_rehash_matches": true,
+      "accepted": true
+    },
+    {
+      "name": "G_ENTRY4_REMOTE_LEDGER_REOPENED_AND_RAW_SOURCE_MATCH",
+      "pass_": true,
+      "rows": 944,
+      "membership": true,
+      "source_rehash_matches": true,
+      "accepted": true
+    },
+    {
+      "name": "G_ENTRY5_REMOTE_LEDGER_REOPENED_AND_RAW_SOURCE_MATCH",
+      "pass_": true,
+      "rows": 829,
+      "membership": true,
+      "source_rehash_matches": true,
+      "accepted": true
+    },
+    {
+      "name": "G_ENTRY6_REMOTE_LEDGER_REOPENED_AND_RAW_SOURCE_MATCH",
+      "pass_": true,
+      "rows": 829,
+      "membership": true,
+      "source_rehash_matches": true,
+      "accepted": true
+    },
+    {
+      "name": "PRIOR_B_SCOPE_PATH_SHA",
+      "pass_": true,
+      "rows": 2390
+    },
+    {
+      "name": "PRIOR_C_SCOPE_PATH_SHA",
+      "pass_": true,
+      "rows": 2390
+    },
+    {
+      "name": "PRIOR_F_SCOPE_PATH_SHA",
+      "pass_": true,
+      "rows": 2390
+    },
+    {
+      "name": "PRIOR_E_SCOPE_PATH_SHA",
+      "pass_": true,
+      "rows": 86
+    },
+    {
+      "name": "PRIOR_D_SCOPE_PATH_SHA",
+      "pass_": true,
+      "rows": 1168
+    },
+    {
+      "name": "G2_C_GENERAL_2304_E86",
+      "pass_": true,
+      "prior_C_general": 2304,
+      "prior_E": 86
+    },
+    {
+      "name": "G2_G_DIRECT_ELEMENTS_5689",
+      "pass_": true,
+      "actual": 5689
+    },
+    {
+      "name": "G2_G_FACE_23090_C_FACE_23090",
+      "pass_": true,
+      "G_face": 23090,
+      "C_face": 23090
+    },
+    {
+      "name": "G2_C_UV_EXPLICIT_18808_IMPLICIT_4282",
+      "pass_": true,
+      "C_explicit": 18808,
+      "C_implicit": 4282,
+      "G_explicit": 18808
+    },
+    {
+      "name": "G2_C_PNGBOUND_21590_TEMPLATE_1500",
+      "pass_": true,
+      "C_bound": 21590,
+      "C_unbound": 1500
+    },
+    {
+      "name": "G2_HEAVY_CORE_CORRECTED_FACE_6",
+      "pass_": true
+    },
+    {
+      "name": "G2_E_EXCEPTION_BY_ENTRIES_86",
+      "pass_": true,
+      "by_entry": [
+        8,
+        47,
+        0,
+        0,
+        24,
+        7
+      ]
+    },
+    {
+      "name": "G3_D1168_AND_G_RULES7592",
+      "pass_": true
+    },
+    {
+      "name": "G3_D_SYNTAX_9193_APPLICATIONS_19440",
+      "pass_": true,
+      "syntax": 9193,
+      "applications": 19440
+    },
+    {
+      "name": "G3_D_DIRECT2136_NON254_E84_NON2",
+      "pass_": true,
+      "D_direct": 2136,
+      "D_not_direct": 254,
+      "E_D_selected": 84
+    },
+    {
+      "name": "G4_C_PNG_1073_NEW38",
+      "pass_": true,
+      "C": 1073,
+      "prior_link": 1073,
+      "new_G": 38
+    },
+    {
+      "name": "G4_SIDECAR99_C97",
+      "pass_": true
+    },
+    {
+      "name": "G4_F_FIRSTFRAME332_CONTACT8",
+      "pass_": true,
+      "F3_PNG": 332,
+      "contacts": 8,
+      "source_path_SHA_RGBA": true,
+      "contact_SHA_match": true
+    },
+    {
+      "name": "G4_F_MODELS340_UNBOUND38_ANIM16",
+      "pass_": true,
+      "linked_models": 340,
+      "unbound_models": 38,
+      "animated_frame_only": 16
+    },
+    {
+      "name": "G5_INCOMPATIBLE_DENOMINATORS_DISTINCT",
+      "pass_": true
+    },
+    {
+      "name": "G5_PROTECTED_PIN_SHA_F",
+      "pass_": true,
+      "actual": "1c8c3e094fb18e570ac25eb28376eac3837133b4",
+      "expected": "1c8c3e094fb18e570ac25eb28376eac3837133b4"
+    },
+    {
+      "name": "G5_PROTECTED_PIN_SHA_D",
+      "pass_": true,
+      "actual": "a9e25893465810bf1386dddf4cf7a4f755b28fa1",
+      "expected": "a9e25893465810bf1386dddf4cf7a4f755b28fa1"
+    },
+    {
+      "name": "G5_PROTECTED_PIN_SHA_E",
+      "pass_": true,
+      "actual": "6e6c5c7e92de8a7006f125697573e9202b50a75e",
+      "expected": "6e6c5c7e92de8a7006f125697573e9202b50a75e"
+    },
+    {
+      "name": "G5_PROTECTED_PIN_SHA_Cpng",
+      "pass_": true,
+      "actual": "9574557e9858db5677a002c0a8991150c043a2fa",
+      "expected": "9574557e9858db5677a002c0a8991150c043a2fa"
+    },
+    {
+      "name": "G5_F_V69_BASELINE_PRIOR150_TOP1",
+      "pass_": true
+    },
+    {
+      "name": "G5_F_PARENT_MISSING_SHA_2_MODELS_4_FIELDS_G_EXPLICIT_RECHECK",
+      "pass_": true,
+      "records": 4
+    }
+  ],
+  "source_stage_errors": [],
+  "source_scope_pass": true,
+  "exit_status": "G1_G5_SOURCE_PASS_G6_REMOTE_PENDING",
+  "G6_remote_gate_pending": true,
+  "global_final_G_complete": false,
+  "whole_stage_1_2_complete": false,
+  "outside_scope": [
+    "Official JAR authenticity",
+    "game runtime state and E renderer",
+    "full animation playback",
+    "PZ furniture identity",
+    "Minecraft map/world generation"
+  ]
+}
