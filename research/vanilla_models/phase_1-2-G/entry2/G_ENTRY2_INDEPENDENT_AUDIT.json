@@ -1,0 +1,83 @@
+{
+  "schema": "G_ENTRY2_INDEPENDENT_CROSSSTAGE_AUDIT/v1",
+  "date": "2026-11-17",
+  "source_baseline_main": "ae1448906d4cb6f2aff4bdc43fbdc808024fd6bb",
+  "population_counts": {
+    "source_records": 775,
+    "models": 494,
+    "blockstates": 96,
+    "PNG": 185,
+    "original_source_sha_all_pass": 775,
+    "parent_auxiliary_original_verified": 16,
+    "models_E": 47,
+    "models_C_general": 447,
+    "model_elements": 1944,
+    "model_faces": 7131,
+    "explicit_uv": 5986,
+    "implicit_uv": 1145,
+    "bound_faces": 6884,
+    "unbound_faces": 247,
+    "D_source_options": 809,
+    "D_reference_distinct_models": 211,
+    "PNG_C_prior_verified": 171,
+    "PNG_C_RGBA_independent_matches": 171,
+    "PNG_outside_C": 14,
+    "PNG_raw_byte_sum": 39276,
+    "errors": 0
+  },
+  "source_G_batch_sha": [
+    {
+      "path": "research/vanilla_models/phase_1-2-G/entry2/rollup/G_ENTRY2_RECHECK_PART_00.json",
+      "sha": "3d64719deffbbab061e480305106a7aa92458fc4"
+    },
+    {
+      "path": "research/vanilla_models/phase_1-2-G/entry2/rollup/G_ENTRY2_RECHECK_PART_01.json",
+      "sha": "9ad49d424a441915ca9609c8d8738be9f2b2557b"
+    },
+    {
+      "path": "research/vanilla_models/phase_1-2-G/entry2/rollup/G_ENTRY2_RECHECK_PART_02.json",
+      "sha": "1b8aa2fd436e15bd68f8f9214b9a9e97c70cedcf"
+    },
+    {
+      "path": "research/vanilla_models/phase_1-2-G/entry2/rollup/G_ENTRY2_RECHECK_PART_03.json",
+      "sha": "fc1bd14be67429e5ea4c2d54514cf186c8659e2f"
+    }
+  ],
+  "auxiliary_original_parent_SHA": [
+    {
+      "path": "research/vanilla_models/phase_1-2-G/entry2/parents/G_ENTRY2_PARENT_AUX_BATCH_00.json",
+      "sha": "0d0d62b7214bc68102385371e196932172685cad"
+    },
+    {
+      "path": "research/vanilla_models/phase_1-2-G/entry2/parents/G_ENTRY2_PARENT_AUX_BATCH_01.json",
+      "sha": "a080fa66d4bc7061b77fbd2130363313245bdc10"
+    }
+  ],
+  "prior_F_C_D_source_sha": {
+    "research/vanilla_models/phase_1-2-F/entry2/F_MODEL_SOURCE_STATUS.csv": "3e8d4500a29d3bef7c8707a0b2177010c62aed0a",
+    "research/vanilla_models/phase_1-2-F/entry2/F_GEOMETRY_FEATURES.csv": "21ccc7880d7f6802cfe2f838ff073025504e183f",
+    "research/vanilla_models/phase_1-2-C/entry5/C_SCOPE_2390_FINAL_STATUS.csv": "0950bae4293eaaf455f91073981c30bc7e563b05",
+    "research/vanilla_models/phase_1-2-D/entry2/D_SOURCE_RULES.csv": "7cb1917de705ae66753f9cf718eb0ac0ed6fb9aa",
+    "research/vanilla_models/phase_1-2-D/entry2/D_MODEL_BC_CROSSWALK.csv": "69e6cb7aa7237b49fc9a972f81830ef7103e8a6d"
+  },
+  "independent_errors": [],
+  "D_reference_errors": [],
+  "mcmeta_SHA_matched": 11,
+  "mcmeta_count": 11,
+  "mcmeta_animated": 6,
+  "entry2_direct_source_all_775": true,
+  "model_parent_geometry_face_UV_match": true,
+  "D_prior_target_paths_known": true,
+  "PNG_C_metadata_match": true,
+  "entry2_full_acceptance": "PENDING_REMOTE_READBACK_OF_ALL_LEDGER_FILES_AND_FINAL_GATE",
+  "G_global_exit_gates_passed": 0,
+  "source_1_2_complete": false,
+  "limitations": [
+    "C-outside 14 PNG are new G pixel SHA only, not C retroactive.",
+    "E special 47 models have no general elements; runtime renderer untested.",
+    "Template unbound face references 247 are not invented concrete PNGs.",
+    "F visual first frame is earlier evidence; G pixel hashes are not manual style classification.",
+    "D model reference paths (211 unique) linked to prior D/C SHA; outside G Entry2 target models not credited as G re-opened.",
+    "Official JAR, registered state space, runtime animation and engine renderer out of scope."
+  ]
+}
