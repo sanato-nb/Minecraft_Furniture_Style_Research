@@ -1,0 +1,1690 @@
+{
+  "schema": "G_ENTRY2_ORIGINAL_SOURCE_BATCH/v1",
+  "source_main_baseline": "ae1448906d4cb6f2aff4bdc43fbdc808024fd6bb",
+  "G_entry": "ENTRY2",
+  "G_fixed_scope": 775,
+  "offset": 84,
+  "expected": 14,
+  "success": 14,
+  "SHA_reopened": 14,
+  "model_inherited_geometry_pending": 11,
+  "external_C_RGBA_matches": 0,
+  "C_outside_reopened": 0,
+  "source_prior_reference_blob_sha": "c94bd064aa6789bcb2e6ed9db5988d92e5d35d2d",
+  "records": [
+    {
+      "index": 432,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/cake.json",
+      "expected_git_sha": "1bc93473e966b9a3f1110c8ef9fabd4a5a84147b",
+      "connector_git_sha": "1bc93473e966b9a3f1110c8ef9fabd4a5a84147b",
+      "git_sha_computed": "1bc93473e966b9a3f1110c8ef9fabd4a5a84147b",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "block/cake_side",
+          "bottom": "block/cake_bottom",
+          "top": "block/cake_top",
+          "side": "block/cake_side"
+        },
+        "elements": [
+          {
+            "from": [
+              1,
+              0,
+              1
+            ],
+            "to": [
+              15,
+              8,
+              15
+            ],
+            "faces": {
+              "down": {
+                "texture": "#bottom",
+                "cullface": "down"
+              },
+              "up": {
+                "texture": "#top"
+              },
+              "north": {
+                "texture": "#side"
+              },
+              "south": {
+                "texture": "#side"
+              },
+              "west": {
+                "texture": "#side"
+              },
+              "east": {
+                "texture": "#side"
+              }
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": true,
+        "own_element_count": 1,
+        "own_face_count": 6,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 6,
+        "own_texture_keys": [
+          "particle",
+          "bottom",
+          "top",
+          "side"
+        ],
+        "own_texture_defs": {
+          "particle": "block/cake_side",
+          "bottom": "block/cake_bottom",
+          "top": "block/cake_top",
+          "side": "block/cake_side"
+        },
+        "texture_slot_refs": [
+          {
+            "element_index": 0,
+            "direction": "down",
+            "texture": "#bottom",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 0,
+            "direction": "up",
+            "texture": "#top",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "north",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "south",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "west",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "east",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          }
+        ],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/cake.json",
+        "E_exception": false,
+        "comparison_scope": "SELF_OWNED_GEOMETRY",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 433,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/campfire_off.json",
+      "expected_git_sha": "9dc54761d23f76f5fa2c4e67ed1c53156492d7ec",
+      "connector_git_sha": "9dc54761d23f76f5fa2c4e67ed1c53156492d7ec",
+      "git_sha_computed": "9dc54761d23f76f5fa2c4e67ed1c53156492d7ec",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "block/block",
+        "display": {
+          "head": {
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "translation": [
+              0,
+              10.5,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "textures": {
+          "particle": "block/campfire_log",
+          "log": "block/campfire_log"
+        },
+        "elements": [
+          {
+            "from": [
+              1,
+              0,
+              0
+            ],
+            "to": [
+              5,
+              4,
+              16
+            ],
+            "faces": {
+              "north": {
+                "uv": [
+                  0,
+                  4,
+                  4,
+                  8
+                ],
+                "texture": "#log",
+                "cullface": "north"
+              },
+              "east": {
+                "uv": [
+                  0,
+                  1,
+                  16,
+                  5
+                ],
+                "texture": "#log"
+              },
+              "south": {
+                "uv": [
+                  0,
+                  4,
+                  4,
+                  8
+                ],
+                "texture": "#log",
+                "cullface": "south"
+              },
+              "west": {
+                "uv": [
+                  16,
+                  0,
+                  0,
+                  4
+                ],
+                "texture": "#log"
+              },
+              "up": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  4
+                ],
+                "rotation": 90,
+                "texture": "#log"
+              },
+              "down": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  4
+                ],
+                "rotation": 90,
+                "texture": "#log",
+                "cullface": "down"
+              }
+            }
+          },
+          {
+            "from": [
+              0,
+              3,
+              11
+            ],
+            "to": [
+              16,
+              7,
+              15
+            ],
+            "faces": {
+              "north": {
+                "uv": [
+                  16,
+                  0,
+                  0,
+                  4
+                ],
+                "texture": "#log"
+              },
+              "east": {
+                "uv": [
+                  0,
+                  4,
+                  4,
+                  8
+                ],
+                "texture": "#log",
+                "cullface": "east"
+              },
+              "south": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  4
+                ],
+                "texture": "#log"
+              },
+              "west": {
+                "uv": [
+                  0,
+                  4,
+                  4,
+                  8
+                ],
+                "texture": "#log",
+                "cullface": "west"
+              },
+              "up": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  4
+                ],
+                "rotation": 180,
+                "texture": "#log"
+              },
+              "down": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  4
+                ],
+                "texture": "#log"
+              }
+            }
+          },
+          {
+            "from": [
+              11,
+              0,
+              0
+            ],
+            "to": [
+              15,
+              4,
+              16
+            ],
+            "faces": {
+              "north": {
+                "uv": [
+                  0,
+                  4,
+                  4,
+                  8
+                ],
+                "texture": "#log",
+                "cullface": "north"
+              },
+              "east": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  4
+                ],
+                "texture": "#log"
+              },
+              "south": {
+                "uv": [
+                  0,
+                  4,
+                  4,
+                  8
+                ],
+                "texture": "#log",
+                "cullface": "south"
+              },
+              "west": {
+                "uv": [
+                  16,
+                  1,
+                  0,
+                  5
+                ],
+                "texture": "#log"
+              },
+              "up": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  4
+                ],
+                "rotation": 90,
+                "texture": "#log"
+              },
+              "down": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  4
+                ],
+                "rotation": 90,
+                "texture": "#log",
+                "cullface": "down"
+              }
+            }
+          },
+          {
+            "from": [
+              0,
+              3,
+              1
+            ],
+            "to": [
+              16,
+              7,
+              5
+            ],
+            "faces": {
+              "north": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  4
+                ],
+                "texture": "#log"
+              },
+              "east": {
+                "uv": [
+                  0,
+                  4,
+                  4,
+                  8
+                ],
+                "texture": "#log",
+                "cullface": "east"
+              },
+              "south": {
+                "uv": [
+                  16,
+                  0,
+                  0,
+                  4
+                ],
+                "texture": "#log"
+              },
+              "west": {
+                "uv": [
+                  0,
+                  4,
+                  4,
+                  8
+                ],
+                "texture": "#log",
+                "cullface": "west"
+              },
+              "up": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  4
+                ],
+                "rotation": 180,
+                "texture": "#log"
+              },
+              "down": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  4
+                ],
+                "texture": "#log"
+              }
+            }
+          },
+          {
+            "from": [
+              5,
+              0,
+              0
+            ],
+            "to": [
+              11,
+              1,
+              16
+            ],
+            "faces": {
+              "north": {
+                "uv": [
+                  0,
+                  15,
+                  6,
+                  16
+                ],
+                "texture": "#log",
+                "cullface": "north"
+              },
+              "south": {
+                "uv": [
+                  10,
+                  15,
+                  16,
+                  16
+                ],
+                "texture": "#log",
+                "cullface": "south"
+              },
+              "up": {
+                "uv": [
+                  0,
+                  8,
+                  16,
+                  14
+                ],
+                "rotation": 90,
+                "texture": "#log"
+              },
+              "down": {
+                "uv": [
+                  0,
+                  8,
+                  16,
+                  14
+                ],
+                "rotation": 90,
+                "texture": "#log",
+                "cullface": "down"
+              }
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "parent": "block/block",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/block.json",
+        "parent_match": true,
+        "own_elements_key_explicit": true,
+        "own_element_count": 5,
+        "own_face_count": 28,
+        "own_uv_explicit": 28,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle",
+          "log"
+        ],
+        "own_texture_defs": {
+          "particle": "block/campfire_log",
+          "log": "block/campfire_log"
+        },
+        "texture_slot_refs": [
+          {
+            "element_index": 0,
+            "direction": "north",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              4,
+              4,
+              8
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 0,
+            "direction": "east",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              1,
+              16,
+              5
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "south",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              4,
+              4,
+              8
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 0,
+            "direction": "west",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              16,
+              0,
+              0,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "up",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "down",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 1,
+            "direction": "north",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              16,
+              0,
+              0,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "east",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              4,
+              4,
+              8
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 1,
+            "direction": "south",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "west",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              4,
+              4,
+              8
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 1,
+            "direction": "up",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "down",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 2,
+            "direction": "north",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              4,
+              4,
+              8
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 2,
+            "direction": "east",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 2,
+            "direction": "south",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              4,
+              4,
+              8
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 2,
+            "direction": "west",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              16,
+              1,
+              0,
+              5
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 2,
+            "direction": "up",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 2,
+            "direction": "down",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 3,
+            "direction": "north",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 3,
+            "direction": "east",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              4,
+              4,
+              8
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 3,
+            "direction": "south",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              16,
+              0,
+              0,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 3,
+            "direction": "west",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              4,
+              4,
+              8
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 3,
+            "direction": "up",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 3,
+            "direction": "down",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              4
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 4,
+            "direction": "north",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              15,
+              6,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 4,
+            "direction": "south",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              10,
+              15,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 4,
+            "direction": "up",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              8,
+              16,
+              14
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 4,
+            "direction": "down",
+            "texture": "#log",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              8,
+              16,
+              14
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          }
+        ],
+        "own_display_parts": [
+          "head"
+        ],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/campfire_off.json",
+        "E_exception": false,
+        "comparison_scope": "SELF_OWNED_GEOMETRY",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 434,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/campfire.json",
+      "expected_git_sha": "ff5db784e493bc6d4c52e5ee5c07340cb945657b",
+      "connector_git_sha": "ff5db784e493bc6d4c52e5ee5c07340cb945657b",
+      "git_sha_computed": "ff5db784e493bc6d4c52e5ee5c07340cb945657b",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_campfire",
+        "textures": {
+          "fire": "minecraft:block/campfire_fire",
+          "lit_log": "minecraft:block/campfire_log_lit"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_campfire",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_campfire.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "fire",
+          "lit_log"
+        ],
+        "own_texture_defs": {
+          "fire": "minecraft:block/campfire_fire",
+          "lit_log": "minecraft:block/campfire_log_lit"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_campfire.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 435,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/candle_cake_lit.json",
+      "expected_git_sha": "a0c9800867567e21f97bc7e3f565a4dd9550644a",
+      "connector_git_sha": "a0c9800867567e21f97bc7e3f565a4dd9550644a",
+      "git_sha_computed": "a0c9800867567e21f97bc7e3f565a4dd9550644a",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "textures": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/candle_lit",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "bottom",
+          "candle",
+          "particle",
+          "side",
+          "top"
+        ],
+        "own_texture_defs": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/candle_lit",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 436,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/candle_cake.json",
+      "expected_git_sha": "56b23bf19ebb2f900441beb8b63db3ff8d7aceed",
+      "connector_git_sha": "56b23bf19ebb2f900441beb8b63db3ff8d7aceed",
+      "git_sha_computed": "56b23bf19ebb2f900441beb8b63db3ff8d7aceed",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "textures": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/candle",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_cake_with_candle",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "bottom",
+          "candle",
+          "particle",
+          "side",
+          "top"
+        ],
+        "own_texture_defs": {
+          "bottom": "minecraft:block/cake_bottom",
+          "candle": "minecraft:block/candle",
+          "particle": "minecraft:block/cake_side",
+          "side": "minecraft:block/cake_side",
+          "top": "minecraft:block/cake_top"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_cake_with_candle.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 437,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/candle_four_candles_lit.json",
+      "expected_git_sha": "00070da2fc060c946538074b742638fa36bbf835",
+      "connector_git_sha": "00070da2fc060c946538074b742638fa36bbf835",
+      "git_sha_computed": "00070da2fc060c946538074b742638fa36bbf835",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_four_candles",
+        "textures": {
+          "all": "minecraft:block/candle_lit",
+          "particle": "minecraft:block/candle_lit"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_four_candles",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_four_candles.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/candle_lit",
+          "particle": "minecraft:block/candle_lit"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_four_candles.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 438,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/candle_four_candles.json",
+      "expected_git_sha": "90eb7a43379bb8b7e9a3e2185af877cbf78f63f9",
+      "connector_git_sha": "90eb7a43379bb8b7e9a3e2185af877cbf78f63f9",
+      "git_sha_computed": "90eb7a43379bb8b7e9a3e2185af877cbf78f63f9",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_four_candles",
+        "textures": {
+          "all": "minecraft:block/candle",
+          "particle": "minecraft:block/candle"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_four_candles",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_four_candles.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/candle",
+          "particle": "minecraft:block/candle"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_four_candles.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 439,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/candle_one_candle_lit.json",
+      "expected_git_sha": "c66fbdad23f1907b9d2a9c8707c159d80d5d784a",
+      "connector_git_sha": "c66fbdad23f1907b9d2a9c8707c159d80d5d784a",
+      "git_sha_computed": "c66fbdad23f1907b9d2a9c8707c159d80d5d784a",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_candle",
+        "textures": {
+          "all": "minecraft:block/candle_lit",
+          "particle": "minecraft:block/candle_lit"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_candle",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_candle.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/candle_lit",
+          "particle": "minecraft:block/candle_lit"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_candle.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 440,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/candle_one_candle.json",
+      "expected_git_sha": "36c9b76727bd97776e1777db2860d54590a24a80",
+      "connector_git_sha": "36c9b76727bd97776e1777db2860d54590a24a80",
+      "git_sha_computed": "36c9b76727bd97776e1777db2860d54590a24a80",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_candle",
+        "textures": {
+          "all": "minecraft:block/candle",
+          "particle": "minecraft:block/candle"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_candle",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_candle.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/candle",
+          "particle": "minecraft:block/candle"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_candle.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 441,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/candle_three_candles_lit.json",
+      "expected_git_sha": "e706c7bd63bc60d396ff2820f8c84d415b134a22",
+      "connector_git_sha": "e706c7bd63bc60d396ff2820f8c84d415b134a22",
+      "git_sha_computed": "e706c7bd63bc60d396ff2820f8c84d415b134a22",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_three_candles",
+        "textures": {
+          "all": "minecraft:block/candle_lit",
+          "particle": "minecraft:block/candle_lit"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_three_candles",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_three_candles.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/candle_lit",
+          "particle": "minecraft:block/candle_lit"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_three_candles.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 442,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/candle_two_candles_lit.json",
+      "expected_git_sha": "5c3618b176041f72f8250147337ec961b9136836",
+      "connector_git_sha": "5c3618b176041f72f8250147337ec961b9136836",
+      "git_sha_computed": "5c3618b176041f72f8250147337ec961b9136836",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_two_candles",
+        "textures": {
+          "all": "minecraft:block/candle_lit",
+          "particle": "minecraft:block/candle_lit"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_two_candles",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_two_candles.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/candle_lit",
+          "particle": "minecraft:block/candle_lit"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_two_candles.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 443,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/candle_two_candles.json",
+      "expected_git_sha": "cda5223f64eaecd39b3e140519ed402bf2180bf1",
+      "connector_git_sha": "cda5223f64eaecd39b3e140519ed402bf2180bf1",
+      "git_sha_computed": "cda5223f64eaecd39b3e140519ed402bf2180bf1",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_two_candles",
+        "textures": {
+          "all": "minecraft:block/candle",
+          "particle": "minecraft:block/candle"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_two_candles",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_two_candles.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/candle",
+          "particle": "minecraft:block/candle"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_two_candles.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 444,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/carpet.json",
+      "expected_git_sha": "b52a11054868ad6f3da431c9cf0c314d333492ba",
+      "connector_git_sha": "b52a11054868ad6f3da431c9cf0c314d333492ba",
+      "git_sha_computed": "b52a11054868ad6f3da431c9cf0c314d333492ba",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "block/thin_block",
+        "textures": {
+          "particle": "#wool"
+        },
+        "elements": [
+          {
+            "from": [
+              0,
+              0,
+              0
+            ],
+            "to": [
+              16,
+              1,
+              16
+            ],
+            "faces": {
+              "down": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#wool",
+                "cullface": "down"
+              },
+              "up": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#wool"
+              },
+              "north": {
+                "uv": [
+                  0,
+                  15,
+                  16,
+                  16
+                ],
+                "texture": "#wool",
+                "cullface": "north"
+              },
+              "south": {
+                "uv": [
+                  0,
+                  15,
+                  16,
+                  16
+                ],
+                "texture": "#wool",
+                "cullface": "south"
+              },
+              "west": {
+                "uv": [
+                  0,
+                  15,
+                  16,
+                  16
+                ],
+                "texture": "#wool",
+                "cullface": "west"
+              },
+              "east": {
+                "uv": [
+                  0,
+                  15,
+                  16,
+                  16
+                ],
+                "texture": "#wool",
+                "cullface": "east"
+              }
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "parent": "block/thin_block",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/thin_block.json",
+        "parent_match": true,
+        "own_elements_key_explicit": true,
+        "own_element_count": 1,
+        "own_face_count": 6,
+        "own_uv_explicit": 6,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle"
+        ],
+        "own_texture_defs": {
+          "particle": "#wool"
+        },
+        "texture_slot_refs": [
+          {
+            "element_index": 0,
+            "direction": "down",
+            "texture": "#wool",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 0,
+            "direction": "up",
+            "texture": "#wool",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "north",
+            "texture": "#wool",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              15,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 0,
+            "direction": "south",
+            "texture": "#wool",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              15,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 0,
+            "direction": "west",
+            "texture": "#wool",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              15,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 0,
+            "direction": "east",
+            "texture": "#wool",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              15,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          }
+        ],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/carpet.json",
+        "E_exception": false,
+        "comparison_scope": "SELF_OWNED_GEOMETRY",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 445,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/cartography_table.json",
+      "expected_git_sha": "770c10613ce3b580800df5bf9edd14063dd58342",
+      "connector_git_sha": "770c10613ce3b580800df5bf9edd14063dd58342",
+      "git_sha_computed": "770c10613ce3b580800df5bf9edd14063dd58342",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/cube",
+        "textures": {
+          "down": "minecraft:block/dark_oak_planks",
+          "east": "minecraft:block/cartography_table_side3",
+          "north": "minecraft:block/cartography_table_side3",
+          "particle": "minecraft:block/cartography_table_side3",
+          "south": "minecraft:block/cartography_table_side1",
+          "up": "minecraft:block/cartography_table_top",
+          "west": "minecraft:block/cartography_table_side2"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/cube",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/cube.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "down",
+          "east",
+          "north",
+          "particle",
+          "south",
+          "up",
+          "west"
+        ],
+        "own_texture_defs": {
+          "down": "minecraft:block/dark_oak_planks",
+          "east": "minecraft:block/cartography_table_side3",
+          "north": "minecraft:block/cartography_table_side3",
+          "particle": "minecraft:block/cartography_table_side3",
+          "south": "minecraft:block/cartography_table_side1",
+          "up": "minecraft:block/cartography_table_top",
+          "west": "minecraft:block/cartography_table_side2"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/cube.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    }
+  ]
+}
