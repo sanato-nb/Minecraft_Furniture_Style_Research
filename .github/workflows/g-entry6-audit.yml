@@ -1,4 +1,5 @@
 name: G Entry6 source cross-stage audit
+# Entry6 F cube_mirrored source SHA G-only provenance correction, full rerun.
 # 2026-11-17: C canonical prior entry5 path fix, recheck all 829.
 on:
   push:
@@ -42,6 +43,7 @@ jobs:
           git add research/vanilla_models/phase_1-2-G/entry6/G_ENTRY6_PNG_BINARY_AUDIT.csv
           git add research/vanilla_models/phase_1-2-G/entry6/G_ENTRY6_ORIGINAL_FACES_*.csv
           git add research/vanilla_models/phase_1-2-G/entry6/G_ENTRY6_INDEPENDENT_RECOUNT.json
+          git add research/vanilla_models/phase_1-2-G/entry6/G_ENTRY6_PROVENANCE_GAPS.json
           git add research/vanilla_models/phase_1-2-G/entry6/G_ENTRY6_REPORT.md
           if ! git diff --cached --quiet; then
             git commit -m "1-2-G Entry6: 원본 829개 전체 독립 검증 증거 저장"
