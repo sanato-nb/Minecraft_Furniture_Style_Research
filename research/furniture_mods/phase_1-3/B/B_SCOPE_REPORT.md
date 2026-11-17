@@ -32,3 +32,7 @@
 - 저작권: 원저자 원본 JSON/PNG/JAR는 저장소에 복제하지 않고 분석 메타데이터만 게시.
 
 산출물: `SOURCE_REGISTRY.csv`, `FIXED_SCOPE.csv`, `ENTRY_QUEUE.csv`, `B_MODEL_INVENTORY_*.csv`, `B_BLOCKSTATE_INVENTORY.csv`, `B_JAVA_KOTLIN_SOURCE_INDEX.csv`, `B_SCOPE_AUDIT.json`.
+
+## 후속 원격 readback (2026-11-18)
+
+커밋 `cb82ca46cf740e91d6aa022a687bee513bee4eea`에서 산출물 17개를 원격 재열람하고 Git blob SHA-1을 독립 계산한 결과 **17/17 PASS**, 총 파일 4,069,949 byte, 전체 인벤토리 행수 일치, 보호 연구 파일 변경 0. 근거: `B_REMOTE_READBACK.json` (다음 커밋 `c28f832430f3eb349d8d35213a0887a39e3d41e0`).

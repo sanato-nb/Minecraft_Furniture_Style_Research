@@ -1,3 +1,10 @@
+## 2026-11-18 — 1-3-B 공식 소스 Git tree census 실작업 (부분 완료)
+
+- 이전 1-3-A **7/7 완료** 유지. 다음 B에서 공식 제작자 소스 두 곳을 핀 고정: Another Furniture 4.0.3 / MC1.21.1, 모델 JSON 1,629, blockstate 177; Handcrafted 4.0.3 / MC1.21.1, 모델 JSON 12,394, blockstate 267.
+- B 총 모델 JSON 14,023 경로(중복 경로 0), 상태 444, Java/Kotlin 175. 109개 회차 배정. `research/furniture_mods/phase_1-3/B/`에 SHA·경로·크기 증거 파일 17개 + 원격 readback 1개 저장; **17/17 원격 SHA 재계산 PASS**, 이전 연구 원본 변경 0.
+- **B 전체 완료 아님.** Macaw's Furniture 공식 JAR 원본 바이트 미확보(후보 3.4.2, MC1.21.11), Another 155 blockstate 추가 본문 미검증, 두 모드 모델 본문/parent·상태 모델 참조 전수 의미 분석 미실시. 파일 트리 인덱스만 고정. 전 3모드 총분모 및 상위 M1~M6 승인 0/6.
+- 원저자 리소스/모델 JSON은 재배포 제한(Another 리소스 ARR, Handcrafted 비코드 ARR)이므로 원본 재게시 금지. 자세한 작업 범위·다음 작업: `research/furniture_mods/phase_1-3/B/B_SCOPE_REPORT.md`, `B_NEXT.md`.
+
 > **2026-11-18 · 1-3-A 실제 선행 연구 재정합 감사 종료 PASS(A0~A6 7/7)** — 원저자 JSON Another leaf 204/204, 부모 원형69/69 직접 재해시·원장 SHA/부모/기하 일치. 의자39는 204 부분집합, 상속390요소/1,794면. blockstate 선행22·Handcrafted 이전 범위 구분, Macaw 과거 원본 미확보/B 담당. 증거19파일·상태원장15파일 원격 SHA1·행수·본문 재검산 PASS; v11~v24·vanilla·1-1/1-2 보호 자료 변경0. **A 전체만 종료, 1-3 M1~M6 0/6**, B 원본 고정 모집단 미결정. [A 보고](research/furniture_mods/phase_1-3/A/A_REPORT.md) · [A 독립 감사](research/furniture_mods/phase_1-3/A/A_INDEPENDENT_AUDIT.json) · [다음 B 인계](research/furniture_mods/phase_1-3/A/A_NEXT.md).
 
 > **2026-11-17 · 1-3-A(선행 v11~v24 자료 재정합) 세부계획 확정, 감사 미착수** — [A 상세 계획](docs/furniture_mods_1-3/1-3-A_DETAILED_EXECUTION_PLAN.md) · [A0~A6 검수 계약](docs/furniture_mods_1-3/1-3-A_ACCEPTANCE_CONTRACT.json). A-00 전체 v11~v24 Git tree 인벤토리, A-01 Another 기존 leaf 33+38+43+51+39=204 원본 경로/SHA·중복 대조, A-02 선행 blockstate 12+10=22/과거 트리177, A-03 원형69/의자39 및 상속 390요소·1,794면, A-04 Handcrafted authored120/generated16·PNG24/면784와 Macaw 이전 차단 등급 분리, A-05 미결정, A-06 독립·원격 SHA·행수·본문 재조회. **A0~A6 승인 0/7, 1-3 전체 M1~M6 0/6, 1-3-A 신규 원본 재해시 0, 1-3-B 공식 전체 분모 미고정**. 계획 수립은 1-3-A 수행이나 이전 모델의 새 검증을 뜻하지 않음. 기존 v11~v24·1-1/1-2 원본 불변, 1-2-G PASS 유지, 1-2 상위 종료 별도 심사.
