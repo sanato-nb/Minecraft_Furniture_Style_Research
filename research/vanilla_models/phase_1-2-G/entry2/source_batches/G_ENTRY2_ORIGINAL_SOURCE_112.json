@@ -1,0 +1,1037 @@
+{
+  "schema": "G_ENTRY2_ORIGINAL_SOURCE_BATCH/v1",
+  "source_main_baseline": "ae1448906d4cb6f2aff4bdc43fbdc808024fd6bb",
+  "G_entry": "ENTRY2",
+  "G_fixed_scope": 775,
+  "offset": 112,
+  "expected": 14,
+  "success": 14,
+  "SHA_reopened": 14,
+  "model_inherited_geometry_pending": 8,
+  "external_C_RGBA_matches": 0,
+  "C_outside_reopened": 0,
+  "source_prior_reference_blob_sha": "9a2d35a3c81a8f6abe3b4491c50130758c9f18c0",
+  "records": [
+    {
+      "index": 460,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf_empty_slot_top_left.json",
+      "expected_git_sha": "2b9817062fbc51325526c1fd4b72cd8aadb06a30",
+      "connector_git_sha": "2b9817062fbc51325526c1fd4b72cd8aadb06a30",
+      "git_sha_computed": "2b9817062fbc51325526c1fd4b72cd8aadb06a30",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_top_left",
+        "textures": {
+          "texture": "minecraft:block/chiseled_bookshelf_empty"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_top_left",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_left.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "texture"
+        ],
+        "own_texture_defs": {
+          "texture": "minecraft:block/chiseled_bookshelf_empty"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_left.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 461,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf_empty_slot_top_mid.json",
+      "expected_git_sha": "19f44bc16e3f638acc0c79990bd80b4d3a0e8204",
+      "connector_git_sha": "19f44bc16e3f638acc0c79990bd80b4d3a0e8204",
+      "git_sha_computed": "19f44bc16e3f638acc0c79990bd80b4d3a0e8204",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_top_mid",
+        "textures": {
+          "texture": "minecraft:block/chiseled_bookshelf_empty"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_top_mid",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_mid.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "texture"
+        ],
+        "own_texture_defs": {
+          "texture": "minecraft:block/chiseled_bookshelf_empty"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_mid.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 462,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf_inventory.json",
+      "expected_git_sha": "81cf4e91060bf409970a51955bd57acc2a08184f",
+      "connector_git_sha": "81cf4e91060bf409970a51955bd57acc2a08184f",
+      "git_sha_computed": "81cf4e91060bf409970a51955bd57acc2a08184f",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "block/block",
+        "textures": {
+          "top": "block/chiseled_bookshelf_top",
+          "side": "block/chiseled_bookshelf_side",
+          "front": "block/chiseled_bookshelf_empty",
+          "particle": "#top"
+        },
+        "elements": [
+          {
+            "name": "chiseled_bookshelf_body",
+            "from": [
+              0,
+              0,
+              0
+            ],
+            "to": [
+              16,
+              16,
+              16
+            ],
+            "faces": {
+              "north": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#front"
+              },
+              "east": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#side"
+              },
+              "south": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#side"
+              },
+              "west": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#side"
+              },
+              "up": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#top"
+              },
+              "down": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#top"
+              }
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "parent": "block/block",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/block.json",
+        "parent_match": true,
+        "own_elements_key_explicit": true,
+        "own_element_count": 1,
+        "own_face_count": 6,
+        "own_uv_explicit": 6,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "top",
+          "side",
+          "front",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "top": "block/chiseled_bookshelf_top",
+          "side": "block/chiseled_bookshelf_side",
+          "front": "block/chiseled_bookshelf_empty",
+          "particle": "#top"
+        },
+        "texture_slot_refs": [
+          {
+            "element_index": 0,
+            "direction": "north",
+            "texture": "#front",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "east",
+            "texture": "#side",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "south",
+            "texture": "#side",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "west",
+            "texture": "#side",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "up",
+            "texture": "#top",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "down",
+            "texture": "#top",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          }
+        ],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf_inventory.json",
+        "E_exception": false,
+        "comparison_scope": "SELF_OWNED_GEOMETRY",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 463,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf_occupied_slot_bottom_left.json",
+      "expected_git_sha": "69046e17d8599d45c42b7cd5bf25a62baa6f6b2c",
+      "connector_git_sha": "69046e17d8599d45c42b7cd5bf25a62baa6f6b2c",
+      "git_sha_computed": "69046e17d8599d45c42b7cd5bf25a62baa6f6b2c",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_bottom_left",
+        "textures": {
+          "texture": "minecraft:block/chiseled_bookshelf_occupied"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_bottom_left",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_left.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "texture"
+        ],
+        "own_texture_defs": {
+          "texture": "minecraft:block/chiseled_bookshelf_occupied"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_left.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 464,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf_occupied_slot_bottom_mid.json",
+      "expected_git_sha": "f7b23147a849f75c02795fda654d5dcfc4a7afdd",
+      "connector_git_sha": "f7b23147a849f75c02795fda654d5dcfc4a7afdd",
+      "git_sha_computed": "f7b23147a849f75c02795fda654d5dcfc4a7afdd",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_bottom_mid",
+        "textures": {
+          "texture": "minecraft:block/chiseled_bookshelf_occupied"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_bottom_mid",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_mid.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "texture"
+        ],
+        "own_texture_defs": {
+          "texture": "minecraft:block/chiseled_bookshelf_occupied"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_mid.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 465,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf_occupied_slot_bottom_right.json",
+      "expected_git_sha": "4d7ce5bc767ed9fcedd43ddaf33fd387dc46f5fc",
+      "connector_git_sha": "4d7ce5bc767ed9fcedd43ddaf33fd387dc46f5fc",
+      "git_sha_computed": "4d7ce5bc767ed9fcedd43ddaf33fd387dc46f5fc",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_bottom_right",
+        "textures": {
+          "texture": "minecraft:block/chiseled_bookshelf_occupied"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_bottom_right",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_right.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "texture"
+        ],
+        "own_texture_defs": {
+          "texture": "minecraft:block/chiseled_bookshelf_occupied"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_right.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 466,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf_occupied_slot_top_left.json",
+      "expected_git_sha": "85331c01dedeb9d94a1dde20212e93705acdead1",
+      "connector_git_sha": "85331c01dedeb9d94a1dde20212e93705acdead1",
+      "git_sha_computed": "85331c01dedeb9d94a1dde20212e93705acdead1",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_top_left",
+        "textures": {
+          "texture": "minecraft:block/chiseled_bookshelf_occupied"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_top_left",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_left.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "texture"
+        ],
+        "own_texture_defs": {
+          "texture": "minecraft:block/chiseled_bookshelf_occupied"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_left.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 467,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf_occupied_slot_top_mid.json",
+      "expected_git_sha": "058eefc5b49dde07ac94d555252f10e3f225099d",
+      "connector_git_sha": "058eefc5b49dde07ac94d555252f10e3f225099d",
+      "git_sha_computed": "058eefc5b49dde07ac94d555252f10e3f225099d",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_top_mid",
+        "textures": {
+          "texture": "minecraft:block/chiseled_bookshelf_occupied"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_top_mid",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_mid.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "texture"
+        ],
+        "own_texture_defs": {
+          "texture": "minecraft:block/chiseled_bookshelf_occupied"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_mid.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 468,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf_occupied_slot_top_right.json",
+      "expected_git_sha": "d71c97ce773930d74b4d588cb5b756bef44b609e",
+      "connector_git_sha": "d71c97ce773930d74b4d588cb5b756bef44b609e",
+      "git_sha_computed": "d71c97ce773930d74b4d588cb5b756bef44b609e",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_top_right",
+        "textures": {
+          "texture": "minecraft:block/chiseled_bookshelf_occupied"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_top_right",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_right.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "texture"
+        ],
+        "own_texture_defs": {
+          "texture": "minecraft:block/chiseled_bookshelf_occupied"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_right.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 469,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf.json",
+      "expected_git_sha": "a9bda72e10095343fb80de2bc4654212a1dc6834",
+      "connector_git_sha": "a9bda72e10095343fb80de2bc4654212a1dc6834",
+      "git_sha_computed": "a9bda72e10095343fb80de2bc4654212a1dc6834",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "block/block",
+        "textures": {
+          "top": "block/chiseled_bookshelf_top",
+          "side": "block/chiseled_bookshelf_side",
+          "particle": "#top"
+        },
+        "elements": [
+          {
+            "name": "chiseled_bookshelf_body",
+            "from": [
+              0,
+              0,
+              0
+            ],
+            "to": [
+              16,
+              16,
+              16
+            ],
+            "faces": {
+              "east": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#side",
+                "cullface": "east"
+              },
+              "south": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#side",
+                "cullface": "south"
+              },
+              "west": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#side",
+                "cullface": "west"
+              },
+              "up": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#top",
+                "cullface": "up"
+              },
+              "down": {
+                "uv": [
+                  0,
+                  0,
+                  16,
+                  16
+                ],
+                "texture": "#top",
+                "cullface": "down"
+              }
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "parent": "block/block",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/block.json",
+        "parent_match": true,
+        "own_elements_key_explicit": true,
+        "own_element_count": 1,
+        "own_face_count": 5,
+        "own_uv_explicit": 5,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "top",
+          "side",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "top": "block/chiseled_bookshelf_top",
+          "side": "block/chiseled_bookshelf_side",
+          "particle": "#top"
+        },
+        "texture_slot_refs": [
+          {
+            "element_index": 0,
+            "direction": "east",
+            "texture": "#side",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 0,
+            "direction": "south",
+            "texture": "#side",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 0,
+            "direction": "west",
+            "texture": "#side",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 0,
+            "direction": "up",
+            "texture": "#top",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 0,
+            "direction": "down",
+            "texture": "#top",
+            "uv_key_explicit": true,
+            "uv": [
+              0,
+              0,
+              16,
+              16
+            ],
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          }
+        ],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf.json",
+        "E_exception": false,
+        "comparison_scope": "SELF_OWNED_GEOMETRY",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 470,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/composter_contents_ready.json",
+      "expected_git_sha": "63744ccac86702872268cce243d72ca50f237501",
+      "connector_git_sha": "63744ccac86702872268cce243d72ca50f237501",
+      "git_sha_computed": "63744ccac86702872268cce243d72ca50f237501",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "block/composter_compost",
+          "inside": "block/composter_ready"
+        },
+        "elements": [
+          {
+            "from": [
+              2,
+              0,
+              2
+            ],
+            "to": [
+              14,
+              15,
+              14
+            ],
+            "faces": {
+              "up": {
+                "texture": "#inside"
+              }
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": true,
+        "own_element_count": 1,
+        "own_face_count": 1,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 1,
+        "own_texture_keys": [
+          "particle",
+          "inside"
+        ],
+        "own_texture_defs": {
+          "particle": "block/composter_compost",
+          "inside": "block/composter_ready"
+        },
+        "texture_slot_refs": [
+          {
+            "element_index": 0,
+            "direction": "up",
+            "texture": "#inside",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          }
+        ],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/composter_contents_ready.json",
+        "E_exception": false,
+        "comparison_scope": "SELF_OWNED_GEOMETRY",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 471,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/composter_contents1.json",
+      "expected_git_sha": "fe6c8504a7bd48e198cb9ee47f3bacbcbf7ab511",
+      "connector_git_sha": "fe6c8504a7bd48e198cb9ee47f3bacbcbf7ab511",
+      "git_sha_computed": "fe6c8504a7bd48e198cb9ee47f3bacbcbf7ab511",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "block/composter_compost",
+          "inside": "block/composter_compost"
+        },
+        "elements": [
+          {
+            "from": [
+              2,
+              0,
+              2
+            ],
+            "to": [
+              14,
+              3,
+              14
+            ],
+            "faces": {
+              "up": {
+                "texture": "#inside"
+              }
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": true,
+        "own_element_count": 1,
+        "own_face_count": 1,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 1,
+        "own_texture_keys": [
+          "particle",
+          "inside"
+        ],
+        "own_texture_defs": {
+          "particle": "block/composter_compost",
+          "inside": "block/composter_compost"
+        },
+        "texture_slot_refs": [
+          {
+            "element_index": 0,
+            "direction": "up",
+            "texture": "#inside",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          }
+        ],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/composter_contents1.json",
+        "E_exception": false,
+        "comparison_scope": "SELF_OWNED_GEOMETRY",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 472,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/composter_contents3.json",
+      "expected_git_sha": "4c3cdc1088b8d308efb7ac3374e1f7c7299bd579",
+      "connector_git_sha": "4c3cdc1088b8d308efb7ac3374e1f7c7299bd579",
+      "git_sha_computed": "4c3cdc1088b8d308efb7ac3374e1f7c7299bd579",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "block/composter_compost",
+          "inside": "block/composter_compost"
+        },
+        "elements": [
+          {
+            "from": [
+              2,
+              0,
+              2
+            ],
+            "to": [
+              14,
+              7,
+              14
+            ],
+            "faces": {
+              "up": {
+                "texture": "#inside"
+              }
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": true,
+        "own_element_count": 1,
+        "own_face_count": 1,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 1,
+        "own_texture_keys": [
+          "particle",
+          "inside"
+        ],
+        "own_texture_defs": {
+          "particle": "block/composter_compost",
+          "inside": "block/composter_compost"
+        },
+        "texture_slot_refs": [
+          {
+            "element_index": 0,
+            "direction": "up",
+            "texture": "#inside",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          }
+        ],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/composter_contents3.json",
+        "E_exception": false,
+        "comparison_scope": "SELF_OWNED_GEOMETRY",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 473,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/composter_contents4.json",
+      "expected_git_sha": "48e0456f5f4bd2fcf1c606ff9cd481438aaf2465",
+      "connector_git_sha": "48e0456f5f4bd2fcf1c606ff9cd481438aaf2465",
+      "git_sha_computed": "48e0456f5f4bd2fcf1c606ff9cd481438aaf2465",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "block/composter_compost",
+          "inside": "block/composter_compost"
+        },
+        "elements": [
+          {
+            "from": [
+              2,
+              0,
+              2
+            ],
+            "to": [
+              14,
+              9,
+              14
+            ],
+            "faces": {
+              "up": {
+                "texture": "#inside"
+              }
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": true,
+        "own_element_count": 1,
+        "own_face_count": 1,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 1,
+        "own_texture_keys": [
+          "particle",
+          "inside"
+        ],
+        "own_texture_defs": {
+          "particle": "block/composter_compost",
+          "inside": "block/composter_compost"
+        },
+        "texture_slot_refs": [
+          {
+            "element_index": 0,
+            "direction": "up",
+            "texture": "#inside",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          }
+        ],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/composter_contents4.json",
+        "E_exception": false,
+        "comparison_scope": "SELF_OWNED_GEOMETRY",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    }
+  ]
+}
