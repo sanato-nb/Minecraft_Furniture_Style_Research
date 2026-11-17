@@ -1,0 +1,135 @@
+{
+  "schema": "G_GLOBAL_6_GATE_FINAL_ACCEPTANCE/v1",
+  "date": "2026-11-17",
+  "source_scope": "USER_EXTRACTED_MINECRAFT_JAVA_1_21_11",
+  "final_G_status": "G_COMPLETE_SOURCE_CROSS_STAGE_CONSISTENCY_SCOPE",
+  "G_complete": true,
+  "accepted_entries": 6,
+  "assigned_assets": 4669,
+  "verified_original_assets": 4669,
+  "source_sha_errors": 0,
+  "global_independent_errors": 0,
+  "global_exit_gates_passed": 6,
+  "gates": {
+    "G1": {
+      "status": "PASS",
+      "evidence": "G_FINAL_SOURCE_SHA_4669.csv + G_FINAL_MCMETA_99.csv",
+      "scope": "typed asset path+bytes+Git SHA 4669, metadata sidecar 99"
+    },
+    "G2": {
+      "status": "PASS",
+      "evidence": "G_GLOBAL_INDEPENDENT_RECOUNT.json + G_ENTRY6_PROVENANCE_GAPS.json",
+      "scope": "2390 models = 2304 general +86 E; elements5689/face23090/UV18808+4282/bound21590+1500; heavy_core corrected6",
+      "qualification": "2 prior F model parent/provider SHA missing (4 fields) newly independently verified by G, no retroactive overwrite"
+    },
+    "G3": {
+      "status": "PASS",
+      "evidence": "G_GLOBAL_INDEPENDENT_RECOUNT.json",
+      "scope": "1168 blockstates, options7592, syntactic9193, model apply19440, direct2136/not254, E-D84/not2"
+    },
+    "G4": {
+      "status": "PASS",
+      "evidence": "G_FINAL_SOURCE_SHA_4669.csv + G_FINAL_MCMETA_99.csv + F3_PNG_FIRST_FRAME_332.csv",
+      "scope": "1111 PNG directly hashed; C prior RGBA1073/outside38, metadata99 (C97), F3 332 first frames/contact8/linked340/unbound38/animation16 first-frame"
+    },
+    "G5": {
+      "status": "PASS",
+      "evidence": "G_GLOBAL_INDEPENDENT_RECOUNT.json + G_ENTRY6_UNRESOLVED_SCOPE.csv",
+      "scope": "E renderer86 no runtime; face slots1500, D not-direct254, C outside PNG38, F without PNG38 distinct; A-F/v69 source unchanged; prior approval150"
+    },
+    "G6": {
+      "status": "PASS",
+      "evidence": "G_GLOBAL_PRE_FINAL_REMOTE_READBACK.json",
+      "scope": "independent all4669 and per Entry1-6 source audit, all subgates G1-G5 PASS, GitHub Actions global exit success, remote Git blob SHA/file lines/text and protected diff PASS",
+      "note": "Post-report tracker SHA readback is to be recorded separately in final remote manifest"
+    }
+  },
+  "G_original_universe": {
+    "models": 2390,
+    "blockstates": 1168,
+    "png": 1111,
+    "sidecar_mcmeta_separate": 99
+  },
+  "source_counts": {
+    "raw_assets": 4669,
+    "by_type": {
+      "BLOCK_MODEL_JSON": 2390,
+      "BLOCKSTATE_JSON": 1168,
+      "BLOCK_TEXTURE_PNG": 1111
+    },
+    "model_elements": 5689,
+    "faces": 23090,
+    "C_uv_explicit": 18808,
+    "C_uv_implicit": 4282,
+    "C_faces_PNG_bound": 21590,
+    "C_face_template_unbound": 1500,
+    "D_rules": 7592,
+    "D_syntactic_state_cases": 9193,
+    "D_model_option_applications": 19440,
+    "E_special": 86,
+    "PNG_C_prior_matches": 1073,
+    "PNG_outside_C": 38,
+    "mcmeta_sidecars": 99,
+    "F3_PNG": 332,
+    "G_entries_accepted": 6,
+    "F_prior_parent_sha_gaps": 4,
+    "source_errors": 0
+  },
+  "entry6_original_counts": {
+    "source_paths": 829,
+    "model_JSON": 378,
+    "blockstate_JSON": 265,
+    "PNG": 186,
+    "source_direct_bytes_and_sha_pass": 829,
+    "models_E": 7,
+    "models_general": 371,
+    "elements": 661,
+    "faces": 2412,
+    "face_explicit_UV": 1352,
+    "face_implicit_UV": 1060,
+    "face_PNG_bound": 2178,
+    "face_template_unbound": 234,
+    "D_options": 1836,
+    "D_distinct_model_targets": 522,
+    "PNG_C_prior_and_RGBA_matched": 182,
+    "PNG_C_outside_new_G_only": 4,
+    "PNG_original_bytes": 44847,
+    "mcmeta_json_direct_read": 12,
+    "mcmeta_animation_static": 7,
+    "F_prior_visual_png": 135,
+    "F_prior_missing_SHA_provenance_gaps": 4,
+    "errors": 0
+  },
+  "G6_basis": {
+    "global_independent_git_blob_sha": "a300e03d970588fff3ca828554340695b6708eb4",
+    "global_remote_pre_closeout_git_blob_sha": "45810255b862469dad264d7e9039a32d218c3a6e",
+    "Entry6_source_independent_git_blob_sha": "89b1a3c62e183cf018f70c3a15fd19d8df675768",
+    "global_run_url": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/44090818527",
+    "Entry6_run_url": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/44089873718"
+  },
+  "source_provenance_exception": {
+    "prior_F_shas_missing_fields": 4,
+    "models": 2,
+    "original_parent_path": "1.21.11/assets/minecraft/models/block/cube_mirrored.json",
+    "G_direct_original_sha": "38f44bda128d10a5e09614e5ac155c956237681e",
+    "prior_F_original_edited": false,
+    "new_G_source_evidence_only": true
+  },
+  "source_limitations": {
+    "official_minecraft_JAR_authenticated": false,
+    "real_game_renderer_verified": false,
+    "E_86_runtime_renderer_certified": false,
+    "animation_playback_verified": false,
+    "PZ_furniture_identity_certified": false,
+    "Minecraft_model_map_created": false,
+    "separate_full_stage_1_2_exit_approved": false,
+    "top_level_completed_stages": 1,
+    "top_level_total_stages": 5,
+    "prior_v69_reviewed_approved": 150,
+    "automatic_entry7_allowed": false
+  },
+  "final_repo_tracker_remote_readback_record": "research/vanilla_models/phase_1-2-G/final/G_FINAL_REMOTE_READBACK.json",
+  "one_two_stage_exit_separate": true,
+  "protected_A_to_F_and_v69_files_modified": false,
+  "self_statement": "G completed only source cross-stage consistency. Stage 1-2 and actual Minecraft/PZ map remain separate and not automatically complete."
+}
