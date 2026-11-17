@@ -1,0 +1,4372 @@
+{
+  "schema": "G_ENTRY2_ORIGINAL_SOURCE_BATCH/v1",
+  "source_main_baseline": "ae1448906d4cb6f2aff4bdc43fbdc808024fd6bb",
+  "G_entry": "ENTRY2",
+  "G_fixed_scope": 775,
+  "offset": 560,
+  "expected": 14,
+  "success": 14,
+  "SHA_reopened": 14,
+  "model_inherited_geometry_pending": 0,
+  "external_C_RGBA_matches": 0,
+  "C_outside_reopened": 0,
+  "source_prior_reference_blob_sha": "2d13dc8ea0adbcf8d6860536002c592e43f4ee8b",
+  "records": [
+    {
+      "index": 908,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/birch_door.json",
+      "expected_git_sha": "9657be97268591275d0a8f17efe122b0e8a15604",
+      "connector_git_sha": "9657be97268591275d0a8f17efe122b0e8a15604",
+      "git_sha_computed": "9657be97268591275d0a8f17efe122b0e8a15604",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "facing=east,half=lower,hinge=left,open=false": {
+            "model": "minecraft:block/birch_door_bottom_left"
+          },
+          "facing=east,half=lower,hinge=left,open=true": {
+            "model": "minecraft:block/birch_door_bottom_left_open",
+            "y": 90
+          },
+          "facing=east,half=lower,hinge=right,open=false": {
+            "model": "minecraft:block/birch_door_bottom_right"
+          },
+          "facing=east,half=lower,hinge=right,open=true": {
+            "model": "minecraft:block/birch_door_bottom_right_open",
+            "y": 270
+          },
+          "facing=east,half=upper,hinge=left,open=false": {
+            "model": "minecraft:block/birch_door_top_left"
+          },
+          "facing=east,half=upper,hinge=left,open=true": {
+            "model": "minecraft:block/birch_door_top_left_open",
+            "y": 90
+          },
+          "facing=east,half=upper,hinge=right,open=false": {
+            "model": "minecraft:block/birch_door_top_right"
+          },
+          "facing=east,half=upper,hinge=right,open=true": {
+            "model": "minecraft:block/birch_door_top_right_open",
+            "y": 270
+          },
+          "facing=north,half=lower,hinge=left,open=false": {
+            "model": "minecraft:block/birch_door_bottom_left",
+            "y": 270
+          },
+          "facing=north,half=lower,hinge=left,open=true": {
+            "model": "minecraft:block/birch_door_bottom_left_open"
+          },
+          "facing=north,half=lower,hinge=right,open=false": {
+            "model": "minecraft:block/birch_door_bottom_right",
+            "y": 270
+          },
+          "facing=north,half=lower,hinge=right,open=true": {
+            "model": "minecraft:block/birch_door_bottom_right_open",
+            "y": 180
+          },
+          "facing=north,half=upper,hinge=left,open=false": {
+            "model": "minecraft:block/birch_door_top_left",
+            "y": 270
+          },
+          "facing=north,half=upper,hinge=left,open=true": {
+            "model": "minecraft:block/birch_door_top_left_open"
+          },
+          "facing=north,half=upper,hinge=right,open=false": {
+            "model": "minecraft:block/birch_door_top_right",
+            "y": 270
+          },
+          "facing=north,half=upper,hinge=right,open=true": {
+            "model": "minecraft:block/birch_door_top_right_open",
+            "y": 180
+          },
+          "facing=south,half=lower,hinge=left,open=false": {
+            "model": "minecraft:block/birch_door_bottom_left",
+            "y": 90
+          },
+          "facing=south,half=lower,hinge=left,open=true": {
+            "model": "minecraft:block/birch_door_bottom_left_open",
+            "y": 180
+          },
+          "facing=south,half=lower,hinge=right,open=false": {
+            "model": "minecraft:block/birch_door_bottom_right",
+            "y": 90
+          },
+          "facing=south,half=lower,hinge=right,open=true": {
+            "model": "minecraft:block/birch_door_bottom_right_open"
+          },
+          "facing=south,half=upper,hinge=left,open=false": {
+            "model": "minecraft:block/birch_door_top_left",
+            "y": 90
+          },
+          "facing=south,half=upper,hinge=left,open=true": {
+            "model": "minecraft:block/birch_door_top_left_open",
+            "y": 180
+          },
+          "facing=south,half=upper,hinge=right,open=false": {
+            "model": "minecraft:block/birch_door_top_right",
+            "y": 90
+          },
+          "facing=south,half=upper,hinge=right,open=true": {
+            "model": "minecraft:block/birch_door_top_right_open"
+          },
+          "facing=west,half=lower,hinge=left,open=false": {
+            "model": "minecraft:block/birch_door_bottom_left",
+            "y": 180
+          },
+          "facing=west,half=lower,hinge=left,open=true": {
+            "model": "minecraft:block/birch_door_bottom_left_open",
+            "y": 270
+          },
+          "facing=west,half=lower,hinge=right,open=false": {
+            "model": "minecraft:block/birch_door_bottom_right",
+            "y": 180
+          },
+          "facing=west,half=lower,hinge=right,open=true": {
+            "model": "minecraft:block/birch_door_bottom_right_open",
+            "y": 90
+          },
+          "facing=west,half=upper,hinge=left,open=false": {
+            "model": "minecraft:block/birch_door_top_left",
+            "y": 180
+          },
+          "facing=west,half=upper,hinge=left,open=true": {
+            "model": "minecraft:block/birch_door_top_left_open",
+            "y": 270
+          },
+          "facing=west,half=upper,hinge=right,open=false": {
+            "model": "minecraft:block/birch_door_top_right",
+            "y": 180
+          },
+          "facing=west,half=upper,hinge=right,open=true": {
+            "model": "minecraft:block/birch_door_top_right_open",
+            "y": 90
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 32,
+        "multipart_rules": 0,
+        "original_choice_count": 32,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/birch_door_bottom_left.json",
+          "1.21.11/assets/minecraft/models/block/birch_door_bottom_left_open.json",
+          "1.21.11/assets/minecraft/models/block/birch_door_bottom_right.json",
+          "1.21.11/assets/minecraft/models/block/birch_door_bottom_right_open.json",
+          "1.21.11/assets/minecraft/models/block/birch_door_top_left.json",
+          "1.21.11/assets/minecraft/models/block/birch_door_top_left_open.json",
+          "1.21.11/assets/minecraft/models/block/birch_door_top_right.json",
+          "1.21.11/assets/minecraft/models/block/birch_door_top_right_open.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 24,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 32,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "facing=east,half=lower,hinge=left,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_bottom_left"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_bottom_left.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "facing=east,half=lower,hinge=left,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_bottom_left_open",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_bottom_left_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "facing=east,half=lower,hinge=right,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_bottom_right"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_bottom_right.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 3,
+            "condition": "facing=east,half=lower,hinge=right,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_bottom_right_open",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_bottom_right_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 4,
+            "condition": "facing=east,half=upper,hinge=left,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_top_left"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_top_left.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 5,
+            "condition": "facing=east,half=upper,hinge=left,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_top_left_open",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_top_left_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 6,
+            "condition": "facing=east,half=upper,hinge=right,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_top_right"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_top_right.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 7,
+            "condition": "facing=east,half=upper,hinge=right,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_top_right_open",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_top_right_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 8,
+            "condition": "facing=north,half=lower,hinge=left,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_bottom_left",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_bottom_left.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 9,
+            "condition": "facing=north,half=lower,hinge=left,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_bottom_left_open"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_bottom_left_open.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 10,
+            "condition": "facing=north,half=lower,hinge=right,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_bottom_right",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_bottom_right.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 11,
+            "condition": "facing=north,half=lower,hinge=right,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_bottom_right_open",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_bottom_right_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 12,
+            "condition": "facing=north,half=upper,hinge=left,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_top_left",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_top_left.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 13,
+            "condition": "facing=north,half=upper,hinge=left,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_top_left_open"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_top_left_open.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 14,
+            "condition": "facing=north,half=upper,hinge=right,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_top_right",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_top_right.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 15,
+            "condition": "facing=north,half=upper,hinge=right,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_top_right_open",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_top_right_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 16,
+            "condition": "facing=south,half=lower,hinge=left,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_bottom_left",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_bottom_left.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 17,
+            "condition": "facing=south,half=lower,hinge=left,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_bottom_left_open",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_bottom_left_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 18,
+            "condition": "facing=south,half=lower,hinge=right,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_bottom_right",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_bottom_right.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 19,
+            "condition": "facing=south,half=lower,hinge=right,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_bottom_right_open"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_bottom_right_open.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 20,
+            "condition": "facing=south,half=upper,hinge=left,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_top_left",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_top_left.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 21,
+            "condition": "facing=south,half=upper,hinge=left,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_top_left_open",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_top_left_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 22,
+            "condition": "facing=south,half=upper,hinge=right,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_top_right",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_top_right.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 23,
+            "condition": "facing=south,half=upper,hinge=right,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_top_right_open"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_top_right_open.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 24,
+            "condition": "facing=west,half=lower,hinge=left,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_bottom_left",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_bottom_left.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 25,
+            "condition": "facing=west,half=lower,hinge=left,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_bottom_left_open",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_bottom_left_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 26,
+            "condition": "facing=west,half=lower,hinge=right,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_bottom_right",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_bottom_right.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 27,
+            "condition": "facing=west,half=lower,hinge=right,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_bottom_right_open",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_bottom_right_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 28,
+            "condition": "facing=west,half=upper,hinge=left,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_top_left",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_top_left.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 29,
+            "condition": "facing=west,half=upper,hinge=left,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_top_left_open",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_top_left_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 30,
+            "condition": "facing=west,half=upper,hinge=right,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_top_right",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_top_right.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 31,
+            "condition": "facing=west,half=upper,hinge=right,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_door_top_right_open",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_door_top_right_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 909,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/birch_fence.json",
+      "expected_git_sha": "afd6e1d0ed029d4d93162322dda5fc8ce3fcebe2",
+      "connector_git_sha": "afd6e1d0ed029d4d93162322dda5fc8ce3fcebe2",
+      "git_sha_computed": "afd6e1d0ed029d4d93162322dda5fc8ce3fcebe2",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "multipart": [
+          {
+            "apply": {
+              "model": "minecraft:block/birch_fence_post"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_fence_side",
+              "uvlock": true
+            },
+            "when": {
+              "north": "true"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_fence_side",
+              "uvlock": true,
+              "y": 90
+            },
+            "when": {
+              "east": "true"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_fence_side",
+              "uvlock": true,
+              "y": 180
+            },
+            "when": {
+              "south": "true"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_fence_side",
+              "uvlock": true,
+              "y": 270
+            },
+            "when": {
+              "west": "true"
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "structure": "multipart",
+        "variants_rules": 0,
+        "multipart_rules": 5,
+        "original_choice_count": 5,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/birch_fence_post.json",
+          "1.21.11/assets/minecraft/models/block/birch_fence_side.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 3,
+          "uvlock": 4,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 5,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "multipart",
+            "rule_index": 0,
+            "condition": null,
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_post"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_post.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 1,
+            "condition": {
+              "north": "true"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_side",
+              "uvlock": true
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_side.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 2,
+            "condition": {
+              "east": "true"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_side",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_side.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 3,
+            "condition": {
+              "south": "true"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_side",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_side.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 4,
+            "condition": {
+              "west": "true"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_side",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_side.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 910,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/birch_fence_gate.json",
+      "expected_git_sha": "aca8f697bbf69d368b2ff1d12ade2f5695bcc704",
+      "connector_git_sha": "aca8f697bbf69d368b2ff1d12ade2f5695bcc704",
+      "git_sha_computed": "aca8f697bbf69d368b2ff1d12ade2f5695bcc704",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "facing=east,in_wall=false,open=false": {
+            "model": "minecraft:block/birch_fence_gate",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=east,in_wall=false,open=true": {
+            "model": "minecraft:block/birch_fence_gate_open",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=east,in_wall=true,open=false": {
+            "model": "minecraft:block/birch_fence_gate_wall",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=east,in_wall=true,open=true": {
+            "model": "minecraft:block/birch_fence_gate_wall_open",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=north,in_wall=false,open=false": {
+            "model": "minecraft:block/birch_fence_gate",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=north,in_wall=false,open=true": {
+            "model": "minecraft:block/birch_fence_gate_open",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=north,in_wall=true,open=false": {
+            "model": "minecraft:block/birch_fence_gate_wall",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=north,in_wall=true,open=true": {
+            "model": "minecraft:block/birch_fence_gate_wall_open",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=south,in_wall=false,open=false": {
+            "model": "minecraft:block/birch_fence_gate",
+            "uvlock": true
+          },
+          "facing=south,in_wall=false,open=true": {
+            "model": "minecraft:block/birch_fence_gate_open",
+            "uvlock": true
+          },
+          "facing=south,in_wall=true,open=false": {
+            "model": "minecraft:block/birch_fence_gate_wall",
+            "uvlock": true
+          },
+          "facing=south,in_wall=true,open=true": {
+            "model": "minecraft:block/birch_fence_gate_wall_open",
+            "uvlock": true
+          },
+          "facing=west,in_wall=false,open=false": {
+            "model": "minecraft:block/birch_fence_gate",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=west,in_wall=false,open=true": {
+            "model": "minecraft:block/birch_fence_gate_open",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=west,in_wall=true,open=false": {
+            "model": "minecraft:block/birch_fence_gate_wall",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=west,in_wall=true,open=true": {
+            "model": "minecraft:block/birch_fence_gate_wall_open",
+            "uvlock": true,
+            "y": 90
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 16,
+        "multipart_rules": 0,
+        "original_choice_count": 16,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/birch_fence_gate.json",
+          "1.21.11/assets/minecraft/models/block/birch_fence_gate_open.json",
+          "1.21.11/assets/minecraft/models/block/birch_fence_gate_wall.json",
+          "1.21.11/assets/minecraft/models/block/birch_fence_gate_wall_open.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 12,
+          "uvlock": 16,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 16,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "facing=east,in_wall=false,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_gate",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_gate.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "facing=east,in_wall=false,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_gate_open",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_gate_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "facing=east,in_wall=true,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_gate_wall",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_gate_wall.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 3,
+            "condition": "facing=east,in_wall=true,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_gate_wall_open",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_gate_wall_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 4,
+            "condition": "facing=north,in_wall=false,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_gate",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_gate.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 5,
+            "condition": "facing=north,in_wall=false,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_gate_open",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_gate_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 6,
+            "condition": "facing=north,in_wall=true,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_gate_wall",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_gate_wall.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 7,
+            "condition": "facing=north,in_wall=true,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_gate_wall_open",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_gate_wall_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 8,
+            "condition": "facing=south,in_wall=false,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_gate",
+              "uvlock": true
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_gate.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 9,
+            "condition": "facing=south,in_wall=false,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_gate_open",
+              "uvlock": true
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_gate_open.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 10,
+            "condition": "facing=south,in_wall=true,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_gate_wall",
+              "uvlock": true
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_gate_wall.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 11,
+            "condition": "facing=south,in_wall=true,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_gate_wall_open",
+              "uvlock": true
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_gate_wall_open.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 12,
+            "condition": "facing=west,in_wall=false,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_gate",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_gate.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 13,
+            "condition": "facing=west,in_wall=false,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_gate_open",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_gate_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 14,
+            "condition": "facing=west,in_wall=true,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_gate_wall",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_gate_wall.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 15,
+            "condition": "facing=west,in_wall=true,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_fence_gate_wall_open",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_fence_gate_wall_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 911,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/birch_hanging_sign.json",
+      "expected_git_sha": "f5173003b2f6be81774830c52921d5e1a98d3aca",
+      "connector_git_sha": "f5173003b2f6be81774830c52921d5e1a98d3aca",
+      "git_sha_computed": "f5173003b2f6be81774830c52921d5e1a98d3aca",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/birch_hanging_sign"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/birch_hanging_sign.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_hanging_sign"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_hanging_sign.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 912,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/birch_leaves.json",
+      "expected_git_sha": "45a5921d746e1fd2c4c2240dc4b7c830a7a87db6",
+      "connector_git_sha": "45a5921d746e1fd2c4c2240dc4b7c830a7a87db6",
+      "git_sha_computed": "45a5921d746e1fd2c4c2240dc4b7c830a7a87db6",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/birch_leaves"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/birch_leaves.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_leaves"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_leaves.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 913,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/birch_log.json",
+      "expected_git_sha": "24ba8da33bc5c0ee50f2d81d23371236417a194a",
+      "connector_git_sha": "24ba8da33bc5c0ee50f2d81d23371236417a194a",
+      "git_sha_computed": "24ba8da33bc5c0ee50f2d81d23371236417a194a",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "axis=x": {
+            "model": "minecraft:block/birch_log_horizontal",
+            "x": 90,
+            "y": 90
+          },
+          "axis=y": {
+            "model": "minecraft:block/birch_log"
+          },
+          "axis=z": {
+            "model": "minecraft:block/birch_log_horizontal",
+            "x": 90
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 3,
+        "multipart_rules": 0,
+        "original_choice_count": 3,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/birch_log_horizontal.json",
+          "1.21.11/assets/minecraft/models/block/birch_log.json"
+        ],
+        "explicit_flags": {
+          "x": 2,
+          "y": 1,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 3,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "axis=x",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_log_horizontal",
+              "x": 90,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_log_horizontal.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "axis=y",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_log"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_log.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "axis=z",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_log_horizontal",
+              "x": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_log_horizontal.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 914,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/birch_planks.json",
+      "expected_git_sha": "b5b2e8dcbb8a907b6bd7b16a7e0243bd53e0fc5d",
+      "connector_git_sha": "b5b2e8dcbb8a907b6bd7b16a7e0243bd53e0fc5d",
+      "git_sha_computed": "b5b2e8dcbb8a907b6bd7b16a7e0243bd53e0fc5d",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/birch_planks"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/birch_planks.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_planks"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_planks.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 915,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/birch_pressure_plate.json",
+      "expected_git_sha": "0f5fb7a4f446f7fc00ec0b9b0a1cf1280ee278a0",
+      "connector_git_sha": "0f5fb7a4f446f7fc00ec0b9b0a1cf1280ee278a0",
+      "git_sha_computed": "0f5fb7a4f446f7fc00ec0b9b0a1cf1280ee278a0",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "powered=false": {
+            "model": "minecraft:block/birch_pressure_plate"
+          },
+          "powered=true": {
+            "model": "minecraft:block/birch_pressure_plate_down"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 2,
+        "multipart_rules": 0,
+        "original_choice_count": 2,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/birch_pressure_plate.json",
+          "1.21.11/assets/minecraft/models/block/birch_pressure_plate_down.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 2,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "powered=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_pressure_plate"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_pressure_plate.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "powered=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_pressure_plate_down"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_pressure_plate_down.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 916,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/birch_sapling.json",
+      "expected_git_sha": "1073705408b1e00ba560072834014236e6dc1bd0",
+      "connector_git_sha": "1073705408b1e00ba560072834014236e6dc1bd0",
+      "git_sha_computed": "1073705408b1e00ba560072834014236e6dc1bd0",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/birch_sapling"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/birch_sapling.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_sapling"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_sapling.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 917,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/birch_shelf.json",
+      "expected_git_sha": "0c8642c4ee20e7a6835b64f93869deea25a15c1d",
+      "connector_git_sha": "0c8642c4ee20e7a6835b64f93869deea25a15c1d",
+      "git_sha_computed": "0c8642c4ee20e7a6835b64f93869deea25a15c1d",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "multipart": [
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf"
+            },
+            "when": {
+              "facing": "north"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf",
+              "y": 90
+            },
+            "when": {
+              "facing": "east"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf",
+              "y": 180
+            },
+            "when": {
+              "facing": "south"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf",
+              "y": 270
+            },
+            "when": {
+              "facing": "west"
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_unpowered"
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_unpowered",
+              "y": 90
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_unpowered",
+              "y": 180
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_unpowered",
+              "y": 270
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_unconnected"
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_unconnected",
+              "y": 90
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_unconnected",
+              "y": 180
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_unconnected",
+              "y": 270
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_left"
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_left",
+              "y": 90
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_left",
+              "y": 180
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_left",
+              "y": 270
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_center"
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_center",
+              "y": 90
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_center",
+              "y": 180
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_center",
+              "y": 270
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_right"
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_right",
+              "y": 90
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_right",
+              "y": 180
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            }
+          },
+          {
+            "apply": {
+              "model": "minecraft:block/birch_shelf_right",
+              "y": 270
+            },
+            "when": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "structure": "multipart",
+        "variants_rules": 0,
+        "multipart_rules": 24,
+        "original_choice_count": 24,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/birch_shelf.json",
+          "1.21.11/assets/minecraft/models/block/birch_shelf_unpowered.json",
+          "1.21.11/assets/minecraft/models/block/birch_shelf_unconnected.json",
+          "1.21.11/assets/minecraft/models/block/birch_shelf_left.json",
+          "1.21.11/assets/minecraft/models/block/birch_shelf_center.json",
+          "1.21.11/assets/minecraft/models/block/birch_shelf_right.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 18,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 24,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "multipart",
+            "rule_index": 0,
+            "condition": {
+              "facing": "north"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 1,
+            "condition": {
+              "facing": "east"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 2,
+            "condition": {
+              "facing": "south"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 3,
+            "condition": {
+              "facing": "west"
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 4,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_unpowered"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_unpowered.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 5,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_unpowered",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_unpowered.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 6,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_unpowered",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_unpowered.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 7,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "false"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_unpowered",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_unpowered.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 8,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_unconnected"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_unconnected.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 9,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_unconnected",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_unconnected.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 10,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_unconnected",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_unconnected.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 11,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "unconnected"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_unconnected",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_unconnected.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 12,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_left"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_left.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 13,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_left",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_left.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 14,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_left",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_left.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 15,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "left"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_left",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_left.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 16,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_center"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_center.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 17,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_center",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_center.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 18,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_center",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_center.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 19,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "center"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_center",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_center.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 20,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "north"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_right"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_right.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 21,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "east"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_right",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_right.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 22,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "south"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_right",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_right.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "multipart",
+            "rule_index": 23,
+            "condition": {
+              "AND": [
+                {
+                  "facing": "west"
+                },
+                {
+                  "powered": "true"
+                },
+                {
+                  "side_chain": "right"
+                }
+              ]
+            },
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_shelf_right",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_shelf_right.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 918,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/birch_sign.json",
+      "expected_git_sha": "dec6f07d2b9a59d4eebfcaee272113d936c6fe4c",
+      "connector_git_sha": "dec6f07d2b9a59d4eebfcaee272113d936c6fe4c",
+      "git_sha_computed": "dec6f07d2b9a59d4eebfcaee272113d936c6fe4c",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "": {
+            "model": "minecraft:block/birch_sign"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 1,
+        "multipart_rules": 0,
+        "original_choice_count": 1,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/birch_sign.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 1,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_sign"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_sign.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 919,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/birch_slab.json",
+      "expected_git_sha": "28e4f33d60074e0f83647988b0c46d7a5092e7ad",
+      "connector_git_sha": "28e4f33d60074e0f83647988b0c46d7a5092e7ad",
+      "git_sha_computed": "28e4f33d60074e0f83647988b0c46d7a5092e7ad",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "type=bottom": {
+            "model": "minecraft:block/birch_slab"
+          },
+          "type=double": {
+            "model": "minecraft:block/birch_planks"
+          },
+          "type=top": {
+            "model": "minecraft:block/birch_slab_top"
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 3,
+        "multipart_rules": 0,
+        "original_choice_count": 3,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/birch_slab.json",
+          "1.21.11/assets/minecraft/models/block/birch_planks.json",
+          "1.21.11/assets/minecraft/models/block/birch_slab_top.json"
+        ],
+        "explicit_flags": {
+          "x": 0,
+          "y": 0,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 3,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "type=bottom",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_slab"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_slab.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "type=double",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_planks"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_planks.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "type=top",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_slab_top"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_slab_top.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 920,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/birch_stairs.json",
+      "expected_git_sha": "1a7881d0c8d9f29944d1e66bd1e8ac326276155d",
+      "connector_git_sha": "1a7881d0c8d9f29944d1e66bd1e8ac326276155d",
+      "git_sha_computed": "1a7881d0c8d9f29944d1e66bd1e8ac326276155d",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "facing=east,half=bottom,shape=inner_left": {
+            "model": "minecraft:block/birch_stairs_inner",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=east,half=bottom,shape=inner_right": {
+            "model": "minecraft:block/birch_stairs_inner"
+          },
+          "facing=east,half=bottom,shape=outer_left": {
+            "model": "minecraft:block/birch_stairs_outer",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=east,half=bottom,shape=outer_right": {
+            "model": "minecraft:block/birch_stairs_outer"
+          },
+          "facing=east,half=bottom,shape=straight": {
+            "model": "minecraft:block/birch_stairs"
+          },
+          "facing=east,half=top,shape=inner_left": {
+            "model": "minecraft:block/birch_stairs_inner",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=east,half=top,shape=inner_right": {
+            "model": "minecraft:block/birch_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=east,half=top,shape=outer_left": {
+            "model": "minecraft:block/birch_stairs_outer",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=east,half=top,shape=outer_right": {
+            "model": "minecraft:block/birch_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=east,half=top,shape=straight": {
+            "model": "minecraft:block/birch_stairs",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=north,half=bottom,shape=inner_left": {
+            "model": "minecraft:block/birch_stairs_inner",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=north,half=bottom,shape=inner_right": {
+            "model": "minecraft:block/birch_stairs_inner",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=north,half=bottom,shape=outer_left": {
+            "model": "minecraft:block/birch_stairs_outer",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=north,half=bottom,shape=outer_right": {
+            "model": "minecraft:block/birch_stairs_outer",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=north,half=bottom,shape=straight": {
+            "model": "minecraft:block/birch_stairs",
+            "uvlock": true,
+            "y": 270
+          },
+          "facing=north,half=top,shape=inner_left": {
+            "model": "minecraft:block/birch_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=north,half=top,shape=inner_right": {
+            "model": "minecraft:block/birch_stairs_inner",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=north,half=top,shape=outer_left": {
+            "model": "minecraft:block/birch_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=north,half=top,shape=outer_right": {
+            "model": "minecraft:block/birch_stairs_outer",
+            "uvlock": true,
+            "x": 180
+          },
+          "facing=north,half=top,shape=straight": {
+            "model": "minecraft:block/birch_stairs",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=south,half=bottom,shape=inner_left": {
+            "model": "minecraft:block/birch_stairs_inner"
+          },
+          "facing=south,half=bottom,shape=inner_right": {
+            "model": "minecraft:block/birch_stairs_inner",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=south,half=bottom,shape=outer_left": {
+            "model": "minecraft:block/birch_stairs_outer"
+          },
+          "facing=south,half=bottom,shape=outer_right": {
+            "model": "minecraft:block/birch_stairs_outer",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=south,half=bottom,shape=straight": {
+            "model": "minecraft:block/birch_stairs",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=south,half=top,shape=inner_left": {
+            "model": "minecraft:block/birch_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=south,half=top,shape=inner_right": {
+            "model": "minecraft:block/birch_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          },
+          "facing=south,half=top,shape=outer_left": {
+            "model": "minecraft:block/birch_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=south,half=top,shape=outer_right": {
+            "model": "minecraft:block/birch_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          },
+          "facing=south,half=top,shape=straight": {
+            "model": "minecraft:block/birch_stairs",
+            "uvlock": true,
+            "x": 180,
+            "y": 90
+          },
+          "facing=west,half=bottom,shape=inner_left": {
+            "model": "minecraft:block/birch_stairs_inner",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=west,half=bottom,shape=inner_right": {
+            "model": "minecraft:block/birch_stairs_inner",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=west,half=bottom,shape=outer_left": {
+            "model": "minecraft:block/birch_stairs_outer",
+            "uvlock": true,
+            "y": 90
+          },
+          "facing=west,half=bottom,shape=outer_right": {
+            "model": "minecraft:block/birch_stairs_outer",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=west,half=bottom,shape=straight": {
+            "model": "minecraft:block/birch_stairs",
+            "uvlock": true,
+            "y": 180
+          },
+          "facing=west,half=top,shape=inner_left": {
+            "model": "minecraft:block/birch_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          },
+          "facing=west,half=top,shape=inner_right": {
+            "model": "minecraft:block/birch_stairs_inner",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=west,half=top,shape=outer_left": {
+            "model": "minecraft:block/birch_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          },
+          "facing=west,half=top,shape=outer_right": {
+            "model": "minecraft:block/birch_stairs_outer",
+            "uvlock": true,
+            "x": 180,
+            "y": 270
+          },
+          "facing=west,half=top,shape=straight": {
+            "model": "minecraft:block/birch_stairs",
+            "uvlock": true,
+            "x": 180,
+            "y": 180
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 40,
+        "multipart_rules": 0,
+        "original_choice_count": 40,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/birch_stairs_inner.json",
+          "1.21.11/assets/minecraft/models/block/birch_stairs_outer.json",
+          "1.21.11/assets/minecraft/models/block/birch_stairs.json"
+        ],
+        "explicit_flags": {
+          "x": 20,
+          "y": 30,
+          "uvlock": 35,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 40,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "facing=east,half=bottom,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_inner",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "facing=east,half=bottom,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_inner"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "facing=east,half=bottom,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_outer",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 3,
+            "condition": "facing=east,half=bottom,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_outer"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 4,
+            "condition": "facing=east,half=bottom,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 5,
+            "condition": "facing=east,half=top,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_inner",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 6,
+            "condition": "facing=east,half=top,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 7,
+            "condition": "facing=east,half=top,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_outer",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 8,
+            "condition": "facing=east,half=top,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 9,
+            "condition": "facing=east,half=top,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 10,
+            "condition": "facing=north,half=bottom,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_inner",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 11,
+            "condition": "facing=north,half=bottom,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_inner",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 12,
+            "condition": "facing=north,half=bottom,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_outer",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 13,
+            "condition": "facing=north,half=bottom,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_outer",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 14,
+            "condition": "facing=north,half=bottom,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs",
+              "uvlock": true,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 15,
+            "condition": "facing=north,half=top,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 16,
+            "condition": "facing=north,half=top,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_inner",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 17,
+            "condition": "facing=north,half=top,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 18,
+            "condition": "facing=north,half=top,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_outer",
+              "uvlock": true,
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 19,
+            "condition": "facing=north,half=top,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 20,
+            "condition": "facing=south,half=bottom,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_inner"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 21,
+            "condition": "facing=south,half=bottom,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_inner",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 22,
+            "condition": "facing=south,half=bottom,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_outer"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 23,
+            "condition": "facing=south,half=bottom,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_outer",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 24,
+            "condition": "facing=south,half=bottom,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 25,
+            "condition": "facing=south,half=top,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 26,
+            "condition": "facing=south,half=top,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 27,
+            "condition": "facing=south,half=top,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 28,
+            "condition": "facing=south,half=top,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 29,
+            "condition": "facing=south,half=top,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs",
+              "uvlock": true,
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 30,
+            "condition": "facing=west,half=bottom,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_inner",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 31,
+            "condition": "facing=west,half=bottom,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_inner",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_inner.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 32,
+            "condition": "facing=west,half=bottom,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_outer",
+              "uvlock": true,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 33,
+            "condition": "facing=west,half=bottom,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_outer",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_outer.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 34,
+            "condition": "facing=west,half=bottom,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs",
+              "uvlock": true,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 35,
+            "condition": "facing=west,half=top,shape=inner_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 36,
+            "condition": "facing=west,half=top,shape=inner_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_inner",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_inner.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 37,
+            "condition": "facing=west,half=top,shape=outer_left",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 38,
+            "condition": "facing=west,half=top,shape=outer_right",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs_outer",
+              "uvlock": true,
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs_outer.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 39,
+            "condition": "facing=west,half=top,shape=straight",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_stairs",
+              "uvlock": true,
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_stairs.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": true,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "index": 921,
+      "type": "BLOCKSTATE_JSON",
+      "path": "1.21.11/assets/minecraft/blockstates/birch_trapdoor.json",
+      "expected_git_sha": "a8bb88c0ec89650e7671e300bbf4be7b31f9425e",
+      "connector_git_sha": "a8bb88c0ec89650e7671e300bbf4be7b31f9425e",
+      "git_sha_computed": "a8bb88c0ec89650e7671e300bbf4be7b31f9425e",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "variants": {
+          "facing=east,half=bottom,open=false": {
+            "model": "minecraft:block/birch_trapdoor_bottom",
+            "y": 90
+          },
+          "facing=east,half=bottom,open=true": {
+            "model": "minecraft:block/birch_trapdoor_open",
+            "y": 90
+          },
+          "facing=east,half=top,open=false": {
+            "model": "minecraft:block/birch_trapdoor_top",
+            "y": 90
+          },
+          "facing=east,half=top,open=true": {
+            "model": "minecraft:block/birch_trapdoor_open",
+            "x": 180,
+            "y": 270
+          },
+          "facing=north,half=bottom,open=false": {
+            "model": "minecraft:block/birch_trapdoor_bottom"
+          },
+          "facing=north,half=bottom,open=true": {
+            "model": "minecraft:block/birch_trapdoor_open"
+          },
+          "facing=north,half=top,open=false": {
+            "model": "minecraft:block/birch_trapdoor_top"
+          },
+          "facing=north,half=top,open=true": {
+            "model": "minecraft:block/birch_trapdoor_open",
+            "x": 180,
+            "y": 180
+          },
+          "facing=south,half=bottom,open=false": {
+            "model": "minecraft:block/birch_trapdoor_bottom",
+            "y": 180
+          },
+          "facing=south,half=bottom,open=true": {
+            "model": "minecraft:block/birch_trapdoor_open",
+            "y": 180
+          },
+          "facing=south,half=top,open=false": {
+            "model": "minecraft:block/birch_trapdoor_top",
+            "y": 180
+          },
+          "facing=south,half=top,open=true": {
+            "model": "minecraft:block/birch_trapdoor_open",
+            "x": 180
+          },
+          "facing=west,half=bottom,open=false": {
+            "model": "minecraft:block/birch_trapdoor_bottom",
+            "y": 270
+          },
+          "facing=west,half=bottom,open=true": {
+            "model": "minecraft:block/birch_trapdoor_open",
+            "y": 270
+          },
+          "facing=west,half=top,open=false": {
+            "model": "minecraft:block/birch_trapdoor_top",
+            "y": 270
+          },
+          "facing=west,half=top,open=true": {
+            "model": "minecraft:block/birch_trapdoor_open",
+            "x": 180,
+            "y": 90
+          }
+        }
+      },
+      "analysis": {
+        "structure": "variants",
+        "variants_rules": 16,
+        "multipart_rules": 0,
+        "original_choice_count": 16,
+        "unique_target_model_paths": [
+          "1.21.11/assets/minecraft/models/block/birch_trapdoor_bottom.json",
+          "1.21.11/assets/minecraft/models/block/birch_trapdoor_open.json",
+          "1.21.11/assets/minecraft/models/block/birch_trapdoor_top.json"
+        ],
+        "explicit_flags": {
+          "x": 4,
+          "y": 12,
+          "uvlock": 0,
+          "weight": 0
+        },
+        "prior_D_rule_choice_count": 16,
+        "D_choice_mismatches": [],
+        "choices": [
+          {
+            "kind": "variants",
+            "rule_index": 0,
+            "condition": "facing=east,half=bottom,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_trapdoor_bottom",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_trapdoor_bottom.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 1,
+            "condition": "facing=east,half=bottom,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_trapdoor_open",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_trapdoor_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 2,
+            "condition": "facing=east,half=top,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_trapdoor_top",
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_trapdoor_top.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 3,
+            "condition": "facing=east,half=top,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_trapdoor_open",
+              "x": 180,
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_trapdoor_open.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 4,
+            "condition": "facing=north,half=bottom,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_trapdoor_bottom"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_trapdoor_bottom.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 5,
+            "condition": "facing=north,half=bottom,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_trapdoor_open"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_trapdoor_open.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 6,
+            "condition": "facing=north,half=top,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_trapdoor_top"
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_trapdoor_top.json",
+            "explicit": {
+              "x": false,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 7,
+            "condition": "facing=north,half=top,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_trapdoor_open",
+              "x": 180,
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_trapdoor_open.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 8,
+            "condition": "facing=south,half=bottom,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_trapdoor_bottom",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_trapdoor_bottom.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 9,
+            "condition": "facing=south,half=bottom,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_trapdoor_open",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_trapdoor_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 10,
+            "condition": "facing=south,half=top,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_trapdoor_top",
+              "y": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_trapdoor_top.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 11,
+            "condition": "facing=south,half=top,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_trapdoor_open",
+              "x": 180
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_trapdoor_open.json",
+            "explicit": {
+              "x": true,
+              "y": false,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 12,
+            "condition": "facing=west,half=bottom,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_trapdoor_bottom",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_trapdoor_bottom.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 13,
+            "condition": "facing=west,half=bottom,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_trapdoor_open",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_trapdoor_open.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 14,
+            "condition": "facing=west,half=top,open=false",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_trapdoor_top",
+              "y": 270
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_trapdoor_top.json",
+            "explicit": {
+              "x": false,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          },
+          {
+            "kind": "variants",
+            "rule_index": 15,
+            "condition": "facing=west,half=top,open=true",
+            "alternative_index": 0,
+            "alternative_count": 1,
+            "apply": {
+              "model": "minecraft:block/birch_trapdoor_open",
+              "x": 180,
+              "y": 90
+            },
+            "model_path": "1.21.11/assets/minecraft/models/block/birch_trapdoor_open.json",
+            "explicit": {
+              "x": true,
+              "y": true,
+              "uvlock": false,
+              "weight": false
+            }
+          }
+        ]
+      },
+      "errors": []
+    }
+  ]
+}
