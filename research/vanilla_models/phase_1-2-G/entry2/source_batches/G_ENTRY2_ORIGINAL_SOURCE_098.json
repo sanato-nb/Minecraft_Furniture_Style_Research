@@ -1,0 +1,1544 @@
+{
+  "schema": "G_ENTRY2_ORIGINAL_SOURCE_BATCH/v1",
+  "source_main_baseline": "ae1448906d4cb6f2aff4bdc43fbdc808024fd6bb",
+  "G_entry": "ENTRY2",
+  "G_fixed_scope": 775,
+  "offset": 98,
+  "expected": 14,
+  "success": 14,
+  "SHA_reopened": 14,
+  "model_inherited_geometry_pending": 10,
+  "external_C_RGBA_matches": 0,
+  "C_outside_reopened": 0,
+  "source_prior_reference_blob_sha": "9a2d35a3c81a8f6abe3b4491c50130758c9f18c0",
+  "records": [
+    {
+      "index": 446,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/cauldron.json",
+      "expected_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "connector_git_sha": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "git_sha_computed": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "ambientocclusion": false,
+        "textures": {
+          "particle": "block/cauldron_side",
+          "top": "block/cauldron_top",
+          "bottom": "block/cauldron_bottom",
+          "side": "block/cauldron_side",
+          "inside": "block/cauldron_inner"
+        },
+        "elements": [
+          {
+            "from": [
+              0,
+              3,
+              0
+            ],
+            "to": [
+              2,
+              16,
+              16
+            ],
+            "faces": {
+              "north": {
+                "texture": "#side",
+                "cullface": "north"
+              },
+              "east": {
+                "texture": "#side"
+              },
+              "south": {
+                "texture": "#side",
+                "cullface": "south"
+              },
+              "west": {
+                "texture": "#side",
+                "cullface": "west"
+              },
+              "up": {
+                "texture": "#top",
+                "cullface": "up"
+              },
+              "down": {
+                "texture": "#inside"
+              }
+            }
+          },
+          {
+            "from": [
+              2,
+              3,
+              2
+            ],
+            "to": [
+              14,
+              4,
+              14
+            ],
+            "faces": {
+              "up": {
+                "texture": "#inside"
+              },
+              "down": {
+                "texture": "#inside"
+              }
+            }
+          },
+          {
+            "from": [
+              14,
+              3,
+              0
+            ],
+            "to": [
+              16,
+              16,
+              16
+            ],
+            "faces": {
+              "north": {
+                "texture": "#side",
+                "cullface": "north"
+              },
+              "east": {
+                "texture": "#side",
+                "cullface": "east"
+              },
+              "south": {
+                "texture": "#side",
+                "cullface": "south"
+              },
+              "west": {
+                "texture": "#side"
+              },
+              "up": {
+                "texture": "#top",
+                "cullface": "up"
+              },
+              "down": {
+                "texture": "#inside"
+              }
+            }
+          },
+          {
+            "from": [
+              2,
+              3,
+              0
+            ],
+            "to": [
+              14,
+              16,
+              2
+            ],
+            "faces": {
+              "north": {
+                "texture": "#side",
+                "cullface": "north"
+              },
+              "south": {
+                "texture": "#side"
+              },
+              "up": {
+                "texture": "#top",
+                "cullface": "up"
+              },
+              "down": {
+                "texture": "#inside"
+              }
+            }
+          },
+          {
+            "from": [
+              2,
+              3,
+              14
+            ],
+            "to": [
+              14,
+              16,
+              16
+            ],
+            "faces": {
+              "north": {
+                "texture": "#side"
+              },
+              "south": {
+                "texture": "#side",
+                "cullface": "south"
+              },
+              "up": {
+                "texture": "#top",
+                "cullface": "up"
+              },
+              "down": {
+                "texture": "#inside"
+              }
+            }
+          },
+          {
+            "from": [
+              0,
+              0,
+              0
+            ],
+            "to": [
+              4,
+              3,
+              2
+            ],
+            "faces": {
+              "north": {
+                "texture": "#side",
+                "cullface": "north"
+              },
+              "east": {
+                "texture": "#side"
+              },
+              "south": {
+                "texture": "#side"
+              },
+              "west": {
+                "texture": "#side",
+                "cullface": "west"
+              },
+              "down": {
+                "texture": "#bottom",
+                "cullface": "down"
+              }
+            }
+          },
+          {
+            "from": [
+              0,
+              0,
+              2
+            ],
+            "to": [
+              2,
+              3,
+              4
+            ],
+            "faces": {
+              "east": {
+                "texture": "#side"
+              },
+              "south": {
+                "texture": "#side"
+              },
+              "west": {
+                "texture": "#side",
+                "cullface": "west"
+              },
+              "down": {
+                "texture": "#bottom",
+                "cullface": "down"
+              }
+            }
+          },
+          {
+            "from": [
+              12,
+              0,
+              0
+            ],
+            "to": [
+              16,
+              3,
+              2
+            ],
+            "faces": {
+              "north": {
+                "texture": "#side",
+                "cullface": "north"
+              },
+              "east": {
+                "texture": "#side",
+                "cullface": "east"
+              },
+              "south": {
+                "texture": "#side"
+              },
+              "west": {
+                "texture": "#side"
+              },
+              "down": {
+                "texture": "#bottom",
+                "cullface": "down"
+              }
+            }
+          },
+          {
+            "from": [
+              14,
+              0,
+              2
+            ],
+            "to": [
+              16,
+              3,
+              4
+            ],
+            "faces": {
+              "east": {
+                "texture": "#side",
+                "cullface": "east"
+              },
+              "south": {
+                "texture": "#side"
+              },
+              "west": {
+                "texture": "#side"
+              },
+              "down": {
+                "texture": "#bottom",
+                "cullface": "down"
+              }
+            }
+          },
+          {
+            "from": [
+              0,
+              0,
+              14
+            ],
+            "to": [
+              4,
+              3,
+              16
+            ],
+            "faces": {
+              "north": {
+                "texture": "#side"
+              },
+              "east": {
+                "texture": "#side"
+              },
+              "south": {
+                "texture": "#side",
+                "cullface": "south"
+              },
+              "west": {
+                "texture": "#side",
+                "cullface": "west"
+              },
+              "down": {
+                "texture": "#bottom",
+                "cullface": "down"
+              }
+            }
+          },
+          {
+            "from": [
+              0,
+              0,
+              12
+            ],
+            "to": [
+              2,
+              3,
+              14
+            ],
+            "faces": {
+              "north": {
+                "texture": "#side"
+              },
+              "east": {
+                "texture": "#side"
+              },
+              "west": {
+                "texture": "#side",
+                "cullface": "west"
+              },
+              "down": {
+                "texture": "#bottom",
+                "cullface": "down"
+              }
+            }
+          },
+          {
+            "from": [
+              12,
+              0,
+              14
+            ],
+            "to": [
+              16,
+              3,
+              16
+            ],
+            "faces": {
+              "north": {
+                "texture": "#side"
+              },
+              "east": {
+                "texture": "#side",
+                "cullface": "east"
+              },
+              "south": {
+                "texture": "#side",
+                "cullface": "south"
+              },
+              "west": {
+                "texture": "#side"
+              },
+              "down": {
+                "texture": "#bottom",
+                "cullface": "down"
+              }
+            }
+          },
+          {
+            "from": [
+              14,
+              0,
+              12
+            ],
+            "to": [
+              16,
+              3,
+              14
+            ],
+            "faces": {
+              "north": {
+                "texture": "#side"
+              },
+              "east": {
+                "texture": "#side",
+                "cullface": "east"
+              },
+              "west": {
+                "texture": "#side"
+              },
+              "down": {
+                "texture": "#bottom",
+                "cullface": "down"
+              }
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": true,
+        "own_element_count": 13,
+        "own_face_count": 58,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 58,
+        "own_texture_keys": [
+          "particle",
+          "top",
+          "bottom",
+          "side",
+          "inside"
+        ],
+        "own_texture_defs": {
+          "particle": "block/cauldron_side",
+          "top": "block/cauldron_top",
+          "bottom": "block/cauldron_bottom",
+          "side": "block/cauldron_side",
+          "inside": "block/cauldron_inner"
+        },
+        "texture_slot_refs": [
+          {
+            "element_index": 0,
+            "direction": "north",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 0,
+            "direction": "east",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 0,
+            "direction": "south",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 0,
+            "direction": "west",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 0,
+            "direction": "up",
+            "texture": "#top",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 0,
+            "direction": "down",
+            "texture": "#inside",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "up",
+            "texture": "#inside",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 1,
+            "direction": "down",
+            "texture": "#inside",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 2,
+            "direction": "north",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 2,
+            "direction": "east",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 2,
+            "direction": "south",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 2,
+            "direction": "west",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 2,
+            "direction": "up",
+            "texture": "#top",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 2,
+            "direction": "down",
+            "texture": "#inside",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 3,
+            "direction": "north",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 3,
+            "direction": "south",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 3,
+            "direction": "up",
+            "texture": "#top",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 3,
+            "direction": "down",
+            "texture": "#inside",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 4,
+            "direction": "north",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 4,
+            "direction": "south",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 4,
+            "direction": "up",
+            "texture": "#top",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 4,
+            "direction": "down",
+            "texture": "#inside",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 5,
+            "direction": "north",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 5,
+            "direction": "east",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 5,
+            "direction": "south",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 5,
+            "direction": "west",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 5,
+            "direction": "down",
+            "texture": "#bottom",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 6,
+            "direction": "east",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 6,
+            "direction": "south",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 6,
+            "direction": "west",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 6,
+            "direction": "down",
+            "texture": "#bottom",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 7,
+            "direction": "north",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 7,
+            "direction": "east",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 7,
+            "direction": "south",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 7,
+            "direction": "west",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 7,
+            "direction": "down",
+            "texture": "#bottom",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 8,
+            "direction": "east",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 8,
+            "direction": "south",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 8,
+            "direction": "west",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 8,
+            "direction": "down",
+            "texture": "#bottom",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 9,
+            "direction": "north",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 9,
+            "direction": "east",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 9,
+            "direction": "south",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 9,
+            "direction": "west",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 9,
+            "direction": "down",
+            "texture": "#bottom",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 10,
+            "direction": "north",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 10,
+            "direction": "east",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 10,
+            "direction": "west",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 10,
+            "direction": "down",
+            "texture": "#bottom",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 11,
+            "direction": "north",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 11,
+            "direction": "east",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 11,
+            "direction": "south",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 11,
+            "direction": "west",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 11,
+            "direction": "down",
+            "texture": "#bottom",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 12,
+            "direction": "north",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 12,
+            "direction": "east",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          },
+          {
+            "element_index": 12,
+            "direction": "west",
+            "texture": "#side",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": false
+          },
+          {
+            "element_index": 12,
+            "direction": "down",
+            "texture": "#bottom",
+            "uv_key_explicit": false,
+            "uv": null,
+            "tintindex_explicit": false,
+            "cullface_explicit": true
+          }
+        ],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": true,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/cauldron.json",
+        "E_exception": false,
+        "comparison_scope": "SELF_OWNED_GEOMETRY",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 447,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/cherry_hanging_sign.json",
+      "expected_git_sha": "fd3dc826ede6b0a44e364d05eb8d441c203e6192",
+      "connector_git_sha": "fd3dc826ede6b0a44e364d05eb8d441c203e6192",
+      "git_sha_computed": "fd3dc826ede6b0a44e364d05eb8d441c203e6192",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "minecraft:block/stripped_cherry_log"
+        }
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle"
+        ],
+        "own_texture_defs": {
+          "particle": "minecraft:block/stripped_cherry_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": null,
+        "E_exception": true,
+        "comparison_scope": "E_SPECIAL_RENDERER_NO_GENERAL_ELEMENTS",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 448,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/cherry_shelf_center.json",
+      "expected_git_sha": "1eead8881188cb5dac7664d82e28b8e50d0f5bd3",
+      "connector_git_sha": "1eead8881188cb5dac7664d82e28b8e50d0f5bd3",
+      "git_sha_computed": "1eead8881188cb5dac7664d82e28b8e50d0f5bd3",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_center",
+        "textures": {
+          "all": "minecraft:block/cherry_shelf",
+          "particle": "minecraft:block/stripped_cherry_log"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_center",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_center.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/cherry_shelf",
+          "particle": "minecraft:block/stripped_cherry_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_center.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 449,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/cherry_shelf_inventory.json",
+      "expected_git_sha": "cb74115e79c98e4001132e79bd04ec34f1491fb9",
+      "connector_git_sha": "cb74115e79c98e4001132e79bd04ec34f1491fb9",
+      "git_sha_computed": "cb74115e79c98e4001132e79bd04ec34f1491fb9",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_inventory",
+        "textures": {
+          "all": "minecraft:block/cherry_shelf",
+          "particle": "minecraft:block/stripped_cherry_log"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_inventory",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_inventory.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/cherry_shelf",
+          "particle": "minecraft:block/stripped_cherry_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_inventory.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 450,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/cherry_shelf_left.json",
+      "expected_git_sha": "3b201cad6e3e550157dd628949ee5afe279901a2",
+      "connector_git_sha": "3b201cad6e3e550157dd628949ee5afe279901a2",
+      "git_sha_computed": "3b201cad6e3e550157dd628949ee5afe279901a2",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_left",
+        "textures": {
+          "all": "minecraft:block/cherry_shelf",
+          "particle": "minecraft:block/stripped_cherry_log"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_left",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_left.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/cherry_shelf",
+          "particle": "minecraft:block/stripped_cherry_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_left.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 451,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/cherry_shelf_right.json",
+      "expected_git_sha": "8d242ca41f4f818fb51588db97dd1e65fbd49797",
+      "connector_git_sha": "8d242ca41f4f818fb51588db97dd1e65fbd49797",
+      "git_sha_computed": "8d242ca41f4f818fb51588db97dd1e65fbd49797",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_right",
+        "textures": {
+          "all": "minecraft:block/cherry_shelf",
+          "particle": "minecraft:block/stripped_cherry_log"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_right",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_right.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/cherry_shelf",
+          "particle": "minecraft:block/stripped_cherry_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_right.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 452,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/cherry_shelf_unpowered.json",
+      "expected_git_sha": "a6631e12d88c26f5e931089b6750ee8408393447",
+      "connector_git_sha": "a6631e12d88c26f5e931089b6750ee8408393447",
+      "git_sha_computed": "a6631e12d88c26f5e931089b6750ee8408393447",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_unpowered",
+        "textures": {
+          "all": "minecraft:block/cherry_shelf",
+          "particle": "minecraft:block/stripped_cherry_log"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_unpowered",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_unpowered.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/cherry_shelf",
+          "particle": "minecraft:block/stripped_cherry_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_unpowered.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 453,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/cherry_shelf.json",
+      "expected_git_sha": "bcfecb2b598a41c74031ad845f1cde464428c7a3",
+      "connector_git_sha": "bcfecb2b598a41c74031ad845f1cde464428c7a3",
+      "git_sha_computed": "bcfecb2b598a41c74031ad845f1cde464428c7a3",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_shelf_body",
+        "textures": {
+          "all": "minecraft:block/cherry_shelf",
+          "particle": "minecraft:block/stripped_cherry_log"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_shelf_body",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_shelf_body.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "all",
+          "particle"
+        ],
+        "own_texture_defs": {
+          "all": "minecraft:block/cherry_shelf",
+          "particle": "minecraft:block/stripped_cherry_log"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_shelf_body.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 454,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/cherry_sign.json",
+      "expected_git_sha": "3165e0892119a8d7046a008258e599275193cd6f",
+      "connector_git_sha": "3165e0892119a8d7046a008258e599275193cd6f",
+      "git_sha_computed": "3165e0892119a8d7046a008258e599275193cd6f",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "minecraft:block/cherry_planks"
+        }
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle"
+        ],
+        "own_texture_defs": {
+          "particle": "minecraft:block/cherry_planks"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": null,
+        "E_exception": true,
+        "comparison_scope": "E_SPECIAL_RENDERER_NO_GENERAL_ELEMENTS",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 455,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/chest.json",
+      "expected_git_sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+      "connector_git_sha": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+      "git_sha_computed": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "textures": {
+          "particle": "minecraft:block/oak_planks"
+        }
+      },
+      "analysis": {
+        "parent": null,
+        "parent_model_path": null,
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "particle"
+        ],
+        "own_texture_defs": {
+          "particle": "minecraft:block/oak_planks"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": null,
+        "E_exception": true,
+        "comparison_scope": "E_SPECIAL_RENDERER_NO_GENERAL_ELEMENTS",
+        "own_geometry_matches": true
+      },
+      "errors": []
+    },
+    {
+      "index": 456,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/chipped_anvil.json",
+      "expected_git_sha": "57719879c0a40ef4fbd2a220fb03d4fe8f6ce361",
+      "connector_git_sha": "57719879c0a40ef4fbd2a220fb03d4fe8f6ce361",
+      "git_sha_computed": "57719879c0a40ef4fbd2a220fb03d4fe8f6ce361",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_anvil",
+        "textures": {
+          "top": "minecraft:block/chipped_anvil_top"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_anvil",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_anvil.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "top"
+        ],
+        "own_texture_defs": {
+          "top": "minecraft:block/chipped_anvil_top"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_anvil.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 457,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf_empty_slot_bottom_left.json",
+      "expected_git_sha": "1d68ce3b8781df62d71408e213ffc964ea78eac0",
+      "connector_git_sha": "1d68ce3b8781df62d71408e213ffc964ea78eac0",
+      "git_sha_computed": "1d68ce3b8781df62d71408e213ffc964ea78eac0",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_bottom_left",
+        "textures": {
+          "texture": "minecraft:block/chiseled_bookshelf_empty"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_bottom_left",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_left.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "texture"
+        ],
+        "own_texture_defs": {
+          "texture": "minecraft:block/chiseled_bookshelf_empty"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_left.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 458,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf_empty_slot_bottom_mid.json",
+      "expected_git_sha": "b3a2dc572b2577f999498e80e4bc73d2208faaa4",
+      "connector_git_sha": "b3a2dc572b2577f999498e80e4bc73d2208faaa4",
+      "git_sha_computed": "b3a2dc572b2577f999498e80e4bc73d2208faaa4",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_bottom_mid",
+        "textures": {
+          "texture": "minecraft:block/chiseled_bookshelf_empty"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_bottom_mid",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_mid.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "texture"
+        ],
+        "own_texture_defs": {
+          "texture": "minecraft:block/chiseled_bookshelf_empty"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_mid.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    },
+    {
+      "index": 459,
+      "type": "BLOCK_MODEL_JSON",
+      "path": "1.21.11/assets/minecraft/models/block/chiseled_bookshelf_empty_slot_bottom_right.json",
+      "expected_git_sha": "8fb59f5eda248adc3f7fa98850132684375faff8",
+      "connector_git_sha": "8fb59f5eda248adc3f7fa98850132684375faff8",
+      "git_sha_computed": "8fb59f5eda248adc3f7fa98850132684375faff8",
+      "source_content_direct_fetched": true,
+      "original_read_ok": true,
+      "content": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_bottom_right",
+        "textures": {
+          "texture": "minecraft:block/chiseled_bookshelf_empty"
+        }
+      },
+      "analysis": {
+        "parent": "minecraft:block/template_chiseled_bookshelf_slot_bottom_right",
+        "parent_model_path": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_right.json",
+        "parent_match": true,
+        "own_elements_key_explicit": false,
+        "own_element_count": 0,
+        "own_face_count": 0,
+        "own_uv_explicit": 0,
+        "own_uv_implicit": 0,
+        "own_texture_keys": [
+          "texture"
+        ],
+        "own_texture_defs": {
+          "texture": "minecraft:block/chiseled_bookshelf_empty"
+        },
+        "texture_slot_refs": [],
+        "own_display_parts": [],
+        "ambientocclusion_explicit": false,
+        "model_source_matches_prior": true,
+        "direct_chain_self_match": true,
+        "F_geometry_provider": "1.21.11/assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_right.json",
+        "E_exception": false,
+        "comparison_scope": "INHERITED_PARENT_GEOMETRY_REQUIRES_DIRECT_PARENT_FETCH",
+        "own_geometry_matches": null
+      },
+      "errors": []
+    }
+  ]
+}
