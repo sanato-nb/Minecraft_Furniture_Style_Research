@@ -137,5 +137,83 @@
     "No runtime engine render or animation playback",
     "E renderer and template unbound references not falsely resolved",
     "Global G1-G6 0/6, G not complete"
-  ]
+  ],
+  "final_after_tracker_update": {
+    "head": "215195529198f141a1286f1d5ba9de8511647012",
+    "files": [
+      {
+        "path": "HANDOFF.md",
+        "sha": "a5e15a769fc1d425c15433c11b06723c60172a0e",
+        "chars": 116809,
+        "lines": 621,
+        "head": "> **2026-11-17 · 1-2-G Entry3 원본 945/945 직접 검증·독립 감사·원격 재조회 PASS, Entry4 허용(미착수)** — [Entry3 최종 보고](research/vanilla_models/phase_",
+        "tail": "**새 채팅 복사용:** `docs/NEW_CHAT_START.md`.\n- **기계 판독 상태:** `handoff/STATE.json`.\n- 다음 체크포인트에서는 해당 파일을 실제로 업데이트하고 **날짜/버전/새로운 실측값/원본 링크/미완료**를 빠짐없이 남긴다.\n\n"
+      },
+      {
+        "path": "PROGRESS.md",
+        "sha": "23c9c8fef05c6118d766bb4a60feea9a68ee2f97",
+        "chars": 89886,
+        "lines": 464,
+        "head": "> **2026-11-17 · 1-2-G Entry3 원본 945/945 직접 검증·독립 감사·원격 재조회 PASS, Entry4 허용(미착수)** — [Entry3 최종 보고](research/vanilla_models/phase_",
+        "tail": "sv), [5쌍 비교](research/furniture_mods/v12/another_vs_handcrafted_5_category_pairs.csv).\n- 원본 모드 버전은 바닐라 1.21.11과 **상이**. 공식 클라이언트/인게임 검증을 완료 처리하지 않는다.\n"
+      },
+      {
+        "path": "docs/vanilla_models_1-2/CURRENT_STATUS.md",
+        "sha": "c80f79bb56458b443f7f95d20721bdb827ed452d",
+        "chars": 48251,
+        "lines": 191,
+        "head": "> **2026-11-17 · 1-2-G Entry3 원본 945/945 직접 검증·독립 감사·원격 재조회 PASS, Entry4 허용(미착수)** — [Entry3 최종 보고](research/vanilla_models/phase_",
+        "tail": "4) 검수 완료 조건과 연구 목적에 따른 P2/P3 검토 범위를 확정.\n\n**현재 확정 불가능한 것:** 544개 중 전체 중복 제거된 실제 심층 분석 완료 수, 전체 1-2 완료율 %, 실제 게임 렌더 정밀 재현. 근거 없이 1-2 완료나 완료율을 선언하지 말 것.\n"
+      },
+      {
+        "path": "handoff/STATE.json",
+        "sha": "79a1ba83e77e4e769dd0f23edfefb8c58b94a813",
+        "chars": 266908,
+        "lines": 5795,
+        "head": "{\n  \"phase_1_2_G_entry1_execution\": {\n    \"updated_kst\": \"2026-11-17\",\n    \"status\": \"G_ENTRY1_COMPLETE_SOURCE_CROSSSTAGE_ENTRY_GA",
+        "tail": ",\n    \"next_action\": \"Entry4 fixed queue 944 = 494 models + 265 blockstates + 185 PNG; source+independent+remote gate before Entry4 acceptance\"\n  }\n}\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry3/G_ENTRY3_REPORT.md",
+        "sha": "308e33568e76459d5ab8e68792c1c92b64e66fd5",
+        "chars": 1244,
+        "lines": 27,
+        "head": "> **2026-11-17 최종 판정: Entry3 PASS — 원본 945/945, 독립 감사 오류0, GitHub Actions 실행 success, 주요 파일 원격 SHA·행수·본문 검증 PASS.** [원격 검산](G_ENTR",
+        "tail": "OMETRY_RECOUNT.csv, G_ENTRY3_D_ORIGINAL_OPTIONS.csv, G_ENTRY3_PNG_BINARY_AUDIT.csv, G_ENTRY3_ORIGINAL_FACES_*.csv, G_ENTRY3_INDEPENDENT_RECOUNT.json.\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry3/G_NEXT.md",
+        "sha": "99dec9e3cf5c33023fb2b6029f6815de7643cccd",
+        "chars": 1988,
+        "lines": 13,
+        "head": "# 1-2-G Entry3 종료 PASS — Entry4 착수 허용, 아직 미착수\n\n2026-11-17 기준. 사용자 추출 Minecraft Java 1.21.11 원본 **945개 = model JSON 495 + blockstat",
+        "tail": "승인할 수 있다. Entry1~3의 기존 실적은 중복 계산 금지.\n\n**범위 한계:** 공식 Minecraft 배포 JAR, 게임 내 등록 state/renderer, 애니메이션 재생, 좀보이드 가구의 실제 정체/물리 재질/마크 맵 제작을 검증했다고 주장하지 않는다.\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry3/G_ENTRY3_INDEPENDENT_RECOUNT.json",
+        "sha": "7604511ab95ab2680907384c1099abd162847081",
+        "chars": 2012,
+        "lines": 47,
+        "head": "{\n  \"schema\": \"G_ENTRY3_CHECKOUT_INDEPENDENT_AUDIT/v1\",\n  \"counts\": {\n    \"source_paths\": 945,\n    \"model_JSON\": 495,\n    \"blockst",
+        "tail": "R certification\",\n    \"No game runtime renderer/state space\",\n    \"No animation playback\",\n    \"No new image semantics: F visual is historical\"\n  ]\n}\n"
+      },
+      {
+        "path": "research/vanilla_models/phase_1-2-G/entry3/G_ENTRY3_SOURCE_IDENTITY_945.csv",
+        "sha": "edb181cbf04b66be92087160e91c49504c4c6225",
+        "chars": 164536,
+        "lines": 946,
+        "head": "type,path,expected_sha,actual_sha,direct_bytes_read,source_SHA_match,prior_stage\r\nBLOCK_MODEL_JSON,1.21.11/assets/minecraft/models",
+        "tail": "necraft/textures/block/light_gray_glazed_terracotta.png,ef30c3f0c39f8495f93714aa938f63f819061371,ef30c3f0c39f8495f93714aa938f63f819061371,YES,PASS,C\r\n"
+      }
+    ],
+    "compare_from_entry2_head": "23fbb9a200c48c4cfe268afa7d206ba241f1569e",
+    "changed_files": 20,
+    "unsafe_changed_files": [],
+    "protected_A_to_F_v69": "PASS_UNCHANGED",
+    "state_contains_approved_entry3": true,
+    "source_scope_verified_assets": 2067,
+    "accepted_entries": 3,
+    "global_G_exit_passed": 0,
+    "entry4_allowed_not_started": true
+  }
 }
