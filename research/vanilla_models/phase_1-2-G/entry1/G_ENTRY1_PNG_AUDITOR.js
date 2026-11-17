@@ -131,7 +131,7 @@ G_ENTRY1_PNG.runBatch=async function(tools,start){
  if(all.length!==185)throw Error("unexpected number of Entry1 PNG paths: "+all.length);
  const C=new Map(this.csvObjects(prior.content).map(x=>[x.png_path,x]));
  const G=new Map(this.csvObjects(cross.content).map(x=>[x.source_path,x]));
- const input=all.slice(start,start+18),results=[];
+ const input=all.slice(start,start+14),results=[];
  for(const row of await Promise.all(input.map(async q=>{
    try{return {q,remote:(await tools.mcp__GitHub__fetch_file({repository_full_name:repo,path:q.source_path,encoding:"base64"})).result}}
    catch(e){return {q,error:String(e)}}
