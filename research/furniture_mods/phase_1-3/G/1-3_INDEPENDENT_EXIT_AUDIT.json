@@ -3,7 +3,7 @@
   "audit_baseline": "c084730b72b11604f7c56595147cb9b4b79f55b7",
   "historical_protection_baseline": "0542fb2b713fcaa5217ddb20a5273c02e1940b01",
   "scope": "THREE_PINNED_MODS_STATIC_SOURCE_GEOMETRY",
-  "status": "G_AUDIT_AWAITING_REMOTE_READBACK",
+  "status": "1-3_COMPLETE_SOURCE_GEOMETRY_SCOPE",
   "gates": {
     "M1": {
       "status": "PASS",
@@ -31,11 +31,12 @@
       "reason": "9유형의 표본·반례·DB·텍스처 인계 대조와 원본 PNG 해시 확인"
     },
     "M6": {
-      "status": "PENDING_REMOTE_READBACK",
-      "reason": "독립 재생성·검산 및 보호 경로 diff 통과. GitHub 본문·행수·blob 재조회 대기"
+      "status": "PASS",
+      "evidence": "1-3_REMOTE_READBACK.json",
+      "reason": "원격 main의 A~F 193파일 및 G 증거 4파일 본문·blob SHA와 CSV 84개 행수 대조. 보호 파일 2590개 변경 0."
     }
   },
-  "gates_passed": 5,
+  "gates_passed": 6,
   "gates_total": 6,
   "protected_paths_changed": 0,
   "rebuild_file_matches": {
@@ -240,5 +241,6 @@
   "new_models_discovered": 0,
   "new_png_pixel_measurements": 0,
   "runtime_verified": false,
-  "whole_project_completed": false
+  "whole_project_completed": false,
+  "remote_readback_commit": "fcc396f3b398fd264abac3205a5c4102abd7bf3f"
 }
