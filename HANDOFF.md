@@ -1,3 +1,9 @@
+## 2026-11-18 — 1-3-D 블록 상태·연결·조립 규칙 검증 완료
+
+세 모드 상태 원문 1,158경로, 규칙·모델 선택 78,456건, variants 관측 조합 80,787건 및 multipart 조합 2,112건을 검증했다. 코드 근거 500경로, 미해결 모델 참조 4건 및 선행 의자 예외 2건을 기록했다. 다음은 E 구조 비교이며 1-3 상위 종료 검증은 0/6이다.
+
+[D 결과 보고서](research/furniture_mods/phase_1-3/D/D_REPORT.md) · [다음 E 인계](research/furniture_mods/phase_1-3/D/D_NEXT.md)
+
 ## 2026-11-18 — 1-3-C 부모 계보 및 정적 형상 감사 완료
 
 세 모드 원본 모델 16,572개 검증, 정적 형상 16,464경로, 부모 누락 48경로, 회전 경계 독립 재계산 오류 0건. [C 결과 보고서](research/furniture_mods/phase_1-3/C/C_REPORT.md) · [다음 1-3-D](research/furniture_mods/phase_1-3/C/C_NEXT.md). 상위 1-3 독립 종료 게이트 0/6.

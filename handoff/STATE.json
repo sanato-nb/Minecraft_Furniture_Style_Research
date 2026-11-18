@@ -6042,7 +6042,7 @@
   },
   "phase_1_3_detailed_plan": {
     "date_kst": "2026-11-17",
-    "status": "1_3_C_STATIC_GEOMETRY_COMPLETE_D_READY",
+    "status": "1_3_D_STATIC_STATE_ASSEMBLY_COMPLETE_E_READY",
     "work_started": true,
     "original_mod_model_new_analysis_since_plan": 0,
     "fixed_source_population_verified": true,
@@ -6072,7 +6072,7 @@
     "prior_1_1_approved": 150,
     "top_level_tasks_completed": 1,
     "top_level_tasks_total": 5,
-    "next_action": "1-3-D fixed blockstate and state-driven assembly audit",
+    "next_action": "1-3-E furniture type structural comparison",
     "prerequisite_A_complete": true,
     "source_population_two_mod_model_json_paths": 14023,
     "entry_queue_batches": 137,
@@ -6082,7 +6082,28 @@
     "handcrafted_generated_sample_verified_B": 16,
     "upper_1_3_gates_passed": 0,
     "fixed_population_unit": "model_or_blockstate_JSON_path",
-    "C_completed": true
+    "C_completed": true,
+    "D_completed": true
+  },
+  "phase_1_3_D_execution": {
+    "date_kst": "2026-11-18",
+    "status": "D_COMPLETE_FIXED_STATIC_STATE_ASSEMBLY_WITH_EXCEPTIONS",
+    "completed": true,
+    "states": 1158,
+    "rules": 78456,
+    "model_options": 78456,
+    "variant_observed_domain_assignments": 80787,
+    "multipart_assignments": 2112,
+    "code_evidence_linked_states": 500,
+    "unresolved_model_options": 4,
+    "prior_chair_exceptions": 2,
+    "C_missing_parent_models_directly_selected": 0,
+    "runtime_verified": false,
+    "report": "research/furniture_mods/phase_1-3/D/D_REPORT.md",
+    "audit": "research/furniture_mods/phase_1-3/D/D_INDEPENDENT_AUDIT.json",
+    "next": "research/furniture_mods/phase_1-3/D/D_NEXT.md",
+    "upper_1_3_gates_passed": 0,
+    "upper_1_3_gates_total": 6
   },
   "phase_1_3_A_plan": {
     "date_kst": "2026-11-18",
