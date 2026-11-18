@@ -6347,7 +6347,7 @@
   },
   "phase_1_5_execution": {
     "date_kst": "2026-11-18",
-    "status": "IN_PROGRESS_D_STATIC_EXCEPTIONS_REVIEWED",
+    "status": "IN_PROGRESS_E_DATABASE_AND_HANDOFF_VERIFIED",
     "input_commit": "34d892916618be8ea89bbf2ad686fdcbb7e11b61",
     "plan": "docs/furniture_compare_1-5/1-5_DETAILED_EXECUTION_PLAN.md",
     "mod_states": 47,
@@ -6377,7 +6377,14 @@
     "d_runtime_checks_run": 0,
     "d_report": "research/furniture_mods/phase_1-5/D/REPORT.md",
     "d_audit": "research/furniture_mods/phase_1-5/D/D_AUDIT.json",
-    "next": "1-5-E comparison database and phase 2 handoff",
+    "e_review_date_kst": "2026-11-19",
+    "e_database": "research/furniture_mods/phase_1-5/E/comparison.sqlite.xz",
+    "e_phase2_handoff": "research/furniture_mods/phase_1-5/E/PHASE2_HANDOFF.csv",
+    "e_handoff_candidates": 14,
+    "e_handoff_limits": 7,
+    "e_report": "research/furniture_mods/phase_1-5/E/REPORT.md",
+    "e_audit": "research/furniture_mods/phase_1-5/E/INDEPENDENT_AUDIT.json",
+    "next": "1-5-F independent exit audit",
     "pending_parent_closure": [
       "1-2 whole-stage separate review",
       "1-4-F independent exit audit"
