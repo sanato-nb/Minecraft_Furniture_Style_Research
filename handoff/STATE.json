@@ -6042,7 +6042,7 @@
   },
   "phase_1_3_detailed_plan": {
     "date_kst": "2026-11-17",
-    "status": "1_3_B_COMPLETE_C_READY",
+    "status": "1_3_C_STATIC_GEOMETRY_COMPLETE_D_READY",
     "work_started": true,
     "original_mod_model_new_analysis_since_plan": 0,
     "fixed_source_population_verified": true,
@@ -6072,7 +6072,7 @@
     "prior_1_1_approved": 150,
     "top_level_tasks_completed": 1,
     "top_level_tasks_total": 5,
-    "next_action": "1-3-C source parent chain and geometry audit",
+    "next_action": "1-3-D fixed blockstate and state-driven assembly audit",
     "prerequisite_A_complete": true,
     "source_population_two_mod_model_json_paths": 14023,
     "entry_queue_batches": 137,
@@ -6081,7 +6081,8 @@
     "handcrafted_authored_verified_B": 121,
     "handcrafted_generated_sample_verified_B": 16,
     "upper_1_3_gates_passed": 0,
-    "fixed_population_unit": "model_or_blockstate_JSON_path"
+    "fixed_population_unit": "model_or_blockstate_JSON_path",
+    "C_completed": true
   },
   "phase_1_3_A_plan": {
     "date_kst": "2026-11-18",
@@ -6206,5 +6207,26 @@
     "macaw_item_definition_paths": 716,
     "all_model_json_paths": 16572,
     "all_blockstate_json_paths": 1158
+  },
+  "phase_1_3_C_execution": {
+    "date_kst": "2026-11-18",
+    "status": "C_COMPLETE_FIXED_MODEL_STATIC_GEOMETRY_WITH_EXCEPTIONS",
+    "completed": true,
+    "original_models": 16572,
+    "direct_verified": 16572,
+    "model_paths_with_static_elements": 16464,
+    "model_paths_without_static_elements": 108,
+    "missing_parent_paths": 48,
+    "parent_cycles": 0,
+    "vanilla_dependency_paths": 6,
+    "source_element_rows_including_vanilla": 1911,
+    "source_face_rows_including_vanilla": 9760,
+    "geometry_provider_paths": 300,
+    "ordered_geometry_fingerprints": 289,
+    "runtime_verified": false,
+    "independent_calculation_errors": 0,
+    "report": "research/furniture_mods/phase_1-3/C/C_REPORT.md",
+    "audit": "research/furniture_mods/phase_1-3/C/C_INDEPENDENT_AUDIT.json",
+    "next": "research/furniture_mods/phase_1-3/C/C_NEXT.md"
   }
 }

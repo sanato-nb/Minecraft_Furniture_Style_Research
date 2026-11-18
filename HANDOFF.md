@@ -1,3 +1,7 @@
+## 2026-11-18 — 1-3-C 부모 계보 및 정적 형상 감사 완료
+
+세 모드 원본 모델 16,572개 검증, 정적 형상 16,464경로, 부모 누락 48경로, 회전 경계 독립 재계산 오류 0건. [C 결과 보고서](research/furniture_mods/phase_1-3/C/C_REPORT.md) · [다음 1-3-D](research/furniture_mods/phase_1-3/C/C_NEXT.md). 상위 1-3 독립 종료 게이트 0/6.
+
 ## 2026-11-18 — 1-3-B 고정 원본 조사 완료
 
 [최신 1-3-B 종료 보고서](research/furniture_mods/phase_1-3/B/source_verification/B_SOURCE_EXIT_REPORT.md)에 세 모드 모델 16,572개·상태 1,158개 원문 검증과 Macaw 공식 JAR 확인 결과를 기록했다. 별도 Macaw item definition 716개를 확인했다. 다음은 1-3-C의 부모 계보와 형상 분석이다. 상위 M1~M6 게이트는 0/6이다.
