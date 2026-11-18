@@ -1,0 +1,423 @@
+{
+  "schema": "CURRENT_SNAPSHOT_LEDGER_RECHECK/v1",
+  "date_kst": "2026-11-18",
+  "baseline_main": "f8956d960b2a9e6d5dcde6b2732ce643318bcfb0",
+  "scope": "저장소 원장·연구파일 bytes·Git blob SHA 재집계; 원저자 JSON 신규 수집 아님",
+  "original_upstream_bytes_newly_read_this_run": 0,
+  "new_models_discovered": 0,
+  "A_status_preserved": "A_PRIOR_EVIDENCE_RECONCILIATION_PASS",
+  "A_gates": {
+    "passed": 7,
+    "total": 7
+  },
+  "M_gates": {
+    "passed": 0,
+    "total": 6
+  },
+  "prior_files_checked": 195,
+  "prior_bytes": 5321808,
+  "cohorts": {
+    "v18": 33,
+    "v21": 38,
+    "v22": 43,
+    "v23": 51,
+    "v24": 39
+  },
+  "A_counts": {
+    "leaf": 204,
+    "states": 22,
+    "templates": 69,
+    "chairs": 39,
+    "chair_elements": 390,
+    "chair_face_instances": 1794,
+    "handcrafted_record_types": {
+      "AUTHORED": 120,
+      "GENERATED_LEAF": 16,
+      "PRIOR_PNG_METRIC": 1,
+      "PRIOR_FACE_RGBA_METRIC": 1,
+      "PRIOR_MACAW_BLOCKED": 1
+    }
+  },
+  "B_counts": {
+    "AF_model_paths": 1629,
+    "HC_authored_paths": 121,
+    "HC_generated_paths": 12273,
+    "all_model_paths": 14023,
+    "states": 444,
+    "entries": 109,
+    "AF_direct_states_prior_A_plus_B": 177,
+    "HC_direct_model_evidence": 137,
+    "HC_generated_unread": 12257,
+    "AF_model_unread": 1356
+  },
+  "B_reference_exceptions": [
+    {
+      "exception_id": "B_AF_MISSING_LOCAL_1",
+      "state_source_path": "common/src/main/resources/assets/another_furniture/blockstates/unused/white_awning.json",
+      "referenced_model": "another_furniture:block/awning/white_double",
+      "model_source_path": "common/src/main/resources/assets/another_furniture/models/block/awning/white_double.json",
+      "source_state_sha": "f1330a172a20d47a24d40288317293bc47c59511",
+      "evidence_scope": "UPSTREAM_STATIC_JSON",
+      "status": "SOURCE_REFERENCE_MISSING_IN_PINNED_TREE",
+      "reason": "STATE_FILE_UNDER_UNUSED_DIRECTORY_REGISTRATION_UNKNOWN"
+    }
+  ],
+  "planning_status_snapshot_is_not_current_execution_state": true,
+  "input_files": {
+    "research/furniture_mods/phase_1-3/A/A_INPUT_MANIFEST.csv": {
+      "git_blob_sha": "728c74f3783ee23dea8f060497df92d254643b9a",
+      "computed_blob_sha": "728c74f3783ee23dea8f060497df92d254643b9a",
+      "bytes": 31974,
+      "csv_rows": 195
+    },
+    "research/furniture_mods/phase_1-3/A/A_ANOTHER_204_PRIOR_CROSSWALK.csv": {
+      "git_blob_sha": "6ab4e8045802fa86dfee441e7025cd836ee7b59e",
+      "computed_blob_sha": "6ab4e8045802fa86dfee441e7025cd836ee7b59e",
+      "bytes": 126956,
+      "csv_rows": 204
+    },
+    "research/furniture_mods/v18/another_leaf_direct_1_of_3.csv": {
+      "git_blob_sha": "ac0681cee14697ebc718c0a36200fa8d4c9e88d2",
+      "computed_blob_sha": "ac0681cee14697ebc718c0a36200fa8d4c9e88d2",
+      "bytes": 4080,
+      "csv_rows": 11
+    },
+    "research/furniture_mods/v18/another_leaf_direct_2_of_3.csv": {
+      "git_blob_sha": "0cadaadf7c68fb375e9a2c020b4b6ae3d969a36e",
+      "computed_blob_sha": "0cadaadf7c68fb375e9a2c020b4b6ae3d969a36e",
+      "bytes": 4260,
+      "csv_rows": 11
+    },
+    "research/furniture_mods/v18/another_leaf_direct_3_of_3.csv": {
+      "git_blob_sha": "d3dc0010de19050b29cba12a522ebd591b09a3b9",
+      "computed_blob_sha": "d3dc0010de19050b29cba12a522ebd591b09a3b9",
+      "bytes": 4543,
+      "csv_rows": 11
+    },
+    "research/furniture_mods/v21/another_38_new_leaf_originals_batch_1_of_4.csv": {
+      "git_blob_sha": "34c36d2753063465ba3bac9e21fec47d177c5f5e",
+      "computed_blob_sha": "34c36d2753063465ba3bac9e21fec47d177c5f5e",
+      "bytes": 4330,
+      "csv_rows": 10
+    },
+    "research/furniture_mods/v21/another_38_new_leaf_originals_batch_2_of_4.csv": {
+      "git_blob_sha": "6b99ce6142594330f15410bf7964a83ef96a1c2e",
+      "computed_blob_sha": "6b99ce6142594330f15410bf7964a83ef96a1c2e",
+      "bytes": 4301,
+      "csv_rows": 10
+    },
+    "research/furniture_mods/v21/another_38_new_leaf_originals_batch_3_of_4.csv": {
+      "git_blob_sha": "764939e592e06dd362a0740d3b5e653223674920",
+      "computed_blob_sha": "764939e592e06dd362a0740d3b5e653223674920",
+      "bytes": 4183,
+      "csv_rows": 10
+    },
+    "research/furniture_mods/v21/another_38_new_leaf_originals_batch_4_of_4.csv": {
+      "git_blob_sha": "493ea924d62c30cfdc206e6c4bfc7eb3627478e4",
+      "computed_blob_sha": "493ea924d62c30cfdc206e6c4bfc7eb3627478e4",
+      "bytes": 3634,
+      "csv_rows": 8
+    },
+    "research/furniture_mods/v22/shutter_43_leaf_orig_batch_1_of_4.csv": {
+      "git_blob_sha": "38f27d8639f23ce08e8fc43815418c6a15e2e2ba",
+      "computed_blob_sha": "38f27d8639f23ce08e8fc43815418c6a15e2e2ba",
+      "bytes": 4904,
+      "csv_rows": 11
+    },
+    "research/furniture_mods/v22/shutter_43_leaf_orig_batch_2_of_4.csv": {
+      "git_blob_sha": "43274fc70070b7c84f6f4a0ea14e95abfc7696ea",
+      "computed_blob_sha": "43274fc70070b7c84f6f4a0ea14e95abfc7696ea",
+      "bytes": 4972,
+      "csv_rows": 11
+    },
+    "research/furniture_mods/v22/shutter_43_leaf_orig_batch_3_of_4.csv": {
+      "git_blob_sha": "529490de1243d5ba27b3360f62be3129ab083d5f",
+      "computed_blob_sha": "529490de1243d5ba27b3360f62be3129ab083d5f",
+      "bytes": 4904,
+      "csv_rows": 11
+    },
+    "research/furniture_mods/v22/shutter_43_leaf_orig_batch_4_of_4.csv": {
+      "git_blob_sha": "2ff8773c18286846e9039329907c3d906166ac9d",
+      "computed_blob_sha": "2ff8773c18286846e9039329907c3d906166ac9d",
+      "bytes": 4503,
+      "csv_rows": 10
+    },
+    "research/furniture_mods/v23/new_51_leaf_originals_batch_1_of_6.csv": {
+      "git_blob_sha": "5a7c934f27f0387e993a067737386caa722c4698",
+      "computed_blob_sha": "5a7c934f27f0387e993a067737386caa722c4698",
+      "bytes": 4550,
+      "csv_rows": 10
+    },
+    "research/furniture_mods/v23/new_51_leaf_originals_batch_2_of_6.csv": {
+      "git_blob_sha": "7cfb455c2bb6fdbdb3ecbd6fed5ce19da5f4c661",
+      "computed_blob_sha": "7cfb455c2bb6fdbdb3ecbd6fed5ce19da5f4c661",
+      "bytes": 5259,
+      "csv_rows": 10
+    },
+    "research/furniture_mods/v23/new_51_leaf_originals_batch_3_of_6.csv": {
+      "git_blob_sha": "394b57bb65585de842bae4d208ae20c36c1cf97f",
+      "computed_blob_sha": "394b57bb65585de842bae4d208ae20c36c1cf97f",
+      "bytes": 5928,
+      "csv_rows": 10
+    },
+    "research/furniture_mods/v23/new_51_leaf_originals_batch_4_of_6.csv": {
+      "git_blob_sha": "aea515f8bf3e7201d75a0b48c7ca9f1c6c99a77f",
+      "computed_blob_sha": "aea515f8bf3e7201d75a0b48c7ca9f1c6c99a77f",
+      "bytes": 4624,
+      "csv_rows": 10
+    },
+    "research/furniture_mods/v23/new_51_leaf_originals_batch_5_of_6.csv": {
+      "git_blob_sha": "25b03ec090d17244c2e01df53bb31637ced8a148",
+      "computed_blob_sha": "25b03ec090d17244c2e01df53bb31637ced8a148",
+      "bytes": 5264,
+      "csv_rows": 10
+    },
+    "research/furniture_mods/v23/new_51_leaf_originals_batch_6_of_6.csv": {
+      "git_blob_sha": "a4f945ef442d5ba08be4599bada7f9212631f4e2",
+      "computed_blob_sha": "a4f945ef442d5ba08be4599bada7f9212631f4e2",
+      "bytes": 696,
+      "csv_rows": 1
+    },
+    "research/furniture_mods/v24/chair_remaining_39_original_json_geometry_audit.csv": {
+      "git_blob_sha": "c1408d4869f16baf022484b999c1cb012c772f44",
+      "computed_blob_sha": "c1408d4869f16baf022484b999c1cb012c772f44",
+      "bytes": 21113,
+      "csv_rows": 39
+    },
+    "research/furniture_mods/phase_1-3/A/A_ANOTHER_22_BLOCKSTATES.csv": {
+      "git_blob_sha": "ed8aedff28481d71936878f1f5e193866df92935",
+      "computed_blob_sha": "ed8aedff28481d71936878f1f5e193866df92935",
+      "bytes": 6616,
+      "csv_rows": 22
+    },
+    "research/furniture_mods/phase_1-3/A/A_ANOTHER_69_TEMPLATES.csv": {
+      "git_blob_sha": "cdde97a730f1d0de3e7126f732a692f0069fa7d5",
+      "computed_blob_sha": "cdde97a730f1d0de3e7126f732a692f0069fa7d5",
+      "bytes": 25218,
+      "csv_rows": 69
+    },
+    "research/furniture_mods/phase_1-3/A/A_CHAIR_39_RELATIONS.csv": {
+      "git_blob_sha": "ff6ecc9237315fe72e4ca319f8229ae4ed8e778c",
+      "computed_blob_sha": "ff6ecc9237315fe72e4ca319f8229ae4ed8e778c",
+      "bytes": 18252,
+      "csv_rows": 39
+    },
+    "research/furniture_mods/phase_1-3/A/A_HANDCRAFTED_PRIOR_SCOPE.csv": {
+      "git_blob_sha": "4ef7feac90382bf77ba6d1b64546fccceaa9fd4d",
+      "computed_blob_sha": "4ef7feac90382bf77ba6d1b64546fccceaa9fd4d",
+      "bytes": 44808,
+      "csv_rows": 139
+    },
+    "research/furniture_mods/phase_1-3/A/A_UNRESOLVED.csv": {
+      "git_blob_sha": "f4b9fcf7213b44b2215d115bdf0dbb9e8fa0af58",
+      "computed_blob_sha": "f4b9fcf7213b44b2215d115bdf0dbb9e8fa0af58",
+      "bytes": 2920,
+      "csv_rows": 10
+    },
+    "research/furniture_mods/phase_1-3/B/B_MODEL_INVENTORY_AF.csv": {
+      "git_blob_sha": "a8e16e0f017b734b661b60713d9549099a7ae42a",
+      "computed_blob_sha": "a8e16e0f017b734b661b60713d9549099a7ae42a",
+      "bytes": 432673,
+      "csv_rows": 1629
+    },
+    "research/furniture_mods/phase_1-3/B/B_MODEL_INVENTORY_HC_AUTHORED.csv": {
+      "git_blob_sha": "a89bf1b48251e1c8a65325e6f0b6ee9c67c48adb",
+      "computed_blob_sha": "a89bf1b48251e1c8a65325e6f0b6ee9c67c48adb",
+      "bytes": 31229,
+      "csv_rows": 121
+    },
+    "research/furniture_mods/phase_1-3/B/B_MODEL_INVENTORY_HC_GENERATED_01.csv": {
+      "git_blob_sha": "7eef31fcda4b043d321bc52826d77ab1dd4ef809",
+      "computed_blob_sha": "7eef31fcda4b043d321bc52826d77ab1dd4ef809",
+      "bytes": 477885,
+      "csv_rows": 1700
+    },
+    "research/furniture_mods/phase_1-3/B/B_MODEL_INVENTORY_HC_GENERATED_02.csv": {
+      "git_blob_sha": "627f16ed106652ccc820aab83a984ccd7a3cd5bf",
+      "computed_blob_sha": "627f16ed106652ccc820aab83a984ccd7a3cd5bf",
+      "bytes": 473091,
+      "csv_rows": 1700
+    },
+    "research/furniture_mods/phase_1-3/B/B_MODEL_INVENTORY_HC_GENERATED_03.csv": {
+      "git_blob_sha": "91fc8f1f1bf85d67b466b61508f141cc641404ab",
+      "computed_blob_sha": "91fc8f1f1bf85d67b466b61508f141cc641404ab",
+      "bytes": 483007,
+      "csv_rows": 1700
+    },
+    "research/furniture_mods/phase_1-3/B/B_MODEL_INVENTORY_HC_GENERATED_04.csv": {
+      "git_blob_sha": "5e161cacc23ae2f6dde7da9510bc28f4d94ec60a",
+      "computed_blob_sha": "5e161cacc23ae2f6dde7da9510bc28f4d94ec60a",
+      "bytes": 482431,
+      "csv_rows": 1700
+    },
+    "research/furniture_mods/phase_1-3/B/B_MODEL_INVENTORY_HC_GENERATED_05.csv": {
+      "git_blob_sha": "51ca734191580f48807fa4239783b148673c1529",
+      "computed_blob_sha": "51ca734191580f48807fa4239783b148673c1529",
+      "bytes": 478769,
+      "csv_rows": 1700
+    },
+    "research/furniture_mods/phase_1-3/B/B_MODEL_INVENTORY_HC_GENERATED_06.csv": {
+      "git_blob_sha": "f43a0d99b6223d4705512ec4f8aac3f7bd471657",
+      "computed_blob_sha": "f43a0d99b6223d4705512ec4f8aac3f7bd471657",
+      "bytes": 473283,
+      "csv_rows": 1700
+    },
+    "research/furniture_mods/phase_1-3/B/B_MODEL_INVENTORY_HC_GENERATED_07.csv": {
+      "git_blob_sha": "0eed60e17913f20b6e500f9d691d54622cd7d0b8",
+      "computed_blob_sha": "0eed60e17913f20b6e500f9d691d54622cd7d0b8",
+      "bytes": 470621,
+      "csv_rows": 1700
+    },
+    "research/furniture_mods/phase_1-3/B/B_MODEL_INVENTORY_HC_GENERATED_08.csv": {
+      "git_blob_sha": "801a00df6d0806e752d0ea597861b50bc164e122",
+      "computed_blob_sha": "801a00df6d0806e752d0ea597861b50bc164e122",
+      "bytes": 93434,
+      "csv_rows": 373
+    },
+    "research/furniture_mods/phase_1-3/B/B_BLOCKSTATE_INVENTORY.csv": {
+      "git_blob_sha": "1029438ec799de3588307492b715ea5081629932",
+      "computed_blob_sha": "1029438ec799de3588307492b715ea5081629932",
+      "bytes": 97702,
+      "csv_rows": 444
+    },
+    "research/furniture_mods/phase_1-3/B/B_AF_STATES_DIRECT_001.csv": {
+      "git_blob_sha": "837a2790a774c29621e1260e364a810d63d213ad",
+      "computed_blob_sha": "837a2790a774c29621e1260e364a810d63d213ad",
+      "bytes": 9438,
+      "csv_rows": 12
+    },
+    "research/furniture_mods/phase_1-3/B/B_AF_STATES_DIRECT_002.csv": {
+      "git_blob_sha": "56071d80208c82352470ff9964172847cc1db3bc",
+      "computed_blob_sha": "56071d80208c82352470ff9964172847cc1db3bc",
+      "bytes": 10718,
+      "csv_rows": 15
+    },
+    "research/furniture_mods/phase_1-3/B/B_AF_STATES_DIRECT_003.csv": {
+      "git_blob_sha": "dabd896c98880f103760bff482e5fceedae686d8",
+      "computed_blob_sha": "dabd896c98880f103760bff482e5fceedae686d8",
+      "bytes": 9676,
+      "csv_rows": 15
+    },
+    "research/furniture_mods/phase_1-3/B/B_AF_STATES_DIRECT_004.csv": {
+      "git_blob_sha": "08f54280256ea0b3a7267d0b63d61a7c3bd04493",
+      "computed_blob_sha": "08f54280256ea0b3a7267d0b63d61a7c3bd04493",
+      "bytes": 10411,
+      "csv_rows": 15
+    },
+    "research/furniture_mods/phase_1-3/B/B_AF_STATES_DIRECT_005.csv": {
+      "git_blob_sha": "4e46a8126cad092e11507a38c91d1db2684d582d",
+      "computed_blob_sha": "4e46a8126cad092e11507a38c91d1db2684d582d",
+      "bytes": 9011,
+      "csv_rows": 15
+    },
+    "research/furniture_mods/phase_1-3/B/B_AF_STATES_DIRECT_006.csv": {
+      "git_blob_sha": "7a48c302886e7427e80de7a7074a841435488915",
+      "computed_blob_sha": "7a48c302886e7427e80de7a7074a841435488915",
+      "bytes": 9864,
+      "csv_rows": 15
+    },
+    "research/furniture_mods/phase_1-3/B/B_AF_STATES_DIRECT_007.csv": {
+      "git_blob_sha": "da6cda184f5fe885a81766fba945eecb7e965b3f",
+      "computed_blob_sha": "da6cda184f5fe885a81766fba945eecb7e965b3f",
+      "bytes": 6564,
+      "csv_rows": 15
+    },
+    "research/furniture_mods/phase_1-3/B/B_AF_STATES_DIRECT_008.csv": {
+      "git_blob_sha": "59f8f29a608bf386f01967673a739b667a8dd64b",
+      "computed_blob_sha": "59f8f29a608bf386f01967673a739b667a8dd64b",
+      "bytes": 9606,
+      "csv_rows": 15
+    },
+    "research/furniture_mods/phase_1-3/B/B_AF_STATES_DIRECT_009.csv": {
+      "git_blob_sha": "b2326f57e18fc54700880fc70ec595212e019633",
+      "computed_blob_sha": "b2326f57e18fc54700880fc70ec595212e019633",
+      "bytes": 6258,
+      "csv_rows": 15
+    },
+    "research/furniture_mods/phase_1-3/B/B_AF_STATES_DIRECT_010.csv": {
+      "git_blob_sha": "9b69a7532873f0f9ccc9386ee4b6e5e679e5808d",
+      "computed_blob_sha": "9b69a7532873f0f9ccc9386ee4b6e5e679e5808d",
+      "bytes": 11787,
+      "csv_rows": 15
+    },
+    "research/furniture_mods/phase_1-3/B/B_AF_STATES_DIRECT_011.csv": {
+      "git_blob_sha": "55c2a74a9cbd09b101bf1c046896c1302537b7f6",
+      "computed_blob_sha": "55c2a74a9cbd09b101bf1c046896c1302537b7f6",
+      "bytes": 3292,
+      "csv_rows": 8
+    },
+    "research/furniture_mods/phase_1-3/B/B_HC_AUTHORED_DIRECT_001.csv": {
+      "git_blob_sha": "13d0312797898bdb8983f56e9b9a41570df19c9c",
+      "computed_blob_sha": "13d0312797898bdb8983f56e9b9a41570df19c9c",
+      "bytes": 5081,
+      "csv_rows": 16
+    },
+    "research/furniture_mods/phase_1-3/B/B_HC_AUTHORED_DIRECT_002.csv": {
+      "git_blob_sha": "42d080608622cacbc88e591dcef30bcf0481e771",
+      "computed_blob_sha": "42d080608622cacbc88e591dcef30bcf0481e771",
+      "bytes": 5021,
+      "csv_rows": 16
+    },
+    "research/furniture_mods/phase_1-3/B/B_HC_AUTHORED_DIRECT_003.csv": {
+      "git_blob_sha": "68c2e0f4b092291d4142fce001aea3ecae2fc66c",
+      "computed_blob_sha": "68c2e0f4b092291d4142fce001aea3ecae2fc66c",
+      "bytes": 5041,
+      "csv_rows": 16
+    },
+    "research/furniture_mods/phase_1-3/B/B_HC_AUTHORED_DIRECT_004.csv": {
+      "git_blob_sha": "da33e98231e331b685ac296c29b0a2440d1b9c1a",
+      "computed_blob_sha": "da33e98231e331b685ac296c29b0a2440d1b9c1a",
+      "bytes": 5272,
+      "csv_rows": 16
+    },
+    "research/furniture_mods/phase_1-3/B/B_HC_AUTHORED_DIRECT_005.csv": {
+      "git_blob_sha": "daab3dab556178dfc3debb86012de78e48191c77",
+      "computed_blob_sha": "daab3dab556178dfc3debb86012de78e48191c77",
+      "bytes": 4937,
+      "csv_rows": 16
+    },
+    "research/furniture_mods/phase_1-3/B/B_HC_AUTHORED_DIRECT_006.csv": {
+      "git_blob_sha": "c78c93b946b646cea28483ef3a9d9e83fad1c127",
+      "computed_blob_sha": "c78c93b946b646cea28483ef3a9d9e83fad1c127",
+      "bytes": 4995,
+      "csv_rows": 16
+    },
+    "research/furniture_mods/phase_1-3/B/B_HC_AUTHORED_DIRECT_007.csv": {
+      "git_blob_sha": "17ecdba9be223722b60165bf64a924a40c9efa4c",
+      "computed_blob_sha": "17ecdba9be223722b60165bf64a924a40c9efa4c",
+      "bytes": 5218,
+      "csv_rows": 16
+    },
+    "research/furniture_mods/phase_1-3/B/B_HC_AUTHORED_DIRECT_008.csv": {
+      "git_blob_sha": "47aaec2d059e6a44c6ac12b4fe3903ec1e0e091d",
+      "computed_blob_sha": "47aaec2d059e6a44c6ac12b4fe3903ec1e0e091d",
+      "bytes": 3012,
+      "csv_rows": 9
+    },
+    "research/furniture_mods/phase_1-3/B/B_HC_PRIOR_GENERATED_16_DIRECT.csv": {
+      "git_blob_sha": "9c7081b9cfa0236e0ee01221ef38445092f63a09",
+      "computed_blob_sha": "9c7081b9cfa0236e0ee01221ef38445092f63a09",
+      "bytes": 5219,
+      "csv_rows": 16
+    },
+    "research/furniture_mods/phase_1-3/B/ENTRY_QUEUE.csv": {
+      "git_blob_sha": "96bda48a3d412f3698674682bc5994b402677fec",
+      "computed_blob_sha": "96bda48a3d412f3698674682bc5994b402677fec",
+      "bytes": 31182,
+      "csv_rows": 109
+    },
+    "research/furniture_mods/phase_1-3/B/B_AF_155_REF_EXCEPTIONS.csv": {
+      "git_blob_sha": "832cdb7fc6dd3144a186cdbf6daaef55527a25eb",
+      "computed_blob_sha": "832cdb7fc6dd3144a186cdbf6daaef55527a25eb",
+      "bytes": 511,
+      "csv_rows": 1
+    },
+    "handoff/STATE.json": {
+      "git_blob_sha": "a5a0f4ff6967189803460297a13887ac5b22ede4",
+      "computed_blob_sha": "a5a0f4ff6967189803460297a13887ac5b22ede4",
+      "bytes": 286110
+    }
+  },
+  "errors": [],
+  "result": "PASS"
+}
