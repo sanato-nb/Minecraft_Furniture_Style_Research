@@ -1,3 +1,7 @@
+## 2026-11-18 최신 결과
+
+[공식 원본 확보 및 종료 보고서](source_verification/B_SOURCE_EXIT_REPORT.md)를 확인할 것. 다음 단계는 1-3-C다. 아래는 이전 부분 완료 시점의 기록이다.
+
 # 1-3-B 공식 소스 조사 — 2026-11-18 (진행 중)
 
 **현 상태: Another·Handcrafted 공식 원본 Git 트리 모집단 고정 및 부분 원문 검증 완료. Macaw 공식 JAR 미확보로 1-3-B 전체 BLOCKED.** 이전 1-3-A 7/7 보존; 상위 1-3 M1~M6는 0/6.

@@ -1,3 +1,7 @@
+## 2026-11-18 — 1-3-B 고정 원본 조사 완료
+
+[최신 1-3-B 종료 보고서](research/furniture_mods/phase_1-3/B/source_verification/B_SOURCE_EXIT_REPORT.md)에 세 모드 모델 16,572개·상태 1,158개 원문 검증과 Macaw 공식 JAR 확인 결과를 기록했다. 별도 Macaw item definition 716개를 확인했다. 다음은 1-3-C의 부모 계보와 형상 분석이다. 상위 M1~M6 게이트는 0/6이다.
+
 ## 2026-11-18 — 1-3-B Another 상태155·Handcrafted authored121 직접 원본 검증 (부분 완료)
 
 - 공식 원본 Git tree 모델 JSON 14,023·state444·소스175를 고정한 직전 B 결과는 유지. Another 미조사 blockstate **155/155** 원문 직접 SHA·JSON parse; A 기존22 포함 **177/177** source SHA 근거 확보, 규칙8137·ref1153 (local1151, Minecraft air1, unused white_awning 누락1).
