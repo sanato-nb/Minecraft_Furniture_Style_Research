@@ -155,13 +155,14 @@ def measure_chairs(db, chair_models, source_docs, png_by_id, images):
             box = to_pixel_box(uv,tex['width'],tex['height'])
             status = 'ZERO_UV_AREA'
             trans=partial=opaque=distinct=0
-            palette = ''
+            palette = region_sha = ''
             if box:
                 assert 0 <= box[0] < box[2] <= tex['width'] and 0 <= box[1] < box[3] <= tex['height'], (resource,uv)
                 region = images[f['id']].crop(box)
                 metrics = metrics_for_box(f['id'],box)
                 verify_pixels(region,metrics)
                 trans,partial,opaque,distinct,palette = metrics
+                region_sha = hashlib.sha256(region.tobytes()).hexdigest()
                 status = 'SAMPLED_STATIC_RECTANGLE'
             outputs.append(dict(model_key=f['model_key'],model_ref=row['leaf'],model_sha=row['source_sha'],
                                 parent_ref=f['parent_ref'],parent_sha=f['parent_sha'],element_index=f['element_index'],
@@ -170,7 +171,7 @@ def measure_chairs(db, chair_models, source_docs, png_by_id, images):
                                 u_reversed=int(uv[0]>uv[2]),v_reversed=int(uv[1]>uv[3]),
                                 pixel_box='|'.join(map(str,box)) if box else '',status=status,
                                 transparent=trans,partial_alpha=partial,opaque=opaque,visible_rgb_colors=distinct,
-                                top4_visible_rgba_counts=palette))
+                                top4_visible_rgba_counts=palette,rgba8_sha256=region_sha))
     return outputs
 
 
@@ -240,7 +241,10 @@ def main():
             report = dict(texture_id=texture_id,resource_id=resource_id,minecraft=row['minecraft'],
                           source_id=source,scope=scope,priority_chair=int(in_chairs),hash_algorithm=kind,
                           pinned_path=path,computed_sha=sha,png_bytes=len(png),width=image.width,height=image.height,
-                          bit_depth=depth,png_color_type=color,png_frames=frames,mcmeta_status=meta_status,
+                          bit_depth=depth,png_color_type=color,
+                          pixels_per_u=float(Fraction(image.width,16)),pixels_per_v=float(Fraction(image.height,16)),
+                          content_sha256=hashlib.sha256(png).hexdigest(),rgba8_sha256=hashlib.sha256(image.tobytes()).hexdigest(),
+                          png_frames=frames,mcmeta_status=meta_status,
                           mcmeta_sha=hash_bytes(meta,kind) if meta is not None else '',
                           transparent=metrics[0],partial_alpha=metrics[1],opaque=metrics[2],
                           visible_rgb_colors=metrics[3],top4_visible_rgba_counts=metrics[4])
@@ -250,6 +254,17 @@ def main():
         db.row_factory=sqlite3.Row
         db.deserialize(lzma.decompress((phase/'F/furniture_research.sqlite.xz').read_bytes()))
         assert db.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+        db_textures = db.execute('SELECT id,resource_id,minecraft,source_id,texture_status,path,sha FROM texture').fetchall()
+        fields = ('texture_id','resource_id','minecraft','source_id','texture_status','path','source_sha')
+        assert {tuple(str(v) if v is not None else '' for v in row) for row in db_textures} == {
+            tuple(r[k] for k in fields) for r in ledger}
+        for prior in csv_rows(phase/'F/F_PRIOR_RGBA_LEDGER.csv'):
+            path = args.repo/prior['ledger_path']
+            assert hash_bytes(path.read_bytes(),'GIT_BLOB_SHA1') == prior['ledger_blob_sha']
+            rows = csv_rows(path)
+            if rows and 'newly_sampled' in rows[0]:
+                rows = [r for r in rows if r['newly_sampled']=='1']
+            assert len(rows)==int(prior['rows_recounted'])
         source_docs = {p:readers['AF'](p) for p in paths['AF'] if p.endswith('.json')}
         uv_report = measure_chairs(db,chair_models,source_docs,png_by_id,images)
         assert len(uv_report)==1794 and len({r['resource_id'] for r in uv_report})==24
@@ -288,6 +303,7 @@ def main():
     new=[r for r in png_report if r['scope']=='NEW_CANDIDATE']
     result=dict(status='ENTRY01_MEASURED',input_dispositions=status_counts,
                 newly_decoded_png=len(new),previous_png_controls_redecoded=len(png_report)-len(new),
+                new_png_distinct_content_sha256=len({r['content_sha256'] for r in new}),
                 new_png_by_source=Counter(r['source_id'] for r in new),
                 new_png_dimension_counts=Counter(f"{r['width']}x{r['height']}" for r in new),
                 new_png_with_transparent_pixels=sum(r['transparent']>0 for r in new),
