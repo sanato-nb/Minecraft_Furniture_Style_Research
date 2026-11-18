@@ -1,0 +1,11 @@
+test_id,axis,cases_or_scope,source_basis,setup,observation_required,status
+R01,BED_WORLD_AND_ITEM,V11,STATIC_COUNTEREXAMPLES.json,1.21.11 기본 흰색 침대를 설치하고 손과 인벤토리에도 표시,월드의 머리·발치 형상과 아이템 렌더를 별도 캡처,NOT_RUN
+R02,BED_MULTIBLOCK,S37|S38,STATIC_COUNTEREXAMPLES.json,HC 고정 버전 북향 동일 색 침대를 두 칸에 설치,두 블록 상태와 경사 요소의 중복 표시 여부 및 충돌을 별도 기록,NOT_RUN
+R03,LAMP_LIGHT,S44|S45,STATIC_COUNTEREXAMPLES.json,AF 흰색 벽 램프의 레벨 1·2·3에서 점등 전환,블록 광량과 네 면의 색·UV 변화를 별도 관찰,NOT_RUN
+R04,UVLOCK_ROTATION,V01|V03|V08|S11|S12|S13|S18|S19|S35|S36,../B/APPLICATIONS.csv,각 게임 버전에서 동일 재질의 방향·연결을 변경,회전 후 월드 면의 패턴 방향과 UV lock 적용 결과 확인,NOT_RUN
+R05,ALPHA_AND_CULL,S06|S07|S10|S27,../B/FACES.csv.xz,쿠션과 선반 오버레이를 밝은 배경·인접 블록 유무로 비교,컷아웃·가림·겹치는 면 표시와 광원 영향 확인,NOT_RUN
+R06,WATER_ANIMATION_AND_TINT,V12|V13|S42|S43,../B/ANIMATION_FRAMES.csv.xz,가마솥과 싱크대를 빈 상태와 만수 상태로 설치,수면 높이·색조·애니메이션 진행을 동일한 시점과 조명에서 캡처,NOT_RUN
+R07,OPEN_PANEL_AND_COLLISION,V05|V06|S20|S21|S23,../C/CROSS_CATEGORY_FINDINGS.csv,통과 서랍을 여닫고 동일 면 방향으로 관찰,표면 변화 및 손잡이·몸체의 선택 상자와 충돌을 구분,NOT_RUN
+R08,CHAIR_REFERENCE_MAPPING,S03|S04,STATE_EXCEPTIONS.csv,AF 자작·가문비 의자를 남향으로 놓고 variant 3 상태 확인,블록 상태와 선택된 받침·등받이 모델을 기록,NOT_RUN
+R09,MISSING_AND_UNUSED_ASSETS,48 parent models|4 state options|8 absent PNGs,PARENT_EXCEPTIONS.csv|STATE_EXCEPTIONS.csv|TEXTURE_EXPOSURE.csv,고정 배포 원본에 일치하는 로더와 리소스에서 등록 여부부터 확인,로딩 로그 및 대체 리소스 적용 여부를 기록하고 미등록이면 원인 기록,NOT_RUN
+R10,PARTICLES_AND_ITEM_LAYERS,77 declared-only texture IDs,TEXTURE_EXPOSURE.csv,블록 파티클과 인벤토리 아이템을 다른 확인 대상으로 실행,면 바인딩 여부와 별도로 파티클과 아이템 레이어에서 표시되는지 확인,NOT_RUN
