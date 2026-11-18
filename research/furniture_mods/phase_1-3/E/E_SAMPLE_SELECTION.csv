@@ -1,0 +1,48 @@
+case,category,mod,block,state,reason
+S01,SEATING_CHAIR,AF,oak_chair,"facing=north;tucked=false;variant=1",의자 기준
+S02,SEATING_CHAIR,AF,oak_chair,"facing=north;tucked=true;variant=1",안쪽 변형
+S03,SEATING_CHAIR,AF,birch_chair,"facing=south;tucked=false;variant=3",D의 참조 반례
+S04,SEATING_CHAIR,AF,spruce_chair,"facing=south;tucked=false;variant=3",D의 참조 반례
+S05,SEATING_CHAIR,AF,white_stool,low=false,등받이 없는 비교
+S06,SEATING_CHAIR,HC,oak_chair,"color=none;facing=north;waterlogged=false",의자 기준
+S07,SEATING_CHAIR,HC,oak_chair,"color=white;facing=north;waterlogged=false",흰색 쿠션 설정 비교
+S08,SEATING_CHAIR,MACAW,oak_chair,facing=north,의자 기준
+S09,SEATING_CHAIR,MACAW,oak_stool_chair,,스툴 비교
+S10,SMALL_TABLE,HC,oak_side_table,"color=none;facing=north;waterlogged=false",사이드 테이블
+S11,SMALL_TABLE,MACAW,oak_end_table,"east=false;north=false;south=false;west=false",엔드 테이블 독립 상태
+S12,SMALL_TABLE,MACAW,oak_coffee_table,connection=with_leg,커피 테이블 다리 상태
+S13,SMALL_TABLE,MACAW,oak_coffee_table,connection=center,동일 가구 중앙 상태
+S14,LARGE_TABLE,AF,oak_table,"facing=north;leg_1=true;leg_2=true;leg_3=true;leg_4=true",상판과 다리 네 개
+S15,LARGE_TABLE,AF,oak_table,"facing=north;leg_1=false;leg_2=false;leg_3=false;leg_4=false",상판만 적용하는 조건
+S16,LARGE_TABLE,HC,oak_table,"color=none;shape=single;waterlogged=false",독립 테이블
+S17,LARGE_TABLE,HC,oak_table,"color=none;shape=center;waterlogged=false",연결 중앙
+S18,LARGE_TABLE,MACAW,oak_table,"east=false;north=false;south=false;west=false",독립 테이블
+S19,LARGE_TABLE,MACAW,oak_table,"east=true;north=true;south=true;west=true",사방 연결 조건
+S20,STORAGE,AF,oak_drawer,"facing=north;open=false",닫힌 서랍
+S21,STORAGE,AF,oak_drawer,"facing=north;open=true",열린 서랍
+S22,STORAGE,HC,oak_drawer,"facing=north;shape=single;type=1",서랍 기준 형태
+S23,STORAGE,MACAW,oak_drawer,"connection=single;facing=north",서랍 기준 형태
+S24,STORAGE,MACAW,oak_drawer,"connection=middle;facing=north",연결형 서랍
+S25,STORAGE,MACAW,oak_wardrobe,"connection=base;facing=north;hinge=left",힌지형 수납 기준
+S26,SHELVING,AF,oak_shelf,"facing=north;horizontal=single",독립 선반
+S27,SHELVING,HC,oak_shelf,"facing=north;shape=single;type=1",독립 선반
+S28,SHELVING,MACAW,oak_bookshelf,"connection=base;facing=north",기본 책장
+S29,SHELVING,MACAW,oak_bookshelf,"connection=middle;facing=north",위아래 연결 책장
+S30,SOFA_BENCH,AF,oak_bench,"back=true;facing=north;horizontal_1=single;horizontal_2=single",등받이 포함 벤치
+S31,SOFA_BENCH,AF,oak_bench,"back=false;facing=north;horizontal_1=single;horizontal_2=single",좌판만 적용
+S32,SOFA_BENCH,AF,white_sofa,"facing=north;type=single",독립 소파
+S33,SOFA_BENCH,HC,oak_couch,"color=white;facing=north;shape=single;waterlogged=false",독립 소파
+S34,SOFA_BENCH,HC,oak_couch,"color=white;facing=north;shape=inner_left;waterlogged=false",안쪽 코너 소파
+S35,SOFA_BENCH,MACAW,white_couch,"facing=north;shape=single",독립 소파
+S36,SOFA_BENCH,MACAW,white_couch,"facing=north;shape=left_corner",코너 소파
+S37,BED,HC,oak_fancy_bed,"color=white;facing=north;occupied=false;part=foot;shape=single",두 칸 침대 발치
+S38,BED,HC,oak_fancy_bed,"color=white;facing=north;occupied=false;part=head;shape=single",두 칸 침대 머리맡
+S39,KITCHEN,HC,oak_counter,"counter=calcite;facing=north;type=1",조리대 기준
+S40,KITCHEN,HC,oak_counter,"counter=calcite;facing=north;type=2",조리대 변형
+S41,KITCHEN,MACAW,oak_counter,facing=north,조리대 기준
+S42,KITCHEN,MACAW,oak_kitchen_sink,"facing=north;water=false",싱크대 빈 상태
+S43,KITCHEN,MACAW,oak_kitchen_sink,"facing=north;water=true",싱크대 물 상태
+S44,LIGHT_DECOR,AF,white_lamp,"base=true;facing=north;lit=false",램프 비점등
+S45,LIGHT_DECOR,AF,white_lamp,"base=true;facing=north;lit=true",램프 점등
+S46,LIGHT_DECOR,AF,oak_flower_box,"attached=false;facing=north;horizontal=single",장식용 식재 용기
+S47,LIGHT_DECOR,HC,white_glazed_medium_pot,,장식용 식재 용기

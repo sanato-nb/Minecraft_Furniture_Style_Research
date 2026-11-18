@@ -6042,7 +6042,7 @@
   },
   "phase_1_3_detailed_plan": {
     "date_kst": "2026-11-17",
-    "status": "1_3_D_STATIC_STATE_ASSEMBLY_COMPLETE_E_READY",
+    "status": "1_3_E_STRUCTURAL_COMPARISON_COMPLETE_F_READY",
     "work_started": true,
     "original_mod_model_new_analysis_since_plan": 0,
     "fixed_source_population_verified": true,
@@ -6072,7 +6072,7 @@
     "prior_1_1_approved": 150,
     "top_level_tasks_completed": 1,
     "top_level_tasks_total": 5,
-    "next_action": "1-3-E furniture type structural comparison",
+    "next_action": "1-3-F database normalization and texture/UV handoff",
     "prerequisite_A_complete": true,
     "source_population_two_mod_model_json_paths": 14023,
     "entry_queue_batches": 137,
@@ -6083,7 +6083,26 @@
     "upper_1_3_gates_passed": 0,
     "fixed_population_unit": "model_or_blockstate_JSON_path",
     "C_completed": true,
-    "D_completed": true
+    "D_completed": true,
+    "E_completed": true
+  },
+  "phase_1_3_E_execution": {
+    "date_kst": "2026-11-18",
+    "status": "E_COMPLETE_CURATED_STATIC_CATEGORY_COMPARISON",
+    "completed": true,
+    "categories": 9,
+    "sampled_state_files": 31,
+    "cases": 47,
+    "model_applications": 52,
+    "element_instances": 335,
+    "part_groups_linked": 36,
+    "bed": "SINGLE_MOD_EVIDENCE_HC",
+    "runtime_verified": false,
+    "report": "research/furniture_mods/phase_1-3/E/furniture_category_comparisons.md",
+    "audit": "research/furniture_mods/phase_1-3/E/E_INDEPENDENT_AUDIT.json",
+    "next": "research/furniture_mods/phase_1-3/E/E_NEXT.md",
+    "upper_1_3_gates_passed": 0,
+    "upper_1_3_gates_total": 6
   },
   "phase_1_3_D_execution": {
     "date_kst": "2026-11-18",
