@@ -1,0 +1,40 @@
+{
+  "schema": "CURRENT_STATUS_REMOTE_READBACK/v1",
+  "date_kst": "2026-11-18",
+  "baseline": "f8956d960b2a9e6d5dcde6b2732ce643318bcfb0",
+  "verified_commit": "d5bc61da114e403738a2dde41706dfbf8e9d6a61",
+  "scope": "신규 확인 산출물 3개의 원격 전체 본문 비교·SHA·행수. 자체 파일은 후속 커밋에서 저장.",
+  "records": [
+    {
+      "path": "research/furniture_mods/phase_1-3/A/recheck_current_snapshot.py",
+      "remote_sha": "bda53e76dbbb516cd58d6df0cc65a6677fdaee88",
+      "body_equal": true,
+      "line_count": 113,
+      "csv_rows_or_json": "JSON parsed during independent ledger recount / UTF-8 text full-body compared",
+      "computed_git_blob_sha": "bda53e76dbbb516cd58d6df0cc65a6677fdaee88",
+      "sha_match": true
+    },
+    {
+      "path": "research/furniture_mods/phase_1-3/A/A_CURRENT_SNAPSHOT_RECHECK_20261118.json",
+      "remote_sha": "1c20b0bc31e02154d137ca4f67d32274584dd1bb",
+      "body_equal": true,
+      "line_count": 423,
+      "csv_rows_or_json": "JSON parsed during independent ledger recount / UTF-8 text full-body compared",
+      "computed_git_blob_sha": "1c20b0bc31e02154d137ca4f67d32274584dd1bb",
+      "sha_match": true
+    },
+    {
+      "path": "research/furniture_mods/phase_1-3/A/A_CURRENT_STATUS_20261118.md",
+      "remote_sha": "0f31a536e474a46aa11f1bf104d08d7a9a8d9d08",
+      "body_equal": true,
+      "line_count": 43,
+      "csv_rows_or_json": "JSON parsed during independent ledger recount / UTF-8 text full-body compared",
+      "computed_git_blob_sha": "0f31a536e474a46aa11f1bf104d08d7a9a8d9d08",
+      "sha_match": true
+    }
+  ],
+  "result": "PASS",
+  "verified_files": 3,
+  "protected_existing_files_changed": 0,
+  "compare_result": "A 신규 확인파일 3개만 추가; 기존 파일 변경 0"
+}
