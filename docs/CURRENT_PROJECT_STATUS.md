@@ -1,3 +1,15 @@
+## 2026-11-19 — 1-3-D GitHub Actions 등록 상태 감사
+
+| 실행 환경 | 등록 블록 | 엔진 등록 상태 | 기본 문맥 충돌 상자 |
+|---|---:|---:|---:|
+| Minecraft 1.21.1 · Another Furniture / Handcrafted | 441 | 107,424 | 244,266 |
+| Minecraft 1.21.11 · Macaw’s Furniture | 714 | 8,562 | 19,620 |
+| **합계** | **1,155** | **115,986** | **263,886** |
+
+등록 상태를 1-3-D 원본 규칙에 대입한 결과 variants 누락·중복과 multipart 미선택은 모두 0건이다. 빈 이웃과 기본 주체 문맥에서 충돌 형상 조회 오류는 0건이었다. 원본 블록 상태 리소스 1,158개 중 등록되지 않은 3개는 Another Furniture의 `unused/oak_grandfather_clock`, `unused/oak_small_shelf`, `unused/white_awning`이다. 실제 월드의 배치 가능성, 주변 블록 변경에 따른 상태 전이, 엔티티별 동적 충돌은 대표 시험 범위까지 검증됐다.
+
+[Actions 1.21.1 작업](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/44355559182/job/134982603085) · [Actions 1.21.11 작업](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/44355559182/job/134982604030) · [워크플로 설명](../research/furniture_mods/phase_1-3/runtime_actions/README.md)
+
 ## 2026-11-19 — 1-3-C·D 후속 검증
 
 | 단계 | 현재 확인한 범위 | 남은 검증 범위 |
