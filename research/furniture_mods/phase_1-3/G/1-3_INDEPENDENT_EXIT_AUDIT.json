@@ -1,0 +1,244 @@
+{
+  "date_kst": "2026-11-18",
+  "audit_baseline": "c084730b72b11604f7c56595147cb9b4b79f55b7",
+  "historical_protection_baseline": "0542fb2b713fcaa5217ddb20a5273c02e1940b01",
+  "scope": "THREE_PINNED_MODS_STATIC_SOURCE_GEOMETRY",
+  "status": "G_AUDIT_AWAITING_REMOTE_READBACK",
+  "gates": {
+    "M1": {
+      "status": "PASS",
+      "evidence": "G_SOURCE_RECOUNT.json",
+      "reason": "제작자 Git 트리·라이선스 본문·빌드 버전, Macaw 배포 메타데이터와 JAR 해시·CRC 일치"
+    },
+    "M2": {
+      "status": "PASS",
+      "evidence": "G_SOURCE_RECOUNT.json",
+      "reason": "모델 16572, 상태 1158 고정 경로 전수, 별도 아이템 정의 716, 큐 137 재집계"
+    },
+    "M3": {
+      "status": "PASS",
+      "evidence": "C",
+      "reason": "원문 전수 재생성·독립 경계 계산 일치. 부모 누락 48경로 및 형상 제약 원장 보존"
+    },
+    "M4": {
+      "status": "PASS",
+      "evidence": "D",
+      "reason": "원문 상태 규칙과 조인 전수 검사. 미해결 선택 4건과 기존 의자 예외 2건 보존"
+    },
+    "M5": {
+      "status": "PASS",
+      "evidence": "E, F, G_SOURCE_RECOUNT.json",
+      "reason": "9유형의 표본·반례·DB·텍스처 인계 대조와 원본 PNG 해시 확인"
+    },
+    "M6": {
+      "status": "PENDING_REMOTE_READBACK",
+      "reason": "독립 재생성·검산 및 보호 경로 diff 통과. GitHub 본문·행수·blob 재조회 대기"
+    }
+  },
+  "gates_passed": 5,
+  "gates_total": 6,
+  "protected_paths_changed": 0,
+  "rebuild_file_matches": {
+    "C": [
+      {
+        "file": "C_AUDIT.json",
+        "decoded_content_sha256": "da0c8b2b81b0db32d6f0e4741b712905cb8652aa73382dc0cea1f732af7221bb"
+      },
+      {
+        "file": "C_CODE_EVIDENCE.csv",
+        "decoded_content_sha256": "0788a16d63390864c078f84f87582f42b4dde213491f3c7e26ca2dbcc3ced709"
+      },
+      {
+        "file": "C_CODE_SHA_INDEX.csv",
+        "decoded_content_sha256": "471831fea7bc1a21c3e9ba15339b1543d896b26036c4de5d25eef9efa1f47ef9"
+      },
+      {
+        "file": "C_EXCEPTIONS.csv.gz",
+        "decoded_content_sha256": "dd571179f957ce0b0620359fc05fb6157ce21d3de1532887101f3881db0706ca"
+      },
+      {
+        "file": "C_GEOMETRY_REUSE.csv",
+        "decoded_content_sha256": "ee61546e239daa1fe1c2bb3a4f3b2560d1205d1bdd81ea4ad49c6fe5acfb0cda"
+      },
+      {
+        "file": "C_INDEPENDENT_AUDIT.json",
+        "decoded_content_sha256": "10f16a768894cbb97da380c057cf71dd66840bfde0e54485d27e1e04f6981f72"
+      },
+      {
+        "file": "C_VANILLA_PARENTS.csv",
+        "decoded_content_sha256": "6b4a752fe9e3db7dbbb06f3716fe4c8ee80fe88aaca64bf7bfb50dc3f179292d"
+      },
+      {
+        "file": "MODEL_FACES.csv.gz",
+        "decoded_content_sha256": "2fd477b471c43e1f3c4c3509be0565ecdc243156cb5a2e0b60e1ace9772e9021"
+      },
+      {
+        "file": "MODEL_PARENT_CHAINS.csv.gz",
+        "decoded_content_sha256": "c1c3b333e053ea17752c7c482997cc8b361222f684fce03b1c36c5bfd4e56305"
+      },
+      {
+        "file": "PARTS.csv.gz",
+        "decoded_content_sha256": "a3c1d76b13491e7cba3e59fab4610badb89fa760ee13efaf112826a132c04c94"
+      },
+      {
+        "file": "mod_furniture_catalog.csv.gz",
+        "decoded_content_sha256": "5bc7c6c998bbe9de522577ca8f1f37cefc9bb3997e97a33f0448c900698dd72d"
+      },
+      {
+        "file": "mod_model_elements.csv.gz",
+        "decoded_content_sha256": "271502da6b44f235f8aae30d513f95d62c591761dc0182b3e0599e852cec0b12"
+      }
+    ],
+    "D": [
+      {
+        "file": "D_AUDIT.json",
+        "decoded_content_sha256": "401d1d5509c2815d06d1245e65aa73dd0152bb881b9e3bcca5d5c4718afc1306"
+      },
+      {
+        "file": "D_BLOCKSTATES.csv",
+        "decoded_content_sha256": "97994a2c6bd765ba17709d40ced4ee7ab5625184b09abb42cb27ecba8cd7469b"
+      },
+      {
+        "file": "D_EXCEPTIONS.csv",
+        "decoded_content_sha256": "b84112d883d51982859edacd5192ede849f38025804096cdc082a9522c5cc9f5"
+      },
+      {
+        "file": "D_MULTIPART_ASSEMBLIES.csv.gz",
+        "decoded_content_sha256": "8581eed3fc0c3a9b9634fd1596416d3ed753c1420cdaf033eff648c6fa32ed62"
+      },
+      {
+        "file": "D_PROPERTY_DOMAINS.csv.gz",
+        "decoded_content_sha256": "c5a7a37a811bb0d471e133569a3e9c9b7f73263c5a5700ff7be010dbd9b8ac7e"
+      },
+      {
+        "file": "D_STATE_RULES.csv.gz",
+        "decoded_content_sha256": "354e010721886c0cbaf8b3558892a73556a548cf033092af9d0271ae1f65860d"
+      },
+      {
+        "file": "MODEL_STATE_ASSEMBLY.csv.gz",
+        "decoded_content_sha256": "7f038c519e2bfe2505dae9d4389c4c48788a674d0ee47c30b5c734a7b7b77c1b"
+      }
+    ],
+    "E": [
+      {
+        "file": "CATEGORY_EVIDENCE.csv",
+        "decoded_content_sha256": "dd3b0c241d358808d2357354eb9b9e8ee12f7b21af4c956e49cf243099b61bf3"
+      },
+      {
+        "file": "E_AUDIT.json",
+        "decoded_content_sha256": "26c23a95ddd77895e63d785765c24127052db6c2344bddeac7e538d91a96a8e7"
+      },
+      {
+        "file": "E_ELEMENT_EVIDENCE.csv",
+        "decoded_content_sha256": "1a4571bc4b428754d891ba8de6ce1226ab679a063a34a51b07a0e1930963837d"
+      },
+      {
+        "file": "E_PART_GROUPS.csv",
+        "decoded_content_sha256": "86f83ac9973758e4b2a38fbe1822bb210bbdf1a869ec3d32b0509a35af4ca8f5"
+      },
+      {
+        "file": "E_SAMPLE_METRICS.csv",
+        "decoded_content_sha256": "a689ecda0395206dddeff3dd9da472a6ec9e0c5c68dfad875febb413a5af5aa0"
+      },
+      {
+        "file": "E_SAMPLE_SELECTION.csv",
+        "decoded_content_sha256": "1f33186f53f43537d02f17d398e047c30a9ee7644b15790318d0a25732603222"
+      },
+      {
+        "file": "E_STATE_PROFILES.csv",
+        "decoded_content_sha256": "a39610c20e2df4a61c9b20f5dc0aa45e657603898f22d8f7344b39f8bb7b60d3"
+      }
+    ],
+    "F": [
+      {
+        "file": "1-3_TEXTURE_UV_HANDOFF.csv",
+        "decoded_content_sha256": "e010687194792fd030da4fc18ae382993f46c127457005117106f17302096a38"
+      },
+      {
+        "file": "DB_VALIDATION.json",
+        "decoded_content_sha256": "3fdaf2d8573f2c9b261cdd6d7334b1becad31b0e85f314928a419b7e33cacb33"
+      },
+      {
+        "file": "F_1-5_COMPARISON_CANDIDATES.csv",
+        "decoded_content_sha256": "2f9c6c4fb44d8cf9e14df97564b64410993761f7ea51e605415239dc2c760bd1"
+      },
+      {
+        "file": "F_PRIOR_RGBA_LEDGER.csv",
+        "decoded_content_sha256": "6f233d973127511cc6ec85c26efc62a5282ce5c482dcec5cda7c0a18fb937070"
+      },
+      {
+        "file": "F_V24_CHAIR_PNG.csv",
+        "decoded_content_sha256": "3e644e964bf65a53b321f42b043ef2feb8002ec491ec063f385cb0668cdd7aa4"
+      },
+      {
+        "file": "MODEL_SOURCE_INDEX.csv.gz",
+        "decoded_content_sha256": "f30399b755a69aaa51eb0717e13688453968a1f1e2885f80df7575d3aa5e4f59"
+      },
+      {
+        "file": "furniture_research.sqlite.xz",
+        "decoded_content_sha256": "2817f5a3048791f68612dd5e26a5ea31511e69949e95211245a8877186f74e00"
+      }
+    ]
+  },
+  "reproduced_independent_audits": {
+    "C": {
+      "status": "PASS",
+      "model_path_sha_and_b_row_matches": 16572,
+      "parent_chains_checked": 16572,
+      "element_rotated_bbox_analytic_comparisons": 1911,
+      "effective_element_instances": 105383,
+      "effective_face_instances": 592312,
+      "face_rows": 9760,
+      "part_rows": 1911,
+      "errors": []
+    },
+    "D": {
+      "status": "PASS",
+      "references_LOCAL": 78420,
+      "multipart_assignments": 2112,
+      "states": 1158,
+      "rules": 78456,
+      "options": 78456,
+      "variant_assignments": 80787,
+      "variant_gaps": 0,
+      "variant_overlaps": 0,
+      "references_VANILLA_JAR": 32,
+      "references_UNRESOLVED_MODEL_REF": 4,
+      "exception_rows": 6,
+      "C_missing_parent_model_keys": 48,
+      "C_missing_parent_model_keys_directly_selected": 0,
+      "input_reader_shared": true,
+      "runtime_tested": false,
+      "errors": []
+    },
+    "E": {
+      "status": "PASS",
+      "cases": 47,
+      "model_applications": 52,
+      "element_bounds_checked": 335,
+      "part_groups_linked": 36,
+      "texture_rotation_and_state_counterexamples_reproduced": true,
+      "silhouette_summary_range_checked": true,
+      "errors": []
+    },
+    "F": {
+      "status": "PASS",
+      "archive_sha256": "21683d623f2abfb54f35aa5e328ed595749ec467e338c8c725c7104e36a43f88",
+      "mod_models": 16572,
+      "blockstates": 1158,
+      "rules": 78456,
+      "options": 78456,
+      "comparison_candidates": 52,
+      "effective_faces": 592312,
+      "texture_records": 2256,
+      "chair_prior": 5,
+      "chair_candidates": 19,
+      "errors": []
+    }
+  },
+  "errors": [],
+  "new_models_discovered": 0,
+  "new_png_pixel_measurements": 0,
+  "runtime_verified": false,
+  "whole_project_completed": false
+}
