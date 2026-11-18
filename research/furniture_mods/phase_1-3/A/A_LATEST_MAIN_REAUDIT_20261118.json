@@ -1,0 +1,259 @@
+{
+  "reviewed_main": "54505ca5e128d292d36f35e5127230aa93a51618",
+  "protected_baseline": "0542fb2b713fcaa5217ddb20a5273c02e1940b01",
+  "result": "PASS",
+  "errors": [],
+  "A_gates_previously_approved": 7,
+  "M_gates_officially_approved": 0,
+  "historical_files_verified": 195,
+  "historical_bytes_verified": 5321808,
+  "model_cohorts": {
+    "v18": 33,
+    "v21": 38,
+    "v22": 43,
+    "v23": 51,
+    "v24": 39
+  },
+  "AF_states": {
+    "checked": 22,
+    "applied_records": 1188,
+    "pinned_tree_paths": 177,
+    "outside_A_state_scope_paths": 155,
+    "local_missing": [],
+    "external": [
+      "minecraft:block/air"
+    ],
+    "chair_exceptions": {
+      "birch_chair": "another_furniture:block/chair/birch_1",
+      "spruce_chair": "another_furniture:block/chair/spruce_1"
+    }
+  },
+  "AF_templates": 69,
+  "AF_leaf_to_leaf_parents": {
+    "another_furniture:block/drawer/oak_open": "another_furniture:block/drawer/oak",
+    "another_furniture:block/drawer/birch_open": "another_furniture:block/drawer/birch"
+  },
+  "v18_template_subset": 30,
+  "chair_scope": {
+    "paths": 39,
+    "parents": {
+      "chair_tucked": 20,
+      "chair": 19
+    },
+    "elements": 390,
+    "face_instances": 1794,
+    "raw_template_z_bounds": {
+      "chair_tucked": [
+        -7,
+        5
+      ],
+      "chair": [
+        2,
+        14
+      ]
+    },
+    "coordinate_delta_xyz": [
+      [
+        0,
+        0,
+        -9
+      ]
+    ]
+  },
+  "HC_scope": {
+    "AUTHORED": 120,
+    "GENERATED_LEAF": 16
+  },
+  "HC_prior_png": 24,
+  "HC_prior_rgba_faces": 784,
+  "original_json_body_hash_checks": {
+    "AF_LEAF": 204,
+    "AF_BLOCKSTATE": 22,
+    "AF_TEMPLATE": 69,
+    "HC_AUTHORED": 120,
+    "HC_GENERATED_LEAF": 16
+  },
+  "original_json_distinct_paths": 431,
+  "new_model_discoveries": 0,
+  "new_png_pixel_measurements": 0,
+  "upstream_source_pins": {
+    "AF": "57eb624cbb7f408d43398c7434b0d38d312cb55d",
+    "HC": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035"
+  },
+  "F_reproduced_audit": {
+    "status": "PASS",
+    "archive_sha256": "21683d623f2abfb54f35aa5e328ed595749ec467e338c8c725c7104e36a43f88",
+    "mod_models": 16572,
+    "blockstates": 1158,
+    "rules": 78456,
+    "options": 78456,
+    "comparison_candidates": 52,
+    "effective_faces": 592312,
+    "texture_records": 2256,
+    "chair_prior": 5,
+    "chair_candidates": 19,
+    "errors": []
+  },
+  "inputs": {
+    "research/furniture_mods/phase_1-3/A/A_INPUT_MANIFEST.csv": {
+      "rows": 195,
+      "blob_sha": "728c74f3783ee23dea8f060497df92d254643b9a",
+      "bytes": 31974
+    },
+    "research/furniture_mods/phase_1-3/A/A_ANOTHER_204_PRIOR_CROSSWALK.csv": {
+      "rows": 204,
+      "blob_sha": "6ab4e8045802fa86dfee441e7025cd836ee7b59e",
+      "bytes": 126956
+    },
+    "research/furniture_mods/v18/another_leaf_direct_1_of_3.csv": {
+      "rows": 11,
+      "blob_sha": "ac0681cee14697ebc718c0a36200fa8d4c9e88d2"
+    },
+    "research/furniture_mods/v18/another_leaf_direct_2_of_3.csv": {
+      "rows": 11,
+      "blob_sha": "0cadaadf7c68fb375e9a2c020b4b6ae3d969a36e"
+    },
+    "research/furniture_mods/v18/another_leaf_direct_3_of_3.csv": {
+      "rows": 11,
+      "blob_sha": "d3dc0010de19050b29cba12a522ebd591b09a3b9"
+    },
+    "research/furniture_mods/v21/another_38_new_leaf_originals_batch_1_of_4.csv": {
+      "rows": 10,
+      "blob_sha": "34c36d2753063465ba3bac9e21fec47d177c5f5e"
+    },
+    "research/furniture_mods/v21/another_38_new_leaf_originals_batch_2_of_4.csv": {
+      "rows": 10,
+      "blob_sha": "6b99ce6142594330f15410bf7964a83ef96a1c2e"
+    },
+    "research/furniture_mods/v21/another_38_new_leaf_originals_batch_3_of_4.csv": {
+      "rows": 10,
+      "blob_sha": "764939e592e06dd362a0740d3b5e653223674920"
+    },
+    "research/furniture_mods/v21/another_38_new_leaf_originals_batch_4_of_4.csv": {
+      "rows": 8,
+      "blob_sha": "493ea924d62c30cfdc206e6c4bfc7eb3627478e4"
+    },
+    "research/furniture_mods/v22/shutter_43_leaf_orig_batch_1_of_4.csv": {
+      "rows": 11,
+      "blob_sha": "38f27d8639f23ce08e8fc43815418c6a15e2e2ba"
+    },
+    "research/furniture_mods/v22/shutter_43_leaf_orig_batch_2_of_4.csv": {
+      "rows": 11,
+      "blob_sha": "43274fc70070b7c84f6f4a0ea14e95abfc7696ea"
+    },
+    "research/furniture_mods/v22/shutter_43_leaf_orig_batch_3_of_4.csv": {
+      "rows": 11,
+      "blob_sha": "529490de1243d5ba27b3360f62be3129ab083d5f"
+    },
+    "research/furniture_mods/v22/shutter_43_leaf_orig_batch_4_of_4.csv": {
+      "rows": 10,
+      "blob_sha": "2ff8773c18286846e9039329907c3d906166ac9d"
+    },
+    "research/furniture_mods/v23/new_51_leaf_originals_batch_1_of_6.csv": {
+      "rows": 10,
+      "blob_sha": "5a7c934f27f0387e993a067737386caa722c4698"
+    },
+    "research/furniture_mods/v23/new_51_leaf_originals_batch_2_of_6.csv": {
+      "rows": 10,
+      "blob_sha": "7cfb455c2bb6fdbdb3ecbd6fed5ce19da5f4c661"
+    },
+    "research/furniture_mods/v23/new_51_leaf_originals_batch_3_of_6.csv": {
+      "rows": 10,
+      "blob_sha": "394b57bb65585de842bae4d208ae20c36c1cf97f"
+    },
+    "research/furniture_mods/v23/new_51_leaf_originals_batch_4_of_6.csv": {
+      "rows": 10,
+      "blob_sha": "aea515f8bf3e7201d75a0b48c7ca9f1c6c99a77f"
+    },
+    "research/furniture_mods/v23/new_51_leaf_originals_batch_5_of_6.csv": {
+      "rows": 10,
+      "blob_sha": "25b03ec090d17244c2e01df53bb31637ced8a148"
+    },
+    "research/furniture_mods/v23/new_51_leaf_originals_batch_6_of_6.csv": {
+      "rows": 1,
+      "blob_sha": "a4f945ef442d5ba08be4599bada7f9212631f4e2"
+    },
+    "research/furniture_mods/v24/chair_remaining_39_original_json_geometry_audit.csv": {
+      "rows": 39,
+      "blob_sha": "c1408d4869f16baf022484b999c1cb012c772f44"
+    },
+    "research/furniture_mods/phase_1-3/A/A_ANOTHER_22_BLOCKSTATES.csv": {
+      "rows": 22,
+      "blob_sha": "ed8aedff28481d71936878f1f5e193866df92935",
+      "bytes": 6616
+    },
+    "research/furniture_mods/v21/another_12_blockstates_pinned_source_audit.csv": {
+      "rows": 12,
+      "blob_sha": "9f035e8edafb4c1e4a9751ec0cc51cb7b6ce9980"
+    },
+    "research/furniture_mods/v21/another_12_blockstates_applied_models.csv": {
+      "rows": 802,
+      "blob_sha": "505a7243eb3a4eca273fe2bde41fe167251dd412"
+    },
+    "research/furniture_mods/v23/new_10_blockstates_author_original_audit.csv": {
+      "rows": 10,
+      "blob_sha": "5bb3431ac4622580d1e9186dc4418e3822512c2b"
+    },
+    "research/furniture_mods/v23/new_10_blockstates_applied_model_records.csv": {
+      "rows": 386,
+      "blob_sha": "1fda45973891868a9ea472bcd2736cacfbc27f25"
+    },
+    "research/furniture_mods/phase_1-3/A/A_ANOTHER_69_TEMPLATES.csv": {
+      "rows": 69,
+      "blob_sha": "cdde97a730f1d0de3e7126f732a692f0069fa7d5",
+      "bytes": 25218
+    },
+    "research/furniture_mods/v20/another_69_templates_direct_original_geometry.csv": {
+      "rows": 69,
+      "blob_sha": "7b91d8bc0b1e83bf745961bf203322f5533e55b2"
+    },
+    "research/furniture_mods/v18/another_template_direct_30.csv": {
+      "rows": 30,
+      "blob_sha": "368dac1d9c32678ede003680d4ccd63fa696a4a8"
+    },
+    "research/furniture_mods/phase_1-3/A/A_CHAIR_39_RELATIONS.csv": {
+      "rows": 39,
+      "blob_sha": "ff6ecc9237315fe72e4ca319f8229ae4ed8e778c",
+      "bytes": 18252
+    },
+    "research/furniture_mods/phase_1-3/A/A_HANDCRAFTED_PRIOR_SCOPE.csv": {
+      "rows": 139,
+      "blob_sha": "4ef7feac90382bf77ba6d1b64546fccceaa9fd4d",
+      "bytes": 44808
+    },
+    "research/furniture_mods/v12/handcrafted_authored_120_total.csv": {
+      "rows": 120,
+      "blob_sha": "a61fb64761dbe56d53cb18c83be07c8102c01ee4"
+    },
+    "research/furniture_mods/v12/handcrafted_generated_leaf_sample_16.csv": {
+      "rows": 16,
+      "blob_sha": "6fe12dd9eca9a3f9c60ce3d2cf07d90cc4f22c53"
+    },
+    "research/furniture_mods/phase_1-3/A/A_UNRESOLVED.csv": {
+      "rows": 10,
+      "blob_sha": "f4b9fcf7213b44b2215d115bdf0dbb9e8fa0af58",
+      "bytes": 2920
+    },
+    "research/furniture_mods/phase_1-3/A/A_INDEPENDENT_AUDIT.json": {
+      "blob_sha": "446904b347c5086d9040d913d2dcf88ca4e15ac1",
+      "bytes": 1772
+    },
+    "research/furniture_mods/phase_1-3/A/A_NEXT.md": {
+      "blob_sha": "2d1cd1d780e90f43bf8f8ed259fd6acd34d9cfe6",
+      "bytes": 1534
+    },
+    "research/furniture_mods/phase_1-3/A/A_PRIOR_COHORT_RECOUNT.json": {
+      "blob_sha": "5899944c24d2c491863349ca5d9f1f802929befb",
+      "bytes": 2456
+    },
+    "research/furniture_mods/phase_1-3/A/A_REMOTE_READBACK.json": {
+      "blob_sha": "57742d5fa26750db6ad815c0d6a4dd17e2e1265e",
+      "bytes": 23231
+    },
+    "research/furniture_mods/phase_1-3/A/A_REPORT.md": {
+      "blob_sha": "ec882d3ad2c7a2f83fd8b17cf2052a4bf5d692cf",
+      "bytes": 2986
+    }
+  },
+  "original_json_ledger": "A_LATEST_MAIN_SOURCE_REHASH_20261118.csv"
+}
