@@ -1,16 +1,16 @@
 {
   "schema": "mc-furniture-texture-stage-handoff/v1",
   "created_at": "2026-11-13",
-  "updated_at": "2026-11-13",
+  "updated_at": "2026-11-19",
   "game": "Minecraft Java Edition 1.21.11",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "stage_id": "1-1-10",
   "material_family": "잎·식생",
   "stage_prefix": "TEX10",
-  "current_revision": "TEX10-R014",
-  "next_revision": "TEX10-R015",
-  "revision_sequence": 14,
-  "revision_status": "R014_9_new_original_paths_block_atlas_directory_to_resource_metadata_loader_8_target_candidates_verified_runtime_stitch_not_verified__STAGE_CLOSED_STATIC_SCOPE_NO_R015_CREATED",
+  "current_revision": "TEX10-R015",
+  "next_revision": "TEX10-R016",
+  "revision_sequence": 15,
+  "revision_status": "TEX10-R015_fixed_texture_animation_source_audit_complete",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 8,
@@ -28,7 +28,7 @@
     "version_policy": "docs/vanilla_texture_1-1/ISOLATED_CHAT_VERSIONING.md",
     "output_root": "research/vanilla_textures/by_stage/1-1-10/"
   },
-  "source_note": "애니메이션/흔들림 연구는 보류. Minecraft Java 1.21.11 원본 PNG/모델·블록상태/틴트·셰이더/바이트코드의 정적 근거로 분석. 사용자 지시(2026-11-13): Mojang 공식 전체 client.jar SHA1 인증과 실제 인게임 정적 렌더 검증은 모두 필수 절차·완료 분모에서 제외. 0/8은 과거 수행 사실 기록일 뿐 미완료 조건이 아님.",
+  "source_note": "The TEX10-R015 audit directly compared the 1.21.11 JAR and repository-extracted sources. The client JAR matched the SHA-1 pinned in version metadata. See TEX10-R014 for the approved static closeout.",
   "allowed_write_paths": [
     "docs/vanilla_texture_1-1/stages/1-1-10/HANDOFF.md",
     "docs/vanilla_texture_1-1/stages/1-1-10/STATE.json",
@@ -1024,22 +1024,25 @@
       "official_client_jar_authenticated_count": 0,
       "ingame_static_verified_count": 0,
       "global_legacy_checkpoint": "v38"
+    },
+    {
+      "revision": "TEX10-R015",
+      "kind": "fixed_texture_animation_source_audit",
+      "path": "research/vanilla_textures/by_stage/1-1-10/TEX10-R015/",
+      "report_path": "research/vanilla_textures/by_stage/1-1-10/TEX10-R015/REPORT.md",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-10/TEX10-R015/SUMMARY.json"
     }
   ],
   "next_steps": [
-    "Stage 1-1-10 is closed by explicit user request; no further automatic original-JVM / atlas research.",
-    "Keep current_revision TEX10-R014; TEX10-R015 remains a reserved future revision identifier only if the user explicitly reopens.",
-    "In-game verification and official full client.jar SHA1 authentication were excluded by user, not completed or certified.",
-    "Preserve R001-R014 immutable reports and all existing 8 target texture findings; note RGB mip recreation is a Python experiment, not original JVM byte-identical certification.",
-    "Leave other independent stages and global v38 files unchanged; any global compilation is a separate authorized task."
+    "Use the current animation audit and the previous approved static closeout together.",
+    "Create TEX10-R016 only after a new explicitly authorized source research task."
   ],
-  "official_client_jar_available": false,
+  "official_client_jar_available": true,
   "ingame_static_render_verified": false,
-  "animation_study_deferred": true,
+  "animation_study_deferred": false,
   "scope_excluded": [
     "Project Zomboid conversion",
     "actual furniture 3D asset building",
-    "animation study until explicitly resumed",
     "Mojang official client.jar certification / SHA-1 manifest comparison as active research requirement"
   ],
   "project_overall_completion_pct": null,
@@ -1137,7 +1140,7 @@
     "in_game_static_render_required": false,
     "clientjar_authentication_required": false,
     "keep_historical_0_of_8_and_authentication_false": true,
-    "do_not_extend_R015_without_explicit_reopen": true
+    "latest_animation_source_audit": "TEX10-R015"
   },
   "official_client_jar_authentication_policy": "excluded_by_user_historical_count_0_do_not_track_as_pending",
   "stage_fully_authenticated_and_ingame_verified_count_is_historical_metric": true,
@@ -1390,17 +1393,17 @@
     "status": "completed_user_approved_static_scope",
     "completed_on": "2026-11-13",
     "explicit_user_instruction": "그럼 일단 이 단계는 마치자",
-    "completion_meaning": "Eight fixed target leaf/vegetation textures studied within original Minecraft 1.21.11 source-based static research. No further research required within user-selected scope.",
+    "completion_meaning": "Eight fixed leaf/vegetation textures studied for both static and animation source evidence.",
     "fixed_target_count": 8,
     "static_source_targets_studied": 8,
-    "last_research_revision": "TEX10-R014",
-    "next_research_revision_if_user_explicitly_reopens": "TEX10-R015",
+    "last_research_revision": "TEX10-R015",
+    "next_research_revision_if_user_explicitly_reopens": "TEX10-R016",
     "automatic_new_revision_enabled": false,
     "already_recorded_cumulative_unique_original_source_paths_R003_R014": 162,
     "phase_decisions": {
       "A": "completed_static_scope",
       "B": "completed_static_scope",
-      "C": "completed_static_scope",
+      "C": "completed_static_and_animation_source_scope",
       "D": "completed_static_scope",
       "E": "completed_static_scope",
       "F": "excluded_by_user_not_a_completion_requirement",
@@ -1408,16 +1411,17 @@
     },
     "out_of_scope_and_not_certified": [
       "actual_in_game_render_or_screenshots (historical 0/8; user excluded)",
-      "official_whole_clientjar_Mojang_SHA1_authentication (user excluded; not authenticated)",
+      "formal whole-JAR authentication was excluded from static closeout; R015 checked the archive against the pinned SHA-1 for this audit",
       "running_original_JVM_to_prove_byte_exact_680_derived_RGBA_mip_pixels (not certified)",
       "runtime_resource_pack_priority_atlas_stitch_x_y_padding_or_selected_actual_mip_level (not certified)",
-      "vegetation_animation_sway_furniture_3D_and_PZ_to_Minecraft_conversion (deferred)"
+      "actual in-game sway, procedural shader effects, and external resource packs (not observed)",
+      "furniture 3D and PZ to Minecraft conversion (separate scope)"
     ],
     "project_global_progress_not_updated": true,
     "stage_scope_not_equal_all_Minecraft_vegetation": true,
     "previous_research_reports_immutable": true
   },
-  "closure_reason": "User explicitly chose to end stage 1-1-10 after completion of agreed static leaf/vegetation 8-texture study.",
+  "closure_reason": "Completed the user-authorized animation source audit after static closeout.",
   "revision_creation_enabled": false,
   "active_verification_policy_before_closeout_superseded": {
     "effective_date": "2026-11-13",
@@ -1442,5 +1446,18 @@
     "Animation/movement/frame research deferred; no 3D furniture creation or Project Zomboid conversion.",
     "Next if new evidence: TEX10-R015 stage only; check live STATE/HANDOFF SHA and absence of next folder, keep other stages and v38 untouched.",
     "Use 3 active evidence axes: user-provided extraction source, prior mirror crosscheck, actual in-game static verification; do not count excluded official authentication as pending or as denominator."
-  ]
+  ],
+  "current_release_path": "research/vanilla_textures/by_stage/1-1-10/TEX10-R015/",
+  "animation_source_audit": {
+    "revision": "TEX10-R015",
+    "status": "completed_fixed_texture_source_scope",
+    "previous_static_revision": "TEX10-R014",
+    "deferred": false,
+    "fixed_textures_checked": 8,
+    "fixed_textures_with_animation_metadata": 0,
+    "runtime_render_observations": 0,
+    "report_path": "research/vanilla_textures/by_stage/1-1-10/TEX10-R015/REPORT.md",
+    "summary_path": "research/vanilla_textures/by_stage/1-1-10/TEX10-R015/SUMMARY.json",
+    "texture_ledger_path": "research/vanilla_textures/by_stage/1-1-10/TEX10-R015/TEXTURE_ANIMATION_AUDIT.csv"
+  }
 }

@@ -1,16 +1,16 @@
 {
   "schema": "mc-furniture-texture-stage-handoff/v1",
   "created_at": "2026-11-13",
-  "updated_at": "2026-11-13",
+  "updated_at": "2026-11-19",
   "game": "Minecraft Java Edition 1.21.11",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
   "stage_id": "1-1-02",
   "material_family": "석재·벽돌",
   "stage_prefix": "TEX02",
-  "current_revision": "TEX02-R017",
-  "next_revision": "TEX02-R018",
-  "revision_sequence": 17,
-  "revision_status": "R017_FINAL_static_source_scope_completed_17_of_17_19_original_atlas_sprites_31_model_variants_19_leaf_7_parents_186_faces_56_SHA_originals_source_only_not_runtime",
+  "current_revision": "TEX02-R018",
+  "next_revision": "TEX02-R019",
+  "revision_sequence": 18,
+  "revision_status": "TEX02-R018_fixed_texture_animation_source_audit_complete",
   "global_legacy_checkpoint": "v38",
   "global_legacy_status_completed_substeps": 0,
   "target_texture_paths": 17,
@@ -29,7 +29,7 @@
     "output_root": "research/vanilla_textures/by_stage/1-1-02/",
     "user_extracted_root": "1.21.11/"
   },
-  "source_note": "Primary source is user-uploaded 1.21.11/ unpacked client JAR folder; historical v4 and TEX02-R001/R002 mirror measurements retained. Original Mojang JAR SHA-1 not authenticated.",
+  "source_note": "The TEX02-R018 audit directly compared the 1.21.11 JAR and repository-extracted sources. The client JAR matched the SHA-1 pinned in version metadata. See TEX02-R017 for the approved static closeout.",
   "allowed_write_paths": [
     "docs/vanilla_texture_1-1/stages/1-1-02/HANDOFF.md",
     "docs/vanilla_texture_1-1/stages/1-1-02/STATE.json",
@@ -2438,18 +2438,15 @@
     }
   ],
   "next_steps": [
-    "read handoff and source category plan",
-    "reconcile existing v4 and relevant later sources",
-    "perform direct source verification and save stage-specific immutable evidence",
-    "advance own revision only after new work was actually verified"
+    "Use the current animation audit and the previous approved static closeout together.",
+    "Create TEX02-R019 only after a new explicitly authorized source research task."
   ],
-  "official_client_jar_available": false,
+  "official_client_jar_available": true,
   "ingame_static_render_verified": false,
-  "animation_study_deferred": true,
+  "animation_study_deferred": false,
   "scope_excluded": [
     "Project Zomboid conversion",
     "actual furniture 3D asset building",
-    "animation study until explicitly resumed",
     "Mojang official client.jar SHA-1 authentication (not required by user, not performed)",
     "in-game static render/GPU UV/atlas stitch verification (not required by user, observed 0/17)"
   ],
@@ -2738,9 +2735,16 @@
       "overall_1_1_scope_items": 150,
       "actual_furniture_completion_not_claimed": true,
       "no_auto_R018": true
+    },
+    {
+      "revision": "TEX02-R018",
+      "kind": "fixed_texture_animation_source_audit",
+      "path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R018/",
+      "report_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R018/REPORT.md",
+      "summary_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R018/SUMMARY.json"
     }
   ],
-  "current_release_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R017/",
+  "current_release_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R018/",
   "remaining_blockers": [],
   "current_stream_supplemental_end_face_binary_verified_count": 2,
   "static_face_model_local_source_entries": 102,
@@ -3024,8 +3028,20 @@
   "R017_global_v39_integration_not_equivalent_to_completion": true,
   "out_of_scope_unverified": [
     "Actual Minecraft client sprite atlas resource-pack resolution, stitch coordinates, texture filtering, lighting and in-game seams were not executed/observed (0/17)",
-    "Official Mojang compressed JAR SHA-1 authenticity not verified and not an active completion requirement",
-    "Animation remains deferred; actual Project Zomboid furniture-model creation is a different project",
+    "Formal archive authentication was excluded at static closeout. R018 independently compared the JAR to the pinned version metadata SHA-1 for this audit.",
+    "Engine-driven visual changes, shaders, and resource pack overrides remain unobserved.",
     "Offline Python reproducer saved but was not executed end to end with the entire extracted source tree in current local runtime"
-  ]
+  ],
+  "animation_source_audit": {
+    "revision": "TEX02-R018",
+    "status": "completed_fixed_texture_source_scope",
+    "previous_static_revision": "TEX02-R017",
+    "deferred": false,
+    "fixed_textures_checked": 17,
+    "fixed_textures_with_animation_metadata": 0,
+    "runtime_render_observations": 0,
+    "report_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R018/REPORT.md",
+    "summary_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R018/SUMMARY.json",
+    "texture_ledger_path": "research/vanilla_textures/by_stage/1-1-02/TEX02-R018/TEXTURE_ANIMATION_AUDIT.csv"
+  }
 }
