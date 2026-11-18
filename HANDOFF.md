@@ -1,3 +1,10 @@
+## 2026-11-18 — 1-3-B Another 상태155·Handcrafted authored121 직접 원본 검증 (부분 완료)
+
+- 공식 원본 Git tree 모델 JSON 14,023·state444·소스175를 고정한 직전 B 결과는 유지. Another 미조사 blockstate **155/155** 원문 직접 SHA·JSON parse; A 기존22 포함 **177/177** source SHA 근거 확보, 규칙8137·ref1153 (local1151, Minecraft air1, unused white_awning 누락1).
+- Handcrafted authored 모델 **121/121** 원본 SHA·parent·자체요소(810)·면(4860) 판독; parent local34 정상·외부86·무부모1. prior generated16도 원본 SHA 대조 및 parent local16 정상. A 과거136 scope 원본 SHA **136/136** 정합. B Handcrafted 원본 직접검증 137/12394 (generated 잔여12257).
+- A+B 원본 직접 SHA 재검증 **587 distinct JSON**. B 이번 원본292 중 A 기존 2개를 제외한 신규 290. 관련 증거는 `research/furniture_mods/phase_1-3/B/B_AF_155_INDEPENDENT_AUDIT.json`, `B_HC_AUTHORED_INDEPENDENT_AUDIT.json`, `B_HC_PRIOR136_REHASH_AUDIT.json`, `B_SCOPE_REPORT.md`.
+- **B 전체는 아직 BLOCKED**: Macaw 공식 JAR 바이트 미확보 및 모든 모드 내부 모델 JSON 전수 해석 미완료. 공식 두 모드 소스 트리 분모만 고정; 전체 1-3 M1~M6 **0/6**. A0~A6 **7/7** 보존, 기존 v11~v24/1-1/1-2 자료 변경 0. 원본 JSON/PNG/JAR 재배포 안 함.
+
 ## 2026-11-18 — 1-3-B 공식 소스 Git tree census 실작업 (부분 완료)
 
 - 이전 1-3-A **7/7 완료** 유지. 다음 B에서 공식 제작자 소스 두 곳을 핀 고정: Another Furniture 4.0.3 / MC1.21.1, 모델 JSON 1,629, blockstate 177; Handcrafted 4.0.3 / MC1.21.1, 모델 JSON 12,394, blockstate 267.

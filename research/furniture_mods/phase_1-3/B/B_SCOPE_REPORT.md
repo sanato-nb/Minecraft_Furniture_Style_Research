@@ -1,38 +1,41 @@
-# 1-3-B 공식 소스 인벤토리 — 2026-11-18
+# 1-3-B 공식 소스 조사 — 2026-11-18 (진행 중)
 
-**상태: 공식 두 모드 Git tree 파일 분모 고정, Macaw 공식 원본 JAR 미확보로 전체 B 미완료.** 1-3-A 결과 7/7 그대로 보존, 1-3 상위 M1~M6 = 0/6.
+**현 상태: Another·Handcrafted 공식 원본 Git 트리 모집단 고정 및 부분 원문 검증 완료. Macaw 공식 JAR 미확보로 1-3-B 전체 BLOCKED.** 이전 1-3-A 7/7 보존; 상위 1-3 M1~M6는 0/6.
 
-| 항목 | Another Furniture | Handcrafted |
+## 공식 고정 Git 소스 모집단
+
+| 구분 | Another Furniture | Handcrafted |
 |---|---:|---:|
-| 소스 고정 commit | `57eb624cbb7f` | `8d21d1665916` |
-| MC / mod version | 1.21.1 / 4.0.3 | 1.21.1 / 4.0.3 |
-| model JSON 경로 | 1,629 | 12,394 |
-| block / item | 1,451 / 178 | 12,109 / 285 |
-| authored / generated | 1,629 / 0 | 121 / 12,273 |
-| 고유 model Git SHA | 1,629 | 9,439 |
+| 핀 commit | `57eb624cbb7f408d43398c7434b0d38d312cb55d` | `8d21d1665916850c3fa3bdaf1370c50ec2ca7035` |
+| 고정 MC / 모드 버전 | 1.21.1 / 4.0.3 | 1.21.1 / 4.0.3 |
+| 모델 JSON 전체 파일 경로 | 1,629 | 12,394 |
+| 블록 모델 / 아이템 모델 | 1,451 / 178 | 12,109 / 285 |
+| authored / generated 모델 | 1,629 / 0 | 121 / 12,273 |
 | blockstate JSON | 177 | 267 |
-| Java·Kotlin 소스 경로 | 89 | 86 |
-| 이전 A 모델 원장 교차 | 273 | 136 |
+| Java/Kotlin 소스 경로 | 89 | 86 |
 
-검수 합계: 모델 JSON **14,023** 경로(2개 모드), 상태 JSON **444**개, Java/Kotlin **175**개. 파일 경로 별 Git SHA·크기를 보관하며 109개 유한 처리 회차를 할당함. **고유 Git SHA가 서로 같아도 서로 다른 resource ID의 파일은 독립 경로로 유지**.
+모델 JSON 14,023경로·blockstate 444·코드 175를 Git tree의 **경로·Git SHA·크기**로 고정. `FIXED_SCOPE.csv`, `B_MODEL_INVENTORY_*.csv`, `B_BLOCKSTATE_INVENTORY.csv`와 109개 회차 `ENTRY_QUEUE.csv`로 추적. 모델 파일 수는 서로 다른 가구 원형·실제 게임 등록 수를 의미하지 않음.
 
-## 원본·라이선스·차단
+## 실제 원본 JSON 바이트 확인
 
-- Another [고정 소스](https://github.com/crispytwig/AnotherFurniture/tree/57eb624cbb7f408d43398c7434b0d38d312cb55d) / `LICENSE` blob SHA `a49cc44dcc57130151ed9e9032e066656b5e953b`: 코드 MIT, `/common/src/main/resources/` 등 리소스 All Rights Reserved.
-- Handcrafted [고정 소스](https://github.com/terrarium-earth/Handcrafted/tree/8d21d1665916850c3fa3bdaf1370c50ec2ca7035) / `LICENSE` blob SHA `e91dc004b387336fb8ce0b052dfde5feeac0daed`: Terrarium License v1, 코드 MIT, 비코드 자산 All Rights Reserved.
-- Macaw [원저자 Modrinth 배포 후보](https://modrinth.com/mod/macaws-furniture/version/xhmciaUD): 3.4.2 / MC 1.21.11 / Fabric 파일 후보를 찾았지만 **공식 JAR 바이트 접근·SHA 확인 실패**. 다른 소유자의 유사 GitHub 저장소를 공식 소스로 대체하지 않음.
+- Another blockstate: 기존 A 22 + 이번 B 신규 155 = **177/177 원본 SHA 근거**. 이번 B에서 155개 직접 JSON 파싱·Git SHA-1 독립 재계산; 규칙 및 적용 항목 8,137건, 모델 참조 1,153종. 1,151종 모드 내부 존재·1종 바닐라 `minecraft:block/air`·**1종 고정 원본 누락**.
+- 참조 누락: `blockstates/unused/white_awning.json` → `another_furniture:block/awning/white_double`. `models/block/awning/white_double.json`은 핀 소스에 없음. `unused` 하위 경로라 런타임 등록·사용 여부는 아직 미확인. 정적 출처 예외로 기록하며 정상/결함 단정 금지.
+- Another 모델 JSON 직접 원본 SHA: 기존 A 204 leaf + 69 template = **273/1,629**. 나머지 1,356개는 Git SHA만 확보·원본 body 검사는 C 단계.
+- Handcrafted authored JSON: **121/121** 직접 재해시. 자체 element 810·면 4,860 (상속 면 제외). local 부모 파일 34개 모두 존재, 외부 Minecraft 부모 86개, 부모 없음 1개. 기존 A authored120 SHA 일치.
+- Handcrafted generated: **16/12,273개** 기존 표본을 직접 JSON 열람·원본 SHA·parent 검사, 부모 원형 16개 모두 존재. 미열람 12,257개. 기존 A authored120 + generated16의 **136/136 원본 SHA 재대조** 완료; 이전 A 원문 2개와 재검증 건수 중복 구분.
+- A+B 누적 서로 다른 원본 JSON 바이트 검증은 **587개**: Another 모델273 + Another states177 + Handcrafted 모델137. 이번 B에서 직접 다시 연 원본 292개 중 A에서 이미 본 2개를 제외한 신규 고유 경로는 **290개**.
+- Handcrafted 데이터 생성 코드 `HandcraftedDataGenerator.java`, `ModBlockStateProvider.java`, `ModItemModelProvider.java`의 실제 소스 라인 확인. 등록 목록 반복·모델 builder.parent 구조 확인; 실행/실제 생성물 재현이 아님. `B_HC_DATAGEN_SOURCE_EVIDENCE.csv` 참조.
 
-## 정확한 실적 범위
+## 독립 증거와 작업 안전
 
-이 회차는 Git 원본 트리의 **경로·SHA·크기 인벤토리 전수**이다. 14,023개 모델 JSON 전체 본문을 열어 parent/leaf 관계를 재귀 해석하거나, 상태 JSON의 모델 참조를 전부 파싱한 것은 아니다. `template` 및 `base`는 경로 단서로만 표시한다. A 기존 원본 재해시 204+69+22와 Handcrafted 표본2를 B의 신규 원본 읽기로 이중 계산하지 않는다.
+- B 기본 인벤토리 17파일 원격 SHA 17/17 PASS, Another 상태 새 CSV 11파일 원격 SHA 11/11 PASS, Handcrafted authored CSV 8파일 원격 SHA 8/8 PASS. 세부 원본 SHA·본문 재계산 검증 결과는 `B_AF_155_INDEPENDENT_AUDIT.json`, `B_HC_AUTHORED_INDEPENDENT_AUDIT.json`, `B_HC_PRIOR136_REHASH_AUDIT.json` 참조.
+- 기존 v11~v24·1-1·1-2 연구 원본 **수정 금지 유지**. A 7/7 변경 없음. 원저자 JSON·PNG·JAR을 연구 repo에 복제하지 않고 SHA·파생 계량·출처만 저장.
+- Another `LICENSE`: 코드 MIT/리소스 All Rights Reserved. Handcrafted Terrarium License v1: 코드 MIT/비코드 All Rights Reserved. Macaw 공식 Modrinth 페이지도 ARR.
 
-- Another 이전 177 상태 중 미조사 **155개**는 해당 155개 파일의 경로/SHA를 확보한 상태이며 모델 연결 의미 분석은 1-3-D로 이관.
-- Handcrafted 과거 120 authored+16 generated는 이번 전수 경로 모집단의 부분집합이고 16 generated를 전체로 오인하지 않음.
-- 다음 필요한 작업: Macaw 공식 JAR 원본 바이트 확보→해시/내부 경로 추출, Another/Handcrafted 모델 본문·부모·renderer/생성 코드 해석, 1-3-B 독립 원격 감사.
-- 저작권: 원저자 원본 JSON/PNG/JAR는 저장소에 복제하지 않고 분석 메타데이터만 게시.
+## B 전체가 여전히 미완료인 이유
 
-산출물: `SOURCE_REGISTRY.csv`, `FIXED_SCOPE.csv`, `ENTRY_QUEUE.csv`, `B_MODEL_INVENTORY_*.csv`, `B_BLOCKSTATE_INVENTORY.csv`, `B_JAVA_KOTLIN_SOURCE_INDEX.csv`, `B_SCOPE_AUDIT.json`.
+1. Macaw's Furniture 공식 Modrinth 버전 `xhmciaUD` (3.4.2 / MC1.21.11 / Fabric)의 실제 JAR 바이트 확보가 실패. 내부 JSON/라이선스·파일 SHA·모집단 미검증, Macaw 0 원본.
+2. Handcrafted generated 12,257 JSON, Handcrafted blockstate 267 JSON과 Another 나머지 모델 원본 body 검증 및 parent/renderer·실행규칙 분석은 미완료. 소스 트리 파일 분모 ≠ 고유 가구 형태 분모.
+3. 실제 blockstate 등록·연결 동작·렌더·충돌은 이 원본 JSON 감사로 인증하지 않음. C/D 작업으로 계승.
 
-## 후속 원격 readback (2026-11-18)
-
-커밋 `cb82ca46cf740e91d6aa022a687bee513bee4eea`에서 산출물 17개를 원격 재열람하고 Git blob SHA-1을 독립 계산한 결과 **17/17 PASS**, 총 파일 4,069,949 byte, 전체 인벤토리 행수 일치, 보호 연구 파일 변경 0. 근거: `B_REMOTE_READBACK.json` (다음 커밋 `c28f832430f3eb349d8d35213a0887a39e3d41e0`).
+**1-3-B 상태: PARTIAL_PASS_TWO_OFFICIAL_GIT_TREE_POPULATIONS / FULL_SCOPE_BLOCKED_MACAW. 1-3 상위 M 0/6.**

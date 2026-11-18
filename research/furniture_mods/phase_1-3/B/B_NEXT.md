@@ -1,21 +1,21 @@
-# 1-3-B 중간 인수인계 (2026-11-18)
+# 1-3-B 현행 인수인계 — 2026-11-18
 
-**상태: 두 공식 소스 고정 트리의 자산 경로 전수 PASS, 1-3-B 전체는 BLOCKED/IN_PROGRESS.** 이전 1-3-A 7/7 유지. 상위 1-3 M1~M6 0/6.
+## 완료·검증
 
-## 현재 실제 수행 완료
+- 1-3-A 7/7 승인 원본 보존. 공식 소스 두 종 각 고정 Git commit, 모델 JSON 14,023개·blockstate 444개·Java/Kotlin 175개 **Git path/SHA/size 인벤토리** 고정. 109개 분석 회차 생성.
+- Another 기존 미조사 state **155/155 직접 SHA** 검증 완료(A 22와 합쳐 **177/177**). 규칙/적용 항목 8,137개, ref 1,153종(내부 존재 1,151, 외부 air1, `unused/white_awning` missing `awning/white_double` 1). `B_AF_155_INDEPENDENT_AUDIT.json`와 예외 CSV를 계승.
+- Handcrafted authored **121/121** 직접 SHA, 원형 parent 34 local 존재·86 Minecraft 외부·1 없음, 자체 810 elements/4,860 faces. A prior generated16도 직접 SHA·parent 확인; A prior136/136 정합. 현재 HC 모델 직접 검증 137/12,394, 생성 모델 잔여12,257개 원문 미열람.
+- A+B 중복 제거 직접 원본 바이트 검증 **587 distinct JSON**. B에서 새로 본 290개(전체 이 B 원본 재열람292개 중 A 이전 직접 2개 제외). 3개 Handcrafted datagen Java의 정적 원본 소스 확인.
+- 기존 B 인벤토리 17파일, AF 11파일, HC authored 8파일은 각 원격 SHA 전부 PASS; B 원본/기존 A 보호 파일 수정 없음.
 
-- Another Furniture 고정 `57eb624cbb7f408d43398c7434b0d38d312cb55d`: 모델 JSON 1,629(블록 1,451, 아이템 178), 상태177, 소스 Java/Kotlin 89.
-- Handcrafted 고정 `8d21d1665916850c3fa3bdaf1370c50ec2ca7035`: 모델 JSON 12,394(블록 12,109, 아이템 285; authored 121, generated 12,273), 상태267, Java/Kotlin 86.
-- 총 모델 JSON 경로14,023, 상태444, 코드175. Git tree SHA·size 경로별 표기. 유한 109회차. 연구 GitHub 결과 파일 17개 원격 Git blob SHA 재계산 17/17 PASS 및 보호 파일 diff0.
-- 두 모드 모두 고정 `gradle.properties`: MC1.21.1 / mod4.0.3. 리소스 저작권 제한 확인. 파일 SHA 중복을 고유 모델 형상 수로 오인 금지.
+## 다음 진행 순서
 
-## 미완료 / 다음 실제 행동
+1. **Macaw 공식 JAR 원본 확보 및 SHA·내부 모델 인벤토리**: 공식 [Modrinth 버전 xhmciaUD](https://modrinth.com/mod/macaws-furniture/version/xhmciaUD) (3.4.2/MC1.21.11/Fabric); 바이너리 접근 불가. GitHub issue 저장소를 모델 소스로 오인하거나 비공식 복제본 대체 금지. 현재 B 전체 BLOCKED.
+2. **Handcrafted generated JSON 12,257개**의 직접 원문 SHA·parent 경로 검사 및 전체 source generator 모델 생성 구조 확인. 현재 생성 모델 수 12,273은 Git tree 파일 수이지 유니크 형태 아님. Handcrafted blockstate 267 원문 검사.
+3. Another 모델 총 1,629 중 기존 A 273 원문 검증 외 **나머지 1,356개**의 직접 parent/geometry 검사. 177 상태 원문 SHA는 끝났지만 실제 분기·회전·연결 동작은 D와 코드 근거 필요. 특히 `unused/white_awning` 누락 1건 유지.
+4. 109개 `ENTRY_QUEUE.csv` 회차를 기준으로 C/D 원형·상태 분석. source SHA verification completed로 변경된 5회차는 C/D 실측 승인(PASS)이 아님.
+5. 원저자 리소스 All Rights Reserved. 원본 JSON/PNG/JAR 재배포 금지. 1-3 M1~M6 0/6 보존. 사용자 추가 승인 없이 Macaw 탈락·대체 모드 선정 금지.
 
-1. **Macaw 공식 JAR**: 원저자 Modrinth의 `xhmciaUD` (Macaw Furniture 3.4.2, MC1.21.11 Fabric) 다운로드 URL은 확인했으나 이 실행 환경에서 바이너리 접근에 실패. 공식 배포 바이트, 다운로드 SHA, JAR 메타데이터와 내부 모델/상태 전수 검증 이전에는 B PASS 불가. 제삼자 포크를 공식 소스로 인정하지 않음. 버전 간 호환성도 추정하지 않음.
-2. Another A 미조사 **155 blockstate**는 경로·Git tree SHA 인덱스만 신규 등록. 원문 직접 SHA 및 model refs 전체 읽기 미수행. 대량 동시 원문 호출은 커넥터 호출 한도에 막혔으므로 적은 묶음으로 재시도하며 결과를 B 증거 CSV로 저장해야 함.
-3. Handcrafted generated 12,273를 포함한 모델 원문 부모/leaf, 참조 체인·생성 코드 실체를 본문으로 판별. 현재 `template`/ `base`는 파일명에 근거한 후보일 뿐이며 parent 직접 확인이 아님.
-4. 소스 전체 3모드 승인과 고정 분모 이후 1-3-C/D에 109개 Entry를 계승. 원본 JSON/PNG/JAR 저작권 파일은 GitHub에 게시하지 말 것. 1-3 A 기존 증거 수정·중복 실적 금지.
+## 참고 파일
 
-## 주요 파일
-
-`B_SCOPE_REPORT.md`, `B_SCOPE_AUDIT.json`, `SOURCE_REGISTRY.csv`, `FIXED_SCOPE.csv`, `ENTRY_QUEUE.csv`, `B_BLOCKSTATE_INVENTORY.csv`, `B_JAVA_KOTLIN_SOURCE_INDEX.csv`, `B_MODEL_INVENTORY_*.csv`, `B_REMOTE_READBACK.json`.
+`B_SCOPE_REPORT.md`, `B_SCOPE_AUDIT.json`, `B_ASSET_ORIGINAL_VERIFICATION_COVERAGE.csv`, `B_AF_155_INDEPENDENT_AUDIT.json`, `B_HC_AUTHORED_INDEPENDENT_AUDIT.json`, `B_HC_PRIOR136_REHASH_AUDIT.json`, `B_HC_DATAGEN_SOURCE_EVIDENCE.csv`, `B_REMOTE_READBACK.json`.
