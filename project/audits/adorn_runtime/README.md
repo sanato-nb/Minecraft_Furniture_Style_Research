@@ -61,3 +61,5 @@ python scripts/migration/audit_adorn_runtime.py \
   '/path/to/Adorn-7.6.0+1.21.11-fabric.jar' \
   '/path/to/Adorn-7.6.1+1.21.11-fabric.jar' /tmp/mcfr-adorn
 ```
+
+[BWG를 설치한 후속 재현](../adorn_bwg/README.md)에서 오버레이 블록 등록과 아스펜 가구 배치를 검증했다.

@@ -13,6 +13,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 ROOT = Path(__file__).resolve().parents[2]
 PINS = ROOT / "project/audits/h67/ADORN_PINS.json"
+BWG_PINS = ROOT / "project/audits/adorn_bwg/MOD_PINS.json"
 HISTORICAL = ROOT / "research/furniture_mods/phase_1-3/runtime_actions"
 VERSION = "1.21.11"
 LOADER = "0.19.3"
@@ -39,6 +40,19 @@ def pinned_adorn(path):
         if release["files"][0]["hashes"]["sha256"] == digest:
             return label
     raise ValueError("Adorn JAR does not match an audited pin")
+
+
+def pinned_bwg_bundle(directory):
+    pins = json.loads(BWG_PINS.read_text(encoding="utf-8"))
+    bundle = []
+    for pin in pins:
+        path = directory / pin["filename"]
+        with path.open("rb") as stream:
+            digest = hashlib.file_digest(stream, "sha256").hexdigest()
+        if digest != pin["sha256"] or path.stat().st_size != pin["size"]:
+            raise ValueError(f"Biomes We've Gone bundle pin mismatch: {path.name}")
+        bundle.append(path)
+    return bundle
 
 
 def prepare_runtime(cache, client_cache):
@@ -89,6 +103,7 @@ def build_probe(game, loader, ecj):
 
 def launch(args):
     label = pinned_adorn(args.jar)
+    bundle = pinned_bwg_bundle(args.bwg_dir) if args.bwg_dir else []
     client, assets, index, libraries, api = prepare_runtime(args.cache, args.client_cache)
     game = args.work / f"{label}-{args.mode}"
     if game.exists():
@@ -97,6 +112,8 @@ def launch(args):
     mods.mkdir(parents=True)
     shutil.copy2(args.jar, mods / args.jar.name)
     shutil.copy2(api, mods / api.name)
+    for path in bundle:
+        shutil.copy2(path, mods / path.name)
     (game / "options.txt").write_text(
         "renderDistance:4\nsimulationDistance:5\nmaxFps:30\nguiScale:2\n", encoding="utf-8",
     )
@@ -137,6 +154,7 @@ def main():
     parser.add_argument("--client-cache", type=outside_repository)
     parser.add_argument("--ecj", type=Path)
     parser.add_argument("--world", type=Path)
+    parser.add_argument("--bwg-dir", type=outside_repository, help="Directory containing the pinned optional BWG bundle")
     parser.add_argument("--display")
     args = parser.parse_args()
     args.jar = args.jar.resolve()
