@@ -60,6 +60,8 @@ def main():
         parser.add_argument('--'+arg,type=lambda name:Path(name).resolve(),required=arg in ('work','output'))
     parser.add_argument('--display')
     parser.add_argument('--keep-open',action='store_true')
+    parser.add_argument('--exposure',action='store_true',
+                        help='check item and break-particle textures after joining a test world')
     a=parser.parse_args()
     a.work.mkdir(parents=True,exist_ok=True)
     a.output.parent.mkdir(parents=True,exist_ok=True)
@@ -82,7 +84,8 @@ def main():
     requests.write_text(''.join('\t'.join(row)+'\n' for row in targets(a.version)))
     env={**os.environ,'LIBGL_ALWAYS_SOFTWARE':'1','ALSOFT_DRIVERS':'null'}
     cmd=['java','-Xmx2G','-XX:ActiveProcessorCount=4',f'-Dresearch.mc={a.version}',
-         f'-Dresearch.keep_open={str(a.keep_open).lower()}',f'-Dresearch.output={a.output}',
+         f'-Dresearch.keep_open={str(a.keep_open).lower()}',
+         f'-Dresearch.exposure={str(a.exposure).lower()}',f'-Dresearch.output={a.output}',
          f'-Dresearch.targets={requests}','-cp',os.pathsep.join(map(str,[client,*libs])),
          'net.fabricmc.loader.impl.launch.knot.KnotClient','--username','RenderAudit','--version',a.version,
          '--gameDir',str(game),'--assetsDir',str(assets),'--assetIndex',index,'--accessToken','0',

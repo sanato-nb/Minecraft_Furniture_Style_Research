@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
+import java.util.TreeSet;
 import java.util.Set;
 import java.util.TreeMap;
 import net.fabricmc.api.ClientModInitializer;
@@ -25,6 +27,10 @@ public final class ComparisonProbe implements ClientModInitializer {
                (self,method,args)->{
                    if (!method.getName().equals("onEndTick")) return null;
                    try {
+                       if (recorded) return null;
+                       if (Boolean.getBoolean("research.exposure") &&
+                           (member(args[0],"310","field_1687")==null || member(args[0],"310","field_1724")==null))
+                           return null;
                        if ((boolean) call(args[0],"310","method_53466")) {
                            new ComparisonProbe().run(args[0]);
                            if (!Boolean.getBoolean("research.keep_open")) System.exit(0);
@@ -91,6 +97,10 @@ public final class ComparisonProbe implements ClientModInitializer {
             out=target;
             write("kind","case","key","value");
             List<String> input=Files.readAllLines(Path.of(System.getProperty("research.targets")));
+            if (Boolean.getBoolean("research.exposure")) {
+                auditExposure(input);
+                return;
+            }
             for (String line:input) {
                 String[] values=line.split("\t",-1);
                 switch(values[0]) {
@@ -102,6 +112,101 @@ public final class ComparisonProbe implements ClientModInitializer {
             }
             if (!older) inspectBed();
         }
+    }
+
+    private void auditExposure(List<String> requests) throws Exception {
+        Set<String> wanted=new TreeSet<>();
+        for (String request:requests) {
+            String[] columns=request.split("\\t",-1);
+            if (columns[0].equals("SPRITE")) wanted.add(columns[2]);
+        }
+        Object world=member(client,"310","field_1687");
+        Object player=member(client,"310","field_1724");
+        Object source=call(player,"1297","method_24515");
+        Object manager=member(client,"310","field_1713");
+        Queue<?> newParticles=(Queue<?>) member(manager,"702","field_3836");
+
+        int blockCount=0, stateCount=0;
+        Map<String,Set<String>> representatives=new TreeMap<>();
+        for (Object id:registryIds(blocks)) {
+            blockCount++;
+            Object block=registryGet(blocks,id);
+            Object states=call(block,"2248","method_9595");
+            Map<String,Object> selected=new TreeMap<>();
+            int count=0;
+            for (Object state:(Iterable<?>)call(states,"2689","method_11662")) {
+                count++;
+                if (!(boolean)call(state,"4970$class_4971","method_45475")) continue;
+                Object model=call(modelManager,"776","method_3349",new Class<?>[]{mc("2680")},state);
+                String sprite=spriteId(call(model,"1087",older?"method_4711":"method_68511"));
+                if (wanted.contains(sprite)) selected.putIfAbsent(sprite,state);
+            }
+            stateCount+=count;
+            write("BLOCK_SCAN",id.toString(),"state_count",Integer.toString(count));
+            for (var entry:selected.entrySet()) {
+                String texture=entry.getKey();
+                Object state=entry.getValue();
+                write("PARTICLE_MODEL",texture,id.toString(),packed(properties(state)));
+                Set<String> namespaceHits=representatives.computeIfAbsent(texture,k->new TreeSet<>());
+                String namespace=id.toString().split(":",2)[0];
+                if (namespaceHits.contains(namespace)) continue;
+                int previous=newParticles.size();
+                call(world,"1937","method_31595",new Class<?>[]{mc("2338"),mc("2680")},source,state);
+                Set<String> observed=new TreeSet<>();
+                int index=0, generated=0;
+                for (Object particle:newParticles) {
+                    if (index++<previous || !mc("727").isInstance(particle)) continue;
+                    Object sprite=member(particle,older?"4003":"3940",older?"field_17886":"field_62632");
+                    observed.add(spriteId(sprite));
+                    generated++;
+                }
+                write("PARTICLE_EVENT",texture,id.toString(),generated+"|"+String.join(";",observed));
+                if (observed.contains(texture)) namespaceHits.add(namespace);
+            }
+        }
+        int itemCount=0;
+        Object renderer=older?call(client,"310","method_1480"):call(client,"310","method_65386");
+        Object mode=member(null,"811","field_4317");
+        for (Object id:registryIds(items)) {
+            itemCount++;
+            Object item=registryGet(items,id);
+            Object stack=mc("1799").getConstructor(mc("1935")).newInstance(item);
+            Set<String> visible=new TreeSet<>();
+            List<String> special=new ArrayList<>();
+            if (older) {
+                Object model=call(renderer,"918","method_4019",
+                    new Class<?>[]{mc("1799"),mc("1937"),mc("1309"),int.class},stack,world,player,0);
+                if ((boolean)call(model,"1087","method_4713")) special.add(model.getClass().getName());
+                for (Object side:directions) collectSprites(quads(model,null,side),visible);
+                collectSprites(quads(model,null,null),visible);
+            } else {
+                Object layers=mc("10444").getConstructor().newInstance();
+                call(renderer,"10442","method_65598",
+                    new Class<?>[]{mc("10444"),mc("1799"),mc("811"),mc("1937"),mc("11566"),int.class},
+                    layers,stack,mode,world,player,0);
+                Object array=member(layers,"10444","field_55340");
+                int count=(int)member(layers,"10444","field_55339");
+                for (int i=0;i<count;i++) {
+                    Object layer=Array.get(array,i);
+                    Object type=member(layer,"10444$class_10446","field_55350");
+                    if (type!=null) special.add(type.getClass().getName());
+                    collectSprites((List<?>)call(layer,"10444$class_10446","method_67997"),visible);
+                }
+            }
+            write("ITEM_SCAN",id.toString(),"model",String.join(";",visible)+"|"+String.join(";",special));
+        }
+        write("TOTAL","blocks","count",Integer.toString(blockCount));
+        write("TOTAL","states","count",Integer.toString(stateCount));
+        write("TOTAL","items","count",Integer.toString(itemCount));
+    }
+
+    private List<?> registryIds(Object registry) throws Exception {
+        return ((Set<?>)call(registry,"2378","method_10235")).stream()
+            .sorted(Comparator.comparing(Object::toString)).toList();
+    }
+
+    private void collectSprites(List<?> quads, Set<String> visible) throws Exception {
+        for (Object quad:quads) visible.add(spriteId(call(quad,"777",older?"method_35788":"comp_3724")));
     }
 
     private Object defaultState(String id) throws Exception {
