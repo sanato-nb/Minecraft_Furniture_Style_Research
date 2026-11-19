@@ -11,7 +11,7 @@ H2에서 등록한 연구 회차를 `mcfr.research_engine`으로 계획하고 �
 
 ## 실행
 
-저장소 루트에서 Python 3.12로 실행한다. 기존 H2 SQLite에 `init`을 다시 실행하면 버전 2로 이관되며 기존 버전·자산·연구 회차가 보존된다.
+저장소 루트에서 Python 3.12로 실행한다. 기존 H2 SQLite에 `init`을 다시 실행하면 최신 버전으로 이관되며 기존 버전·자산·연구 회차가 보존된다.
 
 ```sh
 export PYTHONPATH=src
@@ -32,3 +32,5 @@ python -m mcfr.research_engine --db "$research_db" show vanilla-fresh --details
 고정 릴리스에 생성한 `REVALIDATE` 회차는 `execute <run_id> --legacy`를 실행할 수 있다. 바닐라는 1-2-G 원본 감사, 모드는 고정된 3종을 다루는 1-3-F 인계 DB와 1-5-E 교차 비교 DB 감사를 재실행한다. 원래 도구가 사용하는 공개 판정과 결과를 대조하며, 저장소 커밋과 실제 실행한 감사 ID를 결과에 남긴다. 실행 기록의 카탈로그 집계는 해당 회차의 릴리스 범위이고, 감사 집계는 지정된 역사 분석기의 검증 범위다.
 
 실제 실행에서 바닐라 원본 4,768개와 Macaw JAR 자산 3,999개의 검증이 통과했다. 레거시 경로에서는 바닐라 검사 56개 및 출력 3개와 모드 DB 감사 2건을 재현했다.
+
+[H4 연구 워크플로](RESEARCH_WORKFLOW.md)에서 체크포인트와 승인형 AI 검토를 사용할 수 있다.

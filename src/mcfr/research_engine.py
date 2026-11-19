@@ -137,28 +137,33 @@ def inspect_asset(body: bytes, kind: str) -> dict:
     return {"top_level_keys": sorted(data)}
 
 
-def verify_source(plan: dict, source: Path) -> dict:
-    assets = []
-    with source_reader(source, plan["release"]) as (read, pin_check):
-        for entry in plan["selected"]:
-            path = entry["source_path"]
-            report = {"source_path": path, "kind": entry["kind"], "reason": entry["reason"]}
-            try:
-                body = read(path)
-                report["digest"] = asset_digest(body, entry["hash_algorithm"])
-                if report["digest"] != entry["digest"]:
-                    raise ValueError(f"Digest mismatch; expected {entry['digest']}")
-                if entry["byte_count"] is not None and len(body) != entry["byte_count"]:
-                    raise ValueError(f"Byte count mismatch; expected {entry['byte_count']}")
-                report["observations"] = inspect_asset(body, entry["kind"])
-                report["status"] = "PASS"
-            except (KeyError, OSError, ValueError, RuntimeError, BadZipFile) as exc:
-                report.update(status="FAIL", error=str(exc))
-            assets.append(report)
+def verify_entry(entry: dict, read) -> dict:
+    path = entry["source_path"]
+    report = {"source_path": path, "kind": entry["kind"], "reason": entry["reason"]}
+    try:
+        body = read(path)
+        report["digest"] = asset_digest(body, entry["hash_algorithm"])
+        if report["digest"] != entry["digest"]:
+            raise ValueError(f"Digest mismatch (expected {entry['digest']})")
+        if entry["byte_count"] is not None and len(body) != entry["byte_count"]:
+            raise ValueError(f"Byte count mismatch (expected {entry['byte_count']})")
+        report["observations"] = inspect_asset(body, entry["kind"])
+        report["status"] = "PASS"
+    except (KeyError, OSError, ValueError, RuntimeError, BadZipFile) as exc:
+        report.update(status="FAIL", error=str(exc))
+    return report
+
+
+def source_report(plan: dict, assets: list, pin_check: str) -> dict:
     failed = sum(asset["status"] == "FAIL" for asset in assets)
     return {"status": "FAIL" if failed else "PASS", "pin_check": pin_check,
-            "verified": len(assets) - failed, "failed": failed, "assets": assets,
-            "removed": plan["removed"]}
+            "verified": len(assets) - failed, "failed": failed, "assets": assets, "removed": plan["removed"]}
+
+
+def verify_source(plan: dict, source: Path) -> dict:
+    with source_reader(source, plan["release"]) as (read, pin_check):
+        assets = [verify_entry(entry, read) for entry in plan["selected"]]
+    return source_report(plan, assets, pin_check)
 
 
 def verify_legacy(plan: dict) -> dict:
@@ -178,16 +183,21 @@ def verify_legacy(plan: dict) -> dict:
             "audits": results}
 
 
-def record_execution(db, plan: dict, backend: str, report: dict) -> dict:
+def insert_execution(db, plan: dict, backend: str, report: dict) -> str:
     report = {**report, "catalog_scope_counts": plan["counts"]}
     execution_id = uuid.uuid4().hex
+    db.execute(
+        "INSERT INTO research_execution (execution_id, run_id, engine_version, backend, scope_sha256, "
+        "status, report_json) VALUES (?, ?, ?, ?, ?, ?, ?)",
+        (execution_id, plan["run"]["run_id"], ENGINE_VERSION, backend, plan["scope_sha256"],
+         report["status"], _json(report)),
+    )
+    return execution_id
+
+
+def record_execution(db, plan: dict, backend: str, report: dict) -> dict:
     with catalog.write_transaction(db):
-        db.execute(
-            "INSERT INTO research_execution (execution_id, run_id, engine_version, backend, scope_sha256, "
-            "status, report_json) VALUES (?, ?, ?, ?, ?, ?, ?)",
-            (execution_id, plan["run"]["run_id"], ENGINE_VERSION, backend, plan["scope_sha256"],
-             report["status"], _json(report)),
-        )
+        execution_id = insert_execution(db, plan, backend, report)
     return read_executions(db, plan["run"]["run_id"], execution_id=execution_id)[0]
 
 

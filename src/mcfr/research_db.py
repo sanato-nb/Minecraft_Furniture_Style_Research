@@ -12,7 +12,7 @@ from .foundation import MODES
 
 ROOT = Path(__file__).resolve().parents[2]
 APP_ID = 0x4D434652  # MCFR
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 RELEASE_FIELDS = (
     "release_key", "profile", "target_id", "version", "minecraft_version",
     "loader", "pin_algorithm", "pin_digest", "source",
@@ -34,7 +34,7 @@ def db_identity(db: sqlite3.Connection) -> tuple[int, int]:
 def require_schema(db: sqlite3.Connection, minimum: int = 1) -> None:
     app, version = db_identity(db)
     if app != APP_ID or not minimum <= version <= SCHEMA_VERSION:
-        raise ValueError(f"Expected MCFR DB schema {minimum}–{SCHEMA_VERSION}. Run init to upgrade a version 1 DB")
+        raise ValueError(f"Expected MCFR DB schema {minimum}–{SCHEMA_VERSION}. Run init to upgrade an older MCFR DB")
 
 
 @contextmanager
@@ -63,9 +63,9 @@ def initialize(path: Path) -> None:
             raise ValueError("Cannot initialize an existing database from another application")
         else:
             require_schema(db)
-        if version == 1:
-            apply_schema(db, "research_schema_v2.sql")
-            db.execute("PRAGMA user_version = 2")
+        for next_version in range(version + 1, SCHEMA_VERSION + 1):
+            apply_schema(db, f"research_schema_v{next_version}.sql")
+            db.execute(f"PRAGMA user_version = {next_version}")
 
 
 def nonempty(value):
