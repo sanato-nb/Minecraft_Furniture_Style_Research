@@ -12,7 +12,7 @@ from .foundation import MODES
 
 ROOT = Path(__file__).resolve().parents[2]
 APP_ID = 0x4D434652  # MCFR
-SCHEMA_VERSION = 3
+SCHEMA_VERSION = 4
 RELEASE_FIELDS = (
     "release_key", "profile", "target_id", "version", "minecraft_version",
     "loader", "pin_algorithm", "pin_digest", "source",

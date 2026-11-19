@@ -31,6 +31,8 @@ def main(argv=None):
     send = sub.add_parser("review-send")
     send.add_argument("review_id")
     send.add_argument("--approve", required=True)
+    send.add_argument("--reuse-identical", action="store_true",
+                      help="Reuse an identical approved completed review for the same scope when available")
     sub.add_parser("review-status").add_argument("review_id")
 
     args = parser.parse_args(argv)
@@ -47,7 +49,9 @@ def main(argv=None):
                     db, args.review_id, args.execution_id, args.model, args.max_output_tokens, args.asset,
                 )
             elif args.command == "review-send":
-                result = ai_review.dispatch(db, args.review_id, args.approve)
+                if args.reuse_identical:
+                    catalog.require_schema(db, minimum=4)
+                result = ai_review.dispatch(db, args.review_id, args.approve, reuse_identical=args.reuse_identical)
             else:
                 result = ai_review.review_status(db, args.review_id, include_request=True)
     except (OSError, ValueError, BadZipFile, sqlite3.Error) as exc:

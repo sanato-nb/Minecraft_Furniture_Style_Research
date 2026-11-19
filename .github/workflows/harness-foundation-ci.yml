@@ -26,6 +26,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install capture verification dependency
+        run: python -m pip install "Pillow>=10.0"
       - name: Check research profiles and read-only plan
         env:
           PYTHONPATH: src

@@ -3,6 +3,7 @@
 import hashlib
 import json
 import os
+import sqlite3
 from urllib.error import HTTPError
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 
@@ -26,6 +27,8 @@ def review_status(db, review_id, *, include_request=False):
     if row is None:
         raise ValueError(f"Unknown AI review: {review_id}")
     result = dict(row)
+    if result.get("reused_from") is None:
+        result.pop("reused_from", None)
     request = result.pop("request_json")
     response = result.pop("result_json")
     if include_request:
@@ -114,11 +117,32 @@ def format_response(response: dict) -> dict:
     return {
         "evidence_class": "AI_INFERENCE", "provider_response_id": response["id"],
         "provider_status": response.get("status"), "text": "\n".join(text),
-        "usage": {name: usage[name] for name in ("input_tokens", "output_tokens", "total_tokens") if name in usage},
+        "usage": {name: usage[name] for name in ("input_tokens", "output_tokens", "total_tokens") if type(usage.get(name)) is int and usage[name] >= 0},
     }
 
 
-def dispatch(db, review_id: str, approved_digest: str, *, send=send_openai) -> dict:
+def cached_response(db, review: sqlite3.Row):
+    execution = db.execute(
+        "SELECT e.scope_sha256, e.engine_version, r.mode FROM research_execution e JOIN research_run r USING(run_id) "
+        "WHERE e.execution_id = ?", (review["execution_id"],),
+    ).fetchone()
+    if execution["mode"] == "FRESH":
+        return None
+    candidates = db.execute(
+        "SELECT a.review_id, a.state, a.result_json FROM ai_review a JOIN research_execution e USING(execution_id) "
+        "WHERE a.approval_sha256 = ? AND a.state IN ('COMPLETE', 'DISPATCHING', 'UNCONFIRMED') "
+        "AND a.reused_from IS NULL AND e.scope_sha256 = ? AND e.engine_version = ? ORDER BY a.review_id",
+        (review["approval_sha256"], execution["scope_sha256"], execution["engine_version"]),
+    ).fetchall()
+    for candidate in candidates:
+        if candidate["state"] == "COMPLETE" and json.loads(candidate["result_json"]).get("provider_status") == "completed":
+            return candidate
+    if any(candidate["state"] != "COMPLETE" for candidate in candidates):
+        raise ValueError("An identical review is in flight or has an unconfirmed result")
+    return None
+
+
+def dispatch(db, review_id: str, approved_digest: str, *, reuse_identical=False, send=send_openai) -> dict:
     with catalog.write_transaction(db):
         row = db.execute("SELECT * FROM ai_review WHERE review_id = ?", (review_id,)).fetchone()
         if row is None:
@@ -127,6 +151,13 @@ def dispatch(db, review_id: str, approved_digest: str, *, send=send_openai) -> d
             raise ValueError("Approval digest does not match the prepared request")
         if row["state"] != "PREPARED":
             raise ValueError(f"Review already claimed or sent ({row['state']})")
+        previous = cached_response(db, row) if reuse_identical else None
+        if previous is not None:
+            db.execute(
+                "UPDATE ai_review SET state = 'COMPLETE', reused_from = ?, result_json = ? WHERE review_id = ?",
+                (previous["review_id"], previous["result_json"], review_id),
+            )
+            return review_status(db, review_id)
         key = os.getenv("OPENAI_API_KEY")
         if not key:
             raise ValueError("OPENAI_API_KEY is required to send a review")
