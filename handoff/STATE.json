@@ -772,7 +772,7 @@
     "next": "research/vanilla_models/phase_1-2-D/entry3/D_ENTRY3_SUBBATCH1_48_NEXT.md"
   },
   "schema": "mc-furniture-handoff/v1",
-  "updated_at": "2026-11-18",
+  "updated_at": "2026-11-19",
   "timezone": "Asia/Seoul",
   "current_checkpoint": "v69",
   "repository": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
@@ -855,7 +855,7 @@
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "v69_original_brewing_stand_7_models_7_multipart_rules_8_boolean_states_source_geometry36_faces30_each_240_across_states_2_palette_PNG_SHA_IHDR_v68_P1_544x379_preserved_as_544x393_stage_A_COMPLETE_SOURCE_SCOPE_B_COMPLETE_SOURCE_GEOMETRY_SCOPE",
+      "status": "SOURCE_SUBSTAGES_COMPLETE_WHOLE_STAGE_REVIEW_PENDING",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -1518,12 +1518,13 @@
       "v69_previous_source_review_cells_preserved": 34816,
       "v69_client_renderer_authenticated": false,
       "v69_complete": false,
-      "v69_actual_completion_percent": null
+      "v69_actual_completion_percent": null,
+      "previous_status": "v69_original_brewing_stand_7_models_7_multipart_rules_8_boolean_states_source_geometry36_faces30_each_240_across_states_2_palette_PNG_SHA_IHDR_v68_P1_544x379_preserved_as_544x393_stage_A_COMPLETE_SOURCE_SCOPE_B_COMPLETE_SOURCE_GEOMETRY_SCOPE"
     },
     {
       "id": "03",
       "topic": "mod furniture 3D model analysis",
-      "status": "v24_another_remaining_39_chair_leaf_original_json_source_verified_cumulative_204",
+      "status": "1-3_COMPLETE_SOURCE_GEOMETRY_SCOPE",
       "sample": {
         "another_furniture": {
           "source": "crispytwig/AnotherFurniture",
@@ -1644,12 +1645,14 @@
         "v24_new_face_actual_rgba_sampled": 0,
         "v24_new_39_model_apply_records_exact": 155,
         "v24_source_variant_model_reference_mismatch_cases": 2
-      }
+      },
+      "previous_status": "v24_another_remaining_39_chair_leaf_original_json_source_verified_cumulative_204",
+      "completed": true
     },
     {
       "id": "04",
       "topic": "mod furniture textures and UV analysis",
-      "status": "v23_actual_original_png_rgba_cumulative_unchanged_in_v24_no_new_png_pixel_measurement",
+      "status": "1-4_COMPLETE_FIXED_SOURCE_TEXTURE_UV_SCOPE",
       "sample": {
         "another_furniture": {
           "png_headers_measured": 12
@@ -1782,20 +1785,24 @@
         "v23_new_uv_texel_partial_alpha_uses": 0,
         "v23_another_unverified_vanilla_dirt_faces_cumulative": 16,
         "v23_handcrafted_unverified_vanilla_oak_planks_faces": 2
-      }
+      },
+      "previous_status": "v23_actual_original_png_rgba_cumulative_unchanged_in_v24_no_new_png_pixel_measurement",
+      "completed": true
     },
     {
       "id": "05",
       "topic": "vanilla/mod comparison",
-      "status": "preliminary_mod_pair_comparison_only",
+      "status": "A_TO_E_COMPLETE_RUNTIME_10_OF_10_F_AUDIT_PENDING",
       "sample": {
         "pairs_compared": 5,
         "vanilla_vs_mod_in_game_verified": false,
         "completed": false
-      }
+      },
+      "previous_status": "preliminary_mod_pair_comparison_only",
+      "completed": false
     }
   ],
-  "completed_substeps": 1,
+  "completed_substeps": 3,
   "total_substeps": 5,
   "verified_sqlite_local": {
     "integrity": "ok",
@@ -1832,10 +1839,11 @@
     "v10_binary_uploaded_to_github": false
   },
   "verification_pending": [
-    "official client.jar byte/hash comparison",
-    "in-game tint/UV/transparency/render and animation comparison"
+    "1-2 whole-stage review and 1-5-F independent exit audit",
+    "Runtime behavior outside the documented fixed versions, sample states and test contexts"
   ],
   "canonical_docs": [
+    "docs/PHASE_1_SUMMARY.md",
     "HANDOFF.md",
     "PROGRESS.md",
     "SOURCES_AND_LIMITS.md",
@@ -1856,13 +1864,9 @@
   ],
   "next_work": {
     "next": [
-      "1-2-A A_COMPLETE_SOURCE_SCOPE and 1-2-B B_COMPLETE_SOURCE_GEOMETRY_SCOPE. Do NOT repeat Entry1-10.",
-      "Next scoped research is 1-2-C UV/texture/PNG, subject to existing WORK_PLAN; D blockstate, E runtime special rendering, F/G follow later.",
-      "B first-owner 2360/2360 complete, P2P3 1846/1846 P1 ancestor source no, B pending 0, E-first P1 30 separate.",
-      "56 original source chains have no general elements; E renderer study remains, not certified by B.",
-      "B4 independent54/54 + remote file SHA/rows30/30 + protected original SHA5/5 PASS.",
-      "Preserve v69 P1 ledger 544x393 and review544x70, approved150/150, top-level completion1/5.",
-      "No furniture model creation or Project Zomboid conversion."
+      "Review the overall closure of 1-2 separately using its completed source audit and later E/F evidence.",
+      "Run the independent 1-5-F closure audit, using the completed A–E artifacts and D runtime 10/10.",
+      "Decide Phase 1 closure after the remaining reviews and carry 14 candidates and 7 limits into Phase 2."
     ]
   },
   "sources": [
@@ -6304,10 +6308,10 @@
     "audit": "research/furniture_mods/phase_1-3/G/1-3_INDEPENDENT_EXIT_AUDIT.json"
   },
   "phase_1_4_execution": {
-    "date_kst": "2026-11-18",
-    "status": "IN_PROGRESS_ENTRY04_EXCEPTION_DB_AND_HANDOFF_COMPLETE",
+    "date_kst": "2026-11-19",
+    "status": "1-4_COMPLETE_FIXED_SOURCE_TEXTURE_UV_SCOPE",
     "entry01_measured": true,
-    "phase_complete": false,
+    "phase_complete": true,
     "new_png_decoded": 1996,
     "new_png_candidates": 1996,
     "prior_png_reused": 175,
@@ -6338,16 +6342,19 @@
     "entry04_report": "research/furniture_mods/phase_1-4/entry04/REPORT.md",
     "entry04_audit": "research/furniture_mods/phase_1-4/entry04/INDEPENDENT_AUDIT.json",
     "entry04_1_5_handoff": "research/furniture_mods/phase_1-4/entry04/1-5_TEXTURE_UV_HANDOFF.csv",
-    "next": "1-4-F independent exit audit",
+    "next": "Use the fixed-scope 1-4 evidence in 1-5-F",
     "source_path_exceptions": 8,
     "animated_png_sheets": 4,
     "declared_only_texture_slots": 77,
     "report": "research/furniture_mods/phase_1-4/entry01/REPORT.md",
-    "audit": "research/furniture_mods/phase_1-4/entry01/1-4_ENTRY01_AUDIT.json"
+    "audit": "research/furniture_mods/phase_1-4/entry01/1-4_ENTRY01_AUDIT.json",
+    "exit_gates_passed": 6,
+    "faces_with_source_pixels": 585969,
+    "exit_report": "research/furniture_mods/phase_1-4/F/REPORT.md"
   },
   "phase_1_5_execution": {
-    "date_kst": "2026-11-18",
-    "status": "IN_PROGRESS_E_DATABASE_AND_HANDOFF_VERIFIED",
+    "date_kst": "2026-11-19",
+    "status": "A_TO_E_COMPLETE_RUNTIME_10_OF_10_F_AUDIT_PENDING",
     "input_commit": "34d892916618be8ea89bbf2ad686fdcbb7e11b61",
     "plan": "docs/furniture_compare_1-5/1-5_DETAILED_EXECUTION_PLAN.md",
     "mod_states": 47,
@@ -6374,7 +6381,7 @@
     "d_unresolved_state_options": 4,
     "d_texture_exception_rows": 85,
     "d_runtime_checks_defined": 10,
-    "d_runtime_checks_run": 0,
+    "d_runtime_checks_run": 10,
     "d_report": "research/furniture_mods/phase_1-5/D/REPORT.md",
     "d_audit": "research/furniture_mods/phase_1-5/D/D_AUDIT.json",
     "e_review_date_kst": "2026-11-19",
@@ -6386,8 +6393,24 @@
     "e_audit": "research/furniture_mods/phase_1-5/E/INDEPENDENT_AUDIT.json",
     "next": "1-5-F independent exit audit",
     "pending_parent_closure": [
+      "1-2 whole-stage separate review"
+    ],
+    "d_runtime_checks_passed": 10,
+    "d_runtime_exposure_ids_verified": 77,
+    "d_runtime_exposure_item_ids": 58,
+    "d_runtime_exposure_particle_ids": 19,
+    "d_runtime_report": "research/furniture_mods/phase_1-5/runtime_followup/REPORT.md",
+    "f_exit_approved": false
+  },
+  "phase_1_current": {
+    "date_kst": "2026-11-19",
+    "status": "PENDING_FINAL_REVIEWS",
+    "completed_substeps": 3,
+    "total_substeps": 5,
+    "summary": "docs/PHASE_1_SUMMARY.md",
+    "pending_closure": [
       "1-2 whole-stage separate review",
-      "1-4-F independent exit audit"
+      "1-5-F independent exit audit"
     ]
   }
 }
