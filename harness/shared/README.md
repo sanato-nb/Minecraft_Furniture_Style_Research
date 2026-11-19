@@ -1,5 +1,7 @@
 # Shared research harness
 
+[현재 하네스 개발 현황](../../project/STATUS.md) · [기존 연구 기록 색인](../../project/HISTORY.md)
+
 공통 하네스는 별도 AI 에이전트가 아니라 Vanilla/Mods 양쪽이 재사용하는 **정책·입출력 규격**이다.
 - Python 분석기는 `src/mcfr/`에 둔다. 하네스 폴더에는 작업 선택·권한·연구 프로필을 둔다.
 - 기본: 승인된 범위에서 실행, 결과는 브랜치와 PR로 제출. `main` 쓰기 금지.

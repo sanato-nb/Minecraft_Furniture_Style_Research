@@ -1,5 +1,7 @@
 # H0 구조·의존성 분류와 H1 비파괴 이관 판정
 
+H0와 H1 착수 시점의 기록이다. 이후 진행은 [하네스 개발 현황](../STATUS.md)에서 확인한다.
+
 기준: `main@c87fa83846be513f797292bc9f31d2e01b4f3187`. 전체 Git 트리 **32,148개 항목 / 파일 31,242개**; Git 트리 누락 없음. PR CI: **파일 31,267/31,267 재해시 통과**, 실행 코드 정적 검사 **186개**, 설정·테스트 **7/7 PASS**. [Actions 감사 증거](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/44506172295/artifacts/14520220995).
 
 | 기존 영역 | 파일 수 | H1 판단 | 근거/주의 |
