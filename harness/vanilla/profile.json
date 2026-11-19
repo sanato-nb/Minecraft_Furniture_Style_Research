@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "vanilla",
+  "target_kind": "minecraft_vanilla",
+  "instructions": "harness/vanilla/instructions.md",
+  "source_selection": "official_version_pinned",
+  "required_identity": [
+    "minecraft_version",
+    "source_sha256",
+    "source_location"
+  ],
+  "enabled_research": [
+    "models",
+    "textures_uv",
+    "blockstates",
+    "runtime_conditional"
+  ],
+  "runtime_verification": "conditional",
+  "default_mode": "INCREMENTAL"
+}

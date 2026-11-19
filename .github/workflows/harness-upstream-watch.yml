@@ -1,0 +1,92 @@
+name: Harness upstream release watch
+on:
+  schedule:
+    - cron: '17 0 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/harness-upstream-watch.yml'
+  pull_request:
+    paths:
+      - '.github/workflows/harness-upstream-watch.yml'
+      - 'registry/upstream-targets.json'
+      - 'src/mcfr/update_watch.py'
+      - 'src/mcfr/extensions.py'
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: mcfr-upstream-watch-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    if: github.event_name == 'pull_request' || github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    defaults:
+      run:
+        shell: bash
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Restore the latest watch snapshot
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          watch_dir="$RUNNER_TEMP/upstream-watch"
+          prior_run=$(gh api --paginate --method GET "repos/$GITHUB_REPOSITORY/actions/artifacts" \
+            -f name=mcfr-upstream-watch-state -F per_page=100 |
+            jq -sr --arg branch "$DEFAULT_BRANCH" --argjson repository "$GITHUB_REPOSITORY_ID" '
+              [.[].artifacts[] | select(.expired == false and .workflow_run.head_branch == $branch
+                                      and .workflow_run.head_repository_id == $repository)]
+              | max_by(.id) | .workflow_run.id // empty')
+          if [[ -n "$prior_run" ]]; then
+            gh run download "$prior_run" --repo "$GITHUB_REPOSITORY" \
+              --name mcfr-upstream-watch-state --dir "$watch_dir"
+            test -s "$watch_dir/watch.sqlite"
+          fi
+      - name: Check the upstream release list
+        id: check
+        run: |
+          watch_dir="$RUNNER_TEMP/upstream-watch"
+          mkdir -p "$watch_dir"
+          database="$watch_dir/watch.sqlite"
+          python -m mcfr.research_db --db "$database" init
+          code=0
+          python -m mcfr.extensions --db "$database" check-updates > "$watch_dir/report.json" || code=$?
+          if (( code > 1 )); then
+            exit "$code"
+          fi
+          jq -er '
+            "### Upstream release watch",
+            "",
+            "- Targets checked: \(.targets | length)",
+            "- Updates detected: \(.updates_detected)",
+            "- Target errors: " + ([.targets[] | select(.status == "ERROR")] | length | tostring)
+          ' "$watch_dir/report.json" >> "$GITHUB_STEP_SUMMARY"
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+      - name: Save the watch database and report
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.event_name == 'pull_request' && 'mcfr-upstream-watch-preview' || 'mcfr-upstream-watch-state' }}
+          path: |
+            ${{ runner.temp }}/upstream-watch/watch.sqlite
+            ${{ runner.temp }}/upstream-watch/report.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Report upstream errors
+        env:
+          WATCH_EXIT_CODE: ${{ steps.check.outputs.exit_code }}
+        run: exit "$WATCH_EXIT_CODE"
