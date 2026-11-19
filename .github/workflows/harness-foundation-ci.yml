@@ -1,0 +1,30 @@
+name: Harness foundation read-only checks
+on:
+  pull_request:
+    paths:
+      - 'AGENTS.md'
+      - 'harness/**'
+      - 'src/mcfr/**'
+      - 'tests/harness/**'
+      - '.github/workflows/harness-foundation-ci.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  foundation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate profiles and read-only plan
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m mcfr.foundation validate
+          python -m mcfr.foundation plan --profile vanilla --mode FRESH --target-id minecraft --release 1.21.11
+          python -m unittest discover -s tests/harness -p 'test_*.py' -v

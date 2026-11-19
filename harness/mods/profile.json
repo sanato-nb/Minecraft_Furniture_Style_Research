@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "id": "mods",
+  "target_kind": "furniture_mod",
+  "instructions": "harness/mods/instructions.md",
+  "source_selection": "upstream_release_pinned",
+  "required_identity": [
+    "mod_id",
+    "mod_version",
+    "minecraft_version",
+    "loader",
+    "source_sha256"
+  ],
+  "enabled_research": [
+    "models",
+    "textures_uv",
+    "blockstates",
+    "runtime_conditional",
+    "cross_mod"
+  ],
+  "runtime_verification": "conditional",
+  "default_mode": "INCREMENTAL"
+}

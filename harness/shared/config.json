@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "default_execution": "hybrid_phased",
+  "research_modes": [
+    "NEW",
+    "INCREMENTAL",
+    "REVALIDATE",
+    "FRESH"
+  ],
+  "profiles": [
+    "vanilla",
+    "mods"
+  ],
+  "source_of_truth": "research_run_registry_not_legacy_state",
+  "legacy_state": "handoff/STATE.json",
+  "require_evidence": true,
+  "default_write_policy": "branch_pr_only",
+  "automatic_main_merge": false,
+  "automatic_inbox_delete": false,
+  "ai_api_enabled": false,
+  "visual_validation": "existing_runtime_probe_first",
+  "cache_policy": "input_hash_and_analyzer_version"
+}
