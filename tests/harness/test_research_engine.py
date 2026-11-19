@@ -7,7 +7,7 @@ from tempfile import TemporaryDirectory
 import unittest
 from zipfile import ZipFile
 
-from mcfr import research_db as catalog, research_engine as engine
+from mcfr import research_db as catalog, research_engine as engine, source_jobs
 
 
 class ResearchEngineTests(unittest.TestCase):
@@ -75,6 +75,23 @@ class ResearchEngineTests(unittest.TestCase):
             output.write(b"changed")
         failed = self.command("execute", "fresh", "--source", str(archive), code=1)
         self.assertIn("differs from the registered release pin", failed["report"]["error"])
+
+    def test_removal_only_archive_finalizes_with_empty_scan(self):
+        archive = self.work / "updated.jar"
+        with ZipFile(archive, "w") as output:
+            output.writestr("same.json", "{}")
+        with catalog.write_transaction(self.db):
+            self.register("old", {"same.json": b"{}", "removed.json": b"{}"})
+            self.register("new", {"same.json": b"{}"}, hashlib.sha256(archive.read_bytes()).hexdigest())
+            catalog.create_run(self.db, "deletions", "new", "INCREMENTAL", "old")
+        result = source_jobs.scan(self.db, "deletions-job", "deletions", archive)
+        self.assertEqual(result["status"], "PASS")
+        self.assertEqual(result["total"], 0)
+        self.assertEqual(source_jobs.scan(self.db, "deletions-job", "deletions", archive), result)
+        attempts = engine.read_executions(self.db, "deletions", details=True)
+        self.assertEqual(len(attempts), 1)
+        self.assertEqual(attempts[0]["report"]["removed"], ["removed.json"])
+        self.assertEqual(attempts[0]["report"]["pin_check"], "archive_and_asset_hashes")
 
     def test_upgrade_preserves_a_version_1_run(self):
         old = self.work / "old.sqlite"

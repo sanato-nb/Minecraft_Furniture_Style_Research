@@ -23,3 +23,5 @@ H2 연구 카탈로그에서 버전·자산·연구 회차를 등록하고 조�
 [H4 연구 워크플로](../../project/RESEARCH_WORKFLOW.md)에서 중단된 원본 검사를 이어서 실행하고 승인한 AI 검토 요청을 전송한다.
 
 [H5 연구 확장 모듈](../../project/RESEARCH_EXTENSIONS.md)에서 업데이트 확인, 연구 범위 측정, 캡처 자동 비교, 교차 연구와 AI 사용량 집계를 실행한다.
+
+[Adorn 실전 검증](../../project/audits/h67/README.md)에서 신규 등록, 재개, 증분 연구, FRESH 재검사를 재현할 수 있다.
