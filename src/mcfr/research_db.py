@@ -12,7 +12,7 @@ from .foundation import MODES
 
 ROOT = Path(__file__).resolve().parents[2]
 APP_ID = 0x4D434652  # MCFR
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 RELEASE_FIELDS = (
     "release_key", "profile", "target_id", "version", "minecraft_version",
     "loader", "pin_algorithm", "pin_digest", "source",
@@ -31,9 +31,10 @@ def db_identity(db: sqlite3.Connection) -> tuple[int, int]:
     return db.execute("PRAGMA application_id").fetchone()[0], db.execute("PRAGMA user_version").fetchone()[0]
 
 
-def require_schema(db: sqlite3.Connection) -> None:
-    if db_identity(db) != (APP_ID, SCHEMA_VERSION):
-        raise ValueError("Expected an initialized MCFR research DB with schema version 1")
+def require_schema(db: sqlite3.Connection, minimum: int = 1) -> None:
+    app, version = db_identity(db)
+    if app != APP_ID or not minimum <= version <= SCHEMA_VERSION:
+        raise ValueError(f"Expected MCFR DB schema {minimum}–{SCHEMA_VERSION}. Run init to upgrade a version 1 DB")
 
 
 @contextmanager
@@ -43,18 +44,28 @@ def write_transaction(db: sqlite3.Connection):
         yield
 
 
+def apply_schema(db: sqlite3.Connection, filename: str) -> None:
+    schema = Path(__file__).with_name(filename).read_text(encoding="utf-8")
+    for statement in schema.split(";"):
+        if statement.strip():
+            db.execute(statement)
+
+
 def initialize(path: Path) -> None:
     with closing(open_db(path, "rwc")) as db, write_transaction(db):
-        if db_identity(db) == (APP_ID, SCHEMA_VERSION):
-            return
-        if db_identity(db) != (0, 0) or db.execute("SELECT name FROM sqlite_schema LIMIT 1").fetchone():
+        app, version = db_identity(db)
+        if (app, version) == (0, 0) and not db.execute("SELECT name FROM sqlite_schema LIMIT 1").fetchone():
+            apply_schema(db, "research_schema.sql")
+            db.execute(f"PRAGMA application_id = {APP_ID}")
+            db.execute("PRAGMA user_version = 1")
+            version = 1
+        elif app != APP_ID:
             raise ValueError("Cannot initialize an existing database from another application")
-        schema = Path(__file__).with_name("research_schema.sql").read_text(encoding="utf-8")
-        for statement in schema.split(";"):
-            if statement.strip():
-                db.execute(statement)
-        db.execute(f"PRAGMA application_id = {APP_ID}")
-        db.execute(f"PRAGMA user_version = {SCHEMA_VERSION}")
+        else:
+            require_schema(db)
+        if version == 1:
+            apply_schema(db, "research_schema_v2.sql")
+            db.execute("PRAGMA user_version = 2")
 
 
 def nonempty(value):
@@ -136,7 +147,7 @@ def summary(db: sqlite3.Connection) -> dict:
     for row in db.execute("SELECT release_key, kind, count(*) AS total FROM asset GROUP BY release_key, kind ORDER BY kind"):
         by_release.setdefault(row["release_key"], {})[row["kind"]] = row["total"]
     return {
-        "schema_version": SCHEMA_VERSION,
+        "schema_version": db_identity(db)[1],
         "releases": [dict(row, assets_by_kind=by_release.get(row["release_key"], {}))
                      for row in db.execute("SELECT * FROM release ORDER BY release_key")],
         "runs": [dict(row) for row in db.execute("SELECT * FROM research_run ORDER BY created_at, run_id")],
