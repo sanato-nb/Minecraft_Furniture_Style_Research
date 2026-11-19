@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "PASS_WITH_RESTRUCTURE_RISKS",
+  "baseline_commit": "c87fa83846be513f797292bc9f31d2e01b4f3187",
+  "head_commit_tested": "edecb203e311c4cb56ae7dd76f32a314ef9edd55",
+  "workflow_run_id": 44506172295,
+  "workflow_url": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/44506172295",
+  "artifact_url": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/44506172295/artifacts/14520220995",
+  "baseline_tree": {
+    "entries": 32148,
+    "files": 31242,
+    "dirs": 906
+  },
+  "ci_checkout": {
+    "tracked_files": 31267,
+    "git_sha1_and_sha256_checked": 31267,
+    "hash_mismatch": 0,
+    "executables_scanned": 186
+  },
+  "unit_tests": {
+    "passed": 7,
+    "failed": 0
+  },
+  "comparison_against_baseline": {
+    "new_files": 25,
+    "modified_existing_files": 0,
+    "deleted_existing_files": 0
+  },
+  "main_push_path_candidates": [
+    ".github/workflows/f3-entry6-contact.yml",
+    ".github/workflows/g-entry3-audit.yml",
+    ".github/workflows/g-entry4-audit.yml",
+    ".github/workflows/g-entry5-audit.yml",
+    ".github/workflows/g-entry6-audit.yml",
+    ".github/workflows/g-global-exit-audit.yml"
+  ],
+  "main_push_false_positive": "scripts/migration/audit_repository.py (self scanner string pattern)",
+  "caveats": [
+    "CI full CSV and detailed executable path literal scan are GitHub Actions artifacts retained 30 days, reproducible from checked-in audit script",
+    "Path literal scan is heuristic and not full dynamic execution dependency trace",
+    "Runtime Minecraft validation not rerun in H0/H1",
+    "Existing historical workflows with main write behavior not changed",
+    "Full data migration and autonomous AI research are not yet implemented"
+  ]
+}
