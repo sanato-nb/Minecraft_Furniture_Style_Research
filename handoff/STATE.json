@@ -855,7 +855,7 @@
     {
       "id": "02",
       "topic": "vanilla model JSON, UV, states and special rendering",
-      "status": "SOURCE_SUBSTAGES_COMPLETE_WHOLE_STAGE_REVIEW_PENDING",
+      "status": "1-2_COMPLETE_FIXED_VANILLA_RESEARCH_SCOPE",
       "percent": null,
       "v25_source_json_count": 40,
       "v25_source_png_header_count": 8,
@@ -1164,7 +1164,7 @@
       "v52_A1_full_historical_reconciliation_complete": false,
       "v52_A1_complete": false,
       "v52_A1_actual_completion_percentage": null,
-      "completed": false,
+      "completed": true,
       "v53_P1_total_model_paths": 544,
       "v53_source_path_SHA_links_complete": 544,
       "v53_unlinked_from_examined_P1_scope": 0,
@@ -1519,7 +1519,8 @@
       "v69_client_renderer_authenticated": false,
       "v69_complete": false,
       "v69_actual_completion_percent": null,
-      "previous_status": "v69_original_brewing_stand_7_models_7_multipart_rules_8_boolean_states_source_geometry36_faces30_each_240_across_states_2_palette_PNG_SHA_IHDR_v68_P1_544x379_preserved_as_544x393_stage_A_COMPLETE_SOURCE_SCOPE_B_COMPLETE_SOURCE_GEOMETRY_SCOPE"
+      "previous_status": "v69_original_brewing_stand_7_models_7_multipart_rules_8_boolean_states_source_geometry36_faces30_each_240_across_states_2_palette_PNG_SHA_IHDR_v68_P1_544x379_preserved_as_544x393_stage_A_COMPLETE_SOURCE_SCOPE_B_COMPLETE_SOURCE_GEOMETRY_SCOPE",
+      "overall_review": "research/vanilla_models/phase_1-2-review/REPORT.md"
     },
     {
       "id": "03",
@@ -1803,7 +1804,7 @@
       "f_exit_report": "research/furniture_mods/phase_1-5/F/REPORT.md"
     }
   ],
-  "completed_substeps": 4,
+  "completed_substeps": 5,
   "total_substeps": 5,
   "verified_sqlite_local": {
     "integrity": "ok",
@@ -1840,7 +1841,6 @@
     "v10_binary_uploaded_to_github": false
   },
   "verification_pending": [
-    "1-2 whole-stage review",
     "Runtime behavior outside the documented fixed versions, sample states and test contexts"
   ],
   "canonical_docs": [
@@ -1865,8 +1865,8 @@
   ],
   "next_work": {
     "next": [
-      "Review the overall closure of 1-2 separately using its completed source audit and later E/F evidence.",
-      "Decide Phase 1 closure after the remaining review and carry 14 candidates and 7 limits into Phase 2."
+      "Prepare Phase 2 style guide from the 14 candidates and 7 scope limits in the existing 1-5-E handoff.",
+      "Use the fixed source evidence and annotate runtime limits on each rule."
     ]
   },
   "sources": [
@@ -6024,8 +6024,8 @@
     "prior_v69_approval": 150,
     "upper_stages_completed": 1,
     "upper_stages_total": 5,
-    "whole_stage_1_2_complete": false,
-    "whole_stage_1_2_exit_separately_reviewed_and_approved": false,
+    "whole_stage_1_2_complete": true,
+    "whole_stage_1_2_exit_separately_reviewed_and_approved": true,
     "official_JAR_authenticated": false,
     "game_runtime_renderer_verified": false,
     "animation_runtime_playback_verified": false,
@@ -6042,7 +6042,8 @@
       "one_two_separate_exit": "docs/vanilla_models_1-2/1-2_STAGE_EXIT_SEPARATE_REVIEW.md",
       "entry6": "research/vanilla_models/phase_1-2-G/entry6/G_ENTRY6_REPORT.md"
     },
-    "next_action": "1-2 full-stage separate exit review. G source cross-stage audit complete. No Entry7."
+    "next_action": "G source audit and separate 1-2 review approved.",
+    "overall_closure_report": "research/vanilla_models/phase_1-2-review/REPORT.md"
   },
   "phase_1_3_detailed_plan": {
     "date_kst": "2026-11-17",
@@ -6391,10 +6392,8 @@
     "e_handoff_limits": 7,
     "e_report": "research/furniture_mods/phase_1-5/E/REPORT.md",
     "e_audit": "research/furniture_mods/phase_1-5/E/INDEPENDENT_AUDIT.json",
-    "next": "1-2 whole-stage separate review and Phase 1 closure",
-    "pending_parent_closure": [
-      "1-2 whole-stage separate review"
-    ],
+    "next": "Phase 2 style guide handoff",
+    "pending_parent_closure": [],
     "d_runtime_checks_passed": 10,
     "d_runtime_exposure_ids_verified": 77,
     "d_runtime_exposure_item_ids": 58,
@@ -6406,12 +6405,22 @@
   },
   "phase_1_current": {
     "date_kst": "2026-11-19",
-    "status": "PENDING_1_2_WHOLE_REVIEW",
-    "completed_substeps": 4,
+    "status": "COMPLETE_FIXED_RESEARCH_SCOPE",
+    "completed_substeps": 5,
     "total_substeps": 5,
     "summary": "docs/PHASE_1_SUMMARY.md",
-    "pending_closure": [
-      "1-2 whole-stage separate review"
-    ]
+    "pending_closure": [],
+    "last_review": "research/vanilla_models/phase_1-2-review/REPORT.md"
+  },
+  "phase_1_2_whole_review": {
+    "date_kst": "2026-11-19",
+    "status": "1-2_COMPLETE_FIXED_VANILLA_RESEARCH_SCOPE",
+    "completed": true,
+    "report": "research/vanilla_models/phase_1-2-review/REPORT.md",
+    "audit": "research/vanilla_models/phase_1-2-review/REVIEW_AUDIT.json",
+    "fixed_source_assets": 4669,
+    "mcmeta_sidecars": 99,
+    "reproduced_G_checks": 56,
+    "existing_E_runtime_observations_verified": 84
   }
 }
