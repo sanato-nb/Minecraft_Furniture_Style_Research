@@ -16,3 +16,5 @@ PYTHONPATH=src python -m mcfr.foundation runtime-plan --minecraft-version 1.21.1
 ```
 
 고정 Mods 런타임은 `mcfr.runtime engine`으로 재실행하고 `mcfr.runtime visual-client`로 로컬 테스트 월드를 열 수 있다. [런타임 검증 결과와 촬영 절차](../../project/audits/runtime/README.md)에 지원 버전과 명령을 기록했다.
+
+H2 연구 카탈로그에서 버전·자산·연구 회차를 등록하고 조회한다. [공통 연구 DB 사용법](../../project/RESEARCH_DB.md)
