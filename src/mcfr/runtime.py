@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 from pathlib import Path
 import runpy
@@ -23,7 +24,7 @@ def _scratch_path(value: str) -> Path:
     return path
 
 
-def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> None:
+def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict | None:
     """Copy an offline creative world and open it with the original pinned input set."""
     world = args.world.resolve()
     if not (world / "level.dat").is_file():
@@ -56,7 +57,12 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> None:
         "--assetIndex", index, "--accessToken", "0", "--width", "1024", "--height", "684",
         "--quickPlaySingleplayer", WORLD_NAME,
     ]
+    if args.command == "visual-capture":
+        from .runtime_capture import capture
+
+        return capture(command, env, game, args.output, args.version)
     subprocess.run(command, cwd=game, env=env, check=True)
+    return None
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -64,14 +70,17 @@ def main(argv: list[str] | None = None) -> int:
     sub = parser.add_subparsers(dest="command", required=True)
     engine = sub.add_parser("engine", help="run the historical registry and collision probe")
     visual = sub.add_parser("visual-client", help="open a copied local world for in-game capture")
-    for command in (engine, visual):
+    capture = sub.add_parser("visual-capture", help="capture and compare pinned in-game scenes on an isolated X11 display")
+    for command in (engine, visual, capture):
         command.add_argument("--version", required=True)
         command.add_argument("--work", type=_scratch_path, required=True)
         command.add_argument("--client-cache", type=_scratch_path)
         command.add_argument("--display", help="X11 display, for example :99")
     engine.add_argument("--output", type=_scratch_path, required=True)
     engine.add_argument("--ecj", type=Path)
-    visual.add_argument("--world", type=Path, required=True)
+    for command in (visual, capture):
+        command.add_argument("--world", type=Path, required=True)
+    capture.add_argument("--output", type=_scratch_path, required=True)
     args = parser.parse_args(argv)
 
     try:
@@ -87,10 +96,18 @@ def main(argv: list[str] | None = None) -> int:
         if mods.is_symlink() or any(child.name not in pinned or child.is_symlink() for child in mods.glob("*")):
             raise ValueError(f"Use a dedicated work directory containing only the pinned Mods inputs: {mods}")
 
-        if args.command == "visual-client":
+        if args.command != "engine":
             if not (args.display or os.environ.get("DISPLAY")):
                 raise ValueError("An X11 display is required for visual capture")
-            open_visual_client(args, script, prepare["prepare"])
+            if args.command == "visual-capture":
+                if shutil.which("xdotool") is None:
+                    raise ValueError("Automatic visual capture requires xdotool")
+                if args.output.exists():
+                    raise FileExistsError(f"Choose a new capture output directory: {args.output}")
+            report = open_visual_client(args, script, prepare["prepare"])
+            if report is not None:
+                print(json.dumps(report, ensure_ascii=False, indent=2))
+                return int(report["status"] != "MATCH")
         else:
             command = [sys.executable, str(script), "--version", args.version,
                        "--work", str(args.work), "--output", str(args.output)]
@@ -99,7 +116,7 @@ def main(argv: list[str] | None = None) -> int:
                 if value is not None:
                     command.extend(("--" + option.replace("_", "-"), str(value)))
             subprocess.run(command, check=True)
-    except (KeyError, OSError, ValueError, subprocess.CalledProcessError) as error:
+    except (ImportError, KeyError, OSError, ValueError, subprocess.SubprocessError) as error:
         parser.exit(1, f"{error}\n")
     return 0
 

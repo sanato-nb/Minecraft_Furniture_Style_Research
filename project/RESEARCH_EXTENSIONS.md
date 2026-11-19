@@ -8,6 +8,7 @@
 | 감시 목록 일괄 업데이트 확인 | `mcfr.extensions check-updates` | 대상별 결과, 오류, 변경 감지 건수 |
 | 연구 범위·검증률 측정 | `mcfr.extensions coverage` | 선정·검증 통과·실패·미검증 자산 수와 유형별 검증률 |
 | 캡처 자동 비교 | `mcfr.extensions visual` | 전체 RGBA 픽셀 차이 수, 범위, 원본 SHA-256 |
+| 고정 Mods 배치 자동 촬영 | `mcfr.runtime visual-capture` | 게임 내부 PNG, 서버 상태 검증 로그, 기준 이미지 비교 결과 |
 | 모드 간 교차 연구 | `mcfr.extensions compare` | 검증된 두 대상의 관찰 지표별 교차표 |
 | AI 사용량·재사용 | `mcfr.extensions usage`, `mcfr.workflow review-send --reuse-identical` | 모델별 사용 토큰과 재사용 건수 |
 
@@ -30,6 +31,8 @@ python -m mcfr.extensions --db "$research_db" coverage RUN_ID
 `coverage`는 현재 연구 회차가 선택한 자산을 분모로 삼고, 같은 범위 해시의 최신 원본 검사 결과를 집계한다. 증분 연구에서는 추가·변경 자산이 분모이며, 동일 자산과 삭제 경로의 수는 `scope_counts`에 표시된다. 같은 범위의 결과가 없으면 선정 자산을 미검증으로 센다.
 
 ## 캡처와 교차 연구
+
+고정 Mods 검증 월드의 배치부터 촬영·비교까지 실행하려면 [자동 촬영 명령](audits/runtime/README.md#자동-촬영과-비교)을 사용한다.
 
 ```sh
 python -m mcfr.extensions visual baseline.png candidate.png --reference-sha256 PINNED_SHA256

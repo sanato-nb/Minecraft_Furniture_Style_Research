@@ -30,6 +30,19 @@ PYTHONPATH=src python -m mcfr.runtime visual-client --version 1.21.1 \
 
 월드에 들어간 뒤 `/reload`, `/gamemode spectator`를 실행한다. 1.21.1은 `/tp @s 0 122 48`, 1.21.11은 `/tp @s 0 122 215`로 이동하여 청크가 열린 뒤 `/function cd_audit:place`와 `/function cd_audit:verify`를 실행한다. 아래 카메라 좌표로 이동한 뒤 F1로 HUD를 숨기고 F2로 저장한다. 로그에서 CD_PLACED, CD_STATES_READ 및 CD_STATE 관찰을 확인한다.
 
+## 자동 촬영과 비교
+
+Linux에서 Java 21, curl, 소프트웨어 OpenGL, Xvfb, xauth, xdotool 및 Python Pillow를 준비한다. 아래 예시는 1.21.11의 Macaw’s Furniture 장면을 복사한 평지 월드에 배치한 뒤 자동 촬영한다. 1.21.1과 해당 버전에서 저장한 월드를 지정하면 Another Furniture와 Handcrafted 장면을 촬영한다.
+
+```sh
+PYTHONPATH=src xvfb-run -a -s '-screen 0 1024x684x24' \
+  python -m mcfr.runtime visual-capture --version 1.21.11 \
+  --work /tmp/mcfr-capture-work --world /path/to/local-creative-world \
+  --output /tmp/mcfr-capture-output
+```
+
+작업 폴더에 해당 버전의 복사 월드가 없어야 한다. 원본 월드는 명령어가 허용된 창작 평지 월드를 사용한다. 전용 X11 디스플레이가 이미 있으면 `--display`로 지정한다. 출력에는 게임이 저장한 PNG, 클라이언트·서버 로그, `comparison.json`이 들어간다. 기준 PNG는 기존 SHA-256으로 확인한다. 픽셀 차이가 있으면 종료 코드 1과 차이 좌표를 반환한다. 월드·그래픽 설정에 따른 픽셀 차이도 포함되므로 가구의 상태는 로그의 별도 결과로 확인한다.
+
 ## 실제 촬영 결과
 
 | 인게임 원본 PNG | 카메라 명령 | 관찰 |
