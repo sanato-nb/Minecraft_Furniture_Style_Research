@@ -12,3 +12,5 @@ PYTHONPATH=src python -m mcfr.foundation validate
 PYTHONPATH=src python -m mcfr.foundation plan --profile vanilla --mode FRESH --target-id minecraft --release 1.21.11
 PYTHONPATH=src python -m mcfr.foundation runtime-plan --minecraft-version 1.21.11
 ```
+
+고정 Mods 런타임은 `mcfr.runtime engine`으로 재실행하고 `mcfr.runtime visual-client`로 로컬 테스트 월드를 열 수 있다. [런타임 검증 결과와 촬영 절차](../../project/audits/runtime/README.md)에 지원 버전과 명령을 기록했다.
