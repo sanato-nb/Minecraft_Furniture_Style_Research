@@ -28,3 +28,5 @@ python scripts/migration/replay_h67.py \
   '/path/to/Adorn-7.6.1+1.21.11-fabric.jar' > /tmp/h67-result.json
 cmp /tmp/h67-result.json project/audits/h67/RESULT.json
 ```
+
+[후속 런타임 검증](../adorn_runtime/README.md)에서 두 버전을 실행하고 최상위에서 사라진 1,503개를 조건부 오버레이의 동일 파일로 확인했다.
