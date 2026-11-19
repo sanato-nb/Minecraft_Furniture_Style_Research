@@ -8,6 +8,14 @@
 | 1-3-F 모드 인계 DB 감사 | 명시적인 B/C/D/E 입력 경로와 임시 F 복사본 | SQLite와 인계 원장을 대조. 표준 출력과 재생성한 감사 JSON이 공개 판정과 일치 |
 | 1-5-E 바닐라·모드 비교 DB 감사 | 실행 파일 기준 B/C/E 상대 경로와 원본을 지정하는 고정 Git 커밋 | SQLite에서 판정과 증거를 재계산하고 결과가 공개 감사 JSON과 일치 |
 
-저장소 루트에서 `python scripts/migration/replay_evidence.py`를 실행한다. Git 이력과 Python 3.12 이상이 필요하다. 읽기 권한의 PR CI에서도 실행하며 결과는 `H0_HISTORICAL_REPLAY.json`으로 저장한다.
+저장소 루트에서 아래 명령을 실행한다. Git 이력과 Python 3.12 이상이 필요하다.
+
+```sh
+PYTHONPATH=src python -m mcfr.foundation replay-history --db /path/to/research.sqlite
+```
+
+하네스는 운영 DB를 읽기 전용으로 열고 SQLite 무결성·외래 키와 등록된 근거 경로를 검사한다. 결과 JSON에는 릴리스·자산 개수, 근거 경로 목록과 세 감사 결과가 들어간다. 근거 검사는 저장소에 연결된 파일의 존재 여부를 확인한다. 기존 감사는 이전과 같은 실행기로 재실행해 공개본과 비교한다.
+
+PR CI는 기존 원장으로 임시 운영 DB를 만들고 같은 하네스 명령을 실행한다. 결과는 `h0-h1-foundation-evidence`의 `H1_REPLAY.json`에 기록한다. 감사만 재실행할 때는 `python scripts/migration/replay_evidence.py`를 사용할 수 있다.
 
 이 계약은 세 진입점의 경로에 적용한다. 바닐라 검증은 4,669개 원본과 sidecar 99개의 정적 재현 범위다. 공식 클라이언트 실행이나 G6 원격 판정은 별도이며, 과거에 기록된 CI 실행과 최신 런타임 결과는 [감사 자료 안내](README.md)에서 찾을 수 있다. 경로 이관 시에는 대상의 Git 이력과 재현 결과를 검토하고 새 위치에 맞는 별도 변경을 준비한다.

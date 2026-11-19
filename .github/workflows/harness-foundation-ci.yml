@@ -39,10 +39,15 @@ jobs:
           python scripts/migration/audit_repository.py \
             --baseline c87fa83846be513f797292bc9f31d2e01b4f3187 \
             --out "$RUNNER_TEMP/h0-reports"
-      - name: Replay historical handoff and comparison audits
+      - name: Verify catalog evidence and replay the three H1 audits
+        env:
+          PYTHONPATH: src
         run: |
-          python scripts/migration/replay_evidence.py > "$RUNNER_TEMP/h0-reports/H0_HISTORICAL_REPLAY.json"
-      - name: Upload H0 verification evidence
+          catalog="$RUNNER_TEMP/h1-research.sqlite"
+          python -m mcfr.research_db --db "$catalog" init
+          python -m mcfr.research_db --db "$catalog" import-legacy
+          python -m mcfr.foundation replay-history --db "$catalog" > "$RUNNER_TEMP/h0-reports/H1_REPLAY.json"
+      - name: Upload H0 and H1 verification evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:

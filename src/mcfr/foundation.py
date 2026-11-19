@@ -2,8 +2,12 @@
 from __future__ import annotations
 
 import argparse
+from contextlib import closing
 import json
 from pathlib import Path
+import sqlite3
+import subprocess
+import sys
 
 MODES = frozenset(("NEW", "INCREMENTAL", "REVALIDATE", "FRESH"))
 PROFILES = frozenset(("vanilla", "mods"))
@@ -106,6 +110,41 @@ def preview_runtime(root: Path, minecraft_version: str) -> dict:
     }
 
 
+def check_catalog(root: Path, db_path: Path) -> dict:
+    from .research_db import db_identity, open_db, relative_path, require_schema
+
+    root = root.resolve()
+    with closing(open_db(db_path, "ro")) as db:
+        db.execute("BEGIN")
+        require_schema(db)
+        if [row[0] for row in db.execute("PRAGMA integrity_check")] != ["ok"]:
+            raise ValueError("Research catalog failed SQLite integrity check")
+        if db.execute("PRAGMA foreign_key_check").fetchone() is not None:
+            raise ValueError("Research catalog contains an invalid foreign key")
+        releases = db.execute("SELECT count(*) FROM release").fetchone()[0]
+        assets, linked = db.execute("SELECT count(*), count(evidence_path) FROM asset").fetchone()
+        evidence = [relative_path(row[0]) for row in db.execute(
+            "SELECT DISTINCT evidence_path FROM asset WHERE evidence_path IS NOT NULL ORDER BY evidence_path"
+        )]
+        schema = db_identity(db)[1]
+    if not evidence:
+        raise ValueError("Research catalog has no evidence paths. Import the legacy catalog first.")
+    for path in evidence:
+        target = (root / path).resolve()
+        if not target.is_relative_to(root) or not target.is_file():
+            raise ValueError(f"Invalid or missing catalog evidence: {path}")
+    return {"schema_version": schema, "integrity": "ok", "foreign_key_violations": 0,
+            "releases": releases, "assets": assets, "assets_with_evidence": linked, "evidence_paths": evidence}
+
+
+def replay_history(root: Path, db_path: Path) -> dict:
+    settings = validate(root)
+    catalog = check_catalog(root, db_path)
+    script = root.resolve() / "scripts/migration/replay_evidence.py"
+    output = subprocess.check_output([sys.executable, script], text=True)
+    return {"status": "PASS", "profiles": settings["profiles"], "catalog": catalog, "audits": json.loads(output)}
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="H1 read-only harness foundation")
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[2])
@@ -119,15 +158,19 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--baseline-release")
     runtime = sub.add_parser("runtime-plan", help="Preview invocation of the existing fixed Mods runtime fixture")
     runtime.add_argument("--minecraft-version", required=True)
+    history = sub.add_parser("replay-history", help="Check a research catalog and replay the three historical audits")
+    history.add_argument("--db", type=Path, required=True)
     args = parser.parse_args(argv)
     try:
         if args.command == "validate":
             result = validate(args.root)
         elif args.command == "runtime-plan":
             result = preview_runtime(args.root, args.minecraft_version)
+        elif args.command == "replay-history":
+            result = replay_history(args.root, args.db)
         else:
             result = preview_plan(args.root, args.profile, args.mode, args.target_id, args.release, args.baseline_release)
-    except (ValueError, FileNotFoundError, KeyError) as err:
+    except (ValueError, OSError, KeyError, sqlite3.Error, subprocess.CalledProcessError) as err:
         parser.error(str(err))
     print(json.dumps(result, ensure_ascii=False, sort_keys=True, indent=2))
     return 0

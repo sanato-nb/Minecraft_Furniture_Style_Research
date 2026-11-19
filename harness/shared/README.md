@@ -18,6 +18,8 @@ PYTHONPATH=src python -m mcfr.foundation runtime-plan --minecraft-version 1.21.1
 
 H2 연구 카탈로그에서 버전·자산·연구 회차를 등록하고 조회한다. [공통 연구 DB 사용법](../../project/RESEARCH_DB.md)
 
+기존 연구를 이어받을 때는 `PYTHONPATH=src python -m mcfr.foundation replay-history --db /path/to/research.sqlite`를 실행한다. 운영 DB와 근거 경로를 확인하고 바닐라·모드 감사 3건을 재현한다. [검증 범위와 결과 확인 방법](../../project/audits/H1_PATH_REPLAY.md)
+
 등록한 회차는 H3에서 원본을 검증하거나 기존 감사를 재실행한다. [공통 연구 엔진 사용법](../../project/RESEARCH_ENGINE.md)
 
 [H4 연구 워크플로](../../project/RESEARCH_WORKFLOW.md)에서 중단된 원본 검사를 이어서 실행하고 승인한 AI 검토 요청을 전송한다.
