@@ -89,6 +89,12 @@ class RejectRedirect(HTTPRedirectHandler):
         return None
 
 
+class ProviderHTTPError(ValueError):
+    def __init__(self, status: int):
+        super().__init__(f"Provider returned HTTP {status}")
+        self.status = status
+
+
 def send_openai(body: bytes, key: str) -> dict:
     request = Request(ENDPOINT, data=body, headers={
         "Authorization": f"Bearer {key}", "Content-Type": "application/json",
@@ -98,7 +104,7 @@ def send_openai(body: bytes, key: str) -> dict:
             raw = response.read(MAX_RESPONSE_BYTES + 1)
     except HTTPError as exc:
         with exc:
-            raise ValueError(f"Provider returned HTTP {exc.code}") from None
+            raise ProviderHTTPError(exc.code) from None
     if len(raw) > MAX_RESPONSE_BYTES:
         raise ValueError("Provider response exceeds the byte limit")
     return json.loads(raw)
@@ -169,6 +175,8 @@ def dispatch(db, review_id: str, approved_digest: str, *, reuse_identical=False,
     except (OSError, ValueError, TypeError, AttributeError, KeyError) as exc:
         # A timeout or unreadable response may follow a billed request. Never retry it automatically.
         result = {"error_type": type(exc).__name__}
+        if isinstance(exc, ProviderHTTPError):
+            result["provider_http_status"] = exc.status
         state = "UNCONFIRMED"
     with catalog.write_transaction(db):
         db.execute("UPDATE ai_review SET state = ?, result_json = ? WHERE review_id = ?",
