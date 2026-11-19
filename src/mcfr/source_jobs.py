@@ -2,6 +2,7 @@
 
 import json
 from pathlib import Path
+from zipfile import BadZipFile
 
 from . import research_db as catalog, research_engine as engine
 
@@ -72,3 +73,18 @@ def scan(db, job_id: str, run_id: str, source: Path, limit: int | None = None) -
                     db.execute("DELETE FROM source_checkpoint WHERE job_id = ?", (job_id,))
                     break
     return status(db, job_id)
+
+
+def resume_pending(db) -> dict:
+    pending = db.execute(
+        "SELECT job_id, run_id, source_path FROM source_job WHERE execution_id IS NULL ORDER BY job_id"
+    ).fetchall()
+    results = []
+    for job in pending:
+        try:
+            result = scan(db, job["job_id"], job["run_id"], Path(job["source_path"]))
+        except (OSError, ValueError, BadZipFile) as exc:
+            result = {**status(db, job["job_id"]), "error": str(exc)}
+        results.append(result)
+    return {"status": "PASS" if all(job["status"] == "PASS" and "error" not in job for job in results) else "FAIL",
+            "jobs": results}

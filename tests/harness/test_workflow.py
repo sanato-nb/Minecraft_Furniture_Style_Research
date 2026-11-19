@@ -1,5 +1,6 @@
-from contextlib import closing
+from contextlib import closing, redirect_stdout
 import hashlib
+import io
 import json
 import os
 from pathlib import Path
@@ -7,7 +8,7 @@ from tempfile import TemporaryDirectory
 import unittest
 from unittest.mock import patch
 
-from mcfr import ai_review, research_db as catalog, research_engine as engine, source_jobs
+from mcfr import ai_review, research_db as catalog, research_engine as engine, source_jobs, workflow
 
 
 class ResearchWorkflowTests(unittest.TestCase):
@@ -71,6 +72,25 @@ class ResearchWorkflowTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "saved scope"):
             source_jobs.scan(self.db, "job", "run", self.work)
         self.assertEqual(source_jobs.status(self.db, "job")["next_asset"], 1)
+
+    def test_resume_command_continues_other_jobs_when_one_source_is_missing(self):
+        self.add_files(0, 2)
+        missing = self.work / "removable"
+        missing.mkdir()
+        (missing / "chair-000.json").write_bytes((self.work / "chair-000.json").read_bytes())
+        source_jobs.scan(self.db, "a-missing", "run", missing, 1)
+        source_jobs.scan(self.db, "b-resumable", "run", self.work, 1)
+        already_done = source_jobs.scan(self.db, "c-complete", "run", self.work)
+        missing.rename(self.work / "offline")
+
+        output = io.StringIO()
+        with redirect_stdout(output):
+            self.assertEqual(workflow.main(["--db", str(self.path), "scan-resume"]), 1)
+        blocked, resumed = json.loads(output.getvalue())["jobs"]
+        self.assertEqual((blocked["job_id"], blocked["status"], blocked["next_asset"]), ("a-missing", "PENDING", 1))
+        self.assertIn("error", blocked)
+        self.assertEqual((resumed["job_id"], resumed["status"], resumed["next_asset"]), ("b-resumable", "PASS", 2))
+        self.assertEqual(source_jobs.status(self.db, "c-complete"), already_done)
 
     def test_approval_binds_payload_and_blocks_duplicate_delivery(self):
         self.add_files(0, 2)

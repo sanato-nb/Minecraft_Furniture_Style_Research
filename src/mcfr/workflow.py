@@ -21,6 +21,7 @@ def main(argv=None):
     scan.add_argument("--source", required=True, type=Path)
     scan.add_argument("--max-assets", type=catalog.nonnegative_int)
     sub.add_parser("scan-status").add_argument("job_id")
+    sub.add_parser("scan-resume", help="Resume pending source jobs using the inputs saved in SQLite")
 
     prepare = sub.add_parser("review-prepare")
     prepare.add_argument("review_id")
@@ -44,6 +45,8 @@ def main(argv=None):
                 result = source_jobs.scan(db, args.job_id, args.run_id, args.source, args.max_assets)
             elif args.command == "scan-status":
                 result = source_jobs.status(db, args.job_id)
+            elif args.command == "scan-resume":
+                result = source_jobs.resume_pending(db)
             elif args.command == "review-prepare":
                 result = ai_review.prepare(
                     db, args.review_id, args.execution_id, args.model, args.max_output_tokens, args.asset,
