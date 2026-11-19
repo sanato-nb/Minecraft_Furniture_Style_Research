@@ -70,21 +70,27 @@ def latest_mod(feed, game_version, loader):
     }
 
 
-def check(db, target: str, game_version: str = "", loader: str = "", *, load=fetch) -> dict:
-    game_version = game_version.lower()
-    loader = loader.lower()
+def target_key(target, game_version="", loader=""):
+    if any(not isinstance(value, str) or value != value.strip() for value in (target, game_version, loader)):
+        raise ValueError("Watch fields must be strings without surrounding whitespace")
     if target == "vanilla":
         if game_version or loader:
             raise ValueError("Vanilla tracks the latest stable Java release")
+    elif not re.fullmatch(r"[A-Za-z0-9_-]{1,64}", target) or not game_version or not loader:
+        raise ValueError("Mod checks require a Modrinth project, game version and loader")
+    return target, game_version.lower(), loader.lower()
+
+
+def check(db, target: str, game_version: str = "", loader: str = "", *, load=fetch) -> dict:
+    key = target_key(target, game_version, loader)
+    target, game_version, loader = key
+    if target == "vanilla":
         latest = latest_vanilla(load(MOJANG))
     else:
-        if not re.fullmatch(r"[A-Za-z0-9_-]{1,64}", target) or not game_version or not loader:
-            raise ValueError("Mod checks require a Modrinth project, game version and loader")
         query = urlencode({"loaders": json.dumps([loader]), "game_versions": json.dumps([game_version]),
                            "include_changelog": "false"})
         latest = latest_mod(load(f"{MODRINTH}/{target}/version?{query}"), game_version, loader)
     published = published_time(latest["published_at"])
-    key = (target, game_version, loader)
     with catalog.write_transaction(db):
         stored = db.execute(
             "SELECT release_json FROM upstream_observation WHERE target = ? AND game_version = ? AND loader = ? "
@@ -106,3 +112,29 @@ def check(db, target: str, game_version: str = "", loader: str = "", *, load=fet
             )
     return {"status": state, "target": target, "game_version": game_version, "loader": loader,
             "latest": latest, "previous": previous}
+
+
+def check_many(db, entries, *, load=fetch) -> dict:
+    if not isinstance(entries, list) or not entries:
+        raise ValueError("Watch list must be a nonempty JSON array")
+    targets = {}
+    fields = {"target", "game_version", "loader"}
+    for entry in entries:
+        if not isinstance(entry, dict) or entry.keys() - fields or "target" not in entry:
+            raise ValueError("Watch entries require a target and accept only game_version and loader")
+        key = target_key(**entry)
+        if key in targets:
+            raise ValueError(f"Duplicate watch target: {' / '.join(key)}")
+        targets[key] = entry
+
+    reports = []
+    for target, game_version, loader in targets:
+        try:
+            report = check(db, target, game_version, loader, load=load)
+        except (KeyError, OSError, TypeError, ValueError) as exc:
+            report = {"target": target, "game_version": game_version, "loader": loader,
+                      "status": "ERROR", "error": str(exc)}
+        reports.append(report)
+    return {"status": "FAIL" if any(row["status"] == "ERROR" for row in reports) else "PASS",
+            "updates_detected": sum(row["status"] == "UPDATE_DETECTED" for row in reports),
+            "targets": reports}

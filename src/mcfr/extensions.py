@@ -65,6 +65,8 @@ def main(argv=None):
     watch.add_argument("target", help="vanilla or a Modrinth slug/project ID")
     watch.add_argument("--game-version", default="")
     watch.add_argument("--loader", default="")
+    watches = commands.add_parser("check-updates", help="Check every target in a JSON watch list")
+    watches.add_argument("--targets", type=Path, default=catalog.ROOT / "registry/upstream-targets.json")
     visual = commands.add_parser("visual")
     visual.add_argument("reference", type=Path)
     visual.add_argument("candidate", type=Path)
@@ -82,13 +84,15 @@ def main(argv=None):
         else:
             if args.db is None:
                 parser.error("--db is required for this command")
-            mode = "rw" if args.command == "check-update" else "ro"
+            mode = "rw" if args.command in {"check-update", "check-updates"} else "ro"
             with closing(catalog.open_db(args.db, mode)) as db:
                 catalog.require_schema(db, minimum=4)
                 if mode == "ro":
                     db.execute("BEGIN")
                 if args.command == "check-update":
                     result = update_watch.check(db, args.target, args.game_version, args.loader)
+                elif args.command == "check-updates":
+                    result = update_watch.check_many(db, json.loads(args.targets.read_text(encoding="utf-8")))
                 elif args.command == "compare":
                     result = cross_research.compare(db, args.left_execution, args.right_execution)
                 elif args.command == "coverage":
@@ -98,7 +102,8 @@ def main(argv=None):
     except (ImportError, KeyError, OSError, TypeError, ValueError, sqlite3.Error) as exc:
         parser.error(str(exc))
     print(json.dumps(result, ensure_ascii=False, indent=2))
-    return int(args.command == "visual" and result["status"] != "MATCH")
+    expected = {"visual": "MATCH", "check-updates": "PASS"}
+    return int(args.command in expected and result["status"] != expected[args.command])
 
 
 if __name__ == "__main__":

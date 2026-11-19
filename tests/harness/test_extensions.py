@@ -52,6 +52,27 @@ class ExtensionTests(unittest.TestCase):
         self.assertEqual(observed["status"], "BASELINE")
         self.assertEqual(observed["latest"]["id"], "1.21.11")
 
+    def test_batch_watch_continues_after_feed_error_and_checks_duplicates_first(self):
+        mod = {"target": "adorn", "game_version": "1.21.11", "loader": "fabric"}
+        targets = [mod, {"target": "vanilla"}]
+        feed = {"latest": {"release": "1.21.11"}, "versions": [
+            {"id": "1.21.11", "type": "release", "releaseTime": "2026-01-01T00:00:00Z",
+             "url": "https://example.invalid/manifest", "sha1": "a" * 40},
+        ]}
+        provider = Mock()
+        with self.assertRaisesRegex(ValueError, "Duplicate watch target"):
+            update_watch.check_many(self.db, [*targets, {**mod, "loader": "FABRIC"}], load=provider)
+        provider.assert_not_called()
+
+        for expected in ("BASELINE", "UNCHANGED"):
+            provider.side_effect = [TimeoutError("upstream timed out"), feed]
+            result = update_watch.check_many(self.db, targets, load=provider)
+            self.assertEqual(result["status"], "FAIL")
+            self.assertEqual(result["updates_detected"], 0)
+            self.assertEqual([row["status"] for row in result["targets"]], ["ERROR", expected])
+            self.assertEqual(result["targets"][0]["error"], "upstream timed out")
+        self.assertEqual(self.db.execute("SELECT count(*) FROM upstream_observation").fetchone()[0], 1)
+
     def verified(self, name, target, body, mode="REVALIDATE"):
         path = f"{name}.json"
         (self.work / path).write_bytes(body)

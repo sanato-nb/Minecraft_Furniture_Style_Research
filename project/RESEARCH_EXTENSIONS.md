@@ -5,6 +5,7 @@
 | 기능 | 명령 | 결과 |
 |---|---|---|
 | 바닐라·모드 업데이트 확인 | `mcfr.extensions check-update` | 공식 배포 목록의 최신 안정 버전과 직전 관측값 |
+| 감시 목록 일괄 업데이트 확인 | `mcfr.extensions check-updates` | 대상별 결과, 오류, 변경 감지 건수 |
 | 연구 범위·검증률 측정 | `mcfr.extensions coverage` | 선정·검증 통과·실패·미검증 자산 수와 유형별 검증률 |
 | 캡처 자동 비교 | `mcfr.extensions visual` | 전체 RGBA 픽셀 차이 수, 범위, 원본 SHA-256 |
 | 모드 간 교차 연구 | `mcfr.extensions compare` | 검증된 두 대상의 관찰 지표별 교차표 |
@@ -18,10 +19,13 @@ research_db=/path/to/operational.sqlite
 python -m mcfr.research_db --db "$research_db" init
 python -m mcfr.extensions --db "$research_db" check-update vanilla
 python -m mcfr.extensions --db "$research_db" check-update dtWC90iB --game-version 1.21.11 --loader fabric
+python -m mcfr.extensions --db "$research_db" check-updates
 python -m mcfr.extensions --db "$research_db" coverage RUN_ID
 ```
 
 첫 확인은 기준 관측 `BASELINE`으로 기록한다. 이후 같은 대상에서 바뀐 버전·메타데이터를 확인하면 `UPDATE_DETECTED`로 저장한다. 오래된 응답은 `OLDER_FEED`로 표시하고 최근 기준을 보존한다. 모드는 지정한 버전·로더에 해당하는 안정판을 선택한다. 바닐라는 최신 안정판의 버전 메타데이터 SHA-1을 기록하고, 모드는 파일별 SHA-512를 기록한다. 자산 다운로드·등록은 기존 연구 흐름에서 진행한다. [Mojang 배포 목록](https://piston-meta.mojang.com/mc/game/version_manifest_v2.json) · [Modrinth 버전 API](https://docs.modrinth.com/api/operations/getprojectversions/)
+
+일괄 확인의 기본 대상은 [감시 목록](../registry/upstream-targets.json)에 있다. 다른 대상은 `check-updates --targets /path/to/targets.json`으로 지정한다. 한 대상의 응답에 오류가 있어도 나머지를 확인하고, 해당 대상의 이전 관측을 보존한다. 하나라도 오류가 있으면 종료 코드 1을 반환한다. 업데이트 감지는 JSON의 `updates_detected`와 대상별 상태로 확인한다. 주기 실행 시 작업 스케줄러에 이 명령과 운영 DB의 절대 경로를 지정해 같은 관측 이력을 이어간다.
 
 `coverage`는 현재 연구 회차가 선택한 자산을 분모로 삼고, 같은 범위 해시의 최신 원본 검사 결과를 집계한다. 증분 연구에서는 추가·변경 자산이 분모이며, 동일 자산과 삭제 경로의 수는 `scope_counts`에 표시된다. 같은 범위의 결과가 없으면 선정 자산을 미검증으로 센다.
 
