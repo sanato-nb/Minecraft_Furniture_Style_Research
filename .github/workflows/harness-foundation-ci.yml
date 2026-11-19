@@ -1,4 +1,4 @@
-name: Harness foundation read-only checks
+name: Harness foundation and H0 source audit
 on:
   pull_request:
     paths:
@@ -6,6 +6,8 @@ on:
       - 'harness/**'
       - 'src/mcfr/**'
       - 'tests/harness/**'
+      - 'scripts/migration/**'
+      - 'project/**'
       - '.github/workflows/harness-foundation-ci.yml'
   workflow_dispatch:
 permissions:
@@ -13,7 +15,7 @@ permissions:
 jobs:
   foundation:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
         with:
@@ -21,10 +23,21 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Validate profiles and read-only plan
+      - name: Check research profiles and read-only plan
         env:
           PYTHONPATH: src
         run: |
           python -m mcfr.foundation validate
           python -m mcfr.foundation plan --profile vanilla --mode FRESH --target-id minecraft --release 1.21.11
           python -m unittest discover -s tests/harness -p 'test_*.py' -v
+      - name: Rehash entire tracked tree and scan code references
+        if: success()
+        run: python scripts/migration/audit_repository.py --out "$RUNNER_TEMP/h0-reports"
+      - name: Upload H0 verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: h0-h1-foundation-evidence
+          path: ${{ runner.temp }}/h0-reports/
+          if-no-files-found: warn
+          retention-days: 30
