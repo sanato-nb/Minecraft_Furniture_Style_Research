@@ -1,0 +1,62 @@
+{
+  "status": "PASS_1_5_FIXED_COMPARISON_SCOPE",
+  "baseline": "84842b0516af1aaa9a4dcc7b1fb73ee798b96f87",
+  "vanilla_assets_rehashed": 74,
+  "comparison": {
+    "cases": 62,
+    "applications": 74,
+    "elements": 390,
+    "faces": 1844,
+    "animation_frames": 109,
+    "mod_cases": 47,
+    "mod_applications": 52,
+    "mod_faces": 1610
+  },
+  "findings": {
+    "categories": 9,
+    "findings": 21,
+    "parent_exceptions": 48,
+    "state_exceptions": 6,
+    "textures": 85,
+    "runtime_passed": 10,
+    "runtime_r10_verified": 77,
+    "handoff": {
+      "SCOPE_LIMIT_ONLY": 7,
+      "CANDIDATE_REQUIRES_REVIEW": 14
+    }
+  },
+  "exact_static_replay_files": 22,
+  "world_images_checked": 14,
+  "runtime_captures": {
+    "ENGINE_1.21.1": {
+      "rows": 2097,
+      "sha256": "088d7a1ce1eecfaaeae7469967959767f2a3cec507887248659af97e2435aa13",
+      "byte_equal": false,
+      "changed_ordinals": 4
+    },
+    "R10_ENGINE_1.21.1": {
+      "rows": 3379,
+      "sha256": "28a408d82dc7291beb0731383dddf6afed3044f1063a56e7a7216f9cc5add851",
+      "byte_equal": true,
+      "changed_ordinals": 0
+    },
+    "ENGINE_1.21.11": {
+      "rows": 1449,
+      "sha256": "3aebb7ee3a45433d91ff693047c5f85822c76950f02e08ca7fb06fe58b1f9af6",
+      "byte_equal": true,
+      "changed_ordinals": 0
+    },
+    "R10_ENGINE_1.21.11": {
+      "rows": 4104,
+      "sha256": "0d02bbe27ecf61175dde800f1ddb32450fead48772e2110e5d494e0b2adb67e3",
+      "byte_equal": true,
+      "changed_ordinals": 0
+    }
+  },
+  "comparison_sqlite_integrity": "ok",
+  "prerequisite_1_4_f": "PASS_PHASE_1_4_SOURCE_SCOPE",
+  "prerequisite_1_2_whole_approved": false,
+  "phase_1_closure": "PENDING_1_2_WHOLE_REVIEW",
+  "remote_blobs": 83,
+  "remote_tabular_files": 31
+}

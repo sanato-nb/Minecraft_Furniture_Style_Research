@@ -1792,17 +1792,18 @@
     {
       "id": "05",
       "topic": "vanilla/mod comparison",
-      "status": "A_TO_E_COMPLETE_RUNTIME_10_OF_10_F_AUDIT_PENDING",
+      "status": "1-5_COMPLETE_FIXED_COMPARISON_SCOPE",
       "sample": {
         "pairs_compared": 5,
         "vanilla_vs_mod_in_game_verified": false,
         "completed": false
       },
       "previous_status": "preliminary_mod_pair_comparison_only",
-      "completed": false
+      "completed": true,
+      "f_exit_report": "research/furniture_mods/phase_1-5/F/REPORT.md"
     }
   ],
-  "completed_substeps": 3,
+  "completed_substeps": 4,
   "total_substeps": 5,
   "verified_sqlite_local": {
     "integrity": "ok",
@@ -1839,7 +1840,7 @@
     "v10_binary_uploaded_to_github": false
   },
   "verification_pending": [
-    "1-2 whole-stage review and 1-5-F independent exit audit",
+    "1-2 whole-stage review",
     "Runtime behavior outside the documented fixed versions, sample states and test contexts"
   ],
   "canonical_docs": [
@@ -1865,8 +1866,7 @@
   "next_work": {
     "next": [
       "Review the overall closure of 1-2 separately using its completed source audit and later E/F evidence.",
-      "Run the independent 1-5-F closure audit, using the completed A–E artifacts and D runtime 10/10.",
-      "Decide Phase 1 closure after the remaining reviews and carry 14 candidates and 7 limits into Phase 2."
+      "Decide Phase 1 closure after the remaining review and carry 14 candidates and 7 limits into Phase 2."
     ]
   },
   "sources": [
@@ -6354,7 +6354,7 @@
   },
   "phase_1_5_execution": {
     "date_kst": "2026-11-19",
-    "status": "A_TO_E_COMPLETE_RUNTIME_10_OF_10_F_AUDIT_PENDING",
+    "status": "1-5_COMPLETE_FIXED_COMPARISON_SCOPE",
     "input_commit": "34d892916618be8ea89bbf2ad686fdcbb7e11b61",
     "plan": "docs/furniture_compare_1-5/1-5_DETAILED_EXECUTION_PLAN.md",
     "mod_states": 47,
@@ -6391,7 +6391,7 @@
     "e_handoff_limits": 7,
     "e_report": "research/furniture_mods/phase_1-5/E/REPORT.md",
     "e_audit": "research/furniture_mods/phase_1-5/E/INDEPENDENT_AUDIT.json",
-    "next": "1-5-F independent exit audit",
+    "next": "1-2 whole-stage separate review and Phase 1 closure",
     "pending_parent_closure": [
       "1-2 whole-stage separate review"
     ],
@@ -6400,17 +6400,18 @@
     "d_runtime_exposure_item_ids": 58,
     "d_runtime_exposure_particle_ids": 19,
     "d_runtime_report": "research/furniture_mods/phase_1-5/runtime_followup/REPORT.md",
-    "f_exit_approved": false
+    "f_exit_approved": true,
+    "f_exit_report": "research/furniture_mods/phase_1-5/F/REPORT.md",
+    "f_exit_audit": "research/furniture_mods/phase_1-5/F/EXIT_AUDIT.json"
   },
   "phase_1_current": {
     "date_kst": "2026-11-19",
-    "status": "PENDING_FINAL_REVIEWS",
-    "completed_substeps": 3,
+    "status": "PENDING_1_2_WHOLE_REVIEW",
+    "completed_substeps": 4,
     "total_substeps": 5,
     "summary": "docs/PHASE_1_SUMMARY.md",
     "pending_closure": [
-      "1-2 whole-stage separate review",
-      "1-5-F independent exit audit"
+      "1-2 whole-stage separate review"
     ]
   }
 }
