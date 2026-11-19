@@ -19,5 +19,11 @@
     "cross_mod"
   ],
   "runtime_verification": "conditional",
+  "existing_runtime_probe": {
+    "script": "research/furniture_mods/phase_1-3/runtime_actions/run_probe.py",
+    "workflow": ".github/workflows/1-3-d-runtime.yml",
+    "evidence": "research/furniture_mods/phase_1-3/runtime_actions/README.md",
+    "minecraft_versions": ["1.21.1", "1.21.11"]
+  },
   "default_mode": "INCREMENTAL"
 }

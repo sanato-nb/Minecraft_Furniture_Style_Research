@@ -27,6 +27,10 @@ def validate(root: Path) -> dict:
         raise ValueError("Research profile mismatch")
     if shared.get("default_write_policy") != "branch_pr_only":
         raise ValueError("Unexpected write policy")
+    if shared.get("default_execution") != "hybrid_phased":
+        raise ValueError("Expected phased hybrid execution")
+    if shared.get("visual_validation") != "existing_runtime_probe_first":
+        raise ValueError("Expected existing runtime probe first")
     if shared.get("automatic_main_merge") is not False:
         raise ValueError("Main auto merge must be disabled")
     if shared.get("automatic_inbox_delete") is not False:
@@ -41,17 +45,26 @@ def validate(root: Path) -> dict:
         profiles[name] = p["target_kind"]
     if not (root / "inbox/README.md").is_file():
         raise ValueError("Missing public inbox safety policy")
-    return {"status": "PASS", "schema_version": 1, "profiles": profiles, "modes": sorted(MODES), "scope": "foundation_configuration_only"}
+    return {
+        "status": "PASS",
+        "schema_version": 1,
+        "profiles": profiles,
+        "modes": sorted(MODES),
+        "scope": "foundation_configuration_only",
+        "execution_policy": shared["default_execution"],
+        "publication_policy": shared["default_write_policy"],
+        "visual_validation_policy": shared["visual_validation"],
+    }
 
 
 def preview_plan(root: Path, profile: str, mode: str, target_id: str, release: str, baseline_release: str | None = None) -> dict:
-    validate(root)
+    settings = validate(root)
     mode = mode.upper()
     if profile not in PROFILES or mode not in MODES:
         raise ValueError("Unsupported profile/mode")
     if not target_id.strip() or not release.strip():
         raise ValueError("target_id and release are required")
-    if mode == "INCREMENTAL" and not baseline_release:
+    if mode == "INCREMENTAL" and (baseline_release is None or not baseline_release.strip()):
         raise ValueError("Incremental research requires baseline_release")
     return {
         "schema_version": 1,
@@ -62,8 +75,34 @@ def preview_plan(root: Path, profile: str, mode: str, target_id: str, release: s
         "baseline_release": baseline_release,
         "mode": mode,
         "prior_result_policy": "do_not_use_prior_conclusions" if mode == "FRESH" else "verify_before_reuse",
+        "execution_policy": settings["execution_policy"],
+        "publication_policy": settings["publication_policy"],
+        "visual_validation_policy": settings["visual_validation_policy"],
         "writes_repository": False,
         "execution_enabled": False
+    }
+
+
+def preview_runtime(root: Path, minecraft_version: str) -> dict:
+    validate(root)
+    probe = _load_json(root / "harness/mods/profile.json")["existing_runtime_probe"]
+    if minecraft_version not in probe["minecraft_versions"]:
+        raise ValueError(f"No existing mod fixture for Minecraft {minecraft_version}")
+    for key in ("script", "workflow", "evidence"):
+        if not (root / probe[key]).is_file():
+            raise ValueError(f"Missing existing runtime probe {key}: {probe[key]}")
+    return {
+        "status": "PLAN_ONLY",
+        "profile": "mods",
+        "minecraft_version": minecraft_version,
+        "scope": ["registered_states", "state_rule_matching", "collision_boxes"],
+        "screenshot_capture": False,
+        "workflow": probe["workflow"],
+        "evidence": probe["evidence"],
+        "command": [
+            "python", probe["script"], "--version", minecraft_version,
+            "--work", "<scratch-work-dir>", "--output", "<scratch-output-dir>",
+        ],
     }
 
 
@@ -78,12 +117,17 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--target-id", required=True)
     p.add_argument("--release", required=True)
     p.add_argument("--baseline-release")
+    runtime = sub.add_parser("runtime-plan", help="Preview invocation of the existing fixed Mods runtime fixture")
+    runtime.add_argument("--minecraft-version", required=True)
     args = parser.parse_args(argv)
     try:
-        result = validate(args.root) if args.command == "validate" else preview_plan(
-            args.root, args.profile, args.mode, args.target_id, args.release, args.baseline_release
-        )
-    except (ValueError, FileNotFoundError, json.JSONDecodeError) as err:
+        if args.command == "validate":
+            result = validate(args.root)
+        elif args.command == "runtime-plan":
+            result = preview_runtime(args.root, args.minecraft_version)
+        else:
+            result = preview_plan(args.root, args.profile, args.mode, args.target_id, args.release, args.baseline_release)
+    except (ValueError, FileNotFoundError, KeyError) as err:
         parser.error(str(err))
     print(json.dumps(result, ensure_ascii=False, sort_keys=True, indent=2))
     return 0

@@ -4,6 +4,7 @@ on:
     paths:
       - 'AGENTS.md'
       - 'harness/**'
+      - 'inbox/**'
       - 'src/mcfr/**'
       - 'tests/harness/**'
       - 'scripts/migration/**'
@@ -19,6 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-python@v5
         with:
@@ -28,11 +31,15 @@ jobs:
           PYTHONPATH: src
         run: |
           python -m mcfr.foundation validate
-          python -m mcfr.foundation plan --profile vanilla --mode FRESH --target-id minecraft --release 1.21.11
           python -m unittest discover -s tests/harness -p 'test_*.py' -v
-      - name: Rehash entire tracked tree and scan code references
-        if: success()
-        run: python scripts/migration/audit_repository.py --out "$RUNNER_TEMP/h0-reports"
+      - name: Verify baseline preservation, rehash files and scan code references
+        run: |
+          python scripts/migration/audit_repository.py \
+            --baseline c87fa83846be513f797292bc9f31d2e01b4f3187 \
+            --out "$RUNNER_TEMP/h0-reports"
+      - name: Replay historical handoff and comparison audits
+        run: |
+          python scripts/migration/replay_evidence.py > "$RUNNER_TEMP/h0-reports/H0_HISTORICAL_REPLAY.json"
       - name: Upload H0 verification evidence
         if: always()
         uses: actions/upload-artifact@v4
