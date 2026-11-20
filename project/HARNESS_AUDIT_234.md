@@ -2,26 +2,40 @@
 
 대상: (2) 모델 구조 분석, (3) 운영 연구 DB 인계, (4) 근거/API 정책 강제. 기존 역사 자료는 보존한다.
 
-## 2. 모델 JSON 심층 정적 분석
+## 2. 기존 1-3-C 기반 공통 모델 분석
 
-새 모듈 **mcfr.model_analysis**는 등록된 단일 JSON 모델의 부모 체인, JSON SHA256, 상속 텍스처, 별칭 순환, 요소별 from/to와 회전, 면별 명시 UV·UV 회전·cullface, 누락 및 외부 부모를 보고한다. 기존 검증 엔진의 해시·JSON 최상위 키 검사에서 한 단계 확장한 읽기 전용 분석기다.
+**별도 신규 `mcfr.model_analysis`는 제거했다.** `mcfr.geometry_engine`이 기존 역사 분석기 `research/furniture_mods/phase_1-3/C/analyze_geometry.py`의 함수를 직접 호출한다. 역사 1-3-C 코드·CSV·증거는 수정하지 않는다.
 
-Python 3.12, 등록된 DB, 원본 디렉터리 또는 고정 JAR/ZIP가 필요하다. 저장소 루트에서:
+기존 1-3-C의 원본 `geometry`, `rotated_point`, `separation`, `classify_element`, `face_slot`, `hash_data` 함수로 회전 후 경계상자, 요소 간 AABB 접촉 거리, 형상 분류와 형상 지문을 계산한다. 공통 진입점은 H2 SQLite 등록·H3 원본 및 SHA 검증과 Vanilla/Mods 양쪽을 지원한다.
 
 ~~~sh
 export PYTHONPATH=src
-python -m mcfr.model_analysis \
+python -m mcfr.geometry_engine \
   --db /path/to/research.sqlite \
   --release minecraft-java-1.21.11-git \
   --source . \
   --asset 1.21.11/assets/minecraft/models/block/acacia_shelf_unconnected.json
 ~~~
 
-모드는 해당 릴리스 키와 검증 가능한 JAR 경로, JAR 내부 모델 경로를 지정한다.
-- PASS: 카탈로그 해시와 정적 JSON 구조를 해석할 수 있음.
-- PARTIAL: 부모·텍스처가 미해결, 미등록 디렉터리 부모, 순환 또는 정적 요소 부재.
-- 한계: 암묵적 UV 투영, 인게임 블록 상태 변환, 커스텀 렌더러, 실제 텍스처 픽셀은 분석하지 않는다. 모드 JAR가 외부 바닐라 부모를 포함하지 않을 때는 PARTIAL로 남긴다.
-- 결과는 직접 DB 원장을 덮어쓰지 않으며, 필요하면 --out으로 로컬 JSON 보고서를 작성한다.
+모드는 해당 등록 릴리스 키·원본 디렉터리/JAR·모델 경로를 지정한다. 모드에 포함되지 않은 바닐라 부모를 연결하려면 같은 Minecraft 버전으로 **따로 등록된 Vanilla 원본**을 제공한다.
+
+~~~sh
+python -m mcfr.geometry_engine \
+  --db /path/to/research.sqlite \
+  --release my-mod-release \
+  --source /path/to/mod.jar \
+  --asset assets/mymod/models/block/chair.json \
+  --vanilla-release minecraft-java-1.21.11-git \
+  --vanilla-source /path/to/versioned/vanilla/source
+~~~
+
+- **PASS:** 부모 체인·정적 요소·텍스처 슬롯을 해석함. 암묵 UV 경고만 존재하는 경우도 포함한다.
+- **PARTIAL:** 미해결 부모, 미등록 부모, 별칭 오류·순환 또는 정적 요소 부재 등으로 해석이 불완전함.
+- **원본 검증:** 등록 자산 SHA, 등록된 JAR/ZIP 전체 해시를 검증한다. 중복 JSON 키, 비유한 좌표·각도를 거부한다.
+- **한계:** 인게임 변환·실제 렌더링·픽셀 비교·커스텀 렌더러 및 암묵 UV 계산은 수행하지 않는다. 요소의 접촉은 메시 접촉이 아닌 회전 후 AABB 기준이다.
+- **출력:** DB와 역사 원장을 변경하지 않는 읽기 전용 분석이며, 로컬 JSON 기록은 `--out`을 쓴다.
+
+역사 연구의 **전체 배치 결과**를 재현할 때는 기존 1-3-C 스크립트를 그대로 사용한다. 새 공통 명령은 등록한 개별 모델의 재사용 가능한 온디맨드 분석 진입점이다.
 
 ## 3. 새 채팅/환경용 연구 상태 인계
 
