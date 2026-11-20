@@ -113,7 +113,7 @@ class ExtensionTests(unittest.TestCase):
         def review(name, origin, reuse=True):
             prepared = ai_review.prepare(self.db, name, origin, "test-model", 64, [])
             return ai_review.dispatch(self.db, name, prepared["approval_sha256"],
-                                      reuse_identical=reuse, send=provider)
+                                      reuse_identical=reuse, allow_api=True, send=provider)
 
         with patch.dict(os.environ, {"OPENAI_API_KEY": "fixture"}):
             review("original", execution)
