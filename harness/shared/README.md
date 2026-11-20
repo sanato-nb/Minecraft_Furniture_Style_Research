@@ -27,3 +27,5 @@ H2 연구 카탈로그에서 버전·자산·연구 회차를 등록하고 조�
 [H5 연구 확장 모듈](../../project/RESEARCH_EXTENSIONS.md)에서 업데이트 확인, 연구 범위 측정, 캡처 자동 비교, 교차 연구와 AI 사용량 집계를 실행한다.
 
 [Adorn 실전 검증](../../project/audits/h67/README.md)에서 신규 등록, 재개, 증분 연구, FRESH 재검사를 재현할 수 있다.
+
+[검수 개선 2·3·4](../../project/HARNESS_AUDIT_234.md)에서는 부모 모델·UV 정적 심층 분석, SQLite 상태 인계, 신규 등록 근거 및 수동 API 동의 정책의 실행법을 다룬다.
