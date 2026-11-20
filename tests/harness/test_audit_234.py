@@ -8,7 +8,7 @@ import unittest
 from unittest.mock import patch
 from zipfile import ZipFile
 
-from mcfr import handoff, model_analysis, policy, research_db as catalog
+from mcfr import geometry_engine, handoff, policy, research_db as catalog
 
 
 class EnhancedModelTests(unittest.TestCase):
@@ -49,7 +49,7 @@ class EnhancedModelTests(unittest.TestCase):
         })
         child = self.model("chair", {"parent": "minecraft:block/parent", "textures": {"body": "#replacement", "replacement": "minecraft:block/spruce_planks"}})
         self.register()
-        report = model_analysis.analyze(self.db, "vanilla", self.root, child)
+        report = geometry_engine.analyze(self.db, "vanilla", self.root, child)
         self.assertEqual(report["status"], "PASS")
         self.assertEqual([row["path"] for row in report["model_chain"]], [child, parent])
         self.assertEqual(report["element_count"], 1)
@@ -72,7 +72,7 @@ class EnhancedModelTests(unittest.TestCase):
             dest.write_bytes(body)
             self.paths[path] = body
         self.register()
-        report = model_analysis.analyze(self.db, "vanilla", self.root, root)
+        report = geometry_engine.analyze(self.db, "vanilla", self.root, root)
         self.assertEqual(report["status"], "PASS")
         self.assertEqual(report["model_chain"][1]["path"], parent)
 
@@ -82,7 +82,7 @@ class EnhancedModelTests(unittest.TestCase):
                          "elements": [{"from": [0, 0, 0], "to": [16, 16, 16],
                                        "faces": {"north": {"texture": "#x"}}}]})
         self.register()
-        report = model_analysis.analyze(self.db, "vanilla", self.root, root)
+        report = geometry_engine.analyze(self.db, "vanilla", self.root, root)
         self.assertEqual(report["status"], "PARTIAL")
         self.assertIn("parent_cycle", [r["kind"] for r in report["issues"]])
         self.assertIn("unresolved_texture", [r["kind"] for r in report["issues"]])
@@ -91,7 +91,7 @@ class EnhancedModelTests(unittest.TestCase):
         root = self.model("a", {"parent": "minecraft:block/b"})
         self.model("b", {"elements": [{"from": [0, 0, 0], "to": [1, 1, 1], "faces": {}}]})
         self.register([root])
-        report = model_analysis.analyze(self.db, "vanilla", self.root, root)
+        report = geometry_engine.analyze(self.db, "vanilla", self.root, root)
         self.assertEqual(report["status"], "PARTIAL")
         self.assertIn("uncatalogued_parent", [x["kind"] for x in report["issues"]])
 
@@ -100,7 +100,7 @@ class EnhancedModelTests(unittest.TestCase):
         self.register()
         (self.root / root).write_text('{"elements":[1]}', encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "Catalog hash mismatch"):
-            model_analysis.analyze(self.db, "vanilla", self.root, root)
+            geometry_engine.analyze(self.db, "vanilla", self.root, root)
 
     def test_pinned_archive_with_external_parent_is_partial(self):
         root = self.model("chair", {"parent": "minecraft:block/unbundled"})
@@ -119,7 +119,7 @@ class EnhancedModelTests(unittest.TestCase):
                  "hash_algorithm": "SHA256", "digest": hashlib.sha256(body).hexdigest()}
         with catalog.write_transaction(self.db):
             catalog.register_release(self.db, release, [asset])
-        report = model_analysis.analyze(self.db, "archive", archive, root)
+        report = geometry_engine.analyze(self.db, "archive", archive, root)
         self.assertEqual(report["status"], "PARTIAL")
         self.assertEqual(report["source_pin"], "archive_and_asset_hashes")
         self.assertIn("missing_or_external_parent", [x["kind"] for x in report["issues"]])
@@ -136,7 +136,7 @@ class RealVanillaModelTests(unittest.TestCase):
                 with catalog.write_transaction(db):
                     legacy_catalog.import_catalog(db, catalog.ROOT, catalog.register_release)
                 root = "1.21.11/assets/minecraft/models/block/acacia_shelf_unconnected.json"
-                report = model_analysis.analyze(
+                report = geometry_engine.analyze(
                     db, "minecraft-java-1.21.11-git", catalog.ROOT, root,
                 )
         self.assertEqual(report["root_asset"], root)
