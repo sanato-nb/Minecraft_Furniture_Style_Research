@@ -27,6 +27,8 @@ python -m mcfr.research_db --db "$research_db" run-create vanilla-fresh-01 minec
 python -m mcfr.research_db legacy-info mod-handoff
 ```
 
+기본 정책 require_evidence=true에서는 수동 register 명령에 각 자산의 evidence_path 또는 manifest 최상위 공통 evidence_path가 필요하다. 이 근거는 저장소 안에 실제 존재해야 한다. 기존 import-legacy와 저수준 스크립트 이관은 별도의 역사 원장 경로를 사용한다. [정책 및 예시](HARNESS_AUDIT_234.md#4-설정-정책의-실제-실행-적용)
+
 새 릴리스와 자산은 JSON으로 준비해 `python -m mcfr.research_db --db "$research_db" register manifest.json`으로 등록한다. 최상위 `release`는 [고정 버전 등록 예시](../registry/legacy-releases.json)의 단일 객체와 같은 형식이며, `assets`는 배열이다. 각 자산에는 `source_path`, `kind`, `resource_id`, `hash_algorithm`, `digest`를 지정하고, 확인한 경우 `byte_count`, `evidence_path`를 추가한다. 자산 경로는 릴리스 안의 상대 경로, 근거 경로는 저장소의 상대 경로다. 종류는 `model`, `blockstate`, `texture`, `texture_sidecar`, `item_definition`을 지원한다.
 
 ## 연결한 역사 자료 범위
