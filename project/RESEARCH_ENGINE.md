@@ -34,3 +34,5 @@ python -m mcfr.research_engine --db "$research_db" show vanilla-fresh --details
 실제 실행에서 바닐라 원본 4,768개와 Macaw JAR 자산 3,999개의 검증이 통과했다. 레거시 경로에서는 바닐라 검사 56개 및 출력 3개와 모드 DB 감사 2건을 재현했다.
 
 [H4 연구 워크플로](RESEARCH_WORKFLOW.md)에서 체크포인트와 승인형 AI 검토를 사용할 수 있다.
+
+등록한 JSON 모델 한 건의 부모 체인·상속 텍스처·UV 및 기존 **1-3-C 계산**(회전 후 경계상자, 요소 간 거리, 형상 분류)을 조사하려면 공통 `mcfr.geometry_engine`을 사용한다. [1-3-C 공통 엔진 실행법](HARNESS_AUDIT_234.md#2-기존-1-3-c-기반-공통-모델-분석)을 참고한다. 별도 `mcfr.model_analysis`는 제거했으며, 정적 분석은 인게임 렌더링 검증과 다르다.

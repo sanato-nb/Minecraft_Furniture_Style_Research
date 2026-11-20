@@ -43,4 +43,6 @@ python -m mcfr.workflow --db "$research_db" review-status review-1
 python -m mcfr.workflow --db "$research_db" review-send review-1 --approve APPROVED_SHA256
 ```
 
+현재 ai_api_enabled=false 정책 때문에 일반 review-send는 유료 전송을 차단한다. 의도한 단 한 건의 호출만 승인하려면 위 명령에 --enable-api를 덧붙인다. OPENAI_API_KEY와 정확한 승인 해시는 여전히 필수이며, GitHub Actions가 자동 호출하는 기능은 아니다. [정책 검증 안내](HARNESS_AUDIT_234.md#4-설정-정책의-실제-실행-적용)
+
 요청은 8,192바이트 이하이며 출력 토큰 한도는 16~2,048이다. 응답에서 제공한 사용 토큰 수를 기록한다. `COMPLETE`는 응답을 받았다는 뜻이고, 모델의 처리 상태는 `provider_status`로 확인한다. API 응답을 확인하지 못하면 `UNCONFIRMED`가 기록된다. 호출 중 프로세스가 종료되면 `DISPATCHING`으로 남을 수 있다. 두 경우 모두 같은 검토 ID의 자동 재전송을 차단한다. 답변은 `AI_INFERENCE`로 별도 저장하며 원본 검증 판정은 검증 실행 원장에서 확인한다.

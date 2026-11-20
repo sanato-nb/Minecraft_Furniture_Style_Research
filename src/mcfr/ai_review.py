@@ -7,7 +7,7 @@ import sqlite3
 from urllib.error import HTTPError
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 
-from . import research_db as catalog, research_engine as engine
+from . import research_db as catalog, research_engine as engine, policy
 
 ENDPOINT = "https://api.openai.com/v1/responses"
 MAX_REQUEST_BYTES = 8192
@@ -148,7 +148,7 @@ def cached_response(db, review: sqlite3.Row):
     return None
 
 
-def dispatch(db, review_id: str, approved_digest: str, *, reuse_identical=False, send=send_openai) -> dict:
+def dispatch(db, review_id: str, approved_digest: str, *, reuse_identical=False, allow_api=False, send=send_openai) -> dict:
     with catalog.write_transaction(db):
         row = db.execute("SELECT * FROM ai_review WHERE review_id = ?", (review_id,)).fetchone()
         if row is None:
@@ -164,6 +164,7 @@ def dispatch(db, review_id: str, approved_digest: str, *, reuse_identical=False,
                 (previous["review_id"], previous["result_json"], review_id),
             )
             return review_status(db, review_id)
+        policy.require_api_permission(explicitly_approved=allow_api)
         key = os.getenv("OPENAI_API_KEY")
         if not key:
             raise ValueError("OPENAI_API_KEY is required to send a review")
