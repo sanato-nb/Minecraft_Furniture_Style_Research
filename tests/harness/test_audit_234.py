@@ -125,6 +125,32 @@ class EnhancedModelTests(unittest.TestCase):
         self.assertIn("missing_or_external_parent", [x["kind"] for x in report["issues"]])
 
 
+
+class RealVanillaModelTests(unittest.TestCase):
+    def test_shelf_parent_uv_against_repository_source(self):
+        from mcfr import legacy_catalog
+        with TemporaryDirectory() as tmp:
+            db_path = Path(tmp) / "vanilla.sqlite"
+            catalog.initialize(db_path)
+            with closing(catalog.open_db(db_path, "rw")) as db:
+                with catalog.write_transaction(db):
+                    legacy_catalog.import_catalog(db, catalog.ROOT, catalog.register_release)
+                root = "1.21.11/assets/minecraft/models/block/acacia_shelf_unconnected.json"
+                report = model_analysis.analyze(
+                    db, "minecraft-java-1.21.11-git", catalog.ROOT, root,
+                )
+        self.assertEqual(report["root_asset"], root)
+        self.assertEqual(report["evidence_class"], "STATIC_MODEL_JSON_OBSERVATION")
+        self.assertEqual(report["element_count"], 1)
+        self.assertTrue(report["model_chain"][0]["catalog_verified"])
+        self.assertEqual(report["elements"][0]["from"], [0, 4, 13])
+        self.assertEqual(report["elements"][0]["faces"]["north"]["uv"], [8, 12, 16, 16])
+        self.assertEqual(
+            report["elements"][0]["faces"]["north"]["resolved_texture"],
+            "minecraft:block/acacia_shelf",
+        )
+
+
 class HandoffTests(unittest.TestCase):
     def setUp(self):
         self.temp = self.enterContext(TemporaryDirectory())
