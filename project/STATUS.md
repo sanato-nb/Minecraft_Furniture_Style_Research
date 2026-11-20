@@ -32,6 +32,12 @@
 - 검증 결과와 실패 및 재시도 이력을 DB에 남긴다. H2 운영 DB는 버전 2로 이관할 수 있다.
 - 바닐라 4,768개 원본과 Macaw JAR 3,999개 자산 검증을 확인했다. [공통 연구 엔진 사용법](RESEARCH_ENGINE.md)
 
+## PR #17 보완 — 1-3-C 공통 기하 분석
+
+- 별도 신규 `mcfr.model_analysis`를 제거하고 기존 1-3-C 역사 기하 분석 함수를 직접 재사용하는 `mcfr.geometry_engine`으로 단일화했다.
+- 기존 1-3-C 분석기 원본 및 역사 CSV는 변경하지 않았다. Vanilla/Mods 공통 진입점에서 카탈로그 원본 SHA, 회전 경계상자·요소 접촉 거리·형상 지문을 읽기 전용으로 분석한다.
+- [실행법](HARNESS_AUDIT_234.md#2-기존-1-3-c-기반-공통-모델-분석) · [검수 PR #17](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/pull/17) (main 미병합)
+
 ## H4 연구 작업 재개와 AI 호출 제어
 
 - 원본 검사 체크포인트를 최대 64개씩 SQLite에 저장하고 같은 작업 ID로 재개한다.
