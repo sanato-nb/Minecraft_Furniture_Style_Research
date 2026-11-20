@@ -34,3 +34,5 @@ python -m mcfr.research_engine --db "$research_db" show vanilla-fresh --details
 실제 실행에서 바닐라 원본 4,768개와 Macaw JAR 자산 3,999개의 검증이 통과했다. 레거시 경로에서는 바닐라 검사 56개 및 출력 3개와 모드 DB 감사 2건을 재현했다.
 
 [H4 연구 워크플로](RESEARCH_WORKFLOW.md)에서 체크포인트와 승인형 AI 검토를 사용할 수 있다.
+
+등록된 JSON 모델 한 건의 부모 체인, 요소별 좌표·회전, 면별 UV, 상속 텍스처를 추가로 검사하려면 읽기 전용 [모델 심층 분석기](HARNESS_AUDIT_234.md#2-모델-json-심층-정적-분석)를 사용한다. 기본 엔진의 원본 해시 검사와 게임 렌더링 검증을 구분한다.
