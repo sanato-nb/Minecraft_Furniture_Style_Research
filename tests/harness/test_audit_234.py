@@ -59,6 +59,23 @@ class EnhancedModelTests(unittest.TestCase):
         self.assertEqual(face["rotation"], 90)
         self.assertTrue(all(row["catalog_verified"] for row in report["model_chain"]))
 
+    def test_version_prefixed_vanilla_model_paths(self):
+        root = "1.21.11/assets/minecraft/models/block/chair.json"
+        parent = "1.21.11/assets/minecraft/models/block/base.json"
+        for path, model in (
+            (root, {"parent": "minecraft:block/base"}),
+            (parent, {"elements": [{"from": [0, 0, 0], "to": [16, 16, 16], "faces": {}}]}),
+        ):
+            body = json.dumps(model).encode()
+            dest = self.root / path
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.write_bytes(body)
+            self.paths[path] = body
+        self.register()
+        report = model_analysis.analyze(self.db, "vanilla", self.root, root)
+        self.assertEqual(report["status"], "PASS")
+        self.assertEqual(report["model_chain"][1]["path"], parent)
+
     def test_parent_cycle_and_missing_alias_are_partial(self):
         root = self.model("a", {"parent": "minecraft:block/b", "textures": {"x": "#missing"}})
         self.model("b", {"parent": "minecraft:block/a",
