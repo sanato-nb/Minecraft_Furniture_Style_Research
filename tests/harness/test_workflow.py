@@ -109,18 +109,18 @@ class ResearchWorkflowTests(unittest.TestCase):
             self.assertEqual(key, "fixture-token")
             with closing(catalog.open_db(self.path, "rw")) as concurrent:
                 with self.assertRaisesRegex(ValueError, "claimed or sent"):
-                    ai_review.dispatch(concurrent, "review", digest, send=provider)
+                    ai_review.dispatch(concurrent, "review", digest, allow_api=True, send=provider)
             return {"id": "resp_fixture", "status": "completed", "output": [
                 {"type": "message", "content": [{"type": "output_text", "text": "An inference."}]}
             ], "usage": {"input_tokens": 23, "output_tokens": 3}}
 
         with patch.dict(os.environ, {"OPENAI_API_KEY": "fixture-token"}):
             with self.assertRaisesRegex(ValueError, "Approval digest"):
-                ai_review.dispatch(self.db, "review", "wrong", send=provider)
+                ai_review.dispatch(self.db, "review", "wrong", allow_api=True, send=provider)
             self.assertFalse(sent)
-            complete = ai_review.dispatch(self.db, "review", digest, send=provider)
+            complete = ai_review.dispatch(self.db, "review", digest, allow_api=True, send=provider)
             with self.assertRaisesRegex(ValueError, "claimed or sent"):
-                ai_review.dispatch(self.db, "review", digest, send=provider)
+                ai_review.dispatch(self.db, "review", digest, allow_api=True, send=provider)
         self.assertEqual(sent, [review["request"]])
         self.assertFalse(sent[0]["store"])
         self.assertEqual(json.loads(sent[0]["input"])["observations"][0]["source_path"], asset)
@@ -138,7 +138,7 @@ class ResearchWorkflowTests(unittest.TestCase):
             raise TimeoutError("fixture request may have been received")
 
         with patch.dict(os.environ, {"OPENAI_API_KEY": "fixture-token"}):
-            result = ai_review.dispatch(self.db, "review", review["approval_sha256"], send=timeout)
+            result = ai_review.dispatch(self.db, "review", review["approval_sha256"], allow_api=True, send=timeout)
             self.assertEqual(result["state"], "UNCONFIRMED")
             with self.assertRaisesRegex(ValueError, "claimed or sent"):
-                ai_review.dispatch(self.db, "review", review["approval_sha256"], send=timeout)
+                ai_review.dispatch(self.db, "review", review["approval_sha256"], allow_api=True, send=timeout)
