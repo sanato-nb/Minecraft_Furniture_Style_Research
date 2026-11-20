@@ -13,7 +13,7 @@
 
 ## 누적 기록
 
-- [README.md](../README.md)에는 이전 연구 개요와 시작점이 있다.
+- [이전 README 원문](../README_2026-11-19.md)에는 2026-11-19 기준의 연구 개요와 누적 기록이 있다. [현재 README](../README.md)는 최신 실행 안내를 제공한다.
 - [PROGRESS.md](../PROGRESS.md)에는 날짜별 연구 진행 기록이 있다.
 - [HANDOFF.md](../HANDOFF.md)와 [handoff/STATE.json](../handoff/STATE.json)에는 작성 당시의 작업 인계와 상태가 있다.
 

@@ -20,6 +20,7 @@ PIN = re.compile(r"(?:\bBASELINE\b|\bBASE\b\s*=|[a-f0-9]{40})")
 GIT_DEP = re.compile(r"(?:ls-tree|rev-parse|git[\s,'\"]+show|HEAD:main|git push)")
 ROOT_DEP = re.compile(r"(?:\.parents?\[|__file__|Path\.cwd\()")
 MAIN_WRITE = re.compile(r"(?:HEAD:main|git push origin)")
+README_ARCHIVE = "README_2026-11-19.md"
 
 
 def git_blob_digest(body: bytes) -> str:
@@ -36,7 +37,7 @@ def indexed_paths(root: Path):
         yield mode, digest, int(stage), raw_path.decode("utf-8", "surrogateescape")
 
 
-def compare_baseline(root: Path, baseline: str, indexed: dict) -> dict:
+def compare_baseline(root: Path, baseline: str, indexed: dict, *, allow_archived_readme: bool = False) -> dict:
     commit = subprocess.check_output(
         ["git", "-C", str(root), "rev-parse", "--verify", "--end-of-options", f"{baseline}^{{commit}}"],
         text=True,
@@ -49,24 +50,30 @@ def compare_baseline(root: Path, baseline: str, indexed: dict) -> dict:
         original[raw_path.decode("utf-8", "surrogateescape")] = (mode, digest)
     removed = sorted(original.keys() - indexed.keys())
     modified = sorted(path for path in original.keys() & indexed.keys() if original[path] != indexed[path])
+    archived = {}
+    if (allow_archived_readme and "README.md" in modified and README_ARCHIVE not in original
+            and indexed.get(README_ARCHIVE) == original["README.md"]):
+        modified.remove("README.md")
+        archived["README.md"] = README_ARCHIVE
     return {
         "commit": commit,
         "files": len(original),
         "added_count": len(indexed.keys() - original.keys()),
         "removed": removed,
         "modified": modified,
+        "archived": archived,
         "preserved_files": len(original) - len(removed) - len(modified),
     }
 
 
-def run(root: Path, out: Path, baseline: str | None = None):
+def run(root: Path, out: Path, baseline: str | None = None, *, allow_archived_readme: bool = False):
     root = root.resolve()
     out.mkdir(parents=True, exist_ok=True)
     paths = list(indexed_paths(root))
     comparison = None
     if baseline is not None:
         indexed = {path: (mode, digest) for mode, digest, stage, path in paths if stage == 0}
-        comparison = compare_baseline(root, baseline, indexed)
+        comparison = compare_baseline(root, baseline, indexed, allow_archived_readme=allow_archived_readme)
     root_counts = {}
     suffix_counts = Counter()
     hashes = Counter()
@@ -157,8 +164,10 @@ def main(argv=None):
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[2])
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--baseline", help="Fail if any tracked path, mode, or blob from this commit differs")
+    parser.add_argument("--allow-archived-readme", action="store_true",
+                        help=f"Accept a refreshed README.md only when {README_ARCHIVE} exactly matches the baseline README")
     args = parser.parse_args(argv)
-    return run(args.root, args.out, args.baseline)
+    return run(args.root, args.out, args.baseline, allow_archived_readme=args.allow_archived_readme)
 
 
 if __name__ == "__main__":
