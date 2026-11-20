@@ -151,7 +151,7 @@ class PolicyTests(unittest.TestCase):
             (root / "proof.md").write_text("source reviewed", encoding="utf-8")
             fixed = policy.check_registration({**manifest, "evidence_path": "proof.md"}, root)
             self.assertEqual(fixed["assets"][0]["evidence_path"], "proof.md")
-            with self.assertRaisesRegex(ValueError, "outside repository"):
+            with self.assertRaisesRegex(ValueError, "relative POSIX path|outside repository"):
                 policy.check_registration({**manifest, "evidence_path": "../secret.txt"}, root)
 
     def test_api_is_default_off_and_requires_opt_in(self):
