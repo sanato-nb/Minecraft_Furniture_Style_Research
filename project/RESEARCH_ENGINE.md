@@ -35,4 +35,4 @@ python -m mcfr.research_engine --db "$research_db" show vanilla-fresh --details
 
 [H4 연구 워크플로](RESEARCH_WORKFLOW.md)에서 체크포인트와 승인형 AI 검토를 사용할 수 있다.
 
-등록된 JSON 모델 한 건의 부모 체인, 요소별 좌표·회전, 면별 UV, 상속 텍스처를 추가로 검사하려면 읽기 전용 [모델 심층 분석기](HARNESS_AUDIT_234.md#2-모델-json-심층-정적-분석)를 사용한다. 기본 엔진의 원본 해시 검사와 게임 렌더링 검증을 구분한다.
+등록한 JSON 모델 한 건의 부모 체인·상속 텍스처·UV 및 기존 **1-3-C 계산**(회전 후 경계상자, 요소 간 거리, 형상 분류)을 조사하려면 공통 `mcfr.geometry_engine`을 사용한다. [1-3-C 공통 엔진 실행법](HARNESS_AUDIT_234.md#2-기존-1-3-c-기반-공통-모델-분석)을 참고한다. 별도 `mcfr.model_analysis`는 제거했으며, 정적 분석은 인게임 렌더링 검증과 다르다.
