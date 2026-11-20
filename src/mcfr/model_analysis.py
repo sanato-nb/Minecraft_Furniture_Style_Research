@@ -20,27 +20,32 @@ FACES = frozenset(("down", "up", "north", "south", "east", "west"))
 BUILTIN = frozenset(("builtin/generated", "builtin/entity"))
 
 
-def reference_path(reference: str, namespace: str) -> str | None:
+def asset_layout(path: str) -> tuple[str, str]:
+    """Support both archive assets/... and pinned vanilla 1.21.11/assets/..."""
+    parts = catalog.relative_path(path).split("/")
+    offset = 0 if parts[0] == "assets" else 1
+    if len(parts) < offset + 5 or parts[offset] != "assets" or parts[offset + 2] != "models" or not path.endswith(".json"):
+        raise ValueError("Expected an assets/<namespace>/models/...json path")
+    return ("/".join(parts[:offset]) + "/" if offset else ""), parts[offset + 1]
+
+
+def reference_path(reference: str, prefix: str) -> str | None:
     if not isinstance(reference, str) or not reference:
         raise ValueError("Invalid model parent reference")
     if ":" in reference:
         namespace, name = reference.split(":", 1)
     else:
-        name = reference
+        # Minecraft's unqualified resource locations use the minecraft namespace.
+        namespace, name = "minecraft", reference
     if name in BUILTIN and namespace == "minecraft":
         return None
-    if not namespace or not name or any(ch not in "abcdefghijklmnopqrstuvwxyz0123456789_-. /" for ch in namespace + name):
+    allowed = "abcdefghijklmnopqrstuvwxyz0123456789_-."
+    if not namespace or not name or any(ch not in allowed for ch in namespace):
+        raise ValueError("Invalid model namespace")
+    if any(not segment or segment in (".", "..") or any(ch not in allowed for ch in segment)
+           for segment in name.split("/")):
         raise ValueError("Invalid model resource location")
-    if "/" in namespace or " " in namespace or ".." in name.split("/"):
-        raise ValueError("Invalid model resource location")
-    return catalog.relative_path(f"assets/{namespace}/models/{name}.json")
-
-
-def namespace_of(path: str) -> str:
-    parts = catalog.relative_path(path).split("/")
-    if len(parts) < 5 or parts[0] != "assets" or parts[2] != "models" or not path.endswith(".json"):
-        raise ValueError("Expected an assets/<namespace>/models/...json path")
-    return parts[1]
+    return catalog.relative_path(f"{prefix}assets/{namespace}/models/{name}.json")
 
 
 def point(value, where):
@@ -121,7 +126,7 @@ def geometry(elements, textures, issues):
 
 def analyze(db, release_key: str, source: Path, root_asset: str) -> dict:
     root_asset = catalog.relative_path(root_asset)
-    namespace_of(root_asset)
+    prefix, _ = asset_layout(root_asset)
     release_row = db.execute("SELECT * FROM release WHERE release_key = ?", (release_key,)).fetchone()
     asset_row = db.execute(
         "SELECT * FROM asset WHERE release_key = ? AND source_path = ? AND kind = 'model'",
@@ -167,7 +172,7 @@ def analyze(db, release_key: str, source: Path, root_asset: str) -> dict:
             parent = data.get("parent")
             if parent is None:
                 break
-            next_path = reference_path(parent, namespace_of(current))
+            next_path = reference_path(parent, prefix)
             if next_path is None:
                 chain[-1]["builtin_parent"] = parent
                 break
