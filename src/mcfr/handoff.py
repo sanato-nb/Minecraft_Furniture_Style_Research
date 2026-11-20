@@ -118,7 +118,7 @@ def restore(directory: Path, destination: Path) -> dict:
         if checksum(working) != checked["snapshot_sha256"]:
             raise ValueError("Copied snapshot differs from verified handoff")
         working.rename(destination)
-    return {"status": "RESTORED", "db": str(destination), **checked}
+    return {**checked, "status": "RESTORED", "db": str(destination)}
 
 
 def main(argv=None):
