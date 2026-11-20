@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - 'AGENTS.md'
+      - 'README*.md'
       - 'harness/**'
       - 'inbox/**'
       - 'registry/**'
@@ -39,6 +40,7 @@ jobs:
         run: |
           python scripts/migration/audit_repository.py \
             --baseline c87fa83846be513f797292bc9f31d2e01b4f3187 \
+            --allow-archived-readme \
             --out "$RUNNER_TEMP/h0-reports"
       - name: Verify catalog evidence and replay the three H1 audits
         env:

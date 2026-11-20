@@ -7,7 +7,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts/migration"))
-from audit_repository import compare_baseline, git_blob_digest
+from audit_repository import README_ARCHIVE, compare_baseline, git_blob_digest
 
 
 class AuditHashTests(unittest.TestCase):
@@ -22,7 +22,7 @@ class AuditHashTests(unittest.TestCase):
             root = Path(directory)
             git = ["git", "-C", directory]
             subprocess.run([*git, "init", "--quiet"], check=True)
-            names = ("removed", "changed", "mode", "unchanged")
+            names = ("removed", "changed", "mode", "unchanged", "README.md")
             for name in names:
                 (root / name).write_bytes(b"test\n")
             subprocess.run([*git, "add", "--", *names], check=True)
@@ -37,12 +37,24 @@ class AuditHashTests(unittest.TestCase):
                 "mode": ("100755", same),
                 "unchanged": ("100644", same),
                 "new": ("100644", same),
+                "README.md": ("100644", git_blob_digest(b"new guide\n")),
+                README_ARCHIVE: ("100644", same),
             }
             result = compare_baseline(root, "HEAD", current)
             self.assertEqual(result["removed"], ["removed"])
-            self.assertEqual(result["modified"], ["changed", "mode"])
+            self.assertEqual(result["modified"], ["README.md", "changed", "mode"])
             self.assertEqual(result["preserved_files"], 1)
-            self.assertEqual(result["added_count"], 1)
+            self.assertEqual(result["added_count"], 2)
+
+            relocated = compare_baseline(root, "HEAD", current, allow_archived_readme=True)
+            self.assertEqual(relocated["modified"], ["changed", "mode"])
+            self.assertEqual(relocated["archived"], {"README.md": README_ARCHIVE})
+            self.assertEqual(relocated["preserved_files"], 2)
+
+            current[README_ARCHIVE] = ("100644", git_blob_digest(b"altered archive\n"))
+            invalid = compare_baseline(root, "HEAD", current, allow_archived_readme=True)
+            self.assertIn("README.md", invalid["modified"])
+            self.assertEqual(invalid["archived"], {})
 
 
 if __name__ == "__main__":
