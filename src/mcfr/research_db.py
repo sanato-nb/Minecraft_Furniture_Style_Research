@@ -211,6 +211,8 @@ def main(argv: list[str] | None = None) -> int:
                             result = legacy_catalog.import_catalog(db, args.root, register_release)
                         elif args.command == "register":
                             manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
+                            from .policy import check_registration
+                            manifest = check_registration(manifest, args.root)
                             result = {"assets_added": register_release(db, manifest["release"], manifest["assets"])}
                         else:
                             result = create_run(db, args.run_id, args.release_key, args.mode, args.baseline)
