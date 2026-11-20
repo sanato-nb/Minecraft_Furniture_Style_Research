@@ -10,6 +10,25 @@ Project Zomboid의 가구를 Minecraft로 옮기는 작업에 필요한 모델�
 
 가구 제작과 PZ 맵 변환은 후속 작업입니다. 현재 운영 기능은 OpenAI API 키 없이 실행하며, API 연동 검증은 보류 중입니다.
 
+## 폴더 구조
+
+| 경로 | 들어 있는 내용 |
+|---|---|
+| [`harness/`](harness/) | 연구 프로필과 실행 정책. [공통 규칙](harness/shared/), [바닐라](harness/vanilla/), [가구 모드](harness/mods/) |
+| [`research/`](research/) | 연구 보고서와 증거. [바닐라 텍스처](research/vanilla_textures/), [바닐라 모델](research/vanilla_models/), [가구 모드](research/furniture_mods/) |
+| [`research/campaigns/`](research/campaigns/) · [`research/comparisons/`](research/comparisons/) · [`research/historical/`](research/historical/) | 신규 연구 회차, 교차 비교, 기존 기록 색인의 안내 |
+| [`project/`](project/) | 하네스 현황, DB·실행 안내, [검증 결과](project/audits/)와 [설계 결정](project/decisions/) |
+| [`registry/`](registry/) | 연구에 등록한 기준 배포 버전과 업데이트 감시 대상 |
+| [`inbox/`](inbox/) | 새 연구 자료 제출 안내와 템플릿 |
+| [`1.21.11/`](1.21.11/) | 연구에서 참조하는 Minecraft Java 1.21.11 원본 파일 |
+| [`data/`](data/) | 기존 연구 SQLite DB와 이관 스크립트 |
+| [`docs/`](docs/) | 단계별 연구 계획, 종료 정리와 문서 보존본 |
+| [`handoff/`](handoff/) | 이전 연구 회차의 인수인계 상태 |
+| [`src/mcfr/`](src/mcfr/) | 원본 검사, 작업 재개, 배포 감시, 이미지 비교를 실행하는 Python 코드 |
+| [`scripts/`](scripts/) | 단계별 감사·재현 스크립트 |
+| [`tests/harness/`](tests/harness/) | 하네스 테스트 |
+| [`.github/workflows/`](.github/workflows/) | GitHub Actions의 감사·테스트·정기 배포 감시 설정 |
+
 ## 빠른 시작
 
 저장소 루트에서 Python 3.12로 실행합니다. 아래 예제는 임시 SQLite DB에 기존 카탈로그를 불러오고, Minecraft Java 1.21.11의 바닐라 자산을 검증합니다.
