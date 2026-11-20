@@ -12,22 +12,51 @@ Project Zomboid의 가구를 Minecraft로 옮기는 작업에 필요한 모델�
 
 ## 폴더 구조
 
-| 경로 | 들어 있는 내용 |
-|---|---|
-| [`harness/`](harness/) | 연구 프로필과 실행 정책. [공통 규칙](harness/shared/), [바닐라](harness/vanilla/), [가구 모드](harness/mods/) |
-| [`research/`](research/) | 연구 보고서와 증거. [바닐라 텍스처](research/vanilla_textures/), [바닐라 모델](research/vanilla_models/), [가구 모드](research/furniture_mods/) |
-| [`research/campaigns/`](research/campaigns/) · [`research/comparisons/`](research/comparisons/) · [`research/historical/`](research/historical/) | 신규 연구 회차, 교차 비교, 기존 기록 색인의 안내 |
-| [`project/`](project/) | 하네스 현황, DB·실행 안내, [검증 결과](project/audits/)와 [설계 결정](project/decisions/) |
-| [`registry/`](registry/) | 연구에 등록한 기준 배포 버전과 업데이트 감시 대상 |
-| [`inbox/`](inbox/) | 새 연구 자료 제출 안내와 템플릿 |
-| [`1.21.11/`](1.21.11/) | 연구에서 참조하는 Minecraft Java 1.21.11 원본 파일 |
-| [`data/`](data/) | 기존 연구 SQLite DB와 이관 스크립트 |
-| [`docs/`](docs/) | 단계별 연구 계획, 종료 정리와 문서 보존본 |
-| [`handoff/`](handoff/) | 이전 연구 회차의 인수인계 상태 |
-| [`src/mcfr/`](src/mcfr/) | 원본 검사, 작업 재개, 배포 감시, 이미지 비교를 실행하는 Python 코드 |
-| [`scripts/`](scripts/) | 단계별 감사·재현 스크립트 |
-| [`tests/harness/`](tests/harness/) | 하네스 테스트 |
-| [`.github/workflows/`](.github/workflows/) | GitHub Actions의 감사·테스트·정기 배포 감시 설정 |
+최상위 폴더와 주요 하위 경로를 표시했습니다.
+
+```text
+📁 Minecraft_Furniture_Style_Research/
+├── 📄 AGENTS.md
+├── 📁 harness/                     연구 프로필과 실행 정책
+│   ├── 📁 shared/
+│   │   └── 📄 config.json
+│   ├── 📁 vanilla/
+│   └── 📁 mods/
+├── 📁 src/
+│   └── 📁 mcfr/                    하네스 실행 코드
+│       ├── 📄 research_db.py       SQLite 카탈로그
+│       ├── 📄 research_engine.py   원본 검증과 증분 범위 계산
+│       ├── 📄 source_jobs.py       체크포인트 저장과 재개
+│       ├── 📄 update_watch.py      배포 변경 감시
+│       ├── 📄 runtime_capture.py   인게임 자동 촬영
+│       └── 📄 visual_check.py      이미지 비교
+├── 📁 registry/
+│   ├── 📄 legacy-releases.json      연구 기준 배포 버전
+│   └── 📄 upstream-targets.json     업데이트 감시 대상
+├── 📁 research/                    연구 기록과 증거
+│   ├── 📁 vanilla_textures/
+│   ├── 📁 vanilla_models/
+│   ├── 📁 furniture_mods/
+│   ├── 📁 campaigns/
+│   ├── 📁 comparisons/
+│   └── 📁 historical/
+├── 📁 project/                     하네스 사용법과 현황
+│   ├── 📄 STATUS.md
+│   ├── 📁 audits/
+│   └── 📁 decisions/
+├── 📁 docs/                        단계별 계획과 연구 정리
+├── 📁 data/                        기존 SQLite DB와 이관 스크립트
+├── 📁 1.21.11/                     Minecraft Java 1.21.11 원본 자료
+├── 📁 handoff/                     이전 회차의 인수인계
+├── 📁 inbox/                       새 연구 자료 제출
+├── 📁 scripts/                     감사·재현 스크립트
+├── 📁 tests/
+│   └── 📁 harness/
+└── 📁 .github/
+    └── 📁 workflows/
+        ├── 📄 harness-foundation-ci.yml
+        └── 📄 harness-upstream-watch.yml
+```
 
 ## 빠른 시작
 
