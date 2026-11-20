@@ -110,6 +110,7 @@ python -m mcfr.workflow --db "$research_db" scan vanilla-verify vanilla-job --so
 |---|---|
 | 공통 정책, 바닐라·가구 모드 연구 방법 | [공통 하네스](harness/shared/README.md) · [Vanilla](harness/vanilla/instructions.md) · [Mods](harness/mods/instructions.md) |
 | DB 등록, 연구 회차, 실행과 재개 | [연구 DB](project/RESEARCH_DB.md) · [연구 엔진](project/RESEARCH_ENGINE.md) · [작업 재개](project/RESEARCH_WORKFLOW.md) |
+| 심층 모델 검사·SQLite 연구 인계·실행 정책 검수 | [하네스 검수 2·3·4](project/HARNESS_AUDIT_234.md) |
 | 배포 감시, 검증 범위, 비교 | [확장 모듈](project/RESEARCH_EXTENSIONS.md) |
 | 실제 게임 촬영과 상태 로그 | [인게임 재현](project/audits/runtime/README.md) · [Adorn·BWG 호환 검증](project/audits/adorn_bwg/README.md) |
 | 새 자료 제출 | [inbox 안내](inbox/README.md) |
