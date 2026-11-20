@@ -10,6 +10,27 @@ Project Zomboid의 가구를 Minecraft로 옮기는 작업에 필요한 모델�
 
 가구 제작과 PZ 맵 변환은 후속 작업입니다. 현재 운영 기능은 OpenAI API 키 없이 실행하며, API 연동 검증은 보류 중입니다.
 
+## 새 ChatGPT 채팅에서 하네스 시작하기
+
+새 채팅에서 아래 프롬프트를 복사해 사용하세요. **GitHub에 접근할 수 있는 GPT 환경**이어야 최신 파일과 연구 결과를 직접 확인할 수 있습니다. 저장소를 열었다는 사실만으로 하네스가 ChatGPT에 자동 설치되지는 않습니다.
+
+```text
+Minecraft Furniture Style Research 연구 하네스를 사용해 이번 작업을 이어서 진행해 줘.
+
+GitHub: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research
+
+1. 먼저 main의 AGENTS.md와 project/STATUS.md, harness/shared/README.md를 읽어 현재 정책과 연구 진행 상태를 확인해.
+2. 연구 대상에 맞춰 harness/vanilla/ 또는 harness/mods/의 profile.json과 instructions.md를 읽고 해당 전문 하네스를 적용해.
+3. 기존 연구 DB·증거·버전·완료/보류 항목을 확인한 뒤 NEW / INCREMENTAL / REVALIDATE / FRESH 중 적합한 모드를 선택해. 확인되지 않은 항목이나 접근할 수 없는 자료는 명시해.
+4. 필요한 원본·해시·실행 환경을 확인하고 가능한 범위의 실제 분석 및 검증을 수행해. 원본 관찰, 정적 계산, 인게임 확인, AI 추론을 구분하고 추측을 완료로 기록하지 마.
+5. 수행 결과와 남은 항목을 정리해. 파일 변경은 별도 브랜치와 PR로 제출하고 기존 연구 원본과 main은 직접 수정하지 마.
+6. 실행 도구나 원본에 접근할 수 없으면 그 한계를 보고하고 가능한 검증까지만 수행해. OpenAI API 유료 호출은 별도 승인 없이 실행하지 마.
+
+이번 연구 대상: [바닐라 버전 / 모드 이름·버전 / 연구 목표를 작성]
+```
+
+**하네스 구조:** 최상위 `harness/` **폴더는 하나**이고, 내부에 `shared/`(공통 정책)·`vanilla/`(바닐라 전용)·`mods/`(모드 전용)가 있습니다. 실제 실행 코드는 별도의 `src/mcfr/`에 있으며, 연구 기록·설정·검증 자료는 `research/`, `registry/`, `project/` 등에 나누어 보관합니다. 즉, **전문 하네스 2개가 공통 실행 엔진을 공유**하는 구조입니다.
+
 ## 폴더 구조
 
 최상위 폴더와 주요 하위 경로를 표시했습니다.
