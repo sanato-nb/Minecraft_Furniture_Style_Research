@@ -39,3 +39,11 @@
 INT-4는 본 연결의 대상 범위를 기존 1-5 사례의 다른 가구·연결형/특수 렌더 사례로 확장해야 한다. INT-5에서는 기존 45개 부품별 분리 SVG + 원본 텍스처 진단 + PR #34의 실제 격리 재촬영 PNG를 사람 눈으로 비교해 각 부품을 CONFIRMED / OCCLUDED / INSUFFICIENT_VIEW / CONTRADICTED / PENDING 등으로 개별 판정한다. 실제 픽셀이나 부품이 보이지 않으면 CONFIRMED로 승격하지 않는다.
 
 **중요: INT-3 고정된 구조 범위 통과와 INT-4 전체 종료, INT-5 시각 의미 승인, INT-6 AI 학습/저작권 허가는 서로 독립이다.** main 직접 반영 및 PR 자동 병합은 금지한다.
+
+## 실제 CI 재현 증거 (성공)
+
+- GitHub Actions 통과: https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/44908093409
+- 변경·누락·권리 오승격 회귀테스트 **9/9 PASS**, 45행 CSV 및 180개 방향별 SHA 메타데이터 연결 재생성 성공.
+- 생성 CSV SHA-256: ecbaeeedb8365eb3a8e6dbecf7ac914292c1df610e29c1e87b2fcef41b27bd39
+- GitHub Actions 아티팩트 ID 14708308836, ZIP SHA-256: d0c96151a42f1e17c27e2570f4af8260e79772e525f7ed3e97030021bc35eb1a
+- 영구 체크포인트: INT4_CHAIR_PROVENANCE_AUDIT_RESULT.json. CI에서 실제 재계산한 전체 집계와 CSV 해시가 일치하는지 비교한다. 이 파일은 역할 및 이용 권리 승인을 뜻하지 않는다.

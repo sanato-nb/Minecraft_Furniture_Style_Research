@@ -42,6 +42,10 @@ jobs:
           blob = (p/'INT4_45_CHAIR_ELEMENT_F2_LINKS.csv').read_bytes()
           rows = list(csv.DictReader(blob.decode('utf-8').splitlines()))
           assert j['csv_sha256'] == hashlib.sha256(blob).hexdigest()
+          lock = json.loads(Path('project/integration/INT4_CHAIR_PROVENANCE_AUDIT_RESULT.json').read_text())
+          assert lock['status'] == j['status']
+          assert lock['counts'] == j['counts']
+          assert lock['output_csv_sha256'] == j['csv_sha256']
           assert len(rows) == j['counts']['element_role_hypotheses'] == 45
           assert j['counts']['pr33_element_direction_metadata_links'] == 180
           assert j['counts']['unresolved_selector_anomalies'] == 4
