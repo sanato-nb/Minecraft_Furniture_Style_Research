@@ -157,8 +157,12 @@ def verify_installed_mod_sources(version,mod_dir):
         }
     return checked
 
-def pack_lines(version):
-    active=cases(version)
+def pack_lines(version,selected_cases=None):
+    active=tuple(selected_cases) if selected_cases is not None else cases(version)
+    if not active or any(item.version!=version for item in active):
+        raise ValueError("An isolated pack needs pinned nonempty version-matching states")
+    if len({item.case_id for item in active})!=len(active):
+        raise ValueError("Duplicate source chair case IDs")
     min_x=min(item.x for item in active)-4
     max_x=max(item.x for item in active)+4
     min_z=min(item.z for item in active)-4
@@ -169,7 +173,7 @@ def pack_lines(version):
         "difficulty peaceful",
         f"forceload add {min_x} {min_z} {max_x} {max_z}",
     ]
-    for item in cases(version):
+    for item in active:
         # Only local simple single-block source states; no neighboring block
         # connection, linked furniture behavior or direction auto-correction.
         placed.append(
@@ -189,7 +193,7 @@ def pack_lines(version):
         placed.append(f"setblock {item.x} {item.y} {item.z} {item.state()}")
     placed.append("say MCFR_CHAIR_PLACED")
     verify=[]
-    for item in cases(version):
+    for item in active:
         verify.append(
             f"execute if block {item.x} {item.y} {item.z} {item.state()} run say MCFR_CHAIR_STATE_{item.case_id}=PASS"
         )
@@ -199,7 +203,8 @@ def pack_lines(version):
     verify.append("say MCFR_CHAIR_STATES_READ")
     return tuple(placed),tuple(verify)
 
-def make_pack(version,pack):
+def make_pack(version,pack,selected_cases=None):
+    active=tuple(selected_cases) if selected_cases is not None else cases(version)
     pack=Path(pack)
     if pack.exists():
         raise FileExistsError("Cannot overwrite an existing runtime datapack: "+str(pack))
@@ -213,16 +218,16 @@ def make_pack(version,pack):
     else:
         raise ValueError("Unsupported Minecraft version: "+version)
     (pack/"pack.mcmeta").write_text(json.dumps(packmeta,ensure_ascii=False,sort_keys=True)+"\n",encoding="utf-8")
-    placed,checks=pack_lines(version)
+    placed,checks=pack_lines(version,active)
     (functions/"place.mcfunction").write_text("\n".join(placed)+"\n",encoding="utf-8")
     (functions/"verify.mcfunction").write_text("\n".join(checks)+"\n",encoding="utf-8")
     return {
       "status":"PINNED_CHAIR_GAME_FIXTURE_GENERATED_NOT_CAPTURED",
       "version":version,
-      "test_cases":len(cases(version)),
-      "models":sorted({item.model_key for item in cases(version)}),
-      "source_state_expected":{item.case_id:item.state() for item in cases(version)},
-      "source_camera":{item.case_id:item.camera() for item in cases(version)},
+      "test_cases":len(active),
+      "models":sorted({item.model_key for item in active}),
+      "source_state_expected":{item.case_id:item.state() for item in active},
+      "source_camera":{item.case_id:item.camera() for item in active},
       "files_sha256":{
         p.relative_to(pack).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
         for p in sorted(pack.rglob("*")) if p.is_file()
