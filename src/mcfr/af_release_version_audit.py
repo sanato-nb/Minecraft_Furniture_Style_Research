@@ -192,10 +192,14 @@ def audit(work, out):
         if len(s["variants"]) != 88 or len(variants) < 88:
             raise ValueError("Research 4.0.3 source option coverage incomplete")
 
-        selected = [x for x in variants if
-                    any(("facing=" + facing) in x["selector"] for facing in DIRS)
-                    and (("tucked=false,variant=1" in x["selector"]) or
-                         ("tucked=true,variant=10" in x["selector"]))]
+        selected = []
+        for row in variants:
+            props = dict(piece.split("=", 1) for piece in row["selector"].split(","))
+            if props.get("facing") in DIRS and (
+                (props.get("tucked") == "false" and props.get("variant") == "1")
+                or (props.get("tucked") == "true" and props.get("variant") == "10")
+            ):
+                selected.append(row)
         if len(selected) != 8 or any(x["status"] not in ("SAME", "CHANGED") for x in selected):
             raise ValueError("The eight earlier in-game AF states disappeared")
 
