@@ -1,0 +1,53 @@
+{
+  "schema": "MCFR_INT4_MACAW_KITCHEN_ACTUAL_FABRIC_F2_CI_LOCK/v1",
+  "status": "PASS_FIRST_ACTUAL_CLIENT_THREE_KITCHEN_STATES_AND_F2_WITHOUT_SEMANTIC_APPROVAL",
+  "first_successful_ci_run": 44920889453,
+  "first_successful_ci_job": 136896453907,
+  "first_successful_ci_head": "76c988ee44c53a249f90b645c75ecbf6da5cae03",
+  "first_successful_ci_url": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/44920889453",
+  "first_artifact_id": 14713339690,
+  "first_artifact_sha256": "9b68f7ae007c59c54a8e27401698ba53f43a411d461f5a95d61222903144f98a",
+  "first_successful_actual_game_audit": {
+    "actual_f2_manifest_sha256": "1c0429fda6b949748fdf3ae414da8409a51c01fd37bafb32d31726369e98af5a",
+    "actual_native_f2_count": 3,
+    "contact_sheet_sha256": "5e789e98337d6a71e7da38712c994d89e28b539fd39b36da3404ec74b518df5c",
+    "f2_sha256_by_case": {
+      "S41": "600c03c6caf90c9788c80b8bd0132a839aa2cbc9a0e00e17930e52d16df26010",
+      "S42": "8db5143963699aa7b89dab6efcb4bc71b82204769ad8eaee13b8e530d1805f7f",
+      "S43": "300ce307dbad187e84a5abf977e5946992df28ecea3db8d362313c717c7f2b93"
+    },
+    "schema": "MCFR_INT4_MACAW_KITCHEN_3_F2_EVIDENCE_AUDIT/v1",
+    "scope": {
+      "actual_game_screenshot_captured": true,
+      "ai_training_rights_approved": 0,
+      "game_runtime_water_mechanism_tested": false,
+      "human_part_role_review_approved": 0,
+      "int4_all_furniture_complete": false,
+      "pixelwise_texture_causality_proven": false,
+      "style_or_material_approved": 0
+    },
+    "server_source_verified_count": 3,
+    "source_cases": [
+      "S41",
+      "S42",
+      "S43"
+    ],
+    "source_water_face_delta": 1,
+    "source_water_false_faces": 55,
+    "source_water_true_faces": 56,
+    "status": "PASS_THREE_REAL_CLIENT_F2_AND_SOURCE_STATES_NOT_SEMANTIC_APPROVAL"
+  },
+  "scope": {
+    "source_macaw_mod_jar_original_sha256": "e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e",
+    "original_history_15_case_and_431_face_reused": true,
+    "native_minecraft_f2_completed": true,
+    "actual_game_server_state_count": 3,
+    "no_original_screenshot_binary_committed": true,
+    "no_user_world_changed": true,
+    "model_face_source_delta_one_not_game_water_mechanism": true,
+    "original_research_model_semantic_approved": 0,
+    "rights_or_ai_training_approved": 0,
+    "overall_INT4_complete": false
+  },
+  "replay_contract": "The next CI verifies original source, model + provider SHA and exact 3 case state count; F2 PNG SHA is verified against that run's manifest, not required byte-identical across runtimes."
+}

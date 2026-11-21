@@ -49,3 +49,30 @@ python -m mcfr.int4_macaw_kitchen_capture --directory /tmp/int4-macaw-f2
 ## 실행 결과
 
 고정 CI 완료 후 실제 성공·실패를 구별하여 기록한다. 원본 55→56면 외에 실제 Minecraft F2 3장 촬영이 통과했다고 **선행 확정하지 않는다**.
+
+## 실제 Fabric 1.21.11 F2 첫 촬영 성공 — 증거 고정 (2026-11-22)
+
+[**GitHub Actions #44920889453**](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/44920889453)에서 Java 21·Macaw 3.4.2 Fabric·Minecraft 1.21.11 게임 클라이언트를 실제 실행했다. 고정 JAR 전체 SHA 및 원본 선택 모델·부모 경로/파일 SHA 검증 뒤 **서버 블록상태 3/3 성공, Minecraft 네이티브 F2 PNG 3/3 성공**.
+
+| 실제 상태 | 서버 확인 | 네이티브 1024×684 F2 | 원본 면 수 |
+|---|---|---|---:|
+| `S41` 카운터 `facing=north` | PASS | PASS | 11 |
+| `S42` 싱크 `facing=north,water=false` | PASS | PASS | 55 |
+| `S43` 싱크 `facing=north,water=true` | PASS | PASS | 56 |
+
+특히 게임에서 `water=false`와 `water=true` 블록상태가 모두 실제 유지됐으며 이에 해당하는 원본 모델 파일은 55/56면으로 구분된다. **실제 게임 수면 애니메이션, 물의 사용 기능 및 GPU 픽셀의 인과적 일치는 아직 검증하지 않았다.**
+
+### 변경 불가능한 첫 실행 증거
+
+- [F2 3장·원본 모델 SHA 체크포인트](INT4_MACAW_KITCHEN_F2_SOURCE_RESULT.json) (첫 실행 F2 SHA-256과 접촉시트 SHA 기록)
+- F2 S41: `600c03c6caf90c9788c80b8bd0132a839aa2cbc9a0e00e17930e52d16df26010`
+- F2 S42: `8db5143963699aa7b89dab6efcb4bc71b82204769ad8eaee13b8e530d1805f7f`
+- F2 S43: `300ce307dbad187e84a5abf977e5946992df28ecea3db8d362313c717c7f2b93`
+- 실제 F2 manifest SHA-256: `1c0429fda6b949748fdf3ae414da8409a51c01fd37bafb32d31726369e98af5a`
+- 3장 접촉시트 SHA-256: `5e789e98337d6a71e7da38712c994d89e28b539fd39b36da3404ec74b518df5c`
+- 실제 게임 F2 3장, 3장 접촉시트, 클라이언트 로그 및 런타임 manifest는 GitHub Actions 아티팩트 `int4-macaw-kitchen-actual-fabric-three-f2` (ID 14713339690; ZIP SHA-256 `9b68f7ae007c59c54a8e27401698ba53f43a411d461f5a95d61222903144f98a`).
+- 게임 설치/월드·원본 JAR/PNG/기존 연구 파일은 저장소에 포함/덮어쓰지 않았고, F2 바이너리는 **임시 아티팩트로만** 보존했다.
+- 신규 촬영 결과는 수동 INT-5 시각 검수가 끝난 상태가 아님. 그 의미·스타일·자료 사용 권리 승인 0 유지.
+- 새 CI는 실행마다 실제 F2/원본 SHA를 검증하고 최초 증거 체크포인트의 **상태·한계·건수**를 재대조한다. JPEG처럼 스크린샷 자체는 다른 실행 간 바이트 동일성을 강제하지 않는다.
+
+**후속 INT-4**: 이어서 인접 상태를 고려한 연결 테이블·책장, Handcrafted 침대의 head/foot을 실제 상태·촬영 환경으로 분리 검증. 현재 INT-4 전체 완료 아님.
