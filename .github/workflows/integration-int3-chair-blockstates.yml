@@ -3,6 +3,8 @@ on:
   pull_request:
     paths:
       - 'scripts/integration/audit_int3_chair_blockstates.py'
+      - 'scripts/integration/render_int3_chair_direction_previews.py'
+      - 'scripts/integration/render_int3_textured_chairs.py'
       - 'tests/integration/test_int3_chair_blockstates.py'
       - '.github/workflows/integration-int3-chair-blockstates.yml'
       - 'project/integration/INT3_CHAIR_BLOCKSTATE*'
@@ -81,6 +83,46 @@ jobs:
           if doc["boundaries"]["source_anomaly_corrections_applied"]!=0:
               raise SystemExit("Unusual original state mappings must not be edited")
           print("INT3_ORIGINAL_CHAIR_STATE_ALL_MODELS_AND_16_POSES_SOURCE_AUDITED")
+          PY
+      - name: Render 4 chair descendants in all 4 original state directions with pinned texture UV
+        env:
+          RAW: ${{ runner.temp }}/int3-state-originals
+          OUT: ${{ runner.temp }}/int3-chair-states
+        run: |
+          python scripts/integration/render_int3_chair_direction_previews.py \
+            --root . --af "$RAW/af.zip" --hc "$RAW/hc.zip" \
+            --macaw "$RAW/macaw.jar" --mc1211 "$RAW/1.21.1.jar" \
+            --mc12111 "$RAW/1.21.11.jar" --out "$OUT"
+      - name: Verify all 16 actual-original-PNG face-direction diagnostic scenes
+        env:
+          OUT: ${{ runner.temp }}/int3-chair-states
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,os
+          from pathlib import Path
+          path=Path(os.environ["OUT"])
+          d=json.loads((path/"INT3_CHAIR_16_TEXTURED_POSE_SUMMARY.json").read_text(encoding="utf-8"))
+          if d["status"]!="PASS_ORIGINAL_CHAIR_16_DIRECTION_TEXTURE_DIAGNOSTIC_NOT_RUNTIME":
+              raise SystemExit("Original source 16-direction texture diagnostic was not verified")
+          if d["models"]!=4 or d["original_source_faces"]!=229 or d["directional_texture_panels"]!=16:
+              raise SystemExit("A source chair or blockstate direction is missing")
+          if d["unique_source_pngs"]!=8:
+              raise SystemExit("Original AF/HC/Macaw sprite reference set changed")
+          if d["runtime_model_bake_verifications"]!=0 or d["runtime_screenshots"]!=0:
+              raise SystemExit("Cannot call reconstructed model a real Minecraft screenshot")
+          if d["source_variants_manually_corrected"] or d["copyright_training_approvals"]:
+              raise SystemExit("Original source anomalies and license restrictions must persist")
+          for filename,field in (
+              ("INT3_4_CHAIRS_16_SOURCE_STATE_TEXTURED_VIEWS.png","original_texture_contact_sheet_sha256"),
+              ("INT3_CHAIR_16_TEXTURED_DIRECTION_SOURCE_EVIDENCE.csv","per_pose_csv_sha256")
+          ):
+              if hashlib.sha256((path/filename).read_bytes()).hexdigest()!=d[field]:
+                  raise SystemExit("Generated 16-direction evidence SHA differs: "+filename)
+          with (path/"INT3_CHAIR_16_TEXTURED_DIRECTION_SOURCE_EVIDENCE.csv").open(encoding="utf-8",newline="") as f:
+              rows=list(csv.DictReader(f))
+          if len(rows)!=16 or len({(x["model_key"],x["direction"]) for x in rows})!=16:
+              raise SystemExit("Directional texture review denominator isn't 16")
+          print("INT3_4_CHAIRS_16_STATE_DIRECTIONS_SOURCE_UV_TEXTURING_REPRODUCED")
           PY
       - name: Retain original-selector evidence CSV and JSON only
         if: always()
