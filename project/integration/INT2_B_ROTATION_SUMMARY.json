@@ -1,0 +1,44 @@
+{
+  "ai_training_approved": false,
+  "baseline_sha": "176f7f34de2336eb7984c4734e97b6eb156c19f4",
+  "discrepancy_examples": [],
+  "expected": {
+    "aabb_cross_methods_pass": 1548,
+    "e_exceptions": 86,
+    "elements": 5689,
+    "elements_matching_B": 5689,
+    "faces": 23090,
+    "inverted_coordinate_elements": 18,
+    "outside_0_16_elements": 413,
+    "rotation_elements": 1548,
+    "static_models": 2304,
+    "zero_thickness_elements": 1965
+  },
+  "historical_element_rows": 5689,
+  "mismatched_denominators": {},
+  "not_verified": [
+    "Minecraft renderer baked mesh positions",
+    "blockstate x/y transforms and uvlock",
+    "in-game collision/VoxelShapes",
+    "numeric UV atlas rasterisation",
+    "render screenshots and runtime"
+  ],
+  "observed": {
+    "aabb_cross_methods_pass": 1548,
+    "e_exceptions": 86,
+    "elements": 5689,
+    "elements_matching_B": 5689,
+    "faces": 23090,
+    "inverted_coordinate_elements": 18,
+    "outside_0_16_elements": 413,
+    "rotation_elements": 1548,
+    "static_models": 2304,
+    "zero_thickness_elements": 1965
+  },
+  "original_history_extra_element_keys": 0,
+  "schema": "MCFR_INT2_B_ROTATION_AABB/v1",
+  "scope": "source-element-coordinate-matching and mathematical-rotated-AABB-internal-consistency",
+  "status": "PASS_B_ELEMENT_EVIDENCE_AND_DUAL_AABB_MATH",
+  "ci_run": 44859836398,
+  "ci_source_commit": "3316dae03482ff2b13892e4080d291ea8df41699"
+}

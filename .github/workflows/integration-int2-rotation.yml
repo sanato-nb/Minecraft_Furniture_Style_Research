@@ -1,0 +1,58 @@
+name: INT-2 independent B element rotation and AABB
+on:
+  pull_request:
+    paths:
+      - 'scripts/integration/**'
+      - 'tests/integration/**'
+      - 'project/integration/**'
+      - '.github/workflows/integration-int2-rotation.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Pillow for shared unit suite
+        run: python -m pip install "Pillow>=10.0,<13.0"
+      - name: Independent geometry regression tests
+        run: python -m unittest discover -s tests/integration -p 'test_*.py' -v
+      - name: Verify B per-element source and dual independent AABB equations
+        run: python scripts/integration/audit_int2_rotation.py --root . --out "$RUNNER_TEMP/int2-rotation"
+      - name: Compare committed 1548-row AABB result with independent current run
+        env:
+          INT2_OUTPUT: ${{ runner.temp }}/int2-rotation
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          out = Path(os.environ["INT2_OUTPUT"])
+          saved = Path("project/integration")
+          name = "INT2_B_ROTATED_ELEMENTS.csv"
+          if (saved / name).read_bytes() != (out / name).read_bytes():
+              raise SystemExit("INT2 rotated element source snapshot mismatch")
+          stored = json.loads((saved / "INT2_B_ROTATION_SUMMARY.json").read_text(encoding="utf-8"))
+          computed = json.loads((out / "INT2_B_ROTATION_SUMMARY.json").read_text(encoding="utf-8"))
+          for key, value in computed.items():
+              if stored.get(key) != value:
+                  raise SystemExit("INT2 rotated AABB summary mismatch: " + key)
+          print("INT2_B_ALL_ROTATED_ELEMENTS_SNAPSHOTS_MATCHED")
+          PY
+      - name: Preserve audit outputs for review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int2-element-rotation-aabb
+          path: ${{ runner.temp }}/int2-rotation/
+          if-no-files-found: warn
+          retention-days: 60
