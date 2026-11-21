@@ -21,6 +21,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install shared PNG test dependency
+        run: python -m pip install "Pillow>=10.0,<13.0"
       - name: Validate independent geometry calculations
         run: python -m unittest discover -s tests/integration -p 'test_*.py' -v
       - name: Download only pinned original upstream sources into temporary directory
