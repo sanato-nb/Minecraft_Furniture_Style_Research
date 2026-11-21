@@ -40,7 +40,11 @@ class PinnedChairWorldFixture(TestCase):
                 placed=(path/"data/mcfr_chair/function/place.mcfunction").read_text()
                 observed=(path/"data/mcfr_chair/function/verify.mcfunction").read_text()
                 self.assertIn("forceload add",placed)
-                self.assertEqual(placed.count("setblock "),len(f.cases(version)))
+                self.assertEqual(placed.count("setblock "),
+                                 len(f.cases(version))+(4 if version=="1.21.1" else 0))
+                if version=="1.21.1":
+                    self.assertEqual(placed.count("minecraft:oak_slab[type=top]"),4,
+                                     "AF tucked requires one top slab directly ahead per facing")
                 self.assertEqual(observed.count("=PASS"),len(f.cases(version)))
                 self.assertEqual(observed.count("=FAIL"),len(f.cases(version)))
                 self.assertTrue(observed.endswith("say MCFR_CHAIR_STATES_READ\n"))
