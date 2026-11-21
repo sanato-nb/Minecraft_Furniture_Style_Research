@@ -72,8 +72,24 @@ def assemble_model(db,sources,providers,parent_key,child_key):
     if original_hash(model["source_id"],body_raw)!=model["sha"]:
         raise ValueError("Fixed original child model source SHA mismatched "+child_key)
     body=json.loads(body_raw.decode("utf-8-sig"))
-    bindings=body.get("textures",{})
-    if not isinstance(bindings,dict):raise ValueError("Original child textures are not a dictionary")
+    # A child can inherit one or more texture slots through its parent
+    # chain. Build the exact source JSON bindings from root to leaf; testing
+    # only the leaf 'textures' object would incorrectly flag valid aliases.
+    chain=list(db.execute("""
+       SELECT l.position,m.model_key,m.source_id,m.path,m.sha
+       FROM lineage l JOIN model m ON m.model_key=l.ancestor_key
+       WHERE l.model_key=? ORDER BY l.position""",(child_key,)))
+    if not chain or chain[0]["model_key"]!=child_key:
+        raise ValueError("Pinned original model lineage missing leaf")
+    bindings={}
+    for ancestor in reversed(chain):
+        raw=sources.fetch(ancestor["source_id"],ancestor["path"])
+        if original_hash(ancestor["source_id"],raw)!=ancestor["sha"]:
+            raise ValueError("Pinned original source SHA differs in child lineage")
+        inherited=json.loads(raw.decode("utf-8-sig")).get("textures",{})
+        if not isinstance(inherited,dict):
+            raise ValueError("Original lineage texture bindings are not a dictionary")
+        bindings.update(inherited)
 
     shapes=providers[parent_key]["shapes"]
     original_parent=db.execute("SELECT path,sha FROM model WHERE model_key=?",(parent_key,)).fetchone()
