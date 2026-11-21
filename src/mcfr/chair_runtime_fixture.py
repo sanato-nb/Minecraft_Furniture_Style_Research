@@ -22,7 +22,7 @@ import sys
 import time
 from urllib.parse import urlparse
 
-from .foundation import ROOT
+ROOT=Path(__file__).resolve().parents[2]
 
 DIRS=("north","east","south","west")
 X=(-24,-8,8,24)
