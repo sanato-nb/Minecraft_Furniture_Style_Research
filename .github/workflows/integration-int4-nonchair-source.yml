@@ -64,6 +64,10 @@ jobs:
           from pathlib import Path
           root=Path(os.environ['OUT'])
           doc=json.loads((root/'INT4_NONCHAIR_15_CASES_SUMMARY.json').read_text())
+          lock=json.loads(Path('project/integration/INT4_NONCHAIR_15_CASES_AUDIT_RESULT.json').read_text())
+          assert lock['observed']==doc, 'Frozen original source 15-case audit changed'
+          assert lock['boundary']['int5_semantic_parts_approved']==0
+          assert lock['boundary']['int6_licensed_training_approvals']==0
           assert doc['status']=='PASS_SOURCE_SELECTED_MODELS_GEOMETRY_TEXTURE_REFERENCE_SCOPE_NOT_CLIENT_VISUAL'
           result=doc['results']
           assert result['cases_checked']==15 and result['application_options_reopened']==19
