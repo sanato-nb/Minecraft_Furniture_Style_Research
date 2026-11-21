@@ -17,6 +17,7 @@ import lzma
 from math import ceil,floor
 from pathlib import Path
 import sqlite3
+import zipfile
 
 from PIL import Image
 from audit_int2_mod_textures import Sources,csv_rows,raw_source_sha,verify_png_crc
@@ -151,12 +152,6 @@ def verify_support(root,args):
             if wrong and len(differences)<100:
                 differences.append({"texture_id":tid,"uv":row["uv"],"fields":wrong})
             valid_records+=int(not wrong)
-        group_outcomes=Counter()
-        for row in historical:
-            key=(row["texture_id"],row["uv"],row["original_status"])
-            group_outcomes.setdefault(key,row["outcome"])
-        for key,label in group_outcomes.items():
-            group_outcomes[label]+=0  # intentionally not used as Counter in following loop
     finally:
         source.close()
     # Count per source-UV group rather than repeated animation frames.
