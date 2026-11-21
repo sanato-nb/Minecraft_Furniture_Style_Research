@@ -1,0 +1,179 @@
+{
+  "boundary": {
+    "actual_minecraft_client_render_verified": false,
+    "face_slots_uv_rotation_pixel_png_sha_check": "PASS",
+    "known_limitations": [
+      "Orthographic face polygons and nearest-PNG sampling, not Minecraft blockstate rotations, texture atlas, UV lock, AO or engine culling",
+      "Colors come from pinned original PNG pixels but visual shading and surface order are diagnostic",
+      "Takes four explicit source-bound child chairs, not all descendants, mods, or furniture",
+      "A source-level face/UV match does not certify gameplay rendering or function"
+    ],
+    "part_function_approved": 0,
+    "source_child_model_sha_check": "PASS",
+    "source_license_or_training_approved": 0,
+    "source_original_png_json_jar_exported": false,
+    "source_provider_model_sha_check": "PASS_VIA_EXISTING_PR29_ORIGINAL_AUDITOR",
+    "style_or_material_classification_approved": 0
+  },
+  "contact_sheet_sha256": "ede6e7a6407f1432ab3e07e49c2397dfeffc33789b1e1352fb772d73bb02207d",
+  "face_csv_sha256": "dc790656f4df32f66e21ef46b7db7c1027cd01be504ebc4b2a2b78f289074783",
+  "four_child_source_face_counts": {
+    "AF121": 46,
+    "AF123": 46,
+    "HC11210": 78,
+    "MACAW67": 59
+  },
+  "model_providers": [
+    {
+      "element_count": 10,
+      "mod": "AF",
+      "resource": "another_furniture:block/template/chair",
+      "role_counts": {
+        "BACKREST_ASSEMBLY": 3,
+        "LEG_OR_LOWER_POST": 4,
+        "LOWER_FRAME": 2,
+        "SEAT_LAYER": 1
+      },
+      "sha": "d9b64a818021f1a64b0cba13d16d18d6fea65d01",
+      "source_path": "common/src/main/resources/assets/another_furniture/models/block/template/chair.json"
+    },
+    {
+      "element_count": 10,
+      "mod": "AF",
+      "resource": "another_furniture:block/template/chair_tucked",
+      "role_counts": {
+        "BACKREST_ASSEMBLY": 3,
+        "LEG_OR_LOWER_POST": 4,
+        "LOWER_FRAME": 2,
+        "SEAT_LAYER": 1
+      },
+      "sha": "ebcd7af6545ada207ad31720cb831b9ec5eb1dde",
+      "source_path": "common/src/main/resources/assets/another_furniture/models/block/template/chair_tucked.json"
+    },
+    {
+      "element_count": 13,
+      "mod": "HC",
+      "resource": "handcrafted:block/chair/chair",
+      "role_counts": {
+        "BACKREST_ASSEMBLY": 4,
+        "LEG_OR_LOWER_POST": 4,
+        "LOWER_FRAME": 3,
+        "SEAT_LAYER": 2
+      },
+      "sha": "c5d9fbc054a897673f972fe2559376123751ba9b",
+      "source_path": "common/src/main/resources/assets/handcrafted/models/block/chair/chair.json"
+    },
+    {
+      "element_count": 12,
+      "mod": "MACAW",
+      "resource": "mcwfurnitures:block/parent/chair",
+      "role_counts": {
+        "BACKREST_ASSEMBLY": 6,
+        "LEG_OR_LOWER_POST": 4,
+        "SEAT_LAYER": 2
+      },
+      "sha": "26f389f8cc286dcdd97a608adf685294bcc2f60323e7b1ea40755b2110ff1650",
+      "source_path": "assets/mcwfurnitures/models/block/parent/chair.json"
+    }
+  ],
+  "models": [
+    {
+      "child_key": "AF121",
+      "child_resource": "another_furniture:block/chair/acacia_1",
+      "child_sha": "609dea1eda246be610ed0a5762f3bb5f0ce9db92",
+      "original_png_count": 3,
+      "parent_key": "AF1393",
+      "parent_sha": "d9b64a818021f1a64b0cba13d16d18d6fea65d01",
+      "source": "AF",
+      "total_faces_source": 46,
+      "uv_stats": {
+        "explicit_uv": 46,
+        "faces": 46,
+        "uv_rotation_0": 43,
+        "uv_rotation_180": 1,
+        "uv_rotation_270": 2
+      },
+      "visible_faces_diagram": [
+        22,
+        22
+      ]
+    },
+    {
+      "child_key": "AF123",
+      "child_resource": "another_furniture:block/chair/acacia_10_tucked",
+      "child_sha": "8294120f9b0b14d1b3c04f027aa753804b23b213",
+      "original_png_count": 3,
+      "parent_key": "AF1394",
+      "parent_sha": "ebcd7af6545ada207ad31720cb831b9ec5eb1dde",
+      "source": "AF",
+      "total_faces_source": 46,
+      "uv_stats": {
+        "explicit_uv": 46,
+        "faces": 46,
+        "uv_rotation_0": 43,
+        "uv_rotation_180": 1,
+        "uv_rotation_270": 2
+      },
+      "visible_faces_diagram": [
+        22,
+        22
+      ]
+    },
+    {
+      "child_key": "HC11210",
+      "child_resource": "handcrafted:block/warped_chair_black",
+      "child_sha": "2d989c0059a633a55ebe1386bf5c9547ccd86de7",
+      "original_png_count": 2,
+      "parent_key": "HC13",
+      "parent_sha": "c5d9fbc054a897673f972fe2559376123751ba9b",
+      "source": "HC",
+      "total_faces_source": 78,
+      "uv_stats": {
+        "explicit_uv": 78,
+        "faces": 78,
+        "uv_rotation_0": 78
+      },
+      "visible_faces_diagram": [
+        29,
+        29
+      ]
+    },
+    {
+      "child_key": "MACAW67",
+      "child_resource": "mcwfurnitures:block/chair/acacia_chair",
+      "child_sha": "f0aeb2ad025179dfd68c63b3c2ea5a25ab8d4a7e3e161dc43f270772672bda3b",
+      "original_png_count": 2,
+      "parent_key": "MACAW1424",
+      "parent_sha": "26f389f8cc286dcdd97a608adf685294bcc2f60323e7b1ea40755b2110ff1650",
+      "source": "MACAW",
+      "total_faces_source": 59,
+      "uv_stats": {
+        "explicit_uv": 59,
+        "faces": 59,
+        "uv_rotation_0": 46,
+        "uv_rotation_270": 4,
+        "uv_rotation_90": 9
+      },
+      "visible_faces_diagram": [
+        28,
+        28
+      ]
+    }
+  ],
+  "original_faces": 229,
+  "schema": "MCFR_INT3_4_CHAIRS_TEXTURED_SOURCE_UV/v1",
+  "source_png_count": 8,
+  "status": "PASS_SOURCE_PINNED_CHILD_TEXTURE_FACES_DIAGNOSTIC_NOT_MINECRAFT_CLIENT",
+  "verified_original_png_hashes": {
+    "AF:common/src/main/resources/assets/another_furniture/textures/block/chair/back_1/acacia.png": "55f3bbf986c0c10b731cc0e67038402f30340972",
+    "AF:common/src/main/resources/assets/another_furniture/textures/block/chair/back_10/acacia.png": "f580665cd1f1b63f47da59b3196daaccc7b9e150",
+    "AF:common/src/main/resources/assets/another_furniture/textures/block/chair/bottom/acacia.png": "1986f5a2dac5c68f3f34b1608e6c6686d04768d1",
+    "AF:common/src/main/resources/assets/another_furniture/textures/block/chair/seat/acacia.png": "04f36cf7d5de011a65f739e51336a7b90e5a7b46",
+    "HC:common/src/main/resources/assets/handcrafted/textures/block/chair/cushion/black_cushion.png": "7063b3ceb86427910a5c5b1f4def2bda7cbac73b",
+    "HC:common/src/main/resources/assets/handcrafted/textures/block/chair/warped_chair.png": "f0ec3155577e53114250c13ce6d70b514f182909",
+    "MC1.21.11:assets/minecraft/textures/block/acacia_log.png": "cdf7c1971c2bb95e4ddfdb6b53bd0be69a341415e43030629bb4c72b339b83c1",
+    "MC1.21.11:assets/minecraft/textures/block/stripped_acacia_log.png": "8414c7d9465be466f65bc2294b7820b7e2e621fd7838508c9a245add9764a865"
+  },
+  "visible_diagram_panels": 8,
+  "first_source_ci_run": 44887449048
+}

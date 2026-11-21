@@ -1,0 +1,122 @@
+name: INT-3 actual pinned PNG and source UV for four chair child models
+on:
+  pull_request:
+    paths:
+      - 'scripts/integration/render_int3_textured_chairs.py'
+      - 'tests/integration/test_int3_textured_chairs.py'
+      - 'project/integration/INT3_TEXTURED*'
+      - '.github/workflows/integration-int3-textured-chairs.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-pixel-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image decoder, keeping original game assets private to CI temp
+        run: python -m pip install "Pillow>=10,<13"
+      - name: Test source face UV / rotation and texture nearest sampling
+        run: python -m unittest discover -s tests/integration -p 'test_int3_textured_chairs.py' -v
+      - name: Fetch exact previously audited AF HC Macaw and Mojang original archives
+        env:
+          RAW: ${{ runner.temp }}/int3-original-archives
+        run: |
+          set -euo pipefail
+          mkdir -p "$RAW"
+          curl -fLSs --retry 3 --retry-delay 2 "https://codeload.github.com/crispytwig/AnotherFurniture/zip/57eb624cbb7f408d43398c7434b0d38d312cb55d" -o "$RAW/af.zip"
+          curl -fLSs --retry 3 --retry-delay 2 "https://codeload.github.com/terrarium-earth/Handcrafted/zip/8d21d1665916850c3fa3bdaf1370c50ec2ca7035" -o "$RAW/hc.zip"
+          curl -fLSs --retry 3 --retry-delay 2 "https://cdn.modrinth.com/data/dtWC90iB/versions/xhmciaUD/mcw-furniture-3.4.2-mc1.21.11fabric.jar" -o "$RAW/macaw.jar"
+          curl -fLSs --retry 3 --retry-delay 2 "https://piston-data.mojang.com/v1/objects/30c73b1c5da787909b2f73340419fdf13b9def88/client.jar" -o "$RAW/1.21.1.jar"
+          curl -fLSs --retry 3 --retry-delay 2 "https://piston-data.mojang.com/v1/objects/ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd/client.jar" -o "$RAW/1.21.11.jar"
+      - name: Reopen 4 child JSONs + 4 parent sources, verify 229 face textures and render actual sampled PNG
+        env:
+          RAW: ${{ runner.temp }}/int3-original-archives
+          OUT: ${{ runner.temp }}/int3-textured-chair-result
+        run: |
+          mkdir -p "$OUT"
+          python scripts/integration/render_int3_textured_chairs.py \
+            --root . \
+            --af "$RAW/af.zip" --hc "$RAW/hc.zip" --macaw "$RAW/macaw.jar" \
+            --mc1211 "$RAW/1.21.1.jar" --mc12111 "$RAW/1.21.11.jar" \
+            --out "$OUT"
+      - name: Verify full per-face source SHA, source model identity, and diagnostics limitations
+        env:
+          OUT: ${{ runner.temp }}/int3-textured-chair-result
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,os
+          from pathlib import Path
+          output=Path(os.environ["OUT"])
+          result=json.loads((output/"INT3_TEXTURED_CHAIRS_SOURCE_REPORT.json").read_text(encoding="utf-8"))
+          if result["status"]!="PASS_SOURCE_PINNED_CHILD_TEXTURE_FACES_DIAGNOSTIC_NOT_MINECRAFT_CLIENT":
+              raise SystemExit("4-child source texture/UV mapping did not pass")
+          if result["four_child_source_face_counts"]!={"AF121":46,"AF123":46,"HC11210":78,"MACAW67":59}:
+              raise SystemExit("Child source face census changed")
+          if result["original_faces"]!=229 or result["visible_diagram_panels"]!=8:
+              raise SystemExit("Incomplete source face or camera observations")
+          image=output/"INT3_4_CHAIRS_ORIGINAL_UV_TEXTURE_DIAGNOSTIC.png"
+          rows=output/"INT3_229_ORIGINAL_FACE_UV_TEXTURE_EVIDENCE.csv"
+          if hashlib.sha256(image.read_bytes()).hexdigest()!=result["contact_sheet_sha256"]:
+              raise SystemExit("Output derived PNG SHA differs")
+          if hashlib.sha256(rows.read_bytes()).hexdigest()!=result["face_csv_sha256"]:
+              raise SystemExit("Per-face source UV evidence SHA differs")
+          with rows.open(encoding="utf-8",newline="") as f:
+              face=list(csv.DictReader(f))
+          if len(face)!=229 or len({
+              (r["model_key"],r["element_index"],r["face_direction"]) for r in face
+          })!=229:
+              raise SystemExit("Face ledger missing 4-child original source faces")
+          if any(r["game_visual_verified"]!="NO" or
+                 not r["original_png_sha"] or not r["original_png_path"]
+                 for r in face):
+              raise SystemExit("Invalid model face source or game-verification claim")
+          restrictions=result["boundary"]
+          if (restrictions["actual_minecraft_client_render_verified"] or
+              restrictions["part_function_approved"] or
+              restrictions["style_or_material_classification_approved"] or
+              restrictions["source_license_or_training_approved"] or
+              restrictions["source_original_png_json_jar_exported"]):
+              raise SystemExit("Original artwork or game-function approval claimed")
+          print("INT3_TEXTURED_FOUR_CHAIRS_ALL_229_ORIGINAL_PNG_UV_FACES_VERIFIED")
+          PY
+      - name: Reconcile recomputed source 229-face PNG UV ledger and saved SHA evidence
+        env:
+          OUT: ${{ runner.temp }}/int3-textured-chair-result
+        run: |
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          original=json.loads(Path("project/integration/INT3_TEXTURED_CHAIRS_SOURCE_SUMMARY.json").read_text(encoding="utf-8"))
+          latest=json.loads((Path(os.environ["OUT"])/"INT3_TEXTURED_CHAIRS_SOURCE_REPORT.json").read_text(encoding="utf-8"))
+          for key,value in latest.items():
+              if original.get(key)!=value:
+                  raise SystemExit("Pinned texture and per-face UV evidence diverged: "+key)
+          if original["source_png_count"]!=8 or original["original_faces"]!=229:
+              raise SystemExit("Only the fixed four original child chair evidence scopes are supported")
+          folder=Path(os.environ["OUT"])
+          for filename,key in (
+              ("INT3_4_CHAIRS_ORIGINAL_UV_TEXTURE_DIAGNOSTIC.png","contact_sheet_sha256"),
+              ("INT3_229_ORIGINAL_FACE_UV_TEXTURE_EVIDENCE.csv","face_csv_sha256")
+          ):
+              if hashlib.sha256((folder/filename).read_bytes()).hexdigest()!=original[key]:
+                  raise SystemExit("Render or provenance file bytes changed: "+filename)
+          if latest["boundary"]["actual_minecraft_client_render_verified"]:
+              raise SystemExit("Diagnosis cannot certify Minecraft runtime")
+          print("INT3_ALL_229_ORIGINAL_TEXTURE_FACES_SHA_AND_SOURCE_PNG_PINNED_REPRODUCED")
+          PY
+      - name: Upload only derived texture-mapped diagnostic and source hash report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int3-four-textured-chair-source-uv-diagnostic
+          path: ${{ runner.temp }}/int3-textured-chair-result/
+          if-no-files-found: warn
+          retention-days: 60
