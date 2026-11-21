@@ -196,9 +196,17 @@ def collect_model_pins(root):
             records=list(csv.DictReader(f))
         for row in records:
             if row["family"]=="models":
-                require(row["path"] not in pins,
-                        "Duplicate historical source file path")
-                pins[row["path"]]=(mod,row["sha"],int(row["bytes"]))
+                raw_path=row["path"]
+                prefix="common/src/main/resources/"
+                if mod=="AF":
+                    require(raw_path.startswith(prefix),
+                            "Unexpected original AF source path convention")
+                    normalized=raw_path[len(prefix):]
+                else:
+                    normalized=raw_path
+                require(normalized not in pins,
+                        "Duplicate historical normalized source file path")
+                pins[normalized]=(mod,row["sha"],int(row["bytes"]))
     require(len(pins)==1629+2549,"Historical AF/Macaw source-model population drift")
     return pins,{mod:sha256((root/(B+f"B_{mod}_SOURCE_BODIES.csv.gz")).read_bytes())
                  for mod in ("AF","MACAW")}
