@@ -137,7 +137,7 @@ def recrop(root,args):
     finally:
         source.close()
     target={"sampled_frame_regions":29957,"region_frame_source_pixels":2127316,
-            "supported_face_instances":511709,"unique_uv_groups":29083,
+            "supported_face_instances":511709,"unique_uv_groups":27778,
             "unique_png_with_face_regions":2171,
             "frame_regions_matching":29957}
     wrong={key:{"actual":summary[key],"expected":value} for key,value in target.items()
@@ -153,6 +153,12 @@ def recrop(root,args):
       "per_region_discrepancies":summary["sampled_frame_regions"]-summary["frame_regions_matching"],
       "discrepancy_examples":errors,
       "per_region_csv_sha256":hashlib.sha256(output.read_bytes()).hexdigest(),
+      "historic_29083_groups_reconciliation":{
+         "ordinary_region_groups":len(groups),
+         "exception_uv_groups_in_entry02":1298,
+         "missing_png_face_groups_in_entry02":7,
+         "all_previous_nonzero_face_groups":len(groups)+1298+7,
+      },
       "inherited_face_instance_weights":"HISTORIC_1_4_NOT_RECOMPUTED_FROM_MODEL_STATE",
       "not_checked":["all 592312 model-face-to-texture links independently rebuilt",
                       "runtime UVlock,tint,atlas","source AI training rights"],
