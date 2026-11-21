@@ -3,6 +3,8 @@ on:
   pull_request:
     paths:
       - 'src/mcfr/chair_runtime_fixture.py'
+      - 'src/mcfr/chair_capture_isolation_audit.py'
+      - 'tests/knowledge/test_chair_capture_isolation.py'
       - 'src/mcfr/chair_runtime_capture.py'
       - 'src/mcfr/runtime.py'
       - 'tests/knowledge/test_chair_runtime_fixture.py'
@@ -44,7 +46,9 @@ jobs:
       - name: Unit test fixed blockstate source, synthetic JAR corruption and exact 16-case plans
         env:
           PYTHONPATH: src
-        run: python -m unittest discover -s tests/knowledge -p 'test_chair_runtime_fixture.py' -v
+        run: |
+          python -m unittest discover -s tests/knowledge -p 'test_chair_runtime_fixture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_chair_capture_isolation.py' -v
       - name: Generate disposable creative flat world with original Mojang server
         env:
           PYTHONPATH: src
@@ -96,6 +100,38 @@ jobs:
               if not item["server_blockstate_verified"] or not item["native_F2_client_capture"]:
                   raise SystemExit("A modeled state lacks real client capture proof")
           print("INT3_REAL_MINECRAFT_CLIENT_SAVED_F2_SOURCE_STATES_ALL_VERIFIED")
+          PY
+      - name: Confirm isolated in-game F2 chairs and exclude foreign stone stages from source visual review
+        env:
+          PYTHONPATH: src
+          OUT: ${{ runner.temp }}/mcfr-real-client-result
+        run: |
+          python -m mcfr.chair_capture_isolation_audit \
+            --directory "$OUT" --version "${{ matrix.minecraft }}"
+          python - <<'PY'
+          import csv,hashlib,json,os
+          from pathlib import Path
+          folder=Path(os.environ["OUT"])
+          doc=json.loads((folder/"INT3_ISOLATED_F2_VISIBILITY_SUMMARY.json").read_text(encoding="utf-8"))
+          if doc["state"]!="PASS_ORIGINAL_F2_CHAIR_VISIBLE_AND_STAGING_ISOLATION_NOT_SEMANTICS":
+              raise SystemExit("F2 visual isolation was not verified")
+          if not doc["all_stages_same_z_plane"] or doc["minimum_distinct_chair_x_separation"]<16:
+              raise SystemExit("The camera may see the platform of another chair")
+          if doc["version"]=="1.21.1" and (doc["native_f2_count"]!=12 or
+              doc["max_stone_sky_pixels"]>=1000):
+              raise SystemExit("Actual upper-sky region contains another fixture platform")
+          if doc["version"]=="1.21.11" and doc["native_f2_count"]!=4:
+              raise SystemExit("Macaw source F2 positions missing")
+          if doc["semantic_role_approved"] or doc["texture_uv_pixel_equality_approved"] or doc["ai_training_rights_approved"]:
+              raise SystemExit("Isolation is not semantic/UV/rights validation")
+          p=folder/"INT3_ISOLATED_F2_VISIBILITY_EVIDENCE.csv"
+          if hashlib.sha256(p.read_bytes()).hexdigest()!=doc["evidence_csv_sha256"]:
+              raise SystemExit("Source visual observation CSV changed")
+          with p.open(encoding="utf-8",newline="") as file:
+              rows=list(csv.DictReader(file))
+          if len(rows)!=doc["native_f2_count"] or len({x["case_id"] for x in rows})!=len(rows):
+              raise SystemExit("F2 source cases or visual observations incomplete")
+          print("INT3_ISOLATED_REAL_GAME_CHAIR_IMAGES_NO_FOREIGN_STAGE_INTRUSIONS")
           PY
       - name: Store only F2 screenshots, source/JAR SHA manifest, and runtime logs
         if: always()
