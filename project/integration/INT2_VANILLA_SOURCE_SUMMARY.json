@@ -1,0 +1,61 @@
+{
+  "ai_training_approval": "NOT_GRANTED",
+  "audit_schema": "MCFR_INT2_VANILLA_SOURCE_v1",
+  "baseline_commit": "176f7f34de2336eb7984c4734e97b6eb156c19f4",
+  "overall_status": "PASS_SOURCE_BINARY_AND_JSON_SCOPE",
+  "scope_1_1": {
+    "cross_g_blob_matches": 150,
+    "newly_verified": "RAW_SHA256_PNG_CRC_RGBA",
+    "not_verified": [
+      "material_semantic_classification",
+      "ingame_rendering",
+      "official_client_JAR_authenticity"
+    ],
+    "png_crc_and_full_rgba_decode_pass": 150,
+    "raw_sha256_matches": 150,
+    "source_png": 150,
+    "stage_counts": {
+      "1-1-01": 18,
+      "1-1-02": 17,
+      "1-1-03": 16,
+      "1-1-04": 9,
+      "1-1-05": 6,
+      "1-1-06": 8,
+      "1-1-07": 7,
+      "1-1-08": 21,
+      "1-1-09": 9,
+      "1-1-10": 8,
+      "1-1-11": 31
+    },
+    "total_alpha_opaque": 39205,
+    "total_alpha_partial": 1280,
+    "total_alpha_zero": 1755,
+    "total_decoded_pixels": 42240
+  },
+  "scope_1_2": {
+    "G_provenance_gap_records_independently_rechecked": 4,
+    "by_type": {
+      "BLOCKSTATE_JSON": 1168,
+      "BLOCK_MODEL_JSON": 2390,
+      "BLOCK_TEXTURE_PNG": 1111
+    },
+    "json_parsed": 3558,
+    "models_declaring_parent": 2078,
+    "not_verified": [
+      "all_inherited_geometry",
+      "UV_accuracy",
+      "blockstate_render_selection",
+      "official_JAR_sha",
+      "ingame_behavior"
+    ],
+    "png_full_crc_and_decode": 1111,
+    "sidecar_animation_counts": {
+      "animated": 54,
+      "not_animated": 45
+    },
+    "sidecars_rehashed_json_parsed": 99,
+    "source_files_rehashed": 4669
+  },
+  "ci_run": 44857143501,
+  "ci_source_commit": "41e6fea8528ec77fc411ad57238712d757caba96"
+}
