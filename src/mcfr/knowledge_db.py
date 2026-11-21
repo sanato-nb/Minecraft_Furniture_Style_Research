@@ -498,9 +498,11 @@ def print_model(conn,identity):
       SELECT m.*,s.version,s.minecraft_version,s.license_review,s.training_approved
       FROM model m JOIN source_release s USING(source_id)
       WHERE m.model_key=? OR m.resource_id=?
-      ORDER BY m.model_key LIMIT 1""",(identity,identity)).fetchone()
-    if row is None:raise LookupError("No fixed research model: "+identity)
-    data=dict(row)
+      ORDER BY m.model_key LIMIT 2""",(identity,identity)).fetchall()
+    if not row:raise LookupError("No fixed research model: "+identity)
+    if len(row)>1:
+        raise LookupError("Ambiguous resource ID across versions/sources. Use the unique model_key: "+identity)
+    data=dict(row[0])
     data["face_status_counts"]=dict(conn.execute("""
       SELECT face_status,COUNT(*) FROM model_face_link
       WHERE model_key=? GROUP BY face_status""",(data["model_key"],)))

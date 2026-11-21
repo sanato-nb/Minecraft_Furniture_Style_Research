@@ -247,10 +247,17 @@ CREATE VIEW ai_training_eligible_model AS
  FROM model m JOIN source_release s ON s.source_id=m.source_id
  WHERE s.license_review='CLEARED' AND s.training_approved=1
  AND m.effective_faces>0 AND m.terminal_status NOT IN ('PARENT_MISSING','PARENT_CYCLE')
+ AND (SELECT COUNT(*) FROM model_face_link f
+      WHERE f.model_key=m.model_key)=m.effective_faces
  AND NOT EXISTS (
    SELECT 1 FROM model_face_link f
-   WHERE f.model_key=m.model_key
-     AND f.pixel_support IN ('NO_SOURCE_INTERSECTION','SLOT_UNBOUND','SOURCE_PNG_MISSING')
+   LEFT JOIN texture t ON t.texture_id=f.texture_id
+   LEFT JOIN source_release ts ON ts.source_id=t.source_id
+   WHERE f.model_key=m.model_key AND (
+       f.pixel_support!='SOURCE_REGION_REMEASURED'
+       OR t.source_id IS NULL
+       OR ts.license_review!='CLEARED' OR ts.training_approved!=1
+   )
  );
 
 CREATE VIEW candidate_finding AS

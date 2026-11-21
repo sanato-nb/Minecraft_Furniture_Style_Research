@@ -1,0 +1,120 @@
+{
+  "ai_training_eligible_models": 0,
+  "case_source_model_links": {
+    "MODEL_LINKED": 52,
+    "UNMATCHED_SCOPE": 22
+  },
+  "comparison_disposition": {
+    "CANDIDATE_REQUIRES_REVIEW": 14,
+    "SCOPE_LIMIT_ONLY": 7
+  },
+  "computed_face_counts": {
+    "ANIMATED_FRAME_RECTS": 5095,
+    "MISSING_PINNED_PNG": 139,
+    "OUTSIDE_TEXTURE_UV": 5144,
+    "SLOT_UNBOUND": 6202,
+    "STATIC_RECT": 506614,
+    "ZERO_UV_AREA": 69118,
+    "faces": 592312,
+    "pixel_support_NO_SOURCE_INTERSECTION": 2,
+    "pixel_support_SLOT_UNBOUND": 6202,
+    "pixel_support_SOURCE_PNG_MISSING": 139,
+    "pixel_support_SOURCE_REGION_REMEASURED": 585969
+  },
+  "face_pixel_support": {
+    "NO_SOURCE_INTERSECTION": 2,
+    "SLOT_UNBOUND": 6202,
+    "SOURCE_PNG_MISSING": 139,
+    "SOURCE_REGION_REMEASURED": 585969
+  },
+  "face_status": {
+    "ANIMATED_FRAME_RECTS": 5095,
+    "MISSING_PINNED_PNG": 139,
+    "OUTSIDE_TEXTURE_UV": 5144,
+    "SLOT_UNBOUND": 6202,
+    "STATIC_RECT": 506614,
+    "ZERO_UV_AREA": 69118
+  },
+  "historical_sources_overwritten": false,
+  "independent_audit_manifests": {
+    "COMPARISON": {
+      "path": "project/integration/INT2_1_5_SUMMARY.json",
+      "sha256": "683857525b0f7f380755543ffec6100292462329bc4fb46886b0fee004cc73bf",
+      "status": "PASS_PINNED_COMPARISON_21_CLAIMS_SOURCED_AND_REDERIVED"
+    },
+    "FACES": {
+      "path": "project/integration/INT2_1_4_FULL_LINKS_SUMMARY.json",
+      "sha256": "2691fe61815f0d811158cc457a3078df625b223fffdc2ff7acbcaf959702fb92",
+      "status": "PASS_ALL_592312_FACE_LINKS_RECONSTRUCTED_FROM_ORIGINALS"
+    },
+    "GEOMETRY": {
+      "path": "project/integration/INT2_MOD_SOURCE_SUMMARY.json",
+      "sha256": "12a796791392d7f6a51dcf347b23757bab303cf88706ea7f5cd649913951f808",
+      "status": "PASS_SOURCE_GEOMETRY_CATALOG_SCOPE"
+    },
+    "PNG": {
+      "path": "project/integration/INT2_1_4_SUMMARY.json",
+      "sha256": "a8e488d790d8aa2c9e49f4e08f97a80cf9dc38598cd8b32dabbfb201eb70f2cd",
+      "status": "PASS_ORIGINAL_PNG_BYTES_CRC_RGBA_AND_FACE_COUNT_RECONCILIATION"
+    },
+    "SUPPLEMENT": {
+      "path": "project/integration/INT2_1_4_SUPPLEMENTAL_SUMMARY.json",
+      "sha256": "b704a04f5d383361f05e81f04b2772fcb81ef8f122f881bc4dea5bcdb3ab1762",
+      "status": "PASS_SUPPLEMENTAL_SOURCE_AND_EXCEPTION_CONTEXT"
+    },
+    "UV": {
+      "path": "project/integration/INT2_1_4_UV_REGIONS_SUMMARY.json",
+      "sha256": "238c5d8e7bf1525e759f925a09c4e307445e4df035b007d7780add8a6300a115",
+      "status": "PASS_ORIGINAL_UV_REGION_PIXEL_RECHECK"
+    }
+  },
+  "logical_sha256": {
+    "comparison_finding": "3ba900c41b44707fe4da3cd13363e3c9e991750a01057695e20a30fdd3080391",
+    "model": "f59839e66f70214fa00bd937d180e10127f83ec5b2dac3f998989e80ca7f07c8",
+    "model_face_link": "fa60e92c184abcab1e19d4c38cf4f721b77e93573817cd48ee1bcd9b51d71db1",
+    "texture": "d30c48f1dcd36e3edfa4b616a0473a6f00c73969b08370533c3c75924980b29b"
+  },
+  "model_by_source": {
+    "AF": 1629,
+    "HC": 12394,
+    "MACAW": 2549,
+    "MC1.21.1": 6,
+    "MC1.21.11": 1
+  },
+  "output_db_bytes": 131338240,
+  "rights_approval_count": 0,
+  "runtime_rechecks_in_int3": 0,
+  "schema": "MCFR_INT3_KNOWLEDGE_INTEGRATION/v1",
+  "scope_limit": "Audited static evidence, NOT game runtime or licensed model training permission",
+  "source_input_hashes": {
+    "1-3-F": "21683d623f2abfb54f35aa5e328ed595749ec467e338c8c725c7104e36a43f88",
+    "1-4-E": "99a7a6911fa0ec2d3c1361241359963b3525309e815796856635d33145b2ce27",
+    "1-5-E": "c8d59ce8d565b3b8404258adb6f55eae16a7962b389f5120f405ffe6fb2bb2b7"
+  },
+  "status": "PASS_FIXED_SCOPE_SOURCE_LINKS_AND_RESEARCH_INTEGRATION",
+  "table_counts": {
+    "case_application": 74,
+    "case_application_source": 221,
+    "case_category": 72,
+    "comparison_asset": 272,
+    "comparison_asset_hash": 346,
+    "comparison_finding": 21,
+    "evidence_exception": 139,
+    "evidence_manifest": 6,
+    "finding_case": 70,
+    "geometry_element": 1911,
+    "knowledge_provenance": 6,
+    "model": 16579,
+    "model_face_link": 592312,
+    "model_parent": 50246,
+    "model_slot": 81641,
+    "provider_face": 9760,
+    "runtime_check": 10,
+    "runtime_condition": 16,
+    "source_release": 5,
+    "study_case": 62,
+    "texture": 2256
+  },
+  "first_successful_ci_run": 44873264792,
+  "source_commit": "c8058c44f7bbb3e0914a2d9019d08526cd730213"
+}

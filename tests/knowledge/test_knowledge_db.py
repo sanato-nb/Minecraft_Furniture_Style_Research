@@ -97,6 +97,9 @@ class SchemaRightsTests(unittest.TestCase):
               VALUES('M','AF','af:block/chair','assets/af/models/chair.json','sha','MOD','STATIC',
                      NULL,'ROOT','',1,1,'FACES')""")
         self.assertEqual(self.db.execute("SELECT COUNT(*) FROM ai_training_eligible_model").fetchone()[0],0)
+        self.db.execute("UPDATE source_release SET license_review='CLEARED',training_approved=1 WHERE source_id='AF'")
+        self.assertEqual(self.db.execute("SELECT COUNT(*) FROM ai_training_eligible_model").fetchone()[0],0,
+                         "Cannot approve an incomplete model whose source face evidence is missing")
 
 if __name__=="__main__":
     unittest.main()
