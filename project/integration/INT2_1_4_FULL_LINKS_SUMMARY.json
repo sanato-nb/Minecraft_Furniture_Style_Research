@@ -1,0 +1,70 @@
+{
+  "ai_training_approved": false,
+  "assertions": {
+    "all_16572_model_rows_match": true,
+    "all_592312_face_links_match_existing_F": true,
+    "all_model_slots_match": true,
+    "fixed_face_total": true,
+    "fixed_model_total": true,
+    "no_old_face_rows_leftover": true,
+    "old_entry02_disposition_counts_match": true
+  },
+  "evidence": {
+    "per_face_gzip_sha256": "3a13148a240403e2d6b35b5f3c4fa779847ca3402389a3538c0457c1f1702436",
+    "per_model_csv_sha256": "ba8ea7fc9918baa3ef0e5fca0717b03c7c32199c67dcb0ba5f8598f68fa1421a"
+  },
+  "face_status_counts": {
+    "ANIMATED_FRAME_RECTS": 5095,
+    "MISSING_PINNED_PNG": 139,
+    "OUTSIDE_TEXTURE_UV": 5144,
+    "SLOT_UNBOUND": 6202,
+    "STATIC_RECT": 506614,
+    "ZERO_UV_AREA": 69118
+  },
+  "limitations": [
+    "does not execute Minecraft client or verify final baked texture atlas",
+    "1-4 entry02 PNG frame metadata are pinned from prior independent pixel rechecks",
+    "historical F registry supplies canonical resource/version numeric texture identity",
+    "runtime resource overrides, shader tint and collision not verified",
+    "source licensing and AI training approval not granted by this check"
+  ],
+  "missing_or_unbound_discrepancies": {},
+  "model_mismatch_examples": [],
+  "observed": {
+    "historical_matched_faces": 592312,
+    "matched_slots": 81641,
+    "model_rows_different": 0,
+    "model_rows_pass": 16572,
+    "reconstructed_faces": 592312,
+    "source_slots": 81641,
+    "source_verified_models": 16572
+  },
+  "pinned_source_model_counts": {
+    "AF": 1629,
+    "HC": 12394,
+    "MACAW": 2549,
+    "MC1.21.1": 6,
+    "MC1.21.11": 1
+  },
+  "pixel_scope_and_face_status_counts": {
+    "MISSING_PINNED_PNG": 139,
+    "PNG_UV_CANDIDATE|ANIMATED_FRAME_RECTS": 5095,
+    "PNG_UV_CANDIDATE|OUTSIDE_TEXTURE_UV": 5144,
+    "PNG_UV_CANDIDATE|STATIC_RECT": 459594,
+    "PNG_UV_CANDIDATE|ZERO_UV_AREA": 63814,
+    "PRIOR_RGBA_SHA_MATCH|STATIC_RECT": 47020,
+    "PRIOR_RGBA_SHA_MATCH|ZERO_UV_AREA": 5304,
+    "SLOT_UNBOUND": 6202
+  },
+  "schema": "MCFR_INT2_1_4_FULL_SOURCE_FACE_LINKS/v1",
+  "scope_comparison_discrepancies": {},
+  "source_face_uv_declarations": {
+    "explicit": 590974,
+    "implicit": 1338,
+    "reversed": 187693,
+    "rotated": 132362
+  },
+  "status": "PASS_ALL_592312_FACE_LINKS_RECONSTRUCTED_FROM_ORIGINALS",
+  "initial_successful_ci_run": 44869592160,
+  "initial_successful_ci_commit": "da9749eab8def0bb7e454c6c3a05df99f2702951"
+}
