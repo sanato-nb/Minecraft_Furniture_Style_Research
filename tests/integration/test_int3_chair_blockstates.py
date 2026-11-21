@@ -7,6 +7,7 @@ import unittest
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[2]/"scripts/integration"))
 import audit_int3_chair_blockstates as state
+import render_int3_textured_chairs as textured
 
 class BlockstateSourceTests(unittest.TestCase):
     def test_selector_order_not_a_semantic_difference(self):
@@ -40,6 +41,16 @@ class BlockstateSourceTests(unittest.TestCase):
         q=p
         for _ in range(4):q=state.rotate_y(q,90)
         self.assertEqual(q,p)
+
+    def test_textured_renderer_blockstate_quarter_turn_is_same_source_geometry_math(self):
+        for angle in state.ROTATIONS:
+            for point in ((0,0,0),(8,8,8),(16,3,12),(3,16,16)):
+                self.assertEqual(textured.blockstate_rotate_point(point,angle),
+                                 state.rotate_y(point,angle))
+        self.assertEqual(textured.blockstate_rotate_normal((0,0,1),90),(1,0,0))
+        self.assertEqual(textured.blockstate_rotate_normal((0,0,1),0),(0,0,1))
+        with self.assertRaises(ValueError):
+            textured.blockstate_rotate_point((0,0,0),45)
 
     def test_source_model_namespace(self):
         self.assertEqual(state.canonical_target("block/chair","AF"),
