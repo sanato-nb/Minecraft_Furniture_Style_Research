@@ -184,6 +184,11 @@ def calculate(root,args):
     c_chains={r["model_key"]:r for r in read_table(root / (C+"MODEL_PARENT_CHAINS.csv.gz"))}
     b_elems={(r["source_key"],int(r["element_index"])):r for r in read_table(root / (C+"mod_model_elements.csv.gz"))}
     b_faces=read_table(root / (C+"MODEL_FACES.csv.gz"))
+    old_face_by_key={(r["source_key"],int(r["element_index"]),r["direction"]):r for r in b_faces}
+    reuse_rows=read_table(root / (C+"C_GEOMETRY_REUSE.csv"))
+    reuse_by_provider={r["source_key"]:r for r in reuse_rows}
+    if len(old_face_by_key)!=9760 or len(reuse_by_provider)!=300:
+        raise ValueError("Historical C face/provider key duplication or denominator discrepancy")
     c_vanilla={(r["minecraft"],r["model_id"]):r for r in read_table(root / (C+"C_VANILLA_PARENTS.csv"))}
     if len(c_chains)!=16572 or len(b_elems)!=1911 or len(b_faces)!=9760:
         raise ValueError("Historical C static ledger lengths differ from fixed scope")
@@ -193,6 +198,8 @@ def calculate(root,args):
     measured=Counter()
     kinds=Counter()
     provider_ids=set()
+    provider_use=Counter()
+    observed_faces=set()
     unresolvable=[]
     parent_missing_paths=[]
     effective_by_mod=Counter()
@@ -264,6 +271,7 @@ def calculate(root,args):
             provider_to_elements[provider[0]]=elems
         if provider:
             provider_ids.add(provider[0])
+            provider_use[provider[0]]+=1
         status="LOCAL" if provider else "NONE"
         if provider and provider[2]=="VANILLA":
             status="VANILLA"
@@ -364,9 +372,50 @@ def calculate(root,args):
                     discrepancy("ELEMENT",key,f"Element index {ix} mismatched {name}")
             if old["axis"]!=rot.get("axis","") or int(old["face_count"])!=len(element.get("faces",{})):
                 discrepancy("ELEMENT",key,f"Element index {ix} axis/face count mismatch")
+            for direction,face in element.get("faces",{}).items():
+                fkey=(key,ix,direction)
+                observed_faces.add(fkey)
+                prior_face=old_face_by_key.get(fkey)
+                if prior_face is None:
+                    discrepancy("FACE",str(fkey),"C original face key missing")
+                    continue
+                if prior_face["texture_slot"]!=face.get("texture",""):
+                    discrepancy("FACE",str(fkey),"C texture slot does not match original")
+                uv=face.get("uv",[])
+                if not same_vec(prior_face["uv"],uv):
+                    discrepancy("FACE",str(fkey),"C face UV coordinate mismatch")
+                if (int(prior_face["uv_declared"])!=int(bool(uv))
+                        or int(prior_face["uv_rotation"])!=int(face.get("rotation",0))
+                        or prior_face["cullface"]!=str(face.get("cullface",""))
+                        or prior_face["tintindex"]!=str(face.get("tintindex",""))):
+                    discrepancy("FACE",str(fkey),"C UV rotation/cullface/tintindex declaration differs")
+                measured["source_faces_checked"]+=1
             measured["provider_elements"]+=1
             measured["provider_faces"]+=len(element.get("faces",{}))
             measured["rotated_elements"]+=bool(rot.get("angle",0))
+    # Independent ordered geometry fingerprint and provider-use counts.
+    geometry_shas=set()
+    for key,elems in provider_to_elements.items():
+        normalized=[]
+        for e in elems:
+            rot=e.get("rotation",{})
+            rotated=[rot["origin"],rot["axis"],rot["angle"],bool(rot.get("rescale",False))] if rot.get("angle",0) else []
+            normalized.append([e["from"],e["to"],rotated,sorted(e["faces"])])
+        signature=hashlib.sha256(json.dumps(normalized,separators=(",",":")).encode()).hexdigest()
+        geometry_shas.add(signature)
+        prior=reuse_by_provider.get(key)
+        if prior is None:
+            discrepancy("GEOMETRY_REUSE",key,"C provider absent from reuse index")
+            continue
+        if (signature!=prior["ordered_geometry_sha256"]
+                or provider_use[key]!=int(prior["effective_model_count"])
+                or len(elems)!=int(prior["elements"])
+                or sum(len(e.get("faces",{})) for e in elems)!=int(prior["faces"])):
+            discrepancy("GEOMETRY_REUSE",key,"Geometry fingerprint/effective reuse count disagrees")
+    if len(geometry_shas)!=289:
+        discrepancy("GEOMETRY_REUSE","TOTAL","Distinct ordered geometry fingerprint count differs from 289")
+    if set(old_face_by_key)!=observed_faces:
+        discrepancy("FACE","TOTAL","Source face key population differs from historical C")
     # Cross-check every C element was actually resolved from an original provider.
     for key in b_elems:
         if key[0] not in provider_to_elements or key[1]>=len(provider_to_elements[key[0]]):
@@ -376,6 +425,8 @@ def calculate(root,args):
         "source_model_counts":dict(Counter(r["mod"] for r in summaries)),
         "provider_elements":measured["provider_elements"],
         "provider_faces":measured["provider_faces"],
+        "source_faces_checked":measured["source_faces_checked"],
+        "geometry_ordered_signature_count":len(geometry_shas),
         "distinct_providers":len(provider_ids),
         "effective_element_instances":measured["effective_elements"],
         "effective_face_instances":measured["effective_faces"],
@@ -395,6 +446,8 @@ def calculate(root,args):
        "effective_faces":measures["effective_face_instances"]-EXPECTED["faces"],
        "declared_elements":measures["provider_elements"]-EXPECTED["declared_elements"],
        "declared_faces":measures["provider_faces"]-EXPECTED["declared_faces"],
+       "source_faces_checked":measures["source_faces_checked"]-EXPECTED["declared_faces"],
+       "ordered_geometry_signatures":measures["geometry_ordered_signature_count"]-289,
        "providers":measures["distinct_providers"]-EXPECTED["providers"],
        "parent_missing":measures["parent_missing"]-EXPECTED["parent_missing"],
     }
@@ -429,10 +482,21 @@ def main():
     args=parser.parse_args()
     args.out.mkdir(parents=True,exist_ok=True)
     rows,report=calculate(args.root,args)
-    with (args.out/"INT2_MOD_16572_MODEL_CHECKS.csv").open("w",encoding="utf-8",newline="") as stream:
+    model_csv=args.out/"INT2_MOD_16572_MODEL_CHECKS.csv"
+    with model_csv.open("w",encoding="utf-8",newline="") as stream:
         writer=csv.DictWriter(stream,fieldnames=OUT_COLS,lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
+    report["per_model_csv_sha256"]=hashlib.sha256(model_csv.read_bytes()).hexdigest()
+    exception_csv=args.out/"INT2_MOD_EXCEPTIONS.csv"
+    with exception_csv.open("w",encoding="utf-8",newline="") as stream:
+        writer=csv.writer(stream,lineterminator="\n")
+        writer.writerow(["exception_type","resource_id"])
+        for ex in report["exceptions"]["missing_parent_paths"]:
+            writer.writerow(["PARENT_MISSING",ex])
+        for ex in report["exceptions"]["no_static_model_ids"]:
+            writer.writerow(["NO_STATIC_OR_UNRESOLVED",ex])
+    report["exception_csv_sha256"]=hashlib.sha256(exception_csv.read_bytes()).hexdigest()
     (args.out/"INT2_MOD_SOURCE_SUMMARY.json").write_text(json.dumps(report,indent=2,ensure_ascii=False,sort_keys=True)+"\n",encoding="utf-8")
     print("INT2_MOD_RESULT:"+json.dumps({
       "status":report["status"],"measures":report["measures"],
