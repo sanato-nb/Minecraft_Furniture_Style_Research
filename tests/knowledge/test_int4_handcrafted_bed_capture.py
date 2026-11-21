@@ -71,8 +71,11 @@ class HandcraftedBedTests(unittest.TestCase):
         draw=ImageDraw.Draw(sky)
         draw.rectangle((0,404,1024,684),fill=(80,104,49))
         self.assertEqual(study.bed_visible_proxy(sky),0)
+        background=sky.copy()
         draw.rectangle((480,390,540,465),fill=(130,86,54))
         self.assertGreaterEqual(study.bed_visible_proxy(sky),120)
+        self.assertGreaterEqual(study.model_vs_air_changed_pixels(sky,background),100)
+        self.assertEqual(study.model_vs_air_changed_pixels(background,background),0)
 
     @unittest.skipUnless(importlib.util.find_spec("PIL") is not None,
                          "Pillow only required for synthetic regression")
@@ -85,6 +88,11 @@ class HandcraftedBedTests(unittest.TestCase):
                 cid=item.case_id;source=rows[cid]
                 picture=root/(cid+".png")
                 Image.new("RGB",(1024,684),(165,99,55)).save(picture)
+                air=root/(cid+"_air_control.png")
+                Image.new("RGB",(1024,684),(175,205,255)).save(air)
+                with Image.open(picture) as source_img,Image.open(air) as control_img:
+                    difference=study.model_vs_air_changed_pixels(source_img,control_img)
+                self.assertGreaterEqual(difference,100)
                 cases[cid]={
                   "model_path":source["model_path"],
                   "model_git_blob_sha1":source["model_sha"],
@@ -100,6 +108,10 @@ class HandcraftedBedTests(unittest.TestCase):
                   "foreground_chroma_pixels":400,
                   "screenshot_file":picture.name,"screenshot_dimensions":[1024,684],
                   "screenshot_sha256":hashlib.sha256(picture.read_bytes()).hexdigest(),
+                  "air_control_screenshot_file":air.name,
+                  "air_control_sha256":hashlib.sha256(air.read_bytes()).hexdigest(),
+                  "air_control_state_verified":True,
+                  "bed_vs_air_changed_pixels":difference,
                   "natural_bed_pair_placement_tested":False,
                   "semantic_or_ai_rights_approved":False})
             data={
