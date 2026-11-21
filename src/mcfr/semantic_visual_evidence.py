@@ -88,7 +88,8 @@ def box_bounds(points):
 def build_element(r):
     a=coords(r["source_from"])
     b=coords(r["source_to"])
-    pivot=coords(r["pivot"])
+    # The original C ledger leaves pivot empty when rotation is absent.
+    pivot=coords(r["pivot"]) if r["pivot"].strip() else (8.0,8.0,8.0)
     angle=float(r["angle"])
     axis=r["axis"] or "y"
     rescale=bool(r["rescale"])

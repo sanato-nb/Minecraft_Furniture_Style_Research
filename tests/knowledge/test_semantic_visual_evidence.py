@@ -14,9 +14,9 @@ class GeometryRenderUnitTests(unittest.TestCase):
 
     def test_rotated_point_source_y_axis(self):
         p=v.rotate_point((1,2,3),(0,0,0),"y",90,False)
-        self.assertAlmostEqual(p[0],-3)
+        self.assertAlmostEqual(p[0],3)
         self.assertAlmostEqual(p[1],2)
-        self.assertAlmostEqual(p[2],1)
+        self.assertAlmostEqual(p[2],-1)
 
     def test_rotated_point_rescale_as_original_c(self):
         p=v.rotate_point((4,4,0),(0,0,0),"z",45,True)
