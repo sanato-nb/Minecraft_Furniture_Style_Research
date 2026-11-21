@@ -154,6 +154,7 @@ def pack_lines(version):
         "difficulty peaceful",
         "gamerule doDaylightCycle false",
         "gamerule doWeatherCycle false",
+        "forceload add -28 36 28 72",
     ]
     for item in cases(version):
         # Only local simple single-block source states; no neighboring block
