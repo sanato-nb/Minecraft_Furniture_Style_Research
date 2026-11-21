@@ -260,10 +260,19 @@ def source_asset_to_model_map(original,comparison):
     return result
 
 def comparison_knowledge(out,original,comparison):
+    out.executemany("INSERT INTO comparison_asset VALUES(?,?,?,?,?)",
+         (tuple(r) for r in comparison.execute(
+            "SELECT asset_id,source_scope,minecraft,path,kind FROM asset ORDER BY asset_id")))
+    out.executemany("INSERT INTO comparison_asset_hash VALUES(?,?,?)",
+         (tuple(r) for r in comparison.execute(
+            "SELECT asset_id,algorithm,digest FROM asset_hash ORDER BY asset_id,algorithm")))
     out.executemany("INSERT INTO study_case(case_id,cohort,minecraft_version,block,bbox) VALUES (?,?,?,?,?)",
         (tuple(r) for r in comparison.execute("""
             SELECT case_id,cohort,minecraft,block,bbox FROM study_case ORDER BY case_id
         """)))
+    out.executemany("INSERT INTO case_category VALUES(?,?)",
+        (tuple(r) for r in comparison.execute(
+          "SELECT case_id,category FROM case_category ORDER BY case_id,category")))
     links=source_asset_to_model_map(original,comparison)
     application_links=Counter()
     applications=comparison.execute("""
@@ -285,6 +294,10 @@ def comparison_knowledge(out,original,comparison):
           (r["case_id"],r["rule_index"],r["option_index"],r["model_asset"],
            model_id,r["provider_asset"],provider_id,r["x"],r["y"],r["uvlock"],
            "MODEL_LINKED" if linked else "UNMATCHED_SCOPE"))
+    out.executemany("INSERT INTO case_application_source VALUES(?,?,?,?,?)",
+        (tuple(r) for r in comparison.execute("""
+            SELECT case_id,rule_index,option_index,role,asset_id FROM application_source
+            ORDER BY case_id,rule_index,option_index,role""")))
     for r in comparison.execute("""
       SELECT f.finding_id,f.category,f.classification,f.axis,f.measurement,
              f.observation,f.scope_limit,h.disposition,h.review_condition
@@ -296,6 +309,10 @@ def comparison_knowledge(out,original,comparison):
     out.executemany("INSERT INTO finding_case VALUES(?,?)",
          (tuple(r) for r in comparison.execute(
              "SELECT finding_id,case_id FROM finding_case ORDER BY finding_id,case_id")))
+    out.executemany("INSERT INTO runtime_check VALUES(?,?,?,?,?,?,?)",
+        (tuple(r) for r in comparison.execute("""
+            SELECT test_id,axis,cases_or_scope,source_basis,setup,observation_required,status
+            FROM runtime_check ORDER BY test_id""")))
     out.executemany("INSERT INTO runtime_condition(finding_id,test_id) VALUES(?,?)",
          (tuple(r) for r in comparison.execute(
              "SELECT finding_id,test_id FROM handoff_runtime ORDER BY finding_id,test_id")))
@@ -325,13 +342,16 @@ def inspect(db):
     tables=(
       "source_release","evidence_manifest","knowledge_provenance","model",
       "model_parent","geometry_element","provider_face","texture","model_slot",
-      "model_face_link","study_case","case_application","comparison_finding",
-      "finding_case","runtime_condition","evidence_exception")
+      "model_face_link","comparison_asset","comparison_asset_hash","study_case",
+      "case_category","case_application","case_application_source","comparison_finding",
+      "finding_case","runtime_check","runtime_condition","evidence_exception")
     counts={name:count(db,name) for name in tables}
     checks={"source_release":5,"evidence_manifest":6,"model":16579,
             "geometry_element":1911,"provider_face":9760,"texture":2256,
             "model_slot":81641,"model_face_link":FULL_TOTAL,"study_case":62,
-            "case_application":74,"comparison_finding":21,"finding_case":70,
+            "comparison_asset":272,"comparison_asset_hash":346,"case_category":72,
+            "case_application":74,"case_application_source":221,
+            "comparison_finding":21,"finding_case":70,"runtime_check":10,
             "runtime_condition":16,"evidence_exception":139}
     for key,expected in checks.items():
         if counts[key]!=expected:
@@ -496,6 +516,7 @@ def print_finding(conn,identity):
     data["measurement_json"]=json.loads(data["measurement_json"])
     data["cases"]=[x[0] for x in conn.execute("""
       SELECT case_id FROM finding_case WHERE finding_id=? ORDER BY case_id""",(identity,))]
+    data["source_artifact_note"]="Comparison applications preserve source model/blockstate/provider paths and SHA digests in comparison_asset and comparison_asset_hash, even if model_key is absent in 1-3-F."
     data["runtime_checks"]=[x[0] for x in conn.execute("""
       SELECT test_id FROM runtime_condition WHERE finding_id=? ORDER BY test_id""",(identity,))]
     data["ai_training_approved"]=False

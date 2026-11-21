@@ -78,6 +78,16 @@ class SchemaRightsTests(unittest.TestCase):
                   'obs','limits','SCOPE_LIMIT_ONLY','review','COMPARISON')""")
         self.assertEqual(self.db.execute("SELECT COUNT(*) FROM candidate_finding").fetchone()[0],0)
 
+    def test_application_state_model_provider_source_fk(self):
+        self._source()
+        self.db.execute("INSERT INTO study_case(case_id,cohort,minecraft_version,block,bbox) VALUES('S01','AF','1.21.1','chair','bbox')")
+        self.db.execute("INSERT INTO comparison_asset VALUES(7,'AF','1.21.1','assets/af/models/chair.json','MODEL')")
+        self.db.execute("INSERT INTO case_application VALUES('S01',0,0,7,NULL,7,NULL,0,0,0,'UNMATCHED_SCOPE')")
+        self.db.execute("INSERT INTO case_application_source VALUES('S01',0,0,'model',7)")
+        with self.assertRaises(sqlite3.IntegrityError):
+            self.db.execute("INSERT INTO case_application_source VALUES('S01',0,0,'state',999)")
+        self.assertEqual(self.db.execute("SELECT COUNT(*) FROM case_application_source").fetchone()[0],1)
+
     def test_model_not_trainable_by_default(self):
         self._source()
         self.db.execute("INSERT INTO evidence_manifest VALUES('FACES','audit','sha','PASS','AUDIT','sample')")

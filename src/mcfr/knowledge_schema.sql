@@ -147,6 +147,21 @@ CREATE TABLE model_face_link(
 CREATE INDEX face_texture_idx ON model_face_link(texture_id,face_status);
 CREATE INDEX face_model_idx ON model_face_link(model_key,face_status);
 
+CREATE TABLE comparison_asset(
+    asset_id INTEGER PRIMARY KEY,
+    source_scope TEXT NOT NULL,
+    minecraft_version TEXT NOT NULL,
+    source_path TEXT NOT NULL,
+    asset_kind TEXT NOT NULL,
+    UNIQUE(source_scope,minecraft_version,source_path)
+);
+CREATE TABLE comparison_asset_hash(
+    asset_id INTEGER NOT NULL REFERENCES comparison_asset(asset_id),
+    algorithm TEXT NOT NULL,
+    digest TEXT NOT NULL,
+    PRIMARY KEY(asset_id,algorithm)
+) WITHOUT ROWID;
+
 CREATE TABLE study_case(
     case_id TEXT PRIMARY KEY,
     cohort TEXT NOT NULL,
@@ -155,17 +170,32 @@ CREATE TABLE study_case(
     bbox TEXT NOT NULL,
     case_status TEXT NOT NULL DEFAULT 'FIXED_RESEARCH_SAMPLE'
 );
+CREATE TABLE case_category(
+    case_id TEXT NOT NULL REFERENCES study_case(case_id),
+    category TEXT NOT NULL,
+    PRIMARY KEY(case_id,category)
+) WITHOUT ROWID;
 CREATE TABLE case_application(
     case_id TEXT NOT NULL REFERENCES study_case(case_id),
     rule_index INTEGER NOT NULL,
     option_index INTEGER NOT NULL,
-    model_source_asset_id INTEGER,
+    model_source_asset_id INTEGER REFERENCES comparison_asset(asset_id),
     model_key TEXT REFERENCES model(model_key),
-    provider_source_asset_id INTEGER,
+    provider_source_asset_id INTEGER REFERENCES comparison_asset(asset_id),
     provider_key TEXT REFERENCES model(model_key),
     x INTEGER NOT NULL, y INTEGER NOT NULL, uvlock INTEGER NOT NULL,
     source_link_status TEXT NOT NULL CHECK(source_link_status IN ('MODEL_LINKED','UNMATCHED_SCOPE')),
     PRIMARY KEY(case_id,rule_index,option_index)
+) WITHOUT ROWID;
+CREATE TABLE case_application_source(
+    case_id TEXT NOT NULL,
+    rule_index INTEGER NOT NULL,
+    option_index INTEGER NOT NULL,
+    role TEXT NOT NULL CHECK(role IN ('state','model','provider')),
+    asset_id INTEGER NOT NULL REFERENCES comparison_asset(asset_id),
+    PRIMARY KEY(case_id,rule_index,option_index,role),
+    FOREIGN KEY(case_id,rule_index,option_index)
+      REFERENCES case_application(case_id,rule_index,option_index)
 ) WITHOUT ROWID;
 CREATE TABLE comparison_finding(
     finding_id TEXT PRIMARY KEY,
@@ -187,9 +217,18 @@ CREATE TABLE finding_case(
     case_id TEXT NOT NULL REFERENCES study_case(case_id),
     PRIMARY KEY(finding_id,case_id)
 ) WITHOUT ROWID;
+CREATE TABLE runtime_check(
+    test_id TEXT PRIMARY KEY,
+    axis TEXT NOT NULL,
+    cases_or_scope TEXT NOT NULL,
+    source_basis TEXT NOT NULL,
+    setup TEXT NOT NULL,
+    observation_required TEXT NOT NULL,
+    historical_status TEXT NOT NULL
+);
 CREATE TABLE runtime_condition(
     finding_id TEXT NOT NULL REFERENCES comparison_finding(finding_id),
-    test_id TEXT NOT NULL,
+    test_id TEXT NOT NULL REFERENCES runtime_check(test_id),
     verification_status TEXT NOT NULL DEFAULT 'HISTORIC_ONLY_NOT_REEXECUTED',
     PRIMARY KEY(finding_id,test_id)
 ) WITHOUT ROWID;
