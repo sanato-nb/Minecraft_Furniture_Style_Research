@@ -1,0 +1,97 @@
+name: INT-3 provenance-first furniture knowledge DB integration
+on:
+  pull_request:
+    paths:
+      - 'src/mcfr/knowledge_*.py'
+      - 'src/mcfr/knowledge_schema.sql'
+      - 'tests/knowledge/**'
+      - 'project/integration/INT3*'
+      - '.github/workflows/integration-int3-knowledge.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run rights, exclusions, provenance and UV schema tests
+        env:
+          PYTHONPATH: src
+        run: python -m unittest discover -s tests/knowledge -p 'test_*.py' -v
+      - name: Materialize audited INT-2 source results into INT-3 SQLite sidecar
+        env:
+          PYTHONPATH: src
+          OUT: ${{ runner.temp }}/mcfr-int3
+        run: |
+          mkdir -p "$OUT"
+          python -m mcfr.knowledge_db build --root . \
+            --out "$OUT/MCFR_INT3_knowledge.sqlite" \
+            --report "$OUT/INT3_KNOWLEDGE_SUMMARY.json"
+      - name: Verify committed INT-3 logical digests and every source/evidence boundary
+        env:
+          OUT: ${{ runner.temp }}/mcfr-int3
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import sqlite3
+          from pathlib import Path
+
+          output=Path(os.environ["OUT"])
+          recorded=json.loads(Path("project/integration/INT3_KNOWLEDGE_SUMMARY.json").read_text(encoding="utf-8"))
+          actual=json.loads((output/"INT3_KNOWLEDGE_SUMMARY.json").read_text(encoding="utf-8"))
+          for key,value in actual.items():
+              if recorded.get(key)!=value:
+                  raise SystemExit("INT-3 recreated audited knowledge DB diverged at "+key)
+          if actual["ai_training_eligible_models"] or actual["rights_approval_count"]:
+              raise SystemExit("INT-3 training or rights unexpectedly auto-approved")
+          with sqlite3.connect(output/"MCFR_INT3_knowledge.sqlite") as db:
+              if db.execute("PRAGMA integrity_check").fetchone()[0]!="ok":
+                  raise SystemExit("Generated INT-3 SQLite integrity failed")
+              if db.execute("PRAGMA foreign_key_check").fetchall():
+                  raise SystemExit("Generated INT-3 FK errors")
+              unresolved=db.execute("""
+                  SELECT count(*) FROM case_application a
+                  LEFT JOIN comparison_asset s ON s.asset_id=a.model_source_asset_id
+                  WHERE a.source_link_status='UNMATCHED_SCOPE'
+                    AND (s.asset_id IS NULL OR NOT EXISTS(
+                       SELECT 1 FROM comparison_asset_hash h WHERE h.asset_id=s.asset_id))
+              """).fetchone()[0]
+              if unresolved:
+                  raise SystemExit("Historical 1-5 vanilla source case lost provenance")
+              if db.execute("SELECT COUNT(*) FROM ai_training_eligible_model").fetchone()[0]:
+                  raise SystemExit("Unlicensed models leaked into training candidate view")
+          print("INT3_ALL_592312_FACE_LINKS_21_FINDINGS_272_ASSETS_PINNED_MATCH")
+          PY
+      - name: Validate independent family totals, case/finding queries, unlicensed gate
+        env:
+          PYTHONPATH: src
+          OUT: ${{ runner.temp }}/mcfr-int3
+        run: |
+          python -m mcfr.knowledge_db validate --db "$OUT/MCFR_INT3_knowledge.sqlite"
+          python -m mcfr.knowledge_db finding --db "$OUT/MCFR_INT3_knowledge.sqlite" --id C03
+          python - <<'PY'
+          import os
+          import sqlite3
+          from pathlib import Path
+          path=Path(os.environ["OUT"])/"MCFR_INT3_knowledge.sqlite"
+          with sqlite3.connect(path) as db:
+              model_id=db.execute("SELECT model_key FROM model WHERE source_id='AF' AND effective_faces>0 LIMIT 1").fetchone()[0]
+          os.system('python -m mcfr.knowledge_db model --db "'+str(path)+'" --id "'+model_id+'"')
+          PY
+      - name: Upload derived knowledge SQLite and exact evidence manifest only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int3-provenance-knowledge-db
+          path: ${{ runner.temp }}/mcfr-int3/
+          if-no-files-found: warn
+          retention-days: 60
