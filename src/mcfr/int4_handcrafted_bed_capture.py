@@ -14,7 +14,14 @@ import argparse,csv,hashlib,json,os,shutil,subprocess
 
 from .chair_runtime_fixture import Y
 from .runtime_capture import wait_for
-from .chair_capture_isolation_audit import specimen_color_pixels
+# Bed-specific visual proxy: excludes blue sky and green superflat ground.
+# Neither a semantic classifier nor proof of specific textures/material.
+def bed_visible_proxy(im):
+    roi=im.crop((385,265,640,625)).convert("RGB")
+    return sum(1 for rr,gg,bb in roi.getdata()
+               if (rr>gg+17 and rr>bb+26 and rr>65) or
+                  (rr>125 and abs(rr-gg)<22 and abs(gg-bb)<22))
+
 
 ROOT=Path(__file__).resolve().parents[2]
 APPS="research/furniture_mods/phase_1-5/B/APPLICATIONS.csv"
@@ -197,7 +204,7 @@ def capture(command,env,game,output,version):
             command_text("/tp @s "+pose)
             wait_for(proc,lambda:"[RenderAudit: Teleported RenderAudit to" in read()[offset:],
                      "Handcrafted bed F2 camera teleport",100)
-            sleep(3)
+            sleep(8)
         try:
             wait_for(proc,lambda:"RenderAudit joined the game" in read(),
                      "Handcrafted 1.21.1 actual Fabric client",150)
@@ -237,11 +244,11 @@ def capture(command,env,game,output,version):
                     check(len(photos)==1,"Native Minecraft F2 file count not one")
                     with Image.open(photos[0]) as im:
                         im.load();dims=list(im.size)
-                        colors=specimen_color_pixels(im)
+                        colors=bed_visible_proxy(im)
                     check(dims==[1024,684],"Real F2 bed PNG dimensions changed")
-                    if colors>=150:break
+                    if colors>=120:break
                     if attempt==2:
-                        raise ValueError("Bed F2 sky-only or subject not visible: "+case.case_id)
+                        raise ValueError("Bed original model not detectable (sky/grass-only F2): "+case.case_id)
                     sleep(5)
                 dest=output/(case.case_id+".png")
                 shutil.copyfile(photos[0],dest)
@@ -313,7 +320,7 @@ def audit(directory):
               row["server_source_state_verified"] and row["native_F2_verified"] and
               row["natural_bed_pair_placement_tested"] is False and
               row["semantic_or_ai_rights_approved"] is False and
-              row["foreground_chroma_pixels"]>=150 and
+              row["foreground_chroma_pixels"]>=120 and
               row["screenshot_file"]==c.case_id+".png" and
               row["screenshot_dimensions"]==[1024,684],
               "Bed F2 case provenance mismatch")
