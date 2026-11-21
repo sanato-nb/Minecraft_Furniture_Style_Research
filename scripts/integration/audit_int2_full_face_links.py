@@ -406,8 +406,7 @@ def audit(root,args):
         for status,n in v.items():
             expectation[(k,status)]+=n
     expected_scope={
-        (scope,status):n for (scope,status),n in scope_status.items()
-        if isinstance(scope,str) and scope not in ("SLOT_UNBOUND","MISSING_PINNED_PNG")
+        key:n for key,n in scope_status.items() if isinstance(key,tuple)
     }
     expected_count=Counter({tuple(k):v for k,v in expectation.items()})
     scope_diffs={
