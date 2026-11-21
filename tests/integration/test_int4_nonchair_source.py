@@ -92,7 +92,7 @@ class NonChairSourceTest(unittest.TestCase):
             def fetch(self,mod,path,required=False):
                 self.tried.append((mod,path))
                 if path=="common/src/main/resources/assets/another_furniture/textures/block/example.png":
-                    return a.PNG_MAGIC + b"\x00\x00\x00\x10\x00\x00\x00\x10"
+                    return a.PNG_MAGIC + b"\x00"*8 + b"\x00\x00\x00\x10\x00\x00\x00\x10"
                 return None
         f=Fixture()
         r=a.archive_asset(f,"AF","","another_furniture:block/example")
