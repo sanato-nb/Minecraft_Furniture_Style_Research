@@ -170,6 +170,7 @@ def audit(root: Path) -> tuple[list[dict], dict]:
 
     type_counts = Counter()
     model_parents = {}
+    model_data = {}
     model_paths = set()
     g_sha_by_path = {}
     for row in g_rows:
@@ -189,6 +190,7 @@ def audit(root: Path) -> tuple[list[dict], dict]:
                 raise AssertionError(f"{path}: JSON root must be object")
             if kind == "BLOCK_MODEL_JSON":
                 model_paths.add(path)
+                model_data[path] = obj
                 parent = obj.get("parent")
                 if parent is not None:
                     if not isinstance(parent, str):
@@ -227,10 +229,32 @@ def audit(root: Path) -> tuple[list[dict], dict]:
         raise AssertionError("G provenance gap affected models changed")
     if any(r["parent"] != parent or r["G_recomputed_original_git_blob_sha"] != g_sha_by_path[parent] for r in gaps["records"]):
         raise AssertionError("G parent correction hash differs from independently rehashed bytes")
+    def follow_parent(start: str) -> list[str]:
+        visited, resolved, current = set(), [], start
+        while current in model_data:
+            if current in visited:
+                raise AssertionError(f"{start}: parent cycle at {current}")
+            visited.add(current)
+            declared = model_data[current].get("parent")
+            if not declared:
+                break
+            if ":" in declared:
+                namespace, resource = declared.split(":", 1)
+            else:
+                namespace, resource = "minecraft", declared
+            if namespace != "minecraft" or not resource.startswith("block/"):
+                break  # builtin/engine-managed models are outside this static G ledger
+            next_path = "1.21.11/assets/minecraft/models/" + resource + ".json"
+            resolved.append(next_path)
+            if next_path not in model_data:
+                break
+            current = next_path
+        return resolved
+
     for path in affected:
-        declared = model_parents.get(path, "")
-        if not declared.endswith("cube_mirrored"):
-            raise AssertionError(f"{path}: unexpected parent: {declared}")
+        lineage = follow_parent(path)
+        if parent not in lineage:
+            raise AssertionError(f"{path}: G cube_mirrored does not occur in inherited lineage: {lineage}")
 
     # Static links are descriptive only; unresolved references may be built-ins
     # or runtime generated and must not be interpreted as confirmed errors.
