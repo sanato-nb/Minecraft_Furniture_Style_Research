@@ -4,8 +4,10 @@ on:
     paths:
       - 'scripts/integration/audit_int2_mod_textures.py'
       - 'scripts/integration/audit_int2_uv_support.py'
+      - 'scripts/integration/audit_int2_uv_regions.py'
       - 'tests/integration/test_int2_mod_textures.py'
       - 'tests/integration/test_int2_uv_support.py'
+      - 'tests/integration/test_int2_uv_regions.py'
       - 'project/integration/INT2_1_4*'
       - '.github/workflows/integration-int2-mod-textures.yml'
   workflow_dispatch:
@@ -63,6 +65,15 @@ jobs:
           OUT: ${{ runner.temp }}/int2-texture-result
         run: |
           python scripts/integration/audit_int2_uv_support.py \
+            --root . --af "$WORK/af.zip" --hc "$WORK/hc.zip" \
+            --macaw "$WORK/macaw.jar" --mc1211 "$WORK/1.21.1.jar" \
+            --mc12111 "$WORK/1.21.11.jar" --out "$OUT"
+      - name: Independently re-crop all 29957 ordinary and animation frame UV regions
+        env:
+          WORK: ${{ runner.temp }}/int2-texture-upstream
+          OUT: ${{ runner.temp }}/int2-texture-result
+        run: |
+          python scripts/integration/audit_int2_uv_regions.py \
             --root . --af "$WORK/af.zip" --hc "$WORK/hc.zip" \
             --macaw "$WORK/macaw.jar" --mc1211 "$WORK/1.21.1.jar" \
             --mc12111 "$WORK/1.21.11.jar" --out "$OUT"
