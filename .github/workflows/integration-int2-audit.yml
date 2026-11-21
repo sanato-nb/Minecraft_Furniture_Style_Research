@@ -30,6 +30,28 @@ jobs:
           python scripts/integration/audit_int2_vanilla.py \
             --root . \
             --out "$RUNNER_TEMP/int2-evidence"
+      - name: Verify checked-in 150-row audit snapshot against this execution
+        env:
+          AUDIT_OUTPUT: ${{ runner.temp }}/int2-evidence
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          local = Path(os.environ["AUDIT_OUTPUT"])
+          saved = Path("project/integration")
+          expected = (local / "INT2_1_1_PNG_REAUDIT.csv").read_bytes()
+          actual = (saved / "INT2_1_1_PNG_REAUDIT.csv").read_bytes()
+          if actual != expected:
+              raise SystemExit("Committed PNG audit ledger differs from independently regenerated result")
+          snapshot = json.loads((saved / "INT2_VANILLA_SOURCE_SUMMARY.json").read_text(encoding="utf-8"))
+          recomputed = json.loads((local / "INT2_VANILLA_SOURCE_SUMMARY.json").read_text(encoding="utf-8"))
+          for key, value in recomputed.items():
+              if snapshot.get(key) != value:
+                  raise SystemExit(f"Committed audit summary differs: {key}")
+          print("INT2_CHECKED_IN_AUDIT_SNAPSHOT_MATCHED")
+          PY
       - name: Archive independent audit evidence (no source mutations)
         if: always()
         uses: actions/upload-artifact@v4
