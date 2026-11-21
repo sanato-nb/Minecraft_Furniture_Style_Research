@@ -1,0 +1,178 @@
+name: INT-3 independent chair blockstate source rule and pose audit
+on:
+  pull_request:
+    paths:
+      - 'scripts/integration/audit_int3_chair_blockstates.py'
+      - 'scripts/integration/render_int3_chair_direction_previews.py'
+      - 'scripts/integration/render_int3_textured_chairs.py'
+      - 'tests/integration/test_int3_chair_blockstates.py'
+      - '.github/workflows/integration-int3-chair-blockstates.yml'
+      - 'project/integration/INT3_CHAIR_BLOCKSTATE*'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-chair-blockstates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Pillow needed by existing audited original geometry reader
+        run: python -m pip install "Pillow>=10,<13"
+      - name: Test original selector parsing, 90-degree geometry and untouched mismatch cases
+        run: python -m unittest discover -s tests/integration -p 'test_int3_chair_blockstates.py' -v
+      - name: Retrieve 3 exact pinned original mod archives and 2 official Minecraft clients
+        env:
+          RAW: ${{ runner.temp }}/int3-state-originals
+        run: |
+          set -euo pipefail
+          mkdir -p "$RAW"
+          curl -fLSs --retry 3 --retry-delay 2 "https://codeload.github.com/crispytwig/AnotherFurniture/zip/57eb624cbb7f408d43398c7434b0d38d312cb55d" -o "$RAW/af.zip"
+          curl -fLSs --retry 3 --retry-delay 2 "https://codeload.github.com/terrarium-earth/Handcrafted/zip/8d21d1665916850c3fa3bdaf1370c50ec2ca7035" -o "$RAW/hc.zip"
+          curl -fLSs --retry 3 --retry-delay 2 "https://cdn.modrinth.com/data/dtWC90iB/versions/xhmciaUD/mcw-furniture-3.4.2-mc1.21.11fabric.jar" -o "$RAW/macaw.jar"
+          curl -fLSs --retry 3 --retry-delay 2 "https://piston-data.mojang.com/v1/objects/30c73b1c5da787909b2f73340419fdf13b9def88/client.jar" -o "$RAW/1.21.1.jar"
+          curl -fLSs --retry 3 --retry-delay 2 "https://piston-data.mojang.com/v1/objects/ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd/client.jar" -o "$RAW/1.21.11.jar"
+      - name: Independently enumerate all three chair blockstate selectors and cross-check F database
+        env:
+          RAW: ${{ runner.temp }}/int3-state-originals
+          OUT: ${{ runner.temp }}/int3-chair-states
+        run: |
+          mkdir -p "$OUT"
+          python scripts/integration/audit_int3_chair_blockstates.py \
+            --root . \
+            --af "$RAW/af.zip" --hc "$RAW/hc.zip" --macaw "$RAW/macaw.jar" \
+            --mc1211 "$RAW/1.21.1.jar" --mc12111 "$RAW/1.21.11.jar" \
+            --out "$OUT"
+      - name: Verify 3 source SHA-backed states, selected poses and exception-not-corrected guard
+        env:
+          OUT: ${{ runner.temp }}/int3-chair-states
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,os
+          from pathlib import Path
+          out=Path(os.environ["OUT"])
+          doc=json.loads((out/"INT3_CHAIR_BLOCKSTATE_SOURCE_SUMMARY.json").read_text(encoding="utf-8"))
+          if doc["status"]!="PASS_PINNED_BLOCKSTATE_OPTIONS_AND_GEOMETRY_POSES_UNLESS_REVIEWED_EXCEPTIONS":
+              raise SystemExit("Original source chair state or F link audit failed")
+          if doc["totals"]["original_states"]!=3 or doc["totals"]["study_child_models"]!=4:
+              raise SystemExit("Source census is outside three blocks / four models")
+          if doc["totals"]["study_orientation_pose_rows"]!=16:
+              raise SystemExit("Required 4 model by 4 facing rotation coverage is missing")
+          ledger=out/"INT3_CHAIR_ALL_SOURCE_BLOCKSTATE_OPTIONS.csv"
+          pose=out/"INT3_CHAIR_16_ORIENTATION_POSES.csv"
+          for file,expected in ((ledger,"all_original_option_rows_csv"),
+                                (pose,"selected_source_geometry_orientation_rows_csv")):
+              if hashlib.sha256(file.read_bytes()).hexdigest()!=doc["sha256"][expected]:
+                  raise SystemExit("Source evidence SHA differs: "+file.name)
+          with ledger.open(encoding="utf-8",newline="") as f: rows=list(csv.DictReader(f))
+          if len(rows)!=doc["totals"]["original_model_options"]:
+              raise SystemExit("Original variants source/model/F row total differs")
+          with pose.open(encoding="utf-8",newline="") as f: views=list(csv.DictReader(f))
+          if len(views)!=16 or len({(v["model_key"],v["facing"]) for v in views})!=16:
+              raise SystemExit("Source pose cardinal directions missing or duplicated")
+          if any(v["runtime_renderer_verified"]!="NO" for v in views):
+              raise SystemExit("Source pose interpretation called game runtime validation")
+          if doc["boundaries"]["actual_minecraft_client_bake_or_gameplay_verified"]:
+              raise SystemExit("Cannot infer gameplay from JSON definitions")
+          if doc["boundaries"]["source_anomaly_corrections_applied"]!=0:
+              raise SystemExit("Unusual original state mappings must not be edited")
+          print("INT3_ORIGINAL_CHAIR_STATE_ALL_MODELS_AND_16_POSES_SOURCE_AUDITED")
+          PY
+      - name: Render 4 chair descendants in all 4 original state directions with pinned texture UV
+        env:
+          RAW: ${{ runner.temp }}/int3-state-originals
+          OUT: ${{ runner.temp }}/int3-chair-states
+        run: |
+          python scripts/integration/render_int3_chair_direction_previews.py \
+            --root . --af "$RAW/af.zip" --hc "$RAW/hc.zip" \
+            --macaw "$RAW/macaw.jar" --mc1211 "$RAW/1.21.1.jar" \
+            --mc12111 "$RAW/1.21.11.jar" --out "$OUT"
+      - name: Verify all 16 actual-original-PNG face-direction diagnostic scenes
+        env:
+          OUT: ${{ runner.temp }}/int3-chair-states
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,os
+          from pathlib import Path
+          path=Path(os.environ["OUT"])
+          d=json.loads((path/"INT3_CHAIR_16_TEXTURED_POSE_SUMMARY.json").read_text(encoding="utf-8"))
+          if d["status"]!="PASS_ORIGINAL_CHAIR_16_DIRECTION_TEXTURE_DIAGNOSTIC_NOT_RUNTIME":
+              raise SystemExit("Original source 16-direction texture diagnostic was not verified")
+          if d["models"]!=4 or d["original_source_faces"]!=229 or d["directional_texture_panels"]!=16:
+              raise SystemExit("A source chair or blockstate direction is missing")
+          if d["unique_source_pngs"]!=8:
+              raise SystemExit("Original AF/HC/Macaw sprite reference set changed")
+          if d["runtime_model_bake_verifications"]!=0 or d["runtime_screenshots"]!=0:
+              raise SystemExit("Cannot call reconstructed model a real Minecraft screenshot")
+          if d["source_variants_manually_corrected"] or d["copyright_training_approvals"]:
+              raise SystemExit("Original source anomalies and license restrictions must persist")
+          for filename,field in (
+              ("INT3_4_CHAIRS_16_SOURCE_STATE_TEXTURED_VIEWS.png","original_texture_contact_sheet_sha256"),
+              ("INT3_CHAIR_16_TEXTURED_DIRECTION_SOURCE_EVIDENCE.csv","per_pose_csv_sha256")
+          ):
+              if hashlib.sha256((path/filename).read_bytes()).hexdigest()!=d[field]:
+                  raise SystemExit("Generated 16-direction evidence SHA differs: "+filename)
+          with (path/"INT3_CHAIR_16_TEXTURED_DIRECTION_SOURCE_EVIDENCE.csv").open(encoding="utf-8",newline="") as f:
+              rows=list(csv.DictReader(f))
+          if len(rows)!=16 or len({(x["model_key"],x["direction"]) for x in rows})!=16:
+              raise SystemExit("Directional texture review denominator isn't 16")
+          print("INT3_4_CHAIRS_16_STATE_DIRECTIONS_SOURCE_UV_TEXTURING_REPRODUCED")
+          PY
+      - name: Verify Git-pinned 228 original options, anomalous group and 16 source PNG views
+        env:
+          OUT: ${{ runner.temp }}/int3-chair-states
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,os
+          from pathlib import Path
+          out=Path(os.environ["OUT"])
+          base=Path("project/integration")
+          for pinned,generated in (
+              ("INT3_CHAIR_BLOCKSTATE_SOURCE_SUMMARY.json","INT3_CHAIR_BLOCKSTATE_SOURCE_SUMMARY.json"),
+              ("INT3_CHAIR_16_TEXTURED_POSE_SUMMARY.json","INT3_CHAIR_16_TEXTURED_POSE_SUMMARY.json"),
+          ):
+              prior=json.loads((base/pinned).read_text(encoding="utf-8"))
+              current=json.loads((out/generated).read_text(encoding="utf-8"))
+              for key,value in current.items():
+                  if prior.get(key)!=value:
+                      raise SystemExit("Pinned source original audit diverged: "+pinned+"."+key)
+          audit=json.loads((out/"INT3_CHAIR_BLOCKSTATE_SOURCE_SUMMARY.json").read_text(encoding="utf-8"))
+          if audit["totals"]["original_model_options"]!=228 or audit["totals"]["matched_historical_F_options"]!=228:
+              raise SystemExit("Original 228 option scope differs")
+          if audit["source_option_count_by_mod"]!={"AF":88,"HC":136,"MACAW":4}:
+              raise SystemExit("Original fixed mod selection counts differ")
+          if audit["totals"]["source_anomaly_rows"]!=4:
+              raise SystemExit("Original one 4-facing model inconsistency evidence changed")
+          af=next(x for x in audit["source_states"] if x["mod"]=="AF")
+          groups=[r for r in af["review_groups"] if r["facing"]=="south"]
+          if len(groups)!=1 or groups[0]["source_model"]!="another_furniture:block/chair/acacia_1" or not groups[0]["selector"].endswith("variant=3"):
+              raise SystemExit("Known source variant-3 south mapping changed or was normalized")
+          if audit["boundaries"]["source_anomaly_corrections_applied"]!=0:
+              raise SystemExit("A source anomaly was incorrectly auto-repaired")
+          sample=json.loads((out/"INT3_CHAIR_16_TEXTURED_POSE_SUMMARY.json").read_text(encoding="utf-8"))
+          if sample["directional_texture_panels"]!=16 or sample["original_source_faces"]!=229:
+              raise SystemExit("Original orientation texture sample incomplete")
+          for file,key in (
+              ("INT3_4_CHAIRS_16_SOURCE_STATE_TEXTURED_VIEWS.png","original_texture_contact_sheet_sha256"),
+              ("INT3_CHAIR_16_TEXTURED_DIRECTION_SOURCE_EVIDENCE.csv","per_pose_csv_sha256")
+          ):
+              if hashlib.sha256((out/file).read_bytes()).hexdigest()!=sample[key]:
+                  raise SystemExit("16-direction render or evidence SHA differs")
+          if sample["runtime_model_bake_verifications"] or sample["runtime_screenshots"]:
+              raise SystemExit("No Minecraft runtime screenshot was collected")
+          print("INT3_228_SOURCE_BLOCKSTATE_RULES_AND_16_ORIGINAL_PNG_POSES_PINNED_MATCH")
+          PY
+      - name: Retain original-selector evidence CSV and JSON only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int3-original-chair-blockstate-direction-evidence
+          path: ${{ runner.temp }}/int3-chair-states/
+          if-no-files-found: warn
+          retention-days: 60

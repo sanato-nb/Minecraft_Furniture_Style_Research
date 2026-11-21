@@ -1,0 +1,145 @@
+{
+  "boundaries": {
+    "actual_minecraft_client_bake_or_gameplay_verified": false,
+    "automatic_style_material_training_permission_count": 0,
+    "original_blockstate_sha_and_F_option_alignment": "PASS",
+    "original_geometry_provider_and_4_quarter_turn_bbox_closure": "PASS",
+    "original_texture_face_recheck": "SEPARATE_PR31_229_FACES",
+    "rendering_and_uvlock_runtime_claims": "NONE",
+    "source_anomaly_corrections_applied": 0,
+    "visually_verified_chair_role_count": 0
+  },
+  "schema": "MCFR_INT3_CHAIR_SOURCE_BLOCKSTATES_v1",
+  "selected_model_state_option_counts": {
+    "AF121": 5,
+    "AF123": 4,
+    "HC11210": 8,
+    "MACAW67": 4
+  },
+  "sha256": {
+    "all_original_option_rows_csv": "3c2a79abdb528f04d1dc42d9c06970fd77d9adda802700f14d3fb2749bcdcdad",
+    "selected_source_geometry_orientation_rows_csv": "a5452e9a8b1fe2741654d4f74dd2aaec1f09bc9554659a55b997b86abc238e98"
+  },
+  "source_option_count_by_mod": {
+    "AF": 88,
+    "HC": 136,
+    "MACAW": 4
+  },
+  "source_states": [
+    {
+      "historical_F_mismatches": 0,
+      "mod": "AF",
+      "options": 88,
+      "resource_block": "another_furniture:acacia_chair",
+      "review_anomalous_selector_rows": 4,
+      "review_groups": [
+        {
+          "facing": "north",
+          "group_props": "tucked=false,variant=3",
+          "other_targets": "another_furniture:block/chair/acacia_1|another_furniture:block/chair/acacia_3",
+          "review_reason": "SOURCE_CROSS_FACING_MODEL_TARGET_VARIATION",
+          "selector": "facing=north,tucked=false,variant=3",
+          "source_model": "another_furniture:block/chair/acacia_3",
+          "status": "NOT_CORRECTED_REQUIRES_INTENT_REVIEW"
+        },
+        {
+          "facing": "east",
+          "group_props": "tucked=false,variant=3",
+          "other_targets": "another_furniture:block/chair/acacia_1|another_furniture:block/chair/acacia_3",
+          "review_reason": "SOURCE_CROSS_FACING_MODEL_TARGET_VARIATION",
+          "selector": "facing=east,tucked=false,variant=3",
+          "source_model": "another_furniture:block/chair/acacia_3",
+          "status": "NOT_CORRECTED_REQUIRES_INTENT_REVIEW"
+        },
+        {
+          "facing": "south",
+          "group_props": "tucked=false,variant=3",
+          "other_targets": "another_furniture:block/chair/acacia_1|another_furniture:block/chair/acacia_3",
+          "review_reason": "SOURCE_CROSS_FACING_MODEL_TARGET_VARIATION",
+          "selector": "facing=south,tucked=false,variant=3",
+          "source_model": "another_furniture:block/chair/acacia_1",
+          "status": "NOT_CORRECTED_REQUIRES_INTENT_REVIEW"
+        },
+        {
+          "facing": "west",
+          "group_props": "tucked=false,variant=3",
+          "other_targets": "another_furniture:block/chair/acacia_1|another_furniture:block/chair/acacia_3",
+          "review_reason": "SOURCE_CROSS_FACING_MODEL_TARGET_VARIATION",
+          "selector": "facing=west,tucked=false,variant=3",
+          "source_model": "another_furniture:block/chair/acacia_3",
+          "status": "NOT_CORRECTED_REQUIRES_INTENT_REVIEW"
+        }
+      ],
+      "source_option_stats": {
+        "options": 88,
+        "uvlock_0": 88,
+        "x_0": 88,
+        "y_0": 22,
+        "y_180": 22,
+        "y_270": 22,
+        "y_90": 22
+      },
+      "source_path": "common/src/main/resources/assets/another_furniture/blockstates/acacia_chair.json",
+      "source_sha": "37643398d7a49fdcfc6f2308ca04c13fb0b43aed",
+      "source_state_id": "another_furniture:acacia_chair",
+      "unique_models": 22,
+      "variants": 88
+    },
+    {
+      "historical_F_mismatches": 0,
+      "mod": "HC",
+      "options": 136,
+      "resource_block": "handcrafted:warped_chair",
+      "review_anomalous_selector_rows": 0,
+      "review_groups": [],
+      "source_option_stats": {
+        "options": 136,
+        "uvlock_0": 136,
+        "x_0": 136,
+        "y_0": 34,
+        "y_180": 34,
+        "y_270": 34,
+        "y_90": 34
+      },
+      "source_path": "common/src/main/generated/resources/assets/handcrafted/blockstates/warped_chair.json",
+      "source_sha": "099f32844f15e104687bac10b4a81635821bc8ce",
+      "source_state_id": "handcrafted:warped_chair",
+      "unique_models": 17,
+      "variants": 136
+    },
+    {
+      "historical_F_mismatches": 0,
+      "mod": "MACAW",
+      "options": 4,
+      "resource_block": "mcwfurnitures:acacia_chair",
+      "review_anomalous_selector_rows": 0,
+      "review_groups": [],
+      "source_option_stats": {
+        "options": 4,
+        "uvlock_0": 4,
+        "x_0": 4,
+        "y_0": 1,
+        "y_180": 1,
+        "y_270": 1,
+        "y_90": 1
+      },
+      "source_path": "assets/mcwfurnitures/blockstates/acacia_chair.json",
+      "source_sha": "e6405186a33100104cb6dcbddd2cad774f157298cafe8e750dc228cd9ba24b95",
+      "source_state_id": "mcwfurnitures:acacia_chair",
+      "unique_models": 1,
+      "variants": 4
+    }
+  ],
+  "status": "PASS_PINNED_BLOCKSTATE_OPTIONS_AND_GEOMETRY_POSES_UNLESS_REVIEWED_EXCEPTIONS",
+  "totals": {
+    "matched_historical_F_options": 228,
+    "original_model_options": 228,
+    "original_states": 3,
+    "original_variant_rules": 228,
+    "source_anomaly_rows": 4,
+    "study_child_models": 4,
+    "study_orientation_pose_rows": 16
+  },
+  "first_successful_ci_run": 44888595540,
+  "ci_original_commit": "3c3297c28f4ff1880397fb2799f8e59349b3b2d5"
+}

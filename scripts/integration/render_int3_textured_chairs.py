@@ -193,11 +193,34 @@ def eye_vector(yaw,pitch=30):
     b=math.radians(pitch)
     return (math.sin(a)*math.cos(b),math.sin(b),math.cos(a)*math.cos(b))
 
-def visible(normal,shape,yaw):
+def blockstate_rotate_point(point,angle):
+    """Source blockstate JSON 'y' quarter turns about the cube center.
+
+    Geometry-only bake approximation; no uvlock, atlas or client renderer.
+    """
+    if angle not in (0,90,180,270):
+        raise ValueError("Diagnostic block rotation must be a quarter-turn")
+    if angle==0:return point
+    x,y,z=point
+    sn=round(math.sin(math.radians(angle)))
+    cs=round(math.cos(math.radians(angle)))
+    return (8+cs*(x-8)+sn*(z-8),y,8-sn*(x-8)+cs*(z-8))
+
+def blockstate_rotate_normal(normal,angle):
+    if angle not in (0,90,180,270):
+        raise ValueError("Diagnostic normal rotation must be a quarter-turn")
+    if angle==0:return normal
+    x,y,z=normal
+    sn=round(math.sin(math.radians(angle)))
+    cs=round(math.cos(math.radians(angle)))
+    return (cs*x+sn*z,y,-sn*x+cs*z)
+
+def visible(normal,shape,yaw,block_y=0):
     if shape["angle"] and shape["axis"]:
         n=geo.transform(normal,{"axis":shape["axis"],"angle":shape["angle"],
                                 "pivot":(0,0,0),"rescale":shape["rescale"]})
     else:n=normal
+    n=blockstate_rotate_normal(n,block_y)
     return sum(a*b for a,b in zip(n,eye_vector(yaw)))>0.0001
 
 NORMALS={"north":(0,0,-1),"south":(0,0,1),"east":(1,0,0),"west":(-1,0,0),
@@ -244,12 +267,13 @@ def polygon_texture(out,png,screen,corners_uv):
     out.alpha_composite(layer,(x0,y0))
     return 1
 
-def preview(entry,yaw):
+def preview(entry,yaw,block_y=0):
     W,H=PANEL
     canvas=Image.new("RGBA",(W,H),(246,248,251,255))
     d=ImageDraw.Draw(canvas)
     shapes=entry["shapes"]
-    corners3={s["index"]:geo.cube_points(s) for s in shapes}
+    corners3={s["index"]:[blockstate_rotate_point(p,block_y) for p in geo.cube_points(s)]
+              for s in shapes}
     views={idx:[geo.camera(p,yaw) for p in points] for idx,points in corners3.items()}
     xs=[p[0] for ps in views.values() for p in ps]
     ys=[p[1] for ps in views.values() for p in ps]
@@ -263,7 +287,7 @@ def preview(entry,yaw):
     for face in entry["selected_faces"]:
         s=face["shape"]
         direction=face["face"]
-        if not visible(NORMALS[direction],s,yaw):continue
+        if not visible(NORMALS[direction],s,yaw,block_y):continue
         vert=[views[s["index"]][i] for i in FACES[direction]]
         depth=sum(p[2] for p in vert)/4
         pts=[px(p) for p in vert]
@@ -277,7 +301,10 @@ def preview(entry,yaw):
     label=f'{entry["source_id"]} / {entry["model_key"]} / {entry["resource_id"].split("/")[-1]}'
     d.rectangle((6,6,W-6,65),fill=(255,255,255,236),outline=(215,220,228))
     d.text((18,16),label,fill=(30,45,57))
-    d.text((18,38),f'original PNG + source UV | view {yaw:+d} | NOT IN-GAME',fill=(84,99,118))
+    annotation=(f'original PNG + source UV | view {yaw:+d} | NOT IN-GAME'
+                if block_y==0 else
+                f'original PNG + UV | state y={block_y} | view {yaw:+d} | NOT IN-GAME')
+    d.text((18,38),annotation,fill=(84,99,118))
     d.text((18,H-24),f'visual diagnosis only | {rendered} visible faces of {len(entry["selected_faces"])} source faces',
            fill=(60,79,92))
     return canvas.convert("RGB"),rendered
