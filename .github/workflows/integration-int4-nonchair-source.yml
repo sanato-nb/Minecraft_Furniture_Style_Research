@@ -1,0 +1,104 @@
+name: INT-4 original non-chair table bookshelf bed kitchen source crosscheck
+on:
+  pull_request:
+    paths:
+      - 'scripts/integration/audit_int4_nonchair_source.py'
+      - 'tests/integration/test_int4_nonchair_source.py'
+      - '.github/workflows/integration-int4-nonchair-source.yml'
+      - 'project/integration/INT4_NONCHAIR_*'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-source-multipart-and-geometry:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install source PNG decoder dependency
+        run: python -m pip install 'Pillow>=10,<13'
+      - name: Assert original 15 case 19 application denominators and reject source mutations
+        run: python -m unittest discover -s tests/integration -p 'test_int4_nonchair_source.py' -v
+      - name: Download five fixed original Git/mod/Mojang source archives without committing assets
+        env:
+          WORK: ${{ runner.temp }}/mcfr-int4-nonchair-upstream
+        run: |
+          set -euo pipefail
+          mkdir -p "$WORK"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            'https://codeload.github.com/crispytwig/AnotherFurniture/zip/57eb624cbb7f408d43398c7434b0d38d312cb55d' \
+            -o "$WORK/af.zip"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            'https://codeload.github.com/terrarium-earth/Handcrafted/zip/8d21d1665916850c3fa3bdaf1370c50ec2ca7035' \
+            -o "$WORK/hc.zip"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            'https://cdn.modrinth.com/data/dtWC90iB/versions/xhmciaUD/mcw-furniture-3.4.2-mc1.21.11fabric.jar' \
+            -o "$WORK/macaw.jar"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            'https://piston-data.mojang.com/v1/objects/30c73b1c5da787909b2f73340419fdf13b9def88/client.jar' \
+            -o "$WORK/mc1211.jar"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            'https://piston-data.mojang.com/v1/objects/ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd/client.jar' \
+            -o "$WORK/mc12111.jar"
+      - name: Reopen 15 non-chair cases and verify original source state model parent geometry UV and PNG references
+        env:
+          WORK: ${{ runner.temp }}/mcfr-int4-nonchair-upstream
+          OUT: ${{ runner.temp }}/mcfr-int4-nonchair-evidence
+        run: |
+          python scripts/integration/audit_int4_nonchair_source.py --root . \
+            --af "$WORK/af.zip" --hc "$WORK/hc.zip" \
+            --macaw "$WORK/macaw.jar" --mc1211 "$WORK/mc1211.jar" \
+            --mc12111 "$WORK/mc12111.jar" --out "$OUT"
+      - name: Require exact source SHA reproduction and zero fabricated visual or AI rights approvals
+        env:
+          OUT: ${{ runner.temp }}/mcfr-int4-nonchair-evidence
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,os
+          from pathlib import Path
+          root=Path(os.environ['OUT'])
+          doc=json.loads((root/'INT4_NONCHAIR_15_CASES_SUMMARY.json').read_text())
+          assert doc['status']=='PASS_SOURCE_SELECTED_MODELS_GEOMETRY_TEXTURE_REFERENCE_SCOPE_NOT_CLIENT_VISUAL'
+          result=doc['results']
+          assert result['cases_checked']==15 and result['application_options_reopened']==19
+          assert result['paired_case_comparisons']==6
+          assert result['faces_resolved']+result['faces_unresolved']==result['faces']
+          assert result['png_present_face_refs']+result['png_missing_face_refs']==result['faces_resolved']
+          assert doc['historical_research_scope']['categories']==['BED','KITCHEN','LARGE_TABLE','SHELVING']
+          for file,sha in doc['csv_sha256'].items():
+              assert hashlib.sha256((root/file).read_bytes()).hexdigest()==sha
+          rows=list(csv.DictReader((root/'INT4_NONCHAIR_19_ORIGINAL_APPLICATIONS.csv').open()))
+          assert len(rows)==19 and len(set(x['case'] for x in rows))==15
+          assert all(x['original_source_crosschecked']=='True' for x in rows)
+          assert all(x['client_runtime_render_proven']=='False' and
+                     x['modeling_semantics_approved']=='False' and
+                     x['source_license_ai_training_approved']=='False' for x in rows)
+          pairs=list(csv.DictReader((root/'INT4_NONCHAIR_6_PAIR_CROSSCHECKS.csv').open()))
+          assert len(pairs)==6 and pairs[-1]['left_face_count']=='55' and pairs[-1]['right_face_count']=='56'
+          gates=doc['scope_boundaries']
+          assert gates['original_json_source_hashes_and_selected_geometry_checked']
+          assert not gates['minecraft_client_render_reexecuted']
+          assert not gates['full_png_rgba_or_packed_atlas_equality_proven']
+          assert gates['part_role_or_style_approved']==gates['source_copyright_or_ai_training_rights_approved']==0
+          saved=Path('project/integration/INT4_NONCHAIR_15_CASES_AUDIT_RESULT.json')
+          if saved.exists():
+              pinned=json.loads(saved.read_text())
+              assert pinned['observed']==doc, 'Frozen INT-4 source evidence mismatch'
+          print('INT4_NONCHAIR_15_CASES_19_ORIGINAL_APPLICATIONS_6_COMPARISONS_PASS')
+          print('CENSUS='+json.dumps(result,sort_keys=True))
+          print('CSV_SHA256='+json.dumps(doc['csv_sha256'],sort_keys=True))
+          PY
+      - name: Archive derived source metadata only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-nonchair-15-cases-original-source-crosscheck
+          path: ${{ runner.temp }}/mcfr-int4-nonchair-evidence/
+          retention-days: 45
+          if-no-files-found: warn
