@@ -117,7 +117,7 @@ jobs:
           assert hashlib.sha256((root/'INT4_HC_BED_TWO_F2_CONTACT.png').read_bytes()).hexdigest()==doc['contact_sha256']
           pinned=Path('project/integration/INT4_HANDCRAFTED_BED_F2_SOURCE_RESULT.json')
           if pinned.exists():
-              first=json.loads(pinned.read_text())['first_actual_game_audit']
+              first=json.loads(pinned.read_text())['first_paired_background_controlled_f2']['observed']
               assert first['source_cases']==doc['source_cases']
               assert first['original_face_counts']==doc['original_face_counts']
               assert first['limitations']==doc['limitations']
