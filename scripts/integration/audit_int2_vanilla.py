@@ -33,7 +33,7 @@ TEXTURE_LEDGER = ("research/vanilla_textures/integrations/"
 G_LEDGER = "research/vanilla_models/phase_1-2-G/final/G_FINAL_SOURCE_SHA_4669.csv"
 SIDECAR_LEDGER = "research/vanilla_models/phase_1-2-G/final/G_FINAL_MCMETA_99.csv"
 G_GAPS = "research/vanilla_models/phase_1-2-G/entry6/G_ENTRY6_PROVENANCE_GAPS.json"
-PNG_HEADER = b"\\x89PNG\\r\\n\\x1a\\n"
+PNG_HEADER = b"\x89PNG\r\n\x1a\n"
 PNG_FIELDS = (
     "stage_id", "item_id", "texture_id", "path", "material_family", "bytes",
     "raw_sha256", "git_blob_sha1", "width", "height",
@@ -58,7 +58,7 @@ def _source(root: Path, path: str) -> bytes:
 
 
 def _blob_sha(data: bytes) -> str:
-    return hashlib.sha1(b"blob " + str(len(data)).encode("ascii") + b"\\x00" + data).hexdigest()
+    return hashlib.sha1(b"blob " + str(len(data)).encode("ascii") + b"\x00" + data).hexdigest()
 
 
 def _strict_json(data: bytes, path: str):
@@ -273,11 +273,11 @@ def main():
     args.out.mkdir(parents=True, exist_ok=True)
     csv_path = args.out / "INT2_1_1_PNG_REAUDIT.csv"
     with csv_path.open("w", encoding="utf-8", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=PNG_FIELDS, lineterminator="\\n")
+        writer = csv.DictWriter(stream, fieldnames=PNG_FIELDS, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     (args.out / "INT2_VANILLA_SOURCE_SUMMARY.json").write_text(
-        json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\\n",
+        json.dumps(summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
     )
     print("INT2_SUMMARY_JSON:" + json.dumps(summary, ensure_ascii=False, sort_keys=True))
