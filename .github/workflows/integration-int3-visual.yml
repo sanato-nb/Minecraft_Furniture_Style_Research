@@ -82,6 +82,30 @@ jobs:
                       raise SystemExit("Malformed visualization svg")
           print("INT3_4_CHAIR_TEMPLATES_45_SOURCE_ROLE_VIEWS_SHA_VERIFIED_NOT_APPROVED")
           PY
+      - name: Confirm committed source, model, 45 individual SVG digests and overview match
+        env:
+          OUT: ${{ runner.temp }}/int3-visual
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          generated=Path(os.environ["OUT"])
+          committed=json.loads(Path("project/integration/INT3_VISUAL_REVIEW_PREP_SUMMARY.json").read_text(encoding="utf-8"))
+          current=json.loads((generated/"INT3_VISUAL_REVIEW_PREP_SUMMARY.json").read_text(encoding="utf-8"))
+          for key,value in current.items():
+              if committed.get(key)!=value:
+                  raise SystemExit("Source pinned visual review report differs at "+key)
+          overview=generated/"overview/all_four_templates.svg"
+          preserved=Path("project/integration/INT3_VISUAL_4_CHAIR_OVERVIEW.svg")
+          if overview.read_bytes()!=preserved.read_bytes():
+              raise SystemExit("Committed visual overview differs from regenerated original model polygons")
+          if len(current["evidence_files_sha256"])!=52:
+              raise SystemExit("Visual review evidence bundle is incomplete")
+          if current["visual_review"]["human_verified_elements"]:
+              raise SystemExit("Geometry review cannot auto-approve any original part")
+          print("INT3_VISUAL_45_PAIRED_VIEWS_52_FILES_SHA_PINNED_MATCH")
+          PY
       - name: Store generated diagnostic SVG gallery and review manifest only
         if: always()
         uses: actions/upload-artifact@v4
