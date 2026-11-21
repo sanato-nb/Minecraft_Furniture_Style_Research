@@ -1,0 +1,381 @@
+{
+  "schema": "MCFR_INT3_ACTUAL_FABRIC_F2_16_CASES/v1",
+  "status": "PASS_16_REAL_MINECRAFT_CLIENT_SCREENSHOTS_AND_SERVER_STATES_WITH_SOURCE_VERSION_LIMIT",
+  "ci_run": 44894353504,
+  "ci_head_before_evidence_commit": "a197da3d208d38037683a121c499515faa6f0327",
+  "actual_minecraft_versions": [
+    "1.21.1",
+    "1.21.11"
+  ],
+  "game_client_modes": [
+    "FABRIC_LOADER_0.18.4",
+    "OFFLINE_CREATIVE_FLAT_WORLD",
+    "GUI_XVFB_F2"
+  ],
+  "tested_source_models": [
+    "AF121",
+    "AF123",
+    "HC11210",
+    "MACAW67"
+  ],
+  "count": {
+    "client_1_21_1": 12,
+    "client_1_21_11": 4,
+    "total_native_screenshots": 16,
+    "server_state_verified": 16,
+    "selected_source_targets_y_matched": 16,
+    "manual_source_to_client_exact_equivalences": 0,
+    "approved_parts": 0,
+    "approved_style_or_material": 0,
+    "source_license_training_approvals": 0
+  },
+  "original_PR32_source_preview_sha256": "9860fdd3df57f95a774ed00f0bc7770535b720e040ec476ca58602f0dfc04073",
+  "human_contact_sheet_original_f2_sha256": "05e1ec75549dd5ad6c7ea6558d68a14aee8112efd22abecfba383b848c24eaf8",
+  "screenshot_pair_review_csv_sha256": "370be6c25cb1ca0c430c0cfa8d34a04ad9efc810c494df7df6b8e823f8a19426",
+  "gallery_zip_sha256": "6e819dd4cb2d219275fe2799eabb525e2d4dd18b3736138bd8f5739af389fd70",
+  "collected": {
+    "versions": [
+      {
+        "version": "1.21.1",
+        "models": [
+          "AF121",
+          "AF123",
+          "HC11210"
+        ],
+        "server_verified": 12,
+        "game_F2": 12,
+        "client_log_sha256": "bffd002386fa139b2ee51b1c4713e26d67b36fa0ec3d2f0333b4ba9b8086623d",
+        "blockstate_source": {
+          "another_furniture:acacia_chair": {
+            "jar": "another_furniture-fabric-4.0.2.jar",
+            "internal_path": "assets/another_furniture/blockstates/acacia_chair.json",
+            "research_source_hash": "37643398d7a49fdcfc6f2308ca04c13fb0b43aed",
+            "runtime_source_hash": "3a806533856f169a502373bda43a76eeabc1e689",
+            "byte_identical_to_research": false,
+            "scope": "RELEASE_SOURCE_DIFF_MUST_VALIDATE_EACH_SELECTED_STATE",
+            "algorithm": "GIT_BLOB_SHA1"
+          },
+          "handcrafted:warped_chair": {
+            "jar": "handcrafted-fabric-1.21.1-4.0.3.jar",
+            "internal_path": "assets/handcrafted/blockstates/warped_chair.json",
+            "research_source_hash": "099f32844f15e104687bac10b4a81635821bc8ce",
+            "runtime_source_hash": "099f32844f15e104687bac10b4a81635821bc8ce",
+            "byte_identical_to_research": true,
+            "scope": "BYTE_IDENTICAL_TO_PINNED_RESEARCH",
+            "algorithm": "GIT_BLOB_SHA1"
+          }
+        },
+        "release_wide_equivalence_limit": [
+          "another_furniture:acacia_chair"
+        ]
+      },
+      {
+        "version": "1.21.11",
+        "models": [
+          "MACAW67"
+        ],
+        "server_verified": 4,
+        "game_F2": 4,
+        "client_log_sha256": "e7237aeb8442469b6e24dc34f319016a7e8d7b7a3109c65d808b8457c9c890c2",
+        "blockstate_source": {
+          "mcwfurnitures:acacia_chair": {
+            "jar": "mcw-furniture-3.4.2-mc1.21.11fabric.jar",
+            "internal_path": "assets/mcwfurnitures/blockstates/acacia_chair.json",
+            "research_source_hash": "e6405186a33100104cb6dcbddd2cad774f157298cafe8e750dc228cd9ba24b95",
+            "runtime_source_hash": "e6405186a33100104cb6dcbddd2cad774f157298cafe8e750dc228cd9ba24b95",
+            "byte_identical_to_research": true,
+            "scope": "BYTE_IDENTICAL_TO_PINNED_RESEARCH",
+            "algorithm": "SHA256"
+          }
+        },
+        "release_wide_equivalence_limit": []
+      }
+    ],
+    "per_image": [
+      {
+        "case_id": "AF121_north",
+        "version": "1.21.1",
+        "block": "another_furniture:acacia_chair[facing=north,tucked=false,variant=1]",
+        "model": "another_furniture:block/chair/acacia_1",
+        "y": 0,
+        "source_research_sha": "37643398d7a49fdcfc6f2308ca04c13fb0b43aed",
+        "source_runtime_sha": "3a806533856f169a502373bda43a76eeabc1e689",
+        "source_equivalence_scope": "RELEASE_SOURCE_DIFF_MUST_VALIDATE_EACH_SELECTED_STATE",
+        "file": "AF121_north.png",
+        "sha256": "88f81170f42ab79e52851839b7e27ec0522c263ad181ee63a087936bbc6dd824",
+        "width": 1024,
+        "height": 684,
+        "native_game_F2": true,
+        "in_game_state_verified": true
+      },
+      {
+        "case_id": "AF121_east",
+        "version": "1.21.1",
+        "block": "another_furniture:acacia_chair[facing=east,tucked=false,variant=1]",
+        "model": "another_furniture:block/chair/acacia_1",
+        "y": 90,
+        "source_research_sha": "37643398d7a49fdcfc6f2308ca04c13fb0b43aed",
+        "source_runtime_sha": "3a806533856f169a502373bda43a76eeabc1e689",
+        "source_equivalence_scope": "RELEASE_SOURCE_DIFF_MUST_VALIDATE_EACH_SELECTED_STATE",
+        "file": "AF121_east.png",
+        "sha256": "0bf20297f657b62b28631a0180787742853f87d4862b1317c63928f79bee4d90",
+        "width": 1024,
+        "height": 684,
+        "native_game_F2": true,
+        "in_game_state_verified": true
+      },
+      {
+        "case_id": "AF121_south",
+        "version": "1.21.1",
+        "block": "another_furniture:acacia_chair[facing=south,tucked=false,variant=1]",
+        "model": "another_furniture:block/chair/acacia_1",
+        "y": 180,
+        "source_research_sha": "37643398d7a49fdcfc6f2308ca04c13fb0b43aed",
+        "source_runtime_sha": "3a806533856f169a502373bda43a76eeabc1e689",
+        "source_equivalence_scope": "RELEASE_SOURCE_DIFF_MUST_VALIDATE_EACH_SELECTED_STATE",
+        "file": "AF121_south.png",
+        "sha256": "935943544881d58bc5845914fb9746d17af07cd088ccffb6d05729af9c13648a",
+        "width": 1024,
+        "height": 684,
+        "native_game_F2": true,
+        "in_game_state_verified": true
+      },
+      {
+        "case_id": "AF121_west",
+        "version": "1.21.1",
+        "block": "another_furniture:acacia_chair[facing=west,tucked=false,variant=1]",
+        "model": "another_furniture:block/chair/acacia_1",
+        "y": 270,
+        "source_research_sha": "37643398d7a49fdcfc6f2308ca04c13fb0b43aed",
+        "source_runtime_sha": "3a806533856f169a502373bda43a76eeabc1e689",
+        "source_equivalence_scope": "RELEASE_SOURCE_DIFF_MUST_VALIDATE_EACH_SELECTED_STATE",
+        "file": "AF121_west.png",
+        "sha256": "ff8312c612574fdae0952ceb886b898fefbd7ea8c5f719dcf80cf7753465fadc",
+        "width": 1024,
+        "height": 684,
+        "native_game_F2": true,
+        "in_game_state_verified": true
+      },
+      {
+        "case_id": "AF123_north",
+        "version": "1.21.1",
+        "block": "another_furniture:acacia_chair[facing=north,tucked=true,variant=10]",
+        "model": "another_furniture:block/chair/acacia_10_tucked",
+        "y": 0,
+        "source_research_sha": "37643398d7a49fdcfc6f2308ca04c13fb0b43aed",
+        "source_runtime_sha": "3a806533856f169a502373bda43a76eeabc1e689",
+        "source_equivalence_scope": "RELEASE_SOURCE_DIFF_MUST_VALIDATE_EACH_SELECTED_STATE",
+        "file": "AF123_north.png",
+        "sha256": "18f3e999deff8370294234294c60025690f8040f7f6e9132f0fdfe158dfcb620",
+        "width": 1024,
+        "height": 684,
+        "native_game_F2": true,
+        "in_game_state_verified": true
+      },
+      {
+        "case_id": "AF123_east",
+        "version": "1.21.1",
+        "block": "another_furniture:acacia_chair[facing=east,tucked=true,variant=10]",
+        "model": "another_furniture:block/chair/acacia_10_tucked",
+        "y": 90,
+        "source_research_sha": "37643398d7a49fdcfc6f2308ca04c13fb0b43aed",
+        "source_runtime_sha": "3a806533856f169a502373bda43a76eeabc1e689",
+        "source_equivalence_scope": "RELEASE_SOURCE_DIFF_MUST_VALIDATE_EACH_SELECTED_STATE",
+        "file": "AF123_east.png",
+        "sha256": "365108d7ba6c493151aac9db68658c1258d55b902d22f3907beac622ec10f072",
+        "width": 1024,
+        "height": 684,
+        "native_game_F2": true,
+        "in_game_state_verified": true
+      },
+      {
+        "case_id": "AF123_south",
+        "version": "1.21.1",
+        "block": "another_furniture:acacia_chair[facing=south,tucked=true,variant=10]",
+        "model": "another_furniture:block/chair/acacia_10_tucked",
+        "y": 180,
+        "source_research_sha": "37643398d7a49fdcfc6f2308ca04c13fb0b43aed",
+        "source_runtime_sha": "3a806533856f169a502373bda43a76eeabc1e689",
+        "source_equivalence_scope": "RELEASE_SOURCE_DIFF_MUST_VALIDATE_EACH_SELECTED_STATE",
+        "file": "AF123_south.png",
+        "sha256": "552572d174ade7ff5105cdadacb5f88892580ab722e5f903e4d01a93fb769b45",
+        "width": 1024,
+        "height": 684,
+        "native_game_F2": true,
+        "in_game_state_verified": true
+      },
+      {
+        "case_id": "AF123_west",
+        "version": "1.21.1",
+        "block": "another_furniture:acacia_chair[facing=west,tucked=true,variant=10]",
+        "model": "another_furniture:block/chair/acacia_10_tucked",
+        "y": 270,
+        "source_research_sha": "37643398d7a49fdcfc6f2308ca04c13fb0b43aed",
+        "source_runtime_sha": "3a806533856f169a502373bda43a76eeabc1e689",
+        "source_equivalence_scope": "RELEASE_SOURCE_DIFF_MUST_VALIDATE_EACH_SELECTED_STATE",
+        "file": "AF123_west.png",
+        "sha256": "bdd6ebebcbc15fc14e1d32cffb762f83a8ac1d458b8b4b860b59a8bdc991face",
+        "width": 1024,
+        "height": 684,
+        "native_game_F2": true,
+        "in_game_state_verified": true
+      },
+      {
+        "case_id": "HC11210_north",
+        "version": "1.21.1",
+        "block": "handcrafted:warped_chair[facing=north,color=black,waterlogged=false]",
+        "model": "handcrafted:block/warped_chair_black",
+        "y": 0,
+        "source_research_sha": "099f32844f15e104687bac10b4a81635821bc8ce",
+        "source_runtime_sha": "099f32844f15e104687bac10b4a81635821bc8ce",
+        "source_equivalence_scope": "BYTE_IDENTICAL_TO_PINNED_RESEARCH",
+        "file": "HC11210_north.png",
+        "sha256": "ff8b509f45c43acada0c17503ae3b9107d0b93c761f5fec9cc3dd36800d43048",
+        "width": 1024,
+        "height": 684,
+        "native_game_F2": true,
+        "in_game_state_verified": true
+      },
+      {
+        "case_id": "HC11210_east",
+        "version": "1.21.1",
+        "block": "handcrafted:warped_chair[facing=east,color=black,waterlogged=false]",
+        "model": "handcrafted:block/warped_chair_black",
+        "y": 90,
+        "source_research_sha": "099f32844f15e104687bac10b4a81635821bc8ce",
+        "source_runtime_sha": "099f32844f15e104687bac10b4a81635821bc8ce",
+        "source_equivalence_scope": "BYTE_IDENTICAL_TO_PINNED_RESEARCH",
+        "file": "HC11210_east.png",
+        "sha256": "548ab75290913ec42f02b550fc6a370de522445f524fc3df148472e279dddf84",
+        "width": 1024,
+        "height": 684,
+        "native_game_F2": true,
+        "in_game_state_verified": true
+      },
+      {
+        "case_id": "HC11210_south",
+        "version": "1.21.1",
+        "block": "handcrafted:warped_chair[facing=south,color=black,waterlogged=false]",
+        "model": "handcrafted:block/warped_chair_black",
+        "y": 180,
+        "source_research_sha": "099f32844f15e104687bac10b4a81635821bc8ce",
+        "source_runtime_sha": "099f32844f15e104687bac10b4a81635821bc8ce",
+        "source_equivalence_scope": "BYTE_IDENTICAL_TO_PINNED_RESEARCH",
+        "file": "HC11210_south.png",
+        "sha256": "87ecf558d00eded723f989d3b987f7f7e494f0ae006f08576acc7aa985efa2b6",
+        "width": 1024,
+        "height": 684,
+        "native_game_F2": true,
+        "in_game_state_verified": true
+      },
+      {
+        "case_id": "HC11210_west",
+        "version": "1.21.1",
+        "block": "handcrafted:warped_chair[facing=west,color=black,waterlogged=false]",
+        "model": "handcrafted:block/warped_chair_black",
+        "y": 270,
+        "source_research_sha": "099f32844f15e104687bac10b4a81635821bc8ce",
+        "source_runtime_sha": "099f32844f15e104687bac10b4a81635821bc8ce",
+        "source_equivalence_scope": "BYTE_IDENTICAL_TO_PINNED_RESEARCH",
+        "file": "HC11210_west.png",
+        "sha256": "379d173af41f8198ac8e6f49d18603693db2a30a8f2fb2f92e64768b77615f9c",
+        "width": 1024,
+        "height": 684,
+        "native_game_F2": true,
+        "in_game_state_verified": true
+      },
+      {
+        "case_id": "MACAW67_north",
+        "version": "1.21.11",
+        "block": "mcwfurnitures:acacia_chair[facing=north]",
+        "model": "mcwfurnitures:block/chair/acacia_chair",
+        "y": 90,
+        "source_research_sha": "e6405186a33100104cb6dcbddd2cad774f157298cafe8e750dc228cd9ba24b95",
+        "source_runtime_sha": "e6405186a33100104cb6dcbddd2cad774f157298cafe8e750dc228cd9ba24b95",
+        "source_equivalence_scope": "BYTE_IDENTICAL_TO_PINNED_RESEARCH",
+        "file": "MACAW67_north.png",
+        "sha256": "d7e82638d4296af2368ece59fd8fdc35ff07c9aa67e59a6908cb1f58ef45b948",
+        "width": 1024,
+        "height": 684,
+        "native_game_F2": true,
+        "in_game_state_verified": true
+      },
+      {
+        "case_id": "MACAW67_east",
+        "version": "1.21.11",
+        "block": "mcwfurnitures:acacia_chair[facing=east]",
+        "model": "mcwfurnitures:block/chair/acacia_chair",
+        "y": 180,
+        "source_research_sha": "e6405186a33100104cb6dcbddd2cad774f157298cafe8e750dc228cd9ba24b95",
+        "source_runtime_sha": "e6405186a33100104cb6dcbddd2cad774f157298cafe8e750dc228cd9ba24b95",
+        "source_equivalence_scope": "BYTE_IDENTICAL_TO_PINNED_RESEARCH",
+        "file": "MACAW67_east.png",
+        "sha256": "ad35bd566b0553e442681618c0531d0918e4eca4533ce97338d27c1184921a5e",
+        "width": 1024,
+        "height": 684,
+        "native_game_F2": true,
+        "in_game_state_verified": true
+      },
+      {
+        "case_id": "MACAW67_south",
+        "version": "1.21.11",
+        "block": "mcwfurnitures:acacia_chair[facing=south]",
+        "model": "mcwfurnitures:block/chair/acacia_chair",
+        "y": 270,
+        "source_research_sha": "e6405186a33100104cb6dcbddd2cad774f157298cafe8e750dc228cd9ba24b95",
+        "source_runtime_sha": "e6405186a33100104cb6dcbddd2cad774f157298cafe8e750dc228cd9ba24b95",
+        "source_equivalence_scope": "BYTE_IDENTICAL_TO_PINNED_RESEARCH",
+        "file": "MACAW67_south.png",
+        "sha256": "60d2c8ebbdff5bba49f549067a2e55469b6cf438b7d06e69404f4fc11987816a",
+        "width": 1024,
+        "height": 684,
+        "native_game_F2": true,
+        "in_game_state_verified": true
+      },
+      {
+        "case_id": "MACAW67_west",
+        "version": "1.21.11",
+        "block": "mcwfurnitures:acacia_chair[facing=west]",
+        "model": "mcwfurnitures:block/chair/acacia_chair",
+        "y": 0,
+        "source_research_sha": "e6405186a33100104cb6dcbddd2cad774f157298cafe8e750dc228cd9ba24b95",
+        "source_runtime_sha": "e6405186a33100104cb6dcbddd2cad774f157298cafe8e750dc228cd9ba24b95",
+        "source_equivalence_scope": "BYTE_IDENTICAL_TO_PINNED_RESEARCH",
+        "file": "MACAW67_west.png",
+        "sha256": "8fdf444cfdf40a50c390e83a321eabaf4114bbc2d06ae93f3436d75b2f17721d",
+        "width": 1024,
+        "height": 684,
+        "native_game_F2": true,
+        "in_game_state_verified": true
+      }
+    ]
+  },
+  "exceptions": [
+    {
+      "id": "AF_RELEASE_4_0_2_VS_RESEARCH_4_0_3",
+      "status": "FIXED_SCOPE_SOURCE_VERSION_DIFFERENCE",
+      "detail": "AF runtime 4.0.2 has different Git blob SHA (3a80653385...) from pinned research 4.0.3 (37643398d7...). Only exactly selected AF121/AF123 8 blockstate choices and y rotations independently match. No full-release equality claim."
+    },
+    {
+      "id": "AF123_TUCKED_NEIGHBOR_SUPPORT",
+      "status": "SOURCE_CODE_AND_GAME_BEHAVIOR_CONFIRMED",
+      "detail": "Four tucked=true states reset to false without forward support. TuckableBlock.canTuckUnderBlockInfront admits a top slab; adding a forward oak top slab produced 4/4 server-state PASS, with the support visibly present in screenshots."
+    },
+    {
+      "id": "DIAGNOSTIC_VS_GAME_CAMERA",
+      "status": "PIXEL_COMPARISON_NOT_APPLICABLE",
+      "detail": "Source orthographic PNG UV reconstruction and in-game F2 use different camera, perspective, occlusion, lighting; no pixel-diff equality claim."
+    }
+  ],
+  "boundaries": {
+    "actual_client_f2_screenshots_collected": true,
+    "source_model_selectors_and_y_verified": true,
+    "all_228_blockstates_game_tested": false,
+    "source_to_game_baked_mesh_match_verified": false,
+    "final_chair_function_approved": false,
+    "material_style_verified": false,
+    "copyright_or_AI_training_approved": false,
+    "original_mod_PNG_JAR_JSON_copied_into_artifact": false,
+    "artifact_retention_days": 45
+  }
+}
