@@ -1,0 +1,148 @@
+name: INT-2 independent 1-4 PNG pixel and UV evidence
+on:
+  pull_request:
+    paths:
+      - 'scripts/integration/audit_int2_mod_textures.py'
+      - 'scripts/integration/audit_int2_uv_support.py'
+      - 'scripts/integration/audit_int2_uv_regions.py'
+      - 'tests/integration/test_int2_mod_textures.py'
+      - 'tests/integration/test_int2_uv_support.py'
+      - 'tests/integration/test_int2_uv_regions.py'
+      - 'project/integration/INT2_1_4*'
+      - '.github/workflows/integration-int2-mod-textures.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  textures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image decoder
+        run: python -m pip install "Pillow>=10.0,<13.0"
+      - name: Independent PNG, JSON and prior integration regression tests
+        run: python -m unittest discover -s tests/integration -p 'test_*.py' -v
+      - name: Acquire five immutable upstream source archives to temporary directory
+        env:
+          WORK: ${{ runner.temp }}/int2-texture-upstream
+        run: |
+          set -euo pipefail
+          mkdir -p "$WORK"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            "https://codeload.github.com/crispytwig/AnotherFurniture/zip/57eb624cbb7f408d43398c7434b0d38d312cb55d" \
+            -o "$WORK/af.zip"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            "https://codeload.github.com/terrarium-earth/Handcrafted/zip/8d21d1665916850c3fa3bdaf1370c50ec2ca7035" \
+            -o "$WORK/hc.zip"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            "https://cdn.modrinth.com/data/dtWC90iB/versions/xhmciaUD/mcw-furniture-3.4.2-mc1.21.11fabric.jar" \
+            -o "$WORK/macaw.jar"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            "https://piston-data.mojang.com/v1/objects/30c73b1c5da787909b2f73340419fdf13b9def88/client.jar" \
+            -o "$WORK/1.21.1.jar"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            "https://piston-data.mojang.com/v1/objects/ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd/client.jar" \
+            -o "$WORK/1.21.11.jar"
+      - name: Reopen and decode 2001 PNGs, reconcile 1-4 pixel evidence and UV counts
+        env:
+          WORK: ${{ runner.temp }}/int2-texture-upstream
+          OUT: ${{ runner.temp }}/int2-texture-result
+        run: |
+          python scripts/integration/audit_int2_mod_textures.py \
+            --root . --af "$WORK/af.zip" --hc "$WORK/hc.zip" \
+            --macaw "$WORK/macaw.jar" --mc1211 "$WORK/1.21.1.jar" \
+            --mc12111 "$WORK/1.21.11.jar" --out "$OUT"
+      - name: Independently resample supplemental UV regions and validate template child binding
+        env:
+          WORK: ${{ runner.temp }}/int2-texture-upstream
+          OUT: ${{ runner.temp }}/int2-texture-result
+        run: |
+          python scripts/integration/audit_int2_uv_support.py \
+            --root . --af "$WORK/af.zip" --hc "$WORK/hc.zip" \
+            --macaw "$WORK/macaw.jar" --mc1211 "$WORK/1.21.1.jar" \
+            --mc12111 "$WORK/1.21.11.jar" --out "$OUT"
+      - name: Independently re-crop all 29957 ordinary and animation frame UV regions
+        env:
+          WORK: ${{ runner.temp }}/int2-texture-upstream
+          OUT: ${{ runner.temp }}/int2-texture-result
+        run: |
+          python scripts/integration/audit_int2_uv_regions.py \
+            --root . --af "$WORK/af.zip" --hc "$WORK/hc.zip" \
+            --macaw "$WORK/macaw.jar" --mc1211 "$WORK/1.21.1.jar" \
+            --mc12111 "$WORK/1.21.11.jar" --out "$OUT"
+      - name: Verify fresh 2001 PNG and 1794 chair UV records against pinned Git evidence
+        env:
+          OUT: ${{ runner.temp }}/int2-texture-result
+        run: |
+          python - <<'PY'
+          import csv
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          output=Path(os.environ["OUT"])
+          recorded=json.loads(Path("project/integration/INT2_1_4_SUMMARY.json").read_text(encoding="utf-8"))
+          computed=json.loads((output/"INT2_1_4_SUMMARY.json").read_text(encoding="utf-8"))
+          for key,value in computed.items():
+              if recorded.get(key)!=value:
+                  raise SystemExit("INT2 1-4 checked-in summary mismatch: "+key)
+          for filename,count,field in (
+              ("INT2_1_4_2001_PNG_CHECKS.csv",2001,"per_png_evidence_sha256"),
+              ("INT2_1_4_1794_CHAIR_UV_CHECKS.csv",1794,"per_face_csv_sha256"),
+          ):
+              raw=(output/filename).read_bytes()
+              digest=hashlib.sha256(raw).hexdigest()
+              expected=recorded["per_png_evidence_sha256"] if count==2001 else recorded["chair_uv_reprojection"][field]
+              if digest!=expected:
+                  raise SystemExit("INT2 1-4 source evidence SHA mismatch: "+filename)
+              with (output/filename).open(encoding="utf-8",newline="") as f:
+                  rows=list(csv.DictReader(f))
+              if len(rows)!=count or any(row["comparison"]!="PASS" for row in rows):
+                  raise SystemExit("INT2 1-4 per-row comparison mismatch: "+filename)
+          print("INT2_1_4_ALL_ORIGINAL_PNG_AND_CHAIR_UV_SNAPSHOTS_MATCHED")
+          PY
+      - name: Verify saved supplemental source and 29957 UV region samples against fresh originals
+        env:
+          OUT: ${{ runner.temp }}/int2-texture-result
+        run: |
+          python - <<'PY'
+          import csv
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          output=Path(os.environ["OUT"])
+          source=Path("project/integration")
+          for name in ("INT2_1_4_SUPPLEMENTAL_SUMMARY.json","INT2_1_4_UV_REGIONS_SUMMARY.json"):
+              prior=json.loads((source/name).read_text(encoding="utf-8"))
+              now=json.loads((output/name).read_text(encoding="utf-8"))
+              for key,value in now.items():
+                  if prior.get(key)!=value:
+                      raise SystemExit(f"Independent 1-4 source summary mismatch: {name}: {key}")
+          expected=json.loads((source/"INT2_1_4_UV_REGIONS_SUMMARY.json").read_text(encoding="utf-8"))
+          path=output/"INT2_1_4_29957_UV_RECHECK.csv"
+          if hashlib.sha256(path.read_bytes()).hexdigest()!=expected["per_region_csv_sha256"]:
+              raise SystemExit("UV original 29957 regions' output SHA differs")
+          with path.open(encoding="utf-8",newline="") as f:
+              rows=list(csv.DictReader(f))
+          if len(rows)!=29957 or any(r["comparison"]!="PASS" for r in rows):
+              raise SystemExit("UV original 29957 regions failed independent per-row check")
+          print("INT2_1_4_ALL_29957_ORIGINAL_UV_REGIONS_MATCHED")
+          PY
+      - name: Upload evidence but not copyrighted source textures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int2-1-4-png-uv-originals
+          path: ${{ runner.temp }}/int2-texture-result/
+          if-no-files-found: warn
+          retention-days: 60
