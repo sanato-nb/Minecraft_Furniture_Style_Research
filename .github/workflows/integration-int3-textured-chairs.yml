@@ -87,6 +87,31 @@ jobs:
               raise SystemExit("Original artwork or game-function approval claimed")
           print("INT3_TEXTURED_FOUR_CHAIRS_ALL_229_ORIGINAL_PNG_UV_FACES_VERIFIED")
           PY
+      - name: Reconcile recomputed source 229-face PNG UV ledger and saved SHA evidence
+        env:
+          OUT: ${{ runner.temp }}/int3-textured-chair-result
+        run: |
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          original=json.loads(Path("project/integration/INT3_TEXTURED_CHAIRS_SOURCE_SUMMARY.json").read_text(encoding="utf-8"))
+          latest=json.loads((Path(os.environ["OUT"])/"INT3_TEXTURED_CHAIRS_SOURCE_REPORT.json").read_text(encoding="utf-8"))
+          for key,value in latest.items():
+              if original.get(key)!=value:
+                  raise SystemExit("Pinned texture and per-face UV evidence diverged: "+key)
+          if original["source_png_count"]!=8 or original["original_faces"]!=229:
+              raise SystemExit("Only the fixed four original child chair evidence scopes are supported")
+          folder=Path(os.environ["OUT"])
+          for filename,key in (
+              ("INT3_4_CHAIRS_ORIGINAL_UV_TEXTURE_DIAGNOSTIC.png","contact_sheet_sha256"),
+              ("INT3_229_ORIGINAL_FACE_UV_TEXTURE_EVIDENCE.csv","face_csv_sha256")
+          ):
+              if hashlib.sha256((folder/filename).read_bytes()).hexdigest()!=original[key]:
+                  raise SystemExit("Render or provenance file bytes changed: "+filename)
+          if latest["boundary"]["actual_minecraft_client_render_verified"]:
+              raise SystemExit("Diagnosis cannot certify Minecraft runtime")
+          print("INT3_ALL_229_ORIGINAL_TEXTURE_FACES_SHA_AND_SOURCE_PNG_PINNED_REPRODUCED")
+          PY
       - name: Upload only derived texture-mapped diagnostic and source hash report
         if: always()
         uses: actions/upload-artifact@v4
