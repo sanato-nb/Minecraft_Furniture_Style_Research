@@ -1,0 +1,83 @@
+{
+  "ai_training_approved": false,
+  "baseline_sha": "176f7f34de2336eb7984c4734e97b6eb156c19f4",
+  "chair_uv_reprojection": {
+    "discrepancy_examples": [],
+    "face_record_matches": 1794,
+    "face_rgba_sha_matches": 1794,
+    "face_samples": 1794,
+    "method": "independent_39_leaf_original_parent_UV_to_PNG_RBGA_region_reprojection",
+    "new_png_faces": 456,
+    "per_face_csv_sha256": "b3767ac736d71941f738cd3ec2d2c6502e781cdf96ea819db01a7e92775da152",
+    "regions_with_transparency": 78,
+    "reversed_uv": 273,
+    "rotated_uv": 117,
+    "unmatched_history": 0
+  },
+  "discrepancy_examples": [],
+  "face_evidence_reconciliation": {
+    "differences": {},
+    "expected": {
+      "face_balance": 592312,
+      "face_total": 592312,
+      "ordinary_rect": 511709,
+      "sampled": 585969,
+      "supplemental": 74260,
+      "unsupported": 6343,
+      "unsupported_missing_png": 139,
+      "unsupported_no_intersection": 2,
+      "unsupported_unbound": 6202
+    },
+    "fraction_with_original_pixel_support": 0.9892911168438255,
+    "method": "independent_summation_of_saved_1_4_row_counts_not_redecode_of_all_face_pixels",
+    "observed": {
+      "face_balance": 592312,
+      "face_total": 592312,
+      "ordinary_rect": 511709,
+      "sampled": 585969,
+      "supplemental": 74260,
+      "unsupported": 6343,
+      "unsupported_missing_png": 139,
+      "unsupported_no_intersection": 2,
+      "unsupported_unbound": 6202
+    },
+    "unbound_child_binding_context": {
+      "BOUND_CHILD_CONTEXT": 6196,
+      "UNBOUND_NO_BOUND_CHILD": 6
+    }
+  },
+  "new_png_by_source": {
+    "AF": 1036,
+    "HC": 885,
+    "MACAW": 18,
+    "MC1.21.1": 15,
+    "MC1.21.11": 42
+  },
+  "not_verified": [
+    "full_592312_face UV original source calculation",
+    "GPU atlas UV lock/tint",
+    "actual animated frame timing",
+    "source use authorization"
+  ],
+  "per_png_discrepancies": 0,
+  "per_png_evidence_sha256": "ad5ee6e3a14a2a3dac552a4c8f0eeb8260d6c834f7a0c53038937600d851f7dd",
+  "pinned_texture_pairs": 2256,
+  "png_scopes": {
+    "NEW_CANDIDATE": 1996,
+    "PRIOR_CHAIR_CONTROL": 5
+  },
+  "schema": "MCFR_INT2_1_4_ORIGINAL_PNG_REAUDIT/v1",
+  "source_file_metrics": {
+    "opaque": 1120379,
+    "partial_alpha": 8193,
+    "pixels": 4406272,
+    "png_crc_pass": 2001,
+    "png_full_record_matches": 2001,
+    "png_rgba_sha_match": 2001,
+    "redecoded_png": 2001,
+    "transparent": 3277700
+  },
+  "status": "PASS_ORIGINAL_PNG_BYTES_CRC_RGBA_AND_FACE_COUNT_RECONCILIATION",
+  "ci_first_successful_fully_sampled_run": 44866802902,
+  "ci_script_commit": "7a82885ba753da43382f11886e7ae763f87ff89a"
+}
