@@ -1,0 +1,109 @@
+{
+  "schema": "MCFR_INT3_PR33_BACKGROUND_INTRUSION_BASELINE/v1",
+  "source_run": 44895006964,
+  "source_evidence_file": "project/integration/INT3_CLIENT_RUNTIME_16_F2_EVIDENCE.json",
+  "frame_size": [
+    1024,
+    684
+  ],
+  "region": [
+    0,
+    90,
+    1024,
+    360
+  ],
+  "region_rationale": "Cloud-free Minecraft 1.21.1 top-sky region distinguishes intruding gray source-fixture platforms from sky; not a semantic object classifier",
+  "mask": "abs(R-G)<18 AND abs(G-B)<22 AND 55<R<235",
+  "underlying_original_test_platforms": {
+    "AF121_z": 40,
+    "AF123_z": 54,
+    "HC11210_z": 68,
+    "camera_direction": "north",
+    "camera_offset_z": 5.5,
+    "each_floor_extent": "+/-3"
+  },
+  "affected_screenshots": 8,
+  "source_model_geometry_changed": false,
+  "entries": [
+    {
+      "case_id": "AF121_north",
+      "screenshot_sha256": "88f81170f42ab79e52851839b7e27ec0522c263ad181ee63a087936bbc6dd824",
+      "stone_achromatic_upper_sky_pixels": 0,
+      "other_chair_platform_visible_by_source_and_frame": false
+    },
+    {
+      "case_id": "AF121_east",
+      "screenshot_sha256": "0bf20297f657b62b28631a0180787742853f87d4862b1317c63928f79bee4d90",
+      "stone_achromatic_upper_sky_pixels": 0,
+      "other_chair_platform_visible_by_source_and_frame": false
+    },
+    {
+      "case_id": "AF121_south",
+      "screenshot_sha256": "935943544881d58bc5845914fb9746d17af07cd088ccffb6d05729af9c13648a",
+      "stone_achromatic_upper_sky_pixels": 0,
+      "other_chair_platform_visible_by_source_and_frame": false
+    },
+    {
+      "case_id": "AF121_west",
+      "screenshot_sha256": "ff8312c612574fdae0952ceb886b898fefbd7ea8c5f719dcf80cf7753465fadc",
+      "stone_achromatic_upper_sky_pixels": 0,
+      "other_chair_platform_visible_by_source_and_frame": false
+    },
+    {
+      "case_id": "AF123_north",
+      "screenshot_sha256": "18f3e999deff8370294234294c60025690f8040f7f6e9132f0fdfe158dfcb620",
+      "stone_achromatic_upper_sky_pixels": 21860,
+      "other_chair_platform_visible_by_source_and_frame": true
+    },
+    {
+      "case_id": "AF123_east",
+      "screenshot_sha256": "365108d7ba6c493151aac9db68658c1258d55b902d22f3907beac622ec10f072",
+      "stone_achromatic_upper_sky_pixels": 33814,
+      "other_chair_platform_visible_by_source_and_frame": true
+    },
+    {
+      "case_id": "AF123_south",
+      "screenshot_sha256": "552572d174ade7ff5105cdadacb5f88892580ab722e5f903e4d01a93fb769b45",
+      "stone_achromatic_upper_sky_pixels": 33814,
+      "other_chair_platform_visible_by_source_and_frame": true
+    },
+    {
+      "case_id": "AF123_west",
+      "screenshot_sha256": "bdd6ebebcbc15fc14e1d32cffb762f83a8ac1d458b8b4b860b59a8bdc991face",
+      "stone_achromatic_upper_sky_pixels": 21916,
+      "other_chair_platform_visible_by_source_and_frame": true
+    },
+    {
+      "case_id": "HC11210_north",
+      "screenshot_sha256": "ff8b509f45c43acada0c17503ae3b9107d0b93c761f5fec9cc3dd36800d43048",
+      "stone_achromatic_upper_sky_pixels": 30556,
+      "other_chair_platform_visible_by_source_and_frame": true
+    },
+    {
+      "case_id": "HC11210_east",
+      "screenshot_sha256": "548ab75290913ec42f02b550fc6a370de522445f524fc3df148472e279dddf84",
+      "stone_achromatic_upper_sky_pixels": 45355,
+      "other_chair_platform_visible_by_source_and_frame": true
+    },
+    {
+      "case_id": "HC11210_south",
+      "screenshot_sha256": "87ecf558d00eded723f989d3b987f7f7e494f0ae006f08576acc7aa985efa2b6",
+      "stone_achromatic_upper_sky_pixels": 45349,
+      "other_chair_platform_visible_by_source_and_frame": true
+    },
+    {
+      "case_id": "HC11210_west",
+      "screenshot_sha256": "379d173af41f8198ac8e6f49d18603693db2a30a8f2fb2f92e64768b77615f9c",
+      "stone_achromatic_upper_sky_pixels": 30396,
+      "other_chair_platform_visible_by_source_and_frame": true
+    }
+  ],
+  "conclusion": "VISUAL_STAGING_CONTAMINATION_CONFIRMED_BY_ORIGINAL_FIXTURE_PLACEMENT_NOT_SOURCE_MODEL_PARTS",
+  "not_approved": [
+    "chair part role",
+    "texture UV equality",
+    "material",
+    "visual style",
+    "AI model rights"
+  ]
+}
