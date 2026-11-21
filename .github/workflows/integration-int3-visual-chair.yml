@@ -5,6 +5,8 @@ on:
       - 'scripts/integration/render_int3_chair_geometry.py'
       - 'tests/integration/test_int3_geometry_preview.py'
       - 'project/integration/INT3_VISUAL_*'
+      - 'project/integration/INT3_45_CHAIR_GEOMETRY_REVIEW.csv'
+      - 'scripts/integration/audit_int3_geometry_review.py'
       - '.github/workflows/integration-int3-visual-chair.yml'
   workflow_dispatch:
 permissions:
@@ -70,6 +72,14 @@ jobs:
           assert hashlib.sha256(png.read_bytes()).hexdigest()==doc['sheet_sha256']
           print('INT3_4_PINNED_ORIGINAL_CHAIR_MODELS_45_UNVERIFIED_ROLE_VISUALS_READY')
           PY
+      - name: Reconcile all 45 inspected elements with original geometry and source SHA
+        env:
+          OUT: ${{ runner.temp }}/int3-chair-visual
+        run: |
+          python scripts/integration/audit_int3_geometry_review.py \
+            --root . \
+            --render-summary "$OUT/INT3_45_GEOMETRY_RENDER_SUMMARY.json" \
+            --out "$OUT/INT3_45_GEOMETRY_VISUAL_ASSESSMENT_SUMMARY.json"
       - name: Preserve source-backed geometry diagrams and metadata only
         if: always()
         uses: actions/upload-artifact@v4
