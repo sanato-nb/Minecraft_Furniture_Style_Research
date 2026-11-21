@@ -54,7 +54,7 @@ jobs:
           python scripts/integration/audit_int2_comparison.py \
             --root . --af "$WORK/af.zip" --hc "$WORK/hc.zip" \
             --macaw "$WORK/macaw.jar" --mc1211 "$WORK/1.21.1.jar" \
-            --mc12111 "$WORK/1.21.11.jar" --out "$OUT"
+            --mc12111 "$WORK/1.21.11.jar" --out "$OUT" --print-csv
       - name: Upload evidence, never uploaded original texture or mod assets
         if: always()
         uses: actions/upload-artifact@v4
