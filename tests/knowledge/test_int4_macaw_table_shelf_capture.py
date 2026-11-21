@@ -114,11 +114,12 @@ class TableShelfTests(unittest.TestCase):
             self.assertEqual(v["server_verified_states"],4)
             self.assertFalse(v["boundaries"]["natural_connected_block_update_rules_tested"])
             self.assertEqual(v["source_1_5_face_counts"],{"S18":31,"S19":6,"S28":31,"S29":19})
+            validsha=record[0]["screenshot_sha256"]
             m["states"][0]["screenshot_sha256"]="0"*64
             f.write_text(json.dumps(m))
             with self.assertRaisesRegex(ValueError,"F2 PNG image SHA changed"):
                 study.audit(folder)
-            m["states"][0]["screenshot_sha256"]=record[0]["screenshot_sha256"]
+            m["states"][0]["screenshot_sha256"]=validsha
             m["copyright_or_ai_training_approved"]=1
             f.write_text(json.dumps(m))
             with self.assertRaisesRegex(ValueError,"no semantic approvals"):
