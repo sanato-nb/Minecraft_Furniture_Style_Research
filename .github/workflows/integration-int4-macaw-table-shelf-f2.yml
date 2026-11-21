@@ -74,6 +74,14 @@ jobs:
           from PIL import Image
           folder=Path(os.environ['OUT'])
           doc=json.loads((folder/'INT4_MACAW_TABLE_SHELF_F2_AUDIT.json').read_text())
+          historical=json.loads(Path('project/integration/INT4_MACAW_TABLE_SHELF_F2_SOURCE_RESULT.json').read_text())
+          first=historical['first_actual_game_audit']
+          assert first['source_cases']==doc['source_cases']
+          assert first['source_1_5_face_counts']==doc['source_1_5_face_counts']
+          assert first['original_source_sha256']==doc['original_source_sha256']
+          assert first['boundaries']==doc['boundaries']
+          assert first['native_f2_count']==doc['native_f2_count']==4
+          # Per-run screenshot SHA remains independently verified below.
           assert doc['status']=='PASS_FOUR_ACTUAL_PINNED_GAME_F2_SOURCE_STATES_NOT_NATURAL_CONNECTION'
           assert doc['source_cases']==['S18','S19','S28','S29']
           assert doc['source_1_5_face_counts']=={'S18':31,'S19':6,'S28':31,'S29':19}

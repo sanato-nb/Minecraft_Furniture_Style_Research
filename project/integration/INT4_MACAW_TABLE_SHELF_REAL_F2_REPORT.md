@@ -46,3 +46,22 @@ python -m mcfr.int4_macaw_table_shelf_capture --directory /tmp/int4-table-shelf-
 ```
 
 CI 완료 전 실제 성공/문제 여부는 별도 결과로 남긴다.
+
+## 실제 Fabric CI·원본 F2 시각 관찰 (성공)
+
+[실제 Minecraft 1.21.11 실행 #44923726837](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/44923726837)의 첫 시도는 **카메라 teleport 대기 시간 초과**로 중단됐다. 기존 전체 CI와 병렬로 실행되던 해당 작업만 **단독 재실행(두 번째 시도)**했고, 그 결과 **4/4 서버 상태·4/4 네이티브 F2** 및 원본 JAR·모델·부모 SHA 검증이 모두 성공했다. 첫 실패를 삭제하거나 가구 모델 오류라고 판정하지 않았다.
+
+| 원본 상태 | F2 증거 | 전경 채도화소 | 화면에서 직접 관찰한 모습 |
+|---|---:|---:|---|
+| S18 연결 없는 테이블 | 1/1 | 5,575 | 상판과 지지 다리가 보이는 작은 탁자형 목재 구조 |
+| S19 사방 연결 테이블 | 1/1 | 4,756 | 다리가 드러나지 않는 낮은 평판·상판형 목재 부분 |
+| S28 책장 base | 1/1 | 8,062 | 길고 좁은 수직 목재 부분; 책이나 선반 전체는 구별하기 어려움 |
+| S29 책장 middle | 1/1 | 5,124 | 더 낮은 목재 부분과 얇게 올라온 일부 구조; 완성형 책장은 확인 불가 |
+
+각 F2 파일은 실제 원본 클라이언트의 1024×684 PNG이며, 모든 사진·접촉시트를 아티팩트에서 **직접 열어 관찰**했다. 특히 S28/S29의 모델명은 bookshelf지만 단독 분리된 상태를 찍었으므로 **완성된 책장의 시각적 역할 승인은 하지 않는다**. S18/S19의 테이블형 외관 관찰 또한 자연 연결 기능 검증은 아니다.
+
+- 성공 F2 첫 증거 아티팩트: [Actions 아티팩트 14715440464](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/44923726837/artifacts/14715440464), 압축 SHA-256 `cc8cc849a400ba851fc20b197728898ac2118cc856983bc02b53fa096f3f5c78`.
+- 위 F2 4장 SHA와 원본 모드 JAR·원본 적용 CSV SHA는 [INT4_MACAW_TABLE_SHELF_F2_SOURCE_RESULT.json](INT4_MACAW_TABLE_SHELF_F2_SOURCE_RESULT.json)에 고정.
+- 이전 Macaw 주방 F2 3장과 이번 테이블·책장 F2 4장을 합쳐, 기존 비의자 대표 15사례 중 **7개 사례의 명시적 상태에 대한 실제 F2**가 확보됨. 이는 **7/15 사례 범위의 F2 수집**이지 INT-4 전체 47%나 INT-5 47%라는 뜻은 아니다.
+- 원본 모드 JAR·PNG, 실제 스크린샷 바이너리는 Git 이력에 넣지 않음.
+- **미완:** 자연스럽게 연결/분리되는 업데이트 로직, 완성된 다블록 형태의 시각 검증, Handcrafted 침대의 머리/발 블록 상태 실험, GPU 면별 UV 검증, 부품 역할·권리 승인.
