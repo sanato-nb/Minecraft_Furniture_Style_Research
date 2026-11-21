@@ -1,0 +1,92 @@
+name: INT-4 original missing-parent model blockstate reachability audit
+on:
+  pull_request:
+    paths:
+      - 'scripts/integration/audit_int4_parent_reachability.py'
+      - 'tests/integration/test_int4_parent_reachability.py'
+      - 'project/integration/INT4_PARENT_48_BLOCKSTATE*'
+      - '.github/workflows/integration-int4-parent-reachability.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  static-original-reference-census:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test source selection, parent chains and refusal to infer client visuals
+        run: |
+          python -m unittest discover -s tests/integration -p 'test_int4_parent_gaps.py' -v
+          python -m unittest discover -s tests/integration -p 'test_int4_parent_reachability.py' -v
+      - name: Download fixed original upstream mod ZIPs and Mojang release clients
+        env:
+          WORK: ${{ runner.temp }}/int4-reach-originals
+        run: |
+          set -euo pipefail
+          mkdir -p "$WORK"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            'https://codeload.github.com/crispytwig/AnotherFurniture/zip/57eb624cbb7f408d43398c7434b0d38d312cb55d' \
+            -o "$WORK/af.zip"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            'https://cdn.modrinth.com/data/dtWC90iB/versions/xhmciaUD/mcw-furniture-3.4.2-mc1.21.11fabric.jar' \
+            -o "$WORK/macaw.jar"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            'https://piston-data.mojang.com/v1/objects/30c73b1c5da787909b2f73340419fdf13b9def88/client.jar' \
+            -o "$WORK/mc1211.jar"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            'https://piston-data.mojang.com/v1/objects/ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd/client.jar' \
+            -o "$WORK/mc12111.jar"
+      - name: Open all pinned mod blockstates, model parent chains, item definitions and 48 exact original models
+        env:
+          WORK: ${{ runner.temp }}/int4-reach-originals
+          OUT: ${{ runner.temp }}/int4-reach-derived-metadata
+        run: |
+          python scripts/integration/audit_int4_parent_reachability.py --root . \
+            --af "$WORK/af.zip" --macaw "$WORK/macaw.jar" \
+            --mc1211 "$WORK/mc1211.jar" --mc12111 "$WORK/mc12111.jar" \
+            --out "$OUT"
+      - name: Assert original missing-parent 48 census, immutable reference and no semantic promotion
+        env:
+          OUT: ${{ runner.temp }}/int4-reach-derived-metadata
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,os
+          from pathlib import Path
+          output=Path(os.environ['OUT'])
+          source=json.loads((output/'INT4_PARENT_48_BLOCKSTATE_REACHABILITY_SUMMARY.json').read_text())
+          data=(output/'INT4_PARENT_48_BLOCKSTATE_REACHABILITY.csv').read_bytes()
+          rows=list(csv.DictReader(data.decode('utf-8').splitlines()))
+          assert hashlib.sha256(data).hexdigest()==source['row_csv_sha256']
+          assert len(rows)==48 and len({row['child_resource'] for row in rows})==48
+          assert source['summary']['historical_missing_parent_model_paths']==48
+          assert source['summary']['missing_parent_target_ids']==3
+          assert source['summary']['historical_no_static_overlap']==44
+          assert source['summary']['catalog_models_checked_exact_sha']==48
+          assert sum(int(x['blockstate_inheritance_reachable']=='True') for x in rows)==source['summary']['in_static_blockstate_source_selection_or_parent_chain']
+          assert source['summary']['actual_game_render_failure_proven']==0
+          assert source['summary']['source_model_repair_applied']==0
+          assert source['summary']['ai_semantics_or_training_rights_approved']==0
+          assert not any(x['client_runtime_visual_fault_approved']=='True' or x['ai_semantic_or_rights_approval']=='True' for x in rows)
+          checkpoint=Path('project/integration/INT4_PARENT_48_BLOCKSTATE_AUDIT_RESULT.json')
+          if checkpoint.exists():
+              locked=json.loads(checkpoint.read_text())
+              assert source==locked['observed'], 'Original blockstate reachability evidence changed'
+          print('INT4_PARENT_48_SOURCE_BLOCKSTATE_REFERENCE_REACHABILITY_PASS')
+          print('REACHABLE_COUNTS='+json.dumps(source['summary'],sort_keys=True))
+          print('SOURCE_RECORDS_SHA256='+source['row_csv_sha256'])
+          PY
+      - name: Upload only metadata CSV/JSON, never copyrighted original resources
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-parent-48-static-blockstate-reference-evidence
+          path: ${{ runner.temp }}/int4-reach-derived-metadata/
+          if-no-files-found: warn
+          retention-days: 45
