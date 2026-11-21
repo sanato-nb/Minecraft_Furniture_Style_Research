@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter, defaultdict
+from fractions import Fraction
 import csv
 import hashlib
 import io
@@ -116,7 +117,7 @@ def assemble_model(db,sources,providers,parent_key,child_key):
                 # F's original format is decimal text for some files and
                 # rational text for others; compare semantic UV values, not
                 # superficial rendering (e.g. 0.75 == 3/4).
-                recorded=tuple(float(part) for part in face["uv"].split("|"))
+                recorded=tuple(float(Fraction(part)) for part in face["uv"].split("|"))
                 if len(recorded)!=4 or any(
                     not math.isfinite(a) or not math.isfinite(b)
                     or abs(a-b)>1e-7 for a,b in zip(uv,recorded)
