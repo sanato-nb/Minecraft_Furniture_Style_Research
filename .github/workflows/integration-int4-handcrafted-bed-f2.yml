@@ -91,6 +91,9 @@ jobs:
           assert doc['source_cases']==['S37','S38']
           assert doc['original_face_counts']=={'S37':72,'S38':6}
           assert doc['actual_F2_count']==doc['server_verified']==2
+          assert set(doc['paired_air_control_f2_sha256'])=={'S37','S38'}
+          assert set(doc['same_camera_bed_vs_air_changed_pixels'])=={'S37','S38'}
+          assert min(doc['same_camera_bed_vs_air_changed_pixels'].values())>=100
           assert doc['original_JAR_sha1']=='a9579fecd7ed429c282be21d5c921d220197acc6'
           assert not doc['limitations']['natural_bed_two_part_behavior_tested']
           assert doc['limitations']['int5_part_roles_approved']==0
@@ -98,7 +101,10 @@ jobs:
           for cid,digest in doc['native_f2_sha256'].items():
               p=root/(cid+'.png')
               assert hashlib.sha256(p.read_bytes()).hexdigest()==digest
+              air=root/(cid+'_air_control.png')
+              assert hashlib.sha256(air.read_bytes()).hexdigest()==doc['paired_air_control_f2_sha256'][cid]
               with Image.open(p) as im:assert im.size==(1024,684)
+              with Image.open(air) as im:assert im.size==(1024,684)
           assert hashlib.sha256((root/'INT4_HC_BED_SOURCE_F2_CAPTURE.json').read_bytes()).hexdigest()==doc['manifest_sha256']
           assert hashlib.sha256((root/'INT4_HC_BED_TWO_F2_CONTACT.png').read_bytes()).hexdigest()==doc['contact_sha256']
           pinned=Path('project/integration/INT4_HANDCRAFTED_BED_F2_SOURCE_RESULT.json')
