@@ -86,6 +86,21 @@ class NonChairSourceTest(unittest.TestCase):
         with self.assertRaises(a.EvidenceError):
             a.obj(b'{"parent":"a","parent":"b"}',"bad")
 
+    def test_git_source_png_paths_keep_common_resources_prefix(self):
+        class Fixture:
+            def __init__(self):self.tried=[]
+            def fetch(self,mod,path,required=False):
+                self.tried.append((mod,path))
+                if path=="common/src/main/resources/assets/another_furniture/textures/block/example.png":
+                    return a.PNG_MAGIC + b"\x00\x00\x00\x10\x00\x00\x00\x10"
+                return None
+        f=Fixture()
+        r=a.archive_asset(f,"AF","","another_furniture:block/example")
+        self.assertEqual(r["status"],"ORIGINAL_PNG_BYTES_PRESENT")
+        self.assertEqual((r["width"],r["height"]),(16,16))
+        self.assertTrue(r["path"].startswith("common/src/main/resources/"))
+        self.assertEqual(len(f.tried),2)
+
     def test_original_comparison_claims_remain_historic_only(self):
         claims,_=a.read_rows(ROOT/a.CLAIMS)
         dictionary={x["finding_id"]:x for x in claims}
