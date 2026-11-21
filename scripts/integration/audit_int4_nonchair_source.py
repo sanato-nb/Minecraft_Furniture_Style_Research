@@ -219,7 +219,7 @@ def verify_application(row,case,sources,cache,png_cache):
     ensure(len(matched)==len(options) and idx in options,
            "Historic application source selector not reachable: "+row["case"])
     src=options[idx]
-    ensure(model_path_for_ref(src.get("model"))==row["model_path"],
+    ensure(model_path_for_ref(src.get("model"))==("assets/"+row["model_path"].split("assets/",1)[1]),
            "Actual original blockstate selected a different model: "+row["case"])
     for key in ("x","y","uvlock","weight"):
         actual=src.get(key,1 if key=="weight" else False if key=="uvlock" else 0)
@@ -234,9 +234,7 @@ def verify_application(row,case,sources,cache,png_cache):
            "Original research-version scope changed")
     if row["provider_path"]!=row["model_path"]:
         parent=leaf.get("parent")
-        ensure(isinstance(parent,str) and model_path_for_ref(parent)==
-               row["provider_path"].split("assets/",1)[-1].join([]) if False else True,
-               "This branch not reached")
+        ensure(isinstance(parent,str),"Leaf model is missing a declared parent: "+row["case"])
         # Compare resource portion while allowing 'common/src/.../' Git prefix.
         expected_ref=row["provider_path"].split("assets/",1)[1]
         ensure(model_path_for_ref(parent)=="assets/"+expected_ref,
@@ -256,9 +254,10 @@ def verify_application(row,case,sources,cache,png_cache):
             status,ref=resolve_face_texture(face,slots)
             bound[status]+=1
             if status=="TEXTURE_RESOURCE_RESOLVED":
-                if ref not in png_cache:
-                    png_cache[ref]=archive_asset(sources,cohort,"",ref)
-                png=png_cache[ref]
+                cache_key=(cohort,ref)
+                if cache_key not in png_cache:
+                    png_cache[cache_key]=archive_asset(sources,cohort,"",ref)
+                png=png_cache[cache_key]
                 bound[png["status"]]+=1
                 if png["status"]=="SOURCE_PNG_MISSING":missing_source.add(ref)
                 else:
