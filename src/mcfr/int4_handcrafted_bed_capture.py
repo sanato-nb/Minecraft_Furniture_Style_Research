@@ -212,6 +212,14 @@ def capture(command,env,game,output,version):
                     wait_for(proc,lambda:"[RenderAudit: Teleported RenderAudit to" in read()[offset:],
                              "Handcrafted bed F2 camera teleport",32)
                 except ValueError as failure:
+                    # Real X11 diagnostic screenshot reveals whether we were
+                    # in chat, menu, loading terrain, or the actual world.
+                    try:
+                        from PIL import ImageGrab
+                        ImageGrab.grab().save(
+                            output/("teleport_timeout_GUI_attempt_"+str(attempt+1)+".png"))
+                    except (OSError,ImportError):
+                        pass
                     if "Timed out waiting" not in str(failure) or attempt==2:
                         raise
                     sleep(3)
@@ -222,9 +230,14 @@ def capture(command,env,game,output,version):
         try:
             wait_for(proc,lambda:"RenderAudit joined the game" in read(),
                      "Handcrafted 1.21.1 actual Fabric client",150)
+            # Integrated-world join can precede the screen being ready to
+            # accept keyboard input even while the server logs look healthy.
+            wait_for(proc,lambda:"Loaded 2 advancements" in read(),
+                     "Handcrafted 1.21.1 complete join UI",45)
+            sleep(7)
             windows=xdo("search","--all","--onlyvisible","--pid",str(proc.pid),"--name","^Minecraft").split()
             check(len(windows)==1,"Exactly one Minecraft GUI required")
-            xdo("windowfocus","--sync",windows[0]);sleep(1.5)
+            xdo("windowfocus","--sync",windows[0]);sleep(3)
             command_text("/gamemode spectator");sleep(1)
             camera("0.5 124 42.5 180 20")
             command_text("/function mcfr_chair:place")
