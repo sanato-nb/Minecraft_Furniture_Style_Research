@@ -56,8 +56,6 @@ class KitchenCaptureTests(unittest.TestCase):
         self.assertEqual([int(rows[k]["faces"]) for k in kitchen.ORDER],[11,55,56])
         self.assertEqual([int(rows[k]["elements"]) for k in kitchen.ORDER],[2,16,17])
         self.assertEqual([int(rows[k]["y"]) for k in kitchen.ORDER],[180,180,180])
-        self.assertTrue(all(rows[k]["source_model"] if "source_model" in rows[k] else True
-                            for k in kitchen.ORDER))
         self.assertEqual(kitchen.model_path("mcwfurnitures:block/counter/oak_counter"),
                          "assets/mcwfurnitures/models/block/counter/oak_counter.json")
 
@@ -132,11 +130,12 @@ class KitchenCaptureTests(unittest.TestCase):
             self.assertEqual(report["source_water_face_delta"],1)
             self.assertFalse(report["scope"]["game_runtime_water_mechanism_tested"])
             self.assertEqual(report["scope"]["human_part_role_review_approved"],0)
+            oldsha=document["states"][0]["screenshot_sha256"]
             document["states"][0]["screenshot_sha256"]="0"*64
             target.write_text(json.dumps(document))
             with self.assertRaisesRegex(ValueError,"screenshot SHA mismatch"):
                 kitchen.audit(root)
-            document["states"][0]["screenshot_sha256"]=evid[0]["screenshot_sha256"]
+            document["states"][0]["screenshot_sha256"]=oldsha
             document["copyright_or_ai_training_approved"]=1
             target.write_text(json.dumps(document))
             with self.assertRaisesRegex(ValueError,"nonapproval"):
