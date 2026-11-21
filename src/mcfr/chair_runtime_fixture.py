@@ -162,10 +162,21 @@ def pack_lines(version):
     for item in cases(version):
         # Only local simple single-block source states; no neighboring block
         # connection, linked furniture behavior or direction auto-correction.
-        placed.extend((
-           f"fill {item.x-3} {item.y-1} {item.z-3} {item.x+3} {item.y-1} {item.z+3} minecraft:smooth_stone",
-           f"setblock {item.x} {item.y} {item.z} {item.state()}",
-        ))
+        placed.append(
+           f"fill {item.x-3} {item.y-1} {item.z-3} {item.x+3} {item.y-1} {item.z+3} minecraft:smooth_stone"
+        )
+        if item.model_key=="AF123":
+            # AnotherFurniture ChairBlock.updateShape resets tucked=false
+            # when no permitted solid in front exists. The original
+            # TuckableBlock.canTuckUnderBlockInfront permits top slabs.
+            # Put the table-equivalent *vanilla top slab* at the facing
+            # neighbor before placing a tucked=true source state.
+            offsets={"north":(0,-1),"east":(1,0),"south":(0,1),"west":(-1,0)}
+            dx,dz=offsets[item.facing]
+            placed.append(
+                f"setblock {item.x+dx} {item.y} {item.z+dz} minecraft:oak_slab[type=top]"
+            )
+        placed.append(f"setblock {item.x} {item.y} {item.z} {item.state()}")
     placed.append("say MCFR_CHAIR_PLACED")
     verify=[]
     for item in cases(version):
