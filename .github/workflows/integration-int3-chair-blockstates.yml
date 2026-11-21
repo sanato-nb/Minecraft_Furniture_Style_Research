@@ -124,6 +124,50 @@ jobs:
               raise SystemExit("Directional texture review denominator isn't 16")
           print("INT3_4_CHAIRS_16_STATE_DIRECTIONS_SOURCE_UV_TEXTURING_REPRODUCED")
           PY
+      - name: Verify Git-pinned 228 original options, anomalous group and 16 source PNG views
+        env:
+          OUT: ${{ runner.temp }}/int3-chair-states
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,os
+          from pathlib import Path
+          out=Path(os.environ["OUT"])
+          base=Path("project/integration")
+          for pinned,generated in (
+              ("INT3_CHAIR_BLOCKSTATE_SOURCE_SUMMARY.json","INT3_CHAIR_BLOCKSTATE_SOURCE_SUMMARY.json"),
+              ("INT3_CHAIR_16_TEXTURED_POSE_SUMMARY.json","INT3_CHAIR_16_TEXTURED_POSE_SUMMARY.json"),
+          ):
+              prior=json.loads((base/pinned).read_text(encoding="utf-8"))
+              current=json.loads((out/generated).read_text(encoding="utf-8"))
+              for key,value in current.items():
+                  if prior.get(key)!=value:
+                      raise SystemExit("Pinned source original audit diverged: "+pinned+"."+key)
+          audit=json.loads((out/"INT3_CHAIR_BLOCKSTATE_SOURCE_SUMMARY.json").read_text(encoding="utf-8"))
+          if audit["totals"]["original_model_options"]!=228 or audit["totals"]["matched_historical_F_options"]!=228:
+              raise SystemExit("Original 228 option scope differs")
+          if audit["source_option_count_by_mod"]!={"AF":88,"HC":136,"MACAW":4}:
+              raise SystemExit("Original fixed mod selection counts differ")
+          if audit["totals"]["source_anomaly_rows"]!=4:
+              raise SystemExit("Original one 4-facing model inconsistency evidence changed")
+          af=next(x for x in audit["source_states"] if x["mod"]=="AF")
+          groups=[r for r in af["review_groups"] if r["facing"]=="south"]
+          if len(groups)!=1 or groups[0]["source_model"]!="another_furniture:block/chair/acacia_1" or not groups[0]["selector"].endswith("variant=3"):
+              raise SystemExit("Known source variant-3 south mapping changed or was normalized")
+          if audit["boundaries"]["source_anomaly_corrections_applied"]!=0:
+              raise SystemExit("A source anomaly was incorrectly auto-repaired")
+          sample=json.loads((out/"INT3_CHAIR_16_TEXTURED_POSE_SUMMARY.json").read_text(encoding="utf-8"))
+          if sample["directional_texture_panels"]!=16 or sample["original_source_faces"]!=229:
+              raise SystemExit("Original orientation texture sample incomplete")
+          for file,key in (
+              ("INT3_4_CHAIRS_16_SOURCE_STATE_TEXTURED_VIEWS.png","original_texture_contact_sheet_sha256"),
+              ("INT3_CHAIR_16_TEXTURED_DIRECTION_SOURCE_EVIDENCE.csv","per_pose_csv_sha256")
+          ):
+              if hashlib.sha256((out/file).read_bytes()).hexdigest()!=sample[key]:
+                  raise SystemExit("16-direction render or evidence SHA differs")
+          if sample["runtime_model_bake_verifications"] or sample["runtime_screenshots"]:
+              raise SystemExit("No Minecraft runtime screenshot was collected")
+          print("INT3_228_SOURCE_BLOCKSTATE_RULES_AND_16_ORIGINAL_PNG_POSES_PINNED_MATCH")
+          PY
       - name: Retain original-selector evidence CSV and JSON only
         if: always()
         uses: actions/upload-artifact@v4
