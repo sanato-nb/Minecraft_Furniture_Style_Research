@@ -1,0 +1,122 @@
+name: INT-4 Macaw connected table and bookshelf pinned source four native F2
+on:
+  pull_request:
+    paths:
+      - 'src/mcfr/int4_macaw_table_shelf_capture.py'
+      - 'src/mcfr/runtime.py'
+      - 'tests/knowledge/test_int4_macaw_table_shelf_capture.py'
+      - '.github/workflows/integration-int4-macaw-table-shelf-f2.yml'
+      - 'project/integration/INT4_MACAW_TABLE_SHELF_*'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-pinned-real-fabric-f2:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 38
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install original game Java/X11 and strict PNG evidence tooling
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null \
+             || ! command -v xdotool >/dev/null; then
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 update
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 install -y \
+              xvfb xauth xdotool libgl1-mesa-dri libglx-mesa0
+          fi
+      - name: Protect historical chair and kitchen fixtures and test new real F2 validator
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest discover -s tests/knowledge -p 'test_int4_macaw_table_shelf_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_macaw_kitchen_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_chair_runtime_fixture.py' -v
+      - name: Generate disposable vanilla Mojang-server flat creative Minecraft 1.21.11 world
+        env:
+          PYTHONPATH: src
+          WORLD: ${{ runner.temp }}/mcfr-int4-table-shelf-world
+          CACHE: ${{ runner.temp }}/mcfr-int4-table-shelf-world-cache
+        run: |
+          python -m mcfr.chair_runtime_fixture world \
+            --version 1.21.11 --path "$WORLD" --cache "$CACHE"
+      - name: Open original Macaw 3.4.2 Fabric and stage four source-specified blockstates with actual F2
+        env:
+          PYTHONPATH: src
+          WORLD: ${{ runner.temp }}/mcfr-int4-table-shelf-world
+          WORK: ${{ runner.temp }}/mcfr-int4-table-shelf-client
+          OUT: ${{ runner.temp }}/mcfr-int4-table-shelf-f2
+          LIBGL_ALWAYS_SOFTWARE: '1'
+          ALSOFT_DRIVERS: 'null'
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime macaw-table-shelf-capture \
+              --version 1.21.11 --work "$WORK" --world "$WORLD" --output "$OUT"
+      - name: Verify source game state, screenshot image SHA, visibility and explicit non-approval boundary
+        env:
+          PYTHONPATH: src
+          OUT: ${{ runner.temp }}/mcfr-int4-table-shelf-f2
+        run: |
+          python -m mcfr.int4_macaw_table_shelf_capture --directory "$OUT"
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          from PIL import Image
+          folder=Path(os.environ['OUT'])
+          doc=json.loads((folder/'INT4_MACAW_TABLE_SHELF_F2_AUDIT.json').read_text())
+          historical=json.loads(Path('project/integration/INT4_MACAW_TABLE_SHELF_F2_SOURCE_RESULT.json').read_text())
+          first=historical['first_actual_game_audit']
+          assert first['source_cases']==doc['source_cases']
+          assert first['source_1_5_face_counts']==doc['source_1_5_face_counts']
+          assert first['original_source_sha256']==doc['original_source_sha256']
+          assert first['boundaries']==doc['boundaries']
+          assert first['native_f2_count']==doc['native_f2_count']==4
+          # Per-run screenshot SHA remains independently verified below.
+          assert doc['status']=='PASS_FOUR_ACTUAL_PINNED_GAME_F2_SOURCE_STATES_NOT_NATURAL_CONNECTION'
+          assert doc['source_cases']==['S18','S19','S28','S29']
+          assert doc['source_1_5_face_counts']=={'S18':31,'S19':6,'S28':31,'S29':19}
+          assert doc['native_f2_count']==doc['server_verified_states']==4
+          assert min(doc['visibility_foreground_chroma'].values())>=150
+          for cid,expected_sha in doc['f2_sha256'].items():
+              p=folder/(cid+'.png')
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==expected_sha
+              with Image.open(p) as im:
+                  assert im.size==(1024,684)
+          assert hashlib.sha256((folder/'INT4_MACAW_TABLE_SHELF_F2_CONTACT.png').read_bytes()).hexdigest()==doc['contact_sheet_sha256']
+          assert hashlib.sha256((folder/'INT4_MACAW_TABLE_SHELF_REAL_F2_CAPTURE.json').read_bytes()).hexdigest()==doc['f2_manifest_sha256']
+          scope=doc['boundaries']
+          assert scope['explicit_setblock_source_states_verified'] is True
+          assert scope['natural_connected_block_update_rules_tested'] is False
+          assert scope['face_uv_render_pixel_causality_proven'] is False
+          assert scope['int5_part_roles_approved']==0
+          assert scope['int6_training_or_redistribution_rights_approved']==0
+          pinned=Path('project/integration/INT4_MACAW_TABLE_SHELF_F2_SOURCE_RESULT.json')
+          if pinned.exists():
+              reference=json.loads(pinned.read_text())
+              first=reference['first_actual_game_audit']
+              assert first['source_cases']==doc['source_cases']
+              assert first['source_1_5_face_counts']==doc['source_1_5_face_counts']
+              assert first['boundaries']==doc['boundaries']
+              # Native PNG hashes are verified per run, NOT forced byte identical across runs.
+          print('INT4_MACAW_TABLE_SHELF_REAL_FABRIC_F2_FOUR_SOURCE_STATES_PASS')
+          print('ACTUAL_F2_SHA256_BY_CASE='+json.dumps(doc['f2_sha256'],sort_keys=True))
+          print('CURRENT_CLIENT_MANIFEST_SHA256='+doc['f2_manifest_sha256'])
+          PY
+      - name: Keep real F2 PNG/contact sheet/log only as expiring Actions evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-macaw-table-shelf-four-real-f2-source
+          path: ${{ runner.temp }}/mcfr-int4-table-shelf-f2/
+          if-no-files-found: warn
+          retention-days: 45
