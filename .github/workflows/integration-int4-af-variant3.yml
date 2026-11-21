@@ -46,6 +46,8 @@ jobs:
           from pathlib import Path
           out=Path(os.environ['OUT'])
           doc=json.loads((out/'AF_VARIANT3_TEXTURE_AUDIT.json').read_text())
+          locked=json.loads(Path('project/integration/INT4_AF_VARIANT3_PIXEL_AUDIT_RESULT.json').read_text())
+          assert doc == locked['evidence'], 'Original-source or PNG pixel evidence changed from pinned CI'
           assert doc['status'] == 'COMPLETE_SOURCE_TEXTURE_DIFFERENCE_NOT_GAME_PIXEL_OR_INT5_APPROVAL'
           assert doc['review_rows_not_distinct_errors'] == 4
           assert doc['source_selector_discontinuities'] == 1
