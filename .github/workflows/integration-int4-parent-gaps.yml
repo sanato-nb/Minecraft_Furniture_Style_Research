@@ -1,0 +1,100 @@
+name: INT-4 exact original 48 missing-parent furniture source paths audit
+on:
+  pull_request:
+    paths:
+      - 'scripts/integration/audit_int4_parent_gaps.py'
+      - 'tests/integration/test_int4_parent_gaps.py'
+      - 'project/integration/INT4_PARENT_*'
+      - '.github/workflows/integration-int4-parent-gaps.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-original-48-parent-gaps:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run independent fixed-source identity and chain mutation regressions
+        run: python -m unittest discover -s tests/integration -p 'test_int4_parent_gaps.py' -v
+      - name: Download only original AF and Macaw release and both pinned vanilla client archives
+        env:
+          WORK: ${{ runner.temp }}/mcfr-int4-parent-orig
+        run: |
+          set -euo pipefail
+          mkdir -p "$WORK"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            'https://codeload.github.com/crispytwig/AnotherFurniture/zip/57eb624cbb7f408d43398c7434b0d38d312cb55d' \
+            -o "$WORK/af.zip"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            'https://cdn.modrinth.com/data/dtWC90iB/versions/xhmciaUD/mcw-furniture-3.4.2-mc1.21.11fabric.jar' \
+            -o "$WORK/macaw.jar"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            'https://piston-data.mojang.com/v1/objects/30c73b1c5da787909b2f73340419fdf13b9def88/client.jar' \
+            -o "$WORK/mc1211.jar"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            'https://piston-data.mojang.com/v1/objects/ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd/client.jar' \
+            -o "$WORK/mc12111.jar"
+      - name: Reopen every original 48 exception model and traverse real parent paths
+        env:
+          WORK: ${{ runner.temp }}/mcfr-int4-parent-orig
+          OUT: ${{ runner.temp }}/mcfr-int4-parent-evidence
+        run: |
+          python scripts/integration/audit_int4_parent_gaps.py \
+            --root . --af "$WORK/af.zip" --macaw "$WORK/macaw.jar" \
+            --mc1211 "$WORK/mc1211.jar" --mc12111 "$WORK/mc12111.jar" \
+            --out "$OUT"
+      - name: Verify identity census, distinctions and preservation of unresolved parents
+        env:
+          OUT: ${{ runner.temp }}/mcfr-int4-parent-evidence
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,os
+          from collections import Counter
+          from pathlib import Path
+          p=Path(os.environ['OUT'])
+          doc=json.loads((p/'INT4_PARENT_48_ORIGINAL_SUMMARY.json').read_text())
+          data=(p/'INT4_PARENT_48_ORIGINAL_CHAIN_RESULTS.csv').read_bytes()
+          rows=list(csv.DictReader(data.decode('utf-8').splitlines()))
+          assert hashlib.sha256(data).hexdigest()==doc['csv_sha256']
+          assert len(rows)==48
+          assert len(set(x['child_resource'] for x in rows))==48
+          assert all(x['terminal_state']=='PARENT_MISSING' for x in rows)
+          assert all(x['parent_repair_applied']=='False' for x in rows)
+          assert all(x['semantic_style_or_training_approved']=='False' for x in rows)
+          assert all(x['game_client_render_or_missingno_verified']=='False' for x in rows)
+          counts=doc['summary']
+          assert counts['historical_parent_missing_cases']==48
+          assert counts['historical_no_static_or_unresolved_cases']==108
+          assert counts['overlap_with_historical_no_static']==44
+          assert counts['still_missing_exact_parent_targets']==48
+          assert counts['by_mod']=={'AF':4,'MACAW':44}
+          assert sum(counts['unresolved_parent_ref_occurrences'].values())==48
+          assert counts['visual_runtime_missing_model_proved']==0
+          assert counts['source_license_or_ai_training_approved']==0
+          checkpoint=Path('project/integration/INT4_PARENT_48_ORIGINAL_AUDIT_RESULT.json')
+          if checkpoint.exists():
+              lock=json.loads(checkpoint.read_text())
+              assert lock['observed']==doc, 'Original fixed release comparison drifted'
+          print('INT4_48_PARENT_SOURCE_PATHS_REOPENED_VERIFIED_UNRESOLVED')
+          print('CSV_SHA256='+doc['csv_sha256'])
+          print('MISSING_TARGET_COUNTS='+json.dumps(counts['unresolved_parent_ref_occurrences'],sort_keys=True))
+          print('OWN_GEOMETRY_AND_OVERLAP='+json.dumps({
+              'own':counts['with_own_source_geometry'],
+              'none':counts['without_own_source_geometry'],
+              'overlap':counts['overlap_with_historical_no_static']}))
+          PY
+      - name: Archive derived evidence only, not the original JAR/PNG/model bodies
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-parent-48-original-source-path-classification
+          path: ${{ runner.temp }}/mcfr-int4-parent-evidence/
+          if-no-files-found: warn
+          retention-days: 45
