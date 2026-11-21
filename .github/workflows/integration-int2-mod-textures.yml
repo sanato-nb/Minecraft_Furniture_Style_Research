@@ -109,6 +109,35 @@ jobs:
                   raise SystemExit("INT2 1-4 per-row comparison mismatch: "+filename)
           print("INT2_1_4_ALL_ORIGINAL_PNG_AND_CHAIR_UV_SNAPSHOTS_MATCHED")
           PY
+      - name: Verify saved supplemental source and 29957 UV region samples against fresh originals
+        env:
+          OUT: ${{ runner.temp }}/int2-texture-result
+        run: |
+          python - <<'PY'
+          import csv
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          output=Path(os.environ["OUT"])
+          source=Path("project/integration")
+          for name in ("INT2_1_4_SUPPLEMENTAL_SUMMARY.json","INT2_1_4_UV_REGIONS_SUMMARY.json"):
+              prior=json.loads((source/name).read_text(encoding="utf-8"))
+              now=json.loads((output/name).read_text(encoding="utf-8"))
+              for key,value in now.items():
+                  if prior.get(key)!=value:
+                      raise SystemExit(f"Independent 1-4 source summary mismatch: {name}: {key}")
+          expected=json.loads((source/"INT2_1_4_UV_REGIONS_SUMMARY.json").read_text(encoding="utf-8"))
+          path=output/"INT2_1_4_29957_UV_RECHECK.csv"
+          if hashlib.sha256(path.read_bytes()).hexdigest()!=expected["per_region_csv_sha256"]:
+              raise SystemExit("UV original 29957 regions' output SHA differs")
+          with path.open(encoding="utf-8",newline="") as f:
+              rows=list(csv.DictReader(f))
+          if len(rows)!=29957 or any(r["comparison"]!="PASS" for r in rows):
+              raise SystemExit("UV original 29957 regions failed independent per-row check")
+          print("INT2_1_4_ALL_29957_ORIGINAL_UV_REGIONS_MATCHED")
+          PY
       - name: Upload evidence but not copyrighted source textures
         if: always()
         uses: actions/upload-artifact@v4
