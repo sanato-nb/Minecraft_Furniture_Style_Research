@@ -4,6 +4,7 @@ on:
     paths:
       - 'src/mcfr/knowledge_*.py'
       - 'src/mcfr/knowledge_schema.sql'
+      - 'src/mcfr/knowledge_semantics_schema.sql'
       - 'tests/knowledge/**'
       - 'project/integration/INT3*'
       - '.github/workflows/integration-int3-knowledge.yml'
@@ -87,6 +88,15 @@ jobs:
               model_id=db.execute("SELECT model_key FROM model WHERE source_id='AF' AND effective_faces>0 LIMIT 1").fetchone()[0]
           os.system('python -m mcfr.knowledge_db model --db "'+str(path)+'" --id "'+model_id+'"')
           PY
+      - name: Cross-check original 1-3-C part rows and add strictly scoped semantic candidates
+        env:
+          PYTHONPATH: src
+          OUT: ${{ runner.temp }}/mcfr-int3
+        run: |
+          python -m mcfr.knowledge_semantics extend --root . \
+            --db "$OUT/MCFR_INT3_knowledge.sqlite" \
+            --out "$OUT/INT3_SEMANTIC_SUMMARY.json"
+          python -m mcfr.knowledge_semantics validate --db "$OUT/MCFR_INT3_knowledge.sqlite"
       - name: Upload derived knowledge SQLite and exact evidence manifest only
         if: always()
         uses: actions/upload-artifact@v4
