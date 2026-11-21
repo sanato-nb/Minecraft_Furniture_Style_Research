@@ -200,11 +200,25 @@ def capture(command,env,game,output,version):
             xdo("type","--clearmodifiers","--delay","14",value)
             xdo("key","--clearmodifiers","Return")
         def camera(pose):
-            offset=len(read())
-            command_text("/tp @s "+pose)
-            wait_for(proc,lambda:"[RenderAudit: Teleported RenderAudit to" in read()[offset:],
-                     "Handcrafted bed F2 camera teleport",100)
-            sleep(8)
+            # Client GUI sometimes joins before its command widget receives focus.
+            # Retry the *same* requested pose without ever treating missing
+            # server confirmation as a valid visual capture.
+            for attempt in range(3):
+                offset=len(read())
+                xdo("windowfocus","--sync",windows[0])
+                sleep(1.0)
+                command_text("/tp @s "+pose)
+                try:
+                    wait_for(proc,lambda:"[RenderAudit: Teleported RenderAudit to" in read()[offset:],
+                             "Handcrafted bed F2 camera teleport",32)
+                except ValueError as failure:
+                    if "Timed out waiting" not in str(failure) or attempt==2:
+                        raise
+                    sleep(3)
+                    continue
+                sleep(8)
+                return
+            raise ValueError("No server-confirmed bed camera pose")
         try:
             wait_for(proc,lambda:"RenderAudit joined the game" in read(),
                      "Handcrafted 1.21.1 actual Fabric client",150)
@@ -247,6 +261,10 @@ def capture(command,env,game,output,version):
                         colors=bed_visible_proxy(im)
                     check(dims==[1024,684],"Real F2 bed PNG dimensions changed")
                     if colors>=120:break
+                    # Keep the actual invalid F2 attempt as diagnostic evidence;
+                    # never silently discard or mark sky/grass-only as furniture.
+                    shutil.copyfile(photos[0],output/(case.case_id+
+                                     "_invalid_F2_attempt_"+str(attempt+1)+".png"))
                     if attempt==2:
                         raise ValueError("Bed original model not detectable (sky/grass-only F2): "+case.case_id)
                     sleep(5)
