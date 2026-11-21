@@ -63,7 +63,7 @@ class NonChairSourceTest(unittest.TestCase):
                             "face_count":faces if i==0 else 0} for i in range(apps)]
             case_records[case]={"elements":str(elements),"faces":str(faces)}
         values["S42"][0]["face_count"]=56
-        with self.assertRaisesRegex(a.EvidenceError,"geometry count mismatch"):
+        with self.assertRaisesRegex(a.EvidenceError,"element/face count mismatch"):
             a.check_pairs(values,case_records)
 
     def test_texture_slot_resolution_bound_missing_and_cycles(self):
