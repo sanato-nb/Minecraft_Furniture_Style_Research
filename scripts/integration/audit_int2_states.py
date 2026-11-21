@@ -345,6 +345,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--root", type=Path, default=ROOT)
     p.add_argument("--out", type=Path, required=True)
+    p.add_argument("--print-csv", action="store_true", help="Print per-source evidence CSV for one-time GitHub report archiving")
     args = p.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
     rows, report = audit(args.root)
@@ -357,6 +358,10 @@ def main():
         encoding="utf-8",
     )
     print("INT2_D_RESULT:" + json.dumps(report, ensure_ascii=False, sort_keys=True))
+    if args.print_csv:
+        print("INT2_D_CSV_BEGIN")
+        print((args.out / "INT2_D_1168_SOURCE_CROSSCHECK.csv").read_text(encoding="utf-8"), end="")
+        print("INT2_D_CSV_END")
     if report["status"] != "PASS_INDEPENDENT_SYNTAX_ENUMERATION_AND_PER_CASE_MATCH":
         raise SystemExit("INT-2 D discrepancy detected; review evidence artifact")
 
