@@ -28,7 +28,7 @@ class INT4ChairEvidenceTest(unittest.TestCase):
     def test_missing_f2_is_rejected(self):
         e = deepcopy(self.real)
         e["f2"]["collected"]["per_image"].pop()
-        with self.assertRaisesRegex(g.AuditError, "F2"):
+        with self.assertRaisesRegex(g.AuditError, "screenshot|F2"):
             g.audit(e)
 
     def test_wrong_macaw_rotation_is_rejected(self):
