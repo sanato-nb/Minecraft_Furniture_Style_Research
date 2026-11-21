@@ -1,0 +1,112 @@
+name: INT-4 Macaw kitchen source-verified real Fabric three F2 states
+on:
+  pull_request:
+    paths:
+      - 'src/mcfr/int4_macaw_kitchen_capture.py'
+      - 'src/mcfr/runtime.py'
+      - 'tests/knowledge/test_int4_macaw_kitchen_capture.py'
+      - '.github/workflows/integration-int4-macaw-kitchen-f2.yml'
+      - 'project/integration/INT4_MACAW_KITCHEN_*'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  actual-macaw-client:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 38
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install original Fabric software GUI and F2 validation dependencies
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null \
+             || ! command -v xdotool >/dev/null; then
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 update
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 install -y \
+              xvfb xauth xdotool libgl1-mesa-dri libglx-mesa0
+          fi
+      - name: Test original historic kitchen cases, PNG SHA and nonapproval gates
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest discover -s tests/knowledge -p 'test_int4_macaw_kitchen_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_chair_runtime_fixture.py' -v
+      - name: Generate new vanilla official-server flat creative disposable save
+        env:
+          PYTHONPATH: src
+          WORLD: ${{ runner.temp }}/int4-macaw-kitchen-world
+          CACHE: ${{ runner.temp }}/int4-macaw-kitchen-world-cache
+        run: |
+          python -m mcfr.chair_runtime_fixture world \
+            --version 1.21.11 --path "$WORLD" --cache "$CACHE"
+      - name: Launch pinned actual Fabric 1.21.11, place and server-verify 3 original kitchen states, capture three native F2 screenshots
+        env:
+          PYTHONPATH: src
+          WORLD: ${{ runner.temp }}/int4-macaw-kitchen-world
+          WORK: ${{ runner.temp }}/int4-macaw-kitchen-client
+          OUT: ${{ runner.temp }}/int4-macaw-kitchen-real-f2
+          LIBGL_ALWAYS_SOFTWARE: '1'
+          ALSOFT_DRIVERS: 'null'
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime macaw-kitchen-capture \
+              --version 1.21.11 --work "$WORK" --world "$WORLD" --output "$OUT"
+      - name: Verify game F2 native PNG sha256, pinned JAR model source, all three server states, and contact sheet
+        env:
+          PYTHONPATH: src
+          OUT: ${{ runner.temp }}/int4-macaw-kitchen-real-f2
+        run: |
+          python -m mcfr.int4_macaw_kitchen_capture --directory "$OUT"
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          from PIL import Image
+          root=Path(os.environ['OUT'])
+          report=json.loads((root/'INT4_MACAW_KITCHEN_F2_AUDIT.json').read_text())
+          assert report['status']=='PASS_THREE_REAL_CLIENT_F2_AND_SOURCE_STATES_NOT_SEMANTIC_APPROVAL'
+          assert report['source_cases']==['S41','S42','S43']
+          assert report['actual_native_f2_count']==3 and report['server_source_verified_count']==3
+          assert report['source_water_false_faces']==55
+          assert report['source_water_true_faces']==56
+          assert report['source_water_face_delta']==1
+          assert report['scope']['actual_game_screenshot_captured']
+          assert not report['scope']['pixelwise_texture_causality_proven']
+          assert not report['scope']['game_runtime_water_mechanism_tested']
+          assert report['scope']['human_part_role_review_approved']==0
+          assert report['scope']['ai_training_rights_approved']==0
+          for cid,sha in report['f2_sha256_by_case'].items():
+              png=root/(cid+'.png')
+              assert hashlib.sha256(png.read_bytes()).hexdigest()==sha
+              with Image.open(png) as image:
+                  assert image.size==(1024,684)
+          assert hashlib.sha256((root/'INT4_MACAW_KITCHEN_3_F2_CONTACT_SHEET.png').read_bytes()).hexdigest()==report['contact_sheet_sha256']
+          checkpoint=Path('project/integration/INT4_MACAW_KITCHEN_F2_SOURCE_RESULT.json')
+          if checkpoint.exists():
+              saved=json.loads(checkpoint.read_text())
+              assert saved['first_successful_actual_game_audit']['source_water_face_delta']==report['source_water_face_delta']
+              assert saved['first_successful_actual_game_audit']['source_cases']==report['source_cases']
+              assert saved['first_successful_actual_game_audit']['actual_native_f2_count']==3
+              assert saved['first_successful_actual_game_audit']['scope']==report['scope']
+              # Exact image SHA can be nondeterministic on replay; each new screenshot SHA must match its local manifest.
+          print('INT4_MACAW_1_21_11_THREE_REAL_F2_KITCHEN_SOURCE_STATES_PASS')
+          print('MACAW_F2_SHA256_BY_CASE='+json.dumps(report['f2_sha256_by_case'],sort_keys=True))
+          print('CONTACT_SHA256='+report['contact_sheet_sha256'])
+          PY
+      - name: Archive game F2 images, actual client log and source SHA metadata for human review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-macaw-kitchen-actual-fabric-three-f2
+          path: ${{ runner.temp }}/int4-macaw-kitchen-real-f2/
+          if-no-files-found: warn
+          retention-days: 45
