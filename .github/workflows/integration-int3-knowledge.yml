@@ -97,6 +97,44 @@ jobs:
             --db "$OUT/MCFR_INT3_knowledge.sqlite" \
             --out "$OUT/INT3_SEMANTIC_SUMMARY.json"
           python -m mcfr.knowledge_semantics validate --db "$OUT/MCFR_INT3_knowledge.sqlite"
+      - name: Verify semantic source cross-checks and every pinned role evidence logical SHA
+        env:
+          OUT: ${{ runner.temp }}/mcfr-int3
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import sqlite3
+          from pathlib import Path
+          data=Path(os.environ["OUT"])
+          prior=json.loads(Path("project/integration/INT3_SEMANTIC_SUMMARY.json").read_text(encoding="utf-8"))
+          current=json.loads((data/"INT3_SEMANTIC_SUMMARY.json").read_text(encoding="utf-8"))
+          for key,value in current.items():
+              if prior.get(key)!=value:
+                  raise SystemExit("INT-3 semantic knowledge evidence changed: "+key)
+          if current["counts"]["semantic_geometry"]!=1911:
+              raise SystemExit("Original source element census no longer 1911")
+          if current["counts"]["part_role_candidate"]!=45:
+              raise SystemExit("Unverified role candidate population drifted")
+          if current["counts"]["sample_part_candidate"]!=94:
+              raise SystemExit("Original study part claims drifted")
+          if current["counts"]["verified_material_style"]!=0:
+              raise SystemExit("Stylistic/material labels were auto-approved")
+          if current["role_candidates_visual_verified"] or current["ai_training_eligible_models"]:
+              raise SystemExit("Unreviewed assets were promoted")
+          with sqlite3.connect(data/"MCFR_INT3_knowledge.sqlite") as db:
+              if db.execute("PRAGMA integrity_check").fetchone()[0]!="ok":
+                  raise SystemExit("Augmented SQLite file failed integrity")
+              if db.execute("PRAGMA foreign_key_check").fetchall():
+                  raise SystemExit("Semantic role source foreign key failed")
+              if db.execute("SELECT COUNT(*) FROM ai_approved_semantic_part").fetchone()[0]:
+                  raise SystemExit("No role can be called visually confirmed")
+              if db.execute("SELECT COUNT(*) FROM ai_training_eligible_model").fetchone()[0]:
+                  raise SystemExit("Assets without training license are excluded")
+              if db.execute("SELECT COUNT(*) FROM semantic_review_queue WHERE state!='PENDING'").fetchone()[0]:
+                  raise SystemExit("59 semantic reviews were silently auto-completed")
+          print("INT3_ALL_1911_GEOMETRY_45_ROLE_CANDIDATES_94_SAMPLES_PINNED_MATCH")
+          PY
       - name: Upload derived knowledge SQLite and exact evidence manifest only
         if: always()
         uses: actions/upload-artifact@v4
