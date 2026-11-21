@@ -1,0 +1,92 @@
+name: INT-4 AF variant3 original back-texture and PNG-pixel cross-audit
+on:
+  pull_request:
+    paths:
+      - 'src/mcfr/int4_af_variant3_texture_audit.py'
+      - 'tests/knowledge/test_int4_af_variant3_texture_audit.py'
+      - 'project/integration/INT4_AF_*'
+      - '.github/workflows/integration-int4-af-variant3.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pinned-original-pixel-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image decoder for original resource pixel comparisons
+        run: python -m pip install 'Pillow>=10,<13'
+      - name: Verify historical source assertions and mutation failures offline
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest discover -s tests/knowledge \
+            -p 'test_int4_af_variant3_texture_audit.py' -v
+      - name: Download verified Modrinth AF 4.0.2 JAR and pinned AF 4.0.3 Git sources
+        env:
+          PYTHONPATH: src
+          ORIGINAL: ${{ runner.temp }}/int4-af-variant3-original-inputs
+          OUT: ${{ runner.temp }}/int4-af-variant3-derived-evidence
+        run: |
+          python -m mcfr.int4_af_variant3_texture_audit \
+            --root . --work "$ORIGINAL" --output "$OUT"
+      - name: Require complete original model and pixel comparators, no semantic promotion
+        env:
+          OUT: ${{ runner.temp }}/int4-af-variant3-derived-evidence
+        run: |
+          python - <<'PY'
+          import csv, hashlib, json, os
+          from pathlib import Path
+          out=Path(os.environ['OUT'])
+          doc=json.loads((out/'AF_VARIANT3_TEXTURE_AUDIT.json').read_text())
+          assert doc['status'] == 'COMPLETE_SOURCE_TEXTURE_DIFFERENCE_NOT_GAME_PIXEL_OR_INT5_APPROVAL'
+          assert doc['review_rows_not_distinct_errors'] == 4
+          assert doc['source_selector_discontinuities'] == 1
+          assert doc['discontinuous_direction'] == 'south'
+          assert doc['study_runtime_models_json_semantically_equal'] is True
+          assert doc['study_runtime_blockstate_json_semantically_equal'] is True
+          faces=doc['model_face_comparison']
+          assert faces['geometry_equal'] and faces['uv_equal']
+          assert faces['changed_texture_binding_faces'] > 0
+          assert faces['changed_texture_binding_faces']+faces['unchanged_texture_binding_faces'] == 46
+          assert len(doc['source_git_blob_sha1']) == 6
+          for key in ('study','runtime'):
+              pixels=doc['texture_png_'+key]
+              assert pixels['width'] > 0 and pixels['height'] > 0
+              assert pixels['pixel_count'] == pixels['width']*pixels['height']
+          for name, sha in doc['csv_sha256'].items():
+              data=(out/name).read_bytes()
+              assert hashlib.sha256(data).hexdigest()==sha
+          rows=list(csv.DictReader((out/'variant3_directions.csv').open()))
+          assert len(rows)==4 and [x['direction'] for x in rows] == [
+              'north','east','south','west']
+          assert [x['model'].rsplit('/',1)[-1] for x in rows] == [
+              'acacia_3','acacia_3','acacia_1','acacia_3']
+          assert not any(x['game_client_visual_verified']=='True' for x in rows)
+          for key in ('int4_all_furniture_complete','int5_screenshot_variant3_taken',
+                      'minecraft_client_baked_geometry_uv_and_pixel_match',
+                      'automatic_correction_applied'):
+              assert doc['limits'][key] is False
+          for key in ('part_roles_verified','material_style_approved',
+                      'asset_rights_or_ai_training_approved'):
+              assert doc['limits'][key] == 0
+          print('AF_VARIANT3_SOUTH_ORIGINAL_TEXTURE_SELECTION_AND_SOURCE_PNG_PIXEL_AUDIT_PASS')
+          print('ORIGINAL_IMAGE_DIFFERENCE='+json.dumps(doc['texture_png_study']))
+          print('CHANGED_BACK_TEXTURE_FACES='+str(faces['changed_texture_binding_faces']))
+          print('EVIDENCE_CSV_SHA256='+json.dumps(doc['csv_sha256']))
+          PY
+      - name: Archive only derived metadata, never original PNG/JAR/JSON
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-af-variant3-original-back-texture-difference
+          path: ${{ runner.temp }}/int4-af-variant3-derived-evidence/
+          if-no-files-found: warn
+          retention-days: 45
