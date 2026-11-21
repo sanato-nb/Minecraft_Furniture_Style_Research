@@ -157,8 +157,6 @@ def pack_lines(version):
         "time set noon",
         "weather clear",
         "difficulty peaceful",
-        "gamerule doDaylightCycle false",
-        "gamerule doWeatherCycle false",
         "forceload add -28 36 28 72",
     ]
     for item in cases(version):
