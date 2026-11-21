@@ -64,6 +64,17 @@ class HandcraftedBedTests(unittest.TestCase):
                 study.preflight(Path(temp),Path(temp)/"none.zip")
 
     @unittest.skipUnless(importlib.util.find_spec("PIL") is not None,
+                         "Pillow only required for visual proxy regression")
+    def test_sky_blue_and_superflat_grass_must_not_count_as_visible_bed(self):
+        from PIL import Image,ImageDraw
+        sky=Image.new("RGB",(1024,684),(175,205,255))
+        draw=ImageDraw.Draw(sky)
+        draw.rectangle((0,404,1024,684),fill=(80,104,49))
+        self.assertEqual(study.bed_visible_proxy(sky),0)
+        draw.rectangle((480,390,540,465),fill=(130,86,54))
+        self.assertGreaterEqual(study.bed_visible_proxy(sky),120)
+
+    @unittest.skipUnless(importlib.util.find_spec("PIL") is not None,
                          "Pillow only required for synthetic regression")
     def test_synthetic_png_evidence_validated_and_tamper_rejected(self):
         from PIL import Image
