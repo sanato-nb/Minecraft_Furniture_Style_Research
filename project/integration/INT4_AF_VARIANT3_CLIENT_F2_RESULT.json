@@ -1,0 +1,91 @@
+{
+  "schema": "MCFR_INT4_AF_VARIANT3_ACTUAL_CLIENT_FIRST_SUCCESS_LOCK/v1",
+  "status": "PASS_SIX_REAL_F2_SERVER_STATES_AND_ISOLATED_VIEWS_NOT_CAUSAL_IMAGE_PROOF",
+  "first_successful_github_actions_run": 44911693626,
+  "first_successful_job": 136868679756,
+  "first_successful_workflow_url": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/44911693626",
+  "first_successful_head": "fe885a5ed0eb79880ce127a4e68b657454458a84",
+  "first_evidence_artifact_id": 14709514487,
+  "first_evidence_artifact_archive_sha256": "e88968129c96d81850c0eb3f40a89beb716a06591404f8549f4050511bc07b94",
+  "scope": {
+    "actual_f2_screenshots": 6,
+    "all_six_stages_same_z": true,
+    "fabric_real_client": true,
+    "max_stone_proxy_upper_sky_pixels": 0,
+    "min_case_x_separation": 16,
+    "min_foreground_chroma_pixels": 3351,
+    "minecraft_version": "1.21.1",
+    "server_verified_blocks": 6,
+    "source_model_discontinuity_south": true,
+    "source_model_targets_checked": 6,
+    "variant1_control_directions": 2,
+    "variant3_cardinal_directions": 4
+  },
+  "first_source_checkpoints": {
+    "actual_f2_manifest_sha256": "657603548464e58635c25e0d9d01716bb5fa27e682daeb0d5dd063ad16979c4c",
+    "actual_f2_states_csv_sha256": "0fa918959f3c0d2895fbdcf4b0e736d6b998a38043ac942823bc58ab931df3ab",
+    "int4_original_texture_source_record_sha256": "64db08386fee24f27d98cf8ad70e8bc1ca0df1f90928f903726ecbf86400a5d2",
+    "six_capture_contact_sheet_sha256": "5ed456c4e0601651ba356d52cd500bd458e958233b1840e4c9feb64c1f1058d6"
+  },
+  "first_f2_sha256_by_case": {
+    "AFV1_north": "5e3d5494985e7af7dea54bc8b6ee3443c85a3146e30c3e459fb01d1ca6d2d31e",
+    "AFV1_south": "935943544881d58bc5845914fb9746d17af07cd088ccffb6d05729af9c13648a",
+    "AFV3_east": "12006226a942288fd60d7b3fb2d4a66888178c642a407fe984d04ee8d49574a9",
+    "AFV3_north": "a989c788990c0853773c4b729a58910896fcd027430ae37db7f4881db371c952",
+    "AFV3_south": "c7dad5df902d5235725171c17a11d3d88591a9e2e6639f115802606f6f696053",
+    "AFV3_west": "a3d9097df920d96808208aa6fb583680d32ec904c1702fcd6263585602b49632"
+  },
+  "first_control_pair_diagnostics": {
+    "north": {
+      "comparison_scope": "DIAGNOSTIC_ONLY_WORLD_X_BACKGROUND_AND_LIGHT_NOT_PIXEL_ALIGNED",
+      "crop_pixel_count": 42550,
+      "crop_rect": [
+        420,
+        350,
+        605,
+        580
+      ],
+      "diff_caused_by_back_texture_approved": false,
+      "same_source_model": false,
+      "unaligned_different_rgb_pixels": 1105,
+      "unaligned_mean_abs_rgb_difference": [
+        1.19224,
+        0.89187,
+        0.71382
+      ],
+      "variant1_model": "another_furniture:block/chair/acacia_1",
+      "variant3_model": "another_furniture:block/chair/acacia_3"
+    },
+    "south": {
+      "comparison_scope": "DIAGNOSTIC_ONLY_WORLD_X_BACKGROUND_AND_LIGHT_NOT_PIXEL_ALIGNED",
+      "crop_pixel_count": 42550,
+      "crop_rect": [
+        420,
+        350,
+        605,
+        580
+      ],
+      "diff_caused_by_back_texture_approved": false,
+      "same_source_model": true,
+      "unaligned_different_rgb_pixels": 0,
+      "unaligned_mean_abs_rgb_difference": [
+        0,
+        0,
+        0
+      ],
+      "variant1_model": "another_furniture:block/chair/acacia_1",
+      "variant3_model": "another_furniture:block/chair/acacia_1"
+    }
+  },
+  "nonapprovals": {
+    "baked_mesh_uv_lock_pixel_equivalence": false,
+    "intent_or_upstream_bug_status": "NOT_DETERMINED",
+    "observed_back_texture_difference_caused_by_source_model": false,
+    "part_roles_approved": 0,
+    "source_license_or_ai_training_approved": 0,
+    "style_material_approved": 0
+  },
+  "restored_original_16_chair_cases": "CHECKED_BY_EXISTING_TESTS_AND_HISTORICAL_RUNTIME_WORKFLOW",
+  "interpretation": "Original source mismatch plus native F2 directional observations; screen crop differences are nonregistered and not causal pixel/UV proof.",
+  "future_replay_contract": "Source case/target/rotation, capture completeness, evidence hashes and rights gate must match; screen PNG hashes or crop differences may vary across real runs and are not fixed-equality acceptance."
+}

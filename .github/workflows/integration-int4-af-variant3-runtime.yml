@@ -76,6 +76,14 @@ jobs:
           from PIL import Image
           folder=Path(os.environ['OUT'])
           d=json.loads((folder/'INT4_AF_VARIANT3_CLIENT_AUDIT.json').read_text())
+          first=json.loads(Path('project/integration/INT4_AF_VARIANT3_CLIENT_F2_RESULT.json').read_text())
+          assert first['status']==d['status']
+          assert first['scope']['minecraft_version']==d['scope']['minecraft_version']=='1.21.1'
+          assert first['scope']['actual_f2_screenshots']==d['scope']['actual_f2_screenshots']==6
+          assert first['first_source_checkpoints']['int4_original_texture_source_record_sha256']==d['source_checkpoints']['int4_original_texture_source_record_sha256']
+          assert set(first['first_f2_sha256_by_case'])==set(d['f2_sha256_by_case'])
+          assert first['nonapprovals']==d['nonapprovals']
+          # Replays must verify each new PNG SHA internally, not require byte-identical Minecraft scenes.
           assert d['status']=='PASS_SIX_REAL_F2_SERVER_STATES_AND_ISOLATED_VIEWS_NOT_CAUSAL_IMAGE_PROOF'
           assert d['scope']['actual_f2_screenshots']==6
           assert d['scope']['variant3_cardinal_directions']==4
