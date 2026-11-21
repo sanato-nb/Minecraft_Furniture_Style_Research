@@ -160,18 +160,18 @@ def measure_roster(root,archives):
         namespace={"AF":"another_furniture","MACAW":"mcwfurnitures"}[mod]
         direct=defaultdict(set)
         for state_id,obj in states.items():
-            for selector,target,typ in static_blockstate_targets(obj,namespace,state_id):
+            for selector,target,typ in static_blockstate_targets(obj,"minecraft",state_id):
                 direct[target].add(state_id+" | "+typ+" | "+selector)
         parents={}
         incoming=defaultdict(set)
         for name,body in models.items():
             if "parent" in body:
-                parent=normalized_ref(body["parent"],namespace)
+                parent=normalized_ref(body["parent"],"minecraft")
                 parents[name]=parent
                 incoming[parent].add(name)
         item_seeds=set()
         for item_id,obj in item_defs.items():
-            item_seeds.update(item_definition_model_roots(obj,namespace))
+            item_seeds.update(item_definition_model_roots(obj,"minecraft"))
         # Model/item files count as item-root candidates, not proof of registration.
         declared_item_model_roots={name for name in models if name.startswith(namespace+":item/")}
         state_chain=transitive_reachable(direct,parents)
