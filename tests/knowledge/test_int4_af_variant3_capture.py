@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import copy
 import hashlib
+import importlib.util
 import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -157,6 +158,8 @@ class Variant3RuntimeTests(unittest.TestCase):
         (folder/experiment.MANIFEST).write_text(json.dumps(d),encoding="utf-8")
         return d
 
+    @unittest.skipUnless(importlib.util.find_spec("PIL") is not None,
+                         "Pillow visual tests run only where the image decoder is installed")
     def test_image_diagnostic_is_not_causal_confirmation(self):
         from PIL import Image
         a=Image.new("RGB",(1024,684),(170,100,70))
@@ -165,6 +168,8 @@ class Variant3RuntimeTests(unittest.TestCase):
         self.assertGreater(result["unaligned_different_rgb_pixels"],0)
         self.assertIs(result["diff_caused_by_back_texture_approved"],False)
 
+    @unittest.skipUnless(importlib.util.find_spec("PIL") is not None,
+                         "Pillow visual tests run only where the image decoder is installed")
     def test_synthetic_inputs_verify_validator_but_do_not_prove_real_game(self):
         # Only tests logic; acceptance requires the separate launched Fabric CI.
         with TemporaryDirectory() as tmp:
@@ -180,6 +185,8 @@ class Variant3RuntimeTests(unittest.TestCase):
             self.assertEqual(result["nonapprovals"]["part_roles_approved"],0)
             self.assertTrue((folder/"INT4_AF_VARIANT3_F2_6_CONTACT_SHEET.png").is_file())
 
+    @unittest.skipUnless(importlib.util.find_spec("PIL") is not None,
+                         "Pillow visual tests run only where the image decoder is installed")
     def test_mutated_f2_sha_rejected(self):
         with TemporaryDirectory() as tmp:
             folder=Path(tmp)
@@ -189,6 +196,8 @@ class Variant3RuntimeTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,"screenshot SHA invalid"):
                 experiment.audit(folder)
 
+    @unittest.skipUnless(importlib.util.find_spec("PIL") is not None,
+                         "Pillow visual tests run only where the image decoder is installed")
     def test_mutated_actual_source_model_rejected(self):
         with TemporaryDirectory() as tmp:
             folder=Path(tmp)
@@ -198,6 +207,8 @@ class Variant3RuntimeTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,"Source model"):
                 experiment.audit(folder)
 
+    @unittest.skipUnless(importlib.util.find_spec("PIL") is not None,
+                         "Pillow visual tests run only where the image decoder is installed")
     def test_unapproved_roles_cannot_be_promoted(self):
         with TemporaryDirectory() as tmp:
             folder=Path(tmp)
