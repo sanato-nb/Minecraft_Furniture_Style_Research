@@ -44,6 +44,9 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
          "--pack", str(copied_world / "datapacks/cd_audit")],
         check=True,
     )
+    if args.command == "chair-capture":
+        from .chair_runtime_fixture import make_pack
+        make_pack(args.version, copied_world / "datapacks/mcfr_chair")
     (game / "options.txt").write_text(
         "renderDistance:4\nsimulationDistance:5\nmaxFps:30\nguiScale:2\n", encoding="utf-8"
     )
@@ -59,8 +62,10 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
     ]
     if args.command == "visual-capture":
         from .runtime_capture import capture
-
         return capture(command, env, game, args.output, args.version)
+    if args.command == "chair-capture":
+        from .chair_runtime_capture import capture_chairs
+        return capture_chairs(command, env, game, args.output, args.version)
     subprocess.run(command, cwd=game, env=env, check=True)
     return None
 
@@ -71,16 +76,18 @@ def main(argv: list[str] | None = None) -> int:
     engine = sub.add_parser("engine", help="run the historical registry and collision probe")
     visual = sub.add_parser("visual-client", help="open a copied local world for in-game capture")
     capture = sub.add_parser("visual-capture", help="capture and compare pinned in-game scenes on an isolated X11 display")
-    for command in (engine, visual, capture):
+    chairs = sub.add_parser("chair-capture", help="capture 4 source chairs x 4 facings with verified Minecraft F2 screenshots")
+    for command in (engine, visual, capture, chairs):
         command.add_argument("--version", required=True)
         command.add_argument("--work", type=_scratch_path, required=True)
         command.add_argument("--client-cache", type=_scratch_path)
         command.add_argument("--display", help="X11 display, for example :99")
     engine.add_argument("--output", type=_scratch_path, required=True)
     engine.add_argument("--ecj", type=Path)
-    for command in (visual, capture):
+    for command in (visual, capture, chairs):
         command.add_argument("--world", type=Path, required=True)
     capture.add_argument("--output", type=_scratch_path, required=True)
+    chairs.add_argument("--output", type=_scratch_path, required=True)
     args = parser.parse_args(argv)
 
     try:
@@ -99,7 +106,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.command != "engine":
             if not (args.display or os.environ.get("DISPLAY")):
                 raise ValueError("An X11 display is required for visual capture")
-            if args.command == "visual-capture":
+            if args.command in ("visual-capture", "chair-capture"):
                 if shutil.which("xdotool") is None:
                     raise ValueError("Automatic visual capture requires xdotool")
                 if args.output.exists():
@@ -107,7 +114,7 @@ def main(argv: list[str] | None = None) -> int:
             report = open_visual_client(args, script, prepare["prepare"])
             if report is not None:
                 print(json.dumps(report, ensure_ascii=False, indent=2))
-                return int(report["status"] != "MATCH")
+                return int(report["status"] not in ("MATCH", "CAPTURED_SOURCE_STATES_NOT_VISUALLY_APPROVED"))
         else:
             command = [sys.executable, str(script), "--version", args.version,
                        "--work", str(args.work), "--output", str(args.output)]

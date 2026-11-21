@@ -1,0 +1,107 @@
+name: INT-3 real Fabric Minecraft F2 chair screenshot validation
+on:
+  pull_request:
+    paths:
+      - 'src/mcfr/chair_runtime_fixture.py'
+      - 'src/mcfr/chair_runtime_capture.py'
+      - 'src/mcfr/runtime.py'
+      - 'tests/knowledge/test_chair_runtime_fixture.py'
+      - '.github/workflows/integration-int3-runtime-chairs.yml'
+      - 'project/integration/INT3_REAL_GAME*'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  game-client-actual-f2:
+    name: "Actual pinned Fabric client ${{ matrix.minecraft }}"
+    runs-on: ubuntu-24.04
+    timeout-minutes: 38
+    strategy:
+      fail-fast: false
+      matrix:
+        minecraft: ['1.21.1', '1.21.11']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install verified X11 software client capture dependencies
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null \
+             || ! command -v xdotool >/dev/null; then
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 update
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 install -y \
+              xvfb xauth xdotool libgl1-mesa-dri libglx-mesa0
+          fi
+      - name: Unit test fixed blockstate source, synthetic JAR corruption and exact 16-case plans
+        env:
+          PYTHONPATH: src
+        run: python -m unittest discover -s tests/knowledge -p 'test_chair_runtime_fixture.py' -v
+      - name: Generate disposable creative flat world with original Mojang server
+        env:
+          PYTHONPATH: src
+          SAVE: ${{ runner.temp }}/mcfr-chair-world
+          CACHE: ${{ runner.temp }}/mcfr-chair-world-cache
+        run: |
+          python -m mcfr.chair_runtime_fixture world \
+            --version "${{ matrix.minecraft }}" --path "$SAVE" --cache "$CACHE"
+      - name: Execute real Minecraft Fabric GUI and capture every server-verified source chair
+        env:
+          PYTHONPATH: src
+          SAVE: ${{ runner.temp }}/mcfr-chair-world
+          WORK: ${{ runner.temp }}/mcfr-chair-client-work
+          OUT: ${{ runner.temp }}/mcfr-real-client-result
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          ALSOFT_DRIVERS: "null"
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime chair-capture \
+              --version "${{ matrix.minecraft }}" \
+              --work "$WORK" --world "$SAVE" --output "$OUT"
+      - name: Cross-check native PNGs, original mod-jar states, and nonapproval boundary
+        env:
+          PYTHONPATH: src
+          OUT: ${{ runner.temp }}/mcfr-real-client-result
+        run: |
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          from PIL import Image
+          path=Path(os.environ["OUT"])
+          doc=json.loads((path/"INT3_REAL_GAME_CAPTURE.json").read_text(encoding="utf-8"))
+          expected=12 if doc["version"]=="1.21.1" else 4
+          if doc["status"]!="CAPTURED_SOURCE_STATES_NOT_VISUALLY_APPROVED":
+              raise SystemExit("Actual client source state capture not successful")
+          if doc["minecraft_native_f2_screenshot_count"]!=expected or doc["source_state_verified_count"]!=expected:
+              raise SystemExit("Unexpected client screenshot count or no in-game state verification")
+          if not doc["actual_game_capture"] or doc["human_verified_roles"] or doc["copyright_or_ai_training_approved"]:
+              raise SystemExit("Scope confusion between in-game screenshots and approval")
+          if len(doc["states"])!=expected or len({x["case_id"] for x in doc["states"]})!=expected:
+              raise SystemExit("Some original screenshot cases missing")
+          for item in doc["states"]:
+              png=path/item["screenshot_file"]
+              if hashlib.sha256(png.read_bytes()).hexdigest()!=item["screenshot_sha256"]:
+                  raise SystemExit("Client screenshot SHA changed: "+png.name)
+              with Image.open(png) as img:
+                  if img.size!=(1024,684):
+                      raise SystemExit("Incorrect native screenshot dimensions")
+              if not item["server_blockstate_verified"] or not item["native_F2_client_capture"]:
+                  raise SystemExit("A modeled state lacks real client capture proof")
+          print("INT3_REAL_MINECRAFT_CLIENT_SAVED_F2_SOURCE_STATES_ALL_VERIFIED")
+          PY
+      - name: Store only F2 screenshots, source/JAR SHA manifest, and runtime logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int3-real-fabric-client-chair-${{ matrix.minecraft }}
+          path: ${{ runner.temp }}/mcfr-real-client-result/
+          if-no-files-found: warn
+          retention-days: 45
