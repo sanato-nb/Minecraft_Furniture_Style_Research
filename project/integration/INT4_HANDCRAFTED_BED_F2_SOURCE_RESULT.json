@@ -1,0 +1,91 @@
+{
+  "schema": "MCFR_INT4_HC_BED_PINNED_VISUAL_CONTROLLED_2_CASES/v1",
+  "status": "PASS_ACTUAL_1_21_1_FABRIC_F2_TWO_PARTS_WITH_SAME_CAMERA_AIR_CONTROLS_NOT_NATURAL_BED",
+  "original_first_ci": {
+    "run_id": 44927754676,
+    "artifact_id": 14715774857,
+    "source_state_verified": 2,
+    "real_f2_files": 2,
+    "visually_validated": 0,
+    "issue": "Both native F2 screenshots were sky/grass-only; early chromatic pixel proxy falsely counted ground as furniture"
+  },
+  "intervening_gui_failures": [
+    44928221190,
+    44928984737
+  ],
+  "first_visually_observed_real_f2": {
+    "run_id": 44929383305,
+    "artifact_id": 14716842984,
+    "source_state_verified": 2,
+    "bed_part_f2_visible_by_direct_image_inspection": 2,
+    "limitation": "Initial proxy included large portions of gray stone platform and was not independently sufficient to prove visibility"
+  },
+  "first_paired_background_controlled_f2": {
+    "run_id": 44929863978,
+    "job_id": 136923901205,
+    "artifact_id": 14717317186,
+    "artifact_zip_sha256": "e02c603e85ef55da8a140cb1abc362faff363a8c20937f9a34775b8ccf69f9ce",
+    "source_git_commit": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035",
+    "source_release_mod_jar_sha1": "a9579fecd7ed429c282be21d5c921d220197acc6",
+    "selected_original_git_source_equal_release_json": {
+      "S37": true,
+      "S38": true
+    },
+    "observed": {
+      "actual_F2_count": 2,
+      "contact_sha256": "6a364158e1b21039528f987ba18ceaa0108ca5feddb63fc49334ce08fe75f10c",
+      "limitations": {
+        "client_F2_pinned_and_server_confirmed": true,
+        "int4_entire_scope_complete": false,
+        "int5_part_roles_approved": 0,
+        "int6_rights_approved": 0,
+        "natural_bed_two_part_behavior_tested": false,
+        "texture_pixelwise_uv_color_approved": false
+      },
+      "manifest_sha256": "4128a7c6ae8dfbc6ee5d771bed36f6fca31234b3d2ea86fb808e28fbdc661d3c",
+      "native_f2_sha256": {
+        "S37": "bf8936e0ca41bca85cf123f5bd85c3e2390793c59f9e3ac07f0f682e7f552fe3",
+        "S38": "92c1271ab5b2cff6ba71f77517272582d188af81424c5161fe1d4a8608733b61"
+      },
+      "original_JAR_sha1": "a9579fecd7ed429c282be21d5c921d220197acc6",
+      "original_face_counts": {
+        "S37": 72,
+        "S38": 6
+      },
+      "original_git_commit": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035",
+      "paired_air_control_f2_sha256": {
+        "S37": "559bd5bc8161f5cb3a82a207971bc999f8bd4f1d7c2490d12ea207370288d301",
+        "S38": "559bd5bc8161f5cb3a82a207971bc999f8bd4f1d7c2490d12ea207370288d301"
+      },
+      "same_camera_bed_vs_air_changed_pixels": {
+        "S37": 7830,
+        "S38": 465
+      },
+      "schema": "MCFR_INT4_HC_BED_TWO_REAL_F2_AUDIT/v1",
+      "server_verified": 2,
+      "source_cases": [
+        "S37",
+        "S38"
+      ],
+      "status": "PASS_TWO_REAL_FABRIC_F2_PINNED_BED_SOURCE_STATES_NOT_NATURAL_ASSEMBLY"
+    }
+  },
+  "direct_human_image_observations": {
+    "S37": "Actual original F2 shows a wooden bed-like frame with pale patterned bedding; air-only control removes frame and bedding",
+    "S38": "A small pale translucent/cushion-like portion appears in its original F2, absent from the air-only control",
+    "completed_bed_from_natural_item_placement_proven": false,
+    "substantive_role_material_or_style_approval_count": 0,
+    "image_review_artifact": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/44929863978/artifacts/14717317186"
+  },
+  "scopes": {
+    "original_1_5_representative_nonchair_cases_with_real_f2": 9,
+    "representative_nonchair_case_total": 15,
+    "actual_game_native_bed_part_f2": 2,
+    "paired_same_camera_air_controls": 2,
+    "natural_double_bed_install_and_neighbor_updates_verified": false,
+    "pixelwise_model_UV_texture_causality_proven": false,
+    "int4_full_complete": false,
+    "int5_45_part_role_candidates_approved": 0,
+    "int6_AI_training_and_distribution_rights_approved": 0
+  }
+}

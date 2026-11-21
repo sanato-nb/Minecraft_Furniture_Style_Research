@@ -87,6 +87,14 @@ jobs:
           from PIL import Image
           root=Path(os.environ['OUT'])
           doc=json.loads((root/'INT4_HC_BED_SOURCE_F2_AUDIT.json').read_text())
+          lock=json.loads(Path('project/integration/INT4_HANDCRAFTED_BED_F2_SOURCE_RESULT.json').read_text())
+          first=lock['first_paired_background_controlled_f2']['observed']
+          assert first['source_cases']==doc['source_cases']
+          assert first['original_face_counts']==doc['original_face_counts']
+          assert first['original_JAR_sha1']==doc['original_JAR_sha1']
+          assert first['limitations']==doc['limitations']
+          assert set(doc['same_camera_bed_vs_air_changed_pixels'])=={'S37','S38'}
+          # Quantitative image pixel counts and PNG hashes need not be identical across runs.
           assert doc['status']=='PASS_TWO_REAL_FABRIC_F2_PINNED_BED_SOURCE_STATES_NOT_NATURAL_ASSEMBLY'
           assert doc['source_cases']==['S37','S38']
           assert doc['original_face_counts']=={'S37':72,'S38':6}
