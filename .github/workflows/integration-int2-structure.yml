@@ -27,6 +27,28 @@ jobs:
         run: python -m unittest discover -s tests/integration -p 'test_*.py' -v
       - name: Recompute model hierarchy, geometry and declared UV for 2390 models
         run: python scripts/integration/audit_int2_structure.py --root . --out "$RUNNER_TEMP/int2-structure"
+      - name: Compare checked-in 2390-row evidence against new independent run
+        env:
+          AUDIT_OUTPUT: ${{ runner.temp }}/int2-structure
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          base = Path("project/integration")
+          out = Path(os.environ["AUDIT_OUTPUT"])
+          old = (base / "INT2_1_2_MODEL_CROSSCHECK.csv").read_bytes()
+          new = (out / "INT2_1_2_MODEL_CROSSCHECK.csv").read_bytes()
+          if old != new:
+              raise SystemExit("INT2 per-model CSV differs from regenerated values")
+          old_summary = json.loads((base / "INT2_1_2_STRUCTURE_SUMMARY.json").read_text(encoding="utf-8"))
+          new_summary = json.loads((out / "INT2_1_2_STRUCTURE_SUMMARY.json").read_text(encoding="utf-8"))
+          for key, value in new_summary.items():
+              if old_summary.get(key) != value:
+                  raise SystemExit(f"INT2 summary mismatch in: {key}")
+          print("INT2_MODEL_SNAPSHOT_MATCHED_ALL_ROWS")
+          PY
       - name: Publish static-audit source evidence
         if: always()
         uses: actions/upload-artifact@v4
