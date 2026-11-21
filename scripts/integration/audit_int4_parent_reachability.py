@@ -31,7 +31,7 @@ PREFIXES={"AF":"assets/another_furniture/","MACAW":"assets/mcwfurnitures/"}
 def resource(path,kind):
     """assets/ns/{kind}/sub/path.json -> ns:sub/path."""
     bits=path.split("/")
-    require(len(bits)>=5 and bits[0]=="assets" and bits[2]==kind and
+    require(len(bits)>=4 and bits[0]=="assets" and bits[2]==kind and
             path.endswith(".json"),"Unexpected pinned archive resource path: "+path)
     return bits[1]+":"+("/".join(bits[3:]))[:-5]
 
