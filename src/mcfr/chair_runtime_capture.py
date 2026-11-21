@@ -71,7 +71,9 @@ def validate_source_targets(version,mod_dir):
             choices[case.case_id]={
                 "block_id":case.block_id,"selector":case.state(),
                 "model_target":model,"rotation_y":expected_y,
-                "original_blockstate_source_hash":pinned[block]["source_hash"],
+                "original_blockstate_source_hash":pinned[block]["research_source_hash"],
+                "running_mod_blockstate_hash":pinned[block]["runtime_source_hash"],
+                "source_version_equivalence":pinned[block]["scope"],
             }
     if len(choices)!=len(cases(version)):
         raise ValueError("One or more test cases were not validated against installed source JAR")
@@ -163,6 +165,8 @@ def capture_chairs(command,env,game,output,version):
                    "original_model_target":target_manifest[case.case_id]["model_target"],
                    "original_model_y":target_manifest[case.case_id]["rotation_y"],
                    "source_blockstate_digest":target_manifest[case.case_id]["original_blockstate_source_hash"],
+                   "running_mod_source_digest":target_manifest[case.case_id]["running_mod_blockstate_hash"],
+                   "source_version_equivalence":target_manifest[case.case_id]["source_version_equivalence"],
                    "screenshot_file":output_file.name,
                    "screenshot_sha256":hashlib.sha256(output_file.read_bytes()).hexdigest(),
                    "screenshot_dimensions":list(dimensions),
@@ -188,6 +192,10 @@ def capture_chairs(command,env,game,output,version):
       "source_state_verified_count":len(expected),
       "minecraft_native_f2_screenshot_count":len(output_rows),
       "original_blockstate_source_registry":pinned,
+      "unverified_full_research_release_source_differences":[
+          item for item,value in pinned.items() if not value["byte_identical_to_research"]
+      ],
+      "scope_restriction":"Each of the 12/4 selected original model targets and y rotations checked; release-wide JSON equality not asserted when hashes differ.",
       "states":output_rows,
       "client_log_sha256":hashlib.sha256(log.read_bytes()).hexdigest(),
       "client_version_verified":version,
