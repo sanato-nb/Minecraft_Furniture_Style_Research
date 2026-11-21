@@ -26,7 +26,28 @@ jobs:
       - name: Independent state/geometry/PNG regression tests
         run: python -m unittest discover -s tests/integration -p 'test_*.py' -v
       - name: Independently enumerate and compare all 1-2-D cases
-        run: python scripts/integration/audit_int2_states.py --root . --out "$RUNNER_TEMP/int2-states" --print-csv
+        run: python scripts/integration/audit_int2_states.py --root . --out "$RUNNER_TEMP/int2-states"
+      - name: Verify committed per-source D results against fresh computation
+        env:
+          INT2_OUTPUT: ${{ runner.temp }}/int2-states
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          out = Path(os.environ["INT2_OUTPUT"])
+          saved = Path("project/integration")
+          name = "INT2_D_1168_SOURCE_CROSSCHECK.csv"
+          if (out / name).read_bytes() != (saved / name).read_bytes():
+              raise SystemExit("INT-2 D 1168-source CSV snapshot mismatch")
+          old = json.loads((saved / "INT2_D_SUMMARY.json").read_text(encoding="utf-8"))
+          new = json.loads((out / "INT2_D_SUMMARY.json").read_text(encoding="utf-8"))
+          for key, value in new.items():
+              if old.get(key) != value:
+                  raise SystemExit("INT-2 D summary snapshot mismatch: " + key)
+          print("INT2_D_ALL_1168_SOURCE_SNAPSHOTS_MATCHED")
+          PY
       - name: Upload state enumeration evidence even on failed audit
         if: always()
         uses: actions/upload-artifact@v4
