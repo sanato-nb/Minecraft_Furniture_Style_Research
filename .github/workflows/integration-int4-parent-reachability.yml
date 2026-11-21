@@ -61,6 +61,10 @@ jobs:
           from pathlib import Path
           output=Path(os.environ['OUT'])
           source=json.loads((output/'INT4_PARENT_48_BLOCKSTATE_REACHABILITY_SUMMARY.json').read_text())
+          fixed=json.loads(Path('project/integration/INT4_PARENT_48_BLOCKSTATE_AUDIT_RESULT.json').read_text())
+          assert fixed['observed']==source, 'Original source blockstate reachability result changed'
+          assert fixed['boundaries']['game_client_visual_fault_not_proven']
+          assert fixed['boundaries']['int5_approved_part_roles']==0
           data=(output/'INT4_PARENT_48_BLOCKSTATE_REACHABILITY.csv').read_bytes()
           rows=list(csv.DictReader(data.decode('utf-8').splitlines()))
           assert hashlib.sha256(data).hexdigest()==source['row_csv_sha256']

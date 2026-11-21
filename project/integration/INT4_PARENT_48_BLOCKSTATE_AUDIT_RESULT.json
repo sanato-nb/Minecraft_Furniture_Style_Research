@@ -1,0 +1,95 @@
+{
+  "schema": "MCFR_INT4_PARENT_48_ORIGINAL_SOURCE_REACHABILITY_CI_LOCK/v1",
+  "status": "PASS_48_MODELS_UNREACHABLE_FROM_PINNED_STATIC_BLOCKSTATES_OR_ITEM_MODELS",
+  "first_successful_ci_run": 44914705459,
+  "first_successful_ci_job": 136877701596,
+  "first_ci_head_sha": "39a4e19bd5e9b4a8e382125fcdd8528e9e784d2a",
+  "first_ci_url": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/44914705459",
+  "offline_reachability_tests_passed": 8,
+  "previous_parent_chain_tests_passed": 9,
+  "artifact_id": 14711301851,
+  "artifact_zip_sha256": "a10af3cb0855bb0c00a48cdebb03e779da56ca79243d581ce1c1229ebe6efcbd",
+  "observed": {
+    "historical_source_hashes": {
+      "AF": "3e83a1ab8a68716be1752a5237ee078c231b41c81e3b14d69536a8143b24e431",
+      "INT2_MOD_EXCEPTIONS.csv": "4e857e270bc0b8cba8e32da9f07dc6e93134c501fbccdfd9d8931d01cf853053",
+      "INT2_MOD_SOURCE_SUMMARY.json": "12a796791392d7f6a51dcf347b23757bab303cf88706ea7f5cd649913951f808",
+      "MACAW": "f550d6ea95b277fcb9c38f13fe29147515441400094b10e92f58c89609d2fcbd"
+    },
+    "limits": [
+      "No case is considered actually placed or displayed by this static reachability scan",
+      "Blockstate options may not correspond to registered runtime blocks or practically achievable combinations",
+      "A model not reached by static blockstates could still load via custom model loaders, Java, dynamic state, resource packs or items",
+      "Missing model parent does not prove an in-game broken mesh or texture",
+      "Current report is restricted to pinned AF 4.0.3 Git commit and Macaw 3.4.2 Fabric JAR and prior audited missing-parent roster",
+      "No existing original models, parent links or historical evidence files are modified"
+    ],
+    "original_pinned_assets": {
+      "AF_COMMIT": "57eb624cbb7f408d43398c7434b0d38d312cb55d",
+      "MACAW_SHA256": "e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e",
+      "MINECRAFT_12111_SHA1": "ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd",
+      "MINECRAFT_1211_SHA1": "30c73b1c5da787909b2f73340419fdf13b9def88"
+    },
+    "root_parent_audit_lock_sha256": "d90ab28327070322c9c9049dd58428645f2e5194fb87ccb73871abbdfaca50be",
+    "row_csv_sha256": "4f155472e955a507cfcd22e56b9ecf255de8c6fdb40638707d45754c1d9149f4",
+    "schema": "MCFR_INT4_PARENT_48_BLOCKSTATE_SOURCE_REACHABILITY/v1",
+    "source_census": {
+      "AF": {
+        "blockstate_direct_option_targets": 9325,
+        "item_model_root_definitions": 0,
+        "item_parent_chain_reachable_ids": 328,
+        "original_resource_jsons_by_type": {
+          "blockstates": 177,
+          "models": 1629
+        },
+        "static_blockstate_parent_chain_reachable_ids": 1410,
+        "unique_blockstate_referenced_model_ids": 1355
+      },
+      "MACAW": {
+        "blockstate_direct_option_targets": 8210,
+        "item_model_root_definitions": 716,
+        "item_parent_chain_reachable_ids": 750,
+        "original_resource_jsons_by_type": {
+          "blockstates": 714,
+          "items": 716,
+          "models": 2549
+        },
+        "static_blockstate_parent_chain_reachable_ids": 2419,
+        "unique_blockstate_referenced_model_ids": 2312
+      }
+    },
+    "status": "PINNED_STATIC_BLOCKSTATE_SELECTION_REACHABILITY_ONLY_NOT_GAME_RENDER",
+    "summary": {
+      "actual_game_render_failure_proven": 0,
+      "ai_semantics_or_training_rights_approved": 0,
+      "catalog_models_checked_exact_sha": 48,
+      "direct_selected_from_static_blockstates": 0,
+      "historical_missing_parent_model_paths": 48,
+      "historical_no_static_overlap": 44,
+      "in_static_blockstate_source_selection_or_parent_chain": 0,
+      "item_model_or_parent_chain_reachable": 0,
+      "missing_parent_target_ids": 3,
+      "not_reachable_from_static_blockstates": 48,
+      "reachable_by_mod": {},
+      "source_model_repair_applied": 0,
+      "source_per_model_reachability_counts": {
+        "AF": {
+          "NOT_BLOCKSTATE_REACHABLE": 4
+        },
+        "MACAW": {
+          "NOT_BLOCKSTATE_REACHABLE": 44
+        }
+      }
+    }
+  },
+  "boundaries": {
+    "no_source_model_replacements": true,
+    "dynamic_model_loaders_not_excluded": true,
+    "runtime_registered_blocks_not_automatically_verified": true,
+    "original_48_source_candidates_not_deleted": true,
+    "game_client_visual_fault_not_proven": true,
+    "all_int4_completed": false,
+    "int5_approved_part_roles": 0,
+    "ai_training_or_rights_approved": 0
+  }
+}
