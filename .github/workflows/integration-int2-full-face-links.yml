@@ -1,0 +1,65 @@
+name: INT-2 1-4 original 592312 model face links independent replay
+on:
+  pull_request:
+    paths:
+      - 'scripts/integration/audit_int2_full_face_links.py'
+      - 'tests/integration/test_int2_full_face_links.py'
+      - 'project/integration/INT2_1_4_FULL_LINKS*'
+      - '.github/workflows/integration-int2-full-face-links.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  model-face-links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install shared PNG dependency
+        run: python -m pip install "Pillow>=10.0,<13.0"
+      - name: Run independent source/UV and preceding integration regression tests
+        run: python -m unittest discover -s tests/integration -p 'test_*.py' -v
+      - name: Download immutable source archives to Runner temporary directory
+        env:
+          WORK: ${{ runner.temp }}/int2-all-face-source
+        run: |
+          set -euo pipefail
+          mkdir -p "$WORK"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            "https://codeload.github.com/crispytwig/AnotherFurniture/zip/57eb624cbb7f408d43398c7434b0d38d312cb55d" \
+            -o "$WORK/af.zip"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            "https://codeload.github.com/terrarium-earth/Handcrafted/zip/8d21d1665916850c3fa3bdaf1370c50ec2ca7035" \
+            -o "$WORK/hc.zip"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            "https://cdn.modrinth.com/data/dtWC90iB/versions/xhmciaUD/mcw-furniture-3.4.2-mc1.21.11fabric.jar" \
+            -o "$WORK/macaw.jar"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            "https://piston-data.mojang.com/v1/objects/30c73b1c5da787909b2f73340419fdf13b9def88/client.jar" \
+            -o "$WORK/1.21.1.jar"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            "https://piston-data.mojang.com/v1/objects/ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd/client.jar" \
+            -o "$WORK/1.21.11.jar"
+      - name: Rebuild and compare every one of 592312 source original model face links
+        env:
+          WORK: ${{ runner.temp }}/int2-all-face-source
+          OUT: ${{ runner.temp }}/int2-all-face-evidence
+        run: |
+          python scripts/integration/audit_int2_full_face_links.py \
+            --root . --af "$WORK/af.zip" --hc "$WORK/hc.zip" \
+            --macaw "$WORK/macaw.jar" --mc1211 "$WORK/1.21.1.jar" \
+            --mc12111 "$WORK/1.21.11.jar" --out "$OUT"
+      - name: Publish only generated linked-face proofs; no original assets
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int2-1-4-592312-model-face-links
+          path: ${{ runner.temp }}/int2-all-face-evidence/
+          if-no-files-found: warn
+          retention-days: 60
