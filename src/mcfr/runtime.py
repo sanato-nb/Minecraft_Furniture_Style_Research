@@ -44,9 +44,14 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
          "--pack", str(copied_world / "datapacks/cd_audit")],
         check=True,
     )
-    if args.command == "chair-capture":
+    if args.command in ("chair-capture", "af-variant3-capture"):
         from .chair_runtime_fixture import make_pack
-        make_pack(args.version, copied_world / "datapacks/mcfr_chair")
+        selected=None
+        if args.command=="af-variant3-capture":
+            from .int4_af_variant3_capture import capture_cases
+            selected=capture_cases(args.version)
+        make_pack(args.version, copied_world / "datapacks/mcfr_chair",
+                  selected_cases=selected)
     (game / "options.txt").write_text(
         "renderDistance:4\nsimulationDistance:5\nmaxFps:30\nguiScale:2\n", encoding="utf-8"
     )
@@ -63,8 +68,15 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
     if args.command == "visual-capture":
         from .runtime_capture import capture
         return capture(command, env, game, args.output, args.version)
-    if args.command == "chair-capture":
+    if args.command in ("chair-capture", "af-variant3-capture"):
         from .chair_runtime_capture import capture_chairs
+        if args.command=="af-variant3-capture":
+            from .int4_af_variant3_capture import capture_cases, exact_expected_models
+            return capture_chairs(
+                command, env, game, args.output, args.version,
+                selected_cases=capture_cases(args.version),
+                expected_case_models=exact_expected_models(),
+                report_name="INT4_AF_VARIANT3_REAL_F2_CAPTURE.json")
         return capture_chairs(command, env, game, args.output, args.version)
     subprocess.run(command, cwd=game, env=env, check=True)
     return None
@@ -77,17 +89,19 @@ def main(argv: list[str] | None = None) -> int:
     visual = sub.add_parser("visual-client", help="open a copied local world for in-game capture")
     capture = sub.add_parser("visual-capture", help="capture and compare pinned in-game scenes on an isolated X11 display")
     chairs = sub.add_parser("chair-capture", help="capture 4 source chairs x 4 facings with verified Minecraft F2 screenshots")
-    for command in (engine, visual, capture, chairs):
+    af3 = sub.add_parser("af-variant3-capture", help="capture AF variant3 four directions plus variant1 controls")
+    for command in (engine, visual, capture, chairs, af3):
         command.add_argument("--version", required=True)
         command.add_argument("--work", type=_scratch_path, required=True)
         command.add_argument("--client-cache", type=_scratch_path)
         command.add_argument("--display", help="X11 display, for example :99")
     engine.add_argument("--output", type=_scratch_path, required=True)
     engine.add_argument("--ecj", type=Path)
-    for command in (visual, capture, chairs):
+    for command in (visual, capture, chairs, af3):
         command.add_argument("--world", type=Path, required=True)
     capture.add_argument("--output", type=_scratch_path, required=True)
     chairs.add_argument("--output", type=_scratch_path, required=True)
+    af3.add_argument("--output", type=_scratch_path, required=True)
     args = parser.parse_args(argv)
 
     try:
@@ -106,7 +120,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.command != "engine":
             if not (args.display or os.environ.get("DISPLAY")):
                 raise ValueError("An X11 display is required for visual capture")
-            if args.command in ("visual-capture", "chair-capture"):
+            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture"):
                 if shutil.which("xdotool") is None:
                     raise ValueError("Automatic visual capture requires xdotool")
                 if args.output.exists():

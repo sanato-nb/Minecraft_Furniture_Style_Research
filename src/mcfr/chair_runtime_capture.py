@@ -47,7 +47,12 @@ def property_map(selector):
         data[k]=v
     return data
 
-def validate_source_targets(version,mod_dir):
+def validate_source_targets(version,mod_dir,selected_cases=None,expected_case_models=None):
+    active=tuple(selected_cases) if selected_cases is not None else cases(version)
+    if not active or len({c.case_id for c in active})!=len(active):
+        raise ValueError("Selected original source cases are empty/duplicated")
+    if expected_case_models is not None and set(expected_case_models)!={c.case_id for c in active}:
+        raise ValueError("Explicit pinned model expectations do not cover the source cases")
     pinned=verify_installed_mod_sources(version,mod_dir)
     choices={}
     for block,ident in ORIGINAL_BLOCKSTATE[version].items():
@@ -57,14 +62,16 @@ def validate_source_targets(version,mod_dir):
             src=json.loads(archive.read(internal).decode("utf-8-sig"))
         if set(src)!={"variants"}:
             raise ValueError("Source blockstate not static variant table: "+block)
-        for case in (c for c in cases(version) if c.block_id==block):
-            model=RESOURCE_BY_MODEL[case.model_key]
+        for case in (c for c in active if c.block_id==block):
+            model=(expected_case_models[case.case_id]["model"] if expected_case_models is not None
+                   else RESOURCE_BY_MODEL[case.model_key])
             state=property_map("facing="+case.facing+(","+case.selector if case.selector else ""))
             found=[v for k,v in src["variants"].items() if property_map(k)==state]
             if len(found)!=1:
                 raise ValueError("Minecraft fixture properties do not identify exactly one source option: "+case.case_id)
             actual=found[0]
-            expected_y=MODELS_YPOS[case.model_key][DIRS.index(case.facing)]
+            expected_y=(expected_case_models[case.case_id]["y"] if expected_case_models is not None
+                        else MODELS_YPOS[case.model_key][DIRS.index(case.facing)])
             if actual["model"]!=model or actual.get("y",0)!=expected_y or actual.get("x",0)!=0 or actual.get("uvlock",False):
                 raise ValueError("Fixture is not the pinned source model/rotation: "+case.case_id)
             choices[case.case_id]={
@@ -74,16 +81,22 @@ def validate_source_targets(version,mod_dir):
                 "running_mod_blockstate_hash":pinned[block]["runtime_source_hash"],
                 "source_version_equivalence":pinned[block]["scope"],
             }
-    if len(choices)!=len(cases(version)):
+    if len(choices)!=len(active):
         raise ValueError("One or more test cases were not validated against installed source JAR")
     return choices,pinned
 
-def capture_chairs(command,env,game,output,version):
+def capture_chairs(command,env,game,output,version,selected_cases=None,
+                   expected_case_models=None,report_name="INT3_REAL_GAME_CAPTURE.json"):
     # Optional image decoder is required only when real Fabric F2 capture runs;
     # importing this module for the core knowledge DB must not pull Pillow.
     from PIL import Image
-    cases_to_capture=cases(version)
-    target_manifest,pinned=validate_source_targets(version,game/"mods")
+    cases_to_capture=tuple(selected_cases) if selected_cases is not None else cases(version)
+    if report_name not in ("INT3_REAL_GAME_CAPTURE.json",
+                           "INT4_AF_VARIANT3_REAL_F2_CAPTURE.json"):
+        raise ValueError("Unrecognized isolated client manifest name")
+    target_manifest,pinned=validate_source_targets(
+        version,game/"mods",selected_cases=cases_to_capture,
+        expected_case_models=expected_case_models)
     output.mkdir(parents=True,exist_ok=False)
     log=output/"client.log"
     screenshot_root=game/"screenshots"
@@ -207,6 +220,12 @@ def capture_chairs(command,env,game,output,version):
       "copyright_or_ai_training_approved":0,
       "comparability_note":"Client screenshots of fixed state and one camera placement each; NOT pixel-aligned to 16 independent orthographic UV renders."
     }
-    (output/"INT3_REAL_GAME_CAPTURE.json").write_text(
+    if report_name=="INT4_AF_VARIANT3_REAL_F2_CAPTURE.json":
+        report["schema"]="MCFR_INT4_AF_VARIANT3_REAL_F2_CAPTURE/v1"
+        report["capture_profile"]="INT4_AF_VARIANT3_4_FACING_PLUS_2_VARIANT1_CONTROLS"
+        report["scope_restriction"]=(
+            "Only six source states, models and rotations checked against pinned AF runtime JAR;"
+            " F2 files are not semantic or pixel-causal approval.")
+    (output/report_name).write_text(
         json.dumps(report,sort_keys=True,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     return report
