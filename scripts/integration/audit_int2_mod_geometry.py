@@ -441,6 +441,7 @@ def main():
       "discrepancy_count":report["discrepancy_count"],
       "discrepancy_examples":report["discrepancy_examples"][:8],
     },ensure_ascii=False,sort_keys=True))
+    print("INT2_MOD_FULL_JSON:"+json.dumps(report,ensure_ascii=False,sort_keys=True))
     if report["status"]!="PASS_SOURCE_GEOMETRY_CATALOG_SCOPE":
         raise SystemExit("INT2 MOD model audit failed; inspect artifact")
 
