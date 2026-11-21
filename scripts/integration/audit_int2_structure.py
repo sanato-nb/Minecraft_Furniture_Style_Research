@@ -296,6 +296,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[2])
     p.add_argument("--out", type=Path, required=True)
+    p.add_argument("--show-csv", action="store_true", help="Also print all per-model rows")
     args = p.parse_args()
     rows, report = audit(args.root)
     args.out.mkdir(parents=True, exist_ok=True)
@@ -307,9 +308,10 @@ def main():
         json.dumps(report, ensure_ascii=False, sort_keys=True, indent=2) + "\n", encoding="utf-8",
     )
     print("INT2_STRUCTURE_SUMMARY_JSON:" + json.dumps(report, ensure_ascii=False, sort_keys=True))
-    print("INT2_MODEL_CSV_BEGIN")
-    print((args.out / REPORT_NAME).read_text(encoding="utf-8"), end="")
-    print("INT2_MODEL_CSV_END")
+    if args.show_csv:
+        print("INT2_MODEL_CSV_BEGIN")
+        print((args.out / REPORT_NAME).read_text(encoding="utf-8"), end="")
+        print("INT2_MODEL_CSV_END")
     if report["status"] != "PASS_SOURCE_GEOMETRY_UV_DECLARATIONS_AND_STATE_OPTIONS":
         raise SystemExit("INT-2 geometry/UV audit discrepancies: see JSON report")
 
