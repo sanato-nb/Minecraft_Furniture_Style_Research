@@ -54,8 +54,9 @@ jobs:
           counts=summary["counts"]
           if counts["source_candidate_elements"]!=45 or counts["template_providers"]!=4:
               raise SystemExit("Expected 4 pinned providers and 45 source-role hypotheses")
-          if counts["rendered_individual_candidate_views"]!=90:
-              raise SystemExit("Two geometric views per selected element are required")
+          if (counts["rendered_individual_candidate_views"]!=135 or
+              counts["isolated_element_diagnostic_views"]!=45):
+              raise SystemExit("Require 2 assembled plus one isolated source element view per candidate")
           if counts["candidate_roles"]!={"BACKREST_ASSEMBLY":16,
                                          "LEG_OR_LOWER_POST":16,
                                          "LOWER_FRAME":7,"SEAT_LAYER":6}:

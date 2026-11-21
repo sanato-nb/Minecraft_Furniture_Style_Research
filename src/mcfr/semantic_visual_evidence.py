@@ -154,9 +154,14 @@ def shade(color,factor):
     v=[min(255,max(0,int(x*factor))) for x in (r,g,b)]
     return "#"+ "".join(f"{x:02x}" for x in v)
 
-def svg_panel(elements,title,angle,selected=None,small=False):
-    poly=polygon_paths(elements,angle,selected=selected)
-    label=("WHOLE ASSEMBLY" if selected is None else f"HIGHLIGHT e{selected}")
+def svg_panel(elements,title,angle,selected=None,isolate=False):
+    display=([e for e in elements if e["index"]==selected] if isolate else elements)
+    if isolate and len(display)!=1:
+        raise ValueError("Cannot isolate a missing or duplicate source element")
+    poly=polygon_paths(display,angle,selected=selected)
+    label=("WHOLE ASSEMBLY" if selected is None else
+           f"ISOLATED e{selected} — NOT AN IN-GAME VIEW" if isolate else
+           f"HIGHLIGHT e{selected}")
     text=[
       '<svg xmlns="http://www.w3.org/2000/svg" width="540" height="580" viewBox="0 0 540 580">',
       '<rect width="540" height="580" fill="#f8fafc"/>',
@@ -282,8 +287,13 @@ def run(root,out):
                 role_categories[e["role"]]+=1
                 panels=[svg_panel(group["elements"],group["title"],a,e["index"])
                         for a in AZIMUTHS]
+                # Each chair has occluded parts. The third isolated view is
+                # a diagnostic, not a valid assembled/game appearance.
+                panels.append(svg_panel(group["elements"],group["title"],AZIMUTHS[0],
+                                        e["index"],isolate=True))
                 name=f"candidates/{slug}_element_{e['index']:03d}.svg"
-                sha=write_file(out,name,svg_sheet(panels,group["title"]+f" / e{e['index']} — {e['role']}"))
+                sha=write_file(out,name,svg_sheet(panels,
+                         group["title"]+f" / e{e['index']} — {e['role']}",cols=3))
                 files[name]=sha
                 summary_rows.append({
                     "source":group["source"],"model_key":group["model_key"],
@@ -295,6 +305,7 @@ def run(root,out):
                     "original_rotation_angle":e["angle"],
                     "svg_path":name,"svg_sha256":sha,
                     "view_angles":"|".join(map(str,AZIMUTHS)),
+                    "isolated_element_diagnostic":"YES",
                     "render_method":"GEOMETRY_ONLY_ISOMETRIC_NO_TEXTURES",
                     "visual_human_verified":"NO",
                     "game_runtime_verified":"NO",
@@ -346,7 +357,8 @@ def run(root,out):
            "counts":{"template_providers":4,"source_candidate_elements":len(summary_rows),
                      "all_template_elements":geometries["all_provider_elements"],
                      "rendered_model_context_views":8,
-                     "rendered_individual_candidate_views":len(summary_rows)*2,
+                     "rendered_individual_candidate_views":len(summary_rows)*3,
+                     "isolated_element_diagnostic_views":len(summary_rows),
                      "candidate_roles":dict(sorted(role_categories.items()))},
            "evidence_files_sha256":dict(sorted(files.items())),
            "visual_review":{"state":"PENDING","human_verified_elements":0,
@@ -356,6 +368,7 @@ def run(root,out):
            "limitations":[
               "Projected six-sided element cuboids; no Minecraft model bake, culling or actual image textures",
               "Painter-style depth sorting approximates occlusion; not a physical or game renderer",
+              "Every candidate adds a third isolated 3D view to expose parts hidden in assembled projections",
               "45 source labels remain hypotheses pending original textured render and actual visual confirmation",
               "No original JAR, JSON, PNG or images are redistributed",
               "Source model geometry identity is fixed to the 1-3-C/1-3-F input SHA256"

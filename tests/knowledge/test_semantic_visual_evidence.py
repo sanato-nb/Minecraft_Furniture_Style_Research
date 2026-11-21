@@ -67,6 +67,17 @@ class GeometryRenderUnitTests(unittest.TestCase):
         self.assertNotIn("SEAT_LAYER",combined)
         self.assertIn("textures intentionally omitted",combined)
 
+    def test_isolation_exposes_occluded_element_only(self):
+        a={"index":0,"role":"LEG_OR_LOWER_POST","evidence":"GEOMETRY_AND_FACE_SLOTS",
+           "vertices":v.corners((0,0,0),(1,8,1))}
+        b={"index":1,"role":"BACKREST_ASSEMBLY","evidence":"GEOMETRY_AND_FACE_SLOTS",
+           "vertices":v.corners((0,0,0),(16,16,16))}
+        isolated=v.svg_panel([a,b],"Source candidate",43,selected=0,isolate=True)
+        self.assertIn("ISOLATED e0",isolated)
+        self.assertEqual(isolated.count("<polygon "),6)
+        with self.assertRaises(ValueError):
+            v.svg_panel([a,b],"Source candidate",43,selected=7,isolate=True)
+
     def test_template_registry_fixed_to_prior_four_providers(self):
         self.assertEqual(len(v.TEMPLATES),4)
         self.assertEqual(sum(mod=="AF" for mod,_,_ in v.TEMPLATES),2)
