@@ -26,7 +26,28 @@ jobs:
       - name: Independent geometry regression tests
         run: python -m unittest discover -s tests/integration -p 'test_*.py' -v
       - name: Verify B per-element source and dual independent AABB equations
-        run: python scripts/integration/audit_int2_rotation.py --root . --out "$RUNNER_TEMP/int2-rotation" --print-csv
+        run: python scripts/integration/audit_int2_rotation.py --root . --out "$RUNNER_TEMP/int2-rotation"
+      - name: Compare committed 1548-row AABB result with independent current run
+        env:
+          INT2_OUTPUT: ${{ runner.temp }}/int2-rotation
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          out = Path(os.environ["INT2_OUTPUT"])
+          saved = Path("project/integration")
+          name = "INT2_B_ROTATED_ELEMENTS.csv"
+          if (saved / name).read_bytes() != (out / name).read_bytes():
+              raise SystemExit("INT2 rotated element source snapshot mismatch")
+          stored = json.loads((saved / "INT2_B_ROTATION_SUMMARY.json").read_text(encoding="utf-8"))
+          computed = json.loads((out / "INT2_B_ROTATION_SUMMARY.json").read_text(encoding="utf-8"))
+          for key, value in computed.items():
+              if stored.get(key) != value:
+                  raise SystemExit("INT2 rotated AABB summary mismatch: " + key)
+          print("INT2_B_ALL_ROTATED_ELEMENTS_SNAPSHOTS_MATCHED")
+          PY
       - name: Preserve audit outputs for review
         if: always()
         uses: actions/upload-artifact@v4
