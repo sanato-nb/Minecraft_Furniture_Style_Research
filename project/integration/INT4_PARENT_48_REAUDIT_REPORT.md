@@ -33,3 +33,36 @@ python scripts/integration/audit_int4_parent_gaps.py --root . \
 ```
 
 실제 CI 결과가 확인되면 본 보고서에 실측 건수와 실행 SHA를 추가한다.
+
+## GitHub Actions 실제 원본 독립 검수 결과 (2026-11-21)
+
+[독립 원본 CI #44914040186](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/44914040186) **성공**, 오프라인 무결성·오류 주입 회귀테스트 **9/9 통과**.
+
+| 검증 항목 | 실제 결과 |
+|---|---:|
+| 원본 B/JAR 모델 SHA와 바이트 길이 | **48/48 일치** |
+| 기존 누락 부모 종단 재확인 | **48/48 실제 파일 누락** |
+| 고유 누락 부모 식별자 | **3종** |
+| AF 자체 요소·면 존재 경로 | **4** |
+| Macaw 자체 요소 없는 경로 | **44** |
+| 기존 'no static 108'과 중복 | **44** |
+| 서로 다른 이름 같은 원본 다른 경로의 basename 후보 | **0** |
+| 자동 부모 수정 | **0** |
+| 실제 게임의 모델 깨짐·결함 판정 | **0** |
+| 부품·스타일·AI 사용 권리 승인 | **0** |
+
+### 실제 없었던 부모 경로
+
+- `minecraft:lantern` → AF 랜턴 자식 4개, **원본 모델 자체 기하를 포함하지만 기본 부모는 없음**.
+- `mcwfurnitures:block/parent/desk` → Macaw 책상 자식 22개, **원본 모델 자체 elements 없음**.
+- `mcwfurnitures:block/parent/drawer_base` → Macaw 서랍 자식 22개, **원본 모델 자체 elements 없음**.
+
+이 값은 JAR 자체에 포함된 모델 바이트, 실제 SHA 및 Mojang 클라이언트 참조를 대조해 얻었다. Macaw 44개가 실제 게임에서 보이지 않는다는 결론이 아님. 런타임 리소스 교체/자원팩/모델 동적 생성 가능성을 이 감사가 조사하지 않았으므로, **실제 F2 런타임 조사 필요**.
+
+- Git의 보존 체크포인트: [INT4_PARENT_48_ORIGINAL_AUDIT_RESULT.json](INT4_PARENT_48_ORIGINAL_AUDIT_RESULT.json)
+- 원본 48행 CSV SHA-256: `5d03ba00073a2db2a158e9ce654297beb1d48fa2ed52550030a7d32d5a2eb748`
+- 최초 CI 아티팩트 `int4-parent-48-original-source-path-classification` (ID 14710324120), ZIP SHA-256 `d9d14584b9d2c4868205b492ed9c7cb0b02a03ed906aa338103d355d428c6f23`.
+- 고정 결과가 바뀌면 재실행 CI는 체크포인트와 전체 생성 JSON 비교에서 실패하도록 구성했다.
+- 후속: 원본 리소스 규칙/실제 클라이언트로 Macaw 대표 책상·서랍 및 AF 랜턴 **실제 화면과 런타임 동적 처리 여부** 검증. 원본 부모 파일을 추측해 새로 만들거나 과거 원장에 덮어쓰지 않음.
+
+**이 작업은 INT-4의 일부 범위다. INT-4 전체 종료, INT-5 부품 역할 승인, INT-6 AI 학습 권한으로 확대하지 않는다.**
