@@ -1,0 +1,62 @@
+name: INT-2 independent vanilla source audit
+on:
+  pull_request:
+    paths:
+      - 'scripts/integration/audit_int2_vanilla.py'
+      - 'tests/integration/**'
+      - 'project/integration/**'
+      - '.github/workflows/integration-int2-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  recheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Pillow versioned install
+        run: python -m pip install "Pillow>=10.0,<13.0"
+      - name: PNG CRC and strict JSON unit tests
+        run: python -m unittest discover -s tests/integration -p 'test_*.py' -v
+      - name: Re-audit 150 selected PNG and 4768 vanilla source files
+        run: |
+          python scripts/integration/audit_int2_vanilla.py \
+            --root . \
+            --out "$RUNNER_TEMP/int2-evidence"
+      - name: Verify checked-in 150-row audit snapshot against this execution
+        env:
+          AUDIT_OUTPUT: ${{ runner.temp }}/int2-evidence
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          local = Path(os.environ["AUDIT_OUTPUT"])
+          saved = Path("project/integration")
+          expected = (local / "INT2_1_1_PNG_REAUDIT.csv").read_bytes()
+          actual = (saved / "INT2_1_1_PNG_REAUDIT.csv").read_bytes()
+          if actual != expected:
+              raise SystemExit("Committed PNG audit ledger differs from independently regenerated result")
+          snapshot = json.loads((saved / "INT2_VANILLA_SOURCE_SUMMARY.json").read_text(encoding="utf-8"))
+          recomputed = json.loads((local / "INT2_VANILLA_SOURCE_SUMMARY.json").read_text(encoding="utf-8"))
+          for key, value in recomputed.items():
+              if snapshot.get(key) != value:
+                  raise SystemExit(f"Committed audit summary differs: {key}")
+          print("INT2_CHECKED_IN_AUDIT_SNAPSHOT_MATCHED")
+          PY
+      - name: Archive independent audit evidence (no source mutations)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int2-vanilla-source-reaudit
+          path: ${{ runner.temp }}/int2-evidence/
+          if-no-files-found: warn
+          retention-days: 60
