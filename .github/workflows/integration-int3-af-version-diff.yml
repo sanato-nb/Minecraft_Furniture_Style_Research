@@ -1,0 +1,67 @@
+name: INT-3 AF 4.0.2 vs 4.0.3 source geometry and UV audit
+on:
+  pull_request:
+    paths:
+      - 'src/mcfr/af_release_version_audit.py'
+      - 'tests/knowledge/test_af_release_version_audit.py'
+      - '.github/workflows/integration-int3-af-version-diff.yml'
+      - 'project/integration/INT3_AF_VERSION_DIFF_REPORT.md'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-version-comparison:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Offline source-diff tests (no source/network needed)
+        env:
+          PYTHONPATH: src
+        run: python -m unittest discover -s tests/knowledge -p 'test_af_release_version_audit.py' -v
+      - name: Compare original pinned AF 4.0.2 runtime JAR and 4.0.3 research source
+        env:
+          PYTHONPATH: src
+          AUDIT_WORK: ${{ runner.temp }}/mcfr-af-release-original
+          AUDIT_OUT: ${{ runner.temp }}/mcfr-af-version-diff
+        run: |
+          python -m mcfr.af_release_version_audit --work "$AUDIT_WORK" --output "$AUDIT_OUT"
+      - name: Require complete coverage and preserve nonapproval classification
+        env:
+          AUDIT_OUT: ${{ runner.temp }}/mcfr-af-version-diff
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,os
+          from pathlib import Path
+          path=Path(os.environ['AUDIT_OUT'])
+          doc=json.loads((path/'AF_VERSION_COMPARISON.json').read_text())
+          if doc['status']!='COMPLETE_VERSION_DIFF_RECORDED_NOT_SEMANTIC_APPROVAL':
+              raise SystemExit('Unresolved original source/parent chain')
+          if doc['states']['study']!=88 or doc['states']['previously_captured_eight_present_in_both']!=8:
+              raise SystemExit('Research selector/previous capture set mismatch')
+          if doc['models']['evaluated']!=doc['models']['direct_target_union']:
+              raise SystemExit('Not all original AF model parents resolved')
+          for fname,sha in doc['evidence_sha256'].items():
+              if hashlib.sha256((path/fname).read_bytes()).hexdigest()!=sha:
+                  raise SystemExit('Evidence hash mismatch: '+fname)
+          for key in ('part_roles_approved','material_style_approved','ai_training_rights_approved'):
+              if doc['boundary'][key]!=0:
+                  raise SystemExit('Unauthorized semantic/rights approval')
+          print('ORIGINAL_AF_402_TO_403_VERSION_DIFF_AUDIT_COMPLETE')
+          print('STATES:',doc['states'])
+          print('MODELS:',doc['models'])
+          PY
+      - name: Preserve comparison metadata only, no copyrighted originals
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int3-af402-vs-af403-source-geometry-uv-diff
+          path: ${{ runner.temp }}/mcfr-af-version-diff/
+          if-no-files-found: warn
+          retention-days: 45
