@@ -17,6 +17,7 @@ from io import BytesIO
 import json
 from pathlib import Path
 from zipfile import ZipFile
+from urllib.request import Request, urlopen
 
 from . import af_release_version_audit as af
 from .chair_runtime_fixture import digest_bytes
@@ -206,13 +207,25 @@ def verify_historical(root):
     }
 
 
+def fetch_pinned_png(relative):
+    """Fetch only prelisted 4.0.3 source PNGs, without altering the old model fetcher."""
+    require(relative in TEXTURES and ".." not in relative,
+            "Unpinned original texture fetch path")
+    url = ("https://raw.githubusercontent.com/crispytwig/AnotherFurniture/" + af.UPSTREAM +
+           "/" + af.SOURCE_PREFIX + af.PREFIX + relative)
+    with urlopen(Request(url, headers={"User-Agent": "MCFR-INT4-original-PNG/1.0"}),
+                 timeout=35) as response:
+        return response.read()
+
+
 def read_originals(work):
     jar, pin = af.original_jar(work)
     blobs = {"study": {}, "runtime": {}}
     with ZipFile(jar) as z:
         names = set(z.namelist())
         for relative, expected in EXPECTED_SHA.items():
-            upstream = af.fetch_research(relative)
+            upstream = (fetch_pinned_png(relative) if relative in TEXTURES
+                        else af.fetch_research(relative))
             require(upstream is not None and
                     digest_bytes(upstream, "GIT_BLOB_SHA1") == expected,
                     "4.0.3 original source Git blob mismatch: " + relative)
