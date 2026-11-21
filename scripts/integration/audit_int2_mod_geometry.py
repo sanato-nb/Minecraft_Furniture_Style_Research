@@ -145,12 +145,12 @@ def load_originals(root,args):
         vanilla[version]=zipfile.ZipFile(path)
     models={}
     records={}
-    oldc=read_table(root/C+"mod_furniture_catalog.csv.gz")
+    oldc=read_table(root / (C+"mod_furniture_catalog.csv.gz"))
     c_by_identity={(r["mod"],r["path"]):r for r in oldc}
     if len(oldc)!=16572 or len(c_by_identity)!=16572:
         raise ValueError("C catalog population/identity mismatch")
     for mod in ("AF","HC","MACAW"):
-        rows=read_table(root/B+f"B_{mod}_SOURCE_BODIES.csv.gz")
+        rows=read_table(root / (B+f"B_{mod}_SOURCE_BODIES.csv.gz"))
         model_rows=[r for r in rows if r["family"]=="models"]
         if len(model_rows)!=EXPECTED["models"][mod]:
             raise ValueError("B model denominator wrong for "+mod)
@@ -181,10 +181,10 @@ def load_originals(root,args):
 
 def calculate(root,args):
     models,records,vanilla,old_catalog=load_originals(root,args)
-    c_chains={r["model_key"]:r for r in read_table(root/C+"MODEL_PARENT_CHAINS.csv.gz")}
-    b_elems={(r["source_key"],int(r["element_index"])):r for r in read_table(root/C+"mod_model_elements.csv.gz")}
-    b_faces=read_table(root/C+"MODEL_FACES.csv.gz")
-    c_vanilla={(r["minecraft"],r["model_id"]):r for r in read_table(root/C+"C_VANILLA_PARENTS.csv")}
+    c_chains={r["model_key"]:r for r in read_table(root / (C+"MODEL_PARENT_CHAINS.csv.gz"))}
+    b_elems={(r["source_key"],int(r["element_index"])):r for r in read_table(root / (C+"mod_model_elements.csv.gz"))}
+    b_faces=read_table(root / (C+"MODEL_FACES.csv.gz"))
+    c_vanilla={(r["minecraft"],r["model_id"]):r for r in read_table(root / (C+"C_VANILLA_PARENTS.csv"))}
     if len(c_chains)!=16572 or len(b_elems)!=1911 or len(b_faces)!=9760:
         raise ValueError("Historical C static ledger lengths differ from fixed scope")
     vanilla_data={}
