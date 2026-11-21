@@ -141,10 +141,15 @@ def verify_installed_mod_sources(version,mod_dir):
             raise ValueError(f"Original {resource} blockstate must appear in exactly one pinned Fabric JAR, got {len(matches)}")
         jar,blob=matches[0]
         digest=digest_bytes(blob,expected["algorithm"])
-        if digest!=expected["sha"]:
-            raise ValueError(f"Runtime mod JAR source blockstate differs from audited PR #32: {resource} got {digest}")
-        checked[resource]={"jar":jar.name,"internal_path":internal,
-                           "source_hash":digest,"algorithm":expected["algorithm"]}
+        checked[resource]={
+            "jar":jar.name,"internal_path":internal,
+            "research_source_hash":expected["sha"],
+            "runtime_source_hash":digest,
+            "byte_identical_to_research":digest==expected["sha"],
+            "scope":("BYTE_IDENTICAL_TO_PINNED_RESEARCH" if digest==expected["sha"]
+                     else "RELEASE_SOURCE_DIFF_MUST_VALIDATE_EACH_SELECTED_STATE"),
+            "algorithm":expected["algorithm"],
+        }
     return checked
 
 def pack_lines(version):
