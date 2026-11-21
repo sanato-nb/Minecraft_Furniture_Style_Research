@@ -27,6 +27,10 @@ ROOT=Path(__file__).resolve().parents[2]
 DIRS=("north","east","south","west")
 X=(-24,-8,8,24)
 Y=120
+# Previous PR #33 staged three sets of support platforms along z=40/54/68.
+# A north-facing camera saw the other staging floors: NOT model fragments.
+# One shared z row with lateral x separation removes that visual confound.
+GROUP_X_OFFSET={"AF121":-64,"AF123":0,"HC11210":64,"MACAW67":0}
 
 # Namespaced block IDs, state property strings, and source identity are fixed
 # to original model choices in the PR #32 blockstate evidence. Do not invent
@@ -34,8 +38,8 @@ Y=120
 CHAIRS={
     "1.21.1":(
         ("AF121","another_furniture:acacia_chair","tucked=false,variant=1",40),
-        ("AF123","another_furniture:acacia_chair","tucked=true,variant=10",54),
-        ("HC11210","handcrafted:warped_chair","color=black,waterlogged=false",68),
+        ("AF123","another_furniture:acacia_chair","tucked=true,variant=10",40),
+        ("HC11210","handcrafted:warped_chair","color=black,waterlogged=false",40),
     ),
     "1.21.11":(
         ("MACAW67","mcwfurnitures:acacia_chair","",40),
@@ -111,7 +115,8 @@ def cases(version):
     for key,block,params,z in CHAIRS[version]:
         for facing,x in zip(DIRS,X):
             case_id=f"{key}_{facing}"
-            items.append(ChairCase(case_id,version,key,block,params,facing,x,Y,z))
+            items.append(ChairCase(case_id,version,key,block,params,facing,
+                                   x+GROUP_X_OFFSET[key],Y,z))
     assert len({item.case_id for item in items})==len(items)
     return tuple(items)
 
@@ -153,11 +158,16 @@ def verify_installed_mod_sources(version,mod_dir):
     return checked
 
 def pack_lines(version):
+    active=cases(version)
+    min_x=min(item.x for item in active)-4
+    max_x=max(item.x for item in active)+4
+    min_z=min(item.z for item in active)-4
+    max_z=max(item.z for item in active)+4
     placed=[
         "time set noon",
         "weather clear",
         "difficulty peaceful",
-        "forceload add -28 36 28 72",
+        f"forceload add {min_x} {min_z} {max_x} {max_z}",
     ]
     for item in cases(version):
         # Only local simple single-block source states; no neighboring block
