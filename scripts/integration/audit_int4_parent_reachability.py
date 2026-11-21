@@ -19,9 +19,14 @@ import hashlib
 import json
 from pathlib import Path
 
-from audit_int4_parent_gaps import (OriginalArchives,OriginalMismatch,
-                                    ROOT,require,check_history,collect_model_pins,
-                                    model_rel,parse_json,sha256,sha1blob,PINS)
+try:
+    from scripts.integration.audit_int4_parent_gaps import (OriginalArchives,OriginalMismatch,
+        ROOT,require,check_history,collect_model_pins,model_rel,parse_json,sha256,sha1blob,PINS)
+except ModuleNotFoundError as err:
+    if err.name not in ("scripts","scripts.integration"):
+        raise
+    from audit_int4_parent_gaps import (OriginalArchives,OriginalMismatch,
+        ROOT,require,check_history,collect_model_pins,model_rel,parse_json,sha256,sha1blob,PINS)
 
 INT4_LOCK="project/integration/INT4_PARENT_48_ORIGINAL_AUDIT_RESULT.json"
 WORKFLOW_ROOTS=("AF","MACAW")
