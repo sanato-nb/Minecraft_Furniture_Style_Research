@@ -183,14 +183,23 @@ def archive_asset(sources,cohort,ns,texture):
     path=texture_path_for_ref(texture)
     actual_ns=path.split("/")[1]
     source=("MC1.21.11" if cohort=="MACAW" else "MC1.21.1") if actual_ns=="minecraft" else cohort
-    raw=sources.fetch(source,path,required=False)
-    if raw is None:return {"status":"SOURCE_PNG_MISSING","source":source,"path":path}
+    actual_paths=([path] if source.startswith("MC") or source=="MACAW"
+                  else ["common/src/main/resources/"+path,
+                        "common/src/main/generated/resources/"+path])
+    found=[(p,sources.fetch(source,p,required=False)) for p in actual_paths]
+    present=[(p,v) for p,v in found if v is not None]
+    ensure(len(present)<=1,
+           "Ambiguous duplicate texture resource across original source roots: "+path)
+    if not present:
+        return {"status":"SOURCE_PNG_MISSING","source":source,
+                "path":"|".join(actual_paths)}
+    actual_path,raw=present[0]
     ensure(raw.startswith(PNG_MAGIC) and len(raw)>=24,
            "Non-PNG source referenced by original face: "+path)
     w,h=struct.unpack_from(">II",raw,16)
     ensure(w>0 and h>0,"Zero-size original PNG")
     return {"status":"ORIGINAL_PNG_BYTES_PRESENT","source":source,
-            "path":path,"sha256":sha(raw),"width":w,"height":h}
+            "path":actual_path,"sha256":sha(raw),"width":w,"height":h}
 
 def resolve_face_texture(face,slots):
     value=face.get("texture","")
