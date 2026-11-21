@@ -1,0 +1,117 @@
+name: INT-3 45 chair original model geometry previews and source audit
+on:
+  pull_request:
+    paths:
+      - 'scripts/integration/render_int3_chair_geometry.py'
+      - 'tests/integration/test_int3_geometry_preview.py'
+      - 'project/integration/INT3_VISUAL_*'
+      - 'project/integration/INT3_45_CHAIR_GEOMETRY_REVIEW.csv'
+      - 'scripts/integration/audit_int3_geometry_review.py'
+      - '.github/workflows/integration-int3-visual-chair.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  raw-chair-visuals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install raster renderer
+        run: python -m pip install "Pillow>=10,<13"
+      - name: Renderer geometry and original-source relation tests
+        run: python -m unittest discover -s tests/integration -p 'test_int3_geometry_preview.py' -v
+      - name: Fetch pinned AF HC Git trees and officially pinned Macaw JAR
+        env:
+          OUT: ${{ runner.temp }}/int3-chair-source
+        run: |
+          set -euo pipefail
+          mkdir -p "$OUT"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            "https://codeload.github.com/crispytwig/AnotherFurniture/zip/57eb624cbb7f408d43398c7434b0d38d312cb55d" \
+            -o "$OUT/af.zip"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            "https://codeload.github.com/terrarium-earth/Handcrafted/zip/8d21d1665916850c3fa3bdaf1370c50ec2ca7035" \
+            -o "$OUT/hc.zip"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            "https://cdn.modrinth.com/data/dtWC90iB/versions/xhmciaUD/mcw-furniture-3.4.2-mc1.21.11fabric.jar" \
+            -o "$OUT/macaw.jar"
+      - name: Reopen 4 original model JSONs, verify 45 elements, render 2 camera angles
+        env:
+          ORIGINAL: ${{ runner.temp }}/int3-chair-source
+          OUT: ${{ runner.temp }}/int3-chair-visual
+        run: |
+          python scripts/integration/render_int3_chair_geometry.py \
+            --root . --af "$ORIGINAL/af.zip" --hc "$ORIGINAL/hc.zip" \
+            --macaw "$ORIGINAL/macaw.jar" --out "$OUT" --log-preview-base64
+      - name: Check image SHA and 4 provider 45 original element role conditions
+        env:
+          OUT: ${{ runner.temp }}/int3-chair-visual
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import os
+          import hashlib
+          import json
+          out=Path(os.environ['OUT'])
+          doc=json.loads((out/'INT3_45_GEOMETRY_RENDER_SUMMARY.json').read_text())
+          assert doc['status']=='PASS_RAW_SOURCE_FOUR_PROVIDER_GEOMETRY_RECONSTRUCTED'
+          assert doc['total_original_elements']==45
+          assert len(doc['providers'])==4
+          assert sum(doc['original_role_candidates'].values())==45
+          assert all(r['sha'] for r in doc['providers'])
+          assert not doc['role_candidate_visual_approval']
+          assert not doc['runtime_recheck']
+          png=out/'INT3_45_CHAIR_GEOMETRY_CONTACT_SHEET.png'
+          assert hashlib.sha256(png.read_bytes()).hexdigest()==doc['sheet_sha256']
+          print('INT3_4_PINNED_ORIGINAL_CHAIR_MODELS_45_UNVERIFIED_ROLE_VISUALS_READY')
+          PY
+      - name: Reconcile all 45 inspected elements with original geometry and source SHA
+        env:
+          OUT: ${{ runner.temp }}/int3-chair-visual
+        run: |
+          python scripts/integration/audit_int3_geometry_review.py \
+            --root . \
+            --render-summary "$OUT/INT3_45_GEOMETRY_RENDER_SUMMARY.json" \
+            --out "$OUT/INT3_45_GEOMETRY_VISUAL_ASSESSMENT_SUMMARY.json"
+      - name: Verify committed independent render and manually inspected 45-role evidence
+        env:
+          OUT: ${{ runner.temp }}/int3-chair-visual
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          out=Path(os.environ["OUT"])
+          reference=Path("project/integration")
+          for save,generated in (
+              ("INT3_VISUAL_RENDER_SUMMARY.json","INT3_45_GEOMETRY_RENDER_SUMMARY.json"),
+              ("INT3_VISUAL_ASSESSMENT_SUMMARY.json","INT3_45_GEOMETRY_VISUAL_ASSESSMENT_SUMMARY.json")
+          ):
+              original=json.loads((reference/save).read_text(encoding="utf-8"))
+              actual=json.loads((out/generated).read_text(encoding="utf-8"))
+              if original!=actual:
+                  raise SystemExit("INT-3 visual geometry proof is no longer source-reproducible: "+save)
+          frame=json.loads((reference/"INT3_VISUAL_RENDER_SUMMARY.json").read_text())
+          if hashlib.sha256((out/"INT3_45_CHAIR_GEOMETRY_CONTACT_SHEET.png").read_bytes()).hexdigest()!=frame["sheet_sha256"]:
+              raise SystemExit("Source-rendered image checksum mismatch")
+          review=json.loads((reference/"INT3_VISUAL_ASSESSMENT_SUMMARY.json").read_text())
+          if review["layout_plausible_count"]!=45 or review["game_texture_visual_verified"]!=0:
+              raise SystemExit("Unsubstantiated claim of validated visual materials")
+          print("INT3_ALL_45_SOURCE_ANCHORED_GEOMETRY_REVIEW_SHA_PINNED_PASS")
+          PY
+      - name: Preserve source-backed geometry diagrams and metadata only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int3-45-original-chair-geometry-contact-sheet
+          path: ${{ runner.temp }}/int3-chair-visual/
+          if-no-files-found: warn
+          retention-days: 60
