@@ -1,0 +1,115 @@
+name: INT-4 AF variant3 four facings and two control native Minecraft F2
+on:
+  pull_request:
+    paths:
+      - 'src/mcfr/int4_af_variant3_capture.py'
+      - 'src/mcfr/chair_runtime_fixture.py'
+      - 'src/mcfr/chair_runtime_capture.py'
+      - 'src/mcfr/runtime.py'
+      - 'tests/knowledge/test_int4_af_variant3_capture.py'
+      - '.github/workflows/integration-int4-af-variant3-runtime.yml'
+      - 'project/integration/INT4_AF_VARIANT3_CLIENT*'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  real-fabric-1211-f2:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 38
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install original-game X11 display and image inspection dependencies
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null \
+             || ! command -v xdotool >/dev/null; then
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 update
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 install -y \
+              xvfb xauth xdotool libgl1-mesa-dri libglx-mesa0
+          fi
+      - name: Retest historical 16-case fixture invariants and six new source cases
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest discover -s tests/knowledge -p 'test_chair_runtime_fixture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_chair_capture_isolation.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_af_variant3_capture.py' -v
+      - name: Create new official vanilla server-derived disposable flat world
+        env:
+          PYTHONPATH: src
+          WORLD: ${{ runner.temp }}/mcfr-af-v3-world
+          CACHE: ${{ runner.temp }}/mcfr-af-v3-world-cache
+        run: |
+          python -m mcfr.chair_runtime_fixture world \
+            --version 1.21.1 --path "$WORLD" --cache "$CACHE"
+      - name: Launch actual pinned Fabric 1.21.1 and capture all six native F2 images
+        env:
+          PYTHONPATH: src
+          WORLD: ${{ runner.temp }}/mcfr-af-v3-world
+          WORK: ${{ runner.temp }}/mcfr-af-v3-client
+          OUT: ${{ runner.temp }}/mcfr-af-v3-real-f2
+          LIBGL_ALWAYS_SOFTWARE: '1'
+          ALSOFT_DRIVERS: 'null'
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime af-variant3-capture \
+              --version 1.21.1 --work "$WORK" --world "$WORLD" --output "$OUT"
+      - name: Verify six real Minecraft PNGs original game states, backgrounds and pair observations
+        env:
+          PYTHONPATH: src
+          OUT: ${{ runner.temp }}/mcfr-af-v3-real-f2
+        run: |
+          python -m mcfr.int4_af_variant3_capture --root . --directory "$OUT"
+          python - <<'PY'
+          import csv,hashlib,json,os
+          from pathlib import Path
+          from PIL import Image
+          folder=Path(os.environ['OUT'])
+          d=json.loads((folder/'INT4_AF_VARIANT3_CLIENT_AUDIT.json').read_text())
+          assert d['status']=='PASS_SIX_REAL_F2_SERVER_STATES_AND_ISOLATED_VIEWS_NOT_CAUSAL_IMAGE_PROOF'
+          assert d['scope']['actual_f2_screenshots']==6
+          assert d['scope']['variant3_cardinal_directions']==4
+          assert d['scope']['variant1_control_directions']==2
+          assert d['scope']['server_verified_blocks']==6
+          assert d['scope']['source_model_discontinuity_south'] is True
+          assert d['scope']['min_case_x_separation']>=16
+          assert d['scope']['max_stone_proxy_upper_sky_pixels']<1000
+          assert d['scope']['min_foreground_chroma_pixels']>=150
+          assert len(d['f2_sha256_by_case'])==6
+          for name,sha in d['f2_sha256_by_case'].items():
+              path=folder/(name+'.png')
+              assert hashlib.sha256(path.read_bytes()).hexdigest()==sha
+              with Image.open(path) as im:
+                  assert im.size==(1024,684)
+          for name,path in [('actual_f2_states_csv_sha256','INT4_AF_VARIANT3_REAL_F2_STATES.csv'),
+                            ('six_capture_contact_sheet_sha256','INT4_AF_VARIANT3_F2_6_CONTACT_SHEET.png'),
+                            ('actual_f2_manifest_sha256','INT4_AF_VARIANT3_REAL_F2_CAPTURE.json')]:
+              assert hashlib.sha256((folder/path).read_bytes()).hexdigest()==d['source_checkpoints'][name]
+          assert not d['control_pair_diagnostics']['north']['same_source_model']
+          assert d['control_pair_diagnostics']['south']['same_source_model']
+          assert not d['control_pair_diagnostics']['north']['diff_caused_by_back_texture_approved']
+          assert d['nonapprovals']['part_roles_approved']==0
+          assert d['nonapprovals']['style_material_approved']==0
+          assert d['nonapprovals']['source_license_or_ai_training_approved']==0
+          print('INT4_AF_VARIANT3_REAL_FABRIC_6_NATIVE_F2_STATE_PROOFS_PASS')
+          print('F2_SHA256_BY_CASE='+json.dumps(d['f2_sha256_by_case'],sort_keys=True))
+          print('F2_MANIFEST_SHA256='+d['source_checkpoints']['actual_f2_manifest_sha256'])
+          PY
+      - name: Archive F2 screenshots in temporary Actions evidence only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-af-variant3-original-fabric-six-f2
+          path: ${{ runner.temp }}/mcfr-af-v3-real-f2/
+          if-no-files-found: warn
+          retention-days: 45
