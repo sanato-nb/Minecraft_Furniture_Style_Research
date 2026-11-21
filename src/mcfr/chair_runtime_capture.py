@@ -18,7 +18,6 @@ import subprocess
 from time import monotonic,sleep
 from zipfile import ZipFile
 
-from PIL import Image
 
 from .chair_runtime_fixture import (CHAIRS,DIRS,cases,ORIGINAL_BLOCKSTATE,
                                     digest_bytes,verify_installed_mod_sources)
@@ -80,6 +79,9 @@ def validate_source_targets(version,mod_dir):
     return choices,pinned
 
 def capture_chairs(command,env,game,output,version):
+    # Optional image decoder is required only when real Fabric F2 capture runs;
+    # importing this module for the core knowledge DB must not pull Pillow.
+    from PIL import Image
     cases_to_capture=cases(version)
     target_manifest,pinned=validate_source_targets(version,game/"mods")
     output.mkdir(parents=True,exist_ok=False)
