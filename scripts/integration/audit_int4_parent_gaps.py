@@ -66,7 +66,7 @@ def read_csv_bytes(data):
 def model_rel(resource):
     namespace,sep,name=resource.partition(":")
     require(sep and namespace and name and ".." not in name and
-            "/" in name and not name.startswith("/"),"Malformed source resource id")
+            not name.startswith("/"),"Malformed source resource id")
     return f"assets/{namespace}/models/{name}.json"
 
 
