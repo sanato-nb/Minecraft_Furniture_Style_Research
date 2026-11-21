@@ -262,6 +262,145 @@ def pixels_audit(root,args):
         "ai_training_approved":False
     }
 
+
+def audit_chair_uv(root,args):
+    """Independently reproject 39 chair inheritance templates and sample 1,794 source PNG face regions."""
+    from math import floor,ceil
+    model_rows=csv_rows(root/"research/furniture_mods/phase_1-3/A/A_CHAIR_39_RELATIONS.csv")
+    previous=csv_rows(root/"research/furniture_mods/phase_1-4/entry01/1-4_CHAIR_UV_LEDGER.csv.gz")
+    textures=csv_rows(root/HANDOFF)
+    chair_png_ids={r["resource_id"] for r in csv_rows(root/CHAIR)}
+    if len(model_rows)!=39 or len(previous)!=1794 or len(chair_png_ids)!=24:
+        raise ValueError("Chair historic census changed")
+    by_resource={r["resource_id"]:r for r in textures}
+    old_faces={(r["model_ref"],str(r["element_index"]),r["direction"]):r for r in previous}
+    if len(old_faces)!=1794:
+        raise ValueError("Prior 1-4 chair face key duplicate")
+    source=Sources(args)
+    sample_png={}
+    output=[]
+    issues=[]
+    metrics=Counter()
+    try:
+        for texid in chair_png_ids:
+            texture=by_resource[texid]
+            raw=source.fetch(texture["source_id"],texture["path"])
+            if raw_source_sha(raw,texture["source_hash_kind"])!=texture["source_sha"]:
+                raise ValueError("Chair texture source SHA differs: "+texid)
+            with Image.open(io.BytesIO(raw)) as png:
+                png.load()
+                sample_png[texid]=png.convert("RGBA")
+        for model in model_rows:
+            ref=model["leaf"]
+            p=model["source_path"]
+            model_raw=source.fetch("AF",p)
+            if raw_source_sha(model_raw,"GIT_BLOB_SHA1")!=model["source_sha"]:
+                raise ValueError("Chair leaf source hash difference: "+p)
+            leaf=json.loads(model_raw.decode("utf-8-sig"))
+            parent_ref=model["parent_template"]
+            parent_path=p.split("/models/",1)[0]+"/models/"+parent_ref.split(":",1)[1]+".json"
+            parent_raw=source.fetch("AF",parent_path)
+            if raw_source_sha(parent_raw,"GIT_BLOB_SHA1")!=model["parent_sha"]:
+                raise ValueError("Chair parent source hash difference: "+parent_path)
+            parent=json.loads(parent_raw.decode("utf-8-sig"))
+            if leaf["parent"]!=parent_ref or leaf.get("elements") or len(parent["elements"])!=10:
+                raise ValueError("Chair parent/template structure differs: "+ref)
+            slots={**parent.get("textures",{}),**leaf.get("textures",{})}
+            for idx,element in enumerate(parent["elements"]):
+                for direction,face in element["faces"].items():
+                    key=(ref,str(idx),direction)
+                    old=old_faces.pop(key,None)
+                    if old is None:
+                        raise ValueError("Missing historical chair face "+str(key))
+                    slot=face["texture"]
+                    resource=slot
+                    seen=set()
+                    while resource.startswith("#"):
+                        name=resource[1:]
+                        if name in seen or name not in slots:
+                            raise ValueError("Unbound/cyclic chair slot "+str(key))
+                        seen.add(name)
+                        resource=slots[name]
+                    if ":" not in resource:
+                        resource="minecraft:"+resource
+                    t=by_resource.get(resource)
+                    if t is None or resource not in sample_png:
+                        raise ValueError("Chair face PNG missing "+resource)
+                    image=sample_png[resource]
+                    uv=tuple(float(x) for x in face["uv"])
+                    if len(uv)!=4 or uv[0]==uv[2] or uv[1]==uv[3]:
+                        raise ValueError("Chair face has zero UV area")
+                    box=(floor(min(uv[0],uv[2])*image.width/16),
+                         floor(min(uv[1],uv[3])*image.height/16),
+                         ceil(max(uv[0],uv[2])*image.width/16),
+                         ceil(max(uv[1],uv[3])*image.height/16))
+                    if not (0<=box[0]<box[2]<=image.width and 0<=box[1]<box[3]<=image.height):
+                        raise ValueError("Chair UV box outside original sprite")
+                    region=image.crop(box)
+                    pixel=region.tobytes()
+                    hist=Counter(pixel[i:i+4] for i in range(0,len(pixel),4))
+                    z=sum(n for rgba,n in hist.items() if rgba[3]==0)
+                    partial=sum(n for rgba,n in hist.items() if 0<rgba[3]<255)
+                    opaque=sum(n for rgba,n in hist.items() if rgba[3]==255)
+                    visible=[(rgba,n) for rgba,n in hist.items() if rgba[3]>0]
+                    top4="|".join(rgba.hex()+":"+str(n) for rgba,n in sorted(visible,key=lambda r:(-r[1],r[0]))[:4])
+                    sha=hashlib.sha256(pixel).hexdigest()
+                    status="SAMPLED_STATIC_RECTANGLE"
+                    uv_rotation=int(face.get("rotation",0))
+                    computed={
+                      "model_ref":ref,"element_index":str(idx),"direction":direction,
+                      "parent_ref":parent_ref,"parent_sha":model["parent_sha"],
+                      "model_sha":model["source_sha"],"texture_slot":slot,
+                      "texture_id":t["texture_id"],"resource_id":resource,
+                      "texture_sha":t["source_sha"],"uv_rotation":uv_rotation,
+                      "u_reversed":int(uv[0]>uv[2]),"v_reversed":int(uv[1]>uv[3]),
+                      "pixel_box":"|".join(str(x) for x in box),"status":status,
+                      "transparent":z,"partial_alpha":partial,"opaque":opaque,
+                      "visible_rgb_colors":len({rgba[:3] for rgba,n in visible}),
+                      "top4_visible_rgba_counts":top4,"rgba8_sha256":sha,
+                      "texture_scope":("NEW_CANDIDATE" if t["disposition"]=="PNG_UV_CANDIDATE" else "PRIOR_CHAIR_CONTROL"),
+                    }
+                    differences=[k for k,v in computed.items() if str(old[k])!=str(v)]
+                    if tuple(float(x) for x in old["uv"].split("|"))!=uv:
+                        differences.append("uv")
+                    if differences and len(issues)<100:
+                        issues.append({"key":key,"fields":differences})
+                    metrics["face_samples"]+=1
+                    metrics["face_rgba_sha_matches"]+=int("rgba8_sha256" not in differences)
+                    metrics["face_record_matches"]+=int(not differences)
+                    metrics["chair_implicit_uv"]+=int("uv" not in face)
+                    metrics["chair_rotated_uv"]+=int(uv_rotation!=0)
+                    metrics["chair_reversed_uv"]+=int(uv[0]>uv[2] or uv[1]>uv[3])
+                    metrics["chair_transparent_regions"]+=int(z>0)
+                    metrics["new_png_face_samples"]+=int(computed["texture_scope"]=="NEW_CANDIDATE")
+                    output.append({**computed,"comparison":"PASS" if not differences else "DIFFERENCE",
+                                   "differences":"|".join(differences)})
+        if old_faces:
+            issues.append({"reason":"Historical chair faces never matched original","count":len(old_faces)})
+        if metrics["face_samples"]!=1794 or metrics["face_record_matches"]!=1794:
+            issues.append({"reason":"Chair face original region discrepancy"})
+        expected={
+          "chair_reversed_uv":273,"chair_rotated_uv":117,
+          "chair_transparent_regions":78,"new_png_face_samples":456,
+        }
+        for k,value in expected.items():
+            if metrics[k]!=value:
+                issues.append({"reason":"Chair UV count mismatch","metric":k,"actual":metrics[k],"expected":value})
+    finally:
+        source.close()
+    return output,{
+      "method":"independent_39_leaf_original_parent_UV_to_PNG_RBGA_region_reprojection",
+      "face_samples":metrics["face_samples"],
+      "face_record_matches":metrics["face_record_matches"],
+      "face_rgba_sha_matches":metrics["face_rgba_sha_matches"],
+      "rotated_uv":metrics["chair_rotated_uv"],
+      "reversed_uv":metrics["chair_reversed_uv"],
+      "regions_with_transparency":metrics["chair_transparent_regions"],
+      "new_png_faces":metrics["new_png_face_samples"],
+      "unmatched_history":len(old_faces),
+      "discrepancy_examples":issues,
+    }
+
 def check_face_evidence(root,report):
     """Independent arithmetic reconciliation of pinned 1-4 results, not rerender."""
     old=json.loads((root/FINAL).read_text(encoding="utf-8"))
@@ -312,6 +451,8 @@ def main():
     args=parser.parse_args()
     args.out.mkdir(parents=True,exist_ok=True)
     rows,report=pixels_audit(args.root,args)
+    chair_rows,chair_report=audit_chair_uv(args.root,args)
+    report["chair_uv_reprojection"]=chair_report
     check_face_evidence(args.root,report)
     out_csv=args.out/"INT2_1_4_2001_PNG_CHECKS.csv"
     with out_csv.open("w",encoding="utf-8",newline="") as f:
@@ -319,7 +460,15 @@ def main():
         w.writeheader()
         w.writerows(rows)
     report["per_png_evidence_sha256"]=hashlib.sha256(out_csv.read_bytes()).hexdigest()
+    chair_csv=args.out/"INT2_1_4_1794_CHAIR_UV_CHECKS.csv"
+    with chair_csv.open("w",encoding="utf-8",newline="") as f:
+        keys=list(chair_rows[0])
+        writer=csv.DictWriter(f,fieldnames=keys,lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(chair_rows)
+    report["chair_uv_reprojection"]["per_face_csv_sha256"]=hashlib.sha256(chair_csv.read_bytes()).hexdigest()
     if (report["per_png_discrepancies"] or report["discrepancy_examples"] or
+        chair_report["discrepancy_examples"] or
         report["face_evidence_reconciliation"]["differences"]):
         report["status"]="DISCREPANCY_REQUIRES_REVIEW"
     else:
