@@ -1,0 +1,82 @@
+{
+  "schema": "MCFR_INT3_PR34_NATIVE_F2_SOURCE_ISOLATION/v1",
+  "date": "2026-11-21",
+  "original_pr": 33,
+  "original_successful_run": 44895006964,
+  "recapture_successful_run": 44899073690,
+  "old_1_21_1_incorrect_background_platform_photos": 8,
+  "newly_recaptured_1_21_1_background_platform_photos": 0,
+  "newly_recaptured_native_game_F2_photos": 16,
+  "researched_original_part_role_candidates": 45,
+  "source_role_distribution": {
+    "AF1393": 10,
+    "AF1394": 10,
+    "HC13": 13,
+    "MACAW1424": 12
+  },
+  "visually_approved_new_roles": 0,
+  "game_engine_uv_bake_pixel_verified": 0,
+  "model_parent_json_runtime_vs_research_sha_matched": "NOT_VERIFIED",
+  "ai_training_rights_approved": 0,
+  "original_evidence_unchanged": true,
+  "game_world_temporary": true,
+  "original_baseline_file": "project/integration/INT3_PR33_BACKGROUND_INTRUSION_BASELINE.json",
+  "source_runtime_results": [
+    {
+      "ai_training_rights_approved": 0,
+      "all_stages_same_z_plane": true,
+      "evidence_csv_sha256": "1818dfbc289dc2004ceda51c5197b6f83ce8951d376cba7e4f9cbddda2febd0b",
+      "limitations": [
+        "Scoped screen pixel test detects stone-colored upper-sky intrusions, not general foreground occlusion",
+        "A source fixture stage's visibility isn't evidence about furniture geometry or shape",
+        "Macaw version 1.21.11 sky clouds preclude the fixed-blue-sky threshold",
+        "Source/asset license and role/material/UV agreement remain unapproved"
+      ],
+      "max_stone_sky_pixels": 0,
+      "minimum_distinct_chair_x_separation": 16,
+      "minimum_foreground_chroma_pixels": 1664,
+      "model_keys": [
+        "AF121",
+        "AF123",
+        "HC11210"
+      ],
+      "native_f2_count": 12,
+      "native_source_manifest_sha256": "660de2d5467409277ed9d2f8e1fbcbd1e85c54a85afebe47c16dbe8957423934",
+      "runtime_model_bake_approved": 0,
+      "schema": "MCFR_INT3_REAL_F2_ISOLATED_STAGING/v1",
+      "scope_stone_sky_pixels": "1.21.1_FIXED_UNIFORM_BLUE_SKY",
+      "semantic_role_approved": 0,
+      "state": "PASS_ORIGINAL_F2_CHAIR_VISIBLE_AND_STAGING_ISOLATION_NOT_SEMANTICS",
+      "texture_uv_pixel_equality_approved": 0,
+      "version": "1.21.1",
+      "zero_background_staging_intrusions": true
+    },
+    {
+      "ai_training_rights_approved": 0,
+      "all_stages_same_z_plane": true,
+      "evidence_csv_sha256": "98cd9dad88e8d879495886301d8e8592296f854a26765729683d279d97ab76a3",
+      "limitations": [
+        "Scoped screen pixel test detects stone-colored upper-sky intrusions, not general foreground occlusion",
+        "A source fixture stage's visibility isn't evidence about furniture geometry or shape",
+        "Macaw version 1.21.11 sky clouds preclude the fixed-blue-sky threshold",
+        "Source/asset license and role/material/UV agreement remain unapproved"
+      ],
+      "max_stone_sky_pixels": null,
+      "minimum_distinct_chair_x_separation": 16,
+      "minimum_foreground_chroma_pixels": 688,
+      "model_keys": [
+        "MACAW67"
+      ],
+      "native_f2_count": 4,
+      "native_source_manifest_sha256": "e6a6f0c4b7e8bbfed4ab14fd7a381168985b9f978fa0c48bbfe22c5e5320500f",
+      "runtime_model_bake_approved": 0,
+      "schema": "MCFR_INT3_REAL_F2_ISOLATED_STAGING/v1",
+      "scope_stone_sky_pixels": "NOT_USED_1.21.11_SKY_CLOUDS",
+      "semantic_role_approved": 0,
+      "state": "PASS_ORIGINAL_F2_CHAIR_VISIBLE_AND_STAGING_ISOLATION_NOT_SEMANTICS",
+      "texture_uv_pixel_equality_approved": 0,
+      "version": "1.21.11",
+      "zero_background_staging_intrusions": false
+    }
+  ]
+}
