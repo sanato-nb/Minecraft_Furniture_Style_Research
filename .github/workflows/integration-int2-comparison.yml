@@ -1,0 +1,65 @@
+name: INT-2 independent 1-5 model comparison and limitation audit
+on:
+  pull_request:
+    paths:
+      - 'scripts/integration/audit_int2_comparison.py'
+      - 'tests/integration/test_int2_comparison.py'
+      - 'project/integration/INT2_1_5*'
+      - '.github/workflows/integration-int2-comparison.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install shared test image dependency
+        run: python -m pip install "Pillow>=10.0,<13.0"
+      - name: Independent comparison and prior audit regressions
+        run: python -m unittest discover -s tests/integration -p 'test_*.py' -v
+      - name: Download pinned sources without checking them into Git
+        env:
+          WORK: ${{ runner.temp }}/int2-comparison-upstream
+        run: |
+          set -euo pipefail
+          mkdir -p "$WORK"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            "https://codeload.github.com/crispytwig/AnotherFurniture/zip/57eb624cbb7f408d43398c7434b0d38d312cb55d" \
+            -o "$WORK/af.zip"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            "https://codeload.github.com/terrarium-earth/Handcrafted/zip/8d21d1665916850c3fa3bdaf1370c50ec2ca7035" \
+            -o "$WORK/hc.zip"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            "https://cdn.modrinth.com/data/dtWC90iB/versions/xhmciaUD/mcw-furniture-3.4.2-mc1.21.11fabric.jar" \
+            -o "$WORK/macaw.jar"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            "https://piston-data.mojang.com/v1/objects/30c73b1c5da787909b2f73340419fdf13b9def88/client.jar" \
+            -o "$WORK/1.21.1.jar"
+          curl -fLSs --retry 3 --retry-delay 2 \
+            "https://piston-data.mojang.com/v1/objects/ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd/client.jar" \
+            -o "$WORK/1.21.11.jar"
+      - name: Independently verify 74 source model options and recalculate all 21 comparisons
+        env:
+          WORK: ${{ runner.temp }}/int2-comparison-upstream
+          OUT: ${{ runner.temp }}/int2-comparison-results
+        run: |
+          python scripts/integration/audit_int2_comparison.py \
+            --root . --af "$WORK/af.zip" --hc "$WORK/hc.zip" \
+            --macaw "$WORK/macaw.jar" --mc1211 "$WORK/1.21.1.jar" \
+            --mc12111 "$WORK/1.21.11.jar" --out "$OUT"
+      - name: Upload evidence, never uploaded original texture or mod assets
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int2-1-5-sourced-comparison
+          path: ${{ runner.temp }}/int2-comparison-results/
+          if-no-files-found: warn
+          retention-days: 60
