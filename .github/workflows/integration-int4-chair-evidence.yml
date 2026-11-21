@@ -1,0 +1,68 @@
+name: INT-3 structural scope and INT-4 45-part F2 source cross-check
+on:
+  pull_request:
+    paths:
+      - 'src/mcfr/int4_chair_evidence_gate.py'
+      - 'tests/knowledge/test_int4_chair_evidence_gate.py'
+      - 'project/integration/INT4_*'
+      - '.github/workflows/integration-int4-chair-evidence.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  anchored-source-crosscheck:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Offline original evidence and mutated-evidence regressions
+        env:
+          PYTHONPATH: src
+        run: python -m unittest discover -s tests/knowledge -p 'test_int4_chair_evidence_gate.py' -v
+      - name: Reconcile fixed source to actual client F2 evidence
+        env:
+          PYTHONPATH: src
+          OUT: ${{ runner.temp }}/int4-chair-source-evidence
+        run: python -m mcfr.int4_chair_evidence_gate --root . --out "$OUT"
+      - name: Validate derived CSV integrity and no semantic/right promotion
+        env:
+          OUT: ${{ runner.temp }}/int4-chair-source-evidence
+        run: |
+          python - <<'PY'
+          import csv, hashlib, json, os
+          from pathlib import Path
+          p = Path(os.environ['OUT'])
+          j = json.loads((p/'INT3_EXIT_INT4_CHAIR_SUMMARY.json').read_text())
+          blob = (p/'INT4_45_CHAIR_ELEMENT_F2_LINKS.csv').read_bytes()
+          rows = list(csv.DictReader(blob.decode('utf-8').splitlines()))
+          assert j['csv_sha256'] == hashlib.sha256(blob).hexdigest()
+          lock = json.loads(Path('project/integration/INT4_CHAIR_PROVENANCE_AUDIT_RESULT.json').read_text())
+          assert lock['status'] == j['status']
+          assert lock['counts'] == j['counts']
+          assert lock['output_csv_sha256'] == j['csv_sha256']
+          assert len(rows) == j['counts']['element_role_hypotheses'] == 45
+          assert j['counts']['pr33_element_direction_metadata_links'] == 180
+          assert j['counts']['unresolved_selector_anomalies'] == 4
+          assert j['counts']['unresolved_pixel_source_faces'] == 6343
+          assert j['int4_full_completed'] is False and j['int5_role_approved'] == 0
+          assert all(r['individual_role_approved'] == r['training_rights_approved'] == '0'
+                     for r in rows)
+          assert all(r['pr34_evidence_scope'] == 'COHORT_NOT_PR33_INDIVIDUAL_IMAGE_BYTES'
+                     for r in rows)
+          print('INT3_FIXED_RELATIONS_PASS_INT4_PROVENANCE_ONLY_NOT_VISUAL_APPROVAL')
+          print('EVIDENCE_CSV_SHA256=' + j['csv_sha256'])
+          PY
+      - name: Archive metadata only, no game screenshots or original source assets
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-chair-45-parts-to-pr33-f2-provenance
+          path: ${{ runner.temp }}/int4-chair-source-evidence/
+          retention-days: 45
+          if-no-files-found: warn
