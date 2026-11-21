@@ -54,7 +54,44 @@ jobs:
           python scripts/integration/audit_int2_comparison.py \
             --root . --af "$WORK/af.zip" --hc "$WORK/hc.zip" \
             --macaw "$WORK/macaw.jar" --mc1211 "$WORK/1.21.1.jar" \
-            --mc12111 "$WORK/1.21.11.jar" --out "$OUT" --print-csv
+            --mc12111 "$WORK/1.21.11.jar" --out "$OUT"
+      - name: Verify saved 21 finding rows, SHA and scope gates against fresh source audit
+        env:
+          OUT: ${{ runner.temp }}/int2-comparison-results
+        run: |
+          python - <<'PY'
+          import csv
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          generated=Path(os.environ["OUT"])
+          preserved=Path("project/integration")
+          name="INT2_1_5_21_FINDING_CHECKS.csv"
+          actual=(generated/name).read_bytes()
+          if actual!=(preserved/name).read_bytes():
+              raise SystemExit("INT-2 1-5 source finding rows diverged from saved 21 rows")
+          old=json.loads((preserved/"INT2_1_5_SUMMARY.json").read_text(encoding="utf-8"))
+          new=json.loads((generated/"INT2_1_5_SUMMARY.json").read_text(encoding="utf-8"))
+          for key,value in new.items():
+              if old.get(key)!=value:
+                  raise SystemExit("INT-2 1-5 summary scope/metric changed: "+key)
+          if hashlib.sha256(actual).hexdigest()!=old["finding_csv_sha256"]:
+              raise SystemExit("INT-2 1-5 SHA-256 is not reproducible")
+          with (generated/name).open(encoding="utf-8",newline="") as f:
+              rows=list(csv.DictReader(f))
+          if len(rows)!=21 or any(r["status"]!="PASS" or
+                 r["measurements_verified"]!="YES" or
+                 r["limitations_preserved"]!="YES" or
+                 r["model_source_verified"]!="YES" for r in rows):
+              raise SystemExit("INT-2 1-5 finding gate must pass all 21 rows")
+          if old["observed"]["handoff_dispositions"]!={"SCOPE_LIMIT_ONLY":7,"CANDIDATE_REQUIRES_REVIEW":14}:
+              raise SystemExit("INT-2 1-5 exception/candidate partition changed")
+          if old["observed"]["runtime_checks_reexecuted_in_this_audit"]!=0:
+              raise SystemExit("Runtime evidence must not be marked independently reexecuted")
+          print("INT2_1_5_ALL_21_SOURCED_FINDINGS_AND_HANDOFF_SNAPSHOTS_MATCHED")
+          PY
       - name: Upload evidence, never uploaded original texture or mod assets
         if: always()
         uses: actions/upload-artifact@v4
