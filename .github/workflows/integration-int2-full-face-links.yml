@@ -55,6 +55,48 @@ jobs:
             --root . --af "$WORK/af.zip" --hc "$WORK/hc.zip" \
             --macaw "$WORK/macaw.jar" --mc1211 "$WORK/1.21.1.jar" \
             --mc12111 "$WORK/1.21.11.jar" --out "$OUT"
+      - name: Verify all regenerated 592312 faces and 16572 models against pinned Git hashes
+        env:
+          OUT: ${{ runner.temp }}/int2-all-face-evidence
+        run: |
+          python - <<'PY'
+          import csv
+          import gzip
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          output=Path(os.environ["OUT"])
+          prior=json.loads(Path("project/integration/INT2_1_4_FULL_LINKS_SUMMARY.json").read_text(encoding="utf-8"))
+          now=json.loads((output/"INT2_1_4_FULL_LINKS_SUMMARY.json").read_text(encoding="utf-8"))
+          for key,value in now.items():
+              if prior.get(key)!=value:
+                  raise SystemExit("Pinned original all-face audit disagrees: "+key)
+          for path,label,expected in (
+              (output/"INT2_1_4_592312_FACE_LINKS.csv.gz","per_face_gzip_sha256",592312),
+              (output/"INT2_1_4_16572_MODEL_LINK_CHECKS.csv","per_model_csv_sha256",16572)
+          ):
+              actual_hash=hashlib.sha256(path.read_bytes()).hexdigest()
+              if actual_hash!=prior["evidence"][label]:
+                  raise SystemExit("Pinned original evidence SHA differs: "+path.name)
+              opener=gzip.open if path.suffix==".gz" else open
+              with opener(path,"rt",encoding="utf-8",newline="") as f:
+                  table=csv.DictReader(f)
+                  count=0
+                  for row in table:
+                      count+=1
+                      if expected==16572 and (row["status"]!="PASS" or
+                            int(row["source_faces"])!=int(row["matched_faces"])):
+                          raise SystemExit("Individual model source face/slot mismatch")
+              if count!=expected:
+                  raise SystemExit(f"Wrong original evidence row count in {path.name}: {count}")
+          if prior["status"]!="PASS_ALL_592312_FACE_LINKS_RECONSTRUCTED_FROM_ORIGINALS":
+              raise SystemExit("Source full-reconstruction status not PASS")
+          if not all(prior["assertions"].values()):
+              raise SystemExit("Source full-reconstruction gate is incomplete")
+          print("INT2_1_4_ALL_592312_FACE_LINKS_AND_16572_MODELS_PINNED_MATCH")
+          PY
       - name: Publish only generated linked-face proofs; no original assets
         if: always()
         uses: actions/upload-artifact@v4
