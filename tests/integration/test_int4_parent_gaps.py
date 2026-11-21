@@ -97,7 +97,7 @@ class ParentGapAuditTests(unittest.TestCase):
         original=json.loads((root/a.SUM).read_text())
         bad=list(original["exceptions"]["missing_parent_paths"])
         bad.pop()
-        with self.assertRaisesRegex(a.OriginalMismatch,"48 missing parent"):
+        with self.assertRaisesRegex(a.OriginalMismatch,"48 exception list"):
             a.check_history(root,bad)
 
 
