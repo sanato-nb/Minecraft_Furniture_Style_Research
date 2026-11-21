@@ -44,7 +44,7 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
          "--pack", str(copied_world / "datapacks/cd_audit")],
         check=True,
     )
-    if args.command in ("chair-capture", "af-variant3-capture", "macaw-kitchen-capture"):
+    if args.command in ("chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture"):
         from .chair_runtime_fixture import make_pack
         selected=None
         if args.command=="af-variant3-capture":
@@ -52,6 +52,9 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
             selected=capture_cases(args.version)
         elif args.command=="macaw-kitchen-capture":
             from .int4_macaw_kitchen_capture import capture_cases
+            selected=capture_cases(args.version)
+        elif args.command=="macaw-table-shelf-capture":
+            from .int4_macaw_table_shelf_capture import capture_cases
             selected=capture_cases(args.version)
         make_pack(args.version, copied_world / "datapacks/mcfr_chair",
                   selected_cases=selected)
@@ -84,6 +87,9 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
     if args.command=="macaw-kitchen-capture":
         from .int4_macaw_kitchen_capture import capture
         return capture(command,env,game,args.output,args.version)
+    if args.command=="macaw-table-shelf-capture":
+        from .int4_macaw_table_shelf_capture import capture
+        return capture(command,env,game,args.output,args.version)
     subprocess.run(command, cwd=game, env=env, check=True)
     return None
 
@@ -97,19 +103,21 @@ def main(argv: list[str] | None = None) -> int:
     chairs = sub.add_parser("chair-capture", help="capture 4 source chairs x 4 facings with verified Minecraft F2 screenshots")
     af3 = sub.add_parser("af-variant3-capture", help="capture AF variant3 four directions plus variant1 controls")
     kitchen = sub.add_parser("macaw-kitchen-capture", help="actual pinned Macaw 1.21.11 kitchen 3-state F2")
-    for command in (engine, visual, capture, chairs, af3, kitchen):
+    table_shelf = sub.add_parser("macaw-table-shelf-capture", help="actual pinned Macaw 1.21.11 table/bookshelf four source states F2")
+    for command in (engine, visual, capture, chairs, af3, kitchen, table_shelf):
         command.add_argument("--version", required=True)
         command.add_argument("--work", type=_scratch_path, required=True)
         command.add_argument("--client-cache", type=_scratch_path)
         command.add_argument("--display", help="X11 display, for example :99")
     engine.add_argument("--output", type=_scratch_path, required=True)
     engine.add_argument("--ecj", type=Path)
-    for command in (visual, capture, chairs, af3, kitchen):
+    for command in (visual, capture, chairs, af3, kitchen, table_shelf):
         command.add_argument("--world", type=Path, required=True)
     capture.add_argument("--output", type=_scratch_path, required=True)
     chairs.add_argument("--output", type=_scratch_path, required=True)
     af3.add_argument("--output", type=_scratch_path, required=True)
     kitchen.add_argument("--output", type=_scratch_path, required=True)
+    table_shelf.add_argument("--output", type=_scratch_path, required=True)
     args = parser.parse_args(argv)
 
     try:
@@ -128,7 +136,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.command != "engine":
             if not (args.display or os.environ.get("DISPLAY")):
                 raise ValueError("An X11 display is required for visual capture")
-            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture"):
+            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture"):
                 if shutil.which("xdotool") is None:
                     raise ValueError("Automatic visual capture requires xdotool")
                 if args.output.exists():
