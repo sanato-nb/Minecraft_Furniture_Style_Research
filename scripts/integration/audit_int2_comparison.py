@@ -161,8 +161,10 @@ def derive_claim(claim,case_lookup,faces_by_case,elem_by_case,app_by_case,elemen
     if axis=="CORNER_COUCH_LAYOUT":
         return measured("S33","S34","S35","S36")
     if axis=="BENCH_BACK_AND_STAIR":
+        # C14 uses S32 only as an additional sample, not a stated span
+        # comparison. Keep exact historical claim scope; do not broaden.
         return {"samples":measured("V01","V02","S30","S31","S32"),
-                "spans":span("V01","V02","S30","S31","S32")}
+                "spans":span("V01","V02","S30","S31")}
     if axis=="BED_SPECIAL_RENDER":
         return measured("V09","V11","S37","S38")
     if axis=="BED_FOOT_HEAD":
