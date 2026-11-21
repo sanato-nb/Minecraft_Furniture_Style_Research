@@ -41,6 +41,15 @@ CONTACT="INT4_HC_BED_TWO_F2_CONTACT.png"
 def check(cond,msg):
     if not cond:raise ValueError(msg)
 def sha(raw):return hashlib.sha256(raw).hexdigest()
+def model_vs_air_changed_pixels(with_model,air_control):
+    # Same GUI/camera and unchanged stone stage, except target source block.
+    # Count per-pixel contrasts instead of considering grass/stone a furniture proxy.
+    left=with_model.convert("RGB").crop((350,275,675,620))
+    right=air_control.convert("RGB").crop((350,275,675,620))
+    check(left.size==right.size,"Paired F2 camera ROI differs")
+    return sum(1 for (r1,g1,b1),(r2,g2,b2) in zip(left.getdata(),right.getdata())
+               if max(abs(r1-r2),abs(g1-g2),abs(b1-b2))>=24)
+
 def git_sha(raw):return hashlib.sha1(b"blob "+str(len(raw)).encode()+b"\0"+raw).hexdigest()
 def ref(path):
     check("assets/" in path and ".." not in path,"Invalid original asset path")
@@ -283,6 +292,32 @@ def capture(command,env,game,output,version):
                     sleep(5)
                 dest=output/(case.case_id+".png")
                 shutil.copyfile(photos[0],dest)
+                # Capture a second genuine F2 at the *same camera* after
+                # server-confirmed air replacement, to reject sky/stone false
+                # positives. The original source block had been verified.
+                command_text(f"/setblock {case.x} {case.y} {case.z} minecraft:air")
+                sleep(.6)
+                offset=len(read())
+                command_text(f"/execute if block {case.x} {case.y} {case.z} minecraft:air run say MCFR_HC_BED_EMPTY_{case.case_id}=PASS")
+                wait_for(proc,lambda:f"[RenderAudit] MCFR_HC_BED_EMPTY_{case.case_id}=PASS" in read()[offset:],
+                         "actual air-only comparison baseline server state",40)
+                sleep(3)
+                previous=set(screens.glob("*.png"))
+                xdo("key","--clearmodifiers","F1");sleep(.8)
+                xdo("key","--clearmodifiers","F2")
+                control_photos=wait_for(proc,lambda:[
+                    p for p in screens.glob("*.png") if p not in previous and
+                    p.read_bytes().endswith(b"IEND\xaeB\x60\x82")
+                ],"real F2 air-only background image "+case.case_id,75)
+                xdo("key","--clearmodifiers","F1")
+                check(len(control_photos)==1,"No unique control F2 screenshot")
+                baseline=output/(case.case_id+"_air_control.png")
+                shutil.copyfile(control_photos[0],baseline)
+                with Image.open(dest) as model_im, Image.open(baseline) as air_im:
+                    changed=model_vs_air_changed_pixels(model_im,air_im)
+                check(changed>=100,
+                      "Captured source bed not measurably different from air at same camera: "+
+                      case.case_id+" changed="+str(changed))
                 source=provenance["cases"][case.case_id]
                 captured.append({
                     "case_id":case.case_id,"original_state":case.state(),
@@ -293,6 +328,10 @@ def capture(command,env,game,output,version):
                     "native_F2_verified":True,"foreground_chroma_pixels":colors,
                     "screenshot_file":dest.name,"screenshot_dimensions":dims,
                     "screenshot_sha256":sha(dest.read_bytes()),
+                    "air_control_screenshot_file":baseline.name,
+                    "air_control_sha256":sha(baseline.read_bytes()),
+                    "air_control_state_verified":True,
+                    "bed_vs_air_changed_pixels":changed,
                     "natural_bed_pair_placement_tested":False,
                     "semantic_or_ai_rights_approved":False})
         finally:
@@ -352,12 +391,22 @@ def audit(directory):
               row["natural_bed_pair_placement_tested"] is False and
               row["semantic_or_ai_rights_approved"] is False and
               row["foreground_chroma_pixels"]>=120 and
+              row["air_control_state_verified"] is True and
+              row["bed_vs_air_changed_pixels"]>=100 and
+              row["air_control_screenshot_file"]==c.case_id+"_air_control.png" and
               row["screenshot_file"]==c.case_id+".png" and
               row["screenshot_dimensions"]==[1024,684],
               "Bed F2 case provenance mismatch")
         p=root/row["screenshot_file"]
         check(sha(p.read_bytes())==row["screenshot_sha256"],
               "Actual Handcrafted F2 image SHA mismatch: "+c.case_id)
+        bg=root/row["air_control_screenshot_file"]
+        check(sha(bg.read_bytes())==row["air_control_sha256"],
+              "Real game empty-background F2 SHA mismatch: "+c.case_id)
+        with Image.open(p) as obs,Image.open(bg) as reference:
+            recomputed=model_vs_air_changed_pixels(obs,reference)
+        check(recomputed==row["bed_vs_air_changed_pixels"] and recomputed>=100,
+              "Bed vs actual air background F2 pixel contrast absent: "+c.case_id)
         with Image.open(p) as im:im.verify()
         with Image.open(p) as im:photos.append(im.convert("RGB"))
     panel=Image.new("RGB",(1024,378),(239,239,239));draw=ImageDraw.Draw(panel)
@@ -372,6 +421,8 @@ def audit(directory):
       "original_face_counts":{"S37":72,"S38":6},
       "actual_F2_count":2,"server_verified":2,
       "native_f2_sha256":{c:rows[c]["screenshot_sha256"] for c in ORDER},
+      "paired_air_control_f2_sha256":{c:rows[c]["air_control_sha256"] for c in ORDER},
+      "same_camera_bed_vs_air_changed_pixels":{c:rows[c]["bed_vs_air_changed_pixels"] for c in ORDER},
       "original_JAR_sha1":HC_RELEASE_SHA1,
       "original_git_commit":HC_COMMIT,
       "manifest_sha256":sha(manifest.read_bytes()),
