@@ -1,0 +1,61 @@
+name: INT-3 provenance-first furniture knowledge DB integration
+on:
+  pull_request:
+    paths:
+      - 'src/mcfr/knowledge_*.py'
+      - 'src/mcfr/knowledge_schema.sql'
+      - 'tests/knowledge/**'
+      - 'project/integration/INT3*'
+      - '.github/workflows/integration-int3-knowledge.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run rights, exclusions, provenance and UV schema tests
+        env:
+          PYTHONPATH: src
+        run: python -m unittest discover -s tests/knowledge -p 'test_*.py' -v
+      - name: Materialize audited INT-2 source results into INT-3 SQLite sidecar
+        env:
+          PYTHONPATH: src
+          OUT: ${{ runner.temp }}/mcfr-int3
+        run: |
+          mkdir -p "$OUT"
+          python -m mcfr.knowledge_db build --root . \
+            --out "$OUT/MCFR_INT3_knowledge.sqlite" \
+            --report "$OUT/INT3_KNOWLEDGE_SUMMARY.json"
+      - name: Validate independent family totals, case/finding queries, unlicensed gate
+        env:
+          PYTHONPATH: src
+          OUT: ${{ runner.temp }}/mcfr-int3
+        run: |
+          python -m mcfr.knowledge_db validate --db "$OUT/MCFR_INT3_knowledge.sqlite"
+          python -m mcfr.knowledge_db finding --db "$OUT/MCFR_INT3_knowledge.sqlite" --id C03
+          python - <<'PY'
+          import os
+          import sqlite3
+          from pathlib import Path
+          path=Path(os.environ["OUT"])/"MCFR_INT3_knowledge.sqlite"
+          with sqlite3.connect(path) as db:
+              model_id=db.execute("SELECT model_key FROM model WHERE source_id='AF' AND effective_faces>0 LIMIT 1").fetchone()[0]
+          os.system('python -m mcfr.knowledge_db model --db "'+str(path)+'" --id "'+model_id+'"')
+          PY
+      - name: Upload derived knowledge SQLite and exact evidence manifest only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int3-provenance-knowledge-db
+          path: ${{ runner.temp }}/mcfr-int3/
+          if-no-files-found: warn
+          retention-days: 60
