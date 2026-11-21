@@ -203,18 +203,25 @@ def historical_hits(raw):
 def load_historical_cases(root):
     result = {}
     per_source = defaultdict(dict)
+    legacy_empty_id_aliases = 0
     for section, filename in ENTRY_CASES:
         path = root / D_HISTORY / section / filename
         records = read_csv(path) if filename.endswith(".csv") else from_json(path)
         for record in records:
             state_id = record["state_id"]
+            # 1-2-D Entry2 encoded the empty variant as "block|", while
+            # later entries recorded "block|<empty>". Both represent the
+            # same *source* empty variant; record the normalization count.
+            if state_id.endswith("|"):
+                state_id += "<empty>"
+                legacy_empty_id_aliases += 1
             src = record["blockstate_path"]
             if state_id in result:
                 raise ValueError(f"Historic duplicate state key: {state_id}")
             pair = (historical_hits(record["matched_rules"]), historical_options(record))
             result[state_id] = pair
             per_source[src][state_id] = pair
-    return result, per_source
+    return result, per_source, legacy_empty_id_aliases
 
 
 def audit(root):
@@ -223,7 +230,7 @@ def audit(root):
     assert len(d_rows) == 1168 and len({r["source_path"] for r in d_rows}) == 1168
     g = {r["path"]: r for r in g_rows if r["type"] == "BLOCKSTATE_JSON"}
     assert len(g) == 1168 and set(g) == {r["source_path"] for r in d_rows}
-    hist_cases, hist_by_source = load_historical_cases(root)
+    hist_cases, hist_by_source, legacy_empty_id_aliases = load_historical_cases(root)
     source_reports = []
     discrepancies = []
     current_cases = set()
@@ -312,6 +319,7 @@ def audit(root):
         "expected": criteria,
         "state_structures": dict(sorted(sources_by_type.items())),
         "historic_case_records": len(hist_cases),
+        "historic_empty_id_format_aliases": legacy_empty_id_aliases,
         "historic_case_surplus": len(extra_history),
         "per_source_discrepancies": sum(r["status"] != "PASS" for r in source_reports),
         "mismatched_denominators": mismatched_denominators,
