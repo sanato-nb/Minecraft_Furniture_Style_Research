@@ -46,7 +46,7 @@ class IntegrationInventoryTests(unittest.TestCase):
             path = anchor["path"]
             row = catalog[path]
             body = (ROOT / path).read_bytes()
-            blob_hash = hashlib.sha1(f"blob {len(body)}\\0".encode() + body).hexdigest()
+            blob_hash = hashlib.sha1(b"blob " + str(len(body)).encode() + bytes([0]) + body).hexdigest()
             with self.subTest(path=path):
                 self.assertEqual(len(body), int(row["bytes"]))
                 self.assertEqual(row["git_blob_sha1"], anchor["git_blob_sha1"])
