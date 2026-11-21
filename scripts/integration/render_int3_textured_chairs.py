@@ -113,8 +113,16 @@ def assemble_model(db,sources,providers,parent_key,child_key):
                 raise ValueError("Original UV declared flag mismatch")
             if rawuv:
                 uv=tuple(float(v) for v in rawuv)
-                if canon(rawuv)!=face["uv"]:
-                    raise ValueError("Original explicit UV differs from F")
+                # F's original format is decimal text for some files and
+                # rational text for others; compare semantic UV values, not
+                # superficial rendering (e.g. 0.75 == 3/4).
+                recorded=tuple(float(part) for part in face["uv"].split("|"))
+                if len(recorded)!=4 or any(
+                    not math.isfinite(a) or not math.isfinite(b)
+                    or abs(a-b)>1e-7 for a,b in zip(uv,recorded)
+                ):
+                    raise ValueError("Original explicit UV differs from F: "
+                                     +child_key+"/"+str(idx)+"/"+direction)
             else:
                 uv=tuple(float(v) for v in default_uv(orig["from"],orig["to"],direction))
             texref,texres=resolve_slot(declared["texture"],bindings)
