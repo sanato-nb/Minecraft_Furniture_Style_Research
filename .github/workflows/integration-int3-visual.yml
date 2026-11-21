@@ -1,0 +1,92 @@
+name: INT-3 Visual evidence for four pinned chair geometry providers
+on:
+  pull_request:
+    paths:
+      - 'src/mcfr/semantic_visual_evidence.py'
+      - 'tests/knowledge/test_semantic_visual_evidence.py'
+      - 'project/integration/INT3_VISUAL*'
+      - '.github/workflows/integration-int3-visual.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-chair-projections:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit test rotation, source bbox, SVG, and unapproved role semantics
+        env:
+          PYTHONPATH: src
+        run: python -m unittest discover -s tests/knowledge -p 'test_*.py' -v
+      - name: Rebuild 4 source chair templates and generate 45 diagnostic two-angle SVGs
+        env:
+          PYTHONPATH: src
+          OUT: ${{ runner.temp }}/int3-visual
+        run: |
+          python -m mcfr.semantic_visual_evidence \
+            --root . --out "$OUT"
+          echo "INT3_OVERVIEW_SVG_BEGIN"
+          cat "$OUT/overview/all_four_templates.svg"
+          echo "INT3_OVERVIEW_SVG_END"
+      - name: Confirm no training, style approval, or candidate auto-completion
+        env:
+          OUT: ${{ runner.temp }}/int3-visual
+        run: |
+          python - <<'PY'
+          import csv
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+
+          root=Path(os.environ["OUT"])
+          summary=json.loads((root/"INT3_VISUAL_REVIEW_PREP_SUMMARY.json").read_text())
+          if summary["status"]!="PASS_45_ORIGINAL_ELEMENTS_PROJECTED_FOR_REVIEW_NOT_VISUALLY_APPROVED":
+              raise SystemExit("Cannot mark non-source visual reconstruction as success")
+          counts=summary["counts"]
+          if counts["source_candidate_elements"]!=45 or counts["template_providers"]!=4:
+              raise SystemExit("Expected 4 pinned providers and 45 source-role hypotheses")
+          if counts["rendered_individual_candidate_views"]!=90:
+              raise SystemExit("Two geometric views per selected element are required")
+          if counts["candidate_roles"]!={"BACKREST_ASSEMBLY":16,
+                                         "LEG_OR_LOWER_POST":16,
+                                         "LOWER_FRAME":7,"SEAT_LAYER":6}:
+              raise SystemExit("Original role evidence altered")
+          approvals=summary["visual_review"]
+          if approvals["human_verified_elements"]!=0 or approvals["runtime_verified_elements"]!=0:
+              raise SystemExit("Pure source geometry cannot be called visual review completion")
+          if approvals["ai_training_model_approvals"] or approvals["newly_approved_material_style_assertions"]:
+              raise SystemExit("Material/style/training were improperly approved")
+          with (root/"review_45_source_element_views.csv").open(newline="",encoding="utf-8") as f:
+              records=list(csv.DictReader(f))
+          if len(records)!=45 or len({(r["model_key"],r["element_index"]) for r in records})!=45:
+              raise SystemExit("Individual candidate ledger missing originals")
+          if any(r["visual_human_verified"]!="NO" or
+                 r["decision"]!="PENDING_RENDERED_AND_IN_GAME_REVIEW" for r in records):
+              raise SystemExit("Original role hypothesis auto-confirmed")
+          for name,expected in summary["evidence_files_sha256"].items():
+              p=root/name
+              if hashlib.sha256(p.read_bytes()).hexdigest()!=expected:
+                  raise SystemExit("Visualization evidence file SHA mismatch: "+name)
+              if p.suffix==".svg":
+                  tree=ET.parse(p)
+                  if not tree.getroot().tag.endswith("svg"):
+                      raise SystemExit("Malformed visualization svg")
+          print("INT3_4_CHAIR_TEMPLATES_45_SOURCE_ROLE_VIEWS_SHA_VERIFIED_NOT_APPROVED")
+          PY
+      - name: Store generated diagnostic SVG gallery and review manifest only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int3-45-original-chair-geometry-review
+          path: ${{ runner.temp }}/int3-visual/
+          if-no-files-found: warn
+          retention-days: 60
