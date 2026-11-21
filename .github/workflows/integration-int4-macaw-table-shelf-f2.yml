@@ -103,7 +103,7 @@ jobs:
           pinned=Path('project/integration/INT4_MACAW_TABLE_SHELF_F2_SOURCE_RESULT.json')
           if pinned.exists():
               reference=json.loads(pinned.read_text())
-              first=reference['first_actual_game_f2']
+              first=reference['first_actual_game_audit']
               assert first['source_cases']==doc['source_cases']
               assert first['source_1_5_face_counts']==doc['source_1_5_face_counts']
               assert first['boundaries']==doc['boundaries']
