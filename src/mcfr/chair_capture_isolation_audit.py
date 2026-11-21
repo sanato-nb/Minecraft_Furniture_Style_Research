@@ -18,7 +18,6 @@ import csv
 import hashlib
 import json
 from pathlib import Path
-from PIL import Image
 
 from .chair_runtime_fixture import cases
 
@@ -49,6 +48,7 @@ def specimen_color_pixels(im):
                (r>b+20 and r>g+4))
 
 def audit(folder,version):
+    from PIL import Image  # Optional: only the native F2 CI uses this decoder.
     folder=Path(folder)
     source=json.loads((folder/"INT3_REAL_GAME_CAPTURE.json").read_text(encoding="utf-8"))
     expected=cases(version)

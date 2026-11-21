@@ -1,6 +1,5 @@
 """PR33 F2 chair screenshots must isolate stage floors from model semantics."""
 import unittest
-from PIL import Image, ImageDraw
 from mcfr import chair_runtime_fixture as f
 from mcfr import chair_capture_isolation_audit as isolation
 
@@ -47,18 +46,22 @@ class ChairIsolationTests(unittest.TestCase):
             self.assertEqual(sum(x.startswith("execute if block") for x in check),len(cases))
 
     def test_stone_proxy_on_synthetic_stone_is_not_model_semantics(self):
-        plain=Image.new("RGB",(1024,684),(173,200,247))
-        self.assertEqual(isolation.stone_pixels(plain),0)
-        draw=ImageDraw.Draw(plain)
-        draw.rectangle((210,160,290,210),fill=(140,142,146))
-        self.assertGreater(isolation.stone_pixels(plain),3000)
+        class Sample:
+            def __init__(self,pixels):self.pixels=pixels
+            def crop(self,region):return self
+            def convert(self,mode):return self
+            def getdata(self):return iter(self.pixels)
+        self.assertEqual(isolation.stone_pixels(Sample([(173,200,247)]*8)),0)
+        self.assertEqual(isolation.stone_pixels(Sample([(140,142,146)]*8)),8)
 
     def test_color_gate_separates_synthetic_seat_from_gray_stone(self):
-        scene=Image.new("RGB",(1024,684),(180,180,180))
-        self.assertEqual(isolation.specimen_color_pixels(scene),0)
-        draw=ImageDraw.Draw(scene)
-        draw.rectangle((480,420,514,468),fill=(180,90,40))
-        self.assertGreater(isolation.specimen_color_pixels(scene),300)
+        class Sample:
+            def __init__(self,pixels):self.pixels=pixels
+            def crop(self,region):return self
+            def convert(self,mode):return self
+            def getdata(self):return iter(self.pixels)
+        self.assertEqual(isolation.specimen_color_pixels(Sample([(180,180,180)]*20)),0)
+        self.assertEqual(isolation.specimen_color_pixels(Sample([(180,90,40)]*20)),20)
 
 if __name__=="__main__":
     unittest.main()
