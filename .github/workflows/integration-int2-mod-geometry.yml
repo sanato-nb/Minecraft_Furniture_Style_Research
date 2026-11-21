@@ -72,6 +72,38 @@ jobs:
             --root . --af "$WORK/af.zip" --hc "$WORK/hc.zip" \
             --macaw "$WORK/macaw.jar" --mc1211 "$WORK/1.21.1.jar" \
             --mc12111 "$WORK/1.21.11.jar" --out "$OUT"
+      - name: Verify pinned Git audit summary and exception evidence against fresh run
+        env:
+          OUT: ${{ runner.temp }}/int2-mod-results
+        run: |
+          python - <<'PY'
+          import csv
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          actual=Path(os.environ["OUT"])
+          saved=Path("project/integration")
+          historic=json.loads((saved/"INT2_MOD_SOURCE_SUMMARY.json").read_text(encoding="utf-8"))
+          current=json.loads((actual/"INT2_MOD_SOURCE_SUMMARY.json").read_text(encoding="utf-8"))
+          for key,value in current.items():
+              if historic.get(key)!=value:
+                  raise SystemExit("Committed 1-3 model audit summary differs: "+key)
+          with (actual/"INT2_MOD_16572_MODEL_CHECKS.csv").open(encoding="utf-8",newline="") as f:
+              checks=list(csv.DictReader(f))
+          if len(checks)!=16572 or any(r["status"]!="PASS" for r in checks):
+              raise SystemExit("Not all 16,572 per-model independent audit rows passed")
+          model_digest=hashlib.sha256((actual/"INT2_MOD_16572_MODEL_CHECKS.csv").read_bytes()).hexdigest()
+          if historic["per_model_csv_sha256"]!=model_digest:
+              raise SystemExit("Full model evidence SHA-256 differs")
+          actual_exceptions=(actual/"INT2_MOD_EXCEPTIONS.csv").read_bytes()
+          if actual_exceptions!=(saved/"INT2_MOD_EXCEPTIONS.csv").read_bytes():
+              raise SystemExit("Parent/static exception roster differs from pinned report")
+          if historic["exception_csv_sha256"]!=hashlib.sha256(actual_exceptions).hexdigest():
+              raise SystemExit("Exception evidence SHA-256 differs")
+          print("INT2_1_3_PINNED_MODEL_AUDIT_MATCHED_ALL_16572")
+          PY
       - name: Upload only model audit evidence; never upload upstream original assets
         if: always()
         uses: actions/upload-artifact@v4
