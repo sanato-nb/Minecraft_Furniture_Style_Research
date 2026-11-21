@@ -545,6 +545,7 @@ def main():
     parser.add_argument("--root",type=Path,default=ROOT)
     for name in ("af","hc","macaw","mc1211","mc12111","out"):
         parser.add_argument("--"+name,type=Path,required=True)
+    parser.add_argument("--print-csv",action="store_true",help="Print 21-row evidence CSV once for pinned snapshot")
     args=parser.parse_args()
     args.out.mkdir(parents=True,exist_ok=True)
     result,report=audit(args.root,args)
@@ -558,6 +559,10 @@ def main():
         json.dumps(report,indent=2,ensure_ascii=False,sort_keys=True)+"\n",encoding="utf-8"
     )
     print("INT2_1_5_RESULT:"+json.dumps(report,ensure_ascii=False,sort_keys=True))
+    if args.print_csv:
+        print("INT2_1_5_CSV_BEGIN")
+        print(output.read_text(encoding="utf-8"),end="")
+        print("INT2_1_5_CSV_END")
     if report["status"]!="PASS_PINNED_COMPARISON_21_CLAIMS_SOURCED_AND_REDERIVED":
         raise SystemExit("INT-2 1-5 independent audit found discrepancies; preserve artifacts")
 
