@@ -1,0 +1,68 @@
+{
+  "schema": "MCFR_INT4_48_PARENT_GAPS_SOURCE_CI_LOCK/v1",
+  "status": "PINNED_ORIGINAL_SOURCE_AND_HISTORIC_OVERLAP_RECONFIRMED_NOT_VISUAL_APPROVAL",
+  "first_successful_ci_run": 44914040186,
+  "first_successful_ci_job": 136875713811,
+  "first_successful_ci_url": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/44914040186",
+  "first_successful_ci_head": "aa60006c07b0ba0b1f8ec0ad71fb8a71faa78b1f",
+  "offline_tests_passed": 9,
+  "first_artifact_id": 14710324120,
+  "first_artifact_zip_sha256": "d9d14584b9d2c4868205b492ed9c7cb0b02a03ed906aa338103d355d428c6f23",
+  "observed": {
+    "csv_sha256": "5d03ba00073a2db2a158e9ce654297beb1d48fa2ed52550030a7d32d5a2eb748",
+    "input_evidence_sha256": {
+      "AF": "3e83a1ab8a68716be1752a5237ee078c231b41c81e3b14d69536a8143b24e431",
+      "INT2_MOD_EXCEPTIONS.csv": "4e857e270bc0b8cba8e32da9f07dc6e93134c501fbccdfd9d8931d01cf853053",
+      "INT2_MOD_SOURCE_SUMMARY.json": "12a796791392d7f6a51dcf347b23757bab303cf88706ea7f5cd649913951f808",
+      "MACAW": "f550d6ea95b277fcb9c38f13fe29147515441400094b10e92f58c89609d2fcbd"
+    },
+    "limitations": [
+      "Original missing model-parent paths are not equivalent to 48 visually broken in-game blocks",
+      "All 48 historic identities and all no-static intersections are kept; 44 overlapped records are not additive",
+      "A similarly named model file elsewhere would not automatically be a valid parent or a safe path correction",
+      "Source-owned geometry may remain even if a referenced parent is absent",
+      "No runtime Minecraft client rendering, UV bake, lighting, semantics, copyright or training permissions proven"
+    ],
+    "pinned_originals": {
+      "AF_COMMIT": "57eb624cbb7f408d43398c7434b0d38d312cb55d",
+      "MACAW_SHA256": "e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e",
+      "MINECRAFT_12111_SHA1": "ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd",
+      "MINECRAFT_1211_SHA1": "30c73b1c5da787909b2f73340419fdf13b9def88"
+    },
+    "schema": "MCFR_INT4_ORIGINAL_PARENT_GAPS_48_INDEPENDENT_CHAIN_AUDIT/v1",
+    "status": "PASS_48_ORIGINAL_PARENT_PATHS_RECONFIRMED_UNRESOLVED_NOT_RUNTIME_VISUAL",
+    "summary": {
+      "alternate_basename_leads_present": 0,
+      "by_mod": {
+        "AF": 4,
+        "MACAW": 44
+      },
+      "distinct_unresolved_parent_resource_ids": 3,
+      "historical_no_static_or_unresolved_cases": 108,
+      "historical_parent_missing_cases": 48,
+      "historical_source_models_total": 16572,
+      "independently_reopened_exception_models": 48,
+      "model_parent_paths_repaired": 0,
+      "no_static_outside_missing_parent": 64,
+      "overlap_with_historical_no_static": 44,
+      "source_license_or_ai_training_approved": 0,
+      "still_missing_exact_parent_targets": 48,
+      "unresolved_parent_ref_occurrences": {
+        "mcwfurnitures:block/parent/desk": 22,
+        "mcwfurnitures:block/parent/drawer_base": 22,
+        "minecraft:lantern": 4
+      },
+      "visual_runtime_missing_model_proved": 0,
+      "with_own_source_geometry": 4,
+      "without_own_source_geometry": 44
+    }
+  },
+  "boundaries": {
+    "source48_original_models_reopened": true,
+    "distinct_unresolved_parent_resources": 3,
+    "actual_render_missing_model_proved": false,
+    "model_repair_applied": false,
+    "ai_licensing_or_role_approved": false,
+    "all_int4_research_complete": false
+  }
+}
