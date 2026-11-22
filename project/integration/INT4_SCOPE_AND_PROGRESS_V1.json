@@ -1,0 +1,212 @@
+{
+  "schema": "MCFR_INT4_OFFICIAL_SCOPE_PROGRESS_V1",
+  "date_kst": "2026-11-22",
+  "base_pr": 49,
+  "base_head_sha": "b72c6f6685f72fd385789153df6bbc8de3cc1a3f",
+  "upstream_main_sha": "176f7f34de2336eb7984c4734e97b6eb156c19f4",
+  "status": "PLAN_AND_RENDER_TARGET_LEDGER_CREATED; INT4_INDEPENDENT_STAGE_EXIT_NOT_CLAIMED",
+  "baseline": {
+    "minecraft": "1.21.11; 1.21.1 where pinned in 1-5/runtime",
+    "mods": [
+      "Another Furniture",
+      "Handcrafted",
+      "Macaw's Furniture"
+    ],
+    "vanilla_texture_sample": 150,
+    "vanilla_model_json": 2390,
+    "vanilla_blockstate_json": 1168,
+    "vanilla_png": 1111,
+    "vanilla_sidecar": 99,
+    "mod_model_json": 16572,
+    "mod_model_counts": {
+      "AF": 1629,
+      "HC": 12394,
+      "MACAW": 2549
+    },
+    "mod_blockstate_json": 1158,
+    "mod_effective_elements": 105383,
+    "mod_effective_faces": 592312,
+    "source_slot_rows": 81641,
+    "texture_pairs": 2256,
+    "independently_redecoded_png": 2001,
+    "pixel_connected_faces": 585969,
+    "pixel_unresolved_faces": 6343,
+    "pixel_unresolved_disjoint": {
+      "SLOT_UNBOUND": 6202,
+      "SOURCE_PNG_MISSING": 139,
+      "NO_SOURCE_INTERSECTION": 2
+    },
+    "no_static_models": 108,
+    "missing_parent_models": 48,
+    "missing_parent_and_no_static_overlap": 44,
+    "studied_cases": {
+      "vanilla": 15,
+      "mod": 47,
+      "total": 62,
+      "model_applications": 74,
+      "comparison_findings": 21
+    },
+    "integration_db_models_including_separate_vanilla_scope": 16579
+  },
+  "reproducible_anchors": [
+    {
+      "path": "research/furniture_mods/phase_1-5/B/CASES.csv",
+      "git_blob_sha": "aebf449326b1e015c91b40417dde6e3e2dddd4f3",
+      "role": "F baseline V01-V15 S01-S47"
+    },
+    {
+      "path": "project/integration/INT2_MOD_SOURCE_SUMMARY.json",
+      "git_blob_sha": "",
+      "role": "A-B parent geometry source"
+    },
+    {
+      "path": "project/integration/INT2_1_4_FULL_LINKS_SUMMARY.json",
+      "git_blob_sha": "",
+      "role": "B-C entire face row evidence"
+    },
+    {
+      "path": "project/integration/INT2_1_4_SUMMARY.json",
+      "git_blob_sha": "",
+      "role": "C PNG decoded statistics"
+    },
+    {
+      "path": "project/integration/INT2_1_5_SUMMARY.json",
+      "git_blob_sha": "",
+      "role": "E cases/applications/findings"
+    },
+    {
+      "path": "project/integration/INT3_KNOWLEDGE_SUMMARY.json",
+      "git_blob_sha": "90724c37361f96367429b6ca6443ccc5c8768fa9",
+      "role": "INT3 integrated source references"
+    },
+    {
+      "path": "project/integration/INT4_NONCHAIR_RUNTIME_RESULT.json",
+      "git_blob_sha": "",
+      "role": "F 15 confirmed historical case reference"
+    },
+    {
+      "path": "project/integration/INT4_BED_UV_FACES_RESULT.json",
+      "git_blob_sha": "",
+      "role": "F 4 of 90 occupied bed face visual probes"
+    }
+  ],
+  "stage_status": {
+    "A": {
+      "denominator": {
+        "mod_model_paths": 16572
+      },
+      "existing_reusable_source_evidence": {
+        "source_verified_models": 16572,
+        "missing_parent_models": 48
+      },
+      "current_int4_exit": "PENDING_PER_MODEL_LEDGER_ADOPTION",
+      "stage_completion_percent": null,
+      "hold": "UNRESOLVED_PARENT_REASONS"
+    },
+    "B": {
+      "denominator": {
+        "face_instances": 592312,
+        "element_instances": 105383
+      },
+      "existing_reusable_source_evidence": {
+        "reconstructed_face_links": 592312
+      },
+      "current_int4_exit": "PENDING_PER_FACE_LEDGER_ADOPTION",
+      "stage_completion_percent": null,
+      "hold": "NONE_ASSUMED"
+    },
+    "C": {
+      "denominator": {
+        "face_instances": 592312,
+        "texture_slots": 81641
+      },
+      "existing_reusable_source_evidence": {
+        "face_dispositions": 592312,
+        "pixel_supported": 585969,
+        "pixel_unsupported": 6343
+      },
+      "pixel_support_percent": 98.92911168438255,
+      "current_int4_exit": "PENDING_EXCEPTION_DISPOSITION",
+      "stage_completion_percent": null,
+      "hold": "6343_PIXEL_SOURCE_EXCEPTIONS_NOT_AUTOMATIC_FAILURE"
+    },
+    "D": {
+      "denominator": {
+        "mod_blockstate_json": 1158,
+        "vanilla_blockstate_json": 1168
+      },
+      "existing_reusable_source_evidence": {
+        "vanilla_syntactic_cases": 9193,
+        "nonchair_crosschecked_cases": 15,
+        "nonchair_model_applications": 19
+      },
+      "current_int4_exit": "PENDING_MOD_ALL_STATES_AND_VERSION_LINK_LEDGER",
+      "stage_completion_percent": null,
+      "hold": "AF_VERSION_AND_DYNAMIC_STATE"
+    },
+    "E": {
+      "denominator": {
+        "cases": 62,
+        "applications": 74,
+        "findings": 21
+      },
+      "existing_reusable_source_evidence": {
+        "cases_revisited": 62,
+        "applications_revisited": 74,
+        "findings_rederived": 21
+      },
+      "current_int4_exit": "PENDING_REUSABLE_EVIDENCE_ADOPTION",
+      "stage_completion_percent": null,
+      "hold": "NONE_ASSUMED"
+    },
+    "F": {
+      "denominator": {
+        "historical_cases": 62,
+        "risk_scenarios": 8,
+        "verification_units": 70
+      },
+      "known_prior_f2_cases_anchored": 15,
+      "unmapped_historical_case_ids": 47,
+      "minimum_historical_f2_evidence_mapping_percent": 24.193548387096776,
+      "scenarios_pending_reuse_review": 8,
+      "confirmed_not_yet_photographed": null,
+      "accepted_f_unit_count": null,
+      "current_int4_exit": "PENDING_EVIDENCE_ACCESS_AND_IMAGE_REVIEW",
+      "stage_completion_percent": null,
+      "hold": "INACCESSIBLE_OR_UNMAPPED_ARTIFACTS_AND_MISSING_FRAME_PAIRS"
+    },
+    "G": {
+      "denominator": {
+        "mod_models": 16572,
+        "mod_faces": 592312,
+        "render_targets": 70,
+        "historic_findings": 21
+      },
+      "new_int4_final_disposition_count": null,
+      "current_int4_exit": "NOT_STARTED",
+      "stage_completion_percent": null,
+      "hold": "A_TO_F_NOT_ACCEPTED"
+    },
+    "H": {
+      "denominator": {
+        "exit_gate_groups": 8
+      },
+      "accepted_exit_gate_groups": null,
+      "current_int4_exit": "NOT_STARTED",
+      "stage_completion_percent": null,
+      "hold": "SOURCE_AND_RENDER_GATES_PENDING"
+    }
+  },
+  "progress_policy": {
+    "no_global_weighted_completion_until_each_denominator_and_disposition_is_checked": true,
+    "new_plan_is_not_static_or_runtime_validation": true,
+    "historical_pixel_support_is_not_new_int4_c_completion": true,
+    "actual_game_image_direct_observation_required": true,
+    "artifact_expiry_does_not_grant_visual_approval": true,
+    "fixed_70_unit_scope_requires_new_version_if_required_uncovered_risk_is_found": true,
+    "phase_1_research_scope_closed_does_not_mean_int4_closed": true,
+    "int5_semantic_role_approved": 0,
+    "int6_ai_training_rights_approved": 0,
+    "main_merged": false
+  }
+}
