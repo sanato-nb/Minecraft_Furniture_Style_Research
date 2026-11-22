@@ -107,7 +107,7 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
         return capture(command, env, game, args.output, args.version, interaction=args.interaction)
     if args.command == "int4-bed-exterior":
         from .int4_bed_exterior import capture
-        return capture(command, env, game, args.output, args.version, uv_probe=args.uv_probe)
+        return capture(command, env, game, args.output, args.version, uv_probe=args.uv_probe, expanded=args.uv_faces)
     subprocess.run(command, cwd=game, env=env, check=True)
     return None
 
@@ -145,6 +145,7 @@ def main(argv: list[str] | None = None) -> int:
     nonchair.add_argument("--interaction", action="store_true", help="run player placement and sleeping trials")
     nonchair.add_argument("--output", type=_scratch_path, required=True)
     exterior.add_argument("--uv-probe", action="store_true", help="override the observer texture with a four-tag UV calibration")
+    exterior.add_argument("--uv-faces", action="store_true", help="add three exposed occupied-bed faces")
     exterior.add_argument("--output", type=_scratch_path, required=True)
     args = parser.parse_args(argv)
 

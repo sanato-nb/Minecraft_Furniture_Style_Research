@@ -97,7 +97,7 @@ def connection_command(command, player, game, port):
     return result
 
 
-def probe_source(mods, source, source_zip, pack, *, apply):
+def probe_source(mods, source, source_zip, pack, *, apply, expanded=False):
     from PIL import Image
 
     variant = source["bed_occupied_variants"]["parts"]["S37"]["true"]
@@ -121,25 +121,34 @@ def probe_source(mods, source, source_zip, pack, *, apply):
     with Image.open(BytesIO(raw)) as png:
         image = png.convert("RGBA")
     prior.require(image.size == (128, 128), "Unexpected footboard texture size")
-    if apply:
-        for x, y, color in UV_TAGS.values():
-            for col in (x, x + 1):
-                image.putpixel((col, y), (*color, 255))
-        altered = BytesIO()
-        image.save(altered, format="PNG")
-        pack.parent.mkdir()
-        with ZipFile(pack, "w") as output:
-            output.writestr("pack.mcmeta", json.dumps({"pack": {"description": "INT-4 UV sample",
-                                                                "pack_format": 34}}))
-            output.writestr(texture_path, altered.getvalue())
-    return {
+    textures = {texture_path: image}
+    result = {
         "source_texture": texture_path, "texture_sha256": prior.sha256(raw), "texture_size": [128, 128],
         "provider": variant["provider"], "provider_sha256": variant["provider_sha256"],
         "element_index_zero_based": 5, "direction": "up", "model_bounds": [part["from"], part["to"]],
         "uv": face["uv"], "uv_rotation": face["rotation"], "slot_chain": [face["texture"], slot, texture],
-        "git_and_jar_texture_bytes_match": True,
-        "observer_probe_texture_sha256": prior.sha256(altered.getvalue()) if apply else None,
+        "git_and_jar_texture_bytes_match": True, "observer_probe_texture_sha256": None,
     }
+    if apply:
+        for x, y, color in UV_TAGS.values():
+            for col in (x, x + 1):
+                image.putpixel((col, y), (*color, 255))
+    if expanded:
+        from . import int4_bed_uv_faces
+        result["additional_faces"] = int4_bed_uv_faces.prepare(mods, source_zip, variant, textures, apply=apply)
+    if apply:
+        pack.parent.mkdir()
+        with ZipFile(pack, "w") as output:
+            output.writestr("pack.mcmeta", json.dumps({"pack": {"description": "INT-4 UV sample",
+                                                                "pack_format": 34}}))
+            for asset, marked in textures.items():
+                altered = BytesIO()
+                marked.save(altered, format="PNG")
+                payload = altered.getvalue()
+                output.writestr(asset, payload)
+                if asset == texture_path:
+                    result["observer_probe_texture_sha256"] = prior.sha256(payload)
+    return result
 
 
 def projected_tags(floor_width):
@@ -170,7 +179,7 @@ def read_tags(path):
     }
 
 
-def capture(command, env, game, output, version, *, uv_probe=False):
+def capture(command, env, game, output, version, *, uv_probe=False, expanded=False):
     prior.require(version == VERSION, "The occupied Handcrafted bed fixture is fixed to Minecraft 1.21.1")
     output.mkdir(parents=True, exist_ok=False)
     observer_game = Path(mkdtemp(prefix="bed-observer-", dir=game.parent))
@@ -182,7 +191,7 @@ def capture(command, env, game, output, version, *, uv_probe=False):
     source, values = prior.release_sources(game / "mods", source_zip)
     source["bed_occupied_variants"] = prior.bed_interaction_source(game / "mods", source_zip)
     pack = observer_game / "resourcepacks/int4_uv_probe.zip"
-    uv_source = probe_source(game / "mods", source, source_zip, pack, apply=uv_probe)
+    uv_source = probe_source(game / "mods", source, source_zip, pack, apply=uv_probe, expanded=expanded)
     server_game = Path(mkdtemp(prefix="bed-server-", dir=game.parent))
     shutil.copytree(game / "mods", server_game / "mods")
     shutil.copytree(game / "saves/MCFR Visual Fixture", server_game / "world")
@@ -284,6 +293,14 @@ def capture(command, env, game, output, version, *, uv_probe=False):
                 f"if block 0 120 39 {prior.BED}[part=head,occupied=true] "
                 "run say INT4 EXTERIOR OVERHEAD OCCUPIED", "INT4 EXTERIOR OVERHEAD OCCUPIED")
         results["sleeping_overhead"] = obs.shot(output / "sleeping_overhead.png")
+        if expanded:
+            from . import int4_bed_uv_faces
+            for name, pose in int4_bed_uv_faces.VIEWS.items():
+                tp(OBSERVER, pose)
+                console(f"execute if block 0 120 40 {prior.BED}[part=foot,occupied=true] "
+                        f"if block 0 120 39 {prior.BED}[part=head,occupied=true] run say INT4 VIEW {name} OCCUPIED",
+                        f"INT4 VIEW {name} OCCUPIED")
+                results[name] = obs.shot(output / f"{name}.png")
         host.focus()
         host.xdo("key", "--clearmodifiers", "Escape")
         sleep(2)
@@ -302,6 +319,8 @@ def capture(command, env, game, output, version, *, uv_probe=False):
         "observer": OBSERVER, "server_jar_sha1": server_sha1, "uv_probe": uv_probe, "uv_source": uv_source,
         "observer_camera": {"iso": ISO, "overhead": OVERHEAD},
     }
+    if expanded:
+        report["observer_camera"].update(int4_bed_uv_faces.VIEWS)
     (output / "manifest.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
     return report
 
@@ -336,8 +355,19 @@ def audit(folder, checkpoint=None):
     timers = prior.read_sleep_timers(host)
     prior.require(timers == record["sleep_timers"] == {
         "check_bed_sleeping": "positive", "check_bed_awake": "zero"}, "Sleep timer mismatch")
-    prior.require(set(record["native_f2_sha256"]) == set(SHOTS), "F2 inventory mismatch")
-    for name in SHOTS:
+    expected_shots = set(SHOTS)
+    expanded = "additional_faces" in record["uv_source"]
+    if expanded:
+        from . import int4_bed_uv_faces
+        expected_shots.update(int4_bed_uv_faces.VIEWS)
+        for view, pose in int4_bed_uv_faces.VIEWS.items():
+            xyz = ", ".join(f"{float(n):.6f}" for n in pose.split()[:3])
+            prior.require(record["observer_camera"][view] == pose and
+                          f"Teleported {OBSERVER} to {xyz}" in host, f"Camera location differs for {view}")
+            prior.require(sum("[Server thread/" in line and f"INT4 VIEW {view} OCCUPIED" in line
+                              for line in host.splitlines()) == 1, f"Bed occupancy evidence missing for {view}")
+    prior.require(set(record["native_f2_sha256"]) == expected_shots, "F2 inventory mismatch")
+    for name in sorted(expected_shots):
         path = folder / f"{name}.png"
         prior.require(prior.sha256(path.read_bytes()) == record["native_f2_sha256"][name], f"F2 SHA mismatch: {name}")
         with Image.open(path) as picture:
@@ -352,6 +382,8 @@ def audit(folder, checkpoint=None):
     record["uv_projection"] = projection
     prior.require(all(value == record["uv_probe"] for value in matches.values()),
                   f"Projected UV tags did not distinguish probe from original: {matches}")
+    if expanded:
+        record["additional_face_samples"] = int4_bed_uv_faces.audit(folder, record, OVERHEAD, tag_matches)
     if checkpoint:
         data = json.loads(checkpoint.read_text(encoding="utf-8"))
         expected = data["runs"]["uv_probe" if record["uv_probe"] else "native"]

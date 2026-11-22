@@ -6,6 +6,8 @@ on:
       - 'src/mcfr/runtime.py'
       - 'src/mcfr/int4_nonchair_runtime.py'
       - 'src/mcfr/int4_bed_exterior.py'
+      - 'src/mcfr/int4_bed_uv_faces.py'
+      - 'project/integration/INT4_BED_UV_FACES_*'
       - 'project/integration/INT4_BED_EXTERIOR_*'
       - 'tests/knowledge/test_int4_nonchair_runtime.py'
       - 'tests/knowledge/test_int4_macaw_neighbor_capture.py'
@@ -247,16 +249,16 @@ jobs:
             fi
             out="$RUNNER_TEMP/int4-exterior-evidence/$mode"
             xvfb-run -a -s '-screen 0 1024x684x24' \
-              python -m mcfr.runtime int4-bed-exterior "${extra[@]}" --version 1.21.1 \
+              python -m mcfr.runtime int4-bed-exterior --uv-faces "${extra[@]}" --version 1.21.1 \
               --world "$world" --work "$work" --output "$out"
             python -m mcfr.int4_bed_exterior --directory "$out" \
-              --checkpoint project/integration/INT4_BED_EXTERIOR_RESULT.json
+              --checkpoint project/integration/INT4_BED_UV_FACES_RESULT.json
           done
       - name: Upload native F2 images, observations and log evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: int4-bed-exterior-native-and-uv-probe
+          name: int4-bed-uv-four-faces-native-and-probe
           path: ${{ runner.temp }}/int4-exterior-evidence/
           retention-days: 45
           if-no-files-found: warn
