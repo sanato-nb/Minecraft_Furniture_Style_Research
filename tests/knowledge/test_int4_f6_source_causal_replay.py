@@ -25,9 +25,9 @@ class F6OriginalSourceCausalReplay(unittest.TestCase):
         originals,digest=f6.original_source()
         self.assertEqual(set(originals),{"S02","S34"})
         self.assertEqual(len(digest),64)
-        self.assertEqual(f6.S02_STATE,
+        self.assertEqual(f6.CHAIR_TARGET,
                          "another_furniture:oak_chair[facing=north,tucked=true,variant=1]")
-        self.assertEqual(f6.S34_STATE,
+        self.assertEqual(f6.COUCH_TARGET,
                          "handcrafted:oak_couch[color=white,facing=north,shape=inner_left,waterlogged=false]")
 
     def test_ten_fixed_source_condition_stage_names(self):
