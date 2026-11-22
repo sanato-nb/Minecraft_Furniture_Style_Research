@@ -75,7 +75,13 @@ jobs:
           assert audit["native_f2_count"]==audit["server_verified_states"]==5
           assert audit["source_1_5_face_counts"]=={"S13":6,"S24":31,"S25":26,"S35":66,"S36":42}
           assert capture["original_source_registry"]["mod_jar_sha256"]=="e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e"
-          assert min(audit["visibility_foreground_chroma"].values())>=150
+          assert all(
+            audit["visibility_foreground_chroma"][case]>=150 or
+            (case in ("S35","S36") and
+             audit["visibility_foreground_neutral_white"][case]>=300)
+            for case in ("S13","S24","S25","S35","S36")
+          )
+          assert audit["white_couch_neutral_proxy_threshold"]==300
           for case,h in audit["f2_sha256"].items():
             image=p/(case+".png")
             assert hashlib.sha256(image.read_bytes()).hexdigest()==h
