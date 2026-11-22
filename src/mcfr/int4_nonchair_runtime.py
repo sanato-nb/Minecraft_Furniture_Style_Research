@@ -380,7 +380,7 @@ def capture(command, env, game, output, version):
     return report
 
 
-def audit(folder):
+def audit(folder, checkpoint=None):
     from PIL import Image
 
     report = json.loads((folder / "manifest.json").read_text())
@@ -388,6 +388,10 @@ def audit(folder):
     require(sha256(raw) == report["client_log_sha256"], "Client log SHA mismatch")
     states = read_states(raw.decode("utf-8", errors="replace"), report["minecraft"], report["property_values"])
     require(states == report["server_states"], "Server state inventory differs from original log")
+    if checkpoint is not None:
+        pinned = json.loads(checkpoint.read_text(encoding="utf-8"))["runs"][report["minecraft"]]
+        for field in ("source", "property_values", "function_payload_sha256", "server_states"):
+            require(report[field] == pinned[field], f"Reproduced {field} differs from reviewed run")
     captures = report["native_f2_sha256"]
     require(captures.keys() == states.keys(), "F2 inventory is incomplete")
     for name, digest in captures.items():
@@ -402,4 +406,6 @@ def audit(folder):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--directory", required=True, type=Path)
-    print(json.dumps(audit(parser.parse_args().directory), indent=2, sort_keys=True))
+    parser.add_argument("--checkpoint", type=Path)
+    args = parser.parse_args()
+    print(json.dumps(audit(args.directory, args.checkpoint), indent=2, sort_keys=True))

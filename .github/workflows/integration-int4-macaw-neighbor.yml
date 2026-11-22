@@ -9,6 +9,7 @@ on:
       - 'tests/knowledge/test_int4_macaw_neighbor_capture.py'
       - '.github/workflows/integration-int4-macaw-neighbor.yml'
       - 'project/integration/INT4_MACAW_NEIGHBOR_*'
+      - 'project/integration/INT4_NONCHAIR_RUNTIME_*'
   workflow_dispatch:
 permissions:
   contents: read
@@ -162,7 +163,9 @@ jobs:
             python -m mcfr.runtime int4-nonchair-capture --version "$MC" \
             --world "$WORLD" --work "$WORK" --output "$OUT"
       - name: Reparse server log and verify original screenshot hashes
-        run: python -m mcfr.int4_nonchair_runtime --directory "$OUT"
+        run: >-
+          python -m mcfr.int4_nonchair_runtime --directory "$OUT"
+          --checkpoint project/integration/INT4_NONCHAIR_RUNTIME_RESULT.json
       - name: Upload runtime evidence
         if: always()
         uses: actions/upload-artifact@v4

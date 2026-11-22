@@ -1,0 +1,1038 @@
+{
+  "af_study_to_release": {
+    "files": {
+      "common/src/main/resources/assets/another_furniture/blockstates/oak_table.json": {
+        "byte_equal": false,
+        "original_content_sha256": "b1e6eaf0cd89544a26fe2b5a4ee4898ef918937ad4de3c352297b14628d1dffd",
+        "original_git_blob_sha1": "b8de2826bacb2e19fdad671c478e22af08957eae",
+        "parsed_json_equal": true,
+        "runtime_content_sha256": "245707f1f55628503b343f6ee43c969f89a4357c4aecdea405033a053f5fb0cb"
+      },
+      "common/src/main/resources/assets/another_furniture/models/block/table/oak_leg.json": {
+        "byte_equal": false,
+        "original_content_sha256": "d159b87cd7239cd2bc63350f1703f332d5ad71ccd74878f2b5bab3c09436cba7",
+        "original_git_blob_sha1": "6c0bc57f0642e05e392e9f33b8cb8c27b685be06",
+        "parsed_json_equal": true,
+        "runtime_content_sha256": "ecaafecc96e08bc4d72cb64b6b0013abd4130a1dcef8b87ad7bc437ec2a36c47"
+      },
+      "common/src/main/resources/assets/another_furniture/models/block/table/oak_top.json": {
+        "byte_equal": false,
+        "original_content_sha256": "1de949662cf2687150b2d8065b7e84cfe3522c9b5aa42d97c72311b90397b4c3",
+        "original_git_blob_sha1": "2c47671399cb4367c2d447e04aa07d91d93b9dd0",
+        "parsed_json_equal": true,
+        "runtime_content_sha256": "fd9f504bf7d0060668175dd6d657809833d30a7b52bcd3542f2833ddf2971dfd"
+      },
+      "common/src/main/resources/assets/another_furniture/models/block/template/table_leg.json": {
+        "byte_equal": false,
+        "original_content_sha256": "53e65cbece020156ed9ec09c6cc99035ea741b2f39b7d73af820cb15f6d1c6ff",
+        "original_git_blob_sha1": "236318113de445bbc9d0b95f961e51285961da97",
+        "parsed_json_equal": true,
+        "runtime_content_sha256": "3bda8e3c894c359405e01e32b26959495848907ab9d5861a9a518d7be8388620"
+      },
+      "common/src/main/resources/assets/another_furniture/models/block/template/table_top.json": {
+        "byte_equal": false,
+        "original_content_sha256": "f5512e71342cd43883e2d1c4d8d18feee9558ea827491a832e8c1f140498367a",
+        "original_git_blob_sha1": "b1cb2b9c1e940d5d86c859219850b16842134580",
+        "parsed_json_equal": true,
+        "runtime_content_sha256": "f42ceca01f61e2e3e67d63de784e932f7952df8dc6a5f86572bffd687d80a3d8"
+      }
+    },
+    "runtime_release": "Another Furniture Fabric 4.0.2",
+    "study_cohort": "Another Furniture 4.0.3",
+    "study_commit": "57eb624cbb7f408d43398c7434b0d38d312cb55d"
+  },
+  "capture_code_commit": "0422384751ebb2a56e7163db8afef4791e4bce6a",
+  "counter_same_camera_comparison": {
+    "cases": [
+      "S39",
+      "S40"
+    ],
+    "difference_bbox_xyxy_exclusive": [
+      481,
+      439,
+      545,
+      463
+    ],
+    "identical_provider_geometry": true,
+    "image_size": [
+      1024,
+      684
+    ],
+    "pixel_to_uv_causality_verified": false,
+    "rgb_different_pixels": 31,
+    "wood_texture_slot_differs": true
+  },
+  "human_visual_observations": {
+    "S14": "단독 상판과 다리 확인",
+    "S15": "3×3 연결 상판 확인. 중앙의 leg_1~4=false는 서버 로그로 확인",
+    "S16": "단독 상판과 다리 확인",
+    "S17": "3×3 연결 상판 확인. 중앙 shape=center는 서버 로그로 확인",
+    "S39": "방해석 상판과 목재 하부 확인",
+    "S40": "방해석 상판과 목재 하부 확인",
+    "bed_empty": "두 위치에 가구가 없는 바닥",
+    "bed_foot_broken": "침대 제거 뒤 같은 카메라에 빈 바닥 확인",
+    "bed_placed": "두 블록을 차지하는 흰 침대와 프레임 확인",
+    "shelf_one": "단독 책장 한 칸",
+    "shelf_remove_middle": "중앙 틈과 위·아래 두 책장 확인",
+    "shelf_three": "세 층이 이어진 책장",
+    "shelf_two": "두 층이 이어진 책장"
+  },
+  "local_reviewed_manifest_sha256": {
+    "1.21.1": "8bad1a9c583a15ad6d9e6986a42172ea3d30da4d9b7791bbcdf2032f9352358d",
+    "1.21.11": "5a039fe1cafbab64830afd9a47a7a20c39c8fe154076598987a2f553627555a3"
+  },
+  "new_reviewed_representatives": [
+    "S14",
+    "S15",
+    "S16",
+    "S17",
+    "S39",
+    "S40"
+  ],
+  "parent_research_commit": "655a29154a5ae097a02cb9f059f3e293a5ce341c",
+  "prior_verified_representatives": [
+    "S18",
+    "S19",
+    "S28",
+    "S29",
+    "S37",
+    "S38",
+    "S41",
+    "S42",
+    "S43"
+  ],
+  "rejected_first_capture": {
+    "1.21.1": {
+      "client_log_sha256": "4ca0fb3b69063debfe084acdd7ebae9656d89cc7eb2532f8ced4dcf34cab056d",
+      "native_f2_sha256": {
+        "S14": "5728a45056b86019f580bf10ca943407b0da3c9e80a5a8e7d81416378a0813c3",
+        "S15": "5728a45056b86019f580bf10ca943407b0da3c9e80a5a8e7d81416378a0813c3",
+        "S16": "5728a45056b86019f580bf10ca943407b0da3c9e80a5a8e7d81416378a0813c3",
+        "S17": "5728a45056b86019f580bf10ca943407b0da3c9e80a5a8e7d81416378a0813c3",
+        "S39": "5728a45056b86019f580bf10ca943407b0da3c9e80a5a8e7d81416378a0813c3",
+        "S40": "5728a45056b86019f580bf10ca943407b0da3c9e80a5a8e7d81416378a0813c3",
+        "bed_empty": "5728a45056b86019f580bf10ca943407b0da3c9e80a5a8e7d81416378a0813c3",
+        "bed_foot_broken": "ba52b6843d35e455ab459a02fd30526c8a67191d309d03695f83b115c259e39b",
+        "bed_placed": "6d6d209f4888d0b070e519d57944e9664597dd8c6bd36292ec1a115c7bdc0402"
+      },
+      "reason": "Creative camera fell to ground before platform setup. F2 does not show the specimen.",
+      "server_states": {
+        "S14": {
+          "subject": {
+            "exact": true
+          }
+        },
+        "S15": {
+          "subject": {
+            "exact": false
+          }
+        },
+        "S16": {
+          "subject": {
+            "exact": true
+          }
+        },
+        "S17": {
+          "subject": {
+            "exact": false
+          }
+        },
+        "S39": {
+          "subject": {
+            "exact": true
+          }
+        },
+        "S40": {
+          "subject": {
+            "exact": true
+          }
+        },
+        "bed_empty": {
+          "foot_position": {
+            "block": "air"
+          },
+          "head_position": {
+            "block": "air"
+          }
+        },
+        "bed_foot_broken": {
+          "foot_position": {
+            "block": "air"
+          },
+          "head_position": {
+            "block": "air"
+          }
+        },
+        "bed_placed": {
+          "foot_position": {
+            "block": "air"
+          },
+          "head_position": {
+            "block": "air"
+          }
+        }
+      }
+    },
+    "1.21.11": {
+      "client_log_sha256": "1a94d0ed58323f23b6086c9b804483bdae3160d3f2f8eea3c8cd2fb7fdc96a2f",
+      "native_f2_sha256": {
+        "shelf_one": "c6ed8e0edbedc0b78a98afaefa30f15e79ac6a256c9ea148e690634304398ecd",
+        "shelf_remove_middle": "dcb68228a02e921b17b986566eb4c6c02bef587c36ff944cc3e19a80f9170027",
+        "shelf_three": "3008d6ade1d709d08fca442129bec87955328c361c64f369b31ce6e73727580f",
+        "shelf_two": "017c73569c52eafde1b589e142b1f3a5dd1700a8e6d41392626efb1da020acca"
+      },
+      "reason": "Creative camera fell to ground before platform setup. F2 does not show the specimen.",
+      "server_states": {
+        "shelf_one": {
+          "lower": {
+            "block": "present",
+            "connection": "base",
+            "facing": "north"
+          },
+          "middle": {
+            "block": "air"
+          },
+          "upper": {
+            "block": "air"
+          }
+        },
+        "shelf_remove_middle": {
+          "lower": {
+            "block": "present",
+            "connection": "base",
+            "facing": "north"
+          },
+          "middle": {
+            "block": "air"
+          },
+          "upper": {
+            "block": "present",
+            "connection": "base",
+            "facing": "north"
+          }
+        },
+        "shelf_three": {
+          "lower": {
+            "block": "present",
+            "connection": "bottom",
+            "facing": "north"
+          },
+          "middle": {
+            "block": "present",
+            "connection": "middle",
+            "facing": "north"
+          },
+          "upper": {
+            "block": "present",
+            "connection": "top",
+            "facing": "north"
+          }
+        },
+        "shelf_two": {
+          "lower": {
+            "block": "present",
+            "connection": "bottom",
+            "facing": "north"
+          },
+          "middle": {
+            "block": "present",
+            "connection": "top",
+            "facing": "north"
+          },
+          "upper": {
+            "block": "air"
+          }
+        }
+      }
+    }
+  },
+  "representative_target_count": 15,
+  "runs": {
+    "1.21.1": {
+      "client_log_sha256": "80500550771c21eb546e149b512b26ce5614cd93c7ceca1a6d6f1901b2187a12",
+      "function_payload_sha256": {
+        "check_bed_empty": "b6fb8a1b6125b7a68baa802808411868dff28ba1837e75656a72c7c91d46737e",
+        "check_bed_foot_broken": "f3c81c34920bad58b6e713c0041baff2d5faf236add8e827902ed002b6ce3b4f",
+        "check_bed_placed": "b6e72b035e999a8dfe747ca9262dccae63e3d05bb13e858ca84f0f3a428e7e95",
+        "check_s14": "26da9e744aed776055084ac78a07efa845d29cbf17e7c17cac1d2387a2bbb498",
+        "check_s15": "f2dcf7bef03b9a0b30bb3c2a8190201a7f82b19bc25cb0e3df88c033d5769174",
+        "check_s16": "27926cde4b497a363e2a0b40ea63d5774c8b9cfec63be675af552cf418f04fc9",
+        "check_s17": "7be4cdf32080f340a4c3a0233ff0200e63111439becc67a273e277174ff31717",
+        "check_s39": "75ecf497e94c91d8ee1800e937f98eaa1ab98528f4d10167ab5befb2831e72f6",
+        "check_s40": "69d74402a0561182db492c0eda926b8172b621949a226b354fed3861a473159c",
+        "place_bed_empty": "4773fd1156f970410b6db481e8ab558cf4da94e3ad70e5e7bb179d1771d6a1bc",
+        "place_s14": "35a4b04c31d960090434dacac038a0d314b96493f5f41e3afc2fd7402dcdb1fe",
+        "place_s15": "946a83e0da0914329a3dec3e7ad212b46b138174c6c281510afcb2e4c94dff71",
+        "place_s16": "ad3ddd74151dd8c643388ff54cf3927b69951b7acde577b71d852a93f310bce1",
+        "place_s17": "bb6a05f70e26263ec4ceaf81f96f693398d58def8f468a5dfabc82b9364287c3",
+        "place_s39": "d918e2f2c67066ebafac07631f6f5fce5afc2bcf31a91ed1757a969a8db13e81",
+        "place_s40": "0273a1945ec45656beb863e6aaa749f2a6839396c342840bb88f61066ca4040f",
+        "setup": "dbb8ddab9af3e4c4628441964efd155b892245350c184c5968a9e125bdbfde35"
+      },
+      "minecraft": "1.21.1",
+      "native_f2_sha256": {
+        "S14": "b6224049e63840d7810b7a2d7868aa3b557f999e844ba82177a8a506f438a4e4",
+        "S15": "a00c0636e1a07679386a94e15922bd0003dc1c70f8153b2eb94672b26aa31ce4",
+        "S16": "effcbd0452968105fc3bd6806684f722ebac469cf7a8381e44db2712c81de1c4",
+        "S17": "0b720c227dad8d69e0cc0d6c6c3916002b32becaa84bd2268e5f21431d72c7f3",
+        "S39": "26bccab68bc99ae2bb8052a0f96a7dbabb1d6e1528a429d38251e6240a68af9a",
+        "S40": "4d1fcda5af60bb825c49b7e796b98863fe2bbc904b62cb9cbab7b927dc7f03a3",
+        "bed_empty": "69b0dd80c3c22ccc707822a20b3241424e0e37579ced832aaeb34e225c253c73",
+        "bed_foot_broken": "69b0dd80c3c22ccc707822a20b3241424e0e37579ced832aaeb34e225c253c73",
+        "bed_placed": "514ef4e8edf27aeceaf5becd1767bb76b306b1c4f933b2cad7472a943b8f9ce2"
+      },
+      "property_values": {
+        "color": [
+          "black",
+          "blue",
+          "brown",
+          "cyan",
+          "gray",
+          "green",
+          "light_blue",
+          "light_gray",
+          "lime",
+          "magenta",
+          "orange",
+          "pink",
+          "purple",
+          "red",
+          "white",
+          "yellow"
+        ],
+        "facing": [
+          "east",
+          "north",
+          "south",
+          "west"
+        ],
+        "occupied": [
+          "false",
+          "true"
+        ],
+        "part": [
+          "foot",
+          "head"
+        ],
+        "shape": [
+          "left",
+          "middle",
+          "right",
+          "single"
+        ]
+      },
+      "server_states": {
+        "S14": {
+          "subject": {
+            "exact": true
+          }
+        },
+        "S15": {
+          "subject": {
+            "exact": true
+          }
+        },
+        "S16": {
+          "subject": {
+            "exact": true
+          }
+        },
+        "S17": {
+          "subject": {
+            "exact": true
+          }
+        },
+        "S39": {
+          "subject": {
+            "exact": true
+          }
+        },
+        "S40": {
+          "subject": {
+            "exact": true
+          }
+        },
+        "bed_empty": {
+          "foot_position": {
+            "block": "air"
+          },
+          "head_position": {
+            "block": "air"
+          }
+        },
+        "bed_foot_broken": {
+          "foot_position": {
+            "block": "air"
+          },
+          "head_position": {
+            "block": "air"
+          }
+        },
+        "bed_placed": {
+          "foot_position": {
+            "block": "present",
+            "color": "white",
+            "facing": "north",
+            "occupied": "false",
+            "part": "foot",
+            "shape": "single"
+          },
+          "head_position": {
+            "block": "present",
+            "color": "white",
+            "facing": "north",
+            "occupied": "false",
+            "part": "head",
+            "shape": "single"
+          }
+        }
+      },
+      "source": {
+        "bed_originals": {
+          "HC_release_SHA1": "a9579fecd7ed429c282be21d5c921d220197acc6",
+          "cases": {
+            "S37": {
+              "elements": 12,
+              "faces": 72,
+              "model_git_blob_sha1": "14c6bad5a40e3130cd8fa5725ce5260b74662bc2",
+              "model_path": "common/src/main/generated/resources/assets/handcrafted/models/block/oak_fancy_bed_single_white_foot.json",
+              "model_rotation_y": 0,
+              "provider_git_blob_sha1": "01dcc76679443d37f3efa45d974e2acbc071cfc1",
+              "selection": {
+                "original": {
+                  "rule_index": 915,
+                  "selected_model": "assets/handcrafted/models/block/oak_fancy_bed_single_white_foot.json"
+                },
+                "release": {
+                  "rule_index": 915,
+                  "selected_model": "assets/handcrafted/models/block/oak_fancy_bed_single_white_foot.json"
+                }
+              },
+              "source_vs_release": {
+                "model": {
+                  "byte_equal": true,
+                  "git_blob_sha1": "14c6bad5a40e3130cd8fa5725ce5260b74662bc2",
+                  "json_equal": true,
+                  "runtime_sha256": "de909b5237878332215e58806b21b8e40babcc09e97cde9feb4c7241c24d88e3"
+                },
+                "provider": {
+                  "byte_equal": true,
+                  "git_blob_sha1": "01dcc76679443d37f3efa45d974e2acbc071cfc1",
+                  "json_equal": true,
+                  "runtime_sha256": "092aa7ca9a7c12fcc0ac8f84c9505ab0a19a1adaece7be57b917f66a6865cece"
+                },
+                "state": {
+                  "byte_equal": true,
+                  "git_blob_sha1": "0dfb7493ac098a7e5549db6663bffd9310c1882a",
+                  "json_equal": true,
+                  "runtime_sha256": "310227b993a6f4a1951b5ac9c3dc8710c7fd7d5f36e53a7363f0ce62587f01d1"
+                }
+              },
+              "state": "color=white;facing=north;occupied=false;part=foot;shape=single",
+              "state_git_blob_sha1": "0dfb7493ac098a7e5549db6663bffd9310c1882a"
+            },
+            "S38": {
+              "elements": 1,
+              "faces": 6,
+              "model_git_blob_sha1": "81117620d95782b093fa23b396af04cf42f6729a",
+              "model_path": "common/src/main/generated/resources/assets/handcrafted/models/block/oak_fancy_bed_single_white_head.json",
+              "model_rotation_y": 0,
+              "provider_git_blob_sha1": "3b9147f7d5309913004d7dadb45e2b09dc98bb4f",
+              "selection": {
+                "original": {
+                  "rule_index": 919,
+                  "selected_model": "assets/handcrafted/models/block/oak_fancy_bed_single_white_head.json"
+                },
+                "release": {
+                  "rule_index": 919,
+                  "selected_model": "assets/handcrafted/models/block/oak_fancy_bed_single_white_head.json"
+                }
+              },
+              "source_vs_release": {
+                "model": {
+                  "byte_equal": true,
+                  "git_blob_sha1": "81117620d95782b093fa23b396af04cf42f6729a",
+                  "json_equal": true,
+                  "runtime_sha256": "3d7a8d62e2ce9b5e9acc8946b9276d10371e382545b0bba1b68f18897dc65913"
+                },
+                "provider": {
+                  "byte_equal": true,
+                  "git_blob_sha1": "3b9147f7d5309913004d7dadb45e2b09dc98bb4f",
+                  "json_equal": true,
+                  "runtime_sha256": "a04d545393a67f9ea41012c73ec87a23950e43ccbaa572a9ccf6df05c3fd5970"
+                },
+                "state": {
+                  "byte_equal": true,
+                  "git_blob_sha1": "0dfb7493ac098a7e5549db6663bffd9310c1882a",
+                  "json_equal": true,
+                  "runtime_sha256": "310227b993a6f4a1951b5ac9c3dc8710c7fd7d5f36e53a7363f0ce62587f01d1"
+                }
+              },
+              "state": "color=white;facing=north;occupied=false;part=head;shape=single",
+              "state_git_blob_sha1": "0dfb7493ac098a7e5549db6663bffd9310c1882a"
+            }
+          },
+          "original_1_5_application_csv_sha256": "da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e",
+          "source_git_commit": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035"
+        },
+        "ledger_sha256": "da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e",
+        "release_jar_sha1": {
+          "AF": "c2f992081bdc4795ed6d87771a3b5f7c71103785",
+          "HC": "a9579fecd7ed429c282be21d5c921d220197acc6"
+        },
+        "representative_states": {
+          "S14": {
+            "cohort": "AF",
+            "historical_model_geometry": {
+              "elements": 13,
+              "faces": 42
+            },
+            "historical_selection_matches_release": true,
+            "release_model_applications": [
+              [
+                "assets/another_furniture/models/block/table/oak_leg.json",
+                0,
+                0,
+                false,
+                1
+              ],
+              [
+                "assets/another_furniture/models/block/table/oak_leg.json",
+                0,
+                90,
+                false,
+                1
+              ],
+              [
+                "assets/another_furniture/models/block/table/oak_leg.json",
+                0,
+                180,
+                false,
+                1
+              ],
+              [
+                "assets/another_furniture/models/block/table/oak_leg.json",
+                0,
+                270,
+                false,
+                1
+              ],
+              [
+                "assets/another_furniture/models/block/table/oak_top.json",
+                0,
+                0,
+                false,
+                1
+              ]
+            ],
+            "source_files": {
+              "common/src/main/resources/assets/another_furniture/blockstates/oak_table.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "b8de2826bacb2e19fdad671c478e22af08957eae",
+                "release_sha256": "245707f1f55628503b343f6ee43c969f89a4357c4aecdea405033a053f5fb0cb"
+              },
+              "common/src/main/resources/assets/another_furniture/models/block/table/oak_leg.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "6c0bc57f0642e05e392e9f33b8cb8c27b685be06",
+                "release_sha256": "ecaafecc96e08bc4d72cb64b6b0013abd4130a1dcef8b87ad7bc437ec2a36c47"
+              },
+              "common/src/main/resources/assets/another_furniture/models/block/table/oak_top.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "2c47671399cb4367c2d447e04aa07d91d93b9dd0",
+                "release_sha256": "fd9f504bf7d0060668175dd6d657809833d30a7b52bcd3542f2833ddf2971dfd"
+              },
+              "common/src/main/resources/assets/another_furniture/models/block/template/table_leg.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "236318113de445bbc9d0b95f961e51285961da97",
+                "release_sha256": "3bda8e3c894c359405e01e32b26959495848907ab9d5861a9a518d7be8388620"
+              },
+              "common/src/main/resources/assets/another_furniture/models/block/template/table_top.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "b1cb2b9c1e940d5d86c859219850b16842134580",
+                "release_sha256": "f42ceca01f61e2e3e67d63de784e932f7952df8dc6a5f86572bffd687d80a3d8"
+              }
+            },
+            "state": "another_furniture:oak_table[facing=north,leg_1=true,leg_2=true,leg_3=true,leg_4=true]"
+          },
+          "S15": {
+            "cohort": "AF",
+            "historical_model_geometry": {
+              "elements": 1,
+              "faces": 6
+            },
+            "historical_selection_matches_release": true,
+            "release_model_applications": [
+              [
+                "assets/another_furniture/models/block/table/oak_top.json",
+                0,
+                0,
+                false,
+                1
+              ]
+            ],
+            "source_files": {
+              "common/src/main/resources/assets/another_furniture/blockstates/oak_table.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "b8de2826bacb2e19fdad671c478e22af08957eae",
+                "release_sha256": "245707f1f55628503b343f6ee43c969f89a4357c4aecdea405033a053f5fb0cb"
+              },
+              "common/src/main/resources/assets/another_furniture/models/block/table/oak_top.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "2c47671399cb4367c2d447e04aa07d91d93b9dd0",
+                "release_sha256": "fd9f504bf7d0060668175dd6d657809833d30a7b52bcd3542f2833ddf2971dfd"
+              },
+              "common/src/main/resources/assets/another_furniture/models/block/template/table_top.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "b1cb2b9c1e940d5d86c859219850b16842134580",
+                "release_sha256": "f42ceca01f61e2e3e67d63de784e932f7952df8dc6a5f86572bffd687d80a3d8"
+              }
+            },
+            "state": "another_furniture:oak_table[facing=north,leg_1=false,leg_2=false,leg_3=false,leg_4=false]"
+          },
+          "S16": {
+            "cohort": "HC",
+            "historical_model_geometry": {
+              "elements": 10,
+              "faces": 60
+            },
+            "historical_selection_matches_release": true,
+            "release_model_applications": [
+              [
+                "assets/handcrafted/models/block/oak_table_single_none.json",
+                0,
+                0,
+                false,
+                1
+              ]
+            ],
+            "source_files": {
+              "common/src/main/generated/resources/assets/handcrafted/blockstates/oak_table.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "b63318f0dc07e3367abb824650ced5077920542e",
+                "release_sha256": "e01bb881c119f5207ca3dd2a8e6319166fe76a78889b6dce602a8d71070cb8fe"
+              },
+              "common/src/main/generated/resources/assets/handcrafted/models/block/oak_table_single_none.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "e7501d12b2fc132cd62a1f682cd1a2651b0d105d",
+                "release_sha256": "41e5207261c9227abb00c7f6c4db465b62118d5da8e8cc913c5edfcc346b2f4d"
+              },
+              "common/src/main/resources/assets/handcrafted/models/block/table/single.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "f7e1d6113ccb3c904c2f951915d8c31295a0993b",
+                "release_sha256": "0a1f423d27ee27a0008e0db37f2279d730ae497c26a778776207c691247bd70e"
+              }
+            },
+            "state": "handcrafted:oak_table[color=none,shape=single,waterlogged=false]"
+          },
+          "S17": {
+            "cohort": "HC",
+            "historical_model_geometry": {
+              "elements": 2,
+              "faces": 12
+            },
+            "historical_selection_matches_release": true,
+            "release_model_applications": [
+              [
+                "assets/handcrafted/models/block/oak_table_center_none.json",
+                0,
+                0,
+                false,
+                1
+              ]
+            ],
+            "source_files": {
+              "common/src/main/generated/resources/assets/handcrafted/blockstates/oak_table.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "b63318f0dc07e3367abb824650ced5077920542e",
+                "release_sha256": "e01bb881c119f5207ca3dd2a8e6319166fe76a78889b6dce602a8d71070cb8fe"
+              },
+              "common/src/main/generated/resources/assets/handcrafted/models/block/oak_table_center_none.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "d42209868c078c809a9be0568e55f4f9c2a97e56",
+                "release_sha256": "4ec25582ca68bbe675ed44f640c718baa142d2ce8af8f2898bbcfea3e7016a57"
+              },
+              "common/src/main/resources/assets/handcrafted/models/block/table/center.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "9db8949f94c87b9fd5b6f5862943bfebbd4d3863",
+                "release_sha256": "77ad816bf702e092b468624bd6f4d13b31f9063debade72a2c21fb31c6e5c8bc"
+              }
+            },
+            "state": "handcrafted:oak_table[color=none,shape=center,waterlogged=false]"
+          },
+          "S39": {
+            "cohort": "HC",
+            "historical_model_geometry": {
+              "elements": 2,
+              "faces": 12
+            },
+            "historical_selection_matches_release": true,
+            "release_model_applications": [
+              [
+                "assets/handcrafted/models/block/oak_counter_calcite_1.json",
+                0,
+                0,
+                false,
+                1
+              ]
+            ],
+            "source_files": {
+              "common/src/main/generated/resources/assets/handcrafted/blockstates/oak_counter.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "d53d70f0e09a52932ccae7708ad4833a891ce8c7",
+                "release_sha256": "4e32620089a24f75ea191fc02161336cdee04058732efc20b9809e4dc108a12c"
+              },
+              "common/src/main/generated/resources/assets/handcrafted/models/block/oak_counter_calcite_1.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "bed1bb6a38b554043e4539746503690a6acb28fc",
+                "release_sha256": "e699388bbcecd311da82de959b6f14b28e6f9bbffcd1168bbb872cebf81f69f1"
+              },
+              "common/src/main/resources/assets/handcrafted/models/block/counter.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "efe9e2d45dd55368ecce93f1114f188af9d135cd",
+                "release_sha256": "569754e51f5301ac7152c706245f673a28fff194f6a2c820db4f4e2aabb8957b"
+              }
+            },
+            "state": "handcrafted:oak_counter[counter=calcite,facing=north,type=1]"
+          },
+          "S40": {
+            "cohort": "HC",
+            "historical_model_geometry": {
+              "elements": 2,
+              "faces": 12
+            },
+            "historical_selection_matches_release": true,
+            "release_model_applications": [
+              [
+                "assets/handcrafted/models/block/oak_counter_calcite_2.json",
+                0,
+                0,
+                false,
+                1
+              ]
+            ],
+            "source_files": {
+              "common/src/main/generated/resources/assets/handcrafted/blockstates/oak_counter.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "d53d70f0e09a52932ccae7708ad4833a891ce8c7",
+                "release_sha256": "4e32620089a24f75ea191fc02161336cdee04058732efc20b9809e4dc108a12c"
+              },
+              "common/src/main/generated/resources/assets/handcrafted/models/block/oak_counter_calcite_2.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "4a41bc9a6d55158b201b1338b35a98964f2c0aa3",
+                "release_sha256": "bcd4bd13a0cc9549411fc6f8538a555bb5066fad47877cb5263a28bbe94c6a1f"
+              },
+              "common/src/main/resources/assets/handcrafted/models/block/counter.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "efe9e2d45dd55368ecce93f1114f188af9d135cd",
+                "release_sha256": "569754e51f5301ac7152c706245f673a28fff194f6a2c820db4f4e2aabb8957b"
+              }
+            },
+            "state": "handcrafted:oak_counter[counter=calcite,facing=north,type=2]"
+          }
+        }
+      },
+      "status": "SERVER_STATES_AND_F2_RECORDED"
+    },
+    "1.21.11": {
+      "client_log_sha256": "777f4fea82afda9a3bbabb62865c12a33ad7dbba78cd7558b7396b158477ceeb",
+      "function_payload_sha256": {
+        "check_shelf_one": "ed98faba72c4fd499ae9a30b5904b9d28c62491406ade98b64be032f2cdcbf98",
+        "check_shelf_remove_middle": "1bd5bb4a2bec86abf3c037715c43e9dc91b73facd88b239d7bf50dc57aa655d0",
+        "check_shelf_three": "97082c4ffbfe9978db631f4fe716b8a60953d3d2d1b3db727f1498b87a5d647d",
+        "check_shelf_two": "5d7d4356972b9bf07f1e6f936125584fdcc24ab7bdfe710ae6d899a3e004df14",
+        "place_shelf_one": "e7ebbfdf2951b768f346aa47e0b51fb2b9fbdcc7f298557d7ff7f3e406dc07d5",
+        "place_shelf_remove_middle": "83a1ea41b706eb32ebe83993244ffb21fee4035dd773b7e82b9ce75a3acb21e6",
+        "place_shelf_three": "68c58a91d04271d9a9f6bad8d2d98fe0f258b54a3725a162288dfe13eb21c431",
+        "place_shelf_two": "fc96e231702fd596014915918589b5b19789ac7e58c575074be5b0d2b0ff801b",
+        "setup": "dbb8ddab9af3e4c4628441964efd155b892245350c184c5968a9e125bdbfde35"
+      },
+      "minecraft": "1.21.11",
+      "native_f2_sha256": {
+        "shelf_one": "522deff05bee68186aa5953493974e96c3f06996a870c09ace3cb1e46a3cdac7",
+        "shelf_remove_middle": "345e1719212af726d63312619d8ec085ed30af2419e35c4451e185e7c88f5193",
+        "shelf_three": "04e83494f301150a124b81153f6dbcd806ab241b749f2e2204e7549936548dd1",
+        "shelf_two": "dec29dc094bac85404e8bfed70b4c6666ebeb51a5e1c9f137bfbdd4ade50a863"
+      },
+      "property_values": {
+        "connection": [
+          "base",
+          "bottom",
+          "middle",
+          "top"
+        ],
+        "facing": [
+          "east",
+          "north",
+          "south",
+          "west"
+        ]
+      },
+      "server_states": {
+        "shelf_one": {
+          "lower": {
+            "block": "present",
+            "connection": "base",
+            "facing": "north"
+          },
+          "middle": {
+            "block": "air"
+          },
+          "upper": {
+            "block": "air"
+          }
+        },
+        "shelf_remove_middle": {
+          "lower": {
+            "block": "present",
+            "connection": "base",
+            "facing": "north"
+          },
+          "middle": {
+            "block": "air"
+          },
+          "upper": {
+            "block": "present",
+            "connection": "base",
+            "facing": "north"
+          }
+        },
+        "shelf_three": {
+          "lower": {
+            "block": "present",
+            "connection": "bottom",
+            "facing": "north"
+          },
+          "middle": {
+            "block": "present",
+            "connection": "middle",
+            "facing": "north"
+          },
+          "upper": {
+            "block": "present",
+            "connection": "top",
+            "facing": "north"
+          }
+        },
+        "shelf_two": {
+          "lower": {
+            "block": "present",
+            "connection": "bottom",
+            "facing": "north"
+          },
+          "middle": {
+            "block": "present",
+            "connection": "top",
+            "facing": "north"
+          },
+          "upper": {
+            "block": "air"
+          }
+        }
+      },
+      "source": {
+        "historical_application_sha256": "da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e",
+        "mod_jar_name": "mcw-furniture-3.4.2-mc1.21.11fabric.jar",
+        "mod_jar_sha256": "e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e",
+        "previous_int4_checkpoint_sha256": "37926d08aa577d346b4002b820598bd1dc6b2651627a7252e31bbfe0f7b83fdc",
+        "shelf_variant_models": {
+          "facing=east,connection=base": {
+            "elements": 10,
+            "faces": 31,
+            "model": "assets/mcwfurnitures/models/block/wardrobe/oak_bookshelf_base.json",
+            "model_sha256": "c5a051654c6dad9455067a089bfa7e5fcfc452a7756f57549aa344d18606e7ef",
+            "provider": "assets/mcwfurnitures/models/block/parent/bookshelf_base.json",
+            "provider_sha256": "367af4dbadb026667f15ada39f02e381c51ceb29d34c6d2d2072cad809b2a384",
+            "rotation_y": 270
+          },
+          "facing=east,connection=bottom": {
+            "elements": 9,
+            "faces": 28,
+            "model": "assets/mcwfurnitures/models/block/wardrobe/oak_bookshelf_bottom.json",
+            "model_sha256": "6566658c13445841ff33c85e5406f4959bafdf4102e39d9d83cda792f53e2970",
+            "provider": "assets/mcwfurnitures/models/block/parent/bookshelf_bottom.json",
+            "provider_sha256": "13c409bbe8e53912a3d2ea40d5edabbba860969d857526672a75c3bdf3550f60",
+            "rotation_y": 270
+          },
+          "facing=east,connection=middle": {
+            "elements": 8,
+            "faces": 19,
+            "model": "assets/mcwfurnitures/models/block/wardrobe/oak_bookshelf_middle.json",
+            "model_sha256": "6e135b4acfcdf57874d403156dfe3b2f5060c7714b561580c4c61980da9c4193",
+            "provider": "assets/mcwfurnitures/models/block/parent/bookshelf_middle.json",
+            "provider_sha256": "662a008b53fc3d3e1b8c02ffc0442a1f7013010c3e33cf8f9ac4259bf7ac1206",
+            "rotation_y": 270
+          },
+          "facing=east,connection=top": {
+            "elements": 9,
+            "faces": 28,
+            "model": "assets/mcwfurnitures/models/block/wardrobe/oak_bookshelf_top.json",
+            "model_sha256": "f637b39e99a3ec1badd070b116fc578f0428b56368ed9385aad7e522da92b450",
+            "provider": "assets/mcwfurnitures/models/block/parent/bookshelf_top.json",
+            "provider_sha256": "be6f29746a0e006b10daebb3baae87aadf7390081fd5b3756557e66fb8591147",
+            "rotation_y": 270
+          },
+          "facing=north,connection=base": {
+            "elements": 10,
+            "faces": 31,
+            "model": "assets/mcwfurnitures/models/block/wardrobe/oak_bookshelf_base.json",
+            "model_sha256": "c5a051654c6dad9455067a089bfa7e5fcfc452a7756f57549aa344d18606e7ef",
+            "provider": "assets/mcwfurnitures/models/block/parent/bookshelf_base.json",
+            "provider_sha256": "367af4dbadb026667f15ada39f02e381c51ceb29d34c6d2d2072cad809b2a384",
+            "rotation_y": 180
+          },
+          "facing=north,connection=bottom": {
+            "elements": 9,
+            "faces": 28,
+            "model": "assets/mcwfurnitures/models/block/wardrobe/oak_bookshelf_bottom.json",
+            "model_sha256": "6566658c13445841ff33c85e5406f4959bafdf4102e39d9d83cda792f53e2970",
+            "provider": "assets/mcwfurnitures/models/block/parent/bookshelf_bottom.json",
+            "provider_sha256": "13c409bbe8e53912a3d2ea40d5edabbba860969d857526672a75c3bdf3550f60",
+            "rotation_y": 180
+          },
+          "facing=north,connection=middle": {
+            "elements": 8,
+            "faces": 19,
+            "model": "assets/mcwfurnitures/models/block/wardrobe/oak_bookshelf_middle.json",
+            "model_sha256": "6e135b4acfcdf57874d403156dfe3b2f5060c7714b561580c4c61980da9c4193",
+            "provider": "assets/mcwfurnitures/models/block/parent/bookshelf_middle.json",
+            "provider_sha256": "662a008b53fc3d3e1b8c02ffc0442a1f7013010c3e33cf8f9ac4259bf7ac1206",
+            "rotation_y": 180
+          },
+          "facing=north,connection=top": {
+            "elements": 9,
+            "faces": 28,
+            "model": "assets/mcwfurnitures/models/block/wardrobe/oak_bookshelf_top.json",
+            "model_sha256": "f637b39e99a3ec1badd070b116fc578f0428b56368ed9385aad7e522da92b450",
+            "provider": "assets/mcwfurnitures/models/block/parent/bookshelf_top.json",
+            "provider_sha256": "be6f29746a0e006b10daebb3baae87aadf7390081fd5b3756557e66fb8591147",
+            "rotation_y": 180
+          },
+          "facing=south,connection=base": {
+            "elements": 10,
+            "faces": 31,
+            "model": "assets/mcwfurnitures/models/block/wardrobe/oak_bookshelf_base.json",
+            "model_sha256": "c5a051654c6dad9455067a089bfa7e5fcfc452a7756f57549aa344d18606e7ef",
+            "provider": "assets/mcwfurnitures/models/block/parent/bookshelf_base.json",
+            "provider_sha256": "367af4dbadb026667f15ada39f02e381c51ceb29d34c6d2d2072cad809b2a384",
+            "rotation_y": 0
+          },
+          "facing=south,connection=bottom": {
+            "elements": 9,
+            "faces": 28,
+            "model": "assets/mcwfurnitures/models/block/wardrobe/oak_bookshelf_bottom.json",
+            "model_sha256": "6566658c13445841ff33c85e5406f4959bafdf4102e39d9d83cda792f53e2970",
+            "provider": "assets/mcwfurnitures/models/block/parent/bookshelf_bottom.json",
+            "provider_sha256": "13c409bbe8e53912a3d2ea40d5edabbba860969d857526672a75c3bdf3550f60",
+            "rotation_y": 0
+          },
+          "facing=south,connection=middle": {
+            "elements": 8,
+            "faces": 19,
+            "model": "assets/mcwfurnitures/models/block/wardrobe/oak_bookshelf_middle.json",
+            "model_sha256": "6e135b4acfcdf57874d403156dfe3b2f5060c7714b561580c4c61980da9c4193",
+            "provider": "assets/mcwfurnitures/models/block/parent/bookshelf_middle.json",
+            "provider_sha256": "662a008b53fc3d3e1b8c02ffc0442a1f7013010c3e33cf8f9ac4259bf7ac1206",
+            "rotation_y": 0
+          },
+          "facing=south,connection=top": {
+            "elements": 9,
+            "faces": 28,
+            "model": "assets/mcwfurnitures/models/block/wardrobe/oak_bookshelf_top.json",
+            "model_sha256": "f637b39e99a3ec1badd070b116fc578f0428b56368ed9385aad7e522da92b450",
+            "provider": "assets/mcwfurnitures/models/block/parent/bookshelf_top.json",
+            "provider_sha256": "be6f29746a0e006b10daebb3baae87aadf7390081fd5b3756557e66fb8591147",
+            "rotation_y": 0
+          },
+          "facing=west,connection=base": {
+            "elements": 10,
+            "faces": 31,
+            "model": "assets/mcwfurnitures/models/block/wardrobe/oak_bookshelf_base.json",
+            "model_sha256": "c5a051654c6dad9455067a089bfa7e5fcfc452a7756f57549aa344d18606e7ef",
+            "provider": "assets/mcwfurnitures/models/block/parent/bookshelf_base.json",
+            "provider_sha256": "367af4dbadb026667f15ada39f02e381c51ceb29d34c6d2d2072cad809b2a384",
+            "rotation_y": 90
+          },
+          "facing=west,connection=bottom": {
+            "elements": 9,
+            "faces": 28,
+            "model": "assets/mcwfurnitures/models/block/wardrobe/oak_bookshelf_bottom.json",
+            "model_sha256": "6566658c13445841ff33c85e5406f4959bafdf4102e39d9d83cda792f53e2970",
+            "provider": "assets/mcwfurnitures/models/block/parent/bookshelf_bottom.json",
+            "provider_sha256": "13c409bbe8e53912a3d2ea40d5edabbba860969d857526672a75c3bdf3550f60",
+            "rotation_y": 90
+          },
+          "facing=west,connection=middle": {
+            "elements": 8,
+            "faces": 19,
+            "model": "assets/mcwfurnitures/models/block/wardrobe/oak_bookshelf_middle.json",
+            "model_sha256": "6e135b4acfcdf57874d403156dfe3b2f5060c7714b561580c4c61980da9c4193",
+            "provider": "assets/mcwfurnitures/models/block/parent/bookshelf_middle.json",
+            "provider_sha256": "662a008b53fc3d3e1b8c02ffc0442a1f7013010c3e33cf8f9ac4259bf7ac1206",
+            "rotation_y": 90
+          },
+          "facing=west,connection=top": {
+            "elements": 9,
+            "faces": 28,
+            "model": "assets/mcwfurnitures/models/block/wardrobe/oak_bookshelf_top.json",
+            "model_sha256": "f637b39e99a3ec1badd070b116fc578f0428b56368ed9385aad7e522da92b450",
+            "provider": "assets/mcwfurnitures/models/block/parent/bookshelf_top.json",
+            "provider_sha256": "be6f29746a0e006b10daebb3baae87aadf7390081fd5b3756557e66fb8591147",
+            "rotation_y": 90
+          }
+        },
+        "states": {
+          "S18": {
+            "blockstate_sha256": "2c924a2c63685eaf874e0a0319424ab963a770ab8fe06741e192fe70051a30bd",
+            "elements": 6,
+            "faces": 31,
+            "model_path": "assets/mcwfurnitures/models/block/table/oak_table_single.json",
+            "model_sha256": "61e72a94eef1abe0093567b76cb16372913b122c86e004a8d48bce5f743d2628",
+            "original_model_y": 0,
+            "original_state": "mcwfurnitures:oak_table[east=false,north=false,south=false,west=false]",
+            "provider_sha256": "9cc3dfcc3dc12d5a6ee368a5f7c1e90729d4f49484daa5e66086d1da0cb3f0a9"
+          },
+          "S19": {
+            "blockstate_sha256": "2c924a2c63685eaf874e0a0319424ab963a770ab8fe06741e192fe70051a30bd",
+            "elements": 1,
+            "faces": 6,
+            "model_path": "assets/mcwfurnitures/models/block/table/oak_table_center.json",
+            "model_sha256": "e28d33bfdb981f0ad8a448cd051191d74306a42d4aa9d12790c799b8ab7a832d",
+            "original_model_y": 0,
+            "original_state": "mcwfurnitures:oak_table[east=true,north=true,south=true,west=true]",
+            "provider_sha256": "4708c263bc46a219b9f2eb861aa19e87a569ecd7c621b2bc9e162f72a5e8b002"
+          },
+          "S28": {
+            "blockstate_sha256": "43730f58e4f69d59581a8528d014d0fc27628153368a0bff836c6f91b43b8c52",
+            "elements": 10,
+            "faces": 31,
+            "model_path": "assets/mcwfurnitures/models/block/wardrobe/oak_bookshelf_base.json",
+            "model_sha256": "c5a051654c6dad9455067a089bfa7e5fcfc452a7756f57549aa344d18606e7ef",
+            "original_model_y": 180,
+            "original_state": "mcwfurnitures:oak_bookshelf[connection=base,facing=north]",
+            "provider_sha256": "367af4dbadb026667f15ada39f02e381c51ceb29d34c6d2d2072cad809b2a384"
+          },
+          "S29": {
+            "blockstate_sha256": "43730f58e4f69d59581a8528d014d0fc27628153368a0bff836c6f91b43b8c52",
+            "elements": 8,
+            "faces": 19,
+            "model_path": "assets/mcwfurnitures/models/block/wardrobe/oak_bookshelf_middle.json",
+            "model_sha256": "6e135b4acfcdf57874d403156dfe3b2f5060c7714b561580c4c61980da9c4193",
+            "original_model_y": 180,
+            "original_state": "mcwfurnitures:oak_bookshelf[connection=middle,facing=north]",
+            "provider_sha256": "662a008b53fc3d3e1b8c02ffc0442a1f7013010c3e33cf8f9ac4259bf7ac1206"
+          }
+        }
+      },
+      "status": "SERVER_STATES_AND_F2_RECORDED"
+    }
+  },
+  "schema": "MCFR_INT4_NONCHAIR_RUNTIME_REVIEW/v1",
+  "scope": {
+    "bed_player_item_placement_tested": true,
+    "bed_sleep_or_occupancy_transition_tested": false,
+    "int4_total_completion": false,
+    "int5_semantic_approvals": 0,
+    "int6_ai_usage_or_redistribution_approvals": 0,
+    "shelf_player_item_placement_tested": false
+  }
+}
