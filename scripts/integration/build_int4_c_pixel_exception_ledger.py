@@ -133,6 +133,29 @@ def canonical_uv(uv):
     return "|".join(str(value) for value in uv_values(uv))
 
 
+def source_default_uv(a, b, direction):
+    """Prior 1-4 entry02 / original pinned 1.21.1 BlockElement implicit UV formula."""
+    x,y,z=uv3(a)
+    X,Y,Z=uv3(b)
+    n=Fraction(16)
+    lookup={
+        "down":(x,n-Z,X,n-z),
+        "up":(x,z,X,Z),
+        "north":(n-X,n-Y,n-x,n-y),
+        "south":(x,n-Y,X,n-y),
+        "west":(z,n-Y,Z,n-y),
+        "east":(n-Z,n-Y,n-z,n-y),
+    }
+    assert direction in lookup,("INVALID_FACE_DIRECTION",direction)
+    return "|".join(map(str,lookup[direction]))
+
+
+def uv3(s):
+    vals=tuple(Fraction(x) for x in s.split("|"))
+    assert len(vals)==3,("INVALID_MODEL_ELEMENT_CORNERS",s)
+    return vals
+
+
 def face_classification(tid: int|None, path: str, uv: str):
     """Ordering fixed by earlier independently re-executed original-source audit."""
     if tid is None:
@@ -309,11 +332,16 @@ def build():
         evidence_scope=Counter()
         region_weights=Counter()
         no_intersection_examples=[]
-        for model,provider,idx,side,slot,tid,uv,declared,rotation,resolution in db.execute(
-                "SELECT model_key,provider_key,element_index,direction,slot,texture_id,"
-                "uv,uv_declared,uv_rotation,resolution FROM effective_face_texture "
-                "ORDER BY model_key,provider_key,element_index,direction"):
+        for model,provider,idx,side,slot,tid,uv,declared,rotation,resolution,corner0,corner1 in db.execute(
+                "SELECT f.model_key,f.provider_key,f.element_index,f.direction,f.slot,f.texture_id,"
+                "f.uv,f.uv_declared,f.uv_rotation,f.resolution,e.source_from,e.source_to "
+                "FROM effective_face_texture f JOIN element e "
+                "ON e.provider_key=f.provider_key AND e.element_index=f.element_index "
+                "ORDER BY f.model_key,f.provider_key,f.element_index,f.direction"):
             total+=1
+            if not uv:
+                assert int(declared)==0,("MISSING_EXPLICIT_UV",model,provider,idx,side)
+                uv=source_default_uv(corner0,corner1,side)
             texture=queue[str(tid)] if tid is not None else None
             status=face_classification(tid,texture["path"] if texture else "",uv)
             if status=="RENDERABLE_RECT_FROM_SOURCE_DECLARATION":
