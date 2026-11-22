@@ -376,7 +376,7 @@ def build():
             exception_count[reason]+=1
             m=source_models[model]
             a=a_models.get(model)
-            if status=="NO_PINNED_SPRITE_INTERSECTION":
+            if outcome=="NO_PINNED_SPRITE_INTERSECTION":
                 no_intersection_examples.append({"model_key":model,"resource_id":m[0],"uv":uv,
                                                  "texture_id":tid,"model_original_sha":m[2]})
             rows.append({
