@@ -61,6 +61,17 @@ class FiveConnectedMacawOriginal(unittest.TestCase):
         self.assertEqual(f10.MACAW_SHA256,
                          "e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e")
 
+    def test_real_white_sofa_requires_a_visible_neutral_foreground(self):
+        from PIL import Image,ImageDraw
+        from mcfr.chair_capture_isolation_audit import CENTER_RECT
+        image=Image.new("RGB",(1024,684),(157,157,157))
+        self.assertEqual(f10.neutral_white_specimen_pixels(image),0)
+        painter=ImageDraw.Draw(image)
+        painter.rectangle((450,410,470,430),fill=(238,238,238))
+        self.assertGreaterEqual(f10.neutral_white_specimen_pixels(image),300)
+        self.assertEqual(f10.neutral_white_specimen_pixels(Image.new("RGB",(1024,684),(173,208,253))),0)
+        self.assertEqual(CENTER_RECT,(420,350,605,580))
+
     def test_study_geometry_limits_do_not_claim_automatic_connections(self):
         self.assertEqual(sum(row[2] for row in f10.EXPECTED.values()),30)
         self.assertEqual(sum(row[3] for row in f10.EXPECTED.values()),171)
