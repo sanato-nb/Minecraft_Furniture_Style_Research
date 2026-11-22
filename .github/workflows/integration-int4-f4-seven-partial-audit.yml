@@ -1,0 +1,109 @@
+name: INT-4-F4 원본 F2 7장·정확 서버 5·불일치 2 독립 감사
+
+on:
+  push:
+    branches:
+      - work/int4-f4-chair-bench-couch-pot-native-f2-20261122
+    paths:
+      - scripts/integration/build_int4_f4_seven_original_f2_partial_audit.py
+      - tests/integration/test_int4_f4_seven_partial_audit.py
+      - .github/workflows/integration-int4-f4-seven-partial-audit.yml
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  actual-f2-seven-original-casewise-audit:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - name: 기존 70개 원장과 원본 1-5 SHA 고정 브랜치
+        uses: actions/checkout@v4
+
+      - name: 실제 1024x684 게임 이미지 디코더 설치
+        run: python3 -m pip install --break-system-packages 'Pillow>=10,<13'
+
+      - name: 상태 불일치를 합격으로 승격하지 않는 독립 회귀시험
+        run: python3 -m unittest discover -s tests/integration -p 'test_int4_f4_seven_partial_audit.py' -v
+
+      - name: 실제 Minecraft 원본 아티팩트 재다운로드·이미지 7장 SHA·원본 모델·서버 상태 비교
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/integration/build_int4_f4_seven_original_f2_partial_audit.py \
+            --artifact-dir "${RUNNER_TEMP}/int4-f4-original-captures"
+
+      - name: 결과를 원본 ZIP에서 재생성해 결정론적 바이트 비교
+        run: |
+          python3 scripts/integration/build_int4_f4_seven_original_f2_partial_audit.py \
+            --artifact-dir "${RUNNER_TEMP}/int4-f4-original-captures" --verify
+
+      - name: 70개 분모·5조건부·2불일치·최종승인 0 독립 검증
+        run: |
+          python3 - <<'PY'
+          import csv,hashlib,json
+          from pathlib import Path
+          root=Path('project/integration')
+          p=root/'INT4_F4_DIRECT_VISUAL_PARTIAL_ACCEPTANCE_SUMMARY_V1.json'
+          report=json.loads(p.read_text(encoding='utf-8'))
+          assert report['status']=='PASS_7_REVIEWED_PNG_5_EXACT_STATE_2_HOLD_NOT_FULL_F_EXIT'
+          assert report['source_game_workflow_conclusion']=='failure_due_to_STRICT_all_7_exact_state_gate'
+          assert report['counts']['fixed_F_target_units']==70
+          assert report['counts']['new_game_exact_state_case_evidence']==5
+          assert report['counts']['new_game_inexact_state_case_holds']==2
+          assert report['counts']['conditional']==37
+          assert report['counts']['hold']==33
+          assert report['counts']['unconditional_accepted']==0
+          assert report['counts']['historic_case_exact_F2_mapped_now']==31
+          assert report['counts']['new_semantic_part_approvals']==0
+          assert report['counts']['new_training_redistribution_rights_approvals']==0
+          for file,key in (
+            ('INT4_F4_70_TARGET_EVIDENCE_DISPOSITIONS_V4.csv','f70'),
+            ('INT4_F4_33_PENDING_EXACT_F2_TARGETS_V1.csv','pending'),
+            ('INT4_F4_TWO_REAL_SERVER_STATE_EXCEPTIONS_V1.csv','exceptions'),
+          ):
+            data=(root/file).read_bytes()
+            assert hashlib.sha256(data).hexdigest()==report['outputs'][key]['sha256']
+            with (root/file).open(encoding='utf-8',newline='') as f:
+              rows=list(csv.DictReader(f))
+            assert len(rows)==report['outputs'][key]['rows'],file
+            print('PASS',file,len(rows))
+          assert {x['case'] for x in report['exceptions']}=={'S02','S34'}
+          assert all(not x['server_state_exact'] for x in report['exceptions'])
+          assert all(x['image_equal_to_control'] for x in report['exceptions'])
+          assert report['cases']['S02']['native_png_sha256']==report['cases']['S01']['native_png_sha256']
+          assert report['cases']['S34']['native_png_sha256']==report['cases']['S33']['native_png_sha256']
+          print('PASS original images, server mismatch not accepted, final exit still HOLD')
+          PY
+          git diff --check
+
+      - name: 원본 게임 PNG가 아닌 검증 메타데이터만 보존
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-f4-five-exact-two-failed-property-states-70-case-audit
+          retention-days: 45
+          path: |
+            project/integration/INT4_F4_70_TARGET_EVIDENCE_DISPOSITIONS_V4.csv
+            project/integration/INT4_F4_33_PENDING_EXACT_F2_TARGETS_V1.csv
+            project/integration/INT4_F4_TWO_REAL_SERVER_STATE_EXCEPTIONS_V1.csv
+            project/integration/INT4_F4_DIRECT_VISUAL_PARTIAL_ACCEPTANCE_SUMMARY_V1.json
+            project/integration/INT4_F4_REAL_CLIENT_REPORT_V1.md
+
+      - name: 결과만 Draft PR 브랜치에 신규 커밋·main 보호
+        if: github.ref == 'refs/heads/work/int4-f4-chair-bench-couch-pot-native-f2-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F4_70_TARGET_EVIDENCE_DISPOSITIONS_V4.csv \
+                  project/integration/INT4_F4_33_PENDING_EXACT_F2_TARGETS_V1.csv \
+                  project/integration/INT4_F4_TWO_REAL_SERVER_STATE_EXCEPTIONS_V1.csv \
+                  project/integration/INT4_F4_DIRECT_VISUAL_PARTIAL_ACCEPTANCE_SUMMARY_V1.json \
+                  project/integration/INT4_F4_REAL_CLIENT_REPORT_V1.md
+          if git diff --cached --quiet; then
+            echo "Derived audit metadata unchanged"
+          else
+            git commit -m "INT-4-F4 원본 F2 7건 중 5건 조건부·서버 상태 불일치 2건 및 70개 원장 재감사"
+            git push origin HEAD:refs/heads/work/int4-f4-chair-bench-couch-pot-native-f2-20261122
+          fi
