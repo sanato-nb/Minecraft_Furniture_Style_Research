@@ -123,8 +123,7 @@ def stages(values):
             },
             "actual":runner.probe(block,SUBJECT,values[case]),
         }
-        require("tucked" in predicates["actual"] if False else bool(predicates["actual"]),
-                "Missing value probes")
+        require("present" in predicates["actual"], "Missing release property probes")
         data[name]=(moves,predicates)
 
     add("S02_ISOLATED","S02",S02_STATE,[])
