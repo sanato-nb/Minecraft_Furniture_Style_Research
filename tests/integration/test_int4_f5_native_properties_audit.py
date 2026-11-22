@@ -30,9 +30,9 @@ class F5IndependentGuards(unittest.TestCase):
 
     def test_12_original_png_cases_and_independent_qualitative_notes(self):
         j=json.loads(f.pin(f.FIXED))
-        self.assertEqual(set(f.OBS),set(j["cases"]))
-        self.assertEqual(sum(k.startswith("S02") for k in f.OBS),3)
-        self.assertEqual(sum(k.startswith("S34") for k in f.OBS),9)
+        self.assertEqual(set(f.VISUAL),set(j["cases"]))
+        self.assertEqual(sum(k.startswith("S02") for k in f.VISUAL),3)
+        self.assertEqual(sum(k.startswith("S34") for k in f.VISUAL),9)
 
     def test_known_pinned_artifact_is_single_source(self):
         self.assertEqual(f.RUN,45026378323)
