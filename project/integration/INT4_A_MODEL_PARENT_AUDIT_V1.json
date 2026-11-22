@@ -1,0 +1,53 @@
+{
+  "all_int4_completed": false,
+  "baseline_pr": 50,
+  "baseline_source_sha": "10d205c6fba019c15fed30fde6f4015ca99fb69c",
+  "distinct_exception_models": 112,
+  "exception_status_counts": {
+    "NO_DECLARED_EXCEPTION": 16460,
+    "NO_STATIC_ONLY": 64,
+    "PARENT_MISSING_AND_NO_STATIC": 44,
+    "PARENT_MISSING_ONLY": 4
+  },
+  "exception_union_sha256": "e346dbb7932f475e31440dd00d7f706318458bb6c34be0e409b49a261bab63b4",
+  "exceptions_terminally_resolved": false,
+  "input_git_blob_sha1": {
+    "project/integration/INT2_MOD_EXCEPTIONS.csv": "ef1d1f27a5419265084f5bea7be9eecc028f2327",
+    "project/integration/INT2_MOD_SOURCE_SUMMARY.json": "5afcc958d89af358bdcc747efaf3cdcf3423608c",
+    "research/furniture_mods/phase_1-3/B/source_verification/B_AF_SOURCE_BODIES.csv.gz": "e452cdb71cbe76909b4663c5c40f7a8d7ddd6c68",
+    "research/furniture_mods/phase_1-3/B/source_verification/B_HC_SOURCE_BODIES.csv.gz": "21b2f65bfb1fda4f53caca7199ab667ed5ee38c8",
+    "research/furniture_mods/phase_1-3/B/source_verification/B_MACAW_SOURCE_BODIES.csv.gz": "983360ac9ced8aff1ee69c85e4fec7426ed71f37",
+    "research/furniture_mods/phase_1-3/C/MODEL_PARENT_CHAINS.csv.gz": "9a4eeddf419f502bb8fc7808272c7c8336ff9695",
+    "research/furniture_mods/phase_1-3/C/mod_furniture_catalog.csv.gz": "412470e5512b7af93f3c91e2db060612f72650e7"
+  },
+  "int4_A_exit_approved": false,
+  "int5_semantic_approvals": 0,
+  "int6_ai_rights_approvals": 0,
+  "ledger_compressed_bytes": 778111,
+  "ledger_csv_uncompressed_sha256": "c52c6a59ead14fc7afff84415c668c7fcd172bb6c71d39ef3f6ddd53d049fa2f",
+  "ledger_gzip_sha256": "24ab661a0d8a68009d6ffc59c89f81f163c6e6383be644dff318527000934b4f",
+  "ledger_uncompressed_bytes": 9502363,
+  "limitations": [
+    "Reconciles pinned historic B byte/hash ledgers and C parent tables; original upstream ZIP/JAR not reopened this run.",
+    "PARENT_MISSING is a source path status, not an observed broken runtime mesh.",
+    "Historical 48 parent missing are not reached from pinned static blockstate/item parent chains; dynamic loaders not excluded.",
+    "Reused full-history source matching is not equivalent to INT-4-A final exception disposition/independent exit.",
+    "The original B/C historical gz, JSON, CSV, and PR runtime artifacts remain unchanged."
+  ],
+  "mod_models": {
+    "AF": 1629,
+    "HC": 12394,
+    "MACAW": 2549
+  },
+  "model_parent_chain_joined": 16572,
+  "model_rows": 16572,
+  "model_source_B_C_sha_equal": 16572,
+  "new_game_F2_opened": 0,
+  "new_original_json_opened": 0,
+  "no_static": 108,
+  "overlap_missing_and_no_static": 44,
+  "parent_missing": 48,
+  "schema": "MCFR_INT4_A_HISTORY_B_C_MODEL_PARENT_LEDGER/v1",
+  "status": "PASS_HISTORY_SOURCE_SHA_AND_PARENT_CHAIN_16572_NOT_NEW_ORIGINAL_RUNTIME",
+  "unique_model_keys": 16572
+}

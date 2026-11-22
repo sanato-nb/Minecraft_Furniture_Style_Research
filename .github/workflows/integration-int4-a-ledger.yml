@@ -1,0 +1,106 @@
+name: INT-4-A 고정 원본 모델·부모 원장 검증
+
+on:
+  push:
+    branches:
+      - work/int4-a-model-parent-ledger-20261122
+    paths:
+      - scripts/integration/build_int4_a_ledger.py
+      - project/integration/INT4_A_EXCEPTION_UNION_V1.csv
+      - .github/workflows/integration-int4-a-ledger.yml
+
+permissions:
+  contents: write
+
+jobs:
+  source-parent-ledger:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: 기준 PR 작업 브랜치 체크아웃
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+
+      - name: 원본 SHA·모델 16572개·예외 112개 연결 원장 생성
+        run: python3 scripts/integration/build_int4_a_ledger.py
+
+      - name: 고정 입력과 생성 결과 독립 재생성 검증
+        run: python3 scripts/integration/build_int4_a_ledger.py --verify
+
+      - name: 생성기와 독립된 행별 SHA·예외 판정 재감사
+        run: |
+          python3 - <<'PY'
+          from collections import Counter
+          import csv,gzip,hashlib,io,json
+          from pathlib import Path
+          root=Path("project/integration")
+          summary=json.loads((root/"INT4_A_MODEL_PARENT_AUDIT_V1.json").read_text(encoding="utf-8"))
+          body=(root/"INT4_A_MODEL_PARENT_LEDGER_V1.csv.gz").read_bytes()
+          assert hashlib.sha256(body).hexdigest()==summary["ledger_gzip_sha256"]
+          plaintext=gzip.decompress(body)
+          assert hashlib.sha256(plaintext).hexdigest()==summary["ledger_csv_uncompressed_sha256"]
+          records=list(csv.DictReader(io.StringIO(plaintext.decode("utf-8"),newline="")))
+          ids={(r["mod"],r["model_id"]) for r in records}
+          assert len(records)==len(ids)==16572
+          mods=Counter(r["mod"] for r in records)
+          assert mods==Counter({"AF":1629,"HC":12394,"MACAW":2549})
+          exceptions=Counter(r["exception_disposition"] for r in records)
+          assert exceptions==Counter({"NO_DECLARED_EXCEPTION":16460,"NO_STATIC_ONLY":64,
+                                     "PARENT_MISSING_AND_NO_STATIC":44,"PARENT_MISSING_ONLY":4})
+          for row in records:
+              sha=row["original_model_sha"]
+              assert sha and sha==row["historical_b_source_sha"]==row["historical_c_source_sha"]
+              assert len(sha)==(64 if row["mod"]=="MACAW" else 40)
+              assert row["source_link_status"]=="MATCHED_HISTORICAL_B_C_AND_CHAIN"
+              assert row["new_upstream_original_read"]=="0"
+              assert int(row["source_json_bytes"])>0
+              assert int(row["parent_missing"]) == int(row["terminal_status"]=="PARENT_MISSING")
+              assert int(row["no_static"]) == int(int(row["effective_elements"])==0)
+          print("INDEPENDENT PASS: 16,572 unique IDs, exact historical SHA, 112 exceptions")
+          PY
+
+      - name: 산출물 내용·완료 범위 확인
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          path=Path("project/integration/INT4_A_MODEL_PARENT_AUDIT_V1.json")
+          record=json.loads(path.read_text(encoding="utf-8"))
+          assert record["model_rows"]==16572
+          assert record["model_source_B_C_sha_equal"]==16572
+          assert record["model_parent_chain_joined"]==16572
+          assert record["distinct_exception_models"]==112
+          assert record["overlap_missing_and_no_static"]==44
+          assert record["new_original_json_opened"]==0
+          assert not record["int4_A_exit_approved"]
+          print("PASS: 16572 model rows / 112 distinct exceptions / no new upstream or F2 claims")
+          PY
+          git diff --check
+
+      - name: 신규 보고서와 인수 원장 아티팩트 보존
+        uses: actions/upload-artifact@v4
+        with:
+          name: INT4-A-16572-model-ledger
+          retention-days: 45
+          path: |
+            project/integration/INT4_A_MODEL_PARENT_LEDGER_V1.csv.gz
+            project/integration/INT4_A_MODEL_PARENT_AUDIT_V1.json
+            project/integration/INT4_A_MODEL_PARENT_REPORT_V1.md
+
+      - name: 신규 파일만 해당 작업 브랜치에 커밋
+        if: github.ref == 'refs/heads/work/int4-a-model-parent-ledger-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_A_MODEL_PARENT_LEDGER_V1.csv.gz \
+                  project/integration/INT4_A_MODEL_PARENT_AUDIT_V1.json \
+                  project/integration/INT4_A_MODEL_PARENT_REPORT_V1.md
+          if git diff --cached --quiet; then
+            echo "원장 내용 동일 - 신규 커밋 없음"
+          else
+            git commit -m "INT-4-A 전체 모델 16572개 부모·출처 연결 감사 원장 생성"
+            git push origin HEAD:refs/heads/work/int4-a-model-parent-ledger-20261122
+          fi
