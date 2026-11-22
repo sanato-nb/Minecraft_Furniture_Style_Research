@@ -1,0 +1,252 @@
+{
+  "base_draft_pr": 59,
+  "base_prior_evidence_git_blob_sha1": {
+    "project/integration/INT4_F2_4_DIRECT_IMAGE_VISUAL_AUDIT_V1.json": "25edf176560e54dc4457f7d201f0f4360a756518",
+    "project/integration/INT4_F2_70_TARGET_EVIDENCE_DISPOSITIONS_V2.csv": "fa6b659e54e2343229de0a6943e45b59342977b9",
+    "project/integration/INT4_F3_NEW7_ACTUAL_CLIENT_SOURCE_SUMMARY_V1.json": "b389ff860ecc0346e6e1dd143ea20d676fa259da"
+  },
+  "boundaries": [
+    "Actual Minecraft Fabric client was newly launched and seven server readback states were recorded with seven original PNGs.",
+    "S20 and S21 are distinct original server states but same PNG hash; no opening animation or visually distinct drawer model was demonstrated.",
+    "AF 4.0.3 research original Git state/model/provider bytes do not match 4.0.2 Fabric JAR; selected model rule equality is narrower.",
+    "S27 Handcrafted 4.0.3 state/model/provider source byte SHA matches original Git source.",
+    "No block functionality, part meaning, baked pixelwise UV, light causation or user item interaction is approved.",
+    "All 70 targets remain conditional or HOLD, 0 final accepted. R06/R08 remain HOLD.",
+    "Original ZIP/PNG is retained as a temporary Github Actions artifact only; hashes and visual observation text in repository."
+  ],
+  "cases": {
+    "S20": {
+      "baked_uv_or_semantic_approved": "false",
+      "case": "S20",
+      "cohort": "AF",
+      "direct_visual_observation_KO": "나무 상자형 서랍이 보임. 열림=false인데 S21 열림=true와 F2 원본 이미지 바이트가 완전히 동일함; 실제 외형 차이는 입증하지 못함",
+      "licensing_approved": "false",
+      "minecraft": "1.21.1",
+      "model_selection_matches_release": "PASS",
+      "original_exact_block_state": "another_furniture:oak_drawer[facing=north,open=false]",
+      "original_game_native_f2_png_sha256": "02ee02a4b05d0d9877fc12debd214a96823cea734e56e7f60972bb72ff29f566",
+      "original_model_key": "AF491",
+      "original_model_sha1": "94fa3aee05df69ffa479c0b99c908e8d43bec08e",
+      "original_provider_sha1": "a268f4bed87af25610b20cbe3b58386fe51dc528",
+      "original_state_sha1": "2fdd023c87019d59beaed3521a178df7252fd154",
+      "research_model_state_provider_bytes_equal_release": {
+        "model": false,
+        "provider": false,
+        "state": false
+      },
+      "server_readback_exact": "PASS",
+      "visible_image_reopened_at_original_resolution": "true"
+    },
+    "S21": {
+      "baked_uv_or_semantic_approved": "false",
+      "case": "S21",
+      "cohort": "AF",
+      "direct_visual_observation_KO": "나무 상자형 서랍이 보임. 게임 서버 open=true 확인, 그러나 S20(open=false)과 동일한 PNG SHA; 열린 서랍의 시각적 차이 증명 불가",
+      "licensing_approved": "false",
+      "minecraft": "1.21.1",
+      "model_selection_matches_release": "PASS",
+      "original_exact_block_state": "another_furniture:oak_drawer[facing=north,open=true]",
+      "original_game_native_f2_png_sha256": "02ee02a4b05d0d9877fc12debd214a96823cea734e56e7f60972bb72ff29f566",
+      "original_model_key": "AF492",
+      "original_model_sha1": "6cfdb729ff76d60b0cd96be874d1d3aa91f5f0d9",
+      "original_provider_sha1": "a268f4bed87af25610b20cbe3b58386fe51dc528",
+      "original_state_sha1": "2fdd023c87019d59beaed3521a178df7252fd154",
+      "research_model_state_provider_bytes_equal_release": {
+        "model": false,
+        "provider": false,
+        "state": false
+      },
+      "server_readback_exact": "PASS",
+      "visible_image_reopened_at_original_resolution": "true"
+    },
+    "S26": {
+      "baked_uv_or_semantic_approved": "false",
+      "case": "S26",
+      "cohort": "AF",
+      "direct_visual_observation_KO": "상판과 짧은 지지다리처럼 보이는 목재 구조 확인. 원본 분류는 선반이지만 저장 기능이나 연결 형태를 영상만으로 승인하지 않음",
+      "licensing_approved": "false",
+      "minecraft": "1.21.1",
+      "model_selection_matches_release": "PASS",
+      "original_exact_block_state": "another_furniture:oak_shelf[facing=north,horizontal=single]",
+      "original_game_native_f2_png_sha256": "d9f511b33c70a6d77b8283da482ee1390327dfd03ad86dbc1fb1c90a7f1f2f57",
+      "original_model_key": "AF718",
+      "original_model_sha1": "b04fbd704f3e52c3c685f8f5583db117b9dd2269",
+      "original_provider_sha1": "8769a96b5f47e8ea32b049d4ca2b4d9b2fee3e06",
+      "original_state_sha1": "6500e684ecd29370ea370128acb8faaaf7b03c1d",
+      "research_model_state_provider_bytes_equal_release": {
+        "model": false,
+        "provider": false,
+        "state": false
+      },
+      "server_readback_exact": "PASS",
+      "visible_image_reopened_at_original_resolution": "true"
+    },
+    "S27": {
+      "baked_uv_or_semantic_approved": "false",
+      "case": "S27",
+      "cohort": "HC",
+      "direct_visual_observation_KO": "목재 상자형의 수평 줄무늬 상단 구조 확인. 선반의 사용 목적·충돌·연결형 동작은 승인하지 않음",
+      "licensing_approved": "false",
+      "minecraft": "1.21.1",
+      "model_selection_matches_release": "PASS",
+      "original_exact_block_state": "handcrafted:oak_shelf[facing=north,shape=single,type=1]",
+      "original_game_native_f2_png_sha256": "1ce76f5310a13c20ed1b7f293516a2f6c1dfa9a93ba54779b383cb62b6743e29",
+      "original_model_key": "HC8719",
+      "original_model_sha1": "4f4e76fc8414b14158d80eb92092cbbef05f6db9",
+      "original_provider_sha1": "8c16997fa8aa7bfc0c05c464534e4295ac968632",
+      "original_state_sha1": "747134a1d2b62fd186e7f7145645f1c3ed64ea65",
+      "research_model_state_provider_bytes_equal_release": {
+        "model": true,
+        "provider": true,
+        "state": true
+      },
+      "server_readback_exact": "PASS",
+      "visible_image_reopened_at_original_resolution": "true"
+    },
+    "S44": {
+      "baked_uv_or_semantic_approved": "false",
+      "case": "S44",
+      "cohort": "AF",
+      "direct_visual_observation_KO": "나무 다리 같은 받침과 흰색 테두리를 가진 작은 조명 형태가 보임. 발광·점등 효과 원인 추론 보류",
+      "licensing_approved": "false",
+      "minecraft": "1.21.1",
+      "model_selection_matches_release": "PASS",
+      "original_exact_block_state": "another_furniture:white_lamp[base=true,facing=north,lit=false]",
+      "original_game_native_f2_png_sha256": "f8d21ad28458ec610ff01b5719c8e2f68ad36e4da43048e561df6dfb5744fd60",
+      "original_model_key": "AF675",
+      "original_model_sha1": "eec0f9788a70ce28f0786c5dfdfa29d0bcceb529",
+      "original_provider_sha1": "06b66634fea95285022d1dc0933df40ea7b6f640",
+      "original_state_sha1": "f08a8695df712d671facdafc32e55a63c374a0e3",
+      "research_model_state_provider_bytes_equal_release": {
+        "model": false,
+        "provider": false,
+        "state": false
+      },
+      "server_readback_exact": "PASS",
+      "visible_image_reopened_at_original_resolution": "true"
+    },
+    "S45": {
+      "baked_uv_or_semantic_approved": "false",
+      "case": "S45",
+      "cohort": "AF",
+      "direct_visual_observation_KO": "S44와 같은 계열의 작은 조명이 보이고 스크린샷 밝기가 다름. 점등 상태가 서버에서 확인되지만 인과적 광원 검증은 아님",
+      "licensing_approved": "false",
+      "minecraft": "1.21.1",
+      "model_selection_matches_release": "PASS",
+      "original_exact_block_state": "another_furniture:white_lamp[base=true,facing=north,lit=true]",
+      "original_game_native_f2_png_sha256": "42ed47f02c02fb1af7303a240d899e27712786f2fc430b3269075426f3c13447",
+      "original_model_key": "AF674",
+      "original_model_sha1": "1bab130e3d4c4e273ccd1e14a9bf0656ecad15ab",
+      "original_provider_sha1": "31265d46f071ddd3461c5c518e8d06c0a2b400ee",
+      "original_state_sha1": "f08a8695df712d671facdafc32e55a63c374a0e3",
+      "research_model_state_provider_bytes_equal_release": {
+        "model": false,
+        "provider": false,
+        "state": false
+      },
+      "server_readback_exact": "PASS",
+      "visible_image_reopened_at_original_resolution": "true"
+    },
+    "S46": {
+      "baked_uv_or_semantic_approved": "false",
+      "case": "S46",
+      "cohort": "AF",
+      "direct_visual_observation_KO": "바닥에 가까운 낮은 긴 나무 상자와 패턴 상단이 보임. 식물·수납 역할은 화면만으로 승인 불가",
+      "licensing_approved": "false",
+      "minecraft": "1.21.1",
+      "model_selection_matches_release": "PASS",
+      "original_exact_block_state": "another_furniture:oak_flower_box[attached=false,facing=north,horizontal=single]",
+      "original_game_native_f2_png_sha256": "53def560f09c2b5791c1fcdf5299d4bb477be4b9072a175a1cdcc7ac8af12632",
+      "original_model_key": "AF562",
+      "original_model_sha1": "115ffc747e20836f51bcac4f8ab21337de261298",
+      "original_provider_sha1": "6121be03ae2b56303d25f5559cb8f825dfaab982",
+      "original_state_sha1": "2aff1dc13940c2dfbfc48ab3bbffffe1282fd45d",
+      "research_model_state_provider_bytes_equal_release": {
+        "model": false,
+        "provider": false,
+        "state": false
+      },
+      "server_readback_exact": "PASS",
+      "visible_image_reopened_at_original_resolution": "true"
+    }
+  },
+  "counts": {
+    "F_targets_hold": 38,
+    "F_targets_unconditionally_accepted": 0,
+    "F_targets_with_conditional_evidence": 32,
+    "R06_R08_remaining_hold": 2,
+    "different_source_state_same_F2_png_case_pairs": 1,
+    "drawers_same_png_unique_case_count": 2,
+    "fixed_f_targets": 70,
+    "historic_case_exact_F2_mapped_before": 19,
+    "historic_case_exact_F2_mapped_now": 26,
+    "historic_case_not_yet_exact_F2_mapped": 36,
+    "new_AI_part_semantics_approved": 0,
+    "new_F2_human_observed_original_images": 7,
+    "new_case_artifact_verified_sha": 7,
+    "new_case_distinct_png_sha": 6,
+    "new_case_original_server_F2": 7,
+    "new_case_png_occurrences": 7,
+    "new_game_sessions_executed": 1,
+    "new_original_asset_AI_training_or_redistribution_rights_approved": 0,
+    "new_original_game_PNG_committed_to_Git": 0,
+    "original_research_elements_new": 30,
+    "original_research_faces_new": 144,
+    "pinned_1_5_cases": 62,
+    "source_release_bytes_different_cases": 6,
+    "source_release_bytes_identical_cases": 1
+  },
+  "known_exceptions": [
+    "EX01_DRAWER_OPEN_FALSE_TRUE_SAME_F2_SHA",
+    "EX02_ANOTHER_FURNITURE_RELEASE_SOURCE_BYTE_DIFFERENCE",
+    "EX03_LAMP_LIT_DIFF_NOT_FULL_LIGHTING_PROOF"
+  ],
+  "outputs": {
+    "exceptions_3": {
+      "rows": 3,
+      "sha256": "046d8e38920a447ca97b8ecbf5c2662155f7b54dfc68a523c74039243bffea56"
+    },
+    "pending_38": {
+      "rows": 38,
+      "sha256": "d58a29d994ee43ebbd9154c969d1f1f4cc71e4d047111c8fce56c712fd049d1b"
+    },
+    "target_v3": {
+      "rows": 70,
+      "sha256": "3f0ec35ed84ef333173fdf20ee6c1e3ba8bc048358404b7fc44e7e3ac0fb1854"
+    }
+  },
+  "progress": {
+    "F_62_original_study_exact_F2_evidence_mapped": {
+      "denominator": 62,
+      "numerator": 26
+    },
+    "F_70_conditional_evidence": {
+      "denominator": 70,
+      "numerator": 32
+    },
+    "F_70_final_unconditional_acceptance": {
+      "denominator": 70,
+      "numerator": 0
+    },
+    "F_70_target_disposition_documented": {
+      "denominator": 70,
+      "numerator": 70
+    },
+    "F_full_exit": "BLOCKED_38_HOLD_AND_32_CONDITIONAL_NOT_FULL_ACCEPTED",
+    "G_and_H_independent_final_audit": "NOT_STARTED"
+  },
+  "remaining_hold_by_cohort": {
+    "AF": 7,
+    "HC": 4,
+    "MACAW": 10,
+    "RISK": 2,
+    "VANILLA": 15
+  },
+  "schema": "MCFR_INT4_F3_70_TARGETS_7_NEW_REAL_FABRIC_F2_SOURCE_RECONCILIATION/v1",
+  "source_Github_Actions_artifact_id": 14748847662,
+  "source_Github_Actions_artifact_zip_sha256": "5cadfa474d75de4d71078a2159008a6f52b6073e1e8a7ef8f3dcb51865f65ffa",
+  "source_Github_Actions_run": 45008591423,
+  "source_Github_Actions_run_url": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45008591423",
+  "source_runtime_client_log_sha256": "6b4b2be6f83bb0cec440e311bfd94109bbeb02bfbfb3fb365c90aad6be0a5439",
+  "status": "PASS_7_NEW_NATIVE_F2_REAL_GAME_SOURCE_AUDIT_70_TARGETS_NOT_FULL_F_EXIT"
+}

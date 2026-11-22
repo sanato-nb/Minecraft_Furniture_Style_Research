@@ -1,0 +1,94 @@
+name: INT-4-F3 70개 대상 7 F2 출처·서랍 동일이미지 독립 재감사
+
+on:
+  push:
+    branches:
+      - work/int4-f3-seven-mod-states-real-f2-20261122
+    paths:
+      - scripts/integration/build_int4_f3_70_new_f2_evidence.py
+      - tests/integration/test_int4_f3_70_new_f2_evidence.py
+      - .github/workflows/integration-int4-f3-70-evidence-audit.yml
+
+permissions:
+  contents: write
+
+jobs:
+  original-source-run-evidence-join:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - name: 원본 F2 이전 체인 및 7건 실제 게임 증거 로드
+        uses: actions/checkout@v4
+
+      - name: 잠금 원본 출처·7개 서버/F2 원본·예외 경계 단위시험
+        run: python3 -m unittest discover -s tests/integration -p 'test_int4_f3_70_new_f2_evidence.py' -v
+
+      - name: 새 F2 원본 SHA 7건 + 기존 70개 출처 조인·누락/예외 원장 생성
+        run: python3 scripts/integration/build_int4_f3_70_new_f2_evidence.py
+
+      - name: 두 번째 독립 실행으로 완전 동일 바이트 재검증
+        run: python3 scripts/integration/build_int4_f3_70_new_f2_evidence.py --verify
+
+      - name: 열림/닫힘 동일 서랍 원본 PNG 구별 및 AF 연구/배포 버전 차이 독립 감사
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,csv,hashlib
+          from collections import Counter
+          p=Path("project/integration")
+          j=json.loads((p/"INT4_F3_7_DIRECT_IMAGE_VISUAL_AUDIT_V1.json").read_text(encoding="utf-8"))
+          files=[
+            ("INT4_F3_70_TARGET_EVIDENCE_DISPOSITIONS_V3.csv","target_v3",70),
+            ("INT4_F3_38_PENDING_EXACT_F2_CASES_V1.csv","pending_38",38),
+            ("INT4_F3_3_RENDER_SOURCE_EXCEPTIONS_V1.csv","exceptions_3",3),
+          ]
+          for name,key,n in files:
+            b=(p/name).read_bytes()
+            assert hashlib.sha256(b).hexdigest()==j["outputs"][key]["sha256"],name
+            with (p/name).open(encoding="utf-8",newline="") as f:
+              lines=list(csv.DictReader(f))
+            assert len(lines)==n,(name,len(lines))
+            print("PASS",name,n)
+          assert j["counts"]["F_targets_with_conditional_evidence"]==32
+          assert j["counts"]["F_targets_hold"]==38
+          assert j["counts"]["F_targets_unconditionally_accepted"]==0
+          assert j["counts"]["historic_case_exact_F2_mapped_now"]==26
+          assert j["counts"]["new_case_png_occurrences"]==7
+          assert j["counts"]["new_case_distinct_png_sha"]==6
+          assert j["counts"]["different_source_state_same_F2_png_case_pairs"]==1
+          assert j["source_Github_Actions_run"]==45008591423
+          assert j["counts"]["new_AI_part_semantics_approved"]==0
+          assert j["counts"]["new_original_asset_AI_training_or_redistribution_rights_approved"]==0
+          print("PASS 70 total, 32 conditional / 38 HOLD / full accept 0")
+          PY
+          git diff --check
+
+      - name: 70개 CSV·서랍 이미지 예외·진행도 보고서 아티팩트로 보존
+        uses: actions/upload-artifact@v4
+        with:
+          name: INT4-F3-70-32-conditional-38-hold-new-7-real-F2-source-evidence
+          retention-days: 45
+          path: |
+            project/integration/INT4_F3_70_TARGET_EVIDENCE_DISPOSITIONS_V3.csv
+            project/integration/INT4_F3_38_PENDING_EXACT_F2_CASES_V1.csv
+            project/integration/INT4_F3_3_RENDER_SOURCE_EXCEPTIONS_V1.csv
+            project/integration/INT4_F3_7_DIRECT_IMAGE_VISUAL_AUDIT_V1.json
+            project/integration/INT4_F3_SOURCE_REPORT_V1.md
+
+      - name: Minecraft 원본 PNG/JAR 제외하고 Draft PR 브랜치에만 결과 기록
+        if: github.ref == 'refs/heads/work/int4-f3-seven-mod-states-real-f2-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F3_70_TARGET_EVIDENCE_DISPOSITIONS_V3.csv \
+                  project/integration/INT4_F3_38_PENDING_EXACT_F2_CASES_V1.csv \
+                  project/integration/INT4_F3_3_RENDER_SOURCE_EXCEPTIONS_V1.csv \
+                  project/integration/INT4_F3_7_DIRECT_IMAGE_VISUAL_AUDIT_V1.json \
+                  project/integration/INT4_F3_SOURCE_REPORT_V1.md
+          if git diff --cached --quiet; then
+            echo "선행 결과와 동일하여 결과 커밋 생략"
+          else
+            git commit -m "INT-4-F3 실제 F2 7건 70개 원장·서랍 시각 동일 예외·보류 38개 재감사"
+            git push origin HEAD:refs/heads/work/int4-f3-seven-mod-states-real-f2-20261122
+          fi

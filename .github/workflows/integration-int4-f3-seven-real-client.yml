@@ -1,0 +1,127 @@
+name: INT-4-F3 서랍 선반 조명 7개 실제 Minecraft Fabric F2
+
+on:
+  push:
+    branches:
+      - work/int4-f3-seven-mod-states-real-f2-20261122
+    paths:
+      - src/mcfr/int4_nonchair_runtime.py
+      - src/mcfr/int4_f3_storage_shelf_light_capture.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int4_f3_storage_shelf_light_capture.py
+      - .github/workflows/integration-int4-f3-seven-real-client.yml
+
+permissions:
+  contents: write
+
+jobs:
+  seven-mod-f2-original-client:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 44
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install actual Minecraft GL software renderer and PNG reader
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 update
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 install -y \
+              xvfb xauth xdotool libgl1-mesa-dri libglx-mesa0
+          fi
+
+      - name: Original 1-5 seven cases and prior 4+6 regression
+        run: |
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f3_storage_shelf_light_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f_missing_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_nonchair_runtime.py' -v
+
+      - name: Download original pinned Handcrafted research source
+        run: |
+          curl -fLsS --retry 3 --max-time 90 \
+            'https://codeload.github.com/terrarium-earth/Handcrafted/zip/8d21d1665916850c3fa3bdaf1370c50ec2ca7035' \
+            -o "$RUNNER_TEMP/int4-f3-hc-source.zip"
+          echo "MCFR_HC_SOURCE_ZIP=$RUNNER_TEMP/int4-f3-hc-source.zip" >> "$GITHUB_ENV"
+
+      - name: Prepare disposable official Minecraft 1.21.1 Fabric world
+        run: |
+          echo "WORLD=$RUNNER_TEMP/int4-f3-world" >> "$GITHUB_ENV"
+          echo "CACHE=$RUNNER_TEMP/int4-f3-cache" >> "$GITHUB_ENV"
+          echo "WORK=$RUNNER_TEMP/int4-f3-game-work" >> "$GITHUB_ENV"
+          echo "OUT=$RUNNER_TEMP/int4-f3-f2-evidence" >> "$GITHUB_ENV"
+          python -m mcfr.chair_runtime_fixture world --version 1.21.1 \
+            --path "$RUNNER_TEMP/int4-f3-world" --cache "$RUNNER_TEMP/int4-f3-cache"
+
+      - name: Execute actual Fabric 1.21.1 seven exact original mod model states and screenshots
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+          ALSOFT_DRIVERS: 'null'
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int4-f3-mod-capture --version 1.21.1 \
+              --world "$WORLD" --work "$WORK" --output "$OUT"
+
+      - name: Audit 7 original model source SHA, server block states and native PNG hashes
+        run: |
+          python -m mcfr.int4_f3_storage_shelf_light_capture \
+            --directory "$OUT" \
+            --output project/integration/INT4_F3_NEW7_ACTUAL_CLIENT_SOURCE_SUMMARY_V1.json
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,os,json
+          from PIL import Image
+          p=Path('project/integration/INT4_F3_NEW7_ACTUAL_CLIENT_SOURCE_SUMMARY_V1.json')
+          j=json.loads(p.read_text(encoding='utf-8'))
+          assert j['status']=='PASS_EXACT_SEVEN_ORIGINAL_MOD_CASE_SERVER_F2_SHA_NOT_SEMANTIC_RENDER_EXIT'
+          assert j['cases']==['S20','S21','S26','S27','S44','S45','S46']
+          assert j['native_f2_png_count']==7
+          assert j['original_research_case_model_elements']==30
+          assert j['original_research_case_model_faces']==144
+          assert j['evidence_limits']['human_visual_approval_automated'] is False
+          assert j['evidence_limits']['int5_semantic_approvals']==0
+          assert j['evidence_limits']['int6_training_redistribution_rights_approved']==0
+          out=Path(os.environ['OUT'])
+          for k,v in j['source_files_by_case'].items():
+            raw=(out/(k+'.png')).read_bytes()
+            assert hashlib.sha256(raw).hexdigest()==v['native_f2_sha256']
+            assert v['server_exact_state_readback'] is True
+            assert v['original_source_model_selection_equals_release'] is True
+            with Image.open(out/(k+'.png')) as im:
+              im.load()
+              assert im.format=='PNG' and im.size==(1024,684)
+            print('PASS ORIGINAL F2',k,v['native_f2_sha256'])
+          assert hashlib.sha256((out/'client.log').read_bytes()).hexdigest()==j['client_log_sha256']
+          print('PASS 7 game clients F2 source + server + png')
+          PY
+          git diff --check
+
+      - name: Save original game PNG screenshots and client log only as temporary GitHub artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-f3-seven-storage-shelf-light-native-source-F2
+          path: ${{ env.OUT }}/
+          retention-days: 45
+          if-no-files-found: warn
+
+      - name: Commit derived evidence metadata only on Draft branch
+        if: success() && github.ref == 'refs/heads/work/int4-f3-seven-mod-states-real-f2-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F3_NEW7_ACTUAL_CLIENT_SOURCE_SUMMARY_V1.json
+          if git diff --cached --quiet; then
+            echo "New source evidence unchanged"
+          else
+            git commit -m "INT-4-F3 실제 Fabric 서랍·선반·등 7건 블록상태와 원본 F2 SHA 기록"
+            git push origin HEAD:refs/heads/work/int4-f3-seven-mod-states-real-f2-20261122
+          fi
