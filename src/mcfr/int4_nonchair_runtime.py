@@ -43,7 +43,9 @@ def position(x, y, z):
 
 
 def state(block, properties):
-    return block + "[" + properties.replace(";", ",") + "]"
+    # Empty state selectors are legal in the original 1-5 source catalogue.
+    # Do not send an empty [] suffix to /setblock or execute-if-block.
+    return block if not properties else block + "[" + properties.replace(";", ",") + "]"
 
 
 def applications(case_ids=None):
