@@ -67,6 +67,13 @@ class PixelExceptionTests(unittest.TestCase):
         self.assertEqual(a.canonical_uv("-5|1|1|1.5"),"-5|1|1|3/2")
         self.assertEqual(a.canonical_uv("-5|1|1|3/2"),"-5|1|1|3/2")
 
+    def test_source_implicit_uv_formula(self):
+        # Original 1.21.1 Java BlockElement formula pinned in 1-4 entry02.
+        self.assertEqual(a.source_default_uv("1|2|3","7|9|13","down"),"1|3|7|13")
+        self.assertEqual(a.source_default_uv("1|2|3","7|9|13","up"),"1|3|7|13")
+        self.assertEqual(a.source_default_uv("1|2|3","7|9|13","north"),"9|7|15|14")
+        self.assertEqual(a.source_default_uv("1|2|3","7|9|13","east"),"3|7|13|14")
+
     def test_invalid_uv_rejected(self):
         with self.assertRaises(AssertionError):
             a.uv_values("0|16|32")
