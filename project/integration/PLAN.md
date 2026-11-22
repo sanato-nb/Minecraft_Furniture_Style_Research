@@ -77,3 +77,8 @@ H2의 `release`/`asset` 기반 원본 키와 역사 1-3-F의 model/geometry/elem
 - `H`: 미검수·원본 접근 불가·이용 권한 미확인. 사용 보류.
 
 **이번 INT-0/1에서는 어떤 원본 모델에도 A/B 학습 승인 등급을 새로 부여하지 않는다.**
+
+## INT-4 공식 세부 실행계획
+
+- [INT-4 A~H 실행계획·전체 고정 범위·완료 조건](INT4_OFFICIAL_EXECUTION_PLAN_V1.md)
+- [INT-4 실제 렌더 필수 대상 70개](INT4_F_RENDER_TARGETS_V1.csv) · [단계별 근거/진행 지표](INT4_SCOPE_AND_PROGRESS_V1.json) · [기존 증거 재사용 원장](INT4_EVIDENCE_REUSE_V1.csv)
