@@ -1,0 +1,101 @@
+{
+  "schema": "MCFR_INT4_MACAW_TABLE_NEIGHBOR_REAL_GAME_SOURCE_LOCK/v1",
+  "status": "REAL_FABRIC_TABLE_NEIGHBOR_BIDIRECTIONAL_JOIN_AND_AUTO_DISCONNECT_VERIFIED",
+  "original_mod_jar_sha256": "e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e",
+  "pinned_research_application_csv_sha256": "da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e",
+  "first_successful_ci": {
+    "run_id": 44974265995,
+    "artifact_id": 14734479862,
+    "photo_limit": "Subjects clipped at bottom of frame; source/model and server states valid; F2 unsuitable for full form comparison"
+  },
+  "first_visually_usable_ci": {
+    "run_id": 44974527934,
+    "job_id": 137061329336,
+    "artifact_id": 14734114817,
+    "artifact_zip_sha256": "1ced6ddc80ae2a3607ef88306d61014c7d90d8d0d3b950cc85e27e1bbb0b47b3",
+    "original_F2_sha256": {
+      "reset": "419bd440d613d6d4b68e45148132bed092a915859b8db1b6bc4872987d0b7cda",
+      "join": "8d1ea8e823e19d459cc7453fc190fdd1e01f25110b443a8dc322e521450a440e",
+      "remove": "29363d98fc1658af8fb2305d62c82ecc6277d3f7160e7b84c02270ce882a2788"
+    },
+    "client_log_sha256": "e9ddcd6913ec248c9a3d1bc2fac9cc2f56d0a02dbe13f347731e5ead64adf354",
+    "contact_sha256": "12c0b9489da320398f297504e8807eec87eb4af43c1d3bbd4305b5d550706581",
+    "native_F2_count": 3
+  },
+  "actual_integrated_server_observations": {
+    "reset": {
+      "centre": {
+        "block": "table",
+        "east": false,
+        "west": false,
+        "north": false,
+        "south": false
+      },
+      "east": {
+        "block": "air",
+        "east": null,
+        "west": null,
+        "north": null,
+        "south": null
+      }
+    },
+    "join": {
+      "centre": {
+        "block": "table",
+        "east": true,
+        "west": false,
+        "north": false,
+        "south": false
+      },
+      "east": {
+        "block": "table",
+        "east": false,
+        "west": true,
+        "north": false,
+        "south": false
+      }
+    },
+    "remove": {
+      "centre": {
+        "block": "table",
+        "east": false,
+        "west": false,
+        "north": false,
+        "south": false
+      },
+      "east": {
+        "block": "air",
+        "east": null,
+        "west": null,
+        "north": null,
+        "south": null
+      }
+    }
+  },
+  "derived": {
+    "centre_east_baseline": false,
+    "centre_east_with_neighbor": true,
+    "neighbor_west_with_centre": true,
+    "centre_east_after_remove": false,
+    "joined_bidirectionally": true,
+    "automatically_disconnected_after_remove": true,
+    "state_changed_after_adjacent_setblock": true,
+    "natural_server_block_neighbor_updates_observed": true,
+    "player_item_placement_tested": false
+  },
+  "direct_image_review": {
+    "reset": "One standalone oak table is visible; top and supporting legs in frame",
+    "join": "Two oak tables form an extended surface; a middle seam is visible with legs at the outside",
+    "remove": "One standalone table remains, matching the reset scene visually",
+    "visual_source": "Actual three PNG images plus contact sheet from GitHub Actions artifact 14734114817",
+    "full_GPUBaked_UV_or_specific_part_role_approval": false
+  },
+  "scope": {
+    "experiment_uses_server_setblock_neighbor_updates": true,
+    "direct_player_item_use_and_mouse_placement_tested": false,
+    "natural_bookshelf_or_bed_update_tested": false,
+    "int4_full_finished": false,
+    "int5_semantic_approvals": 0,
+    "int6_ai_rights_approvals": 0
+  }
+}
