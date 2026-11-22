@@ -9,6 +9,7 @@ Minecraft client render validation. Refuses changed Git blobs.
 from __future__ import annotations
 import argparse
 from collections import Counter, defaultdict
+from fractions import Fraction
 import csv
 import gzip
 import hashlib
@@ -121,9 +122,15 @@ def dump_csv(rows,fields):
 
 
 def uv_values(uv):
-    numbers=[float(t) for t in uv.split("|")]
+    numbers=[Fraction(t) for t in uv.split("|")]
     assert len(numbers)==4,("INVALID_UV",uv)
     return numbers
+
+
+def canonical_uv(uv):
+    # Historical C_followup grouped rational UV, not literal decimal spellings.
+    # Example: '1.5' in F SQLite is '3/2' in 1-4 UV_SOURCE_SUPPORT.
+    return "|".join(str(value) for value in uv_values(uv))
 
 
 def face_classification(tid: int|None, path: str, uv: str):
@@ -322,9 +329,9 @@ def build():
             face_status[status]+=1
             outcome=""
             if status in ("ZERO_UV_AREA","OUTSIDE_TEXTURE_UV"):
-                group=region_index.get((str(tid),uv,status))
+                group=region_index.get((str(tid),canonical_uv(uv),status))
                 assert group is not None,("UV_SUPPORT_GROUP_NOT_FOUND",model,tid,uv,status)
-                region_weights[(str(tid),uv,status)]+=1
+                region_weights[(str(tid),canonical_uv(uv),status)]+=1
                 outcome=group["outcome"]
                 if outcome!="NO_PINNED_SPRITE_INTERSECTION":
                     evidence_scope[outcome]+=1
