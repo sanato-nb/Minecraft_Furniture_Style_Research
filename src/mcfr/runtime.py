@@ -61,6 +61,9 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
             selected=cases(args.version)
         make_pack(args.version, copied_world / "datapacks/mcfr_chair",
                   selected_cases=selected)
+    if args.command=="macaw-neighbor-capture":
+        from .int4_macaw_neighbor_capture import make_pack as make_neighbor_pack
+        make_neighbor_pack(args.version,copied_world/"datapacks/mcfr_neighbor")
     (game / "options.txt").write_text(
         "renderDistance:4\nsimulationDistance:5\nmaxFps:30\nguiScale:2\n", encoding="utf-8"
     )
@@ -96,6 +99,9 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
     if args.command=="hc-bed-capture":
         from .int4_handcrafted_bed_capture import capture
         return capture(command,env,game,args.output,args.version)
+    if args.command=="macaw-neighbor-capture":
+        from .int4_macaw_neighbor_capture import capture
+        return capture(command,env,game,args.output,args.version)
     subprocess.run(command, cwd=game, env=env, check=True)
     return None
 
@@ -111,14 +117,15 @@ def main(argv: list[str] | None = None) -> int:
     kitchen = sub.add_parser("macaw-kitchen-capture", help="actual pinned Macaw 1.21.11 kitchen 3-state F2")
     table_shelf = sub.add_parser("macaw-table-shelf-capture", help="actual pinned Macaw 1.21.11 table/bookshelf four source states F2")
     hcbed = sub.add_parser("hc-bed-capture", help="pinned Handcrafted 1.21.1 bed foot/head individual native F2")
-    for command in (engine, visual, capture, chairs, af3, kitchen, table_shelf, hcbed):
+    neighbor = sub.add_parser("macaw-neighbor-capture", help="actual Macaw table placement/removal adjacent block update trial")
+    for command in (engine, visual, capture, chairs, af3, kitchen, table_shelf, hcbed, neighbor):
         command.add_argument("--version", required=True)
         command.add_argument("--work", type=_scratch_path, required=True)
         command.add_argument("--client-cache", type=_scratch_path)
         command.add_argument("--display", help="X11 display, for example :99")
     engine.add_argument("--output", type=_scratch_path, required=True)
     engine.add_argument("--ecj", type=Path)
-    for command in (visual, capture, chairs, af3, kitchen, table_shelf, hcbed):
+    for command in (visual, capture, chairs, af3, kitchen, table_shelf, hcbed, neighbor):
         command.add_argument("--world", type=Path, required=True)
     capture.add_argument("--output", type=_scratch_path, required=True)
     chairs.add_argument("--output", type=_scratch_path, required=True)
@@ -126,6 +133,7 @@ def main(argv: list[str] | None = None) -> int:
     kitchen.add_argument("--output", type=_scratch_path, required=True)
     table_shelf.add_argument("--output", type=_scratch_path, required=True)
     hcbed.add_argument("--output", type=_scratch_path, required=True)
+    neighbor.add_argument("--output", type=_scratch_path, required=True)
     args = parser.parse_args(argv)
 
     try:
@@ -144,7 +152,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.command != "engine":
             if not (args.display or os.environ.get("DISPLAY")):
                 raise ValueError("An X11 display is required for visual capture")
-            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "hc-bed-capture"):
+            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "hc-bed-capture", "macaw-neighbor-capture"):
                 if shutil.which("xdotool") is None:
                     raise ValueError("Automatic visual capture requires xdotool")
                 if args.output.exists():
