@@ -1,0 +1,119 @@
+{
+  "actual_game_artifact_id": 14759742774,
+  "actual_game_run_id": 45035905411,
+  "actual_game_url": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45035905411",
+  "cases": {
+    "S08": {
+      "F_full_or_INT5_INT6_rights_approved": false,
+      "conditional_only": true,
+      "native_F2_sha256": "3183a5b1b8d0c65073704ff2fcc1b2c56e13ac41f0747f1ac9031b22c871f9b3",
+      "natural_connected_state_tested": false,
+      "observation": "원본 F2에서 등받이와 좌판을 갖춘 작은 나무 의자 확인.",
+      "original_blockstate": "mcwfurnitures:oak_chair[facing=north]",
+      "original_exact_server_state": true,
+      "selected_faces": 59,
+      "selected_model_sha256": "39aaad88ca7ba3bc71f1b4fabad0d13c246d19de6eadb94cce326ce4c49e690f",
+      "selected_provider_sha256": "26f389f8cc286dcdd97a608adf685294bcc2f60323e7b1ea40755b2110ff1650"
+    },
+    "S09": {
+      "F_full_or_INT5_INT6_rights_approved": false,
+      "conditional_only": true,
+      "native_F2_sha256": "c45a74eafdac79cc07770dcf94a8317973fe5cb788305b44674cb4082cf1c5ba",
+      "natural_connected_state_tested": false,
+      "observation": "원본 F2에서 등받이 없는 낮은 목재 스툴형 물체 확인.",
+      "original_blockstate": "mcwfurnitures:oak_stool_chair",
+      "original_exact_server_state": true,
+      "selected_faces": 31,
+      "selected_model_sha256": "94b0dd6c5d2d5d652eb9e8027374a9a87556f00270213a85d4fed610ff041a7e",
+      "selected_provider_sha256": "3575d606aef1448e4eb76fb938c04a3c64c88db958425fe3c0808beeab0b1782"
+    },
+    "S11": {
+      "F_full_or_INT5_INT6_rights_approved": false,
+      "conditional_only": true,
+      "native_F2_sha256": "508cc4234e9b925b460b3ab93ad542b3f9ff7128173f5c783eee99ce139304c3",
+      "natural_connected_state_tested": false,
+      "observation": "원본 F2에서 상판 아래 받침 구조가 있는 작은 목재 엔드 테이블 확인.",
+      "original_blockstate": "mcwfurnitures:oak_end_table[east=false,north=false,south=false,west=false]",
+      "original_exact_server_state": true,
+      "selected_faces": 52,
+      "selected_model_sha256": "4aeb08546f973d9280b0485e6600e03438160ce66583e453b84e1e1d8322686a",
+      "selected_provider_sha256": "68c94cd0ba273a82c7427c7a698c62e3404ace04a8fbebac5f40319342a5649b"
+    },
+    "S12": {
+      "F_full_or_INT5_INT6_rights_approved": false,
+      "conditional_only": true,
+      "native_F2_sha256": "96a71926b45658894e1c2d66ace8e9108aaed16fdf25a8db1c09457693fbc3f0",
+      "natural_connected_state_tested": false,
+      "observation": "원본 F2에서 비교적 낮은 목제 상판과 아래 기둥이 보이는 커피 테이블 확인.",
+      "original_blockstate": "mcwfurnitures:oak_coffee_table[connection=with_leg]",
+      "original_exact_server_state": true,
+      "selected_faces": 11,
+      "selected_model_sha256": "6a9bf7ceaf7ba4a42c9e3e1d878618725c220d879653ac5ad91a3f5550904256",
+      "selected_provider_sha256": "434b755833f9c0b9d75d52646f5b2d2666c21f69b2aaf9f931765b5c00346446"
+    },
+    "S23": {
+      "F_full_or_INT5_INT6_rights_approved": false,
+      "conditional_only": true,
+      "native_F2_sha256": "08bfaeabebd591965ea8444f844fe651ba34c88b322e463b9b41525702b93d75",
+      "natural_connected_state_tested": false,
+      "observation": "원본 F2에서 수직 목재 무늬의 수납형 블록 외형 확인. 실제 서랍 기능은 별도 미검증.",
+      "original_blockstate": "mcwfurnitures:oak_drawer[connection=single,facing=north]",
+      "original_exact_server_state": true,
+      "selected_faces": 26,
+      "selected_model_sha256": "060e08b41ca97678575cf0c526a5068c705ddf0ef03c580b58d25c392fee34e1",
+      "selected_provider_sha256": "0147929762378f0a0c0f8303450932ab4108b11a05dff83044e549631050dd12"
+    }
+  },
+  "counts": {
+    "F_HOLD_now": 22,
+    "F_HOLD_prior": 27,
+    "F_conditional_now": 48,
+    "F_conditional_prior": 43,
+    "fixed_total_F_targets": 70,
+    "historical_F2_conditional_now": 42,
+    "historical_F2_conditional_prior": 37,
+    "historical_study_case_denominator": 62,
+    "new_INT5_semantic_parts_approved": 0,
+    "new_INT6_AI_training_redistribution_rights_approved": 0,
+    "new_conditional_cases": 5,
+    "original_elements": 39,
+    "original_faces": 179,
+    "original_game_F2_added": 5,
+    "original_model_applications": 5,
+    "server_exact_original_states": 5,
+    "unconditional_final_F_acceptance": 0
+  },
+  "limits": [
+    "Exact game /setblock states and native F2 are proven, but natural connected-block behavior NOT tested.",
+    "Each official Macaw 3.4.2 model/provider/blockstate SHA256 matches original 1-5 source.",
+    "Visual observations are qualitative; no pixelwise UV causality, function, collisions, entity meaning or rights.",
+    "No copyrighted JAR/PNG committed to Git, only metadata and SHA evidence.",
+    "Other 65 historic F target rows and all prior F8/A-E source artifacts remain unchanged.",
+    "Full INT-4-F and INT-4-G/H acceptance and INT5/INT6 remain pending."
+  ],
+  "original_client_log_sha256": "78376b8ca69996f5fc0b096363450189086dd6e8d1bd13e6c8f4f82bd7e079b3",
+  "original_client_zip_sha256": "495378b596adb3d99105f45d01613d6366afe19efee9c802913db570a7a0bcb0",
+  "outputs": {
+    "F70": {
+      "rows": 70,
+      "sha256": "10f6b6f65b17a23f6700b97e6797e43df7d52695a5b486a1358974ed6810f54d"
+    },
+    "pending": {
+      "rows": 22,
+      "sha256": "122ce3cce243153a4d85fa39c5b3a7860009c21714d37e5c94c5fbb696c420ca"
+    }
+  },
+  "pinned_original_git_blob_sha1": {
+    "project/integration/INT4_F8_70_TARGET_EVIDENCE_DISPOSITIONS_V7.csv": "3d994185cb56f11980cc037854bbc62d6262ac11",
+    "project/integration/INT4_F8_S22_OFFICIAL_PARENT_INDEPENDENT_AUDIT_V1.json": "5cf6d293675444c894053c9ec1c664fa36893a53",
+    "project/integration/INT4_F9_MACAW_FIVE_ACTUAL_F2_SOURCE_V1.json": "39a02df9723fdba35e131e854cb55515924793cd",
+    "research/furniture_mods/phase_1-5/B/APPLICATIONS.csv": "56e6f4c21c50714b97079ec61f7219bea845f179"
+  },
+  "remaining_holds_by_cohort": {
+    "MACAW": 5,
+    "RISK": 2,
+    "VANILLA": 15
+  },
+  "schema": "MCFR_INT4_F9_MACAW_FIVE_NATIVE_F2_FULL_INDEPENDENT_70_AUDIT/v1",
+  "status": "PASS_FIVE_MACAW_ORIGINAL_F2_48_CONDITIONAL_22_HOLD_FINAL_ZERO"
+}
