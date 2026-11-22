@@ -1,0 +1,153 @@
+{
+  "base_draft_pr": 55,
+  "counts": {
+    "C_face_pixel_exception_affected_model_applications": 0,
+    "C_model_pixel_exception_affected_case_count": 0,
+    "case_records_joined": 62,
+    "distinct_cases_referenced_by_findings": 56,
+    "distinct_finding_case_links": 70,
+    "element_instance_sum_across_74_applications": 390,
+    "face_instance_sum_across_74_applications": 1844,
+    "finding_source_rows": 21,
+    "historical_finding_classification_counts": {
+      "MOD_SPECIFIC": 5,
+      "MULTI_MOD_SHARED": 3,
+      "UNVERIFIED_OR_COUNTEREXAMPLE": 7,
+      "VANILLA_SHARED": 6
+    },
+    "historical_handoff_disposition_counts": {
+      "CANDIDATE_REQUIRES_REVIEW": 14,
+      "SCOPE_LIMIT_ONLY": 7
+    },
+    "historical_runtime_pass_references": 10,
+    "known_research_scope_limited_findings": 7,
+    "live_screenshots_newly_observed": 0,
+    "mod_case_applications_independently_joined_to_A_F_D": 52,
+    "model_application_records_joined": 74,
+    "new_original_json_or_png_bytes_reopened": 0,
+    "original_asset_AI_training_or_redistribution_rights_approved": 0,
+    "original_input_discrepancy_rows": 0,
+    "runtime_checks_newly_run": 0,
+    "study_cases_not_directly_cited_ids": [
+      "S03",
+      "S04",
+      "S05",
+      "S09",
+      "S26",
+      "V10"
+    ],
+    "study_cases_not_directly_cited_in_findings": 6,
+    "universal_AI_style_or_part_semantics_approved": 0,
+    "vanilla_1_21_11_application_cases_historic_source_accepted_not_D_mod": 22
+  },
+  "evidence_input_git_blob_sha1": {
+    "project/integration/INT2_1_5_21_FINDING_CHECKS.csv": "5b05951f9f20509df1ad17e78cabb06e8137b22f",
+    "project/integration/INT2_1_5_SUMMARY.json": "e139ed9babe08cfd0b3d842445274dd04800877d",
+    "project/integration/INT3_KNOWLEDGE_SUMMARY.json": "90724c37361f96367429b6ca6443ccc5c8768fa9",
+    "project/integration/INT4_A_MODEL_DISPOSITIONS_V2.csv.gz": "9b1baf3e3756e44bbe94759b928c2cd30f98cac1",
+    "project/integration/INT4_C_6343_FACE_PIXEL_EXCEPTIONS_V1.csv.gz": "a23b2adba91b604dfbce6c4ef06cc25935a66e56",
+    "project/integration/INT4_D_78456_OPTION_PROVENANCE_V1.csv.gz": "26dae26cfde72566b77906565ec94f9d803b4073",
+    "project/integration/INT4_D_SOURCE_AUDIT_V1.json": "7617caf488ef2fd2a115c3ae1f3f7350fe1ba8d8",
+    "project/integration/INT4_F_RENDER_TARGETS_V1.csv": "bf5d2caa3bfed68cec7cde9f2771e2b6f7944c92",
+    "research/furniture_mods/phase_1-3/F/furniture_research.sqlite.xz": "e54839615278dba39cadb463b9988e0371d37ea9",
+    "research/furniture_mods/phase_1-5/B/APPLICATIONS.csv": "56e6f4c21c50714b97079ec61f7219bea845f179",
+    "research/furniture_mods/phase_1-5/B/B_AUDIT.json": "856fe5e4407187f9604a32c33007c84d19188ec3",
+    "research/furniture_mods/phase_1-5/B/CASES.csv": "aebf449326b1e015c91b40417dde6e3e2dddd4f3",
+    "research/furniture_mods/phase_1-5/B/INDEPENDENT_AUDIT.json": "3fbc5151f9fb3fdc22100c5d991fb6d5d5f41c93",
+    "research/furniture_mods/phase_1-5/C/CROSS_CATEGORY_FINDINGS.csv": "6c4964c64dc738fe89f859982c17308f2359e2b0",
+    "research/furniture_mods/phase_1-5/C/C_AUDIT.json": "cc0ad68549e90d556efe9b37fcd33a8b2f550174",
+    "research/furniture_mods/phase_1-5/E/E_AUDIT.json": "0dfba78e0832182ea1b3b05fe4eb4b3ed6d29d75",
+    "research/furniture_mods/phase_1-5/E/INDEPENDENT_AUDIT.json": "56db0f8e8950f4d54b55b0d7d171a0bb7b91b7aa",
+    "research/furniture_mods/phase_1-5/E/PHASE2_HANDOFF.csv": "466d5abcd56c93d397fbe5b51223e2dfb6d026db",
+    "research/furniture_mods/phase_1-5/E/review_conditions.csv": "5149aa27ad46009b72017b3e263978d77f78abcb"
+  },
+  "files": {
+    "applications": {
+      "csv_sha256": "88a03f8175d70964773ebc5148c76be3aa00415ffbd30bca65a98c714b7d2f32",
+      "gz_sha256": "da8a0fa9753ffed7a57bd964bccc413bb31f36984e91f60978f96a4e7a4d78d2",
+      "rows": 74
+    },
+    "cases": {
+      "rows": 62,
+      "sha256": "b5cf8e0724dc57845eb4af2006bdb26330eb0597ef831a3729073943c96316e5"
+    },
+    "discrepancies": {
+      "rows": 0,
+      "sha256": "e6e8a5a510d45fb16cdcc419db6f013de82c7e95e078d7cc6649bfd0e9873c63"
+    },
+    "findings": {
+      "rows": 21,
+      "sha256": "8839e2b11ad612bf204f9565309090742fe8aaa53f293a55aae7660a72e4e0ed"
+    }
+  },
+  "finding_review_ids": {
+    "candidate_ids": [
+      "C02",
+      "C03",
+      "C04",
+      "C06",
+      "C07",
+      "C08",
+      "C10",
+      "C11",
+      "C12",
+      "C13",
+      "C16",
+      "C17",
+      "C18",
+      "C19"
+    ],
+    "scope_limit_ids": [
+      "C01",
+      "C05",
+      "C09",
+      "C14",
+      "C15",
+      "C20",
+      "C21"
+    ]
+  },
+  "limitations": [
+    "This run joins previously original-verified 1-5 CSV, A/D ledgers and F SQLite, not new original ZIP/JAR or JSON/PNG reads.",
+    "22 vanilla applications are 1.21.11 controls, intentionally excluded from 1,158 mod blockstates in D.",
+    "52 mod applications match A/D selected source model SHA, state SHA, x/y rotation, uvlock/weight, F provider SHA and element/face totals.",
+    "A model with C pixel exceptions is not necessarily a live visually faulty selected state.",
+    "21 statements remain strictly original measurement-specific; 7 scope/counterexamples are never converted to positive rules.",
+    "Old R01-R10 runtime PASS refers to historic versions only and is NOT 10 new tests.",
+    "F2 visual review/registered state reachability/release equivalence, INT5 semantics and INT6 source rights remain separate."
+  ],
+  "progress": {
+    "E_AI_modeling_or_rights_approved": {
+      "denominator": 21,
+      "numerator": 0
+    },
+    "E_all_applications_live_3D_render_confirmed": {
+      "denominator": 74,
+      "numerator": 0
+    },
+    "E_applications_cross_stage_original_source_links": {
+      "denominator": 74,
+      "numerator": 74
+    },
+    "E_cases_source_relationships_documented": {
+      "denominator": 62,
+      "numerator": 62
+    },
+    "E_claim_scope_and_counterexample_review_documented": {
+      "denominator": 21,
+      "numerator": 21
+    },
+    "E_full_stage_exit": "CONDITIONAL_SOURCE_INTEGRATION_ONLY_RUNTIME_SEMANTIC_RIGHTS_HOLD",
+    "F_real_client_case_acceptance": "NOT_REEVALUATED"
+  },
+  "provenance": {
+    "F_70_targets": "62 case IDs linked to historical case targets, 8 risks left to F",
+    "historical_run_id": 44868407741,
+    "mod_source_A_F_D_join": "52 matched by source state rule option model SHA provider SHA geometry count",
+    "research_only_not_game_runtime": true,
+    "vanilla_scope": "22 application references to prior 1-5/INT2 Minecraft 1.21.11 original audit; not found in mod D",
+    "version_specific_original_source_evidence": "INT2_1_5_SUMMARY prior independent recheck"
+  },
+  "schema": "MCFR_INT4_E_62_CASE_74_APPLICATION_21_FINDING_A_D_SOURCE_JOIN/v1",
+  "status": "PASS_HISTORIC_STATIC_CASE_APPLICATION_CLAIM_RECONCILIATION_NOT_LIVE_CLIENT"
+}

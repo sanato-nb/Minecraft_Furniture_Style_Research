@@ -1,0 +1,113 @@
+name: INT-4-E 62사례 74모델 21판정 A-D 출처 재감사
+
+on:
+  push:
+    branches:
+      - work/int4-e-62cases-74apps-21findings-20261122
+    paths:
+      - scripts/integration/build_int4_e_research_reconciliation.py
+      - tests/integration/test_int4_e_research_reconciliation.py
+      - .github/workflows/integration-int4-e-research-reconciliation.yml
+
+permissions:
+  contents: write
+
+jobs:
+  source-finding-provenance:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: 고정 원본 증거 브랜치 체크아웃
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: 반례·후보/런타임/권리 승격 금지 회귀시험
+        run: python3 -m unittest discover -s tests/integration -p 'test_int4_e_research_reconciliation.py' -v
+
+      - name: 62 사례 74 적용 21 연구판정 원형 증거 조인
+        run: python3 scripts/integration/build_int4_e_research_reconciliation.py
+
+      - name: 2차 실행 결정론적 산출물 바이트 재검증
+        run: python3 scripts/integration/build_int4_e_research_reconciliation.py --verify
+
+      - name: 독립 산출물 해시·출처·반례·F2 경계 시험
+        run: |
+          python3 - <<'PY'
+          import csv,hashlib,io,json,gzip
+          from pathlib import Path
+          from collections import Counter
+          base=Path('project/integration')
+          doc=json.loads((base/'INT4_E_CROSS_AUDIT_SUMMARY_V1.json').read_text(encoding='utf-8'))
+          config=[
+            ('INT4_E_62_CASE_SOURCE_LINKS_V1.csv',62,'cases','sha256',False),
+            ('INT4_E_74_APPLICATION_A_D_LINKS_V1.csv.gz',74,'applications','gz_sha256',True),
+            ('INT4_E_21_FINDING_DISPOSITIONS_V1.csv',21,'findings','sha256',False),
+            ('INT4_E_DISCREPANCIES_V1.csv',0,'discrepancies','sha256',False),
+          ]
+          data={}
+          for name,count,kind,digest,compressed in config:
+            b=(base/name).read_bytes()
+            assert hashlib.sha256(b).hexdigest()==doc['files'][kind][digest],name
+            b=gzip.decompress(b) if compressed else b
+            rows=list(csv.DictReader(io.StringIO(b.decode('utf-8'),newline='')))
+            assert len(rows)==count,(name,len(rows))
+            data[name]=rows
+            print('PASS',name,count)
+          cases=data[config[0][0]]
+          apps=data[config[1][0]]
+          findings=data[config[2][0]]
+          assert len({r['case'] for r in cases})==62
+          assert len({(r['case'],r['rule_index'],r['option_index']) for r in apps})==74
+          assert Counter(r['cohort'] for r in apps)==Counter({'VANILLA':22,'AF':21,'HC':14,'MACAW':17})
+          assert Counter(r['classification'] for r in findings)==Counter({
+            'MOD_SPECIFIC':5,'MULTI_MOD_SHARED':3,'VANILLA_SHARED':6,
+            'UNVERIFIED_OR_COUNTEREXAMPLE':7})
+          assert Counter(r['original_INT2_disposition'] for r in findings)==Counter({
+            'CANDIDATE_REQUIRES_REVIEW':14,'SCOPE_LIMIT_ONLY':7})
+          assert sum(int(r['source_case_count']) for r in findings)==70
+          assert sum(int(r['historical_declared_elements']) for r in apps)==390
+          assert sum(int(r['historical_declared_faces']) for r in apps)==1844
+          assert all(r['universal_modeling_rule_approved']=='false' and
+                     r['int6_rights_approved']=='false' and
+                     r['runtime_retested_this_run']=='false' for r in findings)
+          assert all(r['in_game_model_render_newly_verified']=='false' for r in apps)
+          assert doc['counts']['runtime_checks_newly_run']==0
+          assert doc['counts']['original_input_discrepancy_rows']==0
+          assert doc['progress']['E_full_stage_exit']=='CONDITIONAL_SOURCE_INTEGRATION_ONLY_RUNTIME_SEMANTIC_RIGHTS_HOLD'
+          assert doc['counts']['original_asset_AI_training_or_redistribution_rights_approved']==0
+          print('PASS 62/74/21 fixed source-only, not 21 universal training rules')
+          PY
+          git diff --check
+
+      - name: CSV JSON MD 감사 결과 보관
+        uses: actions/upload-artifact@v4
+        with:
+          name: INT4-E-62-cases-74-applications-21-findings
+          retention-days: 45
+          path: |
+            project/integration/INT4_E_62_CASE_SOURCE_LINKS_V1.csv
+            project/integration/INT4_E_74_APPLICATION_A_D_LINKS_V1.csv.gz
+            project/integration/INT4_E_21_FINDING_DISPOSITIONS_V1.csv
+            project/integration/INT4_E_DISCREPANCIES_V1.csv
+            project/integration/INT4_E_CROSS_AUDIT_SUMMARY_V1.json
+            project/integration/INT4_E_SOURCE_REPORT_V1.md
+
+      - name: 원본 불변 유지하고 Draft 브랜치에만 신규 원장 커밋
+        if: github.ref == 'refs/heads/work/int4-e-62cases-74apps-21findings-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_E_62_CASE_SOURCE_LINKS_V1.csv \
+                  project/integration/INT4_E_74_APPLICATION_A_D_LINKS_V1.csv.gz \
+                  project/integration/INT4_E_21_FINDING_DISPOSITIONS_V1.csv \
+                  project/integration/INT4_E_DISCREPANCIES_V1.csv \
+                  project/integration/INT4_E_CROSS_AUDIT_SUMMARY_V1.json \
+                  project/integration/INT4_E_SOURCE_REPORT_V1.md
+          if git diff --cached --quiet; then
+            echo "신규 변경 없음"
+          else
+            git commit -m "INT-4-E 1-5 연구 사례 62·모델 적용 74·연구 판정 21 원본 출처 정합성 재감사"
+            git push origin HEAD:refs/heads/work/int4-e-62cases-74apps-21findings-20261122
+          fi
