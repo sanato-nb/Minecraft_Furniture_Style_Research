@@ -63,6 +63,10 @@ class PixelExceptionTests(unittest.TestCase):
         finally:
             a.PATHS[path]=before
 
+    def test_legacy_decimal_uv_matches_rational_source_group(self):
+        self.assertEqual(a.canonical_uv("-5|1|1|1.5"),"-5|1|1|3/2")
+        self.assertEqual(a.canonical_uv("-5|1|1|3/2"),"-5|1|1|3/2")
+
     def test_invalid_uv_rejected(self):
         with self.assertRaises(AssertionError):
             a.uv_values("0|16|32")
