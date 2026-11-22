@@ -1,0 +1,129 @@
+name: INT-4-F5 의자 tucked·소파 코너 속성값·주변배치 실제 Fabric F2
+
+on:
+  push:
+    branches:
+      - work/int4-f5-two-property-state-diagnostics-20261122
+    paths:
+      - src/mcfr/int4_nonchair_runtime.py
+      - src/mcfr/int4_f5_state_diagnostic.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int4_f5_state_diagnostic.py
+      - .github/workflows/integration-int4-f5-two-state-diagnostic.yml
+
+permissions:
+  contents: write
+
+jobs:
+  seven-mod-f2-original-client:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 44
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install actual Minecraft GL software renderer and PNG reader
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 update
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 install -y \
+              xvfb xauth xdotool libgl1-mesa-dri libglx-mesa0
+          fi
+
+      - name: Historical original 1-5 case SHA and diagnostic state probes and previous F3/F4 regression
+        run: |
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f5_state_diagnostic.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f4_chair_bench_couch_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f3_storage_shelf_light_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f_missing_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_nonchair_runtime.py' -v
+
+      - name: Download original pinned Handcrafted research source
+        run: |
+          curl -fLsS --retry 3 --max-time 90 \
+            'https://codeload.github.com/terrarium-earth/Handcrafted/zip/8d21d1665916850c3fa3bdaf1370c50ec2ca7035' \
+            -o "$RUNNER_TEMP/int4-f5-hc-source.zip"
+          echo "MCFR_HC_SOURCE_ZIP=$RUNNER_TEMP/int4-f5-hc-source.zip" >> "$GITHUB_ENV"
+
+      - name: Prepare disposable official Minecraft 1.21.1 Fabric world
+        run: |
+          echo "WORLD=$RUNNER_TEMP/int4-f5-world" >> "$GITHUB_ENV"
+          echo "CACHE=$RUNNER_TEMP/int4-f5-cache" >> "$GITHUB_ENV"
+          echo "WORK=$RUNNER_TEMP/int4-f5-game-work" >> "$GITHUB_ENV"
+          echo "OUT=$RUNNER_TEMP/int4-f5-f2-evidence" >> "$GITHUB_ENV"
+          python -m mcfr.chair_runtime_fixture world --version 1.21.1 \
+            --path "$RUNNER_TEMP/int4-f5-world" --cache "$RUNNER_TEMP/int4-f5-cache"
+
+      - name: Actual Fabric 1.21.1 S02 and S34 isolated, adjacent and L-neighbor state screenshots
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+          ALSOFT_DRIVERS: 'null'
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int4-f5-state-diagnostic --version 1.21.1 \
+              --world "$WORLD" --work "$WORK" --output "$OUT"
+
+      - name: 10~12 original-game state trials exact property readback and F2 SHA audit
+        run: |
+          python -m mcfr.int4_f5_state_diagnostic \
+            --directory "$OUT" \
+            --output project/integration/INT4_F5_TWO_STATE_ACTUAL_CLIENT_DIAGNOSTIC_V1.json
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,os,json
+          from PIL import Image
+          p=Path('project/integration/INT4_F5_TWO_STATE_ACTUAL_CLIENT_DIAGNOSTIC_V1.json')
+          j=json.loads(p.read_text(encoding='utf-8'))
+          assert j['status']=='PASS_REAL_FABRIC_EXACT_PROPERTY_ENUM_AND_F2_NOT_SEMANTIC_EXIT'
+          assert j['historic_case_ids']==['S02','S34']
+          assert j['minecraft']=='1.21.1'
+          assert j['trial_count'] in (10,12)
+          assert j['evidence_limits']['server_property_values_observed_directly'] is True
+          assert j['evidence_limits']['pixelwise_uv_or_functional_semantics_approved'] is False
+          assert j['evidence_limits']['int5_parts_or_int6_rights_approvals']==0
+          out=Path(os.environ['OUT'])
+          source={k:v for k,v in j['cases'].items()}
+          assert len(source)==j['trial_count']
+          for k,v in source.items():
+            raw=(out/(k+'.png')).read_bytes()
+            assert hashlib.sha256(raw).hexdigest()==v['native_f2_sha256']
+            assert set(v['actual_release_properties'])==set(j['release_state_property_source'][v['case']]['property_values'])
+            with Image.open(out/(k+'.png')) as im:
+              im.load()
+              assert im.format=='PNG' and im.size==(1024,684)
+            print('PASS REAL FABRIC STATE/PNG',k,v['exact_server_state_persisted'],v['actual_release_properties'])
+          assert hashlib.sha256((out/'client.log').read_bytes()).hexdigest()==j['game_client_log_sha256']
+          print('PASS F5 actual game diagnostic',j['trial_count'],'trials')
+          PY
+          git diff --check
+
+      - name: Save native diagnostic F2/screenshots/game log as temporary GitHub artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-f5-tucked-couch-actual-release-property-neighbors-F2
+          path: ${{ env.OUT }}/
+          retention-days: 45
+          if-no-files-found: warn
+
+      - name: Commit actual diagnostic state metadata on Draft branch only
+        if: success() && github.ref == 'refs/heads/work/int4-f5-two-property-state-diagnostics-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F5_TWO_STATE_ACTUAL_CLIENT_DIAGNOSTIC_V1.json
+          if git diff --cached --quiet; then
+            echo "New source evidence unchanged"
+          else
+            git commit -m "INT-4-F5 실게임 의자·소파 속성값·이웃 배치 진단 블록상태와 원본 F2 SHA 기록"
+            git push origin HEAD:refs/heads/work/int4-f5-two-property-state-diagnostics-20261122
+          fi

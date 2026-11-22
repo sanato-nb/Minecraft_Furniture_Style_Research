@@ -114,6 +114,9 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
     if args.command == "int4-f4-mod-capture":
         from .int4_f4_chair_bench_couch_capture import capture
         return capture(command, env, game, args.output, args.version)
+    if args.command == "int4-f5-state-diagnostic":
+        from .int4_f5_state_diagnostic import capture
+        return capture(command, env, game, args.output, args.version)
     if args.command == "int4-bed-exterior":
         from .int4_bed_exterior import capture
         return capture(command, env, game, args.output, args.version, uv_probe=args.uv_probe, expanded=args.uv_faces)
@@ -137,15 +140,16 @@ def main(argv: list[str] | None = None) -> int:
     fmissing = sub.add_parser("int4-f-missing-capture", help="INT-4-F2 four original 1-5 study cases with native F2")
     f3mod = sub.add_parser("int4-f3-mod-capture", help="INT-4-F3 seven source storage/shelf/lamp cases native F2")
     f4mod = sub.add_parser("int4-f4-mod-capture", help="INT-4-F4 seven chair/bench/couch/pot cases native F2")
+    f5mode = sub.add_parser("int4-f5-state-diagnostic", help="INT-4-F5 S02/S34 server property diagnosis and native F2")
     exterior = sub.add_parser("int4-bed-exterior", help="observe occupied bed from an independent client")
-    for command in (engine, visual, capture, chairs, af3, kitchen, table_shelf, hcbed, neighbor, nonchair, fmissing, f3mod, f4mod, exterior):
+    for command in (engine, visual, capture, chairs, af3, kitchen, table_shelf, hcbed, neighbor, nonchair, fmissing, f3mod, f4mod, f5mode, exterior):
         command.add_argument("--version", required=True)
         command.add_argument("--work", type=_scratch_path, required=True)
         command.add_argument("--client-cache", type=_scratch_path)
         command.add_argument("--display", help="X11 display, for example :99")
     engine.add_argument("--output", type=_scratch_path, required=True)
     engine.add_argument("--ecj", type=Path)
-    for command in (visual, capture, chairs, af3, kitchen, table_shelf, hcbed, neighbor, nonchair, fmissing, f3mod, f4mod, exterior):
+    for command in (visual, capture, chairs, af3, kitchen, table_shelf, hcbed, neighbor, nonchair, fmissing, f3mod, f4mod, f5mode, exterior):
         command.add_argument("--world", type=Path, required=True)
     capture.add_argument("--output", type=_scratch_path, required=True)
     chairs.add_argument("--output", type=_scratch_path, required=True)
@@ -159,6 +163,7 @@ def main(argv: list[str] | None = None) -> int:
     fmissing.add_argument("--output", type=_scratch_path, required=True)
     f3mod.add_argument("--output", type=_scratch_path, required=True)
     f4mod.add_argument("--output", type=_scratch_path, required=True)
+    f5mode.add_argument("--output", type=_scratch_path, required=True)
     exterior.add_argument("--uv-probe", action="store_true", help="override the observer texture with a four-tag UV calibration")
     exterior.add_argument("--uv-faces", action="store_true", help="add three exposed occupied-bed faces")
     exterior.add_argument("--output", type=_scratch_path, required=True)
@@ -180,7 +185,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.command != "engine":
             if not (args.display or os.environ.get("DISPLAY")):
                 raise ValueError("An X11 display is required for visual capture")
-            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "hc-bed-capture", "macaw-neighbor-capture", "int4-nonchair-capture", "int4-f-missing-capture", "int4-f3-mod-capture", "int4-f4-mod-capture", "int4-bed-exterior"):
+            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "hc-bed-capture", "macaw-neighbor-capture", "int4-nonchair-capture", "int4-f-missing-capture", "int4-f3-mod-capture", "int4-f4-mod-capture", "int4-f5-state-diagnostic", "int4-bed-exterior"):
                 if shutil.which("xdotool") is None:
                     raise ValueError("Automatic visual capture requires xdotool")
                 if args.output.exists():
