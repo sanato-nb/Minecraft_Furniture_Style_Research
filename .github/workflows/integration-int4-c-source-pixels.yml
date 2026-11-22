@@ -1,0 +1,105 @@
+name: INT-4-C 6343 화소 미연결 면 및 81641 슬롯 전수 증거
+
+on:
+  push:
+    branches:
+      - work/int4-c-png-slot-exceptions-20261122
+    paths:
+      - scripts/integration/build_int4_c_pixel_exception_ledger.py
+      - tests/integration/test_int4_c_pixel_exceptions.py
+      - .github/workflows/integration-int4-c-source-pixels.yml
+
+permissions:
+  contents: write
+
+jobs:
+  pixel-source-exceptions:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - name: 고정 역사 원본 연구 기반 체크아웃
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: 예외 판정 우선순위·SHA 변조 방지 회귀시험
+        run: python3 -m unittest discover -s tests/integration -p 'test_int4_c_pixel_exceptions.py' -v
+
+      - name: 역사 SQLite·원본 UV 판정 조합 및 6343 예외 추출
+        run: python3 scripts/integration/build_int4_c_pixel_exception_ledger.py
+
+      - name: 독립적으로 고정 결과 재계산하고 바이트 비교
+        run: python3 scripts/integration/build_int4_c_pixel_exception_ledger.py --verify
+
+      - name: 산출물 SHA·분모·출처/렌더 경계 독립 검사
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from collections import Counter
+          import csv,gzip,io,json,hashlib
+          root=Path('project/integration')
+          meta=json.loads((root/'INT4_C_SOURCE_AUDIT_V1.json').read_text(encoding='utf-8'))
+          files=[
+            ('INT4_C_6343_FACE_PIXEL_EXCEPTIONS_V1.csv.gz',6343,'face_exception_gz_sha256','gz'),
+            ('INT4_C_81641_SLOT_LINKS_V1.csv.gz',81641,'model_slot_gz_sha256','gz'),
+            ('INT4_C_2256_TEXTURE_SCOPE_V1.csv',2256,'texture_registry_csv_sha256','csv'),
+          ]
+          data={}
+          for name,count,digest,fmt in files:
+            raw=(root/name).read_bytes()
+            assert hashlib.sha256(raw).hexdigest()==meta['output'][digest],name
+            body=gzip.decompress(raw) if fmt=='gz' else raw
+            rows=list(csv.DictReader(io.StringIO(body.decode('utf-8'),newline='')))
+            assert len(rows)==count,(name,len(rows),count)
+            data[name]=rows
+            print('PASS',name,count)
+          faces=data[files[0][0]]
+          assert len({(r['model_key'],r['geometry_provider'],r['element_index'],r['face_direction']) for r in faces})==6343
+          counts=Counter(x['exception_reason'] for x in faces)
+          assert counts==Counter({
+            'SLOT_UNBOUND_BOUND_CHILD_CONTEXT':6196,
+            'SLOT_UNBOUND_NO_BOUND_CHILD':6,
+            'MISSING_PINNED_PNG':139,
+            'NO_PINNED_SPRITE_INTERSECTION':2
+          }),counts
+          assert all(x['int4_c_disposition']!='VERIFIED_GAME_RENDER' for x in faces)
+          assert meta['original_png_bytes_reopened_this_run']==0
+          assert meta['minecraft_game_screenshots_examined']==0
+          assert not meta['face_exception_full_resolution_approved']
+          assert not meta['historical_version_mismatch_merged']
+          assert meta['face_total']==592312
+          assert meta['face_pixel_support_from_original_historic_check']==585969
+          assert meta['progress']['C_full_stage_exit']=='CONDITIONAL_HISTORICAL_SOURCE_SCOPE_NOT_RUNTIME_OR_RIGHTS_EXIT'
+          print('PASS: exact 6343/no invented pixel or runtime approvals')
+          PY
+          git diff --check
+
+      - name: 원장 및 보고서 아티팩트 기록
+        uses: actions/upload-artifact@v4
+        with:
+          name: INT4-C-6343-face-exceptions-81641-slots
+          retention-days: 45
+          path: |
+            project/integration/INT4_C_6343_FACE_PIXEL_EXCEPTIONS_V1.csv.gz
+            project/integration/INT4_C_81641_SLOT_LINKS_V1.csv.gz
+            project/integration/INT4_C_2256_TEXTURE_SCOPE_V1.csv
+            project/integration/INT4_C_SOURCE_AUDIT_V1.json
+            project/integration/INT4_C_SOURCE_REPORT_V1.md
+
+      - name: 이 Draft용 브랜치에만 신규 결과 반영
+        if: github.ref == 'refs/heads/work/int4-c-png-slot-exceptions-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_C_6343_FACE_PIXEL_EXCEPTIONS_V1.csv.gz \
+                  project/integration/INT4_C_81641_SLOT_LINKS_V1.csv.gz \
+                  project/integration/INT4_C_2256_TEXTURE_SCOPE_V1.csv \
+                  project/integration/INT4_C_SOURCE_AUDIT_V1.json \
+                  project/integration/INT4_C_SOURCE_REPORT_V1.md
+          if git diff --cached --quiet; then
+            echo "신규 원장 변경 없음"
+          else
+            git commit -m "INT-4-C 화소 미연결 6343면·슬롯 81641개·텍스처 2256쌍 출처 증거 원장"
+            git push origin HEAD:refs/heads/work/int4-c-png-slot-exceptions-20261122
+          fi

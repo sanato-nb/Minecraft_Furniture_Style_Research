@@ -1,0 +1,113 @@
+{
+  "baseline_pr": 53,
+  "face_exception_full_resolution_approved": false,
+  "face_exception_individual_disposition_documented": 6343,
+  "face_exception_reason_counts": {
+    "MISSING_PINNED_PNG": 139,
+    "NO_PINNED_SPRITE_INTERSECTION": 2,
+    "SLOT_UNBOUND_BOUND_CHILD_CONTEXT": 6196,
+    "SLOT_UNBOUND_NO_BOUND_CHILD": 6
+  },
+  "face_pixel_support_from_original_historic_check": 585969,
+  "face_total": 592312,
+  "face_without_own_pixel_support": 6343,
+  "historic_original_uv_texture_pairs": 2171,
+  "historic_png_redecoded": 2001,
+  "historical_face_disposition_documented": 592312,
+  "historical_pixel_support_percent": 98.92911,
+  "historical_source_model_registry": 16579,
+  "historical_version_mismatch_merged": false,
+  "input_git_blob_sha1": {
+    "project/integration/INT2_1_4_FULL_LINKS_SUMMARY.json": "47fd376ec0c4514277b66b0905bccb4fd9706ef3",
+    "project/integration/INT2_1_4_SUMMARY.json": "1f066cf1f9c9528a684534539a2e35a8c97e8c91",
+    "project/integration/INT4_A_MODEL_DISPOSITIONS_V2.csv.gz": "9b1baf3e3756e44bbe94759b928c2cd30f98cac1",
+    "project/integration/INT4_B_SOURCE_JOIN_SUMMARY_V1.json": "93c07092f683aaaacdb5b3e22c2754376439ca88",
+    "research/furniture_mods/phase_1-3/F/1-3_TEXTURE_UV_HANDOFF.csv": "1c2c403cb723a7c121a04e17bb851621edad4cfa",
+    "research/furniture_mods/phase_1-3/F/DB_VALIDATION.json": "f83ffe2941afc8a007b325fd29a2d7063f129fdc",
+    "research/furniture_mods/phase_1-3/F/furniture_research.sqlite.xz": "e54839615278dba39cadb463b9988e0371d37ea9",
+    "research/furniture_mods/phase_1-4/C_followup/MISSING_TEXTURE_RELEASE_CHECK.csv": "677be20db100faedff9516cd47adce13aed8e113",
+    "research/furniture_mods/phase_1-4/C_followup/SLOT_CHILD_CONTEXT.csv.xz": "74fabd4628916687c5dc99fb8000ed4f4382aba2",
+    "research/furniture_mods/phase_1-4/C_followup/SUMMARY.json": "658e4a2c309d524c9fac25cebc205a5a69f5514d",
+    "research/furniture_mods/phase_1-4/C_followup/UV_SOURCE_SUPPORT.csv.xz": "f62da0f51a84f6c953e52a4e07e6670189025aff"
+  },
+  "interpretation_limits": [
+    "Evidence comes from immutable prior original-source PNG and UV audits, not newly opened 2,256 PNG pairs.",
+    "6,196 source-template unbound faces have child context, not own original PNG samples.",
+    "139 missing PNG faces are not proven visible or broken in actual selected runtime states.",
+    "Two no-intersection faces have no pinned source PNG texel intersection, not a proven screen defect.",
+    "Minecraft atlas/shader/tint/texture overrides and live release availability not tested.",
+    "2,001 prior pixel-redecoded PNG, 2,171 UV-audited pairs, 2,256 registry entries have different denominators."
+  ],
+  "minecraft_game_screenshots_examined": 0,
+  "missing_png_resource_rows": 8,
+  "missing_png_with_faces": 7,
+  "mod_models_originals_linked_int4_a": 16572,
+  "model_face_texture_registry": 2256,
+  "model_slot_records": 81641,
+  "no_intersection_model_examples": [
+    {
+      "model_key": "AF1451",
+      "model_original_sha": "fba72cc294e24b8801af92db3f34038c06675ced",
+      "resource_id": "another_furniture:block/wall_lantern",
+      "texture_id": 2214,
+      "uv": "0|36|24|60"
+    },
+    {
+      "model_key": "AF1451",
+      "model_original_sha": "fba72cc294e24b8801af92db3f34038c06675ced",
+      "resource_id": "another_furniture:block/wall_lantern",
+      "texture_id": 2214,
+      "uv": "0|36|24|60"
+    }
+  ],
+  "original_png_bytes_reopened_this_run": 0,
+  "original_uv_status_counts": {
+    "ANIMATED_FRAME_RECTS": 5095,
+    "MISSING_PINNED_PNG": 139,
+    "OUTSIDE_TEXTURE_UV": 5144,
+    "SLOT_UNBOUND": 6202,
+    "STATIC_RECT": 506614,
+    "ZERO_UV_AREA": 69118
+  },
+  "output": {
+    "face_exception_csv_sha256": "ba37bcdfe0aa95d3299ee1b7e662f90a108968a95781ae5237fa5e884b41446d",
+    "face_exception_gz_sha256": "1bd4b9a670eb05a34be93d2569d22519f06463d8d52de3cf560859e68c6517cc",
+    "face_exception_rows": 6343,
+    "model_slot_csv_sha256": "0fa1ee49200e2f2e39a3cf6524fa103fd0cf89d6163cc775a34a05f80b1429d8",
+    "model_slot_gz_sha256": "8cc82daff88dc939d291f6758b8cfd873ac06d5a7852f3fd0563fb597d35923a",
+    "model_slot_rows": 81641,
+    "texture_registry_csv_sha256": "1c7cc95f50dd0da3cc974e25b83f9325c6f843aba247b56ccf60265b4af560d5",
+    "texture_registry_rows": 2256
+  },
+  "progress": {
+    "C_face_exception_reason_documented": {
+      "denominator": 6343,
+      "numerator": 6343
+    },
+    "C_full_stage_exit": "CONDITIONAL_HISTORICAL_SOURCE_SCOPE_NOT_RUNTIME_OR_RIGHTS_EXIT",
+    "C_pixel_supported_faces": {
+      "denominator": 592312,
+      "numerator": 585969
+    },
+    "C_source_model_slot_registry_joined": {
+      "denominator": 81641,
+      "numerator": 81641
+    },
+    "C_source_texture_pair_registry_joined": {
+      "denominator": 2256,
+      "numerator": 2256
+    },
+    "F_runtime_acceptance": "NOT_EVALUATED"
+  },
+  "schema": "MCFR_INT4_C_EXACT_UNSUPPORTED_FACE_SOURCE_ADOPTION/v1",
+  "source_artifacts_modified": 0,
+  "status": "PASS_6343_PIXEL_UNSUPPORTED_IN_HISTORICAL_STATIC_SOURCE_WITHOUT_RUNTIME_APPROVAL",
+  "supported_uv_subtypes": {
+    "CLIPPED_RECT_SUPPORT": 5142,
+    "EDGE_CONTACT_SUPPORT": 8,
+    "LINE_SUPPORT": 68850,
+    "POINT_SUPPORT": 260
+  },
+  "texture_rights_approved": 0,
+  "vanilla_auxiliary_model_keys_separate": 7
+}
