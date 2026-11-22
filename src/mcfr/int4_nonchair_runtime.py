@@ -131,6 +131,40 @@ def release_sources(mods, source_zip):
     }, property_values(bed_json)
 
 
+
+def bed_interaction_source(mods, source_zip):
+    rows, _ = bed.source_rows()
+    with ZipFile(source_zip) as git, ZipFile(mods / "handcrafted-fabric-1.21.1-4.0.3.jar") as release:
+        state_path = rows["S37"]["state_path"]
+        raw_state = release.read(assets_path(state_path))
+        require(bed.source_zip_file(git, state_path) == raw_state, "Bed selectors differ between Git and JAR")
+        selectors = json.loads(raw_state)
+        parts = {}
+        for case, row in rows.items():
+            parts[case] = {}
+            for occupied in ("false", "true"):
+                properties = row["state"].replace("occupied=false", f"occupied={occupied}")
+                index, selector, option = bed.selected_options(selectors, properties)
+                leaf_path = model_path(option["model"])
+                leaf = release.read(leaf_path)
+                variant = json.loads(leaf)
+                provider_path = model_path(variant["parent"])
+                provider = release.read(provider_path)
+                require(leaf == bed.source_zip_file(git, "common/src/main/generated/resources/" + leaf_path),
+                        f"Bed leaf model differs between Git and JAR: {leaf_path}")
+                require(provider == bed.source_zip_file(git, "common/src/main/resources/" + provider_path),
+                        f"Bed parent model differs between Git and JAR: {provider_path}")
+                elements = json.loads(provider)["elements"]
+                parts[case][occupied] = {
+                    "selector": selector, "rule_index": index, "option": option,
+                    "leaf": leaf_path, "leaf_git_blob_sha1": bed.git_sha(leaf),
+                    "leaf_sha256": sha256(leaf), "provider": provider_path,
+                    "provider_git_blob_sha1": bed.git_sha(provider), "provider_sha256": sha256(provider),
+                    "elements": len(elements), "faces": sum(len(item["faces"]) for item in elements),
+                    "textures": variant["textures"], "git_release_bytes_match": True,
+                }
+    return {"state_git_blob_sha1": bed.git_sha(raw_state), "state_sha256": sha256(raw_state), "parts": parts}
+
 def property_values(raw):
     values = defaultdict(set)
     for selector in json.loads(raw)["variants"]:
@@ -147,7 +181,7 @@ def probe(block, coords, properties):
     return result
 
 
-def stages(version, values=None):
+def stages(version, values=None, *, interaction=False):
     x, y, z = ORIGIN
     if version == "1.21.11":
         properties = values or {
@@ -159,6 +193,14 @@ def stages(version, values=None):
             label: probe(SHELF, coords, properties)
             for label, coords in zip(("lower", "middle", "upper"), coordinates)
         }
+        if interaction:
+            return {
+                "shelf_before": ([f"give @s {SHELF} 3"], checks),
+                "shelf_one": ([], checks),
+                "shelf_two": ([], checks),
+                "shelf_three": (["setblock 0 120 42 minecraft:smooth_stone"], checks),
+                "shelf_remove_middle": ([], checks),
+            }
         placed = [f"setblock {position(*coords)} {SHELF}[facing=north]" for coords in coordinates]
         return {
             "shelf_one": (placed[:1], checks),
@@ -192,6 +234,18 @@ def stages(version, values=None):
         "foot_position": probe(BED, ORIGIN, values),
         "head_position": probe(BED, (x, y, z - 1), values),
     }
+    if interaction:
+        return {
+            "bed_empty": ([f"give @s {BED} 1"], checks),
+            "bed_placed": ([], checks),
+            "bed_sleeping": ([
+                "gamerule doDaylightCycle false",
+                "gamerule playersSleepingPercentage 101",
+                "time set midnight",
+                "schedule function mcfr_nonchair:check_bed_sleeping 10s replace",
+            ], checks),
+            "bed_awake": ([], checks),
+        }
     result.update({
         "bed_empty": ([f"setblock {place} air", f"setblock {x} {y} {z - 1} air",
                        f"give @s {BED} 1"], checks),
@@ -209,13 +263,15 @@ def setup_commands():
     ]
 
 
-def function_files(target, version, values):
+def function_files(target, version, values, *, interaction=False):
     fmt = {"pack_format": 48} if version == "1.21.1" else {"min_format": [94, 1], "max_format": [94, 1]}
     scripts = target / "data/mcfr_nonchair/function"
     scripts.mkdir(parents=True, exist_ok=False)
     (target / "pack.mcmeta").write_text(json.dumps({"pack": {"description": "INT-4", **fmt}}) + "\n")
     definitions = {"setup": setup_commands()}
-    for name, (commands, checks) in stages(version, values).items():
+    if interaction and version == "1.21.1":
+        definitions["setup"].append("scoreboard objectives add int4_sleep dummy")
+    for name, (commands, checks) in stages(version, values, interaction=interaction).items():
         if commands:
             definitions[f"place_{name.lower()}"] = commands
         definitions[f"check_{name.lower()}"] = [
@@ -224,16 +280,25 @@ def function_files(target, version, values):
         ]
     hashes = {}
     for name, commands in definitions.items():
-        commands = [*commands, f"say INT4_NC {name} done"]
+        done = f"say INT4_NC {name} done"
+        if name in ("check_bed_sleeping", "check_bed_awake"):
+            commands = ["execute as @p run " + cmd for cmd in commands]
+            commands.extend([
+                "execute as @p store result score @s int4_sleep run data get entity @s SleepTimer",
+                f"execute as @p if score @s int4_sleep matches 1.. run say INT4_NC timer {name} positive",
+                f"execute as @p if score @s int4_sleep matches 0 run say INT4_NC timer {name} zero",
+            ])
+            done = "execute as @p run " + done
+        commands = [*commands, done]
         payload = ("\n".join(commands) + "\n").encode()
         (scripts / f"{name}.mcfunction").write_bytes(payload)
         hashes[name] = sha256(payload)
     return hashes
 
 
-def read_states(log, version, values):
+def read_states(log, version, values, *, interaction=False):
     results = {}
-    for stage, (_, checks) in stages(version, values).items():
+    for stage, (_, checks) in stages(version, values, interaction=interaction).items():
         observations = defaultdict(set)
         for line in log.splitlines():
             if "[Server thread/" not in line or PREFIX + stage + " " not in line:
@@ -265,12 +330,29 @@ def read_states(log, version, values):
     return results
 
 
-def capture(command, env, game, output, version):
+def read_sleep_timers(log):
+    outcomes = {}
+    for line in log.splitlines():
+        if "[Server thread/" not in line or PREFIX + "timer " not in line:
+            continue
+        stage, _, result = line.split(PREFIX + "timer ", 1)[1].partition(" ")
+        require(stage in ("check_bed_sleeping", "check_bed_awake") and
+                result in ("positive", "zero") and stage not in outcomes,
+                "Invalid or duplicated player sleep timer")
+        outcomes[stage] = result
+    require(outcomes.keys() == {"check_bed_sleeping", "check_bed_awake"}, "Sleep timer readings missing")
+    return outcomes
+
+
+def capture(command, env, game, output, version, *, interaction=False):
     from PIL import Image
 
     mods = game / "mods"
     if version == "1.21.1":
-        source, values = release_sources(mods, env.get("MCFR_HC_SOURCE_ZIP"))
+        source_zip = env.get("MCFR_HC_SOURCE_ZIP")
+        source, values = release_sources(mods, source_zip)
+        if interaction:
+            source["bed_occupied_variants"] = bed_interaction_source(mods, source_zip)
     else:
         source = shelf.verify_running_source(mods)
         with ZipFile(mods / source["mod_jar_name"]) as jar:
@@ -287,7 +369,8 @@ def capture(command, env, game, output, version):
                     "provider": provider, "provider_sha256": sha256(provider_bytes),
                     "elements": len(elements), "faces": sum(len(part["faces"]) for part in elements),
                 }
-    files = function_files(game / "saves/MCFR Visual Fixture/datapacks/mcfr_nonchair", version, values)
+    files = function_files(game / "saves/MCFR Visual Fixture/datapacks/mcfr_nonchair",
+                           version, values, interaction=interaction)
     output.mkdir(parents=True, exist_ok=False)
     log = output / "client.log"
     shots = game / "screenshots"
@@ -320,6 +403,31 @@ def capture(command, env, game, output, version):
         def camera(pose):
             command_and_wait("/tp @s " + pose, "[RenderAudit: Teleported RenderAudit to")
 
+        def gamemode(mode):
+            command_and_wait("/gamemode " + mode, f"[RenderAudit: Set own game mode to {mode.title()} Mode]")
+
+        def player_input(pose, button, *, sneak=False):
+            camera(pose)
+            gamemode("creative")
+            xdo("key", "--clearmodifiers", "1")
+            if sneak:
+                xdo("keydown", "Shift_L")
+                sleep(.6)
+            try:
+                xdo("click", str(button))
+            finally:
+                if sneak:
+                    xdo("keyup", "Shift_L")
+            sleep(1.8)
+            gamemode("spectator")
+            camera(CAMERA)
+
+        shelf_actions = {
+            "shelf_one": (BED_INTERACTION, 3, False),
+            "shelf_two": ("0.5 120 42.5 180 8", 3, True),
+            "shelf_three": ("0.5 121 42.5 180 8", 3, True),
+            "shelf_remove_middle": ("0.5 120 41.65 180 4", 1, False),
+        }
         try:
             wait_for(proc, lambda: "RenderAudit joined the game" in read(), "Fabric world loaded", 180)
             windows = xdo("search", "--all", "--onlyvisible", "--pid", str(proc.pid),
@@ -330,20 +438,33 @@ def capture(command, env, game, output, version):
             command_and_wait("/gamemode spectator", "[RenderAudit: Set own game mode to Spectator Mode]")
             camera(CAMERA)
             function("setup")
-            for name, (actions, _) in stages(version, values).items():
-                if actions:
+            for name, (actions, _) in stages(version, values, interaction=interaction).items():
+                if actions and name != "bed_sleeping":
                     function(f"place_{name.lower()}")
                 if name in ("bed_placed", "bed_foot_broken"):
+                    player_input(BED_INTERACTION, 3 if name == "bed_placed" else 1)
+                if interaction and name in shelf_actions:
+                    pose, button, sneak = shelf_actions[name]
+                    player_input(pose, button, sneak=sneak)
+                if name == "bed_sleeping":
                     camera(BED_INTERACTION)
-                    command_and_wait("/gamemode creative", "[RenderAudit: Set own game mode to Creative Mode]")
-                    xdo("key", "--clearmodifiers", "1")
-                    xdo("click", "3" if name == "bed_placed" else "1")
+                    gamemode("creative")
+                    xdo("key", "--clearmodifiers", "2")
+                    function("place_bed_sleeping")
+                    xdo("click", "3")
+                    wait_for(proc, lambda: PREFIX + "check_bed_sleeping done" in read(),
+                             "scheduled server sleep observation", 30)
+                elif name == "bed_awake":
+                    xdo("key", "--clearmodifiers", "Escape")
                     sleep(2)
-                    command_and_wait("/gamemode spectator", "[RenderAudit: Set own game mode to Spectator Mode]")
+                    function("check_bed_awake")
+                    gamemode("spectator")
                     camera(CAMERA)
-                function(f"check_{name.lower()}")
+                else:
+                    function(f"check_{name.lower()}")
                 before = set(shots.glob("*.png"))
-                xdo("key", "--clearmodifiers", "F1")
+                if name != "bed_sleeping":
+                    xdo("key", "--clearmodifiers", "F1")
                 sleep(1)
                 xdo("key", "--clearmodifiers", "F2")
                 pngs = wait_for(proc, lambda: [path for path in shots.glob("*.png")
@@ -353,7 +474,8 @@ def capture(command, env, game, output, version):
                 with Image.open(pngs[0]) as im:
                     require(im.size == (1024, 684), f"Unexpected F2 size for {name}")
                     im.verify()
-                xdo("key", "--clearmodifiers", "F1")
+                if name != "bed_sleeping":
+                    xdo("key", "--clearmodifiers", "F1")
                 target = output / (name + ".png")
                 shutil.copyfile(pngs[0], target)
                 captures[name] = sha256(target.read_bytes())
@@ -371,11 +493,15 @@ def capture(command, env, game, output, version):
         "minecraft": version,
         "source": source,
         "property_values": values,
-        "server_states": read_states(read(), version, values),
+        "server_states": read_states(read(), version, values, interaction=interaction),
         "function_payload_sha256": files,
         "client_log_sha256": sha256(log.read_bytes()),
         "native_f2_sha256": captures,
     }
+    if interaction:
+        report["interaction"] = True
+        if version == "1.21.1":
+            report["sleep_timers"] = read_sleep_timers(read())
     (output / "manifest.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
     return report
 
@@ -386,11 +512,18 @@ def audit(folder, checkpoint=None):
     report = json.loads((folder / "manifest.json").read_text())
     raw = (folder / "client.log").read_bytes()
     require(sha256(raw) == report["client_log_sha256"], "Client log SHA mismatch")
-    states = read_states(raw.decode("utf-8", errors="replace"), report["minecraft"], report["property_values"])
+    log = raw.decode("utf-8", errors="replace")
+    states = read_states(log, report["minecraft"], report["property_values"],
+                         interaction=report.get("interaction", False))
+    if "sleep_timers" in report:
+        require(read_sleep_timers(log) == report["sleep_timers"], "Sleep timer differs from original log")
     require(states == report["server_states"], "Server state inventory differs from original log")
     if checkpoint is not None:
         pinned = json.loads(checkpoint.read_text(encoding="utf-8"))["runs"][report["minecraft"]]
-        for field in ("source", "property_values", "function_payload_sha256", "server_states"):
+        fields = ["source", "property_values", "function_payload_sha256", "server_states"]
+        if "sleep_timers" in pinned:
+            fields.append("sleep_timers")
+        for field in fields:
             require(report[field] == pinned[field], f"Reproduced {field} differs from reviewed run")
     captures = report["native_f2_sha256"]
     require(captures.keys() == states.keys(), "F2 inventory is incomplete")
