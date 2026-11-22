@@ -186,6 +186,8 @@ def probe(block, coords, properties):
 
 
 def stages(version, values=None, *, interaction=False, case_ids=None, source_only=False, diagnostic_mode=False):
+    if diagnostic_mode:
+        require(version == "1.21.1", "F5 diagnostic must use Minecraft 1.21.1, never Macaw 1.21.11")
     x, y, z = ORIGIN
     if version == "1.21.11":
         properties = values or {
