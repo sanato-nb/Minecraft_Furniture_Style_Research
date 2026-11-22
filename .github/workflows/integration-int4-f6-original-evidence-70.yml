@@ -1,0 +1,105 @@
+name: INT-4-F6 10개 게임 F2 원본 재감사 및 S02 S34 조건부 복구
+
+on:
+  push:
+    branches:
+      - work/int4-f6-source-conditions-chair-couch-20261122
+    paths:
+      - scripts/integration/build_int4_f6_source_recovery_70.py
+      - tests/integration/test_int4_f6_source_recovery_70.py
+      - .github/workflows/integration-int4-f6-original-evidence-70.yml
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  original-ten-f2-70-target-cross-audit:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install original Minecraft F2 image decoder
+        run: python3 -m pip install --break-system-packages 'Pillow>=10,<13'
+
+      - name: Test pinned original SHA and no retroactive full approval
+        run: python3 -m unittest discover -s tests/integration -p 'test_int4_f6_source_recovery_70.py' -v
+
+      - name: Fetch exact original Actions archive and independently replay Minecraft server log PNG SHA and F6 source
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/integration/build_int4_f6_source_recovery_70.py \
+            --artifact-dir "${RUNNER_TEMP}/int4-f6-original-captures"
+
+      - name: Reproduce all five output files byte for byte against original game ZIP
+        run: |
+          python3 scripts/integration/build_int4_f6_source_recovery_70.py \
+            --artifact-dir "${RUNNER_TEMP}/int4-f6-original-captures" --verify
+
+      - name: Independent 70-target case counts and source-specific F2 successes
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,csv,json
+          d=Path("project/integration")
+          x=json.loads((d/"INT4_F6_70_INDEPENDENT_SOURCE_AUDIT_V1.json").read_text(encoding="utf-8"))
+          assert x["status"]=="PASS_S02_S34_EXACT_STATE_RECOVERED_TWO_CASES_CONDITIONAL_NOT_FINAL_F_EXIT"
+          assert x["counts"]["original_F2_captures"]==10
+          assert x["counts"]["unique_native_F2_sha"]==10
+          assert x["counts"]["exact_requested_states_in_10_trials"]==3
+          assert x["counts"]["new_exact_historical_1_5_cases"]==2
+          assert x["counts"]["historic_exact_F2_after"]==33
+          assert x["counts"]["conditional_after"]==39
+          assert x["counts"]["HOLD_after"]==31
+          assert x["counts"]["fully_accepted_F_targets"]==0
+          assert x["counts"]["new_INT5_semantic_approvals"]==0
+          assert x["counts"]["new_INT6_training_redistribution_rights_approvals"]==0
+          assert set(x["source_correct_original_case_stage"])=={"S02","S34"}
+          for filename,key,n in (
+            ("INT4_F6_70_TARGET_EVIDENCE_DISPOSITIONS_V5.csv","f70",70),
+            ("INT4_F6_31_PENDING_EXACT_F2_TARGETS_V1.csv","pending",31),
+            ("INT4_F6_10_SOURCE_CONDITIONS_GAME_MATRIX_V1.csv","matrix",10),
+          ):
+            b=(d/filename).read_bytes()
+            assert hashlib.sha256(b).hexdigest()==x["output_files"][key]["sha256"]
+            with (d/filename).open(encoding="utf-8",newline="") as f:
+              rows=list(csv.DictReader(f))
+            assert len(rows)==x["output_files"][key]["rows"]==n,(filename,len(rows))
+            print("PASS",filename,n)
+          print("PASS exact 3/10 source states, original 2 cases conditionally recovered")
+          PY
+          git diff --check
+
+      - name: Archive only derived game source evidence no original PNG or JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: INT4-F6-70-39-conditional-31-hold-two-original-cases-exact
+          retention-days: 45
+          path: |
+            project/integration/INT4_F6_70_TARGET_EVIDENCE_DISPOSITIONS_V5.csv
+            project/integration/INT4_F6_31_PENDING_EXACT_F2_TARGETS_V1.csv
+            project/integration/INT4_F6_10_SOURCE_CONDITIONS_GAME_MATRIX_V1.csv
+            project/integration/INT4_F6_70_INDEPENDENT_SOURCE_AUDIT_V1.json
+            project/integration/INT4_F6_SOURCE_REPLAY_REPORT_V1.md
+
+      - name: Commit only metadata to F6 Draft PR work branch and never main
+        if: success() && github.ref == 'refs/heads/work/int4-f6-source-conditions-chair-couch-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F6_70_TARGET_EVIDENCE_DISPOSITIONS_V5.csv \
+                  project/integration/INT4_F6_31_PENDING_EXACT_F2_TARGETS_V1.csv \
+                  project/integration/INT4_F6_10_SOURCE_CONDITIONS_GAME_MATRIX_V1.csv \
+                  project/integration/INT4_F6_70_INDEPENDENT_SOURCE_AUDIT_V1.json \
+                  project/integration/INT4_F6_SOURCE_REPLAY_REPORT_V1.md
+          if git diff --cached --quiet; then
+            echo "No metadata changes"
+          else
+            git commit -m "INT-4-F6 실제 게임 S02 S34 원본 조건 재현·70개 원장 조건부39 보류31 독립 감사"
+            git pull --rebase origin work/int4-f6-source-conditions-chair-couch-20261122
+            git push origin HEAD:refs/heads/work/int4-f6-source-conditions-chair-couch-20261122
+          fi
