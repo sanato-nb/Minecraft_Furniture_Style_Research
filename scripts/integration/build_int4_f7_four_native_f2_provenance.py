@@ -123,8 +123,7 @@ def create(archive_path):
         assert manifest["minecraft"]=="1.21.1"
         assert manifest["f_target_case_ids"]==list(CASES)
         assert manifest["f_source_only"] is True
-        assert sha(z.read("client.log"))==(
-            manifest["client_log_sha256"]==captured["original_client_log_sha256"])
+        assert sha(z.read("client.log"))==manifest["client_log_sha256"]==captured["original_client_log_sha256"]
         assert manifest["source"]["ledger_sha256"]==captured["original_1_5_application_csv_sha256"]
         for key in CASES:
             original=studycases[key]
