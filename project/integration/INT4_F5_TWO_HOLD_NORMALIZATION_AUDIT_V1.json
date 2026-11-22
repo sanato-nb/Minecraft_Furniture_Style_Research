@@ -1,0 +1,145 @@
+{
+  "case_outcomes": {
+    "S02": {
+      "cause": "Unknown: possible mod neighbor/placement logic; no player interaction tested",
+      "observed_properties": "tucked=false across isolated + east/south oak_table",
+      "source_original_requested": "tucked=true",
+      "status": "HOLD_EXACT_TUCKED_TRUE_NOT_REPRODUCED"
+    },
+    "S34": {
+      "cause": "Unknown: neighbor orientation and full inner-corner placement not exhausted",
+      "observed_properties": "isolated/north/south=single; east/left-right L=right; west/left-right L=left",
+      "source_original_requested": "shape=inner_left",
+      "status": "HOLD_EXACT_INNER_LEFT_NOT_REPRODUCED"
+    }
+  },
+  "counts": {
+    "AI_semantic_new_approvals": 0,
+    "AI_training_redistribution_new_rights": 0,
+    "F70_conditional_current": 37,
+    "F70_conditional_previous": 37,
+    "F70_final_unconditional_approval": 0,
+    "F70_hold_current": 33,
+    "F70_hold_previous": 33,
+    "S02_tucked_false_actual": 3,
+    "S02_tucked_true_actual": 0,
+    "S34_shape_inner_left_actual": 0,
+    "S34_shape_left_actual": 3,
+    "S34_shape_right_actual": 3,
+    "S34_shape_single_actual": 3,
+    "actual_client_trials": 12,
+    "actual_native_F2_images": 12,
+    "exact_requested_original_state_success": 0,
+    "historic_exact_F2_linked": 31,
+    "historic_exact_F2_remaining": 31,
+    "historic_study_cases": 62,
+    "native_PNG_distinct_SHA": 12,
+    "newly_accepted_historic_case_F2": 0,
+    "original_fixed_F_target_units": 70
+  },
+  "known_limitations": [
+    "All original vanilla/Fabric game states, blockstate source hashes, 12 screenshot hashes and client server log verified.",
+    "Original 1-5 S02/S34 state was NOT reproduced in any trial; no historical case upgrade.",
+    "Other furniture already passed in previous 70-target ledger; historical source rows remain unchanged.",
+    "A successful diagnostic CI does not mean test subjects S02/S34 have passed exact historical render requirements.",
+    "No baked UV causal attribution, part semantic/functional approval, natural item placement or mod redistribution rights inferred.",
+    "Temporary GitHub Actions archive expires under retention; Git stores metadata only."
+  ],
+  "outputs": {
+    "matrix": {
+      "rows": 12,
+      "sha256": "5091164b1d20895a69475bee715ea92461c8f59dfee0f8b0d7b4f6c058122f05"
+    }
+  },
+  "research_release_original_provenance": {
+    "S02": {
+      "blockstate_raw_sha256": "eedf8f1f7899bf8cb8989a28bd756ad954b3c405396325de61d6039ca31cdf94",
+      "jar": "another_furniture-fabric-4.0.2.jar",
+      "original_state_path": "assets/another_furniture/blockstates/oak_chair.json",
+      "property_values": {
+        "facing": [
+          "east",
+          "north",
+          "south",
+          "west"
+        ],
+        "tucked": [
+          "false",
+          "true"
+        ],
+        "variant": [
+          "1",
+          "10",
+          "11",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
+        ]
+      }
+    },
+    "S34": {
+      "blockstate_raw_sha256": "98cc83c24c0c538313638b6b75ef3eeb17d52453ce134ddf3b73750d7b05eaac",
+      "jar": "handcrafted-fabric-1.21.1-4.0.3.jar",
+      "original_state_path": "assets/handcrafted/blockstates/oak_couch.json",
+      "property_values": {
+        "color": [
+          "black",
+          "blue",
+          "brown",
+          "cyan",
+          "gray",
+          "green",
+          "light_blue",
+          "light_gray",
+          "lime",
+          "magenta",
+          "orange",
+          "pink",
+          "purple",
+          "red",
+          "white",
+          "yellow"
+        ],
+        "facing": [
+          "east",
+          "north",
+          "south",
+          "west"
+        ],
+        "shape": [
+          "inner_left",
+          "inner_right",
+          "left",
+          "middle",
+          "outer_left",
+          "outer_right",
+          "right",
+          "single"
+        ],
+        "waterlogged": [
+          "false",
+          "true"
+        ]
+      }
+    }
+  },
+  "schema": "MCFR_INT4_F5_REAL_FABRIC_PROPERTY_AND_ORIGINAL_IMAGE_PROVENANCE_AUDIT/v1",
+  "source_artifact_id": 14755154139,
+  "source_client_log_sha256": "876457d658c8286d1b1a16cf248ff03b4557252034d0cd5895dc0dd549dc6e71",
+  "source_game_action_id": 45026378323,
+  "source_game_action_url": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45026378323",
+  "source_original_historical_application_sha256": "da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e",
+  "source_previous_git_blob": {
+    "project/integration/INT4_F4_70_TARGET_EVIDENCE_DISPOSITIONS_V4.csv": "755e5d5e6364507f4bba09ca2e6e7d9052f3479d",
+    "project/integration/INT4_F4_DIRECT_VISUAL_PARTIAL_ACCEPTANCE_SUMMARY_V1.json": "37c070d9c1a02fc2c93e264e4daaee72b1a552bf",
+    "project/integration/INT4_F5_TWO_STATE_ACTUAL_CLIENT_DIAGNOSTIC_V1.json": "491fa696daeed31284ae47695dd0ad7741004f15",
+    "research/furniture_mods/phase_1-5/B/APPLICATIONS.csv": "56e6f4c21c50714b97079ec61f7219bea845f179"
+  },
+  "source_zip_sha256": "d55d60a7165851f164231cfd7e5c70824e5a076225bca0ce3df5a4a5eb858d83",
+  "status": "PASS_12_NATIVE_F2_PROPERTY_PROBES_ZERO_TARGET_EXACT_NO_HOLD_RELEASE"
+}
