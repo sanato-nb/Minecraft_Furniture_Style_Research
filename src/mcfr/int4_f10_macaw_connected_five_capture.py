@@ -191,16 +191,28 @@ def capture(command,env,game,output,version):
             return subprocess.check_output(
                 ["xdotool",*args],env=env,text=True,timeout=15).strip()
         def send(text):
-            xdo("key","--clearmodifiers","t")
+            # Minecraft may join the integrated server before Xvfb reliably
+            # directs keyboard events to the GLFW client window. Always
+            # refocus before sending any server command.
+            xdo("windowfocus","--sync",windows[0])
             sleep(.35)
-            xdo("type","--clearmodifiers","--delay","14",text)
+            xdo("key","--clearmodifiers","t")
+            sleep(.55)
+            xdo("type","--clearmodifiers","--delay","22",text)
             xdo("key","--clearmodifiers","Return")
         def camera(pose):
-            n=len(read_log())
-            send("/tp @s "+pose)
-            wait_for(proc,lambda:"[RenderAudit: Teleported RenderAudit to" in read_log()[n:],
-                     "real F10 camera teleport",90)
-            sleep(3)
+            for attempt in range(3):
+                n=len(read_log())
+                send("/tp @s "+pose)
+                try:
+                    wait_for(proc,lambda:"[RenderAudit: Teleported RenderAudit to" in read_log()[n:],
+                             "real F10 camera teleport",26)
+                    sleep(3)
+                    return
+                except ValueError as exc:
+                    if "Timed out waiting" not in str(exc) or attempt==2:
+                        raise
+                    sleep(2)
         try:
             wait_for(proc,lambda:"RenderAudit joined the game" in read_log(),
                      "pinned Macaw client started and joined world",150)
@@ -208,7 +220,12 @@ def capture(command,env,game,output,version):
                         "--name","^Minecraft").split()
             check(len(windows)==1,"Exactly one real Minecraft GUI required")
             xdo("windowfocus","--sync",windows[0])
-            sleep(1.6)
+            # Click the real GLFW client surface after the first chunk render
+            # (not a guaranteed UI action, so all commands still need log ACK).
+            sleep(4)
+            xdo("mousemove","--window",windows[0],"512","342")
+            xdo("click","1")
+            sleep(1.2)
             send("/gamemode spectator")
             sleep(1.0)
             camera("0.5 124 42.5 180 20")
