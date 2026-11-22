@@ -1,0 +1,135 @@
+name: INT-4-F10 Macaw 연결형 5개 원본 실제 Fabric 1.21.11 F2
+on:
+  push:
+    branches:
+      - work/int4-f10-macaw-five-connected-source-f2-20261123
+    paths:
+      - src/mcfr/int4_f10_macaw_connected_five_capture.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int4_f10_macaw_connected_five_capture.py
+      - .github/workflows/integration-int4-f10-macaw-connected-native-f2.yml
+permissions:
+  contents: write
+jobs:
+  macaw-5-connected-source-real-client:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 43
+    env:
+      PYTHONPATH: src
+    steps:
+      - name: Isolate F10 world official cache and original F2 output
+        run: |
+          echo "WORLD=$RUNNER_TEMP/int4-f10-world" >> "$GITHUB_ENV"
+          echo "CACHE=$RUNNER_TEMP/int4-f10-cache" >> "$GITHUB_ENV"
+          echo "WORK=$RUNNER_TEMP/int4-f10-work" >> "$GITHUB_ENV"
+          echo "OUT=$RUNNER_TEMP/int4-f10-original-F2" >> "$GITHUB_ENV"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install real Minecraft GUI screenshot PNG tools
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 update
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 install -y \
+              xvfb xauth xdotool libgl1-mesa-dri libglx-mesa0
+          fi
+      - name: Compile F10 Python modules before downloading any actual game assets
+        run: |
+          python -m compileall -q src/mcfr/runtime.py src/mcfr/int4_f10_macaw_connected_five_capture.py
+          python -m compileall -q tests/knowledge/test_int4_f10_macaw_connected_five_capture.py
+      - name: Fixed S13 S24 S25 S35 S36 model and 30 elements 171 faces tests
+        run: |
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f10_macaw_connected_five_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f9_macaw_five_capture.py' -v
+      - name: Create clean Mojang 1.21.11 official-server singleplayer world
+        run: |
+          python -m mcfr.chair_runtime_fixture world \
+            --version 1.21.11 --path "$WORLD" --cache "$CACHE"
+      - name: Place five original states and capture real F2 only after server readback
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+          ALSOFT_DRIVERS: 'null'
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int4-f10-macaw-connected-five \
+              --version 1.21.11 --world "$WORLD" --work "$WORK" --output "$OUT"
+      - name: Verify five native F2 file and original source SHA server states
+        run: |
+          python -m mcfr.int4_f10_macaw_connected_five_capture --directory "$OUT"
+          python - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          p=Path(os.environ["OUT"])
+          audit=json.loads((p/"INT4_F10_MACAW_FIVE_F2_AUDIT.json").read_text())
+          capture=json.loads((p/"INT4_F10_MACAW_FIVE_REAL_F2_CAPTURE.json").read_text())
+          assert audit["status"]=="PASS_FIVE_ORIGINAL_MACAW_F10_NATIVE_F2_AND_EXACT_SERVER_STATE_NOT_FINAL"
+          assert audit["source_cases"]==["S13","S24","S25","S35","S36"]
+          assert audit["native_f2_count"]==audit["server_verified_states"]==5
+          assert audit["source_1_5_face_counts"]=={"S13":6,"S24":31,"S25":26,"S35":66,"S36":42}
+          assert capture["original_source_registry"]["mod_jar_sha256"]=="e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e"
+          assert all(
+            audit["visibility_foreground_chroma"][case]>=150 or
+            (case in ("S35","S36") and
+             audit["visibility_foreground_neutral_white"][case]>=300)
+            for case in ("S13","S24","S25","S35","S36")
+          )
+          assert audit["white_couch_neutral_proxy_threshold"]==300
+          for case,h in audit["f2_sha256"].items():
+            image=p/(case+".png")
+            assert hashlib.sha256(image.read_bytes()).hexdigest()==h
+            with Image.open(image) as im:
+              im.load()
+              assert im.format=="PNG" and im.size==(1024,684)
+          assert hashlib.sha256((p/"client.log").read_bytes()).hexdigest()==capture["client_log_sha256"]
+          assert audit["boundaries"]["int5_part_roles_approved"]==0
+          assert audit["boundaries"]["int6_training_or_redistribution_rights_approved"]==0
+          assert audit["boundaries"]["natural_connected_block_update_rules_tested"] is False
+          assert audit["boundaries"]["face_uv_render_pixel_causality_proven"] is False
+          result={
+            "schema":"MCFR_INT4_F10_REAL_MACAW_FIVE_ORIGINAL_F2/v1",
+            "status":"PASS_EXACT_FIVE_ORIGINAL_1_21_11_MACAW_SOURCE_STATES_ACTUAL_F2",
+            "minecraft":"1.21.11",
+            "case_ids":audit["source_cases"],
+            "original_source_sha256":audit["original_source_sha256"],
+            "macaw_mod_jar_sha256":capture["original_source_registry"]["mod_jar_sha256"],
+            "model_source_by_case":capture["original_source_registry"]["states"],
+            "server_exact_blockstates":5,
+            "native_F2_original_images":5,
+            "native_F2_SHA256":audit["f2_sha256"],
+            "client_log_sha256":capture["client_log_sha256"],
+            "original_model_elements":30,
+            "original_model_faces":171,
+            "boundaries":audit["boundaries"],
+            "full_F_accepted":0,"INT5_part_semantics_approved":0,"INT6_rights_approved":0,
+          }
+          Path("project/integration/INT4_F10_MACAW_FIVE_ACTUAL_F2_SOURCE_V1.json").write_text(
+            json.dumps(result,ensure_ascii=False,sort_keys=True,indent=2)+"\n",encoding="utf-8")
+          print("PASS F10 five original Macaw native F2, 171 model faces, no semantic claims")
+          PY
+          git diff --check
+      - name: Preserve original native F2 and client log only in Actions artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-f10-macaw-five-connected-native-F2-originals
+          path: ${{ env.OUT }}/
+          retention-days: 45
+          if-no-files-found: warn
+      - name: Commit only provenance SHA metadata on F10 Draft branch
+        if: success() && github.ref == 'refs/heads/work/int4-f10-macaw-five-connected-source-f2-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F10_MACAW_FIVE_ACTUAL_F2_SOURCE_V1.json
+          if ! git diff --cached --quiet; then
+            git commit -m "INT-4-F10 Macaw 연결형 5개 실게임 상태 원본 F2 SHA 출처 기록"
+            git push origin HEAD:refs/heads/work/int4-f10-macaw-five-connected-source-f2-20261123
+          fi

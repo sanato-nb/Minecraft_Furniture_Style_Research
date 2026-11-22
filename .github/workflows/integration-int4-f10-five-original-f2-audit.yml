@@ -1,0 +1,94 @@
+name: INT-4-F10 원본 Macaw F2 독립 감사 및 70개 판정 53조건부 17보류
+on:
+  push:
+    branches:
+      - work/int4-f10-macaw-five-connected-source-f2-20261123
+    paths:
+      - scripts/integration/build_int4_f10_macaw_five_original_f2_audit.py
+      - tests/integration/test_int4_f10_macaw_five_original_f2_audit.py
+      - .github/workflows/integration-int4-f10-five-original-f2-audit.yml
+permissions:
+  actions: read
+  contents: write
+jobs:
+  original-five-case-SHA-native-F2-independent-audit:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - name: Checkout frozen 1-5 source, F9 70 ledger and real F10 capture metadata
+        uses: actions/checkout@v4
+      - name: Install PNG decoding dependency
+        run: python3 -m pip install --break-system-packages 'Pillow>=10,<13'
+      - name: Compile and unit-test pinned original SHA, five F10 cases and prior 70 scope
+        run: |
+          python3 -m compileall -q scripts/integration/build_int4_f10_macaw_five_original_f2_audit.py
+          python3 -m unittest discover -s tests/integration \
+            -p 'test_int4_f10_macaw_five_original_f2_audit.py' -v
+      - name: Fetch original GitHub Action native game ZIP and independently reopen five PNG and client log
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/integration/build_int4_f10_macaw_five_original_f2_audit.py \
+            --artifact-dir "$RUNNER_TEMP/int4-f10-source-zip"
+      - name: Deterministic re-audit from the same original ZIP and SHA-locked study metadata
+        run: |
+          python3 scripts/integration/build_int4_f10_macaw_five_original_f2_audit.py \
+            --artifact-dir "$RUNNER_TEMP/int4-f10-source-zip" --verify
+      - name: Assert only five changed F70 rows and no unconditional F or semantic approvals
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import csv,hashlib,json
+          p=Path("project/integration")
+          f=p/"INT4_F10_FIVE_MACAW_ORIGINAL_NATIVE_F2_INDEPENDENT_AUDIT_V1.json"
+          doc=json.loads(f.read_text(encoding="utf-8"))
+          assert doc["status"]=="PASS_FIVE_REAL_F2_MACAW_53_CONDITIONAL_17_HOLD_FULL_ZERO"
+          c=doc["counts"]
+          assert c["fixed_F_total"]==70 and c["original_1_5_historical_cases"]==62
+          assert c["new_1_21_11_original_native_F2"]==5
+          assert c["new_original_source_elements"]==30 and c["new_original_source_faces"]==171
+          assert (c["F_conditional_before"],c["F_conditional_after"])==(48,53)
+          assert (c["F_HOLD_before"],c["F_HOLD_after"])==(22,17)
+          assert (c["historical_1_5_conditional_F2_before"],c["historical_1_5_conditional_F2_after"])==(42,47)
+          assert c["F_unconditional_final_approved"]==0
+          assert c["new_INT5_semantic_part_approvals"]==0
+          assert c["new_INT6_AI_training_and_redistribution_rights"]==0
+          assert doc["remaining_HOLD_by_cohort"]=={"RISK":2,"VANILLA":15}
+          assert set(doc["cases"])=={"S13","S24","S25","S35","S36"}
+          assert doc["cases"]["S36"]["neutral_white_pixels"]>=300
+          for path,key in (
+              ("INT4_F10_70_TARGET_EVIDENCE_DISPOSITIONS_V9.csv","F70"),
+              ("INT4_F10_17_PENDING_EXACT_F2_TARGETS_V1.csv","pending"),
+          ):
+              b=(p/path).read_bytes()
+              assert hashlib.sha256(b).hexdigest()==doc["outputs"][key]["sha256"]
+              with (p/path).open(encoding="utf-8",newline="") as stream:
+                  assert len(list(csv.DictReader(stream)))==doc["outputs"][key]["rows"]
+          print("PASS F10 original five native F2 SHA: 70=53 conditional+17 hold, full F0")
+          PY
+          git diff --check
+      - name: Upload only derived metadata, not original copyrighted Minecraft PNG/JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-f10-70-53-conditional-17-hold-revalidated-original-source
+          retention-days: 45
+          path: |
+            project/integration/INT4_F10_70_TARGET_EVIDENCE_DISPOSITIONS_V9.csv
+            project/integration/INT4_F10_17_PENDING_EXACT_F2_TARGETS_V1.csv
+            project/integration/INT4_F10_FIVE_MACAW_ORIGINAL_NATIVE_F2_INDEPENDENT_AUDIT_V1.json
+            project/integration/INT4_F10_FIVE_CASE_ORIGINAL_IMAGE_REVIEW_V1.md
+          if-no-files-found: error
+      - name: Commit source/PNG SHA evidence to Draft F10 only, preserve main
+        if: github.ref == 'refs/heads/work/int4-f10-macaw-five-connected-source-f2-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F10_70_TARGET_EVIDENCE_DISPOSITIONS_V9.csv \
+                  project/integration/INT4_F10_17_PENDING_EXACT_F2_TARGETS_V1.csv \
+                  project/integration/INT4_F10_FIVE_MACAW_ORIGINAL_NATIVE_F2_INDEPENDENT_AUDIT_V1.json \
+                  project/integration/INT4_F10_FIVE_CASE_ORIGINAL_IMAGE_REVIEW_V1.md
+          if ! git diff --cached --quiet; then
+            git commit -m "INT-4-F10 Macaw 원본 5개 F2 독립검증 조건부53 보류17 최신 원장 반영"
+            git push origin HEAD:refs/heads/work/int4-f10-macaw-five-connected-source-f2-20261123
+          fi

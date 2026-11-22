@@ -1,0 +1,122 @@
+{
+  "cases": {
+    "S13": {
+      "UV_function_part_semantics_and_rights_approved": false,
+      "actual_native_F2_sha256": "63fae3610dd6abb84d4d9e52bf9044caa91aa660f9e6d3efd8a6531d88aec6ce",
+      "color_pixels": 3700,
+      "conditional_only": true,
+      "direct_original_image_observation": "원본 F2에서 낮고 평평한 갈색 판형 커피 테이블 중심 부품이 보임. 전체 테이블 완성 형태 아님.",
+      "exact_original_game_server_state": true,
+      "natural_neighbor_updates_and_player_actions_verified": false,
+      "neutral_white_pixels": 0,
+      "original_source_model_and_provider_SHA256_matches_release": true,
+      "source_geometry_elements": 1,
+      "source_geometry_faces": 6
+    },
+    "S24": {
+      "UV_function_part_semantics_and_rights_approved": false,
+      "actual_native_F2_sha256": "0154f4c2caf6c74aa0614215826595c5c211d7432d63c06516af7d5d45522651",
+      "color_pixels": 7623,
+      "conditional_only": true,
+      "direct_original_image_observation": "원본 F2에서 좁은 세로형 목재 서랍 연결 부품이 보임. 실제 열림/닫힘 기능 미검증.",
+      "exact_original_game_server_state": true,
+      "natural_neighbor_updates_and_player_actions_verified": false,
+      "neutral_white_pixels": 0,
+      "original_source_model_and_provider_SHA256_matches_release": true,
+      "source_geometry_elements": 6,
+      "source_geometry_faces": 31
+    },
+    "S25": {
+      "UV_function_part_semantics_and_rights_approved": false,
+      "actual_native_F2_sha256": "3069ab4122012b7f3d1a13a1c2d0384737e6f6b74ddcacafa5c2d914077297f5",
+      "color_pixels": 8062,
+      "conditional_only": true,
+      "direct_original_image_observation": "원본 F2에서 세로 무늬의 작은 목재 옷장 기본 부품이 보임. 전체 다단 옷장 완성 형태 아님.",
+      "exact_original_game_server_state": true,
+      "natural_neighbor_updates_and_player_actions_verified": false,
+      "neutral_white_pixels": 0,
+      "original_source_model_and_provider_SHA256_matches_release": true,
+      "source_geometry_elements": 5,
+      "source_geometry_faces": 26
+    },
+    "S35": {
+      "UV_function_part_semantics_and_rights_approved": false,
+      "actual_native_F2_sha256": "4f565b5c421e4667f70ccb78150a0763680c01fd736ba5aec8e40b7fc0c57078",
+      "color_pixels": 211,
+      "conditional_only": true,
+      "direct_original_image_observation": "원본 F2에서 흰색의 낮은 소파 단일 부품이 보임. 좌석 기능 미검증.",
+      "exact_original_game_server_state": true,
+      "natural_neighbor_updates_and_player_actions_verified": false,
+      "neutral_white_pixels": 2177,
+      "original_source_model_and_provider_SHA256_matches_release": true,
+      "source_geometry_elements": 11,
+      "source_geometry_faces": 66
+    },
+    "S36": {
+      "UV_function_part_semantics_and_rights_approved": false,
+      "actual_native_F2_sha256": "5ddef9f6b5f17f2969ed21abe80995b2a49c947e350020583ecbb636b53c87fb",
+      "color_pixels": 83,
+      "conditional_only": true,
+      "direct_original_image_observation": "원본 F2에서 흰색 코너형 소파 부품이 보임. 무채색 흰색 픽셀 가시성으로 별도 확인.",
+      "exact_original_game_server_state": true,
+      "natural_neighbor_updates_and_player_actions_verified": false,
+      "neutral_white_pixels": 1519,
+      "original_source_model_and_provider_SHA256_matches_release": true,
+      "source_geometry_elements": 7,
+      "source_geometry_faces": 42
+    }
+  },
+  "counts": {
+    "F_HOLD_after": 17,
+    "F_HOLD_before": 22,
+    "F_conditional_after": 53,
+    "F_conditional_before": 48,
+    "F_unconditional_final_approved": 0,
+    "fixed_F_total": 70,
+    "historical_1_5_conditional_F2_after": 47,
+    "historical_1_5_conditional_F2_before": 42,
+    "new_1_21_11_original_native_F2": 5,
+    "new_INT5_semantic_part_approvals": 0,
+    "new_INT6_AI_training_and_redistribution_rights": 0,
+    "new_conditionally_linked_F_cases": 5,
+    "new_original_source_elements": 30,
+    "new_original_source_faces": 171,
+    "original_1_5_historical_cases": 62,
+    "real_server_exact_states": 5
+  },
+  "input_original_git_blob_sha1": {
+    "project/integration/INT4_F10_MACAW_FIVE_ACTUAL_F2_SOURCE_V1.json": "4ab10ecd62f339d9ca26d9e51acc48b635684a06",
+    "project/integration/INT4_F9_70_TARGET_EVIDENCE_DISPOSITIONS_V8.csv": "387dd0d50d2bcf48a3a4210742ccb9623f5ee9a6",
+    "project/integration/INT4_F9_FIVE_MACAW_NATIVE_F2_INDEPENDENT_AUDIT_V1.json": "9443a031d6965d9e3acd425d0e0326185d3d6dc4",
+    "research/furniture_mods/phase_1-5/B/APPLICATIONS.csv": "56e6f4c21c50714b97079ec61f7219bea845f179"
+  },
+  "limitations": [
+    "All five original Macaw 3.4.2 1.21.11 /setblock source states read back exactly in real game; these are not naturally formed neighbor connections.",
+    "S36 neutral white center ROI visual foreground 1519 pixels: case-specific proxy validated on actual PNG, not pixel UV causality.",
+    "Selected source geometry can be a small component, not an assembled/full-size furniture item.",
+    "All native F2 screenshots, server-log and model SHA match; functional semantics, texture UV, collisions and distribution rights not approved.",
+    "Exactly five 70-target case rows changed, and prior 65 rows and all historical 1-5 sources are unchanged.",
+    "Original JARs, PNGs and cube model JSON are not committed to Git; Actions original ZIP expires.",
+    "F full exit, G/H, INT5 and INT6 remain pending."
+  ],
+  "original_client_log_sha256": "f33c4da0a691d87561f3c51ee7d8ba07f4be08fc17fa19a71dd4cc90b91ea213",
+  "original_client_zip_sha256": "e35a901c649cdab24cb3065e9df44d8cafa7f8c81cff696f23a1eb66ca59cb22",
+  "original_real_minecraft_artifact": 14761291650,
+  "original_real_minecraft_run": 45039429134,
+  "outputs": {
+    "F70": {
+      "rows": 70,
+      "sha256": "cf30cb534f94e725a18171f1d2ee2b8f736a80945b9d913b533be5906cf10cfb"
+    },
+    "pending": {
+      "rows": 17,
+      "sha256": "fba3252e07caec2896e05f8aeec019d069a6f4ed2d0a4fa0b6d8721940c55ce7"
+    }
+  },
+  "remaining_HOLD_by_cohort": {
+    "RISK": 2,
+    "VANILLA": 15
+  },
+  "schema": "MCFR_INT4_F10_FIVE_MACAW_ORIGINAL_F2_INDEPENDENT_SOURCE_70_AUDIT/v1",
+  "status": "PASS_FIVE_REAL_F2_MACAW_53_CONDITIONAL_17_HOLD_FULL_ZERO"
+}
