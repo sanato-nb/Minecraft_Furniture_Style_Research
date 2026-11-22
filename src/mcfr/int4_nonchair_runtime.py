@@ -527,7 +527,7 @@ def capture(command, env, game, output, version, *, interaction=False, case_ids=
         "native_f2_sha256": captures,
     }
     if diagnostic_mode:
-        report["diagnostic_mode"] = True
+        report["diagnostic_mode"] = diagnostic_mode
     if case_ids is not None:
         report["f_target_case_ids"] = list(case_ids)
         report["f_source_only"] = bool(source_only)
