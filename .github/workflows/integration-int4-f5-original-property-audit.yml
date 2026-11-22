@@ -1,0 +1,97 @@
+name: INT-4-F5 12개 네이티브 F2·서버 속성값 원본 독립 재감사
+
+on:
+  push:
+    branches:
+      - work/int4-f5-two-property-state-diagnostics-20261122
+    paths:
+      - scripts/integration/build_int4_f5_native_properties_audit.py
+      - tests/integration/test_int4_f5_native_properties_audit.py
+      - .github/workflows/integration-int4-f5-original-property-audit.yml
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  f5-original-f2-server-state-independent-audit:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    env:
+      PYTHONPATH: src
+    steps:
+      - name: 고정 원본 1-5와 F4 70개 판정 원장 및 F5 게임 증거 준비
+        uses: actions/checkout@v4
+
+      - name: 원본 F2 PNG 디코더 설치
+        run: python3 -m pip install --break-system-packages 'Pillow>=10,<13'
+
+      - name: 과거 70개 판정·12개 속성 사례·원본 SHA 변경 차단 회귀시험
+        run: python3 -m unittest discover -s tests/integration -p 'test_int4_f5_native_properties_audit.py' -v
+
+      - name: 실제 F5 Actions ZIP 재다운로드·12개 PNG SHA·원본 서버 로그 독립 파싱
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/integration/build_int4_f5_native_properties_audit.py \
+            --artifact-dir "${RUNNER_TEMP}/int4-f5-original-source"
+
+      - name: 원본 ZIP 재생성 결과의 바이트 단위 결정론적 재검증
+        run: |
+          python3 scripts/integration/build_int4_f5_native_properties_audit.py \
+            --artifact-dir "${RUNNER_TEMP}/int4-f5-original-source" --verify
+
+      - name: 12회 속성 증거·원본의 70개 조건부37/보류33 불변 검증
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,csv,hashlib
+          p=Path('project/integration')
+          d=json.loads((p/'INT4_F5_TWO_HOLD_NORMALIZATION_AUDIT_V1.json').read_text(encoding='utf-8'))
+          assert d['status']=='PASS_12_NATIVE_F2_PROPERTY_PROBES_ZERO_TARGET_EXACT_NO_HOLD_RELEASE'
+          assert d['counts']['actual_client_trials']==12
+          assert d['counts']['S02_tucked_true_actual']==0
+          assert d['counts']['S34_shape_inner_left_actual']==0
+          assert d['counts']['exact_requested_original_state_success']==0
+          assert d['counts']['F70_conditional_current']==37
+          assert d['counts']['F70_hold_current']==33
+          assert d['counts']['F70_final_unconditional_approval']==0
+          assert d['counts']['historic_exact_F2_linked']==31
+          assert d['counts']['AI_semantic_new_approvals']==0
+          assert d['counts']['AI_training_redistribution_new_rights']==0
+          data=(p/'INT4_F5_12_REAL_GAME_PROPERTY_MATRIX_V1.csv').read_bytes()
+          assert hashlib.sha256(data).hexdigest()==d['outputs']['matrix']['sha256']
+          with (p/'INT4_F5_12_REAL_GAME_PROPERTY_MATRIX_V1.csv').open(encoding='utf-8',newline='') as h:
+            rows=list(csv.DictReader(h))
+          assert len(rows)==12
+          assert all(x['server_requested_exact']=='false' for x in rows)
+          assert all(x['f_stage_final_approval']=='false' for x in rows)
+          print('PASS exact state 0/12, diagnostic F2 12, 70=37 conditional+33 HOLD')
+          PY
+          git diff --check
+
+      - name: 원본 PNG/JAR 아닌 파생 검증 데이터만 아티팩트에 보존
+        uses: actions/upload-artifact@v4
+        with:
+          name: INT4-F5-12-actual-server-property-observations-both-hold
+          retention-days: 45
+          path: |
+            project/integration/INT4_F5_12_REAL_GAME_PROPERTY_MATRIX_V1.csv
+            project/integration/INT4_F5_TWO_HOLD_NORMALIZATION_AUDIT_V1.json
+            project/integration/INT4_F5_PROPERTY_DIAGNOSTIC_REPORT_V1.md
+
+      - name: 실제 연구 판정을 기존 main 아닌 Draft 브랜치에만 커밋
+        if: github.ref == 'refs/heads/work/int4-f5-two-property-state-diagnostics-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F5_12_REAL_GAME_PROPERTY_MATRIX_V1.csv \
+                  project/integration/INT4_F5_TWO_HOLD_NORMALIZATION_AUDIT_V1.json \
+                  project/integration/INT4_F5_PROPERTY_DIAGNOSTIC_REPORT_V1.md
+          if git diff --cached --quiet; then
+            echo "검증 메타데이터 변동 없음"
+          else
+            git commit -m "INT-4-F5 실제 서버 12개 속성 판독·원본 F2 독립검증·S02 S34 보류 유지"
+            git push origin HEAD:refs/heads/work/int4-f5-two-property-state-diagnostics-20261122
+          fi
