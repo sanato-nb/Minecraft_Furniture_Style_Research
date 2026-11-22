@@ -22,6 +22,7 @@ import os
 from pathlib import Path
 import tempfile
 import urllib.request
+import urllib.error
 import zipfile
 
 from PIL import Image
@@ -179,7 +180,6 @@ def get_artifact_bytes(archive_dir,rec,download):
         # The artifact ZIP is a ~180KB-2MB archive, not the full Minecraft client.
         # The Actions archive endpoint issues a 302 to signed blob storage.
         # Never forward the GitHub Bearer token to that different host.
-        import urllib.error
         from urllib.parse import urlsplit
         class NoCrossHostAuthRedirect(urllib.request.HTTPRedirectHandler):
             def redirect_request(self,req,fp,code,msg,headers,newurl):
