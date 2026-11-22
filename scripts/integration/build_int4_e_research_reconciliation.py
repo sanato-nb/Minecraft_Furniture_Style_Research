@@ -52,7 +52,7 @@ CASE_FIELDS=[
  "historical_geometry_status_counts","selected_model_ids","selected_provider_ids",
  "original_model_sha_set","original_blockstate_sha_set",
  "int4_d_mod_state_join","int4_d_option_count","int4_c_exception_affected_applications",
- "prior_int3_source_link_scope","original_F2_target_state",
+ "prior_int3_source_link_scope","finding_direct_citation_count","finding_citation_scope","original_F2_target_state",
  "new_actual_game_F2_review_status","research_disposition","followup"
 ]
 APP_FIELDS=[
@@ -463,7 +463,20 @@ def build():
     assert classes==CLASSES,classes
     assert handoffs_counts==HANDOFF,handoffs_counts
     assert finding_cases==70
-    assert len(cases_claimed)==62,("SOME_CASES_NOT_IN_ANY_FINDING",sorted(set(cases)-cases_claimed))
+    # The 21 findings contain 70 references to 56 distinct cases (not all 62).
+    # Preserve six unreferenced but valid research cases, never falsely cite them.
+    not_cited=sorted(set(cases)-cases_claimed)
+    assert len(cases_claimed)==56,("DIRECT_CITED_CASES",len(cases_claimed))
+    assert not_cited==["S03","S04","S05","S09","S26","V10"],not_cited
+    citation_counter=Counter(k for finding in findings_idx.values()
+                             for k in finding["cases"].split("|"))
+    assert sum(citation_counter.values())==70
+    for row in case_out:
+        count=citation_counter[row["case"]]
+        row["finding_direct_citation_count"]=count
+        row["finding_citation_scope"]=(
+            "DIRECTLY_REFERENCED_IN_21_FINDINGS" if count
+            else "VALID_STUDY_CASE_NOT_DIRECTLY_CITED_IN_21_FINDINGS")
     assert not exception_case_count
     assert e_audit["table_rows"]["finding_case"]==70
     assert len(finding_runtime_ids)<=e_audit["table_rows"]["runtime_check"]
@@ -496,6 +509,8 @@ def build():
             "finding_source_rows":21,
             "distinct_finding_case_links":finding_cases,
             "distinct_cases_referenced_by_findings":len(cases_claimed),
+            "study_cases_not_directly_cited_in_findings":len(not_cited),
+            "study_cases_not_directly_cited_ids":not_cited,
             "element_instance_sum_across_74_applications":reconciled_element_count,
             "face_instance_sum_across_74_applications":reconciled_face_count,
             "historical_handoff_disposition_counts":dict(sorted(handoffs_counts.items())),
@@ -564,7 +579,8 @@ def build():
         "- 바닐라 22개는 모드용 INT-4-D 분모 밖이므로 이전 INT2-1-5 원본 독립 검증으로 별도 기록.",
         "- 74 적용의 요소/면 합계 390 / 1,844를 62개 사례 원장과 재합산.",
         "- C의 21개 판정은 원본 사례 ID·범주·축·측정 JSON·관찰·범위 제한과 E 인계 검토 조건이 일치함.",
-        "- 21판정의 사례 연결 70행, 모든 62사례 인용. 범위 제한 7개 유지, 후보 14개는 승인 전 후보.",
+        "- 21개 판정은 70번의 사례 연결로 고유 56개 사례를 직접 인용함. S03/S04/S05/S09/S26/V10 6개 사례는 62개 사례 원장에 보존하되 개별 판정의 직접 근거로 꾸미지 않음.",
+        "- 범위 제한 7개 유지, 후보 14개는 승인 전 후보.",
         "- F의 70개 대상 중 역사 사례 ID 62개를 새 출처 원장에 연결. F2 수락 상태는 신규 심사하지 않음.",
         "",
         "## 엄격한 경계",
