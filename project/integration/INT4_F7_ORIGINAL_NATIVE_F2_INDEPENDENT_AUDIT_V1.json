@@ -1,0 +1,101 @@
+{
+  "cases": {
+    "S03": {
+      "disposition": "CONDITIONAL",
+      "missing_parent_from_mod_jar": [],
+      "model_application_count": 1,
+      "original_native_F2_sha256": "1a31dde4e54bbe55c8d60350cab42b62f3597cb05ee3875b710670a81a108fb3",
+      "qualitative_direct_visual_review": "실제 F2에서 밝은 목재 등받이와 좌판을 갖춘 작은 의자가 보임",
+      "release_model_selection_matches_original": true,
+      "server_exact_original_state": true
+    },
+    "S04": {
+      "disposition": "CONDITIONAL",
+      "missing_parent_from_mod_jar": [],
+      "model_application_count": 1,
+      "original_native_F2_sha256": "503e6a99a173d111c685c5196d88d5d791dcabb2bf20d9b0da2627e36746f59f",
+      "qualitative_direct_visual_review": "실제 F2에서 어두운 갈색 목재 등받이와 좌판을 갖춘 작은 의자가 보임",
+      "release_model_selection_matches_original": true,
+      "server_exact_original_state": true
+    },
+    "S22": {
+      "disposition": "HOLD_EXTERNAL_VANILLA_PARENT",
+      "missing_parent_from_mod_jar": [
+        "assets/minecraft/models/block/cube.json"
+      ],
+      "model_application_count": 1,
+      "original_native_F2_sha256": "4f2f069ed19435bd504142df9872e04eae5b924176b39a719fa56cf4ce5926bc",
+      "qualitative_direct_visual_review": "실제 F2에서 사각형 목재 서랍형 블록을 관찰. 실행 바닐라 부모 SHA 검증 별도",
+      "release_model_selection_matches_original": true,
+      "server_exact_original_state": true
+    },
+    "S30": {
+      "disposition": "CONDITIONAL",
+      "missing_parent_from_mod_jar": [],
+      "model_application_count": 2,
+      "original_native_F2_sha256": "42674398b97ed12050b3b6dead7ff6595ec4a90860bf4b930c525e55a10290d6",
+      "qualitative_direct_visual_review": "실제 F2에서 상판과 위쪽 등받이 부품이 모두 있는 낮은 목재 벤치를 관찰",
+      "release_model_selection_matches_original": true,
+      "server_exact_original_state": true
+    }
+  },
+  "counts": {
+    "F_HOLD_before": 31,
+    "F_HOLD_now": 28,
+    "F_conditional_before": 39,
+    "F_conditional_now": 42,
+    "fixed_F_target_units": 70,
+    "full_F_unconditional_approvals": 0,
+    "historic_source_cases": 62,
+    "historical_exact_F2_conditional_before": 33,
+    "historical_exact_F2_conditional_now": 36,
+    "new_INT5_part_semantic_approvals": 0,
+    "new_INT6_model_training_or_redistribution_rights": 0,
+    "new_conditional_cases": 3,
+    "new_external_parent_HOLD": 1,
+    "new_model_selector_equals_release": 4,
+    "new_original_model_applications": 5,
+    "new_original_real_F2_images": 4,
+    "new_server_exact_game_states": 4,
+    "new_source_elements": 31,
+    "new_source_faces": 144
+  },
+  "limits": [
+    "AF source Git and Fabric release JAR bytes differ; model selection matches but byte equality is not asserted.",
+    "S30 two models are simultaneously selected in one historical case.",
+    "S22 vanilla parent is outside HC JAR; actual 1.21.1 vanilla parent SHA is NOT yet independently checked.",
+    "Original F2 images qualitatively reviewed but do not prove UV or semantic causality.",
+    "Other 66 source rows and all original source Git documents unchanged; no original game assets committed.",
+    "INT-4-F full exit, G/H, INT5/INT6 rights not approved."
+  ],
+  "original_client_log_sha256": "deaa6c879aab0413b9934bf9d1af44577182b979d5d31a694f72df45d34ffeb8",
+  "original_game_action_run": 45031468054,
+  "original_game_artifact_id": 14758360785,
+  "original_game_zip_sha256": "e52990c06605e44db4127c2e2eec0e7a729d817e86f3843d05127435f3aa64d8",
+  "original_git_blob_sha1_pins": {
+    "project/integration/INT4_F6_70_TARGET_EVIDENCE_DISPOSITIONS_V5.csv": "b572b24ffc2a6e694464b89b6558b2e3baa2da92",
+    "project/integration/INT4_F7_FOUR_NATIVE_GAME_F2_SOURCE_REPORT_V1.json": "9804a4dd47118bd458d5c0e25b509f8e4e390281",
+    "research/furniture_mods/phase_1-5/B/APPLICATIONS.csv": "56e6f4c21c50714b97079ec61f7219bea845f179"
+  },
+  "outputs": {
+    "F70": {
+      "rows": 70,
+      "sha256": "43241c573c8b9c2f5e57859f134a688413301d44b831122a06da41bde76c756f"
+    },
+    "S22_exception": {
+      "sha256": "b01a382a6804f86d20f52fb635d02e57f612736cc708b579ad8d27d596577ed8"
+    },
+    "pending": {
+      "rows": 28,
+      "sha256": "223fc4d6a85a2ba68b865676f4db36bd6e3874292737d4727a0227974993cc37"
+    }
+  },
+  "remaining_hold_by_cohort": {
+    "HC": 1,
+    "MACAW": 10,
+    "RISK": 2,
+    "VANILLA": 15
+  },
+  "schema": "MCFR_INT4_F7_ORIGINAL_NATIVE_F2_FULL_SOURCE_INDEPENDENT_AUDIT/v1",
+  "status": "PASS_FOUR_NATIVE_F2_THREE_CONDITIONAL_ONE_EXTERNAL_PARENT_HOLD"
+}
