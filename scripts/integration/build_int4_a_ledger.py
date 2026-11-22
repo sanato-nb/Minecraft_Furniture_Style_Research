@@ -42,7 +42,7 @@ FIELDS = [
 
 
 def git_blob_sha(payload: bytes) -> str:
-    return hashlib.sha1(b"blob " + str(len(payload)).encode() + b"\\0" + payload).hexdigest()
+    return hashlib.sha1(b"blob " + str(len(payload)).encode() + b"\0" + payload).hexdigest()
 
 
 def load_bytes(path: str) -> bytes:
@@ -177,7 +177,7 @@ def build():
         raise AssertionError("SOURCE_HISTORY_CONFLICTS " + json.dumps(issues[:12],ensure_ascii=False))
 
     stream = io.StringIO(newline="")
-    writer = csv.DictWriter(stream, fieldnames=FIELDS, lineterminator="\\n")
+    writer = csv.DictWriter(stream, fieldnames=FIELDS, lineterminator="\n")
     writer.writeheader()
     writer.writerows(result)
     logical = stream.getvalue().encode("utf-8")
@@ -219,7 +219,7 @@ def build():
             "The original B/C historical gz, JSON, CSV, and PR runtime artifacts remain unchanged."
         ]
     }
-    summary_text = json.dumps(summary,ensure_ascii=False,indent=2,sort_keys=True) + "\\n"
+    summary_text = json.dumps(summary,ensure_ascii=False,indent=2,sort_keys=True) + "\n"
     report = f"""# INT-4-A 고정 모델·부모 원장 재연결 실행 결과
 
 - 범위: AF {by_mod['AF']:,}, HC {by_mod['HC']:,}, MACAW {by_mod['MACAW']:,}, 총 **{len(result):,}개 모델**.
@@ -232,9 +232,9 @@ def build():
 **과거 원본 B·C 데이터를 새 단계의 개별 원장으로 교차 연결한 결과**이며, 새 모드 원본 JAR/ZIP을 다운로드해 각 모델을 다시 열거나 Minecraft F2를 촬영한 결과는 아니다. source SHA는 과거 성공한 독립 원본 감사의 B값이며, 현재 그 기록과 C 파일·부모체인이 일치했음을 의미한다.
 
 ## 파일
-- \`INT4_A_MODEL_PARENT_LEDGER_V1.csv.gz\`: 모델 {len(result):,}행 (모델 경로, source SHA, 제공자, parent chain, 기하/예외 상태, 감사 방법).
-- \`INT4_A_EXCEPTION_UNION_V1.csv\`: 중복 제거 112모델의 보존형 선행 예외 목록.
-- \`INT4_A_MODEL_PARENT_AUDIT_V1.json\`: 분모/검사 수/원본 파일 Git blob SHA/결과 SHA/해석 경계.
+- `INT4_A_MODEL_PARENT_LEDGER_V1.csv.gz`: 모델 {len(result):,}행 (모델 경로, source SHA, 제공자, parent chain, 기하/예외 상태, 감사 방법).
+- `INT4_A_EXCEPTION_UNION_V1.csv`: 중복 제거 112모델의 보존형 선행 예외 목록.
+- `INT4_A_MODEL_PARENT_AUDIT_V1.json`: 분모/검사 수/원본 파일 Git blob SHA/결과 SHA/해석 경계.
 - 기존 원본은 변경하지 않는다.
 
 ## 남은 INT-4-A 완료 게이트
