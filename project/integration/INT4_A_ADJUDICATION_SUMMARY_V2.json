@@ -1,0 +1,81 @@
+{
+  "all_model_source_paths": 16572,
+  "baseline_pr": 51,
+  "exception_evidence_categories": {
+    "BASE_MODEL_NO_EXPLICIT_ELEMENTS": 6,
+    "GENERATED_ITEM_NO_STATIC_CUBOIDS": 58,
+    "PARENT_MISSING_NO_ELEMENTS_STATIC_UNREACHABLE": 44,
+    "PARENT_MISSING_PARTIAL_STATIC_UNREACHABLE": 4,
+    "STATIC_REUSED": 16460
+  },
+  "exception_rows": 112,
+  "history_static_reachability_unreachable_48": 48,
+  "independent_original_parent_paths_reopened_historically": 48,
+  "inputs_git_blob_sha1": {
+    "project/integration/INT4_A_EXCEPTION_UNION_V1.csv": "f297c308a4012fc12d78739d10e3e660554c6f5d",
+    "project/integration/INT4_A_MODEL_PARENT_AUDIT_V1.json": "3959a0af39445a272ae4eadc461fc94f669eb178",
+    "project/integration/INT4_A_MODEL_PARENT_LEDGER_V1.csv.gz": "d72c2f07fcbbba09dc610f09a95bfced84c51930",
+    "project/integration/INT4_PARENT_48_BLOCKSTATE_AUDIT_RESULT.json": "919bb491eb63f93e216caf0dbc32b8c27fcafc75",
+    "project/integration/INT4_PARENT_48_ORIGINAL_AUDIT_RESULT.json": "6b2aefda483058d84aa7d65327656fe6db137581",
+    "research/furniture_mods/phase_1-3/C/C_AUDIT.json": "32de17199b77d818230ffdb0664555a11d78794f"
+  },
+  "int5_semantic_approvals": 0,
+  "model_disposition_documentation_percent": 100.0,
+  "model_level_dispositions_recorded": 16572,
+  "model_usage_hold_remaining": 6,
+  "models_by_mod": {
+    "AF": 1629,
+    "HC": 12394,
+    "MACAW": 2549
+  },
+  "new_real_client_F2_screenshots_reviewed": 0,
+  "new_upstream_model_originals_opened": 0,
+  "outputs": {
+    "exception_dispositions_row_count": 112,
+    "exception_dispositions_sha256": "69c8ba358ea585d0f7b8745a60e545e65af96cb5465b58a40c3886635868bf7e",
+    "model_dispositions_csv_sha256": "76056107d75a2d5b085e1a78ad8c8f27d51f270b6bfd52876dae720b52f9f52f",
+    "model_dispositions_gz_sha256": "9bf1dc45cca4d85d4bf7ebdc60755910801adf1664b94ee38b28eb9082e3aeb3",
+    "model_dispositions_row_count": 16572
+  },
+  "progress": {
+    "A_exception_individual_cause_and_followup_documented": {
+      "denominator": 112,
+      "numerator": 112
+    },
+    "A_full_exit": "CONDITIONAL_STATIC_SCOPE_DOCUMENTED_NOT_INDEPENDENT_FULL_EXIT",
+    "A_model_disposition_documented": {
+      "denominator": 16572,
+      "numerator": 16572
+    },
+    "A_model_provenance_reconnected": {
+      "denominator": 16572,
+      "numerator": 16572
+    },
+    "A_original_parent_missing_unresolved": 48,
+    "A_runtime_usage_unverified": "NOT_MEASURED_ALL_MODELS",
+    "B_face_evidence_stage_exit": "NOT_EVALUATED",
+    "F_real_client_acceptance": "NOT_EVALUATED"
+  },
+  "restrictions": [
+    "All 48 source parent paths are still absent; 0 were repaired.",
+    "Their pinned static blockstate/item ancestry was not reachable, but Java/dynamic/pack usage is untested.",
+    "Six Handcrafted base source models lack effective cuboid elements; use in registered state not verified.",
+    "58 generated-item JSON models are outside static cuboid geometry; item rendering correctness not proven.",
+    "16460 normal models have reused historical original source hashes, not newly read upstream originals.",
+    "No screenshot inspection, game client render claim, semantic approval, or AI training rights."
+  ],
+  "review_results": {
+    "CONDITIONAL_STATIC_SOURCE_EXCEPTION": 48,
+    "HOLD_MODEL_USAGE_AND_RENDER_PATH": 6,
+    "NOT_APPLICABLE_TO_JSON_CUBOID_GEOMETRY": 58,
+    "VERIFIED_REUSED_STATIC_SCOPE": 16460
+  },
+  "rights_approvals": 0,
+  "schema": "MCFR_INT4_A_112_EXCEPTION_DISPOSITION_ADOPTION/v2",
+  "source_audit_evidence": "INT4_A_MODEL_PARENT_AUDIT_V1.json",
+  "source_parent_missing_remains": 48,
+  "source_parent_paths_repaired": 0,
+  "source_sha_joined": 16572,
+  "static_geometry_na_generated_items": 58,
+  "unresolved_dynamic_runtime_usages": 48
+}
