@@ -1,0 +1,218 @@
+{
+  "counts": {
+    "newly_approved_1_5_cases": 0,
+    "newly_approved_INT5_parts_or_INT6_training_rights": 0,
+    "original_model_selection_matched_release": 4,
+    "real_game_exact_state": 4,
+    "unconditionally_completed_F_cases": 0
+  },
+  "historical_case_ids": [
+    "S03",
+    "S04",
+    "S22",
+    "S30"
+  ],
+  "installed_mod_release_sha": {
+    "AF": "c2f992081bdc4795ed6d87771a3b5f7c71103785",
+    "HC": "a9579fecd7ed429c282be21d5c921d220197acc6"
+  },
+  "limits": [
+    "AF pinned study source Git v4.0.3 and released Fabric v4.0.2 are not assumed byte-identical.",
+    "S03 and S04 case selector variant=3 may source a model leaf named *_1; this is a source-led discrepancy, not guessed geometry.",
+    "S30 exactly two simultaneous model applications (34 and 12 faces), NEVER count them as two different historical cases.",
+    "S22 vanilla minecraft:block/cube parent SHA is original 1-5 research evidence, not a file inside the Handcrafted JAR. Release-external parent SHA must remain separately unapproved until independently validated.",
+    "No game GUI user interaction, pixel-perfect UV/visibility attribution, functional semantics or original asset copyright rights inferred.",
+    "Actual PNG screenshots not committed; save as retention-limited Github Actions artifacts only."
+  ],
+  "minecraft": "1.21.1",
+  "native_f2_distinct_sha_count": 4,
+  "native_f2_png_count": 4,
+  "original_1_5_application_csv_sha256": "da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e",
+  "original_client_log_sha256": "deaa6c879aab0413b9934bf9d1af44577182b979d5d31a694f72df45d34ffeb8",
+  "original_effective_elements": 31,
+  "original_effective_faces": 144,
+  "original_source_applications": 5,
+  "schema": "MCFR_INT4_F7_AF_VARIANT3_BENCH_HC_EXTERNAL_VANILLA_PARENT_F2/v1",
+  "source_cases": {
+    "S03": {
+      "UV_semantic_or_redistribution_approved": false,
+      "external_vanilla_parent_independent_runtime_sha_approved": null,
+      "game_server_exact_requested_state": true,
+      "historical_block": "another_furniture:birch_chair",
+      "image_human_review": "PENDING_INDEPENDENT_ORIGINAL_PNG_REOPEN",
+      "native_F2_sha256": "1a31dde4e54bbe55c8d60350cab42b62f3597cb05ee3875b710670a81a108fb3",
+      "native_F2_size": [
+        1024,
+        684
+      ],
+      "original_geometry_elements": 10,
+      "original_geometry_faces": 46,
+      "original_git_source_sha_by_path": {
+        "common/src/main/resources/assets/another_furniture/blockstates/birch_chair.json": "fb91fe6fca469381b200fd080a671b5a09e77399",
+        "common/src/main/resources/assets/another_furniture/models/block/chair/birch_1.json": "c47e63a2c45de116fc2aa578036ed954fbbb3572",
+        "common/src/main/resources/assets/another_furniture/models/block/template/chair.json": "d9b64a818021f1a64b0cba13d16d18d6fea65d01"
+      },
+      "original_model_application_count": 1,
+      "release_model_application_count": 1,
+      "release_selector_matches_all_original_models": true,
+      "release_source_file_meta": {
+        "common/src/main/resources/assets/another_furniture/blockstates/birch_chair.json": {
+          "git_blob_byte_match": false,
+          "historical_git_blob_sha1": "fb91fe6fca469381b200fd080a671b5a09e77399",
+          "release_sha256": "912b8f970495cd1cd2fc3d1331a34161352d19204c278d9ef5c33209438dfa1b"
+        },
+        "common/src/main/resources/assets/another_furniture/models/block/chair/birch_1.json": {
+          "git_blob_byte_match": false,
+          "historical_git_blob_sha1": "c47e63a2c45de116fc2aa578036ed954fbbb3572",
+          "release_sha256": "3f6a07b28ccef16b5680051c4f0b2a0f3115479fad60d4ff46d84e804cd13983"
+        },
+        "common/src/main/resources/assets/another_furniture/models/block/template/chair.json": {
+          "git_blob_byte_match": false,
+          "historical_git_blob_sha1": "d9b64a818021f1a64b0cba13d16d18d6fea65d01",
+          "release_sha256": "0ae2f3165d922c5015d2161c040038d5ccff2b2a8f054b1d484914e7c877e1d0"
+        }
+      },
+      "requested_exact_original_state": "another_furniture:birch_chair[facing=south,tucked=false,variant=3]",
+      "runtime_model_and_state_conditional_eligibility": true,
+      "vanilla_external_parent_resolved_in_installed_mod_jar": null
+    },
+    "S04": {
+      "UV_semantic_or_redistribution_approved": false,
+      "external_vanilla_parent_independent_runtime_sha_approved": null,
+      "game_server_exact_requested_state": true,
+      "historical_block": "another_furniture:spruce_chair",
+      "image_human_review": "PENDING_INDEPENDENT_ORIGINAL_PNG_REOPEN",
+      "native_F2_sha256": "503e6a99a173d111c685c5196d88d5d791dcabb2bf20d9b0da2627e36746f59f",
+      "native_F2_size": [
+        1024,
+        684
+      ],
+      "original_geometry_elements": 10,
+      "original_geometry_faces": 46,
+      "original_git_source_sha_by_path": {
+        "common/src/main/resources/assets/another_furniture/blockstates/spruce_chair.json": "c8a57ceb9f34c255cd6b098deca6628c595be0df",
+        "common/src/main/resources/assets/another_furniture/models/block/chair/spruce_1.json": "9bac6aeb8d6c6682d33129c285a4894534e467e1",
+        "common/src/main/resources/assets/another_furniture/models/block/template/chair.json": "d9b64a818021f1a64b0cba13d16d18d6fea65d01"
+      },
+      "original_model_application_count": 1,
+      "release_model_application_count": 1,
+      "release_selector_matches_all_original_models": true,
+      "release_source_file_meta": {
+        "common/src/main/resources/assets/another_furniture/blockstates/spruce_chair.json": {
+          "git_blob_byte_match": false,
+          "historical_git_blob_sha1": "c8a57ceb9f34c255cd6b098deca6628c595be0df",
+          "release_sha256": "93976df8febfdf286d8eba89e870c13a46b13efd4472b863d3cbb4e215ba61eb"
+        },
+        "common/src/main/resources/assets/another_furniture/models/block/chair/spruce_1.json": {
+          "git_blob_byte_match": false,
+          "historical_git_blob_sha1": "9bac6aeb8d6c6682d33129c285a4894534e467e1",
+          "release_sha256": "1e4c2ad6e973ee56e75fd33e690899da8806bf4da1a62234e15c97b0ee63d5aa"
+        },
+        "common/src/main/resources/assets/another_furniture/models/block/template/chair.json": {
+          "git_blob_byte_match": false,
+          "historical_git_blob_sha1": "d9b64a818021f1a64b0cba13d16d18d6fea65d01",
+          "release_sha256": "0ae2f3165d922c5015d2161c040038d5ccff2b2a8f054b1d484914e7c877e1d0"
+        }
+      },
+      "requested_exact_original_state": "another_furniture:spruce_chair[facing=south,tucked=false,variant=3]",
+      "runtime_model_and_state_conditional_eligibility": true,
+      "vanilla_external_parent_resolved_in_installed_mod_jar": null
+    },
+    "S22": {
+      "UV_semantic_or_redistribution_approved": false,
+      "external_vanilla_parent_independent_runtime_sha_approved": false,
+      "game_server_exact_requested_state": true,
+      "historical_block": "handcrafted:oak_drawer",
+      "image_human_review": "PENDING_INDEPENDENT_ORIGINAL_PNG_REOPEN",
+      "native_F2_sha256": "4f2f069ed19435bd504142df9872e04eae5b924176b39a719fa56cf4ce5926bc",
+      "native_F2_size": [
+        1024,
+        684
+      ],
+      "original_geometry_elements": 1,
+      "original_geometry_faces": 6,
+      "original_git_source_sha_by_path": {
+        "assets/minecraft/models/block/cube.json": "3e4aacd02e816aeba38f83076596e18ded4cf49c01e17c62d1fce79850ffb84e",
+        "common/src/main/generated/resources/assets/handcrafted/blockstates/oak_drawer.json": "3f1165301efe14a1b3c2a65bdd684e14cb4d1753",
+        "common/src/main/generated/resources/assets/handcrafted/models/block/oak_drawer_single_1.json": "9bf82e6d2427b0fb2e23c5e82b906d06ed6139ed"
+      },
+      "original_model_application_count": 1,
+      "release_model_application_count": 1,
+      "release_selector_matches_all_original_models": true,
+      "release_source_file_meta": {
+        "assets/minecraft/models/block/cube.json": {
+          "historical_git_blob_sha1": "3e4aacd02e816aeba38f83076596e18ded4cf49c01e17c62d1fce79850ffb84e",
+          "release_path_absent": true
+        },
+        "common/src/main/generated/resources/assets/handcrafted/blockstates/oak_drawer.json": {
+          "git_blob_byte_match": true,
+          "historical_git_blob_sha1": "3f1165301efe14a1b3c2a65bdd684e14cb4d1753",
+          "release_sha256": "06302a240da55cb7d34f2ab7e1b3a4ecd0dc1c6620d795103355e2ba1fd14158"
+        },
+        "common/src/main/generated/resources/assets/handcrafted/models/block/oak_drawer_single_1.json": {
+          "git_blob_byte_match": true,
+          "historical_git_blob_sha1": "9bf82e6d2427b0fb2e23c5e82b906d06ed6139ed",
+          "release_sha256": "6d61e162197b62521aa2283c3b7f6d4571dc0b04fcab4f25b333596d96397aaa"
+        }
+      },
+      "requested_exact_original_state": "handcrafted:oak_drawer[facing=north,shape=single,type=1]",
+      "runtime_model_and_state_conditional_eligibility": true,
+      "vanilla_external_parent_resolved_in_installed_mod_jar": false
+    },
+    "S30": {
+      "UV_semantic_or_redistribution_approved": false,
+      "external_vanilla_parent_independent_runtime_sha_approved": null,
+      "game_server_exact_requested_state": true,
+      "historical_block": "another_furniture:oak_bench",
+      "image_human_review": "PENDING_INDEPENDENT_ORIGINAL_PNG_REOPEN",
+      "native_F2_sha256": "42674398b97ed12050b3b6dead7ff6595ec4a90860bf4b930c525e55a10290d6",
+      "native_F2_size": [
+        1024,
+        684
+      ],
+      "original_geometry_elements": 10,
+      "original_geometry_faces": 46,
+      "original_git_source_sha_by_path": {
+        "common/src/main/resources/assets/another_furniture/blockstates/oak_bench.json": "9137031bda3a2b56aa54f5daccb03dc80796924a",
+        "common/src/main/resources/assets/another_furniture/models/block/bench/oak_back_single.json": "81484737051486281830ff22907da1e34a6c8c12",
+        "common/src/main/resources/assets/another_furniture/models/block/bench/oak_single.json": "81f476b5f4c0babf74897d67c961b7d2fa72c15b",
+        "common/src/main/resources/assets/another_furniture/models/block/template/bench_back_single.json": "a7c52985fe9ef80eb1262f100c8368347895f7c0",
+        "common/src/main/resources/assets/another_furniture/models/block/template/bench_single.json": "7109ebf4fd72259a08c14dc220b52c71dbdb8988"
+      },
+      "original_model_application_count": 2,
+      "release_model_application_count": 2,
+      "release_selector_matches_all_original_models": true,
+      "release_source_file_meta": {
+        "common/src/main/resources/assets/another_furniture/blockstates/oak_bench.json": {
+          "git_blob_byte_match": false,
+          "historical_git_blob_sha1": "9137031bda3a2b56aa54f5daccb03dc80796924a",
+          "release_sha256": "983df74218989f91eeeaa7b06d4a2b0d473c1839fe8739babb2e8af3c50fe86b"
+        },
+        "common/src/main/resources/assets/another_furniture/models/block/bench/oak_back_single.json": {
+          "git_blob_byte_match": false,
+          "historical_git_blob_sha1": "81484737051486281830ff22907da1e34a6c8c12",
+          "release_sha256": "a2cf6cd9d7ebd73f6688ebf8c7c4b88718ba54a228a1e0c3dde6c0f8ef9d578e"
+        },
+        "common/src/main/resources/assets/another_furniture/models/block/bench/oak_single.json": {
+          "git_blob_byte_match": false,
+          "historical_git_blob_sha1": "81f476b5f4c0babf74897d67c961b7d2fa72c15b",
+          "release_sha256": "b9d3cc364bfaf06f7a7af4cdd1e9485681a771326ab34309eae119939457dabf"
+        },
+        "common/src/main/resources/assets/another_furniture/models/block/template/bench_back_single.json": {
+          "git_blob_byte_match": false,
+          "historical_git_blob_sha1": "a7c52985fe9ef80eb1262f100c8368347895f7c0",
+          "release_sha256": "2f4c9611b8a46cc8009208b873d342a45765b61ae23eb9c26f93c901e594965e"
+        },
+        "common/src/main/resources/assets/another_furniture/models/block/template/bench_single.json": {
+          "git_blob_byte_match": false,
+          "historical_git_blob_sha1": "7109ebf4fd72259a08c14dc220b52c71dbdb8988",
+          "release_sha256": "80eb04157eed372c4a3e568264399e119aeecf326049c9114544ff3830d536e2"
+        }
+      },
+      "requested_exact_original_state": "another_furniture:oak_bench[back=true,facing=north,horizontal_1=single,horizontal_2=single]",
+      "runtime_model_and_state_conditional_eligibility": true,
+      "vanilla_external_parent_resolved_in_installed_mod_jar": null
+    }
+  },
+  "status": "NATIVE_F2_4_CASES_CAPTURED_SOURCE_MODEL_AND_SERVER_PER_CASE_REVIEW"
+}
