@@ -26,7 +26,7 @@ BED = "handcrafted:oak_fancy_bed"
 SHELF = "mcwfurnitures:oak_bookshelf"
 PREFIX = "[RenderAudit] INT4_NC "
 CAMERA = "3.4 123.6 45.7 151 28"
-BED_PLACE = "0.5 122.1 40.5 180 90"
+BED_INTERACTION = "0.5 120 42.5 180 35"
 
 
 def require(condition, message):
@@ -174,8 +174,17 @@ def stages(version, values=None):
     for case in REMAINING:
         row = rows[case][0]
         target = state(row["block"], row["state"])
+        clear = f"fill {x - 1} {y} {z - 1} {x + 1} {y} {z + 1} air"
+        if case in ("S15", "S17"):
+            block = row["block"] + ("[facing=north]" if case == "S15" else "")
+            moves = [(dx, dz) for dx in (-1, 0, 1) for dz in (-1, 0, 1) if (dx, dz) != (0, 0)]
+            place_commands = [
+                f"setblock {x + dx} {y} {z + dz} {block}" for dx, dz in [*moves, (0, 0)]
+            ]
+        else:
+            place_commands = [f"setblock {place} {target}"]
         result[case] = (
-            [f"setblock {place} air", f"setblock {place} {target}"],
+            [clear, *place_commands],
             {"subject": {"exact": f"{place} {target}", "block": f"{place} {row['block']}"}},
         )
     require(values is not None, "Bed property values must come from the pinned release")
@@ -318,16 +327,19 @@ def capture(command, env, game, output, version):
             require(len(windows) == 1, "Expected one real Minecraft window")
             window = windows[0]
             sleep(5)
+            command_and_wait("/gamemode spectator", "[RenderAudit: Set own game mode to Spectator Mode]")
             camera(CAMERA)
             function("setup")
             for name, (actions, _) in stages(version, values).items():
                 if actions:
                     function(f"place_{name.lower()}")
                 if name in ("bed_placed", "bed_foot_broken"):
-                    camera(BED_PLACE)
+                    camera(BED_INTERACTION)
+                    command_and_wait("/gamemode creative", "[RenderAudit: Set own game mode to Creative Mode]")
                     xdo("key", "--clearmodifiers", "1")
                     xdo("click", "3" if name == "bed_placed" else "1")
                     sleep(2)
+                    command_and_wait("/gamemode spectator", "[RenderAudit: Set own game mode to Spectator Mode]")
                     camera(CAMERA)
                 function(f"check_{name.lower()}")
                 before = set(shots.glob("*.png"))
