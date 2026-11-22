@@ -236,11 +236,20 @@ def build():
             is_mod=mod!="VANILLA"
             assert (mod,b["block"],b["minecraft"],b["category"])==(
                 case["cohort"],case["block"],case["minecraft"],case["category"])
-            assert b["state_sha"] and b["model_sha"] and b["provider_sha"]
-            assert b["model_path"] and b["provider_path"] and b["state_path"]
+            assert b["state_sha"] and b["model_sha"]
+            assert b["model_path"] and b["state_path"]
             assert int(b["weight"])==1
             assert int(b["uvlock"]) in (0,1)
-            assert b["geometry_status"]=="STATIC_SOURCE"
+            special_bed=b["case"]=="V11" and b["cohort"]=="VANILLA"
+            if special_bed:
+                # The vanilla bed is rendered outside the ordinary cuboid
+                # model path: no provider, zero regular elements and faces.
+                assert b["block"]=="white_bed" and b["geometry_status"]=="NO_ORDINARY_ELEMENTS"
+                assert not b["provider"] and not b["provider_path"] and not b["provider_sha"]
+                assert int(b["elements"])==int(b["faces"])==0
+            else:
+                assert b["provider_sha"] and b["provider_path"]
+                assert b["geometry_status"]=="STATIC_SOURCE"
             model_id=b["model"]
             model_sha=b["model_sha"]
             d_join="NOT_IN_1158_MOD_BLOCKSTATE_COHORT"
@@ -270,7 +279,6 @@ def build():
                 assert d["reference_status"]=="LOCAL"
                 assert d["original_model_key"]==model_id
                 assert d["original_model_source_sha"]==model_sha
-                assert d["original_state_path"] if False else True
                 assert (d["state_path"],d["state_source_sha"])==(
                     b["state_path"],b["state_sha"]),("D_STATE_SHA_MISMATCH",b["case"],dkey)
                 assert (int(d["x_original"]),int(d["y_original"]),d["uvlock"],int(d["weight"]))==(
