@@ -1,0 +1,37 @@
+name: INT-4-F2 70개 F2 근거 재정합 25조건부 45보류 감사
+on:
+  push:
+    branches:
+      - work/int4-f2-four-missing-case-native-f2-20261122
+    paths:
+      - tests/integration/test_int4_f2_70_source_reconcile.py
+      - project/integration/INT4_F2_70_TARGET_EVIDENCE_DISPOSITIONS_V2.csv
+      - project/integration/INT4_F2_4_DIRECT_IMAGE_VISUAL_AUDIT_V1.json
+      - project/integration/INT4_F2_45_PENDING_EXACT_F2_CASES_V1.csv
+      - .github/workflows/integration-int4-f2-70-reconcile.yml
+permissions:
+  contents: read
+jobs:
+  evidence-acceptance-boundary:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: 원본 70 개별 행·새 실제 4장·R01·45보류 숫자와 SHA 감사
+        run: python3 -m unittest discover -s tests/integration -p 'test_int4_f2_70_source_reconcile.py' -v
+      - name: 원본 증거 무단 수정 방지 및 4개 PNG Git 미커밋
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          j=json.loads(Path('project/integration/INT4_F2_4_DIRECT_IMAGE_VISUAL_AUDIT_V1.json').read_text())
+          assert j['status']=='PASS_4_NEW_REAL_CLIENT_SOURCE_CASE_PNG_SHA_AND_VISIBLE_F70_FINAL_HOLD'
+          assert j['reconciled_counts']['conditional_targets']==25
+          assert j['reconciled_counts']['hold_targets']==45
+          assert j['reconciled_counts']['risk_hold_ids']==['R06','R08']
+          assert j['reconciled_counts']['exact_hist_source_case_F2_after']==19
+          assert j['reconciled_counts']['full_F_accepted']==0
+          print('PASS: 70 source units, 25 conditional, 45 HOLD, 0 full acceptance')
+          PY
+          git diff --check

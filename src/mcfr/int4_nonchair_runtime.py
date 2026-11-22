@@ -46,12 +46,14 @@ def state(block, properties):
     return block + "[" + properties.replace(";", ",") + "]"
 
 
-def applications():
+def applications(case_ids=None):
     raw = (shelf.ROOT / shelf.APPS).read_bytes()
     rows = list(csv.DictReader(raw.decode("utf-8-sig").splitlines()))
     digest = sha256(raw)
     require(digest == shelf.source_rows()[1], "Historical application ledger changed")
-    by_case = {case: [row for row in rows if row["case"] == case] for case in REMAINING}
+    active = REMAINING if case_ids is None else tuple(case_ids)
+    require(active and len(set(active)) == len(active), "Invalid requested source case IDs")
+    by_case = {case: [row for row in rows if row["case"] == case] for case in active}
     for case, entries in by_case.items():
         keys = {(r["block"], r["state"], r["cohort"], r["minecraft"]) for r in entries}
         require(len(entries) == (5 if case == "S14" else 1) and len(keys) == 1 and
@@ -63,10 +65,10 @@ def assets_path(path):
     return "assets/" + path.split("assets/", 1)[1]
 
 
-def release_sources(mods, source_zip):
+def release_sources(mods, source_zip, *, case_ids=None):
     from scripts.integration.audit_int4_nonchair_source import match_state
 
-    rows, ledger = applications()
+    rows, ledger = applications(case_ids)
     releases = {
         "AF": ("another_furniture-fabric-4.0.2.jar", "c2f992081bdc4795ed6d87771a3b5f7c71103785"),
         "HC": ("handcrafted-fabric-1.21.1-4.0.3.jar", bed.HC_RELEASE_SHA1),
@@ -181,7 +183,7 @@ def probe(block, coords, properties):
     return result
 
 
-def stages(version, values=None, *, interaction=False):
+def stages(version, values=None, *, interaction=False, case_ids=None, source_only=False):
     x, y, z = ORIGIN
     if version == "1.21.11":
         properties = values or {
@@ -210,10 +212,10 @@ def stages(version, values=None, *, interaction=False):
         }
 
     require(version == "1.21.1", f"Unexpected version {version}")
-    rows, _ = applications()
+    rows, _ = applications(case_ids)
     place = position(*ORIGIN)
     result = {}
-    for case in REMAINING:
+    for case in (REMAINING if case_ids is None else tuple(case_ids)):
         row = rows[case][0]
         target = state(row["block"], row["state"])
         clear = f"fill {x - 1} {y} {z - 1} {x + 1} {y} {z + 1} air"
@@ -229,6 +231,9 @@ def stages(version, values=None, *, interaction=False):
             [clear, *place_commands],
             {"subject": {"exact": f"{place} {target}", "block": f"{place} {row['block']}"}},
         )
+    if source_only:
+        require(not interaction, "Source-only capture does not include bed or interaction actions")
+        return result
     require(values is not None, "Bed property values must come from the pinned release")
     checks = {
         "foot_position": probe(BED, ORIGIN, values),
@@ -263,7 +268,7 @@ def setup_commands():
     ]
 
 
-def function_files(target, version, values, *, interaction=False):
+def function_files(target, version, values, *, interaction=False, case_ids=None, source_only=False):
     fmt = {"pack_format": 48} if version == "1.21.1" else {"min_format": [94, 1], "max_format": [94, 1]}
     scripts = target / "data/mcfr_nonchair/function"
     scripts.mkdir(parents=True, exist_ok=False)
@@ -271,7 +276,7 @@ def function_files(target, version, values, *, interaction=False):
     definitions = {"setup": setup_commands()}
     if interaction and version == "1.21.1":
         definitions["setup"].append("scoreboard objectives add int4_sleep dummy")
-    for name, (commands, checks) in stages(version, values, interaction=interaction).items():
+    for name, (commands, checks) in stages(version, values, interaction=interaction, case_ids=case_ids, source_only=source_only).items():
         if commands:
             definitions[f"place_{name.lower()}"] = commands
         definitions[f"check_{name.lower()}"] = [
@@ -296,9 +301,9 @@ def function_files(target, version, values, *, interaction=False):
     return hashes
 
 
-def read_states(log, version, values, *, interaction=False):
+def read_states(log, version, values, *, interaction=False, case_ids=None, source_only=False):
     results = {}
-    for stage, (_, checks) in stages(version, values, interaction=interaction).items():
+    for stage, (_, checks) in stages(version, values, interaction=interaction, case_ids=case_ids, source_only=source_only).items():
         observations = defaultdict(set)
         for line in log.splitlines():
             if "[Server thread/" not in line or PREFIX + stage + " " not in line:
@@ -344,13 +349,13 @@ def read_sleep_timers(log):
     return outcomes
 
 
-def capture(command, env, game, output, version, *, interaction=False):
+def capture(command, env, game, output, version, *, interaction=False, case_ids=None, source_only=False):
     from PIL import Image
 
     mods = game / "mods"
     if version == "1.21.1":
         source_zip = env.get("MCFR_HC_SOURCE_ZIP")
-        source, values = release_sources(mods, source_zip)
+        source, values = release_sources(mods, source_zip, case_ids=case_ids)
         if interaction:
             source["bed_occupied_variants"] = bed_interaction_source(mods, source_zip)
     else:
@@ -370,7 +375,8 @@ def capture(command, env, game, output, version, *, interaction=False):
                     "elements": len(elements), "faces": sum(len(part["faces"]) for part in elements),
                 }
     files = function_files(game / "saves/MCFR Visual Fixture/datapacks/mcfr_nonchair",
-                           version, values, interaction=interaction)
+                           version, values, interaction=interaction,
+                           case_ids=case_ids, source_only=source_only)
     output.mkdir(parents=True, exist_ok=False)
     log = output / "client.log"
     shots = game / "screenshots"
@@ -438,7 +444,7 @@ def capture(command, env, game, output, version, *, interaction=False):
             command_and_wait("/gamemode spectator", "[RenderAudit: Set own game mode to Spectator Mode]")
             camera(CAMERA)
             function("setup")
-            for name, (actions, _) in stages(version, values, interaction=interaction).items():
+            for name, (actions, _) in stages(version, values, interaction=interaction, case_ids=case_ids, source_only=source_only).items():
                 if actions and name != "bed_sleeping":
                     function(f"place_{name.lower()}")
                 if name in ("bed_placed", "bed_foot_broken"):
@@ -493,11 +499,15 @@ def capture(command, env, game, output, version, *, interaction=False):
         "minecraft": version,
         "source": source,
         "property_values": values,
-        "server_states": read_states(read(), version, values, interaction=interaction),
+        "server_states": read_states(read(), version, values, interaction=interaction,
+                                     case_ids=case_ids, source_only=source_only),
         "function_payload_sha256": files,
         "client_log_sha256": sha256(log.read_bytes()),
         "native_f2_sha256": captures,
     }
+    if case_ids is not None:
+        report["f_target_case_ids"] = list(case_ids)
+        report["f_source_only"] = bool(source_only)
     if interaction:
         report["interaction"] = True
         if version == "1.21.1":
@@ -514,7 +524,9 @@ def audit(folder, checkpoint=None):
     require(sha256(raw) == report["client_log_sha256"], "Client log SHA mismatch")
     log = raw.decode("utf-8", errors="replace")
     states = read_states(log, report["minecraft"], report["property_values"],
-                         interaction=report.get("interaction", False))
+                         interaction=report.get("interaction", False),
+                         case_ids=report.get("f_target_case_ids"),
+                         source_only=report.get("f_source_only", False))
     if "sleep_timers" in report:
         require(read_sleep_timers(log) == report["sleep_timers"], "Sleep timer differs from original log")
     require(states == report["server_states"], "Server state inventory differs from original log")
