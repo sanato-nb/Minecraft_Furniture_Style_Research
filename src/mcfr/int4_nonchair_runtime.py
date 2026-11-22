@@ -185,7 +185,7 @@ def probe(block, coords, properties):
     return result
 
 
-def stages(version, values=None, *, interaction=False, case_ids=None, source_only=False):
+def stages(version, values=None, *, interaction=False, case_ids=None, source_only=False, diagnostic_mode=False):
     x, y, z = ORIGIN
     if version == "1.21.11":
         properties = values or {
@@ -214,6 +214,11 @@ def stages(version, values=None, *, interaction=False, case_ids=None, source_onl
         }
 
     require(version == "1.21.1", f"Unexpected version {version}")
+    if diagnostic_mode:
+        require(source_only and not interaction and tuple(case_ids or ()) == ("S02", "S34"),
+                "INT-4-F5 diagnostic must be isolated two-case source-only capture")
+        from . import int4_f5_state_diagnostic as diagnostic
+        return diagnostic.stages(values or {})
     rows, _ = applications(case_ids)
     place = position(*ORIGIN)
     result = {}
@@ -270,7 +275,7 @@ def setup_commands():
     ]
 
 
-def function_files(target, version, values, *, interaction=False, case_ids=None, source_only=False):
+def function_files(target, version, values, *, interaction=False, case_ids=None, source_only=False, diagnostic_mode=False):
     fmt = {"pack_format": 48} if version == "1.21.1" else {"min_format": [94, 1], "max_format": [94, 1]}
     scripts = target / "data/mcfr_nonchair/function"
     scripts.mkdir(parents=True, exist_ok=False)
@@ -278,7 +283,7 @@ def function_files(target, version, values, *, interaction=False, case_ids=None,
     definitions = {"setup": setup_commands()}
     if interaction and version == "1.21.1":
         definitions["setup"].append("scoreboard objectives add int4_sleep dummy")
-    for name, (commands, checks) in stages(version, values, interaction=interaction, case_ids=case_ids, source_only=source_only).items():
+    for name, (commands, checks) in stages(version, values, interaction=interaction, case_ids=case_ids, source_only=source_only, diagnostic_mode=diagnostic_mode).items():
         if commands:
             definitions[f"place_{name.lower()}"] = commands
         definitions[f"check_{name.lower()}"] = [
@@ -303,9 +308,9 @@ def function_files(target, version, values, *, interaction=False, case_ids=None,
     return hashes
 
 
-def read_states(log, version, values, *, interaction=False, case_ids=None, source_only=False):
+def read_states(log, version, values, *, interaction=False, case_ids=None, source_only=False, diagnostic_mode=False):
     results = {}
-    for stage, (_, checks) in stages(version, values, interaction=interaction, case_ids=case_ids, source_only=source_only).items():
+    for stage, (_, checks) in stages(version, values, interaction=interaction, case_ids=case_ids, source_only=source_only, diagnostic_mode=diagnostic_mode).items():
         observations = defaultdict(set)
         for line in log.splitlines():
             if "[Server thread/" not in line or PREFIX + stage + " " not in line:
@@ -351,13 +356,18 @@ def read_sleep_timers(log):
     return outcomes
 
 
-def capture(command, env, game, output, version, *, interaction=False, case_ids=None, source_only=False):
+def capture(command, env, game, output, version, *, interaction=False, case_ids=None, source_only=False, diagnostic_mode=False):
     from PIL import Image
 
     mods = game / "mods"
     if version == "1.21.1":
         source_zip = env.get("MCFR_HC_SOURCE_ZIP")
         source, values = release_sources(mods, source_zip, case_ids=case_ids)
+        if diagnostic_mode:
+            require(source_only and not interaction and tuple(case_ids or ()) == ("S02", "S34"),
+                    "Only F5 two-case source-only diagnostics are supported")
+            from . import int4_f5_state_diagnostic as diagnostic
+            values, source["diagnostic_release_properties"] = diagnostic.release_properties(mods)
         if interaction:
             source["bed_occupied_variants"] = bed_interaction_source(mods, source_zip)
     else:
@@ -378,7 +388,8 @@ def capture(command, env, game, output, version, *, interaction=False, case_ids=
                 }
     files = function_files(game / "saves/MCFR Visual Fixture/datapacks/mcfr_nonchair",
                            version, values, interaction=interaction,
-                           case_ids=case_ids, source_only=source_only)
+                           case_ids=case_ids, source_only=source_only,
+                           diagnostic_mode=diagnostic_mode)
     output.mkdir(parents=True, exist_ok=False)
     log = output / "client.log"
     shots = game / "screenshots"
@@ -446,7 +457,7 @@ def capture(command, env, game, output, version, *, interaction=False, case_ids=
             command_and_wait("/gamemode spectator", "[RenderAudit: Set own game mode to Spectator Mode]")
             camera(CAMERA)
             function("setup")
-            for name, (actions, _) in stages(version, values, interaction=interaction, case_ids=case_ids, source_only=source_only).items():
+            for name, (actions, _) in stages(version, values, interaction=interaction, case_ids=case_ids, source_only=source_only, diagnostic_mode=diagnostic_mode).items():
                 if actions and name != "bed_sleeping":
                     function(f"place_{name.lower()}")
                 if name in ("bed_placed", "bed_foot_broken"):
@@ -502,11 +513,14 @@ def capture(command, env, game, output, version, *, interaction=False, case_ids=
         "source": source,
         "property_values": values,
         "server_states": read_states(read(), version, values, interaction=interaction,
-                                     case_ids=case_ids, source_only=source_only),
+                                     case_ids=case_ids, source_only=source_only,
+                                     diagnostic_mode=diagnostic_mode),
         "function_payload_sha256": files,
         "client_log_sha256": sha256(log.read_bytes()),
         "native_f2_sha256": captures,
     }
+    if diagnostic_mode:
+        report["diagnostic_mode"] = True
     if case_ids is not None:
         report["f_target_case_ids"] = list(case_ids)
         report["f_source_only"] = bool(source_only)
@@ -528,7 +542,8 @@ def audit(folder, checkpoint=None):
     states = read_states(log, report["minecraft"], report["property_values"],
                          interaction=report.get("interaction", False),
                          case_ids=report.get("f_target_case_ids"),
-                         source_only=report.get("f_source_only", False))
+                         source_only=report.get("f_source_only", False),
+                         diagnostic_mode=report.get("diagnostic_mode", False))
     if "sleep_timers" in report:
         require(read_sleep_timers(log) == report["sleep_timers"], "Sleep timer differs from original log")
     require(states == report["server_states"], "Server state inventory differs from original log")
