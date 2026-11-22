@@ -1,0 +1,79 @@
+{
+  "ai_training_rights_approvals": 0,
+  "baseline_pr": 52,
+  "expanded_element_instances": 105383,
+  "expanded_elements_by_mod": {
+    "AF": 7373,
+    "HC": 80328,
+    "MACAW": 17682
+  },
+  "expanded_face_instances": 592312,
+  "expanded_faces_by_mod": {
+    "AF": 33621,
+    "HC": 481968,
+    "MACAW": 76723
+  },
+  "face_uv_declared": 590974,
+  "face_uv_implicit": 1338,
+  "historic_independent_original_replay": {
+    "original_source_face_links": 592312,
+    "previous_face_csv_sha256": "3a13148a240403e2d6b35b5f3c4fa779847ca3402389a3538c0457c1f1702436",
+    "reference": "project/integration/INT2_1_4_FULL_LINKS_SUMMARY.json",
+    "source_slots": 81641,
+    "status": "PASS_ALL_592312_FACE_LINKS_RECONSTRUCTED_FROM_ORIGINALS"
+  },
+  "inputs_git_blob_sha1": {
+    "project/integration/INT2_1_4_FULL_LINKS_SUMMARY.json": "47fd376ec0c4514277b66b0905bccb4fd9706ef3",
+    "project/integration/INT4_A_ADJUDICATION_SUMMARY_V2.json": "621cce07862bbc5bb051809eeeef8df9607c0a37",
+    "project/integration/INT4_A_MODEL_DISPOSITIONS_V2.csv.gz": "9b1baf3e3756e44bbe94759b928c2cd30f98cac1",
+    "project/integration/INT4_A_MODEL_PARENT_LEDGER_V1.csv.gz": "d72c2f07fcbbba09dc610f09a95bfced84c51930",
+    "research/furniture_mods/phase_1-3/C/C_AUDIT.json": "32de17199b77d818230ffdb0664555a11d78794f",
+    "research/furniture_mods/phase_1-3/C/C_GEOMETRY_REUSE.csv": "fba1bdcdb14a03da352a5b290060708b53902be1",
+    "research/furniture_mods/phase_1-3/C/C_VANILLA_PARENTS.csv": "9fe27be8e403c5971111333fc39c23de138d4195",
+    "research/furniture_mods/phase_1-3/C/MODEL_FACES.csv.gz": "65d7bd049e8fbac27f85279b1e6a5611f7656037",
+    "research/furniture_mods/phase_1-3/C/mod_model_elements.csv.gz": "439c3d278c570749465b7a8c00493784dbe5b3b9"
+  },
+  "int5_semantic_approvals": 0,
+  "limitations": [
+    "Declared face geometry/UV are joined from frozen C files, not independently recalculated from upstream JSON.",
+    "Existing independently reproduced INT2 full link summary is included as separate evidence, not a new run.",
+    "Source face slot declarations are not resolved per leaf child by this structural join; prior independent original source replay did.",
+    "Parent-missing AF source models may have declared faces despite static blockstate nonreachability.",
+    "No direct PNG pixel scan, UV atlas bake/uvlock, transparency, tint or visual runtime approval."
+  ],
+  "minecraft_uvlock_or_baked_atlas_verified": false,
+  "model_paths": 16572,
+  "models_with_no_static_geometry": 108,
+  "models_with_static_geometry": 16464,
+  "new_game_screenshots_examined": 0,
+  "new_upstream_model_json_opened": 0,
+  "original_source_modified": false,
+  "output": {
+    "element_csv_gz_sha256": "731e632b0300acc9de9776c027909e0020755dd5164ef3f1787cdb9f485b0fe3",
+    "element_rows": 105383,
+    "face_csv_gz_sha256": "d5fe7708a194db723b49d4dbfe8bfd256a9c1bfbd00001d1ed17e1f9d760c578",
+    "face_rows": 592312
+  },
+  "progress": {
+    "B_full_stage_exit": "PENDING_INDEPENDENT_FULL_UV_AND_ACTUAL_GAME_APPLICABILITY",
+    "B_original_declared_element_provenance_join": {
+      "denominator": 105383,
+      "numerator": 105383
+    },
+    "B_original_declared_face_provenance_join": {
+      "denominator": 592312,
+      "numerator": 592312
+    },
+    "B_source_release_recheck_not_redownloaded": true,
+    "C_original_PNG_pixel_stage_exit": "NOT_ASSESSED",
+    "F_real_client_visual_acceptance": "NOT_ASSESSED"
+  },
+  "schema": "MCFR_INT4_B_HISTORIC_FACE_ELEMENT_SOURCE_PROVENANCE/v1",
+  "source_geometry_provider_count": 300,
+  "source_geometry_provider_element_rows": 1911,
+  "source_geometry_provider_face_rows": 9760,
+  "source_hash_joined_element_rows": 105383,
+  "source_hash_joined_face_rows": 592312,
+  "status": "PASS_HISTORICAL_105383_ELEMENTS_592312_FACES_EXPANDED_NOT_NEW_ORIGINAL",
+  "texture_slot_alias_resolution_per_child_in_this_join": false
+}

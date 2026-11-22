@@ -1,0 +1,96 @@
+name: INT-4-B 105383 요소 592312 면 출처 조인 검증
+
+on:
+  push:
+    branches:
+      - work/int4-b-element-face-provenance-20261122
+    paths:
+      - scripts/integration/build_int4_b_source_provenance.py
+      - tests/integration/test_int4_b_source_provenance.py
+      - .github/workflows/integration-int4-b-source-provenance.yml
+
+permissions:
+  contents: write
+
+jobs:
+  element-face-source:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: 정적 원본 C 계보 브랜치 체크아웃
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: SHA 변조·UV 필드·결과 결정성 회귀시험
+        run: python3 -m unittest discover -s tests/integration -p 'test_int4_b_source_provenance.py' -v
+
+      - name: 105383 요소와 592312 면 증거행 생성
+        run: python3 scripts/integration/build_int4_b_source_provenance.py
+
+      - name: 생성 결과 해시·바이트 재현성 검증
+        run: python3 scripts/integration/build_int4_b_source_provenance.py --verify
+
+      - name: 독립 gzip 행·SHA·예외 영향·분모 감사
+        run: |
+          python3 - <<'PY'
+          import csv,gzip,io,json,hashlib
+          from collections import Counter
+          from pathlib import Path
+          root=Path('project/integration')
+          summary=json.loads((root/'INT4_B_SOURCE_JOIN_SUMMARY_V1.json').read_text(encoding='utf-8'))
+          assert summary['status']=='PASS_HISTORICAL_105383_ELEMENTS_592312_FACES_EXPANDED_NOT_NEW_ORIGINAL'
+          files=[
+            ('INT4_B_105383_ELEMENT_PROVENANCE_V1.csv.gz',105383,'element_csv_gz_sha256'),
+            ('INT4_B_592312_FACE_PROVENANCE_V1.csv.gz',592312,'face_csv_gz_sha256'),
+          ]
+          for name,size,sha_key in files:
+              blob=(root/name).read_bytes()
+              assert hashlib.sha256(blob).hexdigest()==summary['output'][sha_key],name
+              rows=list(csv.DictReader(io.StringIO(gzip.decompress(blob).decode('utf-8'),newline='')))
+              assert len(rows)==size,(name,len(rows),size)
+              assert all(row['model_source_sha'] and row['provider_source_sha'] for row in rows),name
+              assert all(row['evidence_method']=='HISTORICAL_C_FACE_ELEMENT_DECLARATION_REUSE' for row in rows)
+              if 'FACE' in name:
+                  explicit=sum(row['uv_declared'] in {'1','True','true'} for row in rows)
+                  assert explicit==590974
+                  assert len(rows)-explicit==1338
+              print('PASS',name,'rows:',size)
+          assert summary['models_with_static_geometry']==16464
+          assert summary['models_with_no_static_geometry']==108
+          assert summary['source_geometry_provider_count']==300
+          assert summary['minecraft_uvlock_or_baked_atlas_verified'] is False
+          assert summary['new_game_screenshots_examined']==0
+          assert summary['new_upstream_model_json_opened']==0
+          assert summary['progress']['B_full_stage_exit']=='PENDING_INDEPENDENT_FULL_UV_AND_ACTUAL_GAME_APPLICABILITY'
+          print('PASS B provenance-only; no unauthorized runtime or pixel approval')
+          PY
+          git diff --check
+
+      - name: 생성 증거 파일 아티팩트 보관
+        uses: actions/upload-artifact@v4
+        with:
+          name: INT4-B-105383-elements-592312-faces
+          retention-days: 45
+          path: |
+            project/integration/INT4_B_105383_ELEMENT_PROVENANCE_V1.csv.gz
+            project/integration/INT4_B_592312_FACE_PROVENANCE_V1.csv.gz
+            project/integration/INT4_B_SOURCE_JOIN_SUMMARY_V1.json
+            project/integration/INT4_B_SOURCE_JOIN_REPORT_V1.md
+
+      - name: 전용 브랜치에 소스 출처 산출물만 반영
+        if: github.ref == 'refs/heads/work/int4-b-element-face-provenance-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_B_105383_ELEMENT_PROVENANCE_V1.csv.gz \
+                  project/integration/INT4_B_592312_FACE_PROVENANCE_V1.csv.gz \
+                  project/integration/INT4_B_SOURCE_JOIN_SUMMARY_V1.json \
+                  project/integration/INT4_B_SOURCE_JOIN_REPORT_V1.md
+          if git diff --cached --quiet; then
+            echo "기존 원장과 동일"
+          else
+            git commit -m "INT-4-B 전체 요소 및 면 모델별 원본 선언 출처 원장 생성"
+            git push origin HEAD:refs/heads/work/int4-b-element-face-provenance-20261122
+          fi
