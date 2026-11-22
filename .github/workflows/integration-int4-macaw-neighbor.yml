@@ -5,6 +5,8 @@ on:
       - 'src/mcfr/int4_macaw_neighbor_capture.py'
       - 'src/mcfr/runtime.py'
       - 'src/mcfr/int4_nonchair_runtime.py'
+      - 'src/mcfr/int4_bed_exterior.py'
+      - 'project/integration/INT4_BED_EXTERIOR_*'
       - 'tests/knowledge/test_int4_nonchair_runtime.py'
       - 'tests/knowledge/test_int4_macaw_neighbor_capture.py'
       - '.github/workflows/integration-int4-macaw-neighbor.yml'
@@ -197,5 +199,64 @@ jobs:
         with:
           name: int4-player-interaction-${{ matrix.minecraft }}
           path: ${{ env.OUT }}-interaction/
+          retention-days: 45
+          if-no-files-found: warn
+  occupied-bed-exterior:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 32
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install software renderer and native capture tools
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 update
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 install -y xvfb xauth xdotool libgl1-mesa-dri libglx-mesa0
+          fi
+      - name: Reconstruct pinned fixture and original source
+        run: |
+          curl -fLsS --retry 3 --max-time 90 \
+            'https://codeload.github.com/terrarium-earth/Handcrafted/zip/8d21d1665916850c3fa3bdaf1370c50ec2ca7035' \
+            -o "$RUNNER_TEMP/int4-exterior-hc-source.zip"
+          python -m mcfr.chair_runtime_fixture world --version 1.21.1 \
+            --path "$RUNNER_TEMP/int4-exterior-world" --cache "$RUNNER_TEMP/int4-exterior-cache"
+      - name: Capture unmodified exterior and UV probe from spectator client
+        run: |
+          export MCFR_HC_SOURCE_ZIP="$RUNNER_TEMP/int4-exterior-hc-source.zip"
+          export MCFR_BED_SERVER_JAR="$RUNNER_TEMP/int4-exterior-cache/1.21.1-server.jar"
+          world="$RUNNER_TEMP/int4-exterior-world"
+          work="$RUNNER_TEMP/int4-exterior-client"
+          mkdir -p "$RUNNER_TEMP/int4-exterior-evidence"
+          for mode in native uv_probe; do
+            extra=()
+            if [[ "$mode" == uv_probe ]]; then
+              extra=(--uv-probe)
+              mv "$work/1.21.1/probe_game/saves/MCFR Visual Fixture" "$RUNNER_TEMP/int4-exterior-native-fixture"
+            fi
+            out="$RUNNER_TEMP/int4-exterior-evidence/$mode"
+            xvfb-run -a -s '-screen 0 1024x684x24' \
+              python -m mcfr.runtime int4-bed-exterior "${extra[@]}" --version 1.21.1 \
+              --world "$world" --work "$work" --output "$out"
+            python -m mcfr.int4_bed_exterior --directory "$out" \
+              --checkpoint project/integration/INT4_BED_EXTERIOR_RESULT.json
+          done
+      - name: Upload native F2 images, observations and log evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-bed-exterior-native-and-uv-probe
+          path: ${{ runner.temp }}/int4-exterior-evidence/
           retention-days: 45
           if-no-files-found: warn

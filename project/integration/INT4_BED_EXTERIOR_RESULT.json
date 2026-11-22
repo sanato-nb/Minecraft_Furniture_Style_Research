@@ -1,0 +1,1404 @@
+{
+  "manifest_sha256": {
+    "native": "1bb2c81049541bd79c98df1ebcc8137da14379c523cf372dcfe1ade15ff437c7",
+    "uv_probe": "3b8c113d69ce0f3520c0306bac9dbe8b70ed5647a28138f7c07c0e10e5fb5444"
+  },
+  "previous_commit": "a71a505c5214d5371c37b40735dbe381f8d71a5c",
+  "runs": {
+    "native": {
+      "function_payload_sha256": {
+        "check_bed_awake": "8456c6b8d876b1936c69467b1766f42dfbd86db2e9834a79115988e97ab916fd",
+        "check_bed_empty": "b6fb8a1b6125b7a68baa802808411868dff28ba1837e75656a72c7c91d46737e",
+        "check_bed_placed": "b6e72b035e999a8dfe747ca9262dccae63e3d05bb13e858ca84f0f3a428e7e95",
+        "check_bed_sleeping": "1d01eacd2f1465b1eb24bb222b9ed5d9e3b07eafc22e44cf72e5e51bb8fb4e12",
+        "place_bed_empty": "f6a021cdc36caa38c58eeb63cbeedb06e9dc4bf22d816e689588c796f93c09ff",
+        "place_bed_sleeping": "48c9f52b20d9fe0a9cecb738250bab39a99297f50d04a9650a8d177963b729c5",
+        "setup": "8af91265f467f22a3eeab8aa7df2a43b50c524d1bfddfff70e3d78a39e240e42"
+      },
+      "log_sha256": {
+        "host": "32387efcfa5a3cd59bc586c170a497b16511b05d4543d688c63eaced3b403e80",
+        "observer": "2f312bb7b59c146f9c9a322db391b9eb8ce53b2fac87a3aa212e8d2638b4016a",
+        "server": "96ea9c97a0ff240f6cdb50cb29b6dde3acc0d057600277869fa194ccb7e4e65d"
+      },
+      "minecraft": "1.21.1",
+      "native_f2_sha256": {
+        "awake": "aafc433b73b52547f84736d2396e153a81e99d8695a5ece5911c12d07ff7e929",
+        "empty": "d437d0a15b9b1a31aa5cacc2d18f2ec0cef35398d1276ec95f983ccbf1cf6056",
+        "placed": "1cefe494dc51c363f270d7e1ff38f80fd219e7c5e74a359ae867d53634b0255e",
+        "sleeping": "e94ee46658bca7fc4f47a7c53bd3935f2d3cc8c8184802f3a152eb1eeafeb7d9",
+        "sleeping_overhead": "c82823ce6024c6a47d9ae604676d5a51c8d571e23b51b5a6624317d01709b786"
+      },
+      "observer": "BedObserver",
+      "observer_camera": {
+        "iso": "2.65 121.65 43.8 149 30",
+        "overhead": "0.5 123.5 39.8 180 90"
+      },
+      "property_values": {
+        "color": [
+          "black",
+          "blue",
+          "brown",
+          "cyan",
+          "gray",
+          "green",
+          "light_blue",
+          "light_gray",
+          "lime",
+          "magenta",
+          "orange",
+          "pink",
+          "purple",
+          "red",
+          "white",
+          "yellow"
+        ],
+        "facing": [
+          "east",
+          "north",
+          "south",
+          "west"
+        ],
+        "occupied": [
+          "false",
+          "true"
+        ],
+        "part": [
+          "foot",
+          "head"
+        ],
+        "shape": [
+          "left",
+          "middle",
+          "right",
+          "single"
+        ]
+      },
+      "server_jar_sha1": "59353fb40c36d304f2035d51e7d6e6baa98dc05c",
+      "server_states": {
+        "bed_awake": {
+          "foot_position": {
+            "block": "present",
+            "color": "white",
+            "facing": "north",
+            "occupied": "false",
+            "part": "foot",
+            "shape": "single"
+          },
+          "head_position": {
+            "block": "present",
+            "color": "white",
+            "facing": "north",
+            "occupied": "false",
+            "part": "head",
+            "shape": "single"
+          }
+        },
+        "bed_empty": {
+          "foot_position": {
+            "block": "air"
+          },
+          "head_position": {
+            "block": "air"
+          }
+        },
+        "bed_placed": {
+          "foot_position": {
+            "block": "present",
+            "color": "white",
+            "facing": "north",
+            "occupied": "false",
+            "part": "foot",
+            "shape": "single"
+          },
+          "head_position": {
+            "block": "present",
+            "color": "white",
+            "facing": "north",
+            "occupied": "false",
+            "part": "head",
+            "shape": "single"
+          }
+        },
+        "bed_sleeping": {
+          "foot_position": {
+            "block": "present",
+            "color": "white",
+            "facing": "north",
+            "occupied": "true",
+            "part": "foot",
+            "shape": "single"
+          },
+          "head_position": {
+            "block": "present",
+            "color": "white",
+            "facing": "north",
+            "occupied": "true",
+            "part": "head",
+            "shape": "single"
+          }
+        }
+      },
+      "sleep_timers": {
+        "check_bed_awake": "zero",
+        "check_bed_sleeping": "positive"
+      },
+      "source": {
+        "bed_occupied_variants": {
+          "parts": {
+            "S37": {
+              "false": {
+                "elements": 12,
+                "faces": 72,
+                "git_release_bytes_match": true,
+                "leaf": "assets/handcrafted/models/block/oak_fancy_bed_single_white_foot.json",
+                "leaf_git_blob_sha1": "14c6bad5a40e3130cd8fa5725ce5260b74662bc2",
+                "leaf_sha256": "de909b5237878332215e58806b21b8e40babcc09e97cde9feb4c7241c24d88e3",
+                "option": {
+                  "model": "handcrafted:block/oak_fancy_bed_single_white_foot"
+                },
+                "provider": "assets/handcrafted/models/block/fancy_bed/bed_single.json",
+                "provider_git_blob_sha1": "01dcc76679443d37f3efa45d974e2acbc071cfc1",
+                "provider_sha256": "092aa7ca9a7c12fcc0ac8f84c9505ab0a19a1adaece7be57b917f66a6865cece",
+                "rule_index": 915,
+                "selector": "color=white,facing=north,occupied=false,part=foot,shape=single",
+                "textures": {
+                  "cushion": "handcrafted:block/bench/cushion/none_cushion",
+                  "frame": "handcrafted:block/fancy_bed/single/oak_fancy_bed",
+                  "particle": "minecraft:block/oak_planks",
+                  "sheets": "handcrafted:block/fancy_bed/sheets/white_sheet"
+                }
+              },
+              "true": {
+                "elements": 14,
+                "faces": 84,
+                "git_release_bytes_match": true,
+                "leaf": "assets/handcrafted/models/block/oak_fancy_bed_single_white_foot_occupied.json",
+                "leaf_git_blob_sha1": "a7af3c2bfa41088d5a5005a92e241bd9792979b1",
+                "leaf_sha256": "e93dbeebf0698920c476d991340fdb6c838fac76c08b3f31fca2a65a3445d6ad",
+                "option": {
+                  "model": "handcrafted:block/oak_fancy_bed_single_white_foot_occupied"
+                },
+                "provider": "assets/handcrafted/models/block/fancy_bed/bed_single_occupied.json",
+                "provider_git_blob_sha1": "296e103447bfaaa6dd5d3a20d39169c1612474bc",
+                "provider_sha256": "024549b50cf99a047060dc0c6b29f712984dc2ec2eeec19bb02f1425eb5b2d09",
+                "rule_index": 923,
+                "selector": "color=white,facing=north,occupied=true,part=foot,shape=single",
+                "textures": {
+                  "cushion": "handcrafted:block/bench/cushion/none_cushion",
+                  "frame": "handcrafted:block/fancy_bed/single/oak_fancy_bed",
+                  "particle": "minecraft:block/oak_planks",
+                  "sheets": "handcrafted:block/fancy_bed/sheets/white_sheet"
+                }
+              }
+            },
+            "S38": {
+              "false": {
+                "elements": 1,
+                "faces": 6,
+                "git_release_bytes_match": true,
+                "leaf": "assets/handcrafted/models/block/oak_fancy_bed_single_white_head.json",
+                "leaf_git_blob_sha1": "81117620d95782b093fa23b396af04cf42f6729a",
+                "leaf_sha256": "3d7a8d62e2ce9b5e9acc8946b9276d10371e382545b0bba1b68f18897dc65913",
+                "option": {
+                  "model": "handcrafted:block/oak_fancy_bed_single_white_head"
+                },
+                "provider": "assets/handcrafted/models/block/fancy_bed/cushion.json",
+                "provider_git_blob_sha1": "3b9147f7d5309913004d7dadb45e2b09dc98bb4f",
+                "provider_sha256": "a04d545393a67f9ea41012c73ec87a23950e43ccbaa572a9ccf6df05c3fd5970",
+                "rule_index": 919,
+                "selector": "color=white,facing=north,occupied=false,part=head,shape=single",
+                "textures": {
+                  "cushion": "handcrafted:block/fancy_bed/cushion/white_cushion",
+                  "particle": "minecraft:block/oak_planks"
+                }
+              },
+              "true": {
+                "elements": 1,
+                "faces": 6,
+                "git_release_bytes_match": true,
+                "leaf": "assets/handcrafted/models/block/oak_fancy_bed_single_white_head_occupied.json",
+                "leaf_git_blob_sha1": "81117620d95782b093fa23b396af04cf42f6729a",
+                "leaf_sha256": "3d7a8d62e2ce9b5e9acc8946b9276d10371e382545b0bba1b68f18897dc65913",
+                "option": {
+                  "model": "handcrafted:block/oak_fancy_bed_single_white_head_occupied"
+                },
+                "provider": "assets/handcrafted/models/block/fancy_bed/cushion.json",
+                "provider_git_blob_sha1": "3b9147f7d5309913004d7dadb45e2b09dc98bb4f",
+                "provider_sha256": "a04d545393a67f9ea41012c73ec87a23950e43ccbaa572a9ccf6df05c3fd5970",
+                "rule_index": 927,
+                "selector": "color=white,facing=north,occupied=true,part=head,shape=single",
+                "textures": {
+                  "cushion": "handcrafted:block/fancy_bed/cushion/white_cushion",
+                  "particle": "minecraft:block/oak_planks"
+                }
+              }
+            }
+          },
+          "state_git_blob_sha1": "0dfb7493ac098a7e5549db6663bffd9310c1882a",
+          "state_sha256": "310227b993a6f4a1951b5ac9c3dc8710c7fd7d5f36e53a7363f0ce62587f01d1"
+        },
+        "bed_originals": {
+          "HC_release_SHA1": "a9579fecd7ed429c282be21d5c921d220197acc6",
+          "cases": {
+            "S37": {
+              "elements": 12,
+              "faces": 72,
+              "model_git_blob_sha1": "14c6bad5a40e3130cd8fa5725ce5260b74662bc2",
+              "model_path": "common/src/main/generated/resources/assets/handcrafted/models/block/oak_fancy_bed_single_white_foot.json",
+              "model_rotation_y": 0,
+              "provider_git_blob_sha1": "01dcc76679443d37f3efa45d974e2acbc071cfc1",
+              "selection": {
+                "original": {
+                  "rule_index": 915,
+                  "selected_model": "assets/handcrafted/models/block/oak_fancy_bed_single_white_foot.json"
+                },
+                "release": {
+                  "rule_index": 915,
+                  "selected_model": "assets/handcrafted/models/block/oak_fancy_bed_single_white_foot.json"
+                }
+              },
+              "source_vs_release": {
+                "model": {
+                  "byte_equal": true,
+                  "git_blob_sha1": "14c6bad5a40e3130cd8fa5725ce5260b74662bc2",
+                  "json_equal": true,
+                  "runtime_sha256": "de909b5237878332215e58806b21b8e40babcc09e97cde9feb4c7241c24d88e3"
+                },
+                "provider": {
+                  "byte_equal": true,
+                  "git_blob_sha1": "01dcc76679443d37f3efa45d974e2acbc071cfc1",
+                  "json_equal": true,
+                  "runtime_sha256": "092aa7ca9a7c12fcc0ac8f84c9505ab0a19a1adaece7be57b917f66a6865cece"
+                },
+                "state": {
+                  "byte_equal": true,
+                  "git_blob_sha1": "0dfb7493ac098a7e5549db6663bffd9310c1882a",
+                  "json_equal": true,
+                  "runtime_sha256": "310227b993a6f4a1951b5ac9c3dc8710c7fd7d5f36e53a7363f0ce62587f01d1"
+                }
+              },
+              "state": "color=white;facing=north;occupied=false;part=foot;shape=single",
+              "state_git_blob_sha1": "0dfb7493ac098a7e5549db6663bffd9310c1882a"
+            },
+            "S38": {
+              "elements": 1,
+              "faces": 6,
+              "model_git_blob_sha1": "81117620d95782b093fa23b396af04cf42f6729a",
+              "model_path": "common/src/main/generated/resources/assets/handcrafted/models/block/oak_fancy_bed_single_white_head.json",
+              "model_rotation_y": 0,
+              "provider_git_blob_sha1": "3b9147f7d5309913004d7dadb45e2b09dc98bb4f",
+              "selection": {
+                "original": {
+                  "rule_index": 919,
+                  "selected_model": "assets/handcrafted/models/block/oak_fancy_bed_single_white_head.json"
+                },
+                "release": {
+                  "rule_index": 919,
+                  "selected_model": "assets/handcrafted/models/block/oak_fancy_bed_single_white_head.json"
+                }
+              },
+              "source_vs_release": {
+                "model": {
+                  "byte_equal": true,
+                  "git_blob_sha1": "81117620d95782b093fa23b396af04cf42f6729a",
+                  "json_equal": true,
+                  "runtime_sha256": "3d7a8d62e2ce9b5e9acc8946b9276d10371e382545b0bba1b68f18897dc65913"
+                },
+                "provider": {
+                  "byte_equal": true,
+                  "git_blob_sha1": "3b9147f7d5309913004d7dadb45e2b09dc98bb4f",
+                  "json_equal": true,
+                  "runtime_sha256": "a04d545393a67f9ea41012c73ec87a23950e43ccbaa572a9ccf6df05c3fd5970"
+                },
+                "state": {
+                  "byte_equal": true,
+                  "git_blob_sha1": "0dfb7493ac098a7e5549db6663bffd9310c1882a",
+                  "json_equal": true,
+                  "runtime_sha256": "310227b993a6f4a1951b5ac9c3dc8710c7fd7d5f36e53a7363f0ce62587f01d1"
+                }
+              },
+              "state": "color=white;facing=north;occupied=false;part=head;shape=single",
+              "state_git_blob_sha1": "0dfb7493ac098a7e5549db6663bffd9310c1882a"
+            }
+          },
+          "original_1_5_application_csv_sha256": "da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e",
+          "source_git_commit": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035"
+        },
+        "ledger_sha256": "da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e",
+        "release_jar_sha1": {
+          "AF": "c2f992081bdc4795ed6d87771a3b5f7c71103785",
+          "HC": "a9579fecd7ed429c282be21d5c921d220197acc6"
+        },
+        "representative_states": {
+          "S14": {
+            "cohort": "AF",
+            "historical_model_geometry": {
+              "elements": 13,
+              "faces": 42
+            },
+            "historical_selection_matches_release": true,
+            "release_model_applications": [
+              [
+                "assets/another_furniture/models/block/table/oak_leg.json",
+                0,
+                0,
+                false,
+                1
+              ],
+              [
+                "assets/another_furniture/models/block/table/oak_leg.json",
+                0,
+                90,
+                false,
+                1
+              ],
+              [
+                "assets/another_furniture/models/block/table/oak_leg.json",
+                0,
+                180,
+                false,
+                1
+              ],
+              [
+                "assets/another_furniture/models/block/table/oak_leg.json",
+                0,
+                270,
+                false,
+                1
+              ],
+              [
+                "assets/another_furniture/models/block/table/oak_top.json",
+                0,
+                0,
+                false,
+                1
+              ]
+            ],
+            "source_files": {
+              "common/src/main/resources/assets/another_furniture/blockstates/oak_table.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "b8de2826bacb2e19fdad671c478e22af08957eae",
+                "release_sha256": "245707f1f55628503b343f6ee43c969f89a4357c4aecdea405033a053f5fb0cb"
+              },
+              "common/src/main/resources/assets/another_furniture/models/block/table/oak_leg.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "6c0bc57f0642e05e392e9f33b8cb8c27b685be06",
+                "release_sha256": "ecaafecc96e08bc4d72cb64b6b0013abd4130a1dcef8b87ad7bc437ec2a36c47"
+              },
+              "common/src/main/resources/assets/another_furniture/models/block/table/oak_top.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "2c47671399cb4367c2d447e04aa07d91d93b9dd0",
+                "release_sha256": "fd9f504bf7d0060668175dd6d657809833d30a7b52bcd3542f2833ddf2971dfd"
+              },
+              "common/src/main/resources/assets/another_furniture/models/block/template/table_leg.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "236318113de445bbc9d0b95f961e51285961da97",
+                "release_sha256": "3bda8e3c894c359405e01e32b26959495848907ab9d5861a9a518d7be8388620"
+              },
+              "common/src/main/resources/assets/another_furniture/models/block/template/table_top.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "b1cb2b9c1e940d5d86c859219850b16842134580",
+                "release_sha256": "f42ceca01f61e2e3e67d63de784e932f7952df8dc6a5f86572bffd687d80a3d8"
+              }
+            },
+            "state": "another_furniture:oak_table[facing=north,leg_1=true,leg_2=true,leg_3=true,leg_4=true]"
+          },
+          "S15": {
+            "cohort": "AF",
+            "historical_model_geometry": {
+              "elements": 1,
+              "faces": 6
+            },
+            "historical_selection_matches_release": true,
+            "release_model_applications": [
+              [
+                "assets/another_furniture/models/block/table/oak_top.json",
+                0,
+                0,
+                false,
+                1
+              ]
+            ],
+            "source_files": {
+              "common/src/main/resources/assets/another_furniture/blockstates/oak_table.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "b8de2826bacb2e19fdad671c478e22af08957eae",
+                "release_sha256": "245707f1f55628503b343f6ee43c969f89a4357c4aecdea405033a053f5fb0cb"
+              },
+              "common/src/main/resources/assets/another_furniture/models/block/table/oak_top.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "2c47671399cb4367c2d447e04aa07d91d93b9dd0",
+                "release_sha256": "fd9f504bf7d0060668175dd6d657809833d30a7b52bcd3542f2833ddf2971dfd"
+              },
+              "common/src/main/resources/assets/another_furniture/models/block/template/table_top.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "b1cb2b9c1e940d5d86c859219850b16842134580",
+                "release_sha256": "f42ceca01f61e2e3e67d63de784e932f7952df8dc6a5f86572bffd687d80a3d8"
+              }
+            },
+            "state": "another_furniture:oak_table[facing=north,leg_1=false,leg_2=false,leg_3=false,leg_4=false]"
+          },
+          "S16": {
+            "cohort": "HC",
+            "historical_model_geometry": {
+              "elements": 10,
+              "faces": 60
+            },
+            "historical_selection_matches_release": true,
+            "release_model_applications": [
+              [
+                "assets/handcrafted/models/block/oak_table_single_none.json",
+                0,
+                0,
+                false,
+                1
+              ]
+            ],
+            "source_files": {
+              "common/src/main/generated/resources/assets/handcrafted/blockstates/oak_table.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "b63318f0dc07e3367abb824650ced5077920542e",
+                "release_sha256": "e01bb881c119f5207ca3dd2a8e6319166fe76a78889b6dce602a8d71070cb8fe"
+              },
+              "common/src/main/generated/resources/assets/handcrafted/models/block/oak_table_single_none.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "e7501d12b2fc132cd62a1f682cd1a2651b0d105d",
+                "release_sha256": "41e5207261c9227abb00c7f6c4db465b62118d5da8e8cc913c5edfcc346b2f4d"
+              },
+              "common/src/main/resources/assets/handcrafted/models/block/table/single.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "f7e1d6113ccb3c904c2f951915d8c31295a0993b",
+                "release_sha256": "0a1f423d27ee27a0008e0db37f2279d730ae497c26a778776207c691247bd70e"
+              }
+            },
+            "state": "handcrafted:oak_table[color=none,shape=single,waterlogged=false]"
+          },
+          "S17": {
+            "cohort": "HC",
+            "historical_model_geometry": {
+              "elements": 2,
+              "faces": 12
+            },
+            "historical_selection_matches_release": true,
+            "release_model_applications": [
+              [
+                "assets/handcrafted/models/block/oak_table_center_none.json",
+                0,
+                0,
+                false,
+                1
+              ]
+            ],
+            "source_files": {
+              "common/src/main/generated/resources/assets/handcrafted/blockstates/oak_table.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "b63318f0dc07e3367abb824650ced5077920542e",
+                "release_sha256": "e01bb881c119f5207ca3dd2a8e6319166fe76a78889b6dce602a8d71070cb8fe"
+              },
+              "common/src/main/generated/resources/assets/handcrafted/models/block/oak_table_center_none.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "d42209868c078c809a9be0568e55f4f9c2a97e56",
+                "release_sha256": "4ec25582ca68bbe675ed44f640c718baa142d2ce8af8f2898bbcfea3e7016a57"
+              },
+              "common/src/main/resources/assets/handcrafted/models/block/table/center.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "9db8949f94c87b9fd5b6f5862943bfebbd4d3863",
+                "release_sha256": "77ad816bf702e092b468624bd6f4d13b31f9063debade72a2c21fb31c6e5c8bc"
+              }
+            },
+            "state": "handcrafted:oak_table[color=none,shape=center,waterlogged=false]"
+          },
+          "S39": {
+            "cohort": "HC",
+            "historical_model_geometry": {
+              "elements": 2,
+              "faces": 12
+            },
+            "historical_selection_matches_release": true,
+            "release_model_applications": [
+              [
+                "assets/handcrafted/models/block/oak_counter_calcite_1.json",
+                0,
+                0,
+                false,
+                1
+              ]
+            ],
+            "source_files": {
+              "common/src/main/generated/resources/assets/handcrafted/blockstates/oak_counter.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "d53d70f0e09a52932ccae7708ad4833a891ce8c7",
+                "release_sha256": "4e32620089a24f75ea191fc02161336cdee04058732efc20b9809e4dc108a12c"
+              },
+              "common/src/main/generated/resources/assets/handcrafted/models/block/oak_counter_calcite_1.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "bed1bb6a38b554043e4539746503690a6acb28fc",
+                "release_sha256": "e699388bbcecd311da82de959b6f14b28e6f9bbffcd1168bbb872cebf81f69f1"
+              },
+              "common/src/main/resources/assets/handcrafted/models/block/counter.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "efe9e2d45dd55368ecce93f1114f188af9d135cd",
+                "release_sha256": "569754e51f5301ac7152c706245f673a28fff194f6a2c820db4f4e2aabb8957b"
+              }
+            },
+            "state": "handcrafted:oak_counter[counter=calcite,facing=north,type=1]"
+          },
+          "S40": {
+            "cohort": "HC",
+            "historical_model_geometry": {
+              "elements": 2,
+              "faces": 12
+            },
+            "historical_selection_matches_release": true,
+            "release_model_applications": [
+              [
+                "assets/handcrafted/models/block/oak_counter_calcite_2.json",
+                0,
+                0,
+                false,
+                1
+              ]
+            ],
+            "source_files": {
+              "common/src/main/generated/resources/assets/handcrafted/blockstates/oak_counter.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "d53d70f0e09a52932ccae7708ad4833a891ce8c7",
+                "release_sha256": "4e32620089a24f75ea191fc02161336cdee04058732efc20b9809e4dc108a12c"
+              },
+              "common/src/main/generated/resources/assets/handcrafted/models/block/oak_counter_calcite_2.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "4a41bc9a6d55158b201b1338b35a98964f2c0aa3",
+                "release_sha256": "bcd4bd13a0cc9549411fc6f8538a555bb5066fad47877cb5263a28bbe94c6a1f"
+              },
+              "common/src/main/resources/assets/handcrafted/models/block/counter.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "efe9e2d45dd55368ecce93f1114f188af9d135cd",
+                "release_sha256": "569754e51f5301ac7152c706245f673a28fff194f6a2c820db4f4e2aabb8957b"
+              }
+            },
+            "state": "handcrafted:oak_counter[counter=calcite,facing=north,type=2]"
+          }
+        }
+      },
+      "status": "SERVER_STATES_AND_F2_RECORDED",
+      "uv_probe": false,
+      "uv_projection": {
+        "floor_width_pixels": 840,
+        "tags": {
+          "ne_green": {
+            "rgb": [
+              166,
+              128,
+              81
+            ],
+            "xy": [
+              547,
+              440
+            ]
+          },
+          "nw_red": {
+            "rgb": [
+              175,
+              136,
+              84
+            ],
+            "xy": [
+              477,
+              440
+            ]
+          },
+          "se_yellow": {
+            "rgb": [
+              161,
+              124,
+              74
+            ],
+            "xy": [
+              547,
+              452
+            ]
+          },
+          "sw_blue": {
+            "rgb": [
+              166,
+              128,
+              81
+            ],
+            "xy": [
+              477,
+              452
+            ]
+          }
+        }
+      },
+      "uv_source": {
+        "direction": "up",
+        "element_index_zero_based": 5,
+        "git_and_jar_texture_bytes_match": true,
+        "model_bounds": [
+          [
+            0,
+            7,
+            13
+          ],
+          [
+            16,
+            9,
+            16
+          ]
+        ],
+        "observer_probe_texture_sha256": null,
+        "provider": "assets/handcrafted/models/block/fancy_bed/bed_single_occupied.json",
+        "provider_sha256": "024549b50cf99a047060dc0c6b29f712984dc2ec2eeec19bb02f1425eb5b2d09",
+        "slot_chain": [
+          "#0",
+          "#frame",
+          "handcrafted:block/fancy_bed/single/oak_fancy_bed"
+        ],
+        "source_texture": "assets/handcrafted/textures/block/fancy_bed/single/oak_fancy_bed.png",
+        "texture_sha256": "0b6341588ffff849b2d65f58f2c362e8382b0292f7ff827d39b154f928742af0",
+        "texture_size": [
+          128,
+          128
+        ],
+        "uv": [
+          6.125,
+          7.875,
+          4.125,
+          7.5
+        ],
+        "uv_rotation": 180
+      }
+    },
+    "uv_probe": {
+      "function_payload_sha256": {
+        "check_bed_awake": "8456c6b8d876b1936c69467b1766f42dfbd86db2e9834a79115988e97ab916fd",
+        "check_bed_empty": "b6fb8a1b6125b7a68baa802808411868dff28ba1837e75656a72c7c91d46737e",
+        "check_bed_placed": "b6e72b035e999a8dfe747ca9262dccae63e3d05bb13e858ca84f0f3a428e7e95",
+        "check_bed_sleeping": "1d01eacd2f1465b1eb24bb222b9ed5d9e3b07eafc22e44cf72e5e51bb8fb4e12",
+        "place_bed_empty": "f6a021cdc36caa38c58eeb63cbeedb06e9dc4bf22d816e689588c796f93c09ff",
+        "place_bed_sleeping": "48c9f52b20d9fe0a9cecb738250bab39a99297f50d04a9650a8d177963b729c5",
+        "setup": "8af91265f467f22a3eeab8aa7df2a43b50c524d1bfddfff70e3d78a39e240e42"
+      },
+      "log_sha256": {
+        "host": "e6ffd1d7ff25093d2134b6f5d949d32af8434930ac77685d2bb322a48b42bcb7",
+        "observer": "21ad9eaba389ed837c1466bcbb4db4b1dd1af7bf8a5d8eaba5bb0d532a529bc9",
+        "server": "01b2e42a45fd086d8b1b0e46d04f6d8a8b4926a27d17b0573c58f194fa514396"
+      },
+      "minecraft": "1.21.1",
+      "native_f2_sha256": {
+        "awake": "1106eaf81c697032fa772d656d403ba92a88adc99d9e4ab0a04cd70b81c3a452",
+        "empty": "d5dc64a27655cffc39ac0196ffe9c2e14b76e03604625831268127c86622c812",
+        "placed": "88724ea218891dee098bb5ba52ee73ec850948e2bf8f11b3ee807c403fa68f85",
+        "sleeping": "5ba2a42d67ab78cd7ce9ce7136ce878cc6918c8b0f36aa4a761baa22b05d1651",
+        "sleeping_overhead": "8314f7cfb95b8f5c7ddc921dd8c580c91873e2b73fd007d06cdf5fe5cab9bfc3"
+      },
+      "observer": "BedObserver",
+      "observer_camera": {
+        "iso": "2.65 121.65 43.8 149 30",
+        "overhead": "0.5 123.5 39.8 180 90"
+      },
+      "property_values": {
+        "color": [
+          "black",
+          "blue",
+          "brown",
+          "cyan",
+          "gray",
+          "green",
+          "light_blue",
+          "light_gray",
+          "lime",
+          "magenta",
+          "orange",
+          "pink",
+          "purple",
+          "red",
+          "white",
+          "yellow"
+        ],
+        "facing": [
+          "east",
+          "north",
+          "south",
+          "west"
+        ],
+        "occupied": [
+          "false",
+          "true"
+        ],
+        "part": [
+          "foot",
+          "head"
+        ],
+        "shape": [
+          "left",
+          "middle",
+          "right",
+          "single"
+        ]
+      },
+      "server_jar_sha1": "59353fb40c36d304f2035d51e7d6e6baa98dc05c",
+      "server_states": {
+        "bed_awake": {
+          "foot_position": {
+            "block": "present",
+            "color": "white",
+            "facing": "north",
+            "occupied": "false",
+            "part": "foot",
+            "shape": "single"
+          },
+          "head_position": {
+            "block": "present",
+            "color": "white",
+            "facing": "north",
+            "occupied": "false",
+            "part": "head",
+            "shape": "single"
+          }
+        },
+        "bed_empty": {
+          "foot_position": {
+            "block": "air"
+          },
+          "head_position": {
+            "block": "air"
+          }
+        },
+        "bed_placed": {
+          "foot_position": {
+            "block": "present",
+            "color": "white",
+            "facing": "north",
+            "occupied": "false",
+            "part": "foot",
+            "shape": "single"
+          },
+          "head_position": {
+            "block": "present",
+            "color": "white",
+            "facing": "north",
+            "occupied": "false",
+            "part": "head",
+            "shape": "single"
+          }
+        },
+        "bed_sleeping": {
+          "foot_position": {
+            "block": "present",
+            "color": "white",
+            "facing": "north",
+            "occupied": "true",
+            "part": "foot",
+            "shape": "single"
+          },
+          "head_position": {
+            "block": "present",
+            "color": "white",
+            "facing": "north",
+            "occupied": "true",
+            "part": "head",
+            "shape": "single"
+          }
+        }
+      },
+      "sleep_timers": {
+        "check_bed_awake": "zero",
+        "check_bed_sleeping": "positive"
+      },
+      "source": {
+        "bed_occupied_variants": {
+          "parts": {
+            "S37": {
+              "false": {
+                "elements": 12,
+                "faces": 72,
+                "git_release_bytes_match": true,
+                "leaf": "assets/handcrafted/models/block/oak_fancy_bed_single_white_foot.json",
+                "leaf_git_blob_sha1": "14c6bad5a40e3130cd8fa5725ce5260b74662bc2",
+                "leaf_sha256": "de909b5237878332215e58806b21b8e40babcc09e97cde9feb4c7241c24d88e3",
+                "option": {
+                  "model": "handcrafted:block/oak_fancy_bed_single_white_foot"
+                },
+                "provider": "assets/handcrafted/models/block/fancy_bed/bed_single.json",
+                "provider_git_blob_sha1": "01dcc76679443d37f3efa45d974e2acbc071cfc1",
+                "provider_sha256": "092aa7ca9a7c12fcc0ac8f84c9505ab0a19a1adaece7be57b917f66a6865cece",
+                "rule_index": 915,
+                "selector": "color=white,facing=north,occupied=false,part=foot,shape=single",
+                "textures": {
+                  "cushion": "handcrafted:block/bench/cushion/none_cushion",
+                  "frame": "handcrafted:block/fancy_bed/single/oak_fancy_bed",
+                  "particle": "minecraft:block/oak_planks",
+                  "sheets": "handcrafted:block/fancy_bed/sheets/white_sheet"
+                }
+              },
+              "true": {
+                "elements": 14,
+                "faces": 84,
+                "git_release_bytes_match": true,
+                "leaf": "assets/handcrafted/models/block/oak_fancy_bed_single_white_foot_occupied.json",
+                "leaf_git_blob_sha1": "a7af3c2bfa41088d5a5005a92e241bd9792979b1",
+                "leaf_sha256": "e93dbeebf0698920c476d991340fdb6c838fac76c08b3f31fca2a65a3445d6ad",
+                "option": {
+                  "model": "handcrafted:block/oak_fancy_bed_single_white_foot_occupied"
+                },
+                "provider": "assets/handcrafted/models/block/fancy_bed/bed_single_occupied.json",
+                "provider_git_blob_sha1": "296e103447bfaaa6dd5d3a20d39169c1612474bc",
+                "provider_sha256": "024549b50cf99a047060dc0c6b29f712984dc2ec2eeec19bb02f1425eb5b2d09",
+                "rule_index": 923,
+                "selector": "color=white,facing=north,occupied=true,part=foot,shape=single",
+                "textures": {
+                  "cushion": "handcrafted:block/bench/cushion/none_cushion",
+                  "frame": "handcrafted:block/fancy_bed/single/oak_fancy_bed",
+                  "particle": "minecraft:block/oak_planks",
+                  "sheets": "handcrafted:block/fancy_bed/sheets/white_sheet"
+                }
+              }
+            },
+            "S38": {
+              "false": {
+                "elements": 1,
+                "faces": 6,
+                "git_release_bytes_match": true,
+                "leaf": "assets/handcrafted/models/block/oak_fancy_bed_single_white_head.json",
+                "leaf_git_blob_sha1": "81117620d95782b093fa23b396af04cf42f6729a",
+                "leaf_sha256": "3d7a8d62e2ce9b5e9acc8946b9276d10371e382545b0bba1b68f18897dc65913",
+                "option": {
+                  "model": "handcrafted:block/oak_fancy_bed_single_white_head"
+                },
+                "provider": "assets/handcrafted/models/block/fancy_bed/cushion.json",
+                "provider_git_blob_sha1": "3b9147f7d5309913004d7dadb45e2b09dc98bb4f",
+                "provider_sha256": "a04d545393a67f9ea41012c73ec87a23950e43ccbaa572a9ccf6df05c3fd5970",
+                "rule_index": 919,
+                "selector": "color=white,facing=north,occupied=false,part=head,shape=single",
+                "textures": {
+                  "cushion": "handcrafted:block/fancy_bed/cushion/white_cushion",
+                  "particle": "minecraft:block/oak_planks"
+                }
+              },
+              "true": {
+                "elements": 1,
+                "faces": 6,
+                "git_release_bytes_match": true,
+                "leaf": "assets/handcrafted/models/block/oak_fancy_bed_single_white_head_occupied.json",
+                "leaf_git_blob_sha1": "81117620d95782b093fa23b396af04cf42f6729a",
+                "leaf_sha256": "3d7a8d62e2ce9b5e9acc8946b9276d10371e382545b0bba1b68f18897dc65913",
+                "option": {
+                  "model": "handcrafted:block/oak_fancy_bed_single_white_head_occupied"
+                },
+                "provider": "assets/handcrafted/models/block/fancy_bed/cushion.json",
+                "provider_git_blob_sha1": "3b9147f7d5309913004d7dadb45e2b09dc98bb4f",
+                "provider_sha256": "a04d545393a67f9ea41012c73ec87a23950e43ccbaa572a9ccf6df05c3fd5970",
+                "rule_index": 927,
+                "selector": "color=white,facing=north,occupied=true,part=head,shape=single",
+                "textures": {
+                  "cushion": "handcrafted:block/fancy_bed/cushion/white_cushion",
+                  "particle": "minecraft:block/oak_planks"
+                }
+              }
+            }
+          },
+          "state_git_blob_sha1": "0dfb7493ac098a7e5549db6663bffd9310c1882a",
+          "state_sha256": "310227b993a6f4a1951b5ac9c3dc8710c7fd7d5f36e53a7363f0ce62587f01d1"
+        },
+        "bed_originals": {
+          "HC_release_SHA1": "a9579fecd7ed429c282be21d5c921d220197acc6",
+          "cases": {
+            "S37": {
+              "elements": 12,
+              "faces": 72,
+              "model_git_blob_sha1": "14c6bad5a40e3130cd8fa5725ce5260b74662bc2",
+              "model_path": "common/src/main/generated/resources/assets/handcrafted/models/block/oak_fancy_bed_single_white_foot.json",
+              "model_rotation_y": 0,
+              "provider_git_blob_sha1": "01dcc76679443d37f3efa45d974e2acbc071cfc1",
+              "selection": {
+                "original": {
+                  "rule_index": 915,
+                  "selected_model": "assets/handcrafted/models/block/oak_fancy_bed_single_white_foot.json"
+                },
+                "release": {
+                  "rule_index": 915,
+                  "selected_model": "assets/handcrafted/models/block/oak_fancy_bed_single_white_foot.json"
+                }
+              },
+              "source_vs_release": {
+                "model": {
+                  "byte_equal": true,
+                  "git_blob_sha1": "14c6bad5a40e3130cd8fa5725ce5260b74662bc2",
+                  "json_equal": true,
+                  "runtime_sha256": "de909b5237878332215e58806b21b8e40babcc09e97cde9feb4c7241c24d88e3"
+                },
+                "provider": {
+                  "byte_equal": true,
+                  "git_blob_sha1": "01dcc76679443d37f3efa45d974e2acbc071cfc1",
+                  "json_equal": true,
+                  "runtime_sha256": "092aa7ca9a7c12fcc0ac8f84c9505ab0a19a1adaece7be57b917f66a6865cece"
+                },
+                "state": {
+                  "byte_equal": true,
+                  "git_blob_sha1": "0dfb7493ac098a7e5549db6663bffd9310c1882a",
+                  "json_equal": true,
+                  "runtime_sha256": "310227b993a6f4a1951b5ac9c3dc8710c7fd7d5f36e53a7363f0ce62587f01d1"
+                }
+              },
+              "state": "color=white;facing=north;occupied=false;part=foot;shape=single",
+              "state_git_blob_sha1": "0dfb7493ac098a7e5549db6663bffd9310c1882a"
+            },
+            "S38": {
+              "elements": 1,
+              "faces": 6,
+              "model_git_blob_sha1": "81117620d95782b093fa23b396af04cf42f6729a",
+              "model_path": "common/src/main/generated/resources/assets/handcrafted/models/block/oak_fancy_bed_single_white_head.json",
+              "model_rotation_y": 0,
+              "provider_git_blob_sha1": "3b9147f7d5309913004d7dadb45e2b09dc98bb4f",
+              "selection": {
+                "original": {
+                  "rule_index": 919,
+                  "selected_model": "assets/handcrafted/models/block/oak_fancy_bed_single_white_head.json"
+                },
+                "release": {
+                  "rule_index": 919,
+                  "selected_model": "assets/handcrafted/models/block/oak_fancy_bed_single_white_head.json"
+                }
+              },
+              "source_vs_release": {
+                "model": {
+                  "byte_equal": true,
+                  "git_blob_sha1": "81117620d95782b093fa23b396af04cf42f6729a",
+                  "json_equal": true,
+                  "runtime_sha256": "3d7a8d62e2ce9b5e9acc8946b9276d10371e382545b0bba1b68f18897dc65913"
+                },
+                "provider": {
+                  "byte_equal": true,
+                  "git_blob_sha1": "3b9147f7d5309913004d7dadb45e2b09dc98bb4f",
+                  "json_equal": true,
+                  "runtime_sha256": "a04d545393a67f9ea41012c73ec87a23950e43ccbaa572a9ccf6df05c3fd5970"
+                },
+                "state": {
+                  "byte_equal": true,
+                  "git_blob_sha1": "0dfb7493ac098a7e5549db6663bffd9310c1882a",
+                  "json_equal": true,
+                  "runtime_sha256": "310227b993a6f4a1951b5ac9c3dc8710c7fd7d5f36e53a7363f0ce62587f01d1"
+                }
+              },
+              "state": "color=white;facing=north;occupied=false;part=head;shape=single",
+              "state_git_blob_sha1": "0dfb7493ac098a7e5549db6663bffd9310c1882a"
+            }
+          },
+          "original_1_5_application_csv_sha256": "da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e",
+          "source_git_commit": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035"
+        },
+        "ledger_sha256": "da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e",
+        "release_jar_sha1": {
+          "AF": "c2f992081bdc4795ed6d87771a3b5f7c71103785",
+          "HC": "a9579fecd7ed429c282be21d5c921d220197acc6"
+        },
+        "representative_states": {
+          "S14": {
+            "cohort": "AF",
+            "historical_model_geometry": {
+              "elements": 13,
+              "faces": 42
+            },
+            "historical_selection_matches_release": true,
+            "release_model_applications": [
+              [
+                "assets/another_furniture/models/block/table/oak_leg.json",
+                0,
+                0,
+                false,
+                1
+              ],
+              [
+                "assets/another_furniture/models/block/table/oak_leg.json",
+                0,
+                90,
+                false,
+                1
+              ],
+              [
+                "assets/another_furniture/models/block/table/oak_leg.json",
+                0,
+                180,
+                false,
+                1
+              ],
+              [
+                "assets/another_furniture/models/block/table/oak_leg.json",
+                0,
+                270,
+                false,
+                1
+              ],
+              [
+                "assets/another_furniture/models/block/table/oak_top.json",
+                0,
+                0,
+                false,
+                1
+              ]
+            ],
+            "source_files": {
+              "common/src/main/resources/assets/another_furniture/blockstates/oak_table.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "b8de2826bacb2e19fdad671c478e22af08957eae",
+                "release_sha256": "245707f1f55628503b343f6ee43c969f89a4357c4aecdea405033a053f5fb0cb"
+              },
+              "common/src/main/resources/assets/another_furniture/models/block/table/oak_leg.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "6c0bc57f0642e05e392e9f33b8cb8c27b685be06",
+                "release_sha256": "ecaafecc96e08bc4d72cb64b6b0013abd4130a1dcef8b87ad7bc437ec2a36c47"
+              },
+              "common/src/main/resources/assets/another_furniture/models/block/table/oak_top.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "2c47671399cb4367c2d447e04aa07d91d93b9dd0",
+                "release_sha256": "fd9f504bf7d0060668175dd6d657809833d30a7b52bcd3542f2833ddf2971dfd"
+              },
+              "common/src/main/resources/assets/another_furniture/models/block/template/table_leg.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "236318113de445bbc9d0b95f961e51285961da97",
+                "release_sha256": "3bda8e3c894c359405e01e32b26959495848907ab9d5861a9a518d7be8388620"
+              },
+              "common/src/main/resources/assets/another_furniture/models/block/template/table_top.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "b1cb2b9c1e940d5d86c859219850b16842134580",
+                "release_sha256": "f42ceca01f61e2e3e67d63de784e932f7952df8dc6a5f86572bffd687d80a3d8"
+              }
+            },
+            "state": "another_furniture:oak_table[facing=north,leg_1=true,leg_2=true,leg_3=true,leg_4=true]"
+          },
+          "S15": {
+            "cohort": "AF",
+            "historical_model_geometry": {
+              "elements": 1,
+              "faces": 6
+            },
+            "historical_selection_matches_release": true,
+            "release_model_applications": [
+              [
+                "assets/another_furniture/models/block/table/oak_top.json",
+                0,
+                0,
+                false,
+                1
+              ]
+            ],
+            "source_files": {
+              "common/src/main/resources/assets/another_furniture/blockstates/oak_table.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "b8de2826bacb2e19fdad671c478e22af08957eae",
+                "release_sha256": "245707f1f55628503b343f6ee43c969f89a4357c4aecdea405033a053f5fb0cb"
+              },
+              "common/src/main/resources/assets/another_furniture/models/block/table/oak_top.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "2c47671399cb4367c2d447e04aa07d91d93b9dd0",
+                "release_sha256": "fd9f504bf7d0060668175dd6d657809833d30a7b52bcd3542f2833ddf2971dfd"
+              },
+              "common/src/main/resources/assets/another_furniture/models/block/template/table_top.json": {
+                "git_blob_byte_match": false,
+                "historical_git_blob_sha1": "b1cb2b9c1e940d5d86c859219850b16842134580",
+                "release_sha256": "f42ceca01f61e2e3e67d63de784e932f7952df8dc6a5f86572bffd687d80a3d8"
+              }
+            },
+            "state": "another_furniture:oak_table[facing=north,leg_1=false,leg_2=false,leg_3=false,leg_4=false]"
+          },
+          "S16": {
+            "cohort": "HC",
+            "historical_model_geometry": {
+              "elements": 10,
+              "faces": 60
+            },
+            "historical_selection_matches_release": true,
+            "release_model_applications": [
+              [
+                "assets/handcrafted/models/block/oak_table_single_none.json",
+                0,
+                0,
+                false,
+                1
+              ]
+            ],
+            "source_files": {
+              "common/src/main/generated/resources/assets/handcrafted/blockstates/oak_table.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "b63318f0dc07e3367abb824650ced5077920542e",
+                "release_sha256": "e01bb881c119f5207ca3dd2a8e6319166fe76a78889b6dce602a8d71070cb8fe"
+              },
+              "common/src/main/generated/resources/assets/handcrafted/models/block/oak_table_single_none.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "e7501d12b2fc132cd62a1f682cd1a2651b0d105d",
+                "release_sha256": "41e5207261c9227abb00c7f6c4db465b62118d5da8e8cc913c5edfcc346b2f4d"
+              },
+              "common/src/main/resources/assets/handcrafted/models/block/table/single.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "f7e1d6113ccb3c904c2f951915d8c31295a0993b",
+                "release_sha256": "0a1f423d27ee27a0008e0db37f2279d730ae497c26a778776207c691247bd70e"
+              }
+            },
+            "state": "handcrafted:oak_table[color=none,shape=single,waterlogged=false]"
+          },
+          "S17": {
+            "cohort": "HC",
+            "historical_model_geometry": {
+              "elements": 2,
+              "faces": 12
+            },
+            "historical_selection_matches_release": true,
+            "release_model_applications": [
+              [
+                "assets/handcrafted/models/block/oak_table_center_none.json",
+                0,
+                0,
+                false,
+                1
+              ]
+            ],
+            "source_files": {
+              "common/src/main/generated/resources/assets/handcrafted/blockstates/oak_table.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "b63318f0dc07e3367abb824650ced5077920542e",
+                "release_sha256": "e01bb881c119f5207ca3dd2a8e6319166fe76a78889b6dce602a8d71070cb8fe"
+              },
+              "common/src/main/generated/resources/assets/handcrafted/models/block/oak_table_center_none.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "d42209868c078c809a9be0568e55f4f9c2a97e56",
+                "release_sha256": "4ec25582ca68bbe675ed44f640c718baa142d2ce8af8f2898bbcfea3e7016a57"
+              },
+              "common/src/main/resources/assets/handcrafted/models/block/table/center.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "9db8949f94c87b9fd5b6f5862943bfebbd4d3863",
+                "release_sha256": "77ad816bf702e092b468624bd6f4d13b31f9063debade72a2c21fb31c6e5c8bc"
+              }
+            },
+            "state": "handcrafted:oak_table[color=none,shape=center,waterlogged=false]"
+          },
+          "S39": {
+            "cohort": "HC",
+            "historical_model_geometry": {
+              "elements": 2,
+              "faces": 12
+            },
+            "historical_selection_matches_release": true,
+            "release_model_applications": [
+              [
+                "assets/handcrafted/models/block/oak_counter_calcite_1.json",
+                0,
+                0,
+                false,
+                1
+              ]
+            ],
+            "source_files": {
+              "common/src/main/generated/resources/assets/handcrafted/blockstates/oak_counter.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "d53d70f0e09a52932ccae7708ad4833a891ce8c7",
+                "release_sha256": "4e32620089a24f75ea191fc02161336cdee04058732efc20b9809e4dc108a12c"
+              },
+              "common/src/main/generated/resources/assets/handcrafted/models/block/oak_counter_calcite_1.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "bed1bb6a38b554043e4539746503690a6acb28fc",
+                "release_sha256": "e699388bbcecd311da82de959b6f14b28e6f9bbffcd1168bbb872cebf81f69f1"
+              },
+              "common/src/main/resources/assets/handcrafted/models/block/counter.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "efe9e2d45dd55368ecce93f1114f188af9d135cd",
+                "release_sha256": "569754e51f5301ac7152c706245f673a28fff194f6a2c820db4f4e2aabb8957b"
+              }
+            },
+            "state": "handcrafted:oak_counter[counter=calcite,facing=north,type=1]"
+          },
+          "S40": {
+            "cohort": "HC",
+            "historical_model_geometry": {
+              "elements": 2,
+              "faces": 12
+            },
+            "historical_selection_matches_release": true,
+            "release_model_applications": [
+              [
+                "assets/handcrafted/models/block/oak_counter_calcite_2.json",
+                0,
+                0,
+                false,
+                1
+              ]
+            ],
+            "source_files": {
+              "common/src/main/generated/resources/assets/handcrafted/blockstates/oak_counter.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "d53d70f0e09a52932ccae7708ad4833a891ce8c7",
+                "release_sha256": "4e32620089a24f75ea191fc02161336cdee04058732efc20b9809e4dc108a12c"
+              },
+              "common/src/main/generated/resources/assets/handcrafted/models/block/oak_counter_calcite_2.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "4a41bc9a6d55158b201b1338b35a98964f2c0aa3",
+                "release_sha256": "bcd4bd13a0cc9549411fc6f8538a555bb5066fad47877cb5263a28bbe94c6a1f"
+              },
+              "common/src/main/resources/assets/handcrafted/models/block/counter.json": {
+                "git_blob_byte_match": true,
+                "historical_git_blob_sha1": "efe9e2d45dd55368ecce93f1114f188af9d135cd",
+                "release_sha256": "569754e51f5301ac7152c706245f673a28fff194f6a2c820db4f4e2aabb8957b"
+              }
+            },
+            "state": "handcrafted:oak_counter[counter=calcite,facing=north,type=2]"
+          }
+        }
+      },
+      "status": "SERVER_STATES_AND_F2_RECORDED",
+      "uv_probe": true,
+      "uv_projection": {
+        "floor_width_pixels": 840,
+        "tags": {
+          "ne_green": {
+            "rgb": [
+              18,
+              216,
+              17
+            ],
+            "xy": [
+              547,
+              440
+            ]
+          },
+          "nw_red": {
+            "rgb": [
+              226,
+              17,
+              17
+            ],
+            "xy": [
+              477,
+              440
+            ]
+          },
+          "se_yellow": {
+            "rgb": [
+              226,
+              199,
+              17
+            ],
+            "xy": [
+              547,
+              452
+            ]
+          },
+          "sw_blue": {
+            "rgb": [
+              18,
+              17,
+              212
+            ],
+            "xy": [
+              477,
+              452
+            ]
+          }
+        }
+      },
+      "uv_source": {
+        "direction": "up",
+        "element_index_zero_based": 5,
+        "git_and_jar_texture_bytes_match": true,
+        "model_bounds": [
+          [
+            0,
+            7,
+            13
+          ],
+          [
+            16,
+            9,
+            16
+          ]
+        ],
+        "observer_probe_texture_sha256": "903d005701c349f8fb2f891ea3fe0881979cf75fd37d08338ff06f3658047cf5",
+        "provider": "assets/handcrafted/models/block/fancy_bed/bed_single_occupied.json",
+        "provider_sha256": "024549b50cf99a047060dc0c6b29f712984dc2ec2eeec19bb02f1425eb5b2d09",
+        "slot_chain": [
+          "#0",
+          "#frame",
+          "handcrafted:block/fancy_bed/single/oak_fancy_bed"
+        ],
+        "source_texture": "assets/handcrafted/textures/block/fancy_bed/single/oak_fancy_bed.png",
+        "texture_sha256": "0b6341588ffff849b2d65f58f2c362e8382b0292f7ff827d39b154f928742af0",
+        "texture_size": [
+          128,
+          128
+        ],
+        "uv": [
+          6.125,
+          7.875,
+          4.125,
+          7.5
+        ],
+        "uv_rotation": 180
+      }
+    }
+  },
+  "schema": "MCFR_INT4_BED_EXTERIOR_UV/v1",
+  "scope": {
+    "int4_complete": false,
+    "int5_semantic_approvals": 0,
+    "native_exact_rgb_reproduced_from_texture": false,
+    "native_exterior_sleep_and_wake_observed": true,
+    "representative_f2_cases_verified": 15,
+    "uv_over_all_faces_verified": false,
+    "uv_probe_points_matched": 4,
+    "uv_render_matched_faces": 1
+  },
+  "source_texel_tags": {
+    "ne_green": {
+      "height": 1,
+      "probe_rgb": [
+        20,
+        255,
+        20
+      ],
+      "width": 2,
+      "xy_inclusive_start": [
+        46,
+        60
+      ]
+    },
+    "nw_red": {
+      "height": 1,
+      "probe_rgb": [
+        255,
+        20,
+        20
+      ],
+      "width": 2,
+      "xy_inclusive_start": [
+        34,
+        60
+      ]
+    },
+    "se_yellow": {
+      "height": 1,
+      "probe_rgb": [
+        255,
+        235,
+        20
+      ],
+      "width": 2,
+      "xy_inclusive_start": [
+        46,
+        62
+      ]
+    },
+    "sw_blue": {
+      "height": 1,
+      "probe_rgb": [
+        20,
+        20,
+        255
+      ],
+      "width": 2,
+      "xy_inclusive_start": [
+        34,
+        62
+      ]
+    }
+  }
+}
