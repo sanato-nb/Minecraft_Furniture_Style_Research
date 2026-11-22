@@ -1,0 +1,90 @@
+name: INT-4-F9 Macaw 실제 F2 원본 독립 감사·70개 판정 48/22
+on:
+  push:
+    branches:
+      - work/int4-f9-macaw-five-native-f2-20261122
+    paths:
+      - scripts/integration/build_int4_f9_five_macaw_original_f2_audit.py
+      - tests/integration/test_int4_f9_macaw_five_original_f2_audit.py
+      - .github/workflows/integration-int4-f9-macaw-five-original-audit.yml
+permissions:
+  actions: read
+  contents: write
+jobs:
+  f9-original-genuine-game-five-independent-reopen:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - name: Fixed F8 70 source and F9 original real-game evidence checkout
+        uses: actions/checkout@v4
+      - name: Original native game PNG decoder
+        run: python3 -m pip install --break-system-packages 'Pillow>=10,<13'
+      - name: Independent input and old 70-case immutable source guards
+        run: |
+          python3 -m unittest discover -s tests/integration \
+            -p 'test_int4_f9_macaw_five_original_f2_audit.py' -v
+      - name: Original five native F2 re-download, independent server and model source SHA checks
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/integration/build_int4_f9_five_macaw_original_f2_audit.py \
+            --artifact-dir "$RUNNER_TEMP/int4-f9-original-source-archive"
+      - name: Deterministic re-audit of same original Minecraft ZIP and source ledger
+        run: |
+          python3 scripts/integration/build_int4_f9_five_macaw_original_f2_audit.py \
+            --artifact-dir "$RUNNER_TEMP/int4-f9-original-source-archive" --verify
+      - name: Assert only five source cases were changed, new F ledger and strict boundaries
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import csv,hashlib,json
+          p=Path('project/integration')
+          j=json.loads((p/'INT4_F9_FIVE_MACAW_NATIVE_F2_INDEPENDENT_AUDIT_V1.json').read_text(encoding='utf-8'))
+          assert j['status']=='PASS_FIVE_MACAW_ORIGINAL_F2_48_CONDITIONAL_22_HOLD_FINAL_ZERO'
+          c=j['counts']
+          assert c['fixed_total_F_targets']==70 and c['historical_study_case_denominator']==62
+          assert c['original_game_F2_added']==5 and c['original_elements']==39 and c['original_faces']==179
+          assert c['new_conditional_cases']==5
+          assert (c['F_conditional_prior'],c['F_conditional_now'])==(43,48)
+          assert (c['F_HOLD_prior'],c['F_HOLD_now'])==(27,22)
+          assert (c['historical_F2_conditional_prior'],c['historical_F2_conditional_now'])==(37,42)
+          assert c['unconditional_final_F_acceptance']==0
+          assert c['new_INT5_semantic_parts_approved']==0
+          assert c['new_INT6_AI_training_redistribution_rights_approved']==0
+          assert j['remaining_holds_by_cohort']=={'MACAW':5,'RISK':2,'VANILLA':15}
+          assert set(j['cases'])=={'S08','S09','S11','S12','S23'}
+          for filename,kind in (
+            ('INT4_F9_70_TARGET_EVIDENCE_DISPOSITIONS_V8.csv','F70'),
+            ('INT4_F9_22_PENDING_EXACT_F2_TARGETS_V1.csv','pending')
+          ):
+              raw=(p/filename).read_bytes()
+              assert hashlib.sha256(raw).hexdigest()==j['outputs'][kind]['sha256']
+              with (p/filename).open(encoding='utf-8',newline='') as f:
+                  assert len(list(csv.DictReader(f)))==j['outputs'][kind]['rows']
+          print('PASS original 5 Macaw game F2; conditional 48 HOLD 22 final 0')
+          PY
+          git diff --check
+      - name: Upload only model/hash/visual review results, no Minecraft source assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: INT4-F9-Macaw-5-original-48-conditional-22-hold-evidence
+          path: |
+            project/integration/INT4_F9_70_TARGET_EVIDENCE_DISPOSITIONS_V8.csv
+            project/integration/INT4_F9_22_PENDING_EXACT_F2_TARGETS_V1.csv
+            project/integration/INT4_F9_FIVE_MACAW_NATIVE_F2_INDEPENDENT_AUDIT_V1.json
+            project/integration/INT4_F9_MACAW_FIVE_DIRECT_VISUAL_AUDIT_V1.md
+          retention-days: 45
+      - name: Commit source evidence only to isolated Draft F9 branch
+        if: github.ref == 'refs/heads/work/int4-f9-macaw-five-native-f2-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F9_70_TARGET_EVIDENCE_DISPOSITIONS_V8.csv \
+                  project/integration/INT4_F9_22_PENDING_EXACT_F2_TARGETS_V1.csv \
+                  project/integration/INT4_F9_FIVE_MACAW_NATIVE_F2_INDEPENDENT_AUDIT_V1.json \
+                  project/integration/INT4_F9_MACAW_FIVE_DIRECT_VISUAL_AUDIT_V1.md
+          if ! git diff --cached --quiet; then
+            git commit -m "INT-4-F9 Macaw 원본 F2 5개·서버 SHA 독립감사 조건부48 보류22 갱신"
+            git push origin HEAD:refs/heads/work/int4-f9-macaw-five-native-f2-20261122
+          fi

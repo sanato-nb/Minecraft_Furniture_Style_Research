@@ -1,0 +1,126 @@
+name: INT-4-F9 Macaw 5개 원본 모델 실제 Fabric 1.21.11 F2
+on:
+  push:
+    branches:
+      - work/int4-f9-macaw-five-native-f2-20261122
+    paths:
+      - src/mcfr/int4_f9_macaw_five_capture.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int4_f9_macaw_five_capture.py
+      - .github/workflows/integration-int4-f9-macaw-five-native-f2.yml
+permissions:
+  contents: write
+jobs:
+  macaw-five-original-native-f2:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      PYTHONPATH: src
+    steps:
+      - name: Set disposable F9 fixture, original runtime and F2 output paths
+        run: |
+          echo "WORLD=$RUNNER_TEMP/int4-f9-world" >> "$GITHUB_ENV"
+          echo "CACHE=$RUNNER_TEMP/int4-f9-cache" >> "$GITHUB_ENV"
+          echo "WORK=$RUNNER_TEMP/int4-f9-client" >> "$GITHUB_ENV"
+          echo "OUT=$RUNNER_TEMP/int4-f9-f2" >> "$GITHUB_ENV"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install genuine Minecraft GUI renderer and PNG decoder
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 update
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 install -y \
+              xvfb xauth xdotool libgl1-mesa-dri libglx-mesa0
+          fi
+      - name: Fixed historical models, SHA, 39 elements and 179 faces; old Macaw regressions
+        run: |
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f9_macaw_five_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_macaw_table_shelf_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_macaw_kitchen_capture.py' -v
+      - name: Generate fresh official Minecraft 1.21.11 vanilla server fixture
+        run: |
+          python -m mcfr.chair_runtime_fixture world \
+            --version 1.21.11 --path "$WORLD" --cache "$CACHE"
+      - name: Capture real Fabric 1.21.11 five Macaw source states and F2
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+          ALSOFT_DRIVERS: 'null'
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int4-f9-macaw-five \
+              --version 1.21.11 --world "$WORLD" --work "$WORK" --output "$OUT"
+      - name: Reopen 5 native F2 files, log, geometry and strict original model SHA
+        run: |
+          python -m mcfr.int4_f9_macaw_five_capture --directory "$OUT"
+          python - <<'PY'
+          import os,json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          p=Path(os.environ['OUT'])
+          a=json.loads((p/'INT4_F9_MACAW_FIVE_F2_AUDIT.json').read_text(encoding='utf-8'))
+          m=json.loads((p/'INT4_F9_MACAW_FIVE_REAL_F2_CAPTURE.json').read_text(encoding='utf-8'))
+          assert a['status']=='PASS_FIVE_ORIGINAL_MACAW_F9_NATIVE_F2_AND_EXACT_SERVER_STATE_NOT_FINAL'
+          assert a['source_cases']==['S08','S09','S11','S12','S23']
+          assert a['native_f2_count']==a['server_verified_states']==5
+          assert a['source_1_5_face_counts']=={'S08':59,'S09':31,'S11':52,'S12':11,'S23':26}
+          assert sum(a['source_1_5_face_counts'].values())==179
+          assert m['original_source_registry']['mod_jar_sha256']=='e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e'
+          assert min(a['visibility_foreground_chroma'].values())>=150
+          for case,sha in a['f2_sha256'].items():
+              image=p/(case+'.png')
+              assert hashlib.sha256(image.read_bytes()).hexdigest()==sha
+              with Image.open(image) as im:
+                  im.load()
+                  assert im.size==(1024,684) and im.format=='PNG'
+          assert hashlib.sha256((p/'client.log').read_bytes()).hexdigest()==m['client_log_sha256']
+          assert a['boundaries']['int5_part_roles_approved']==0
+          assert a['boundaries']['int6_training_or_redistribution_rights_approved']==0
+          assert a['boundaries']['face_uv_render_pixel_causality_proven'] is False
+          assert a['boundaries']['natural_connected_block_update_rules_tested'] is False
+          report={
+            'schema':'MCFR_INT4_F9_ORIGINAL_REAL_FABRIC_FIVE_F2_PROVENANCE/v1',
+            'status':'PASS_FIVE_SOURCE_SELECTED_ACTUAL_NATIVE_F2_NOT_SEMANTIC_EXIT',
+            'minecraft':'1.21.11',
+            'case_ids':a['source_cases'],
+            'historical_source_SHA256':a['original_source_sha256'],
+            'actual_mod_jar_SHA256':m['original_source_registry']['mod_jar_sha256'],
+            'historical_elements':39,'historical_faces':179,
+            'server_exact_states':5,'actual_native_F2':5,
+            'actual_native_F2_sha256_by_case':a['f2_sha256'],
+            'client_log_sha256':m['client_log_sha256'],
+            'models_selected_by_case':m['original_source_registry']['states'],
+            'boundaries':a['boundaries'],
+            'human_visual_review':'PENDING_ORIGINAL_NATIVE_F2_INDEPENDENT_REOPEN',
+            'f_full_approval':0,'int5_semantic_approval':0,'int6_rights_approval':0,
+          }
+          out=Path('project/integration/INT4_F9_MACAW_FIVE_ACTUAL_F2_SOURCE_V1.json')
+          out.write_text(json.dumps(report,ensure_ascii=False,sort_keys=True,indent=2)+'\n',encoding='utf-8')
+          print('PASS F9 actual 5 real game states/F2, 179 original faces, no semantic approval')
+          PY
+          git diff --check
+      - name: Preserve original PNG/log only in temporary Actions artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-f9-macaw-five-original-client-native-F2
+          retention-days: 45
+          path: ${{ runner.temp }}/int4-f9-f2/
+          if-no-files-found: warn
+      - name: Commit only source and image SHA provenance metadata on Draft branch
+        if: success() && github.ref == 'refs/heads/work/int4-f9-macaw-five-native-f2-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F9_MACAW_FIVE_ACTUAL_F2_SOURCE_V1.json
+          if ! git diff --cached --quiet; then
+            git commit -m "INT-4-F9 Macaw 5개 실제 서버 원본 상태·F2·모델 SHA 179면 증거 기록"
+            git push origin HEAD:refs/heads/work/int4-f9-macaw-five-native-f2-20261122
+          fi
