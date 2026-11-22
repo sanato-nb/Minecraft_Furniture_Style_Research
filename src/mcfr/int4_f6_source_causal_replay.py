@@ -135,7 +135,8 @@ def audit(directory,output=None):
           "Wrong run mode or legacy output mixed")
     check(report.get("f_target_case_ids")==list(CASES),"Original source IDs not preserved")
     plan=stages(report["property_values"])
-    check(tuple(report["server_states"])==TRIALS and set(report["native_f2_sha256"])==set(TRIALS),
+    check(set(report["server_states"])==set(TRIALS) and set(report["native_f2_sha256"])==set(TRIALS)
+          and len(report["server_states"])==len(TRIALS),
           "Missing native F2 or server probes")
     targets={}
     for key,(commands,_) in plan.items():
