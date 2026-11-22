@@ -1,0 +1,121 @@
+{
+  "schema": "MCFR_INT4_F2_4_REAL_F2_DIRECT_VISUAL_REVIEW_PLUS_F70_CROSSJOIN/v1",
+  "status": "PASS_4_NEW_REAL_CLIENT_SOURCE_CASE_PNG_SHA_AND_VISIBLE_F70_FINAL_HOLD",
+  "review_date_kst": "2026-11-22",
+  "source_runtime_Git_blob_sha1": "aded01861ca3b8df8ad608092a416a7ff1ebfbb7",
+  "source_F70_Git_blob_sha1": "c21cc46630a72647fd744073be823bd68b5738a4",
+  "original_game_CI_run": 45006039419,
+  "original_game_CI_url": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45006039419",
+  "original_actions_artifact_id": 14747628657,
+  "original_actions_artifact_url": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45006039419/artifacts/14747628657",
+  "original_artifact_ZIP_sha256": "4f9e738ce5cd0f7d9e0e68c6af47df8975d26ac18395c5b33c802d6c343e0ea7",
+  "minecraft_version": "1.21.1",
+  "cases": {
+    "S05": {
+      "original_F2_png_sha256": "456047d174a97f5dc17f4994f2aad48c54ec90cafff376e5fe28afa5770068af",
+      "original_model_key": "AF1338",
+      "original_state": "another_furniture:white_stool[low=false]",
+      "minecraft_version": "1.21.1",
+      "server_exact_state": true,
+      "model_selector_matches_release": true,
+      "source_file_bytes_same_as_release": {
+        "model": false,
+        "provider": false,
+        "state": false
+      },
+      "direct_screenshot_visual_observation": "밝은색 좌판과 짧은 나무 다리가 있는 스툴형 가구가 실제 F2에서 보임",
+      "original_source_model_SHA": "1c4111d8295534b6a6ee6e7424ea61ef505d8ee6",
+      "baked_pixel_UV_causality_approved": false,
+      "meaning_or_rights_approved": false
+    },
+    "S06": {
+      "original_F2_png_sha256": "71098450e4ee4ce633c1560012a397ce73f474683449aa0a7d34f87b74d1a19f",
+      "original_model_key": "HC8185",
+      "original_state": "handcrafted:oak_chair[color=none,facing=north,waterlogged=false]",
+      "minecraft_version": "1.21.1",
+      "server_exact_state": true,
+      "model_selector_matches_release": true,
+      "source_file_bytes_same_as_release": {
+        "model": true,
+        "provider": true,
+        "state": true
+      },
+      "direct_screenshot_visual_observation": "목제 등받이·다리와 기본 목제 좌판의 의자가 실제 F2에서 보임",
+      "original_source_model_SHA": "40a264625eed7e36258193c80636f3244864b6fc",
+      "baked_pixel_UV_causality_approved": false,
+      "meaning_or_rights_approved": false
+    },
+    "S07": {
+      "original_F2_png_sha256": "e5ef66d0d464afac70d0f3474f6a72b5fb09f39a3c4b0196e709ff3b41631cd5",
+      "original_model_key": "HC8190",
+      "original_state": "handcrafted:oak_chair[color=white,facing=north,waterlogged=false]",
+      "minecraft_version": "1.21.1",
+      "server_exact_state": true,
+      "model_selector_matches_release": true,
+      "source_file_bytes_same_as_release": {
+        "model": true,
+        "provider": true,
+        "state": true
+      },
+      "direct_screenshot_visual_observation": "목제 의자와 밝은색 좌판 쿠션이 보이며 S06의 좌판과 시각적으로 구분됨",
+      "original_source_model_SHA": "5125255bc6e41cad79251e253f7dae3128bf86fb",
+      "baked_pixel_UV_causality_approved": false,
+      "meaning_or_rights_approved": false
+    },
+    "S10": {
+      "original_F2_png_sha256": "aaae085b4d4cdc5e56343c92bf1b60e39a0bf368597b8afd319c702c70b627d8",
+      "original_model_key": "HC8734",
+      "original_state": "handcrafted:oak_side_table[color=none,facing=north,waterlogged=false]",
+      "minecraft_version": "1.21.1",
+      "server_exact_state": true,
+      "model_selector_matches_release": true,
+      "source_file_bytes_same_as_release": {
+        "model": true,
+        "provider": true,
+        "state": true
+      },
+      "direct_screenshot_visual_observation": "목재 다리와 전면이 있는 작은 사이드 테이블이 실제 F2에서 보임",
+      "original_source_model_SHA": "a1ee58ebc1e0aae86ca6e15597272d0c8360b1d5",
+      "baked_pixel_UV_causality_approved": false,
+      "meaning_or_rights_approved": false
+    }
+  },
+  "source_case_model_element_count": 42,
+  "source_case_model_face_count": 248,
+  "notes": {
+    "R01": "S10 original Fabric 1.21.1 side table exact F2 and source server state captured, not full INT4-F approval",
+    "AF_versions": "Pinned research Git AF 4.0.3 vs actual Fabric AF 4.0.2 original state/model/provider bytes differ while chosen model selector matches",
+    "HC_versions": "HC 4.0.3 original state/model/provider bytes match original study; four pictures do not imply pixelwise UV causality",
+    "artifact_retention": "GitHub Actions original screenshots can expire; no PNG/JAR committed to git",
+    "release_or_part_rights_approved": 0
+  },
+  "reconciled_counts": {
+    "total_targets": 70,
+    "historic_cases": 62,
+    "exact_hist_source_case_F2_before": 15,
+    "exact_hist_source_case_F2_after": 19,
+    "historic_cases_still_unmapped": 43,
+    "risks": 8,
+    "risk_conditional_after": 6,
+    "risk_hold_after": 2,
+    "risk_hold_ids": [
+      "R06",
+      "R08"
+    ],
+    "conditional_targets": 25,
+    "hold_targets": 45,
+    "full_F_accepted": 0,
+    "hold_historic_by_cohort": {
+      "VANILLA": 15,
+      "AF": 13,
+      "MACAW": 10,
+      "HC": 5
+    }
+  },
+  "limitations": [
+    "New 4 were photographed in a real new client; visually inspected native screenshots at source size and magnified chair crops",
+    "R01 single general furniture S10 new source F2 is conditional, no natural interaction test",
+    "F2 pixel representation does not automatically validate exact UV texture face causality or all game states",
+    "New 1-5 cases still unlinked 43; R06 same-water two time frames and R08 two-release client pairing remain HOLD"
+  ]
+}
