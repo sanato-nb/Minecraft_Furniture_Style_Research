@@ -1,0 +1,136 @@
+name: INT-4-F7 의자 variant3·벤치 복수모델·HC 바닐라 부모 실제 Fabric F2
+
+on:
+  push:
+    branches:
+      - work/int4-f7-af-variant3-bench-hc-vanilla-parent-20261122
+    paths:
+      - src/mcfr/int4_nonchair_runtime.py
+      - src/mcfr/int4_f7_four_source_cases_capture.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int4_f7_four_source_cases_capture.py
+      - .github/workflows/integration-int4-f7-four-original-source-f2.yml
+
+permissions:
+  contents: write
+
+jobs:
+  f7-four-source-cases-real-client:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 44
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install actual Minecraft GL software renderer and PNG reader
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 update
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 install -y \
+              xvfb xauth xdotool libgl1-mesa-dri libglx-mesa0
+          fi
+
+      - name: Original F7 four-case source SHA and double-model/vanilla-parent tests, F6/F5/F4 regression
+        run: |
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f7_four_source_cases_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f6_source_causal_replay.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f5_state_diagnostic.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f4_chair_bench_couch_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f3_storage_shelf_light_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f_missing_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_nonchair_runtime.py' -v
+
+      - name: Download original pinned Handcrafted research source
+        run: |
+          curl -fLsS --retry 3 --max-time 90 \
+            'https://codeload.github.com/terrarium-earth/Handcrafted/zip/8d21d1665916850c3fa3bdaf1370c50ec2ca7035' \
+            -o "$RUNNER_TEMP/int4-f7-hc-source.zip"
+          echo "MCFR_HC_SOURCE_ZIP=$RUNNER_TEMP/int4-f7-hc-source.zip" >> "$GITHUB_ENV"
+
+      - name: Prepare disposable official Minecraft 1.21.1 Fabric world
+        run: |
+          echo "WORLD=$RUNNER_TEMP/int4-f7-world" >> "$GITHUB_ENV"
+          echo "CACHE=$RUNNER_TEMP/int4-f7-cache" >> "$GITHUB_ENV"
+          echo "WORK=$RUNNER_TEMP/int4-f7-game-work" >> "$GITHUB_ENV"
+          echo "OUT=$RUNNER_TEMP/int4-f7-original-client-evidence" >> "$GITHUB_ENV"
+          python -m mcfr.chair_runtime_fixture world --version 1.21.1 \
+            --path "$RUNNER_TEMP/int4-f7-world" --cache "$RUNNER_TEMP/int4-f7-cache"
+
+      - name: Real Fabric 1.21.1 AF variants and double-model bench, HC vanilla-parent drawer F2
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+          ALSOFT_DRIVERS: 'null'
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int4-f7-source-cases --version 1.21.1 \
+              --world "$WORLD" --work "$WORK" --output "$OUT"
+
+      - name: Four original game cases source and native F2 SHA per-case audit
+        run: |
+          python -m mcfr.int4_f7_four_source_cases_capture \
+            --directory "$OUT" \
+            --output project/integration/INT4_F7_FOUR_NATIVE_GAME_F2_SOURCE_REPORT_V1.json
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,os,json
+          from PIL import Image
+          p=Path('project/integration/INT4_F7_FOUR_NATIVE_GAME_F2_SOURCE_REPORT_V1.json')
+          j=json.loads(p.read_text(encoding='utf-8'))
+          assert j['status']=='NATIVE_F2_4_CASES_CAPTURED_SOURCE_MODEL_AND_SERVER_PER_CASE_REVIEW'
+          assert j['historical_case_ids']==['S03','S04','S22','S30']
+          assert j['minecraft']=='1.21.1'
+          assert j['original_source_applications']==5
+          assert j['original_effective_elements']==31 and j['original_effective_faces']==144
+          assert j['native_f2_png_count']==4 and len(j['source_cases'])==4
+          assert j['source_cases']['S30']['original_model_application_count']==2
+          assert j['source_cases']['S22']['external_vanilla_parent_independent_runtime_sha_approved'] is False
+          assert j['counts']['newly_approved_1_5_cases']==0
+          assert j['counts']['unconditionally_completed_F_cases']==0
+          assert j['counts']['newly_approved_INT5_parts_or_INT6_training_rights']==0
+          out=Path(os.environ['OUT'])
+          for name,row in j['source_cases'].items():
+              raw=(out/(name+'.png')).read_bytes()
+              assert hashlib.sha256(raw).hexdigest()==row['native_F2_sha256']
+              assert row['native_F2_size']==[1024,684]
+              with Image.open(out/(name+'.png')) as im:
+                  im.load()
+                  assert im.format=='PNG' and im.size==(1024,684)
+              print('PASS ACTUAL F7',name,
+                    'server_exact',row['game_server_exact_requested_state'],
+                    'release_model_selection',row['release_selector_matches_all_original_models'],
+                    'model_applies',row['release_model_application_count'])
+          assert hashlib.sha256((out/'client.log').read_bytes()).hexdigest()==j['original_client_log_sha256']
+          print('PASS F7 actual game source evidence, full F/INT5/INT6 approvals remain 0')
+          PY
+          git diff --check
+
+      - name: Save native diagnostic F2/screenshots/game log as temporary GitHub artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-f7-af-chair-bench-drawer-4case-real-native-F2
+          path: ${{ runner.temp }}/int4-f7-original-client-evidence/
+          retention-days: 45
+          if-no-files-found: warn
+
+      - name: Commit F7 real game source metadata to Draft branch only
+        if: success() && github.ref == 'refs/heads/work/int4-f7-af-variant3-bench-hc-vanilla-parent-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F7_FOUR_NATIVE_GAME_F2_SOURCE_REPORT_V1.json
+          if git diff --cached --quiet; then
+            echo "New source evidence unchanged"
+          else
+            git commit -m "INT-4-F7 의자 변형·벤치 2모델·서랍 바닐라 부모 실게임 4사례 F2 원본 출처 기록"
+            git push origin HEAD:refs/heads/work/int4-f7-af-variant3-bench-hc-vanilla-parent-20261122
+          fi
