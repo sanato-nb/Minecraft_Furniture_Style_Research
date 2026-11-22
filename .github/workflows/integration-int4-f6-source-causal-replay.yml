@@ -73,7 +73,7 @@ jobs:
             python -m mcfr.runtime int4-f6-causal-replay --version 1.21.1 \
               --world "$WORLD" --work "$WORK" --output "$OUT"
 
-      - name: Ten original-game source condition trials: exact state and native F2 SHA audit
+      - name: Ten original-game source condition trials and exact state native F2 SHA audit
         run: |
           python -m mcfr.int4_f6_source_causal_replay \
             --directory "$OUT" \
