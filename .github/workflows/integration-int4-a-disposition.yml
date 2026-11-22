@@ -1,0 +1,96 @@
+name: INT-4-A 112예외 독립 판정과 16572개 처분 증거
+
+on:
+  push:
+    branches:
+      - work/int4-a-112-exception-disposition-20261122
+    paths:
+      - scripts/integration/adjudicate_int4_a_exceptions.py
+      - tests/integration/test_int4_a_disposition.py
+      - .github/workflows/integration-int4-a-disposition.yml
+
+permissions:
+  contents: write
+
+jobs:
+  exception-source-disposition:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: 고정 A 출처 모델 원장 체크아웃
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: 누락·정적 비도달·아이템의 잘못된 판정 회귀시험
+        run: python3 -m unittest discover -s tests/integration -p 'test_int4_a_disposition.py' -v
+
+      - name: 고정 SHA B/C 원장으로 모델 및 예외 처분 재구성
+        run: python3 scripts/integration/adjudicate_int4_a_exceptions.py
+
+      - name: 생성 결과 비파괴 재실행·바이트 단위 일치 확인
+        run: python3 scripts/integration/adjudicate_int4_a_exceptions.py --verify
+
+      - name: 판정기와 독립된 항목별 해시·범위 확인
+        run: |
+          python3 - <<'PY'
+          from collections import Counter
+          import csv,gzip,hashlib,io,json
+          from pathlib import Path
+          p=Path('project/integration')
+          record=json.loads((p/'INT4_A_ADJUDICATION_SUMMARY_V2.json').read_text(encoding='utf-8'))
+          result_csv=(p/'INT4_A_EXCEPTION_DISPOSITIONS_V2.csv').read_bytes()
+          all_gz=(p/'INT4_A_MODEL_DISPOSITIONS_V2.csv.gz').read_bytes()
+          cases=list(csv.DictReader(io.StringIO(result_csv.decode('utf-8'),newline='')))
+          models=list(csv.DictReader(io.StringIO(gzip.decompress(all_gz).decode('utf-8'),newline='')))
+          assert hashlib.sha256(result_csv).hexdigest()==record['outputs']['exception_dispositions_sha256']
+          assert hashlib.sha256(all_gz).hexdigest()==record['outputs']['model_dispositions_gz_sha256']
+          assert len(models)==16572 and len(cases)==112
+          assert len({r['resource_id'] for r in models})==16572
+          assert {r['resource_id'] for r in cases} == {r['resource_id'] for r in models if r['exception_class']!='STATIC_REUSED'}
+          counts=Counter(r['exception_class'] for r in models)
+          assert counts==Counter({
+            'STATIC_REUSED':16460,
+            'PARENT_MISSING_PARTIAL_STATIC_UNREACHABLE':4,
+            'PARENT_MISSING_NO_ELEMENTS_STATIC_UNREACHABLE':44,
+            'BASE_MODEL_NO_EXPLICIT_ELEMENTS':6,
+            'GENERATED_ITEM_NO_STATIC_CUBOIDS':58})
+          no_parent=[r for r in cases if r['parent_missing_original_verified']=='true']
+          assert len(no_parent)==48
+          assert all(r['static_blockstate_item_unreachable_verified']=='true' for r in no_parent)
+          assert all(r['auto_parent_repaired']=='false' and r['new_runtime_test']=='false' for r in cases)
+          assert all(r['runtime_visual_status']=='NOT_VERIFIED_BY_THIS_STATIC_REVIEW' for r in models)
+          assert record['new_upstream_model_originals_opened']==0
+          assert record['new_real_client_F2_screenshots_reviewed']==0
+          assert record['progress']['A_full_exit']=='CONDITIONAL_STATIC_SCOPE_DOCUMENTED_NOT_INDEPENDENT_FULL_EXIT'
+          print('PASS: 16572 dispositions / 112 grounded exceptions / 0 false render approvals')
+          PY
+          git diff --check
+
+      - name: 신규 판정 증거 아티팩트 보존
+        uses: actions/upload-artifact@v4
+        with:
+          name: INT4-A-112-exception-disposition
+          retention-days: 45
+          path: |
+            project/integration/INT4_A_MODEL_DISPOSITIONS_V2.csv.gz
+            project/integration/INT4_A_EXCEPTION_DISPOSITIONS_V2.csv
+            project/integration/INT4_A_ADJUDICATION_SUMMARY_V2.json
+            project/integration/INT4_A_EXCEPTION_REVIEW_V2.md
+
+      - name: Draft 전용 브랜치에 판정 산출물 커밋
+        if: github.ref == 'refs/heads/work/int4-a-112-exception-disposition-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_A_MODEL_DISPOSITIONS_V2.csv.gz \
+                  project/integration/INT4_A_EXCEPTION_DISPOSITIONS_V2.csv \
+                  project/integration/INT4_A_ADJUDICATION_SUMMARY_V2.json \
+                  project/integration/INT4_A_EXCEPTION_REVIEW_V2.md
+          if git diff --cached --quiet; then
+            echo "원장 내용 동일 - 새 커밋 없음"
+          else
+            git commit -m "INT-4-A 예외 112개 원본 판정과 모델별 검토 상태 인수"
+            git push origin HEAD:refs/heads/work/int4-a-112-exception-disposition-20261122
+          fi
