@@ -268,7 +268,7 @@ def build():
                 a=a_index.get(model_id)
                 assert a is not None,("MOD_MODEL_ABSENT",b["case"],model_id)
                 assert a["source_sha"]==model_sha,("MOD_SHA_DRIFT",b["case"],model_id)
-                assert a["source_id"]==mod
+                assert a["mod"]==mod
                 assert a["source_path"]==b["model_path"],("MOD_PATH_DRIFT",b["case"],model_id)
                 a_sha="PASS"
                 a_el=a["effective_elements"]
