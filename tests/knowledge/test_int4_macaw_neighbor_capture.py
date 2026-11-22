@@ -68,8 +68,11 @@ class MacawTableNeighborTests(unittest.TestCase):
         self.assertFalse(proof["state_changed_after_adjacent_setblock"])
         with self.assertRaisesRegex(ValueError,"missing/ambiguous"):
             n.extract(self.server_log("reset",duplicated=True),"reset")
-        with self.assertRaisesRegex(ValueError,"Baseline"):
-            n.summarize({**observed,"reset":n.extract(self.server_log("reset",True),"reset")})
+        # We cannot assume initial EAST=false without measuring the game.
+        # Even a surprising default state is a legitimate observation.
+        strange=n.summarize({**observed,"reset":n.extract(self.server_log("reset",True),"reset")})
+        self.assertTrue(strange["centre_east_baseline"])
+        self.assertTrue(strange["state_changed_after_adjacent_setblock"])
 
 if __name__=="__main__":
     unittest.main()
