@@ -145,7 +145,8 @@ def compose_exception(status,ctx,outcome):
     if status=="SLOT_UNBOUND":
         assert ctx in ("BOUND_CHILD_CONTEXT","UNBOUND_NO_BOUND_CHILD")
         return (
-            "SLOT_UNBOUND_"+ctx,
+            "SLOT_UNBOUND_BOUND_CHILD_CONTEXT" if ctx=="BOUND_CHILD_CONTEXT"
+            else "SLOT_UNBOUND_NO_BOUND_CHILD",
             "PARENT_TEMPLATE_SLOT_ONLY" if ctx=="BOUND_CHILD_CONTEXT" else "NO_BOUND_CHILD_SOURCE_EVIDENCE",
             "INT4_D_MODEL_BINDING_AND_STATIC_REACHABILITY",
             "CONDITIONAL_TEMPLATE_SOURCE_NOT_DIRECT_PIXEL_SUPPORT"
