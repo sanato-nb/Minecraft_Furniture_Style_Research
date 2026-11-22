@@ -195,7 +195,7 @@ def capture(command,env,game,output,version):
             check(len(window)==1,"Expected a single visible Minecraft 1.21.11 window")
             xdo("windowfocus","--sync",window[0]);sleep(3)
             send("/gamemode spectator");sleep(1)
-            cmd("/tp @s 0.5 124 43.5 180 18",
+            cmd("/tp @s 0.5 122.8 45.5 180 28",
                 "[RenderAudit: Teleported RenderAudit to","table neighborhood initial camera")
             shots.mkdir(exist_ok=True)
             for stage in STAGES:
