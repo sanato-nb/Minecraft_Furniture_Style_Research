@@ -1,0 +1,102 @@
+name: INT-4-F8 S22 공식 SHA256 해시 오류 교정·70개 판정 독립 감사
+
+on:
+  push:
+    branches:
+      - work/int4-f8-s22-official-vanilla-cube-parent-20261122
+    paths:
+      - scripts/integration/audit_int4_f8_s22_parent_sha_and_70_cases.py
+      - tests/integration/test_int4_f8_s22_parent_70_case_audit.py
+      - .github/workflows/integration-int4-f8-s22-70-audit.yml
+
+permissions:
+  contents: write
+
+jobs:
+  original-S22-only-source-disposition-audit:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: 기존 F7 70개 원장·공식 Mojang SHA 증거·원본 1-5 고정 경로 체크아웃
+        uses: actions/checkout@v4
+
+      - name: SHA 종류 정정·69개 기존 행 보존·43조건부·27보류 독립 단위시험
+        run: |
+          python3 -m unittest discover -s tests/integration \
+            -p 'test_int4_f8_s22_parent_70_case_audit.py' -v
+          python3 -m unittest discover -s tests/integration \
+            -p 'test_int4_f8_official_client_parent_sha.py' -v
+
+      - name: S22 바닐라 공식 SHA256와 실제 원본 F7 이미지 검증 기록 합치기
+        run: |
+          python3 scripts/integration/audit_int4_f8_s22_parent_sha_and_70_cases.py
+
+      - name: 기존 70개 판정 증거 완전 동일 바이트로 독립 재생성 검증
+        run: |
+          python3 scripts/integration/audit_int4_f8_s22_parent_sha_and_70_cases.py --verify
+
+      - name: 70개 분모·S22 SHA256 정정·최종 승인 0 검수
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,json,csv
+          p=Path("project/integration")
+          x=json.loads((p/"INT4_F8_S22_OFFICIAL_PARENT_INDEPENDENT_AUDIT_V1.json").read_text(encoding="utf-8"))
+          c=x["counts"]
+          assert x["status"]=="PASS_SOURCE_CORRECTION_S22_CONDITIONAL_43_HOLD27_FINAL0"
+          assert (c["F_targets"],c["original_study_cases"])==(70,62)
+          assert (c["conditional_before"],c["conditional_after"])==(42,43)
+          assert (c["HOLD_before"],c["HOLD_after"])==(28,27)
+          assert (c["original_historic_conditional_F2_before"],c["original_historic_conditional_F2_after"])==(36,37)
+          assert c["F_full_unconditional_approval"]==0
+          assert c["new_F2_images"]==0
+          assert c["historic_1_5_research_source_files_changed"]==0
+          assert c["new_INT5_part_semantic_approval"]==0
+          assert c["new_INT6_AI_training_and_redistribution_rights"]==0
+          assert x["case_changed_only"]=="S22"
+          assert x["remaining_HOLD_by_cohort"]=={"MACAW":10,"RISK":2,"VANILLA":15}
+          for filename,key in (
+             ("INT4_F8_70_TARGET_EVIDENCE_DISPOSITIONS_V7.csv","F70"),
+             ("INT4_F8_27_PENDING_EXACT_F2_TARGETS_V1.csv","pending"),
+             ("INT4_F8_S22_HASH_ALGORITHM_CORRECTION_V1.json","correction"),
+          ):
+              b=(p/filename).read_bytes()
+              assert hashlib.sha256(b).hexdigest()==x["output"][key]["sha256"],filename
+              if filename.endswith(".csv"):
+                  with (p/filename).open(encoding="utf-8",newline="") as h:
+                      rows=list(csv.DictReader(h))
+                  assert len(rows)==x["output"][key]["rows"]
+              print("PASS",filename,len(b))
+          print("PASS F8 S22 official source verified, 70=43 conditional+27 hold, final approvals 0")
+          PY
+          git diff --check
+
+      - name: 원본 Minecraft JAR·cube JSON 없이 감사 증거 데이터만 보존
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-f8-s22-cube-sha256-corrected-70-43-conditional-27-hold
+          retention-days: 45
+          path: |
+            project/integration/INT4_F8_70_TARGET_EVIDENCE_DISPOSITIONS_V7.csv
+            project/integration/INT4_F8_27_PENDING_EXACT_F2_TARGETS_V1.csv
+            project/integration/INT4_F8_S22_HASH_ALGORITHM_CORRECTION_V1.json
+            project/integration/INT4_F8_S22_OFFICIAL_PARENT_INDEPENDENT_AUDIT_V1.json
+            project/integration/INT4_F8_S22_REVIEW_REPORT_V1.md
+
+      - name: main을 변경하지 않고 Draft F8 브랜치에만 검증 결과 반영
+        if: github.ref == 'refs/heads/work/int4-f8-s22-official-vanilla-cube-parent-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F8_70_TARGET_EVIDENCE_DISPOSITIONS_V7.csv \
+                  project/integration/INT4_F8_27_PENDING_EXACT_F2_TARGETS_V1.csv \
+                  project/integration/INT4_F8_S22_HASH_ALGORITHM_CORRECTION_V1.json \
+                  project/integration/INT4_F8_S22_OFFICIAL_PARENT_INDEPENDENT_AUDIT_V1.json \
+                  project/integration/INT4_F8_S22_REVIEW_REPORT_V1.md
+          if git diff --cached --quiet; then
+            echo "공식 SHA 기반 판정 결과 불변"
+          else
+            git commit -m "INT-4-F8 S22 원본 바닐라 cube SHA256 정정·조건부43 보류27 독립 증거 갱신"
+            git push origin HEAD:refs/heads/work/int4-f8-s22-official-vanilla-cube-parent-20261122
+          fi

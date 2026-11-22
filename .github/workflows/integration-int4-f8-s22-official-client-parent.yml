@@ -1,0 +1,104 @@
+name: INT-4-F8 S22 Mojang 공식 바닐라 cube 부모 모델 원본 SHA 검사
+
+on:
+  push:
+    branches:
+      - work/int4-f8-s22-official-vanilla-cube-parent-20261122
+    paths:
+      - scripts/integration/build_int4_f8_official_client_parent_sha.py
+      - tests/integration/test_int4_f8_official_client_parent_sha.py
+      - .github/workflows/integration-int4-f8-s22-official-client-parent.yml
+
+permissions:
+  contents: write
+
+jobs:
+  official-client-cube-parent-evidence:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 28
+    steps:
+      - name: 원본 1-5 연구·S22 바닐라 부모 고정 출처 확인
+        uses: actions/checkout@v4
+
+      - name: Python 3.12 준비
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Mojang 원본 client 버전 pin 및 Git blob SHA 비교 독립 시험
+        run: |
+          python -m unittest discover -s tests/integration \
+            -p 'test_int4_f8_official_client_parent_sha.py' -v
+
+      - name: Mojang version manifest SHA1과 공식 두 클라이언트 JAR SHA1 검증
+        run: |
+          python scripts/integration/build_int4_f8_official_client_parent_sha.py \
+            --cache "$RUNNER_TEMP/int4-f8-mojang-client-cache" \
+            --out project/integration/INT4_F8_S22_OFFICIAL_VANILLA_PARENT_BYTES_V1.json
+
+      - name: 실제 바닐라 cube와 block 부모의 원본 SHA 독립 검사 및 범위 확인
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          p=Path('project/integration/INT4_F8_S22_OFFICIAL_VANILLA_PARENT_BYTES_V1.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          assert d['schema']=='MCFR_INT4_F8_S22_MOJANG_OFFICIAL_CLIENT_PARENT_COMPARISON/v1'
+          assert d['status']=='PASS_TWO_OFFICIAL_JAR_VERIFIED_S22_PARENT_COMPARISON'
+          assert d['historical_case']=='S22'
+          assert d['historical_parent_path']=='assets/minecraft/models/block/cube.json'
+          assert d['historical_original_parent_recorded_hash']=='3e4aacd02e816aeba38f83076596e18ded4cf49c01e17c62d1fce79850ffb84e'
+          assert set(d['official_versions'])=={'1.21.1','1.21.11'}
+          assert d['historical_row_declared_hash_kind']=='GIT_BLOB_SHA1'
+          assert d['historical_row_provider_sha_cannot_be_git_blob_sha1'] is True
+          assert d['corrected_provider_sha_algorithm_by_official_source']=='SHA256'
+          assert d['comparison']['runtime_1_21_1_cube_SHA256_equals_frozen_1_5_recorded_hash'] is True
+          assert d['comparison']['archived_1_21_11_cube_SHA256_equals_frozen_1_5_recorded_hash'] is True
+          assert d['F8_S22_parent_binary_exact_eligibility'] is True
+          for version,pinned in (
+            ('1.21.1','30c73b1c5da787909b2f73340419fdf13b9def88'),
+            ('1.21.11','ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd'),
+          ):
+              x=d['official_versions'][version]
+              assert x['official_client_jar_sha1_verified']==x['pinned_MCFR_client_sha1']==pinned
+              assert x['cube_element_count']==1 and x['cube_face_count']==6
+              assert len(x['cube_git_blob_sha1'])==40 and len(x['cube_sha256'])==64
+              assert x['cube_parent_block_model_ref']=='block/block'
+              print('OFFICIAL',version,'cube Git blob:',x['cube_git_blob_sha1'])
+          assert d['counts']['new_actual_game_F2_images']==0
+          assert d['counts']['new_semantic_approval']==0
+          assert d['counts']['new_AI_training_or_redistribution_rights']==0
+          print('RESEARCH original parent:',d['historical_original_parent_recorded_hash'])
+          print('EXACT pinned parent match:',d['F8_S22_parent_binary_exact_eligibility'])
+          print('JSON structural similarity:',d['comparison']['runtime_and_archived_cube_parsed_JSON_semantically_equal'])
+          PY
+          git diff --check
+
+      - name: 공식 원본 JAR 캐시로 원장 파일 완전 동일 바이트 재생성
+        run: |
+          python scripts/integration/build_int4_f8_official_client_parent_sha.py \
+            --cache "$RUNNER_TEMP/int4-f8-mojang-client-cache" \
+            --out project/integration/INT4_F8_S22_OFFICIAL_VANILLA_PARENT_BYTES_V1.json \
+            --verify
+
+      - name: 저작권 게임 원본 JAR/JSON 제외하고 SHA 메타데이터만 보존
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-f8-s22-official-mojang-client-cube-parent-metadata-only
+          retention-days: 45
+          path: project/integration/INT4_F8_S22_OFFICIAL_VANILLA_PARENT_BYTES_V1.json
+          if-no-files-found: error
+
+      - name: 공식 클라이언트 원본 파일 없이 Draft PR 브랜치에만 증거 커밋
+        if: github.ref == 'refs/heads/work/int4-f8-s22-official-vanilla-cube-parent-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F8_S22_OFFICIAL_VANILLA_PARENT_BYTES_V1.json
+          if git diff --cached --quiet; then
+            echo "공식 클라이언트 바이트 증거 변화 없음"
+          else
+            git commit -m "INT-4-F8 공식 Mojang 1.21.1·1.21.11 cube 부모 원본 Git blob SHA 비교"
+            git push origin HEAD:refs/heads/work/int4-f8-s22-official-vanilla-cube-parent-20261122
+          fi
