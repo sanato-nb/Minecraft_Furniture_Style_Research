@@ -1,0 +1,108 @@
+name: INT-4-F 실제 F2 11개 ZIP 70개 대조 독립 재검증
+
+on:
+  push:
+    branches:
+      - work/int4-f-70-real-f2-artifact-audit-20261122
+    paths:
+      - scripts/integration/build_int4_f_real_f2_archive_audit.py
+      - tests/integration/test_int4_f_real_f2_archive_audit.py
+      - .github/workflows/integration-int4-f-real-artifact-f2.yml
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  source-original-image-checkpoint:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 24
+    steps:
+      - name: A~E 정적 증거 및 F 계획 기준 브랜치 체크아웃
+        uses: actions/checkout@v4
+
+      - name: PNG 원본 디코드 Pillow 설치
+        run: python3 -m pip install --break-system-packages 'Pillow>=10,<13'
+
+      - name: 원본 ZIP 해시·수용 규칙·보류 보호 단위시험
+        run: python3 -m unittest discover -s tests/integration -p 'test_int4_f_real_f2_archive_audit.py' -v
+
+      - name: 기존 실제 Minecraft GitHub Actions 11개 아티팩트 직접 재다운로드·PNG 해시·로그·15사례 화면 증거 원장 생성
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/integration/build_int4_f_real_f2_archive_audit.py \
+            --artifact-dir "${RUNNER_TEMP}/int4-f-original-f2-zips" --download
+
+      - name: 다시 전체 11개 ZIP/58개 원본 PNG 바이트 결정적 독립 재검산
+        run: |
+          python3 scripts/integration/build_int4_f_real_f2_archive_audit.py \
+            --artifact-dir "${RUNNER_TEMP}/int4-f-original-f2-zips" --verify
+
+      - name: 독립 분모·SHA·조건부 20 보류 50·과장 금지 검사
+        run: |
+          python3 - <<'PY'
+          import csv,gzip,hashlib,io,json
+          from pathlib import Path
+          from collections import Counter
+          p=Path('project/integration')
+          j=json.loads((p/'INT4_F_SOURCE_IMAGE_AUDIT_SUMMARY_V1.json').read_text(encoding='utf-8'))
+          assert j['status']=='PASS_11_REAL_ARTIFACT_ARCHIVES_SHA_AND_15_HISTORIC_CASE_IMAGE_INSPECTION_F70_NOT_EXIT'
+          def audited(name,key,limit,compressed=False):
+              raw=(p/name).read_bytes()
+              assert hashlib.sha256(raw).hexdigest()==j['outputs'][key]
+              if compressed:raw=gzip.decompress(raw)
+              rows=list(csv.DictReader(io.StringIO(raw.decode('utf-8'))))
+              assert len(rows)==limit,(name,len(rows))
+              print('PASS',name,limit)
+              return rows
+          targets=audited('INT4_F_70_TARGET_EVIDENCE_DISPOSITIONS_V1.csv','target_csv_sha256',70)
+          shots=audited('INT4_F_58_ORIGINAL_SCREENSHOT_HASHES_V1.csv.gz','screen_gz_sha256',58,True)
+          archives=audited('INT4_F_11_ACTIONS_ARCHIVE_AUDIT_V1.csv','artifact_csv_sha256',11)
+          risks=audited('INT4_F_8_RISK_SCENARIO_AUDIT_V1.csv','scenario_csv_sha256',8)
+          assert len(set(r['target_id'] for r in targets))==70
+          assert len(set(r['artifact_id'] for r in archives))==11
+          assert len({r['sha256'] for r in shots})==53
+          assert Counter('CONDITIONAL' if r['final_disposition'].startswith('CONDITIONAL') else 'HOLD' for r in targets)==Counter({'CONDITIONAL':20,'HOLD':50})
+          assert sum(r['case_id_if_direct_1_5']!='' for r in shots)==15
+          assert all(r['source_capture_manifest_sha_match']=='PASS' for r in shots)
+          assert all(r['runtime_evidence_accepted_as_full_F_PASS']=='false' for r in targets)
+          assert all(r['entire_scenario_accepted']=='false' for r in risks)
+          assert j['counts']['new_minecraft_game_sessions_executed']==0
+          assert j['counts']['new_AI_model_part_semantic_approvals']==0
+          assert j['counts']['new_source_copyright_or_AI_training_rights_approvals']==0
+          assert j['progress']['F_full_exit'].startswith('BLOCKED')
+          PY
+          git diff --check
+
+      - name: 메타데이터·출처·이미지 해시만 아티팩트로 보존
+        uses: actions/upload-artifact@v4
+        with:
+          name: INT4-F-70-targets-11-original-F2-artifacts-source-audit-metadata
+          retention-days: 45
+          path: |
+            project/integration/INT4_F_70_TARGET_EVIDENCE_DISPOSITIONS_V1.csv
+            project/integration/INT4_F_58_ORIGINAL_SCREENSHOT_HASHES_V1.csv.gz
+            project/integration/INT4_F_11_ACTIONS_ARCHIVE_AUDIT_V1.csv
+            project/integration/INT4_F_8_RISK_SCENARIO_AUDIT_V1.csv
+            project/integration/INT4_F_SOURCE_IMAGE_AUDIT_SUMMARY_V1.json
+            project/integration/INT4_F_REAL_F2_REVIEW_REPORT_V1.md
+
+      - name: 원본 Minecraft 이미지/JAR 제외하고 Draft 브랜치에만 감사 기록 커밋
+        if: github.ref == 'refs/heads/work/int4-f-70-real-f2-artifact-audit-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F_70_TARGET_EVIDENCE_DISPOSITIONS_V1.csv \
+                  project/integration/INT4_F_58_ORIGINAL_SCREENSHOT_HASHES_V1.csv.gz \
+                  project/integration/INT4_F_11_ACTIONS_ARCHIVE_AUDIT_V1.csv \
+                  project/integration/INT4_F_8_RISK_SCENARIO_AUDIT_V1.csv \
+                  project/integration/INT4_F_SOURCE_IMAGE_AUDIT_SUMMARY_V1.json \
+                  project/integration/INT4_F_REAL_F2_REVIEW_REPORT_V1.md
+          if git diff --cached --quiet; then
+            echo "기존 아티팩트와 결과가 동일하므로 새 원장 커밋 없음"
+          else
+            git commit -m "INT-4-F 실제 F2 ZIP 11개·58 PNG·70 검증 단위 조건부 및 보류 판정"
+            git push origin HEAD:refs/heads/work/int4-f-70-real-f2-artifact-audit-20261122
+          fi
