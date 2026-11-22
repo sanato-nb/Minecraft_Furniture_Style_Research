@@ -121,7 +121,7 @@ def build(original_zip):
     assert audit["status"]=="PASS_REAL_FABRIC_EXACT_PROPERTY_ENUM_AND_F2_NOT_SEMANTIC_EXIT"
     assert audit["minecraft"]=="1.21.1" and audit["historic_case_ids"]==list(PNG_CASES)
     assert audit["trial_count"]==12 and len(audit["cases"])==12
-    assert len(OBS)==12 and set(OBS)==set(audit["cases"])
+    assert len(VISUAL)==12 and set(VISUAL)==set(audit["cases"])
     previous_by={r["target_id"]:r for r in baseline}
     assert all(previous_by[x]["final_disposition"].startswith("HOLD") for x in PNG_CASES)
 
@@ -195,7 +195,7 @@ def build(original_zip):
                 "actual_waterlogged":actual.get("waterlogged",""),
                 "native_f2_sha256":sha(img),
                 "native_f2_dimensions":"1024x684",
-                "visual_observation_ko":OBS[name],
+                "visual_observation_ko":VISUAL[name],
                 "original_study_state_approved":"false",
                 "f_stage_final_approval":"false",
             })
@@ -259,8 +259,8 @@ def build(original_zip):
         "",
         f"- 원본 Fabric 1.21.1 캡처/클라이언트 로그: [Actions #{RUN}](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/{RUN})",
         f"- 12개 원본 F2 PNG + 서버 로그 아티팩트: [원본 ZIP](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/{RUN}/artifacts/{ARTIFACT})",
-        "- **S02 의자** 고립·목재 테이블 동쪽·남쪽 3회 모두 \`tucked=false\`. 연구 원본 \`true\`는 유효한 원본 blockstate 속성이나 실제 배치에서 유지되지 않음.",
-        "- **S34 소파** 고립/북쪽/남쪽 3회 \`single\`, 동쪽 단독/동쪽 포함 L형 3회 \`right\`, 서쪽 단독/서쪽 포함 L형 3회 \`left\`. \`inner_left\` 재현 0회.",
+        "- **S02 의자** 고립·목재 테이블 동쪽·남쪽 3회 모두 `tucked=false`. 연구 원본 `true`는 유효한 원본 blockstate 속성이나 실제 배치에서 유지되지 않음.",
+        "- **S34 소파** 고립/북쪽/남쪽 3회 `single`, 동쪽 단독/동쪽 포함 L형 3회 `right`, 서쪽 단독/서쪽 포함 L형 3회 `left`. `inner_left` 재현 0회.",
         "- 서버 로그를 진단 모드로 독립 재파싱해 실제 전체 속성값과 해시 12장, 연구 모델 경로를 재검증함.",
         "- 실제 F2 비교판을 사람이 열어 가구/이웃 배치를 관찰했으나 형상 차이의 인과·UV 및 모드 의도·AI 권리는 확정하지 않음.",
         "- **기존 70개 판정 유지: 조건부 37 / 보류 33 / 최종 승인 0, 역사 정확 F2 31/62.** 이 진단에 의한 보류 해제 0개.",
