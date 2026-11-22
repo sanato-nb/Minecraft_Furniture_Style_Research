@@ -48,8 +48,14 @@ jobs:
           assert d['status']=='PASS_TWO_OFFICIAL_JAR_VERIFIED_S22_PARENT_COMPARISON'
           assert d['historical_case']=='S22'
           assert d['historical_parent_path']=='assets/minecraft/models/block/cube.json'
-          assert d['historical_original_parent_git_blob_sha1']=='3e4aacd02e816aeba38f83076596e18ded4cf49c01e17c62d1fce79850ffb84e'
+          assert d['historical_original_parent_recorded_hash']=='3e4aacd02e816aeba38f83076596e18ded4cf49c01e17c62d1fce79850ffb84e'
           assert set(d['official_versions'])=={'1.21.1','1.21.11'}
+          assert d['historical_row_declared_hash_kind']=='GIT_BLOB_SHA1'
+          assert d['historical_row_provider_sha_cannot_be_git_blob_sha1'] is True
+          assert d['corrected_provider_sha_algorithm_by_official_source']=='SHA256'
+          assert d['comparison']['runtime_1_21_1_cube_SHA256_equals_frozen_1_5_recorded_hash'] is True
+          assert d['comparison']['archived_1_21_11_cube_SHA256_equals_frozen_1_5_recorded_hash'] is True
+          assert d['F8_S22_parent_binary_exact_eligibility'] is True
           for version,pinned in (
             ('1.21.1','30c73b1c5da787909b2f73340419fdf13b9def88'),
             ('1.21.11','ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd'),
@@ -63,7 +69,7 @@ jobs:
           assert d['counts']['new_actual_game_F2_images']==0
           assert d['counts']['new_semantic_approval']==0
           assert d['counts']['new_AI_training_or_redistribution_rights']==0
-          print('RESEARCH original parent:',d['historical_original_parent_git_blob_sha1'])
+          print('RESEARCH original parent:',d['historical_original_parent_recorded_hash'])
           print('EXACT pinned parent match:',d['F8_S22_parent_binary_exact_eligibility'])
           print('JSON structural similarity:',d['comparison']['runtime_and_archived_cube_parsed_JSON_semantically_equal'])
           PY
