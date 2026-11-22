@@ -113,7 +113,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: int4-f6-causal-chair-tuck-inner-couch-real-game-F2
-          path: ${{ env.OUT }}/
+          path: ${{ runner.temp }}/int4-f6-f2-evidence/
           retention-days: 45
           if-no-files-found: warn
 
