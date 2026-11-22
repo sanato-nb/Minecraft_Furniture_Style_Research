@@ -1,0 +1,77 @@
+{
+  "counts": {
+    "HOLD_after": 31,
+    "HOLD_before": 33,
+    "conditional_after": 39,
+    "conditional_before": 37,
+    "exact_requested_states_in_10_trials": 3,
+    "fixed_F_target_units": 70,
+    "fully_accepted_F_targets": 0,
+    "historic_1_5_source_cases": 62,
+    "historic_exact_F2_after": 33,
+    "historic_exact_F2_before": 31,
+    "new_INT5_semantic_approvals": 0,
+    "new_INT6_training_redistribution_rights_approvals": 0,
+    "new_exact_historical_1_5_cases": 2,
+    "original_F2_captures": 10,
+    "unique_native_F2_sha": 10
+  },
+  "game_execution_conclusion": "failure_from_sorted_json_key_order_in_post_capture_auditor_not_game_capture",
+  "game_execution_run": 45028305708,
+  "game_execution_run_url": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45028305708",
+  "limits": [
+    "Actual Fabric release server states and original native F2 images were independently revalidated after original capture strict-auditor key-order failure.",
+    "Only S02/S34 updated among 70 fixed target units; all previous original cases and unrelated evidence remain unchanged.",
+    "AF 4.0.3 source Git vs 4.0.2 game release JSON byte mismatch preserved. HC model source byte match verified.",
+    "S02 player natural sneaking right click was not tested; /setblock source condition and neighbor updates were tested.",
+    "F2 proves matching original block state in game, not pixelwise UV causation, seat physics, semantic parts or asset rights.",
+    "No full INT4-F exit, INT5 part semantic approval or INT6 AI training/redistribution grant."
+  ],
+  "original_actions_artifact_id": 14756442623,
+  "original_actions_zip_sha256": "650897691042552ad71ca67e729598e3e9798d0d4d8e197683638d04981924ec",
+  "original_case_png_hashes": {
+    "S02": "794a8a58bfa9ba0feba653a2fd9f8d93774af5657952a5af5438a6cae3e19252",
+    "S34": "e6f5ec7b1197f86ac0b8a49206d6964992347dbcbd052a579df41d4fda168822"
+  },
+  "original_client_log_sha256": "08f44ba3e718fd9cd89a8a425e89c7c9a11bc9c0ebb454d84beba1eecfa70cff",
+  "output_files": {
+    "f70": {
+      "rows": 70,
+      "sha256": "f3fe6b88d319a67938de46450c98e7fab1f2c347441b3472e8f985fba02133d4"
+    },
+    "matrix": {
+      "rows": 10,
+      "sha256": "4705c4cf3ea68ae0652649d958ad578c0c69b135fa9d51393d23cef9e2b42ec8"
+    },
+    "pending": {
+      "rows": 31,
+      "sha256": "117129fe3adcbb0ed1fd091fcd07116a7d2c844212da7721f533562a83bd577f"
+    }
+  },
+  "remaining_HOLD_cohorts": {
+    "AF": 3,
+    "HC": 1,
+    "MACAW": 10,
+    "RISK": 2,
+    "VANILLA": 15
+  },
+  "schema": "MCFR_INT4_F6_EXACT_TWO_CASES_F2_70_INDEPENDENT_AUDIT/v1",
+  "source_correct_original_case_stage": {
+    "S02": "S02_NORTH_TABLE_TUCK",
+    "S34": "S34_NORTH_WEST_INNER_LEFT"
+  },
+  "source_historical_application_sha256": "da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e",
+  "source_previous_git_blob_sha": {
+    "project/integration/INT4_F4_33_PENDING_EXACT_F2_TARGETS_V1.csv": "5703023f3ced32471705ae6fca143db4d8a3fdc0",
+    "project/integration/INT4_F4_70_TARGET_EVIDENCE_DISPOSITIONS_V4.csv": "755e5d5e6364507f4bba09ca2e6e7d9052f3479d",
+    "project/integration/INT4_F5_TWO_HOLD_NORMALIZATION_AUDIT_V1.json": "f2c98909a38961c4682a9ce46cfd33642e30a4b3"
+  },
+  "source_upstream_java_commits_and_blob_shas": {
+    "af_chair_block_git_blob": "09fc2ea4a4985e13721021be9233b2ff065b367b",
+    "af_git_commit": "57eb624cbb7f408d43398c7434b0d38d312cb55d",
+    "af_tuckable_block_git_blob": "d459c34b5ea464985611a1c39473d884fedb9218",
+    "hc_git_commit": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035",
+    "hc_modular_seat_git_blob": "bbe428e318a7810f694ad2db640cf6d89b27aa5f"
+  },
+  "status": "PASS_S02_S34_EXACT_STATE_RECOVERED_TWO_CASES_CONDITIONAL_NOT_FINAL_F_EXIT"
+}

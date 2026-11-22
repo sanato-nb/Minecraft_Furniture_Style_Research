@@ -218,7 +218,11 @@ def stages(version, values=None, *, interaction=False, case_ids=None, source_onl
     require(version == "1.21.1", f"Unexpected version {version}")
     if diagnostic_mode:
         require(source_only and not interaction and tuple(case_ids or ()) == ("S02", "S34"),
-                "INT-4-F5 diagnostic must be isolated two-case source-only capture")
+                "INT-4-F5/F6 must be isolated two-case source-only capture")
+        if diagnostic_mode == "f6":
+            from . import int4_f6_source_causal_replay as diagnostic
+            return diagnostic.stages(values or {})
+        require(diagnostic_mode is True,"Unknown opt-in diagnostic mode")
         from . import int4_f5_state_diagnostic as diagnostic
         return diagnostic.stages(values or {})
     rows, _ = applications(case_ids)
@@ -366,8 +370,9 @@ def capture(command, env, game, output, version, *, interaction=False, case_ids=
         source_zip = env.get("MCFR_HC_SOURCE_ZIP")
         source, values = release_sources(mods, source_zip, case_ids=case_ids)
         if diagnostic_mode:
-            require(source_only and not interaction and tuple(case_ids or ()) == ("S02", "S34"),
-                    "Only F5 two-case source-only diagnostics are supported")
+            require(source_only and not interaction and tuple(case_ids or ()) == ("S02", "S34")
+                    and (diagnostic_mode is True or diagnostic_mode == "f6"),
+                    "Only F5/F6 two-case source-only diagnostics are supported")
             from . import int4_f5_state_diagnostic as diagnostic
             values, source["diagnostic_release_properties"] = diagnostic.release_properties(mods)
         if interaction:
@@ -522,7 +527,7 @@ def capture(command, env, game, output, version, *, interaction=False, case_ids=
         "native_f2_sha256": captures,
     }
     if diagnostic_mode:
-        report["diagnostic_mode"] = True
+        report["diagnostic_mode"] = diagnostic_mode
     if case_ids is not None:
         report["f_target_case_ids"] = list(case_ids)
         report["f_source_only"] = bool(source_only)
