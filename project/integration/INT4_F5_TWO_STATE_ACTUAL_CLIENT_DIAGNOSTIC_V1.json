@@ -1,0 +1,280 @@
+{
+  "actual_original_case_F2_reacceptance": "PENDING_CAUSAL_AND_VISUAL_AUDIT",
+  "cases": {
+    "S02_ISOLATED": {
+      "actual_release_properties": {
+        "facing": "north",
+        "tucked": "false",
+        "variant": "1"
+      },
+      "case": "S02",
+      "exact_server_state_persisted": false,
+      "native_f2_sha256": "0b3315b79035ac16ea534283c2b3d6ce2795e2907e15d7b273244813558ee1bc",
+      "neighbor_fixture": [],
+      "requested_exact_original_state": "facing=north;tucked=true;variant=1"
+    },
+    "S02_TABLE_EAST": {
+      "actual_release_properties": {
+        "facing": "north",
+        "tucked": "false",
+        "variant": "1"
+      },
+      "case": "S02",
+      "exact_server_state_persisted": false,
+      "native_f2_sha256": "61996f89d0cf26b7ad45d7489581f8fd25b69c879aaf5ed56ba8de5fb4cb6db6",
+      "neighbor_fixture": [
+        "setblock 1 120 40 another_furniture:oak_table"
+      ],
+      "requested_exact_original_state": "facing=north;tucked=true;variant=1"
+    },
+    "S02_TABLE_SOUTH": {
+      "actual_release_properties": {
+        "facing": "north",
+        "tucked": "false",
+        "variant": "1"
+      },
+      "case": "S02",
+      "exact_server_state_persisted": false,
+      "native_f2_sha256": "4a588d481d825bee7f1807f038f9237f2575a3d2ca9d95de75b1476c1942a35e",
+      "neighbor_fixture": [
+        "setblock 0 120 41 another_furniture:oak_table"
+      ],
+      "requested_exact_original_state": "facing=north;tucked=true;variant=1"
+    },
+    "S34_ISOLATED": {
+      "actual_release_properties": {
+        "color": "white",
+        "facing": "north",
+        "shape": "single",
+        "waterlogged": "false"
+      },
+      "case": "S34",
+      "exact_server_state_persisted": false,
+      "native_f2_sha256": "5dee0ccf04f0bc204f9213a70467fcab59ab2f2ffc7f6b5343bfa1528682dde4",
+      "neighbor_fixture": [],
+      "requested_exact_original_state": "color=white;facing=north;shape=inner_left;waterlogged=false"
+    },
+    "S34_L_EAST_NORTH": {
+      "actual_release_properties": {
+        "color": "white",
+        "facing": "north",
+        "shape": "right",
+        "waterlogged": "false"
+      },
+      "case": "S34",
+      "exact_server_state_persisted": false,
+      "native_f2_sha256": "c8c76794786c9d37dc3032f44546d09636d47475e1470c620dca6b784520f889",
+      "neighbor_fixture": [
+        "setblock 1 120 40 handcrafted:oak_couch[color=white,facing=north,shape=single,waterlogged=false]",
+        "setblock 0 120 39 handcrafted:oak_couch[color=white,facing=north,shape=single,waterlogged=false]"
+      ],
+      "requested_exact_original_state": "color=white;facing=north;shape=inner_left;waterlogged=false"
+    },
+    "S34_L_EAST_SOUTH": {
+      "actual_release_properties": {
+        "color": "white",
+        "facing": "north",
+        "shape": "right",
+        "waterlogged": "false"
+      },
+      "case": "S34",
+      "exact_server_state_persisted": false,
+      "native_f2_sha256": "2c544e9302c16502d721c115bb425b373255c2429e4d6684b739b1802694161a",
+      "neighbor_fixture": [
+        "setblock 1 120 40 handcrafted:oak_couch[color=white,facing=north,shape=single,waterlogged=false]",
+        "setblock 0 120 41 handcrafted:oak_couch[color=white,facing=north,shape=single,waterlogged=false]"
+      ],
+      "requested_exact_original_state": "color=white;facing=north;shape=inner_left;waterlogged=false"
+    },
+    "S34_L_WEST_NORTH": {
+      "actual_release_properties": {
+        "color": "white",
+        "facing": "north",
+        "shape": "left",
+        "waterlogged": "false"
+      },
+      "case": "S34",
+      "exact_server_state_persisted": false,
+      "native_f2_sha256": "4b5b660c6765216579975b99cd39b22e386c6f0fd3160016fcf63d84b7514727",
+      "neighbor_fixture": [
+        "setblock -1 120 40 handcrafted:oak_couch[color=white,facing=north,shape=single,waterlogged=false]",
+        "setblock 0 120 39 handcrafted:oak_couch[color=white,facing=north,shape=single,waterlogged=false]"
+      ],
+      "requested_exact_original_state": "color=white;facing=north;shape=inner_left;waterlogged=false"
+    },
+    "S34_L_WEST_SOUTH": {
+      "actual_release_properties": {
+        "color": "white",
+        "facing": "north",
+        "shape": "left",
+        "waterlogged": "false"
+      },
+      "case": "S34",
+      "exact_server_state_persisted": false,
+      "native_f2_sha256": "a18de62d193f392f803a5d6ac4c94c704105a4c79a30b611c723fec98e7f3d4e",
+      "neighbor_fixture": [
+        "setblock -1 120 40 handcrafted:oak_couch[color=white,facing=north,shape=single,waterlogged=false]",
+        "setblock 0 120 41 handcrafted:oak_couch[color=white,facing=north,shape=single,waterlogged=false]"
+      ],
+      "requested_exact_original_state": "color=white;facing=north;shape=inner_left;waterlogged=false"
+    },
+    "S34_NEIGHBOR_EAST": {
+      "actual_release_properties": {
+        "color": "white",
+        "facing": "north",
+        "shape": "right",
+        "waterlogged": "false"
+      },
+      "case": "S34",
+      "exact_server_state_persisted": false,
+      "native_f2_sha256": "fab57134625d20bd03cda10fae18b026a0e908c1be116ddd2cd899c6c73e3491",
+      "neighbor_fixture": [
+        "setblock 1 120 40 handcrafted:oak_couch[color=white,facing=north,shape=single,waterlogged=false]"
+      ],
+      "requested_exact_original_state": "color=white;facing=north;shape=inner_left;waterlogged=false"
+    },
+    "S34_NEIGHBOR_NORTH": {
+      "actual_release_properties": {
+        "color": "white",
+        "facing": "north",
+        "shape": "single",
+        "waterlogged": "false"
+      },
+      "case": "S34",
+      "exact_server_state_persisted": false,
+      "native_f2_sha256": "9052ccb9a6207c6c3c28defb098606247711b77e4529f0f9c669edf7e8f65673",
+      "neighbor_fixture": [
+        "setblock 0 120 39 handcrafted:oak_couch[color=white,facing=north,shape=single,waterlogged=false]"
+      ],
+      "requested_exact_original_state": "color=white;facing=north;shape=inner_left;waterlogged=false"
+    },
+    "S34_NEIGHBOR_SOUTH": {
+      "actual_release_properties": {
+        "color": "white",
+        "facing": "north",
+        "shape": "single",
+        "waterlogged": "false"
+      },
+      "case": "S34",
+      "exact_server_state_persisted": false,
+      "native_f2_sha256": "7c28479b87f91f4489b3c5e24c7f95c0616a1db860f7487401e9d84451fc137e",
+      "neighbor_fixture": [
+        "setblock 0 120 41 handcrafted:oak_couch[color=white,facing=north,shape=single,waterlogged=false]"
+      ],
+      "requested_exact_original_state": "color=white;facing=north;shape=inner_left;waterlogged=false"
+    },
+    "S34_NEIGHBOR_WEST": {
+      "actual_release_properties": {
+        "color": "white",
+        "facing": "north",
+        "shape": "left",
+        "waterlogged": "false"
+      },
+      "case": "S34",
+      "exact_server_state_persisted": false,
+      "native_f2_sha256": "7d5dd6cde386202eb045568f59d89628b2adac92273269a56534f5f119261469",
+      "neighbor_fixture": [
+        "setblock -1 120 40 handcrafted:oak_couch[color=white,facing=north,shape=single,waterlogged=false]"
+      ],
+      "requested_exact_original_state": "color=white;facing=north;shape=inner_left;waterlogged=false"
+    }
+  },
+  "evidence_limits": {
+    "all_f2_images_reopened_in_shared_runner": true,
+    "int5_parts_or_int6_rights_approvals": 0,
+    "pixelwise_uv_or_functional_semantics_approved": false,
+    "properties_read_from_release_JAR_variants": true,
+    "server_property_values_observed_directly": true
+  },
+  "game_client_log_sha256": "876457d658c8286d1b1a16cf248ff03b4557252034d0cd5895dc0dd549dc6e71",
+  "historic_1_5_applications_sha256": "da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e",
+  "historic_case_ids": [
+    "S02",
+    "S34"
+  ],
+  "minecraft": "1.21.1",
+  "original_case_git_model_sha1": {
+    "S02": "4ac37667abc1b0f0f9a7966b9573da80d5ae684a",
+    "S34": "9274d1343d276bde25a9cf7f28febda57cc3326a"
+  },
+  "release_state_property_source": {
+    "S02": {
+      "blockstate_raw_sha256": "eedf8f1f7899bf8cb8989a28bd756ad954b3c405396325de61d6039ca31cdf94",
+      "jar": "another_furniture-fabric-4.0.2.jar",
+      "original_state_path": "assets/another_furniture/blockstates/oak_chair.json",
+      "property_values": {
+        "facing": [
+          "east",
+          "north",
+          "south",
+          "west"
+        ],
+        "tucked": [
+          "false",
+          "true"
+        ],
+        "variant": [
+          "1",
+          "10",
+          "11",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
+        ]
+      }
+    },
+    "S34": {
+      "blockstate_raw_sha256": "98cc83c24c0c538313638b6b75ef3eeb17d52453ce134ddf3b73750d7b05eaac",
+      "jar": "handcrafted-fabric-1.21.1-4.0.3.jar",
+      "original_state_path": "assets/handcrafted/blockstates/oak_couch.json",
+      "property_values": {
+        "color": [
+          "black",
+          "blue",
+          "brown",
+          "cyan",
+          "gray",
+          "green",
+          "light_blue",
+          "light_gray",
+          "lime",
+          "magenta",
+          "orange",
+          "pink",
+          "purple",
+          "red",
+          "white",
+          "yellow"
+        ],
+        "facing": [
+          "east",
+          "north",
+          "south",
+          "west"
+        ],
+        "shape": [
+          "inner_left",
+          "inner_right",
+          "left",
+          "middle",
+          "outer_left",
+          "outer_right",
+          "right",
+          "single"
+        ],
+        "waterlogged": [
+          "false",
+          "true"
+        ]
+      }
+    }
+  },
+  "schema": "MCFR_INT4_F5_TWO_PROPERTY_DIAGNOSTIC_REAL_FABRIC/v1",
+  "status": "PASS_REAL_FABRIC_EXACT_PROPERTY_ENUM_AND_F2_NOT_SEMANTIC_EXIT",
+  "trial_count": 12
+}
