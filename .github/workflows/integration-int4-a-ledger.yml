@@ -30,6 +30,38 @@ jobs:
       - name: 고정 입력과 생성 결과 독립 재생성 검증
         run: python3 scripts/integration/build_int4_a_ledger.py --verify
 
+      - name: 생성기와 독립된 행별 SHA·예외 판정 재감사
+        run: |
+          python3 - <<'PY'
+          from collections import Counter
+          import csv,gzip,hashlib,io,json
+          from pathlib import Path
+          root=Path("project/integration")
+          summary=json.loads((root/"INT4_A_MODEL_PARENT_AUDIT_V1.json").read_text(encoding="utf-8"))
+          body=(root/"INT4_A_MODEL_PARENT_LEDGER_V1.csv.gz").read_bytes()
+          assert hashlib.sha256(body).hexdigest()==summary["ledger_gzip_sha256"]
+          plaintext=gzip.decompress(body)
+          assert hashlib.sha256(plaintext).hexdigest()==summary["ledger_csv_uncompressed_sha256"]
+          records=list(csv.DictReader(io.StringIO(plaintext.decode("utf-8"),newline="")))
+          ids={(r["mod"],r["model_id"]) for r in records}
+          assert len(records)==len(ids)==16572
+          mods=Counter(r["mod"] for r in records)
+          assert mods==Counter({"AF":1629,"HC":12394,"MACAW":2549})
+          exceptions=Counter(r["exception_disposition"] for r in records)
+          assert exceptions==Counter({"NO_DECLARED_EXCEPTION":16460,"NO_STATIC_ONLY":64,
+                                     "PARENT_MISSING_AND_NO_STATIC":44,"PARENT_MISSING_ONLY":4})
+          for row in records:
+              sha=row["original_model_sha"]
+              assert sha and sha==row["historical_b_source_sha"]==row["historical_c_source_sha"]
+              assert len(sha)==(64 if row["mod"]=="MACAW" else 40)
+              assert row["source_link_status"]=="MATCHED_HISTORICAL_B_C_AND_CHAIN"
+              assert row["new_upstream_original_read"]=="0"
+              assert int(row["source_json_bytes"])>0
+              assert int(row["parent_missing"]) == int(row["terminal_status"]=="PARENT_MISSING")
+              assert int(row["no_static"]) == int(int(row["effective_elements"])==0)
+          print("INDEPENDENT PASS: 16,572 unique IDs, exact historical SHA, 112 exceptions")
+          PY
+
       - name: 산출물 내용·완료 범위 확인
         run: |
           python3 - <<'PY'
