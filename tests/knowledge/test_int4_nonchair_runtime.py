@@ -33,3 +33,28 @@ class RuntimeExperimentTests(unittest.TestCase):
             trial.read_states(log + "\n" + lines[0], "1.21.11", None)
         with self.assertRaisesRegex(ValueError, "completion"):
             trial.read_states(log.replace("[Server thread/INFO]:", "[Render thread/INFO]:"), "1.21.11", None)
+
+    def test_interaction_bookshelf_stages_only_provision_items_and_step(self):
+        stages = trial.stages("1.21.11", interaction=True)
+        self.assertEqual(stages["shelf_before"][0], [f"give @s {trial.SHELF} 3"])
+        self.assertEqual(stages["shelf_three"][0], ["setblock 0 120 42 minecraft:smooth_stone"])
+        for stage in ("shelf_one", "shelf_two", "shelf_remove_middle"):
+            self.assertEqual(stages[stage][0], [])
+
+    def test_sleep_probe_reads_state_without_setting_it(self):
+        stages = trial.stages("1.21.1", {"occupied": ["true", "false"]}, interaction=True)
+        commands, probes = stages["bed_sleeping"]
+        self.assertFalse(any("setblock" in cmd for cmd in commands))
+        self.assertIn("schedule function mcfr_nonchair:check_bed_sleeping 10s replace", commands)
+        self.assertIn("occupied=true", probes["foot_position"])
+        self.assertIn("occupied=true", probes["head_position"])
+
+    def test_sleep_timers_require_server_origin_and_unique_pair(self):
+        sleeping = f"[Server thread/INFO]: {trial.PREFIX}timer check_bed_sleeping positive"
+        awake = f"[Server thread/INFO]: {trial.PREFIX}timer check_bed_awake zero"
+        self.assertEqual(trial.read_sleep_timers(sleeping + "\n" + awake),
+                         {"check_bed_sleeping": "positive", "check_bed_awake": "zero"})
+        with self.assertRaisesRegex(ValueError, "duplicated"):
+            trial.read_sleep_timers(sleeping + "\n" + awake + "\n" + awake)
+        with self.assertRaisesRegex(ValueError, "missing"):
+            trial.read_sleep_timers(sleeping + "\n" + awake.replace("Server thread", "Render thread"))

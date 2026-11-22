@@ -10,6 +10,7 @@ on:
       - '.github/workflows/integration-int4-macaw-neighbor.yml'
       - 'project/integration/INT4_MACAW_NEIGHBOR_*'
       - 'project/integration/INT4_NONCHAIR_RUNTIME_*'
+      - 'project/integration/INT4_PLAYER_INTERACTION_*'
   workflow_dispatch:
 permissions:
   contents: read
@@ -176,5 +177,25 @@ jobs:
         with:
           name: int4-fabric-nonchair-${{ matrix.minecraft }}
           path: ${{ env.OUT }}/
+          retention-days: 45
+          if-no-files-found: warn
+      - name: Recreate fresh fixture for player input
+        run: |
+          mv "$WORK/$MC/probe_game/saves/MCFR Visual Fixture" "$RUNNER_TEMP/int4-completed-source-fixture"
+      - name: Observe player bookcase placement or bed sleep and wake
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int4-nonchair-capture --interaction --version "$MC" \
+            --world "$WORLD" --work "$WORK" --output "${OUT}-interaction"
+      - name: Audit interaction logs and native F2
+        run: >-
+          python -m mcfr.int4_nonchair_runtime --directory "${OUT}-interaction"
+          --checkpoint project/integration/INT4_PLAYER_INTERACTION_RESULT.json
+      - name: Upload player interaction evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-player-interaction-${{ matrix.minecraft }}
+          path: ${{ env.OUT }}-interaction/
           retention-days: 45
           if-no-files-found: warn

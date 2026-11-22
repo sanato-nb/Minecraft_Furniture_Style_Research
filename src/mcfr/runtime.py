@@ -104,7 +104,7 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
         return capture(command,env,game,args.output,args.version)
     if args.command == "int4-nonchair-capture":
         from .int4_nonchair_runtime import capture
-        return capture(command, env, game, args.output, args.version)
+        return capture(command, env, game, args.output, args.version, interaction=args.interaction)
     subprocess.run(command, cwd=game, env=env, check=True)
     return None
 
@@ -138,6 +138,7 @@ def main(argv: list[str] | None = None) -> int:
     table_shelf.add_argument("--output", type=_scratch_path, required=True)
     hcbed.add_argument("--output", type=_scratch_path, required=True)
     neighbor.add_argument("--output", type=_scratch_path, required=True)
+    nonchair.add_argument("--interaction", action="store_true", help="run player placement and sleeping trials")
     nonchair.add_argument("--output", type=_scratch_path, required=True)
     args = parser.parse_args(argv)
 
