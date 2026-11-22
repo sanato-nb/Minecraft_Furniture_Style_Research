@@ -182,7 +182,6 @@ def build(original_zip):
                     "waterlogged":"false"
                 },name
                 assert actual["shape"]!="inner_left"
-            assert "original" not in entry.get("native_f2_status","") or True
             table.append({
                 "trial_id":name,"historic_case":case,
                 "requested_original_properties":entry["requested_exact_original_state"],
