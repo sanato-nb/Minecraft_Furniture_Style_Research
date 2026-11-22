@@ -22,7 +22,7 @@ from zipfile import ZipFile
 
 from .chair_runtime_fixture import Y
 from .runtime_capture import wait_for
-from .chair_capture_isolation_audit import specimen_color_pixels
+from .chair_capture_isolation_audit import specimen_color_pixels,CENTER_RECT
 from . import int4_macaw_kitchen_capture as kitchen
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -48,6 +48,12 @@ def sha(raw):
 
 def check(condition,message):
     if not condition:raise ValueError(message)
+
+def neutral_white_specimen_pixels(image):
+    """Second foreground proxy for white couches; never proves UV or semantics."""
+    region=image.crop(CENTER_RECT).convert("RGB")
+    return sum(1 for r,g,b in region.getdata()
+               if min(r,g,b)>205 and max(r,g,b)-min(r,g,b)<26)
 
 @dataclass(frozen=True)
 class SourceCase:
@@ -263,12 +269,19 @@ def capture(command,env,game,output,version):
                         picture.load()
                         size=list(picture.size)
                         chroma=specimen_color_pixels(picture)
+                        neutral_white=neutral_white_specimen_pixels(picture)
                     check(size==[1024,684],"Real game F2 resolution changed")
-                    if chroma>=150:
+                    visible=(chroma>=150 or
+                             (case.case_id in ("S35","S36") and neutral_white>=300))
+                    if visible:
                         break
                     if attempt==2:
-                        raise ValueError("F2 image remained sky-only / foreground absent: "+
-                                         case.case_id+" chroma="+str(chroma))
+                        # Save source F2 even when automated visibility gate
+                        # rejects it. The run still fails closed.
+                        shutil.copyfile(files[0],output/(case.case_id+"_DIAGNOSTIC.png"))
+                        raise ValueError("Native F2 not visible via either color proxy: "+
+                                         case.case_id+" chroma="+str(chroma)+
+                                         " neutral_white="+str(neutral_white))
                     sleep(5)
                 dst=output/(case.case_id+".png")
                 shutil.copyfile(files[0],dst)
@@ -281,6 +294,8 @@ def capture(command,env,game,output,version):
                     "original_model_y":source["original_model_y"],
                     "server_state_verified":True,"native_f2_verified":True,
                     "screen_foreground_chroma_pixels":chroma,
+                    "screen_foreground_neutral_white_pixels":neutral_white,
+                    "screen_foreground_visible_by_color_or_white_proxy":visible,
                     "screenshot_file":dst.name,"screenshot_dimensions":size,
                     "screenshot_sha256":sha(dst.read_bytes()),
                     "connection_formed_naturally_tested":False,
@@ -346,7 +361,10 @@ def audit(folder):
               record["native_f2_verified"] is True and
               record["connection_formed_naturally_tested"] is False and
               record["semantic_or_rights_approved"] is False and
-              record["screen_foreground_chroma_pixels"]>=150 and
+              record["screen_foreground_visible_by_color_or_white_proxy"] is True and
+              (record["screen_foreground_chroma_pixels"]>=150 or
+               (cid in ("S35","S36") and
+                record["screen_foreground_neutral_white_pixels"]>=300)) and
               record["screenshot_file"]==cid+".png" and
               record["screenshot_dimensions"]==[1024,684],
               "Pinned source blockstate/f2 evidence mismatch: "+cid)
@@ -377,6 +395,8 @@ def audit(folder):
         "f2_manifest_sha256":sha(manifest.read_bytes()),
         "contact_sheet_sha256":sha(picture.read_bytes()),
         "visibility_foreground_chroma":{cid:rows[cid]["screen_foreground_chroma_pixels"] for cid in ORDER},
+        "visibility_foreground_neutral_white":{cid:rows[cid]["screen_foreground_neutral_white_pixels"] for cid in ORDER},
+        "white_couch_neutral_proxy_threshold":300,
         "boundaries":{
             "explicit_setblock_source_states_verified":True,
             "natural_connected_block_update_rules_tested":False,
