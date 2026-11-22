@@ -44,7 +44,7 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
          "--pack", str(copied_world / "datapacks/cd_audit")],
         check=True,
     )
-    if args.command in ("chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "hc-bed-capture":
+    if args.command in ("chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "hc-bed-capture"):
         from .chair_runtime_fixture import make_pack
         selected=None
         if args.command=="af-variant3-capture":
