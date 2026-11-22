@@ -121,12 +121,16 @@ jobs:
     env:
       PYTHONPATH: src
       MC: ${{ matrix.minecraft }}
-      WORLD: ${{ runner.temp }}/int4-world
-      CACHE: ${{ runner.temp }}/int4-cache
-      WORK: ${{ runner.temp }}/int4-client
-      OUT: ${{ runner.temp }}/int4-evidence
-      MCFR_HC_SOURCE_ZIP: ${{ runner.temp }}/int4-hc-source.zip
     steps:
+      - name: Set disposable runtime paths
+        run: |
+          {
+            printf 'WORLD=%s/int4-world\n' "$RUNNER_TEMP"
+            printf 'CACHE=%s/int4-cache\n' "$RUNNER_TEMP"
+            printf 'WORK=%s/int4-client\n' "$RUNNER_TEMP"
+            printf 'OUT=%s/int4-evidence\n' "$RUNNER_TEMP"
+            printf 'MCFR_HC_SOURCE_ZIP=%s/int4-hc-source.zip\n' "$RUNNER_TEMP"
+          } >> "$GITHUB_ENV"
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
