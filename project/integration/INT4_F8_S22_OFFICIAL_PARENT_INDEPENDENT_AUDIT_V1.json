@@ -1,0 +1,60 @@
+{
+  "case_changed_only": "S22",
+  "counts": {
+    "F_full_unconditional_approval": 0,
+    "F_targets": 70,
+    "HOLD_after": 27,
+    "HOLD_before": 28,
+    "conditional_after": 43,
+    "conditional_before": 42,
+    "historic_1_5_research_source_files_changed": 0,
+    "new_F2_images": 0,
+    "new_INT5_part_semantic_approval": 0,
+    "new_INT6_AI_training_and_redistribution_rights": 0,
+    "new_conditional_cases": 1,
+    "new_official_Mojang_versions_verified": 2,
+    "original_historic_conditional_F2_after": 37,
+    "original_historic_conditional_F2_before": 36,
+    "original_study_cases": 62
+  },
+  "f7_original_F2_SHA256": "4f2f069ed19435bd504142df9872e04eae5b924176b39a719fa56cf4ce5926bc",
+  "f7_original_real_game_artifact": 14758360785,
+  "f7_original_real_game_run": 45031468054,
+  "f8_official_Mojang_client_SHA_audit_run": 45034370140,
+  "limits": [
+    "64-hex historical S22 parent SHA is SHA256, not a 40-hex Git blob SHA1; source label is inconsistent.",
+    "Official 1.21.1 and 1.21.11 cube raw bytes match, parent block/block differs only in display.on_shelf.",
+    "F7 original actual-game server state/F2 previously verified; F8 performs no new client game F2 session.",
+    "Conditional source provenance does not approve UV pixel causality, item display equivalence, use behavior or rights.",
+    "Only S22 disposition metadata changed; all other 69 historical rows remain byte content identical."
+  ],
+  "official_cube_git_blob_SHA1": "1b9780b479aee527f79bde950656b82f1524128b",
+  "official_cube_original_SHA256": "3e4aacd02e816aeba38f83076596e18ded4cf49c01e17c62d1fce79850ffb84e",
+  "output": {
+    "F70": {
+      "rows": 70,
+      "sha256": "70524a2f368ef89f0887fc7b6e45c1dc883b8f206efbe4202d532cb82227f5bd"
+    },
+    "correction": {
+      "sha256": "2d0f8e5a4b20c6f0e1d59f3f337fc00cfc5cc270c6596c64fd9da4a6145995af"
+    },
+    "pending": {
+      "rows": 27,
+      "sha256": "88e6c6af2bb3d330d856012e3a5e655ace98ec8c5734fc64e1eba13dc0a38af9"
+    }
+  },
+  "pinned_source_git_blob_SHA1": {
+    "project/integration/INT4_F7_70_TARGET_EVIDENCE_DISPOSITIONS_V6.csv": "cd2442ebb5294459041f4931d294e2353e8a84a6",
+    "project/integration/INT4_F7_ORIGINAL_NATIVE_F2_INDEPENDENT_AUDIT_V1.json": "a7882c43bafe0f5a4b0adbe0ee6b3597eee4e739",
+    "project/integration/INT4_F7_S22_VANILLA_PARENT_EXTERNAL_EXCEPTION_V1.json": "e6eacf276641e9688c8fc35a7aec4af57d643302",
+    "project/integration/INT4_F8_S22_OFFICIAL_VANILLA_PARENT_BYTES_V1.json": "a38193951cfbe1842a82871e27e025355caefa08",
+    "research/furniture_mods/phase_1-5/B/APPLICATIONS.csv": "56e6f4c21c50714b97079ec61f7219bea845f179"
+  },
+  "remaining_HOLD_by_cohort": {
+    "MACAW": 10,
+    "RISK": 2,
+    "VANILLA": 15
+  },
+  "schema": "MCFR_INT4_F8_S22_OFFICIAL_PARENT_INDEPENDENT_70_CASE_AUDIT/v1",
+  "status": "PASS_SOURCE_CORRECTION_S22_CONDITIONAL_43_HOLD27_FINAL0"
+}
