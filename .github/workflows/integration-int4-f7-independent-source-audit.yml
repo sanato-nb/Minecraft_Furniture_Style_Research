@@ -1,0 +1,110 @@
+name: INT-4-F7 실제 F2 4건 독립 재감사 및 70개 원장 갱신
+
+on:
+  push:
+    branches:
+      - work/int4-f7-af-variant3-bench-hc-vanilla-parent-20261122
+    paths:
+      - scripts/integration/build_int4_f7_four_native_f2_provenance.py
+      - tests/integration/test_int4_f7_four_native_f2_provenance.py
+      - .github/workflows/integration-int4-f7-independent-source-audit.yml
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  original-native-f2-four-independent-recheck:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    env:
+      PYTHONPATH: src
+    steps:
+      - name: 고정 F6 70개 원장 및 F7 실제 Fabric 원본 출력 체크아웃
+        uses: actions/checkout@v4
+
+      - name: 실제 게임 원본 PNG 검증 라이브러리 설치
+        run: python3 -m pip install --break-system-packages 'Pillow>=10,<13'
+
+      - name: 연구 70개 분모·S30 2모델·S22 바닐라 부모 보류 독립 단위시험
+        run: |
+          python3 -m unittest discover -s tests/integration -p 'test_int4_f7_four_native_f2_provenance.py' -v
+
+      - name: 원본 Actions ZIP 4장 PNG, 서버로그, 모델 5개, Git blob SHA 재검사
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/integration/build_int4_f7_four_native_f2_provenance.py \
+            --artifact-dir "${RUNNER_TEMP}/int4-f7-original-f2-zip"
+
+      - name: 원본 ZIP과 동일 입력으로 재생성하여 결정론적 결과 검증
+        run: |
+          python3 scripts/integration/build_int4_f7_four_native_f2_provenance.py \
+            --artifact-dir "${RUNNER_TEMP}/int4-f7-original-f2-zip" --verify
+
+      - name: 고정 70개 판정의 조건부42·HOLD28 및 S22 예외 검증
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import csv,hashlib,json
+          p=Path('project/integration')
+          j=json.loads((p/'INT4_F7_ORIGINAL_NATIVE_F2_INDEPENDENT_AUDIT_V1.json').read_text(encoding='utf-8'))
+          assert j['status']=='PASS_FOUR_NATIVE_F2_THREE_CONDITIONAL_ONE_EXTERNAL_PARENT_HOLD'
+          c=j['counts']
+          assert c['fixed_F_target_units']==70
+          assert c['new_original_real_F2_images']==4
+          assert c['new_original_model_applications']==5
+          assert c['new_source_elements']==31 and c['new_source_faces']==144
+          assert c['new_conditional_cases']==3 and c['new_external_parent_HOLD']==1
+          assert (c['F_conditional_before'],c['F_conditional_now'])==(39,42)
+          assert (c['F_HOLD_before'],c['F_HOLD_now'])==(31,28)
+          assert c['historical_exact_F2_conditional_now']==36
+          assert c['full_F_unconditional_approvals']==0
+          assert c['new_INT5_part_semantic_approvals']==0
+          assert c['new_INT6_model_training_or_redistribution_rights']==0
+          assert j['cases']['S22']['disposition']=='HOLD_EXTERNAL_VANILLA_PARENT'
+          assert j['remaining_hold_by_cohort']=={'HC':1,'MACAW':10,'RISK':2,'VANILLA':15}
+          for name,key in (
+            ('INT4_F7_70_TARGET_EVIDENCE_DISPOSITIONS_V6.csv','F70'),
+            ('INT4_F7_28_PENDING_EXACT_F2_TARGETS_V1.csv','pending'),
+            ('INT4_F7_S22_VANILLA_PARENT_EXTERNAL_EXCEPTION_V1.json','S22_exception'),
+          ):
+            b=(p/name).read_bytes()
+            assert hashlib.sha256(b).hexdigest()==j['outputs'][key]['sha256'],name
+            if name.endswith('.csv'):
+              with (p/name).open(encoding='utf-8',newline='') as f:
+                records=list(csv.DictReader(f))
+              assert len(records)==j['outputs'][key]['rows'],name
+          print('PASS F7 70 targets: conditional 42, HOLD 28, final unconditionally approved 0')
+          PY
+          git diff --check
+
+      - name: PNG와 JAR를 제외한 검증 결과 메타데이터만 보존
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-f7-70-42-conditional-28-hold-source-locked-audit
+          retention-days: 45
+          path: |
+            project/integration/INT4_F7_70_TARGET_EVIDENCE_DISPOSITIONS_V6.csv
+            project/integration/INT4_F7_28_PENDING_EXACT_F2_TARGETS_V1.csv
+            project/integration/INT4_F7_S22_VANILLA_PARENT_EXTERNAL_EXCEPTION_V1.json
+            project/integration/INT4_F7_ORIGINAL_NATIVE_F2_INDEPENDENT_AUDIT_V1.json
+            project/integration/INT4_F7_VISUAL_SOURCE_REVIEW_V1.md
+
+      - name: main에 병합 없이 Draft F7 연구 브랜치에만 결과 커밋
+        if: github.ref == 'refs/heads/work/int4-f7-af-variant3-bench-hc-vanilla-parent-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F7_70_TARGET_EVIDENCE_DISPOSITIONS_V6.csv \
+                  project/integration/INT4_F7_28_PENDING_EXACT_F2_TARGETS_V1.csv \
+                  project/integration/INT4_F7_S22_VANILLA_PARENT_EXTERNAL_EXCEPTION_V1.json \
+                  project/integration/INT4_F7_ORIGINAL_NATIVE_F2_INDEPENDENT_AUDIT_V1.json \
+                  project/integration/INT4_F7_VISUAL_SOURCE_REVIEW_V1.md
+          if git diff --cached --quiet; then
+            echo "원본 검증 원장 바이트 불변"
+          else
+            git commit -m "INT-4-F7 AF 3사례 조건부·S22 바닐라 부모 보류, 원본 F2 4건 및 70개 독립 감사"
+            git push origin HEAD:refs/heads/work/int4-f7-af-variant3-bench-hc-vanilla-parent-20261122
+          fi
