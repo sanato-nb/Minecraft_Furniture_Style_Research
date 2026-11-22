@@ -17,11 +17,13 @@ jobs:
     timeout-minutes: 40
     env:
       PYTHONPATH: src
-      WORLD: ${{ runner.temp }}/int4-f9-world
-      CACHE: ${{ runner.temp }}/int4-f9-cache
-      WORK: ${{ runner.temp }}/int4-f9-client
-      OUT: ${{ runner.temp }}/int4-f9-f2
     steps:
+      - name: Set disposable F9 fixture, original runtime and F2 output paths
+        run: |
+          echo "WORLD=$RUNNER_TEMP/int4-f9-world" >> "$GITHUB_ENV"
+          echo "CACHE=$RUNNER_TEMP/int4-f9-cache" >> "$GITHUB_ENV"
+          echo "WORK=$RUNNER_TEMP/int4-f9-client" >> "$GITHUB_ENV"
+          echo "OUT=$RUNNER_TEMP/int4-f9-f2" >> "$GITHUB_ENV"
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
