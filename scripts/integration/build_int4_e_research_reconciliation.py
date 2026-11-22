@@ -390,7 +390,8 @@ def build():
             "research_disposition":"PINNED_SOURCE_CASE_LINKED_NOT_F2_ACCEPTED",
             "followup":"INT4_F_REVIEW_HISTORICAL_EVIDENCE_AND_ACTUAL_GAME",
         })
-        source_categories[case["category"]]+=1
+        for family in case["category"].split("|"):
+            source_categories[family]+=1
     assert len(case_out)==62 and len(source_categories)==9
     assert sum(int(x["int4_d_option_count"]) for x in case_out)==52
 
