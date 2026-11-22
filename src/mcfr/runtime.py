@@ -102,6 +102,9 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
     if args.command=="macaw-neighbor-capture":
         from .int4_macaw_neighbor_capture import capture
         return capture(command,env,game,args.output,args.version)
+    if args.command == "int4-nonchair-capture":
+        from .int4_nonchair_runtime import capture
+        return capture(command, env, game, args.output, args.version)
     subprocess.run(command, cwd=game, env=env, check=True)
     return None
 
@@ -118,14 +121,15 @@ def main(argv: list[str] | None = None) -> int:
     table_shelf = sub.add_parser("macaw-table-shelf-capture", help="actual pinned Macaw 1.21.11 table/bookshelf four source states F2")
     hcbed = sub.add_parser("hc-bed-capture", help="pinned Handcrafted 1.21.1 bed foot/head individual native F2")
     neighbor = sub.add_parser("macaw-neighbor-capture", help="actual Macaw table placement/removal adjacent block update trial")
-    for command in (engine, visual, capture, chairs, af3, kitchen, table_shelf, hcbed, neighbor):
+    nonchair = sub.add_parser("int4-nonchair-capture", help="remaining source states and actual shelf/bed transitions")
+    for command in (engine, visual, capture, chairs, af3, kitchen, table_shelf, hcbed, neighbor, nonchair):
         command.add_argument("--version", required=True)
         command.add_argument("--work", type=_scratch_path, required=True)
         command.add_argument("--client-cache", type=_scratch_path)
         command.add_argument("--display", help="X11 display, for example :99")
     engine.add_argument("--output", type=_scratch_path, required=True)
     engine.add_argument("--ecj", type=Path)
-    for command in (visual, capture, chairs, af3, kitchen, table_shelf, hcbed, neighbor):
+    for command in (visual, capture, chairs, af3, kitchen, table_shelf, hcbed, neighbor, nonchair):
         command.add_argument("--world", type=Path, required=True)
     capture.add_argument("--output", type=_scratch_path, required=True)
     chairs.add_argument("--output", type=_scratch_path, required=True)
@@ -134,6 +138,7 @@ def main(argv: list[str] | None = None) -> int:
     table_shelf.add_argument("--output", type=_scratch_path, required=True)
     hcbed.add_argument("--output", type=_scratch_path, required=True)
     neighbor.add_argument("--output", type=_scratch_path, required=True)
+    nonchair.add_argument("--output", type=_scratch_path, required=True)
     args = parser.parse_args(argv)
 
     try:
@@ -152,7 +157,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.command != "engine":
             if not (args.display or os.environ.get("DISPLAY")):
                 raise ValueError("An X11 display is required for visual capture")
-            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "hc-bed-capture", "macaw-neighbor-capture"):
+            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "hc-bed-capture", "macaw-neighbor-capture", "int4-nonchair-capture"):
                 if shutil.which("xdotool") is None:
                     raise ValueError("Automatic visual capture requires xdotool")
                 if args.output.exists():
@@ -160,7 +165,7 @@ def main(argv: list[str] | None = None) -> int:
             report = open_visual_client(args, script, prepare["prepare"])
             if report is not None:
                 print(json.dumps(report, ensure_ascii=False, indent=2))
-                return int(report["status"] not in ("MATCH", "CAPTURED_SOURCE_STATES_NOT_VISUALLY_APPROVED", "SERVER_NEIGHBOR_STATES_RECORDED_NO_ASSUMED_CONNECTION"))
+                return int(report["status"] not in ("MATCH", "CAPTURED_SOURCE_STATES_NOT_VISUALLY_APPROVED", "SERVER_NEIGHBOR_STATES_RECORDED_NO_ASSUMED_CONNECTION", "SERVER_STATES_AND_F2_RECORDED"))
         else:
             command = [sys.executable, str(script), "--version", args.version,
                        "--work", str(args.work), "--output", str(args.output)]
