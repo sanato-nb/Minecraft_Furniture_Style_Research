@@ -160,7 +160,7 @@ def main(argv: list[str] | None = None) -> int:
             report = open_visual_client(args, script, prepare["prepare"])
             if report is not None:
                 print(json.dumps(report, ensure_ascii=False, indent=2))
-                return int(report["status"] not in ("MATCH", "CAPTURED_SOURCE_STATES_NOT_VISUALLY_APPROVED"))
+                return int(report["status"] not in ("MATCH", "CAPTURED_SOURCE_STATES_NOT_VISUALLY_APPROVED", "SERVER_NEIGHBOR_STATES_RECORDED_NO_ASSUMED_CONNECTION"))
         else:
             command = [sys.executable, str(script), "--version", args.version,
                        "--work", str(args.work), "--output", str(args.output)]
