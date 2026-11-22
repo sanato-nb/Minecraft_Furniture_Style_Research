@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 from collections import defaultdict
 from contextlib import ExitStack
+import csv
 import hashlib
 import json
 from pathlib import Path
@@ -16,9 +17,7 @@ from . import int4_handcrafted_bed_capture as bed
 from . import int4_macaw_table_shelf_capture as shelf
 from .chair_runtime_fixture import Y
 from .runtime_capture import wait_for
-from scripts.integration.audit_int4_nonchair_source import (
-    EXPECTED, match_state, model_path_for_ref, read_rows, state_map,
-)
+from .int4_macaw_kitchen_capture import model_path, parse_selector
 
 VERSIONS = ("1.21.1", "1.21.11")
 REMAINING = ("S14", "S15", "S16", "S17", "S39", "S40")
@@ -28,7 +27,6 @@ SHELF = "mcwfurnitures:oak_bookshelf"
 PREFIX = "[RenderAudit] INT4_NC "
 CAMERA = "3.4 123.6 45.7 151 28"
 BED_PLACE = "0.5 122.1 40.5 180 90"
-BED_BREAK = "0.5 122.1 40.5 180 90"
 
 
 def require(condition, message):
@@ -49,12 +47,14 @@ def state(block, properties):
 
 
 def applications():
-    rows, digest = read_rows(shelf.ROOT / shelf.APPS)
+    raw = (shelf.ROOT / shelf.APPS).read_bytes()
+    rows = list(csv.DictReader(raw.decode("utf-8-sig").splitlines()))
+    digest = sha256(raw)
     require(digest == shelf.source_rows()[1], "Historical application ledger changed")
     by_case = {case: [row for row in rows if row["case"] == case] for case in REMAINING}
     for case, entries in by_case.items():
         keys = {(r["block"], r["state"], r["cohort"], r["minecraft"]) for r in entries}
-        require(len(entries) == EXPECTED[case][0] and len(keys) == 1 and
+        require(len(entries) == (5 if case == "S14" else 1) and len(keys) == 1 and
                 entries[0]["minecraft"] == "1.21.1", f"Inconsistent original case {case}")
     return by_case, digest
 
@@ -64,6 +64,8 @@ def assets_path(path):
 
 
 def release_sources(mods, source_zip):
+    from scripts.integration.audit_int4_nonchair_source import match_state
+
     rows, ledger = applications()
     releases = {
         "AF": ("another_furniture-fabric-4.0.2.jar", "c2f992081bdc4795ed6d87771a3b5f7c71103785"),
@@ -80,10 +82,10 @@ def release_sources(mods, source_zip):
             first = entries[0]
             jar = archives[first["cohort"]]
             raw_state = jar.read(assets_path(first["state_path"]))
-            properties = state_map(first["state"])
+            properties = parse_selector(first["state"].replace(";", ","))
             options = match_state(json.loads(raw_state), properties)
             by_application = {
-                (model_path_for_ref(option["model"]), option.get("x", 0), option.get("y", 0),
+                (model_path(option["model"]), option.get("x", 0), option.get("y", 0),
                  bool(option.get("uvlock", False)), option.get("weight", 1))
                 for _, _, option in options
             }
@@ -115,7 +117,8 @@ def release_sources(mods, source_zip):
                 "historical_selection_matches_release": same_selection,
                 "release_model_applications": [list(entry) for entry in sorted(by_application)],
                 "historical_model_geometry": {
-                    "elements": EXPECTED[case][1], "faces": EXPECTED[case][2],
+                    "elements": sum(int(row["elements"]) for row in entries),
+                    "faces": sum(int(row["faces"]) for row in entries),
                 },
                 "source_files": files,
             }
@@ -131,7 +134,7 @@ def release_sources(mods, source_zip):
 def property_values(raw):
     values = defaultdict(set)
     for selector in json.loads(raw)["variants"]:
-        for key, value in state_map(selector.replace(",", ";")).items():
+        for key, value in parse_selector(selector).items():
             values[key].add(value)
     return {key: sorted(values[key]) for key in sorted(values)}
 
@@ -265,9 +268,9 @@ def capture(command, env, game, output, version):
             values = property_values(jar.read("assets/mcwfurnitures/blockstates/oak_bookshelf.json"))
             source["shelf_variant_models"] = {}
             for selector, option in json.loads(jar.read("assets/mcwfurnitures/blockstates/oak_bookshelf.json"))["variants"].items():
-                path = model_path_for_ref(option["model"])
+                path = model_path(option["model"])
                 raw = jar.read(path)
-                provider = model_path_for_ref(json.loads(raw)["parent"])
+                provider = model_path(json.loads(raw)["parent"])
                 provider_bytes = jar.read(provider)
                 elements = json.loads(provider_bytes)["elements"]
                 source["shelf_variant_models"][selector] = {
@@ -321,7 +324,7 @@ def capture(command, env, game, output, version):
                 if actions:
                     function(f"place_{name.lower()}")
                 if name in ("bed_placed", "bed_foot_broken"):
-                    camera(BED_PLACE if name == "bed_placed" else BED_BREAK)
+                    camera(BED_PLACE)
                     xdo("key", "--clearmodifiers", "1")
                     xdo("click", "3" if name == "bed_placed" else "1")
                     sleep(2)

@@ -1,11 +1,6 @@
 name: INT-4 representative furniture and adjacency Fabric F2
 on:
-  pull_request:
-    paths:
-      - 'src/mcfr/int4_nonchair_runtime.py'
-      - 'src/mcfr/runtime.py'
-      - 'tests/knowledge/test_int4_nonchair_runtime.py'
-      - '.github/workflows/integration-int4-nonchair-runtime.yml'
+  workflow_call:
   workflow_dispatch:
 permissions:
   contents: read

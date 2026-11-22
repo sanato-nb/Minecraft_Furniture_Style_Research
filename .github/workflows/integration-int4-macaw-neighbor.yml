@@ -4,6 +4,9 @@ on:
     paths:
       - 'src/mcfr/int4_macaw_neighbor_capture.py'
       - 'src/mcfr/runtime.py'
+      - 'src/mcfr/int4_nonchair_runtime.py'
+      - 'tests/knowledge/test_int4_nonchair_runtime.py'
+      - '.github/workflows/integration-int4-nonchair-runtime.yml'
       - 'tests/knowledge/test_int4_macaw_neighbor_capture.py'
       - '.github/workflows/integration-int4-macaw-neighbor.yml'
       - 'project/integration/INT4_MACAW_NEIGHBOR_*'
@@ -108,3 +111,5 @@ jobs:
           path: ${{ runner.temp }}/int4-macaw-neighbor-evidence/
           if-no-files-found: warn
           retention-days: 45
+  representative-furniture-and-adjacency:
+    uses: ./.github/workflows/integration-int4-nonchair-runtime.yml
