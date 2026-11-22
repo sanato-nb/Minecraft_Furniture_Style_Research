@@ -58,7 +58,8 @@ def applications(case_ids=None):
     by_case = {case: [row for row in rows if row["case"] == case] for case in active}
     for case, entries in by_case.items():
         keys = {(r["block"], r["state"], r["cohort"], r["minecraft"]) for r in entries}
-        require(len(entries) == (5 if case == "S14" else 1) and len(keys) == 1 and
+        expected_applications = 5 if case == "S14" else 2 if case == "S30" else 1
+        require(len(entries) == expected_applications and len(keys) == 1 and
                 entries[0]["minecraft"] == "1.21.1", f"Inconsistent original case {case}")
     return by_case, digest
 
