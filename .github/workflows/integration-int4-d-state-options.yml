@@ -1,0 +1,107 @@
+name: INT-4-D 1158 블록상태 78456 원형 선택 출처 독립 검증
+
+on:
+  push:
+    branches:
+      - work/int4-d-state-option-source-20261122
+    paths:
+      - scripts/integration/build_int4_d_state_option_source.py
+      - tests/integration/test_int4_d_state_option_source.py
+      - .github/workflows/integration-int4-d-state-options.yml
+
+permissions:
+  contents: write
+
+jobs:
+  source-state-options:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - name: 역사 원장 기준 브랜치 체크아웃
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: 원본 상태 선택 분류·SHA 변조 회귀시험
+        run: python3 -m unittest discover -s tests/integration -p 'test_int4_d_state_option_source.py' -v
+
+      - name: 상태 및 개별 모델 선택 전수 조인 생성
+        run: python3 scripts/integration/build_int4_d_state_option_source.py
+
+      - name: 동일 입력에서 결정적 결과 재생성 확인
+        run: python3 scripts/integration/build_int4_d_state_option_source.py --verify
+
+      - name: 독립 CSV gzip 키·원본 상태/모델 검증
+        run: |
+          python3 - <<'PY'
+          import csv,gzip,io,json,hashlib
+          from pathlib import Path
+          from collections import Counter
+          p=Path('project/integration')
+          s=json.loads((p/'INT4_D_SOURCE_AUDIT_V1.json').read_text(encoding='utf-8'))
+          records=[
+            ('INT4_D_1158_STATE_DISPOSITIONS_V1.csv',1158,'states_csv_sha256',False),
+            ('INT4_D_78456_OPTION_PROVENANCE_V1.csv.gz',78456,'options_csv_gzip_sha256',True),
+            ('INT4_D_6_SOURCE_OPTION_EXCEPTIONS_V1.csv',6,'exception_csv_sha256',False),
+          ]
+          checked={}
+          for name,expected,key,compressed in records:
+            raw=(p/name).read_bytes()
+            assert hashlib.sha256(raw).hexdigest()==s['outputs'][key]
+            content=gzip.decompress(raw) if compressed else raw
+            rows=list(csv.DictReader(io.StringIO(content.decode('utf-8'),newline='')))
+            assert len(rows)==expected,(name,len(rows))
+            checked[name]=rows
+            print('PASS',name,expected)
+          states=checked[records[0][0]]
+          options=checked[records[1][0]]
+          exception=checked[records[2][0]]
+          assert len({(r['mod'],r['state_id']) for r in states})==1158
+          assert len({(r['mod'],r['state_id'],r['rule_index'],r['option_index']) for r in options})==78456
+          assert Counter(r['reference_status'] for r in options)==Counter({
+            'LOCAL':78420,'VANILLA_JAR':32,'UNRESOLVED_MODEL_REF':4})
+          assert sum(int(r['uvlock_true_options']) for r in states)==1132
+          assert sum(int(r['offrange_angle_options']) for r in states)==1736
+          assert sum(int(r['unresolved_model_options']) for r in states)==4
+          assert sum(int(r['parent_missing_selected_options']) for r in states)==0
+          assert Counter(r['exception_type'] for r in exception)==Counter({
+            'UNRESOLVED_MODEL_REF':4,'PRIOR_CHAIR_VARIANT_3_POINTS_TO_1':2})
+          assert all(r['runtime_defect_proven']=='false' for r in exception)
+          assert all(r['original_json_modified']=='false' for r in exception)
+          assert all(r['runtime_register_or_visual_status']=='NOT_NEWLY_VERIFIED_IN_GAME' for r in options)
+          assert s['new_original_blockstate_json_opened']==0
+          assert s['new_real_client_screenshots_observed']==0
+          assert s['progress']['D_full_stage_exit']=='PENDING_RUNTIME_STATE_AND_RELEASE_REACHABILITY_NOT_APPROVED'
+          print('PASS: 1158/78456/6, no fake runtime or release equality')
+          PY
+          git diff --check
+
+      - name: 원장 아티팩트 생성
+        uses: actions/upload-artifact@v4
+        with:
+          name: INT4-D-1158-states-78456-options
+          retention-days: 45
+          path: |
+            project/integration/INT4_D_1158_STATE_DISPOSITIONS_V1.csv
+            project/integration/INT4_D_78456_OPTION_PROVENANCE_V1.csv.gz
+            project/integration/INT4_D_6_SOURCE_OPTION_EXCEPTIONS_V1.csv
+            project/integration/INT4_D_SOURCE_AUDIT_V1.json
+            project/integration/INT4_D_SOURCE_REPORT_V1.md
+
+      - name: Draft PR 브랜치에만 실제 원장 커밋
+        if: github.ref == 'refs/heads/work/int4-d-state-option-source-20261122'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_D_1158_STATE_DISPOSITIONS_V1.csv \
+                  project/integration/INT4_D_78456_OPTION_PROVENANCE_V1.csv.gz \
+                  project/integration/INT4_D_6_SOURCE_OPTION_EXCEPTIONS_V1.csv \
+                  project/integration/INT4_D_SOURCE_AUDIT_V1.json \
+                  project/integration/INT4_D_SOURCE_REPORT_V1.md
+          if git diff --cached --quiet; then
+            echo "기존과 동일 - 신규 커밋 없음"
+          else
+            git commit -m "INT-4-D 원본 블록상태 1158건과 모델 선택 78456건 개별 검증 원장"
+            git push origin HEAD:refs/heads/work/int4-d-state-option-source-20261122
+          fi
