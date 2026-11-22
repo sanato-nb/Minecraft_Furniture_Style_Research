@@ -18,7 +18,9 @@ class MojangOriginalParent(unittest.TestCase):
         self.assertEqual(row["case"],"S22")
         self.assertEqual(row["provider"],"V1211-5")
         self.assertEqual(row["provider_path"],"assets/minecraft/models/block/cube.json")
-        self.assertEqual(row["provider_sha"],f.ORIGINAL_PARENT_BLOB_SHA1)
+        self.assertEqual(row["provider_sha"],f.ORIGINAL_PARENT_RECORDED_HASH)
+        self.assertEqual(row["model_hash_kind"],"GIT_BLOB_SHA1")
+        self.assertEqual(len(row["provider_sha"]),64)
 
     def test_pinned_versions_and_MOJANG_source_metadata(self):
         self.assertEqual(f.VERSIONS,("1.21.1","1.21.11"))
@@ -55,7 +57,7 @@ class MojangOriginalParent(unittest.TestCase):
         # the frozen 1-5-B provider hash: a good reason to inspect actual JAR bytes.
         pretty=ROOT/"1.21.11/assets/minecraft/models/block/cube.json"
         self.assertTrue(pretty.is_file())
-        self.assertNotEqual(f.gitblob(pretty.read_bytes()),f.ORIGINAL_PARENT_BLOB_SHA1)
+        self.assertNotEqual(f.gitblob(pretty.read_bytes()),f.ORIGINAL_PARENT_RECORDED_HASH)
 
 if __name__=="__main__":
     unittest.main()
