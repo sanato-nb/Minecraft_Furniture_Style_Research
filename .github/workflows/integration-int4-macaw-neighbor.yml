@@ -88,12 +88,15 @@ jobs:
               with Image.open(p) as im:assert im.size==(1024,684)
           lock=Path("project/integration/INT4_MACAW_NEIGHBOR_SOURCE_RESULT.json")
           if lock.exists():
-              first=json.loads(lock.read_text())["first_actual_game_audit"]
-              assert first["macaw_jar_sha256"]==x["macaw_jar_sha256"]
-              assert first["source_state_sha256"]==x["source_state_sha256"]
-              assert first["observed_server_states"]==x["observed_server_states"]
-              assert first["neighbor_transition_observation"]==x["neighbor_transition_observation"]
-              assert first["scope"]==x["scope"]
+              first=json.loads(lock.read_text())
+              assert first["status"]=="REAL_FABRIC_TABLE_NEIGHBOR_BIDIRECTIONAL_JOIN_AND_AUTO_DISCONNECT_VERIFIED"
+              assert first["original_mod_jar_sha256"]==x["macaw_jar_sha256"]
+              assert first["pinned_research_application_csv_sha256"]==x["source_state_sha256"]
+              assert first["actual_integrated_server_observations"]==x["observed_server_states"]
+              assert first["derived"]==x["neighbor_transition_observation"]
+              assert first["scope"]["int5_semantic_approvals"]==x["scope"]["int5_semantic_approvals"]==0
+              assert first["scope"]["int6_ai_rights_approvals"]==x["scope"]["int6_rights_approvals"]==0
+              assert first["scope"]["direct_player_item_use_and_mouse_placement_tested"] is False
           print("INT4_MACAW_TABLE_REAL_NEIGHBOR_TRANSITION_SERVER_READBACK_PASS")
           print("RESULT="+json.dumps(x["neighbor_transition_observation"],sort_keys=True))
           PY
