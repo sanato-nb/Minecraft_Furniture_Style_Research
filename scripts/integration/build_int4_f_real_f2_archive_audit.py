@@ -177,8 +177,26 @@ def get_artifact_bytes(archive_dir,rec,download):
             "User-Agent":"mcfr-int4-f-artifact-review",
         })
         # The artifact ZIP is a ~180KB-2MB archive, not the full Minecraft client.
-        with urllib.request.urlopen(q,timeout=90) as response:
-            b=response.read()
+        # The Actions archive endpoint issues a 302 to signed blob storage.
+        # Never forward the GitHub Bearer token to that different host.
+        import urllib.error
+        from urllib.parse import urlsplit
+        class NoCrossHostAuthRedirect(urllib.request.HTTPRedirectHandler):
+            def redirect_request(self,req,fp,code,msg,headers,newurl):
+                return None
+        opener=urllib.request.build_opener(NoCrossHostAuthRedirect)
+        try:
+            with opener.open(q,timeout=90) as response:
+                b=response.read()
+        except urllib.error.HTTPError as err:
+            if err.code not in (301,302,303,307,308):
+                raise
+            signed=err.headers.get("Location","")
+            parsed=urlsplit(signed)
+            assert parsed.scheme=="https" and parsed.netloc and parsed.netloc!="api.github.com",("INVALID_ARTIFACT_REDIRECT",artifact)
+            external=urllib.request.Request(signed,headers={"User-Agent":"mcfr-int4-f-artifact-review"})
+            with urllib.request.urlopen(external,timeout=90) as response:
+                b=response.read()
         p.parent.mkdir(parents=True,exist_ok=True)
         p.write_bytes(b)
     if not p.is_file():
