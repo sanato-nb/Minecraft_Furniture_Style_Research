@@ -1,0 +1,63 @@
+name: INT-4-H14 AF camera-facing UV source vs original H12 native F2 bridge
+
+on:
+  push:
+    branches:
+      - work/int4-h14-af-backrest-camera-facing-uv-source-f2-20261124
+    paths:
+      - scripts/integration/build_int4_h14_af_camera_facing_uv_f2.py
+      - tests/integration/test_int4_h14_af_camera_facing_uv_f2.py
+      - project/integration/INT4_H14_AF_CAMERA_FACE_UV_F2_SOURCE_BRIDGE_V1.json
+      - project/integration/INT4_H14_AF_CAMERA_FACE_UV_F2_RESEARCH_V1.md
+      - .github/workflows/integration-int4-h14-af-camera-facing-uv-f2.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  independent-pinned-source-and-actual-H12-F2:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PNG pixel decoder
+        run: python -m pip install 'Pillow>=10,<13'
+      - name: Run H14 independent regression tests (no fake approval)
+        run: python -m unittest discover -s tests/integration -p 'test_int4_h14_af_camera_facing_uv_f2.py' -v
+      - name: Reopen original actual Minecraft H12 artifact exact ZIP bytes
+        timeout-minutes: 3
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api \
+            -H 'Accept: application/vnd.github+json' \
+            'repos/sanato-nb/Minecraft_Furniture_Style_Research/actions/artifacts/14822712371/zip' \
+            > "$RUNNER_TEMP/h12-original-real-native-F2.zip"
+          python - <<'PY'
+          import hashlib,os,pathlib
+          p=pathlib.Path(os.environ['RUNNER_TEMP'])/'h12-original-real-native-F2.zip'
+          found=hashlib.sha256(p.read_bytes()).hexdigest()
+          expected='6b305bda1f8d9e02f417cb2b2f4c3600936ed7bb11e6e3d494d6c448e3a0d2a4'
+          assert found==expected,('original F2 artifact provenance drifted',found)
+          print('PASS unchanged original H12 screenshot archive SHA256',found)
+          PY
+      - name: Independently reopen original Git SHA blobs, PNG and F2; verify H14 data
+        timeout-minutes: 4
+        run: |
+          python scripts/integration/build_int4_h14_af_camera_facing_uv_f2.py \
+            --h12-archive "$RUNNER_TEMP/h12-original-real-native-F2.zip" \
+            --verify
+          git diff --check
+      - name: Keep only H14 derived metadata in expiring output
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h14-af-source-camera-facing-uv-h12-metadata-only
+          retention-days: 30
+          path: project/integration/INT4_H14_AF_CAMERA_FACE_UV_F2_SOURCE_BRIDGE_V1.json
