@@ -1,0 +1,101 @@
+name: INT-4-H7 six historic risk real source stage 21 independent audit
+
+on:
+  push:
+    branches:
+      - work/int4-h7-six-risk-stage-source-replay-20261123
+    paths:
+      - scripts/integration/build_int4_h7_six_risk_source_stage_audit.py
+      - tests/integration/test_int4_h7_six_risk_source_stage_audit.py
+      - .github/workflows/integration-int4-h7-original-six-risk-stage-audit.yml
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  original-six-risk-server-stage-recheck:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install original PNG decoder
+        run: python -m pip install 'Pillow>=10,<13'
+      - name: Verify original H6 SHA locks, risk-specific fail closed unit tests
+        run: |
+          python -m unittest discover -s tests/integration \
+            -p 'test_int4_h7_six_risk_source_stage_audit.py' -v
+          python -m unittest discover -s tests/integration \
+            -p 'test_int4_h6_original_f70_log_state_bridge.py' -v
+      - name: Re-open six original GitHub Actions ZIPs and 21 original F2 source substages
+        run: |
+          python scripts/integration/build_int4_h7_six_risk_source_stage_audit.py \
+            --cache "$RUNNER_TEMP/int4-h7-risk6-original-artifacts"
+      - name: Verify byte-identical recreation with same archived originals
+        run: |
+          python scripts/integration/build_int4_h7_six_risk_source_stage_audit.py \
+            --cache "$RUNNER_TEMP/int4-h7-risk6-original-artifacts" --verify
+      - name: Strict original stage scope and gate assertions
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import csv,hashlib,json
+          base=Path('project/integration')
+          j=json.loads((base/'INT4_H7_SIX_RISK_SOURCE_STAGE_AUDIT_V1.json').read_text(encoding='utf-8'))
+          assert j['status']=='PASS_SIX_RISK_SOURCE_STAGES_NO_FINAL_H03_H05_EXIT'
+          c=j['counts']
+          assert c['risk_ids']==6 and c['source_archives']==6
+          assert c['source_stage_PNG_occurrences']==21
+          assert c['source_server_state_substages_verified']==21
+          assert c['risk_contracts_completed']==0
+          assert c['new_game_runs']==0
+          assert c['F70_conditional']==70 and c['F_final_unconditional']==0
+          assert (c['H_scoped_pass'],c['H_conditional'],c['H_hold'],c['H_full_exit'])==(6,1,1,0)
+          assert c['INT5_part_roles']==0 and c['INT6_training_redistribution_rights']==0
+          assert j['risk_cases']['R05']['actual_original_game_run_count']==2
+          assert j['risk_cases']['R02']['actual_original_game_run_count']==1
+          assert j['risk_cases']['R07']['actual_original_game_run_count']==1
+          for path,attrs in j['outputs'].items():
+            p=Path(path)
+            data=p.read_bytes()
+            assert hashlib.sha256(data).hexdigest()==attrs['sha256']
+            if attrs['rows'] is not None:
+              assert len(list(csv.DictReader(p.open(encoding='utf-8',newline=''))))==attrs['rows']
+          print('H7 archived 6 risk cases and 21 source substages PASS; full F/H approval remains ZERO')
+          PY
+          git diff --check
+      - name: Save only metadata and original source hashes, not screenshots or game binaries
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h7-original-risk-six-21-stage-source-evidence-only
+          retention-days: 45
+          if-no-files-found: warn
+          path: |
+            project/integration/INT4_H7_21_RISK_SUBSTAGE_SOURCE_VERIFIED_V1.csv
+            project/integration/INT4_H7_6_RISK_CONTRACT_GAP_MATRIX_V1.csv
+            project/integration/INT4_H7_H03_H05_SOURCE_RECHECK_V1.csv
+            project/integration/INT4_H7_SIX_RISK_SOURCE_STAGE_AUDIT_V1.json
+            project/integration/INT4_H7_SIX_RISK_STAGE_RESEARCH_REPORT_V1.md
+      - name: Commit original source-derived audit to H7 Draft only
+        if: success() && github.ref == 'refs/heads/work/int4-h7-six-risk-stage-source-replay-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_H7_21_RISK_SUBSTAGE_SOURCE_VERIFIED_V1.csv \
+                  project/integration/INT4_H7_6_RISK_CONTRACT_GAP_MATRIX_V1.csv \
+                  project/integration/INT4_H7_H03_H05_SOURCE_RECHECK_V1.csv \
+                  project/integration/INT4_H7_SIX_RISK_SOURCE_STAGE_AUDIT_V1.json \
+                  project/integration/INT4_H7_SIX_RISK_STAGE_RESEARCH_REPORT_V1.md
+          if git diff --cached --quiet; then
+            echo "Original-source audit output unchanged"
+          else
+            git commit -m "INT-4-H7 위험 시나리오 6종 원본 21단계 서버·F2 증거 및 미승인 판정 재감사"
+            git push origin HEAD:refs/heads/work/int4-h7-six-risk-stage-source-replay-20261123
+          fi

@@ -1,0 +1,127 @@
+{
+  "counts": {
+    "F70_conditional": 70,
+    "F_final_unconditional": 0,
+    "H_conditional": 1,
+    "H_full_exit": 0,
+    "H_hold": 1,
+    "H_scoped_pass": 6,
+    "INT5_part_roles": 0,
+    "INT6_training_redistribution_rights": 0,
+    "new_game_runs": 0,
+    "risk_contracts_completed": 0,
+    "risk_ids": 6,
+    "source_archives": 6,
+    "source_server_state_substages_verified": 21,
+    "source_stage_PNG_occurrences": 21
+  },
+  "limitations": [
+    "Risk Rxx is NOT an original blockstate key; use exact source substage aliases instead.",
+    "R02 and R07 share four original screenshots, not independent game executions.",
+    "R05 interaction and destruction run separately. Do not combine into one gameplay session.",
+    "R03 setblock neighbor updates are not tested player item placement.",
+    "R04 static water states do not prove animations, flow or dynamic physics.",
+    "R07 source release mismatch and author intent cannot be inferred from image matching.",
+    "No screenshot pixel-to-face UV causal approval; all source ZIP, PNG, log, JAR remain outside Git.",
+    "Original F70 and H6 classifications unchanged; G/H full acceptance, INT5/INT6 rights unapproved."
+  ],
+  "outputs": {
+    "project/integration/INT4_H7_21_RISK_SUBSTAGE_SOURCE_VERIFIED_V1.csv": {
+      "rows": 21,
+      "sha256": "3791ee9f980fb0b96d3feac9b7ddb11f2cde776ada18744755aeef368dc6bef0"
+    },
+    "project/integration/INT4_H7_6_RISK_CONTRACT_GAP_MATRIX_V1.csv": {
+      "rows": 6,
+      "sha256": "3d04ad98fd96cdfed9084004663b6e3a61d4b2af35474ea507cbc3d4dd015a16"
+    },
+    "project/integration/INT4_H7_H03_H05_SOURCE_RECHECK_V1.csv": {
+      "rows": 8,
+      "sha256": "3c0e923c3fd557679d668a3943e4d5c7b738a35a97b2b8166e0671c141f9ffdb"
+    },
+    "project/integration/INT4_H7_SIX_RISK_STAGE_RESEARCH_REPORT_V1.md": {
+      "rows": null,
+      "sha256": "751a206a948046a7f78c593aa946777963ac2d9bff487225d4f4d7bce642cc05"
+    }
+  },
+  "risk_cases": {
+    "R01": {
+      "actual_original_game_run_count": 1,
+      "archived_server_substage_verified": 1,
+      "full_risk_contract_approved": false,
+      "source_state_evidence_keys": [
+        "S10_SUBJECT_EXACT_TRUE"
+      ],
+      "source_substage_count": 1
+    },
+    "R02": {
+      "actual_original_game_run_count": 1,
+      "archived_server_substage_verified": 6,
+      "full_risk_contract_approved": false,
+      "source_state_evidence_keys": [
+        "AF_AFV3_north_SELECTS_ACACIA_3",
+        "AF_AFV3_east_SELECTS_ACACIA_3",
+        "AF_AFV3_south_SELECTS_ACACIA_1",
+        "AF_AFV3_west_SELECTS_ACACIA_3",
+        "AF_AFV1_north_SELECTS_ACACIA_1",
+        "AF_AFV1_south_SELECTS_ACACIA_1"
+      ],
+      "source_substage_count": 6
+    },
+    "R03": {
+      "actual_original_game_run_count": 1,
+      "archived_server_substage_verified": 3,
+      "full_risk_contract_approved": false,
+      "source_state_evidence_keys": [
+        "NATURAL_SETBLOCK_NEIGHBOR_RESET",
+        "NATURAL_SETBLOCK_NEIGHBOR_JOIN",
+        "NATURAL_SETBLOCK_NEIGHBOR_REMOVE"
+      ],
+      "source_substage_count": 3
+    },
+    "R04": {
+      "actual_original_game_run_count": 1,
+      "archived_server_substage_verified": 2,
+      "full_risk_contract_approved": false,
+      "source_state_evidence_keys": [
+        "SINK_S42_STATIC_WATER_SERVER_VERIFIED",
+        "SINK_S43_STATIC_WATER_SERVER_VERIFIED"
+      ],
+      "source_substage_count": 2
+    },
+    "R05": {
+      "actual_original_game_run_count": 2,
+      "archived_server_substage_verified": 5,
+      "full_risk_contract_approved": false,
+      "source_state_evidence_keys": [
+        "BED_BED_PLACED_TWO_PARTS_SERVER_VERIFIED",
+        "BED_BED_SLEEPING_TWO_PARTS_SERVER_VERIFIED",
+        "BED_BED_AWAKE_TWO_PARTS_SERVER_VERIFIED",
+        "BED_BED_PLACED_TWO_PARTS_SERVER_VERIFIED",
+        "BED_BED_FOOT_BROKEN_TWO_PARTS_SERVER_VERIFIED"
+      ],
+      "source_substage_count": 5
+    },
+    "R07": {
+      "actual_original_game_run_count": 1,
+      "archived_server_substage_verified": 4,
+      "full_risk_contract_approved": false,
+      "source_state_evidence_keys": [
+        "AF_AFV3_north_SELECTS_ACACIA_3",
+        "AF_AFV3_east_SELECTS_ACACIA_3",
+        "AF_AFV3_south_SELECTS_ACACIA_1",
+        "AF_AFV3_west_SELECTS_ACACIA_3"
+      ],
+      "source_substage_count": 4
+    }
+  },
+  "schema": "MCFR_INT4_H7_SIX_RISK_21_ORIGINAL_SUBSTAGES/v1",
+  "source_original_git_blob_sha1": {
+    "INT4_F11F_70_TARGET_EVIDENCE_DISPOSITIONS_V15.csv": "0cfbf3b1b174efc968de35c8466e2af8a9cd41c7",
+    "INT4_H6_20_REAL_CLIENT_LOG_AND_CAPTURE_SOURCE_V1.csv": "c52de2d71bd73ff21a1d801a79e9aea99532be92",
+    "INT4_H6_70_CASE_LOG_SOURCE_AUDIT_V1.json": "9a63e0058ccd3344560c4283fbd0551e718feb11",
+    "INT4_H6_70_CASE_LOG_STATE_PROVENANCE_V1.csv": "f820efd9e85c4cee8df4673a2db4f4d868b4de31",
+    "INT4_H6_91_F2_PNG_CAPTURE_SERVER_LOG_LINKS_V1.csv": "90631f3c1963df073019426791953d1790f726d2",
+    "INT4_H6_H03_H05_SCOPE_REASSESSMENT_V1.csv": "7994c9a9eb71dd01e8ca8a695035f7d52c9b3098"
+  },
+  "status": "PASS_SIX_RISK_SOURCE_STAGES_NO_FINAL_H03_H05_EXIT"
+}
