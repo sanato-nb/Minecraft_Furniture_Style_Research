@@ -1,0 +1,54 @@
+{
+  "F70_original_png_reopen_pass_without_game_semantics": 91,
+  "F_unconditional_final_approved": 0,
+  "G_unconditional_final_approved": 0,
+  "H3_original_archive_20_and_PNG_91_sha_accepted": true,
+  "H_full_exit_approved": 0,
+  "INT5_semantics_approved": 0,
+  "INT6_rights_approved": 0,
+  "actual_H4_shared_suite_run_contract": {
+    "installation": "python -m pip install Pillow>=10,<13 nbtlib>=2,<3",
+    "result_evidence": "GitHub Actions run result; source audit JSON cannot independently declare a workflow run successful",
+    "tests_integration": "python -m unittest discover -s tests/integration -p test_*.py -v",
+    "tests_knowledge": "python -m unittest discover -s tests/knowledge -p test_*.py -v"
+  },
+  "legacy_INT2_test_collection_fix_path": "PYTHONPATH src",
+  "legacy_INT3_knowledge_test_dependency_fix": "Pillow and nbtlib",
+  "limits": [
+    "Five exact PR73 workflow-content fixes are included on the current stacked research branch.",
+    "Passing shared unit suites is not a substitute for live Minecraft UI/renderer screenshots or missing F70 server log/UV semantics.",
+    "H1 H06 may gain CI environment source proof after this run, but H03/H05 gameplay causality remains independently open.",
+    "Do not call original H1 8/8 full success: H1 5 scope pass, 1 conditional, 2 hold and full H exit zero."
+  ],
+  "original_H1_Git_blob_SHA1": "b6cd345000630079f670146466a1c0a5f8ace165",
+  "original_H3_Git_blob_SHA1": "e67f9c5f2ca4bac01f3e878811ed433f9713109b",
+  "schema": "MCFR_INT4_H4_H06_PARALLEL_PR73_ENVIRONMENT_INTEGRATED_IN_H3_STACK/v1",
+  "status": "PASS_PR73_FIVE_EXACT_FIXES_PRESENT_ON_H3_STACK_H4_FULL_SUITES_RUN_SEPARATELY",
+  "verified_original_PR73_fixed_workflows": {
+    ".github/workflows/integration-int2-audit.yml": {
+      "git_blob_sha1": "2965bc53ed85ced5805e0c9e98d3cae7c3a73786",
+      "original_PR73_exact_file_sha_matched": true,
+      "shared_test_suite": "ALL_INTEGRATION_TESTS_ORIGINAL"
+    },
+    ".github/workflows/integration-int2-rotation.yml": {
+      "git_blob_sha1": "0bfeaad25950c32913efa2557e516cde7c552b57",
+      "original_PR73_exact_file_sha_matched": true,
+      "shared_test_suite": "ALL_INTEGRATION_TESTS_ORIGINAL"
+    },
+    ".github/workflows/integration-int2-states.yml": {
+      "git_blob_sha1": "0ed969e4954d058714ce5f2f0ddd8556037093fb",
+      "original_PR73_exact_file_sha_matched": true,
+      "shared_test_suite": "ALL_INTEGRATION_TESTS_ORIGINAL"
+    },
+    ".github/workflows/integration-int2-structure.yml": {
+      "git_blob_sha1": "ca394cb184c626792c71887ca3cf2fa211d68f9a",
+      "original_PR73_exact_file_sha_matched": true,
+      "shared_test_suite": "ALL_INTEGRATION_TESTS_ORIGINAL"
+    },
+    ".github/workflows/integration-int3-knowledge.yml": {
+      "git_blob_sha1": "f0d966186670fea6859a040809061152e8854ff2",
+      "original_PR73_exact_file_sha_matched": true,
+      "shared_test_suite": "ALL_KNOWLEDGE_TESTS_ORIGINAL"
+    }
+  }
+}
