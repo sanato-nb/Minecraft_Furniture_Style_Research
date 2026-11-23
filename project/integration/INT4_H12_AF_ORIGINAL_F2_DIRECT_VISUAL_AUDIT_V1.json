@@ -1,0 +1,77 @@
+{
+  "schema": "MCFR_INT4_H12_AF_SAME_POSE_ORIGINAL_VISUAL_DIRECT_REVIEW/v1",
+  "status": "PASS_ORIGINAL_F2_VISUALLY_EXAMINED_BACKREST_BANDS_CHANGED_TEMPORAL_CONTROL_IDENTICAL",
+  "source": {
+    "original_action_run": 45183488267,
+    "artifact_id": 14822712371,
+    "original_zip_sha256": "6b305bda1f8d9e02f417cb2b2f4c3600936ed7bb11e6e3d494d6c448e3a0d2a4",
+    "zip_CRC_pass": true,
+    "independent_game_audit_git_blob_sha1": "5e40040a13146ae08b97cf9d4747a6a08bc1d208"
+  },
+  "real_game": {
+    "minecraft": "Java 1.21.1 Fabric",
+    "mod": "Another Furniture 4.0.2",
+    "jar_sha1": "c2f992081bdc4795ed6d87771a3b5f7c71103785",
+    "block": "another_furniture:acacia_chair",
+    "fixed_facing": "north",
+    "fixed_xyz": [
+      -88,
+      120,
+      40
+    ],
+    "fixed_camera": "-87.5 122.3 45.5 180 20",
+    "comparison": [
+      "variant1_model_acacia_1",
+      "variant3_model_acacia_3",
+      "variant1_model_acacia_1_repeat",
+      "minecraft:air"
+    ],
+    "one_real_singleplayer_session": true
+  },
+  "direct_visual_review": {
+    "opened_original_native_contact": true,
+    "opened_cropped_nearest_neighbor_four_panel": true,
+    "observed_change": "Backrest inner horizontal wood color stripe arrangement visible differs between acacia_1 and acacia_3, with same chair silhouette and camera",
+    "diff_pixel_bounds": [
+      493,
+      433,
+      530,
+      461
+    ],
+    "rgb_threshold": 24,
+    "original_F2_images": 4,
+    "different_model_pixels": 808,
+    "control_repeat_different_pixels": 0,
+    "model_difference_pixels_inside_foreground_mask": 808,
+    "model_difference_pixels_outside_foreground_mask": 0,
+    "native_resolution": [
+      1024,
+      684
+    ],
+    "no_original_pixel_tampering": true
+  },
+  "sha256": {
+    "model1_before": "5e3d5494985e7af7dea54bc8b6ee3443c85a3146e30c3e459fb01d1ca6d2d31e",
+    "model1_after": "5e3d5494985e7af7dea54bc8b6ee3443c85a3146e30c3e459fb01d1ca6d2d31e",
+    "model3": "a989c788990c0853773c4b729a58910896fcd027430ae37db7f4881db371c952",
+    "air": "559bd5bc8161f5cb3a82a207971bc999f8bd4f1d7c2490d12ea207370288d301",
+    "client_log": "3e0e08c217e83a2b7022f3db0929ea8f4731334edfde07d9221764f73bb99a9a"
+  },
+  "scoped_conclusion": {
+    "source_model_and_rendered_backrest_visual_difference": true,
+    "source_face_uv_2_of_12_with_changed_texels": true,
+    "source_texels_54_of_54_overlap": true,
+    "precise_GPU_pixel_to_UV_face_causal_proof": false,
+    "mod_author_intent_approved": false,
+    "other_models_generalization_approved": false,
+    "F70_unconditional_approvals": 0,
+    "H03_H05_exit_approved": false,
+    "INT5_semantics_approved": 0,
+    "INT6_training_redistribution_rights_approved": 0
+  },
+  "limits": [
+    "The 4x zoom image is only a nearest-neighbor enlargement of original F2 crop; source originals remain preserved separately.",
+    "This visual review supports an observed backrest appearance change, not exact per-face rasterizer attribution.",
+    "Native Minecraft PNG/JAR/log are retained in expiring Actions artifact; original licensed game assets not committed."
+  ]
+}
