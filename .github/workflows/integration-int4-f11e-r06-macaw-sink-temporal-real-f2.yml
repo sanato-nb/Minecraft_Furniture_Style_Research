@@ -1,0 +1,116 @@
+name: INT-4-F11E R06 Macaw water=true 싱크 3시점 실제 Minecraft F2
+
+on:
+  push:
+    branches:
+      - work/int4-f11e-r06-macaw-sink-temporal-f2-20261123
+    paths:
+      - src/mcfr/int4_f11e_r06_macaw_sink_temporal_capture.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int4_f11e_r06_macaw_sink_temporal_capture.py
+      - .github/workflows/integration-int4-f11e-r06-macaw-sink-temporal-real-f2.yml
+
+permissions:
+  contents: write
+
+jobs:
+  macaw-sink-temporal-native-client:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 42
+    env:
+      PYTHONPATH: src
+    steps:
+      - name: Create isolated exact official 1.21.11 paths
+        run: |
+          echo "WORLD=$RUNNER_TEMP/int4-f11e-world" >> "$GITHUB_ENV"
+          echo "CACHE=$RUNNER_TEMP/int4-f11e-cache" >> "$GITHUB_ENV"
+          echo "WORK=$RUNNER_TEMP/int4-f11e-work" >> "$GITHUB_ENV"
+          echo "OUT=$RUNNER_TEMP/int4-f11e-original-F2" >> "$GITHUB_ENV"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PNG and native Minecraft GUI dependencies
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 update
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 install -y \
+              xvfb xauth xdotool libgl1-mesa-dri libglx-mesa0
+          fi
+      - name: Compile and test original Macaw S43 temporal native F2 and prior V11
+        run: |
+          python -m compileall -q src/mcfr/int4_f11e_r06_macaw_sink_temporal_capture.py src/mcfr/runtime.py
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f11e_r06_macaw_sink_temporal_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f11d_vanilla_white_bed_special_capture.py' -v
+      - name: Create fresh Mojang official Minecraft 1.21.11 server world
+        run: |
+          python -m mcfr.chair_runtime_fixture world \
+            --version 1.21.11 --path "$WORLD" --cache "$CACHE"
+      - name: Pin Macaw 3.4.2 original S43 state and capture 3 frames >=8s apart
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+          ALSOFT_DRIVERS: 'null'
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int4-f11e-r06-temporal-sink \
+              --version 1.21.11 --world "$WORLD" --work "$WORK" --output "$OUT"
+      - name: Independently decode 3 native S43 water=true F2 with stable server and stone control
+        run: |
+          python -m mcfr.int4_f11e_r06_macaw_sink_temporal_capture --directory "$OUT"
+          python - <<'PY'
+          import os,hashlib,json
+          from pathlib import Path
+          from PIL import Image
+          src=Path(os.environ["OUT"])
+          report=json.loads((src/"INT4_F11E_R06_TEMPORAL_REAL_F2_AUDIT.json").read_text(encoding="utf-8"))
+          assert report["schema"]=="MCFR_INT4_F11E_R06_THREE_NATIVE_TEMPORAL_F2_AUDIT/v1"
+          assert report["status"]=="PASS_R06_3_TIME_SEPARATED_EXACT_STATE_NATIVE_F2_NO_ANIMATION_CAUSAL_CLAIM"
+          assert report["risk_id"]=="R06" and report["historical_source_case"]=="S43"
+          assert report["source_mod_jar_sha256"]=="e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e"
+          assert report["real_exact_server_state_checks"]==3
+          assert report["original_native_F2_count"]==3
+          assert len(report["time_intervals_seconds"])==2
+          assert min(report["time_intervals_seconds"])>=8.0
+          assert report["pixel_observation"]["max_background_stone_control_delta"]<=40
+          assert min(report["pixel_observation"]["foreground_blue_water_pixels_each_frame"].values())>=200
+          assert report["water_animation_causally_proven"] is False
+          assert report["full_F_approved"]==report["INT5_semantics_approved"]==report["INT6_training_or_redistribution_rights_approved"]==0
+          assert set(report["native_F2_sha256"])=={"R06_T0","R06_T1","R06_T2"}
+          for key,digest in report["native_F2_sha256"].items():
+            png=src/(key+".png")
+            assert hashlib.sha256(png.read_bytes()).hexdigest()==digest
+            with Image.open(png) as im:
+              im.load()
+              assert im.format=="PNG" and im.size==(1024,684)
+          assert hashlib.sha256((src/"client.log").read_bytes()).hexdigest()==report["original_client_log_sha256"]
+          Path("project/integration/INT4_F11E_R06_TEMPORAL_REAL_F2_SOURCE_V1.json").write_text(
+            json.dumps(report,ensure_ascii=False,sort_keys=True,indent=2)+"\n",encoding="utf-8")
+          print("PASS R06 native F2 3 original frames >=8 sec apart, same server state, final F 0")
+          PY
+          git diff --check
+      - name: Retain original F2 PNG and client log only in expiring Actions artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-f11e-r06-temporal-sink-air-pair-12111-native-F2
+          path: ${{ env.OUT }}/
+          retention-days: 45
+          if-no-files-found: warn
+      - name: Commit SHA-only metadata to this Draft branch, not main
+        if: success() && github.ref == 'refs/heads/work/int4-f11e-r06-macaw-sink-temporal-f2-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F11E_R06_TEMPORAL_REAL_F2_SOURCE_V1.json
+          if ! git diff --cached --quiet; then
+            git commit -m "INT-4-F11E R06 Macaw 물 싱크 3시점 실제 게임 F2·시간차·SHA 기록"
+            git fetch origin refs/heads/work/int4-f11e-r06-macaw-sink-temporal-f2-20261123
+            git rebase FETCH_HEAD
+            git push origin HEAD:refs/heads/work/int4-f11e-r06-macaw-sink-temporal-f2-20261123
+          fi
