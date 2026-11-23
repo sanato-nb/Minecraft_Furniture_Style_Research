@@ -29,6 +29,26 @@
 - F70 원본 사례 **70/70 조건부**, F70 무조건 최종 승인 **0/70**, INT-4 무조건 종료 **0**, INT5 의미 승인 **0**, INT6 권리 승인 **0** 유지.
 - 수면·앉기·파괴 등 게임플레이 연속 행동은 모델링 필수 조건에 추가하지 않는다.
 
-## 후속 실행 기록
+## 후속 실제 게임 실패 원인 확정과 수정 이력
 
-본 파일 작성 시점에는 신규 브랜치의 실제 Minecraft Actions 재검증 결과가 **아직 확보되지 않았다**. 신규 실행이 완료되면 run ID·head SHA·각 버전 Job 상태·원본 아티팩트와 승인 범위를 별도로 갱신한다.
+- 첫 검증 [Actions #45194656949](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45194656949): 새 `/` 직접 입력 경로가 두 버전 모두 실패. 실패 시 성공 처리하지 않았고 원래의 `t` 채팅 경로로 철회.
+- 후속 검증에서 Xvfb에 창 관리자가 없으므로 `xdotool windowactivate --sync`가 실제 오류를 내는 것을 확인. 호출 제거, `windowfocus --sync`만 사용.
+- 추가 실패 [Actions #45196094545](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45196094545): Minecraft 1.21.11 Job은 실제 F2 **SUCCESS**, 반면 1.21.1 Job은 관전자 명령 응답 확인 실패.
+- 실패한 1.21.1 [원본 진단 아티팩트 #14827219188](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45196094545/artifacts/14827219188)에서 `client.log`와 `INT3_GUI_DIAGNOSTIC_SPECTATOR_ACK_FAILURE.png`를 직접 열었다. 게임 세계와 렌더는 정상 로딩됐으며 **`<RenderAudit> t/gamemode spectator`** 라는 채팅 메시지가 서버 로그에 존재했다. 따라서 채팅창이 이미 열린 순간 다시 입력한 `t`가 실제 명령 앞에 문자로 들어가는 구체적 오류 사례가 증명됐다. X11 포커스 또는 모델 오류라고 일반화하지 않는다.
+- 해결: 기존 `t` 채팅 경로 뒤에 `Ctrl+A`로 남은 채팅 텍스트를 선택하고 전체 명령(`/...`)을 교체한다. 관전자 모드와 각 teleport는 **새 서버 로그 응답 필수**, 한 번의 제한적 재시도만 허용한다. 원본 블록/모델·UV/F2 의미 승인 범위는 변경하지 않았다.
+
+## 최종 실제 GitHub Actions 결과 — 검증 완료
+
+- 최종 소스·테스트 커밋: `39fa6fade8145392ea759fa18a683695c17179aa`
+- [INT-3 실제 Fabric Actions #45196779470](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45196779470): **run 전체 SUCCESS**. 두 Job 모두 모든 단계 성공.
+- Minecraft **1.21.1** Job `137769220321`: 모델 `AF121 / AF123 / HC11210`, 서버 원본 상태 **12/12**, 네이티브 1024×684 F2 **12장**.
+- Minecraft **1.21.11** Job `137769220833`: Macaw `MACAW67`, 서버 원본 상태 **4/4**, 네이티브 F2 **4장**.
+- 원본 아티팩트 `1.21.1` [#14829036761](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45196779470/artifacts/14829036761): ZIP SHA256 `da4d2c20dc83f4669364b510d1e6d64aeb709897d5eeec47fd7558b0c36a5c80`.
+- 원본 아티팩트 `1.21.11` [#14829920096](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45196779470/artifacts/14829920096): ZIP SHA256 `fa69746d712dd2c6314a58ef9a5cd06fa502609d8d1a3aad4e087130bee2a358`.
+- **두 아티팩트 직접 다운로드·ZIP CRC 통과**. 매니페스트가 보고한 원본 F2 **16개 SHA256과 실제 PNG 바이트 16/16 일치**, 서버 상태 확인 **16/16 true**, `human_verified_roles=0`, `copyright_or_ai_training_approved=0`. 정적 모델 의미/저작권/원본 텍셀별 GPU 인과 미승인을 유지한다.
+- 별도 [Draft PR #91](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/pull/91)은 다른 H12 병렬 브랜치이고, 본 PR은 #90에서 분기한 별도 H13이다.
+- 본 H13의 작업으로 변경한 것은 카메라 GUI 명령 입력·검증, 해당 회귀시험과 CI 연결 및 연구 보고서뿐이다. 기존 H12의 808픽셀·UV 두 면 후보 및 원본 게임 증거를 덮어쓰지 않는다.
+
+## 범위 한정 결론
+
+**INT-3 의자 F2 촬영 카메라 타임아웃은 최종 실행에서 재현되지 않고 원본 촬영 16/16 통과했다.** 그렇지만 H03 **HOLD**, H05 **CONDITIONAL**, F70 **70/70 조건부·무조건 0/70**, H 전체 무조건 종료 0, INT5 의미 및 INT6 학습/재배포권 승인 0이라는 심사 경계는 기존 그대로다. 게임플레이 수면·파괴·아이템 조작 전체 시험을 모델링 최종 종료조건으로 추가하지 않는다.
