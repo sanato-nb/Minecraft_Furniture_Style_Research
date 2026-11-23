@@ -1,0 +1,59 @@
+{
+  "counts": {
+    "F70_conditionally_evidenced": 70,
+    "F70_unconditional_approvals": 0,
+    "H03_full_exit": 0,
+    "H05_full_exit": 0,
+    "INT5_parts_semantics_approved": 0,
+    "INT6_training_rights_approved": 0,
+    "changed_binding_faces_with_any_different_texel": 2,
+    "changed_texels_in_union_of_12_face_UV_footprints": 54,
+    "different_original_back_texture_RGBA_texels": 54,
+    "different_texels_outside_changed_face_UV_footprints": 0,
+    "distinct_original_R07_game_executions": 1,
+    "equal_inherited_elements_each": 10,
+    "equal_inherited_faces_each": 46,
+    "face_texture_bindings_changed": 12,
+    "face_texture_bindings_same": 34,
+    "new_real_Minecraft_executions": 0,
+    "original_R07_game_F2_case_refs_reused": 4,
+    "source_blockstate_selectors": 88,
+    "south_only_acacia_1_discontinuities": 1,
+    "variant3_direction_selectors": 4
+  },
+  "limits": [
+    "UV footprint means source UV rectangle intersects a 16x16 source texel square by positive area. It does not guarantee sampling by Minecraft.",
+    "Actual face visibility, UV face rotation, culling, lighting, GPU model baking and exact screenshot face-pixel attribution are not proven.",
+    "One south variant3 source model selects acacia_1 in BOTH researched and runtime resource tables; whether unintended is unknown.",
+    "The existing R07 four native F2 reference stages are reused only as archived evidence from ONE actual game run.",
+    "4.0.3 versus 4.0.2 raw byte source mismatch is not blanket release-wide semantic equivalence.",
+    "Original asset files are not committed; no F70/H gate full approval, INT5 semantics or INT6 image training redistribution right changes."
+  ],
+  "output_sha256": {
+    "project/integration/INT4_H11_AF_VARIANT3_12_FACE_UV_TEXEL_COVERAGE_V1.csv": "79f9321da529ea29e6706ea6dede23cba5e319a3811b1cfca426beab34a1e370",
+    "project/integration/INT4_H11_AF_VARIANT3_4_DIRECTION_MODEL_SELECTORS_V1.csv": "6ce0c7298cff07dbc86e7ee383289d20659dad0fe02c02d93741e6973c3ddc7d"
+  },
+  "prior_parity": {
+    "each_back_png_identical_between_study_and_runtime": true,
+    "research_vs_runtime_blockstate_semantic_equal": true,
+    "research_vs_runtime_model_semantic_equal": true
+  },
+  "schema": "MCFR_INT4_H11_AF_VARIANT3_SOURCE_FACE_UV_TEXEL_OVERLAP/v1",
+  "source": {
+    "H7_real_game_original_provenance_gitblob_sha1": "fc0c28d005b45bf83e800535bfaac8ef1f3a9ea5",
+    "actual_game_release": "4.0.2",
+    "commit": "57eb624cbb7f408d43398c7434b0d38d312cb55d",
+    "fixed_git_blob_sha1": {
+      "blockstates/acacia_chair.json": "37643398d7a49fdcfc6f2308ca04c13fb0b43aed",
+      "models/block/chair/acacia_1.json": "609dea1eda246be610ed0a5762f3bb5f0ce9db92",
+      "models/block/chair/acacia_3.json": "ef6b6e633205b62768cbc60d1c1731ab7d219c66",
+      "models/block/template/chair.json": "d9b64a818021f1a64b0cba13d16d18d6fea65d01",
+      "textures/block/chair/back_1/acacia.png": "55f3bbf986c0c10b731cc0e67038402f30340972",
+      "textures/block/chair/back_3/acacia.png": "e2282f2620fc8fbbcfd3bb69ab2a435e5421bbe8"
+    },
+    "previous_source_audit_gitblob_sha1": "7530144389e1589af4c1c891ded3e9531886519d",
+    "repo": "crispytwig/AnotherFurniture",
+    "study_version": "4.0.3"
+  },
+  "status": "PASS_12_CHANGED_SOURCE_FACES_UV_TEXEL_COVERAGE_WITHOUT_GPU_CAUSAL_APPROVAL"
+}
