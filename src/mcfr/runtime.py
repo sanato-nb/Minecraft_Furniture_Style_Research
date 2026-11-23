@@ -37,6 +37,9 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
         raise FileExistsError(f"Choose a new visual work directory: {copied_world}")
 
     _, client, assets, index, libraries = prepare(args.version, args.work, args.client_cache)
+    if args.command=="int4-f11f-r08-fabric-pair":
+        from .int4_f11f_r08_af_dual_fabric_capture import install_research_jar
+        install_research_jar(args,game)
     shutil.copytree(world, copied_world, ignore=shutil.ignore_patterns("session.lock", "datapacks"))
     fixture = script.parent.parent / "followup/build_runtime_fixture.py"
     subprocess.run(
@@ -44,7 +47,7 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
          "--pack", str(copied_world / "datapacks/cd_audit")],
         check=True,
     )
-    if args.command in ("chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "hc-bed-capture"):
+    if args.command in ("chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "int4-f11f-r08-fabric-pair", "hc-bed-capture"):
         from .chair_runtime_fixture import make_pack
         selected=None
         if args.command=="af-variant3-capture":
@@ -77,6 +80,9 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
         elif args.command=="int4-f11e-r06-temporal-sink":
             from .int4_f11e_r06_macaw_sink_temporal_capture import capture_cases
             selected=capture_cases(args.version)
+        elif args.command=="int4-f11f-r08-fabric-pair":
+            from .int4_f11f_r08_af_dual_fabric_capture import original_case
+            selected=original_case()
         elif args.command=="hc-bed-capture":
             from .int4_handcrafted_bed_capture import cases
             selected=cases(args.version)
@@ -147,6 +153,9 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
     if args.command=="int4-f11e-r06-temporal-sink":
         from .int4_f11e_r06_macaw_sink_temporal_capture import capture
         return capture(command,env,game,args.output,args.version)
+    if args.command=="int4-f11f-r08-fabric-pair":
+        from .int4_f11f_r08_af_dual_fabric_capture import capture
+        return capture(command,env,game,args.output,args.version)
     if args.command=="hc-bed-capture":
         from .int4_handcrafted_bed_capture import capture
         return capture(command,env,game,args.output,args.version)
@@ -198,6 +207,7 @@ def main(argv: list[str] | None = None) -> int:
     f11cvanilla = sub.add_parser("int4-f11c-vanilla-decor-four", help="INT-4-F11C official vanilla V12-V15 source SHA actual F2")
     f11dbed = sub.add_parser("int4-f11d-vanilla-bed", help="INT-4-F11D official V11 two-part bed special-render vs AIR paired F2")
     f11esink = sub.add_parser("int4-f11e-r06-temporal-sink", help="INT-4-F11E Macaw source water=true 3 real time-separated F2 and server stability")
+    f11fr08 = sub.add_parser("int4-f11f-r08-fabric-pair", help="INT-4-F11F same-loader 4.0.2 official vs 4.0.3 Git source-built acacia north original F2")
     hcbed = sub.add_parser("hc-bed-capture", help="pinned Handcrafted 1.21.1 bed foot/head individual native F2")
     neighbor = sub.add_parser("macaw-neighbor-capture", help="actual Macaw table placement/removal adjacent block update trial")
     nonchair = sub.add_parser("int4-nonchair-capture", help="remaining source states and actual shelf/bed transitions")
@@ -208,14 +218,14 @@ def main(argv: list[str] | None = None) -> int:
     f6mode = sub.add_parser("int4-f6-causal-replay", help="INT-4-F6 S02/S34 source-coded tucked/inner-left game replay")
     f7mode = sub.add_parser("int4-f7-source-cases", help="INT-4-F7 AF variant3, bench double and HC vanilla parent 4 original F2")
     exterior = sub.add_parser("int4-bed-exterior", help="observe occupied bed from an independent client")
-    for command in (engine, visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, hcbed, neighbor, nonchair, fmissing, f3mod, f4mod, f5mode, f6mode, f7mode, exterior):
+    for command in (engine, visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, f11fr08, hcbed, neighbor, nonchair, fmissing, f3mod, f4mod, f5mode, f6mode, f7mode, exterior):
         command.add_argument("--version", required=True)
         command.add_argument("--work", type=_scratch_path, required=True)
         command.add_argument("--client-cache", type=_scratch_path)
         command.add_argument("--display", help="X11 display, for example :99")
     engine.add_argument("--output", type=_scratch_path, required=True)
     engine.add_argument("--ecj", type=Path)
-    for command in (visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, hcbed, neighbor, nonchair, fmissing, f3mod, f4mod, f5mode, f6mode, f7mode, exterior):
+    for command in (visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, f11fr08, hcbed, neighbor, nonchair, fmissing, f3mod, f4mod, f5mode, f6mode, f7mode, exterior):
         command.add_argument("--world", type=Path, required=True)
     capture.add_argument("--output", type=_scratch_path, required=True)
     chairs.add_argument("--output", type=_scratch_path, required=True)
@@ -229,6 +239,8 @@ def main(argv: list[str] | None = None) -> int:
     f11cvanilla.add_argument("--output", type=_scratch_path, required=True)
     f11dbed.add_argument("--output", type=_scratch_path, required=True)
     f11esink.add_argument("--output", type=_scratch_path, required=True)
+    f11fr08.add_argument("--output", type=_scratch_path, required=True)
+    f11fr08.add_argument("--af-source-jar", type=Path, help="Pinned Git 4.0.3 self-built Fabric JAR; omit for official Fabric 4.0.2")
     hcbed.add_argument("--output", type=_scratch_path, required=True)
     neighbor.add_argument("--output", type=_scratch_path, required=True)
     nonchair.add_argument("--interaction", action="store_true", help="run player placement and sleeping trials")
@@ -260,7 +272,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.command != "engine":
             if not (args.display or os.environ.get("DISPLAY")):
                 raise ValueError("An X11 display is required for visual capture")
-            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "hc-bed-capture", "macaw-neighbor-capture", "int4-nonchair-capture", "int4-f-missing-capture", "int4-f3-mod-capture", "int4-f4-mod-capture", "int4-f5-state-diagnostic", "int4-f6-causal-replay", "int4-f7-source-cases", "int4-bed-exterior"):
+            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "int4-f11f-r08-fabric-pair", "hc-bed-capture", "macaw-neighbor-capture", "int4-nonchair-capture", "int4-f-missing-capture", "int4-f3-mod-capture", "int4-f4-mod-capture", "int4-f5-state-diagnostic", "int4-f6-causal-replay", "int4-f7-source-cases", "int4-bed-exterior"):
                 if shutil.which("xdotool") is None:
                     raise ValueError("Automatic visual capture requires xdotool")
                 if args.output.exists():
@@ -268,7 +280,7 @@ def main(argv: list[str] | None = None) -> int:
             report = open_visual_client(args, script, prepare["prepare"])
             if report is not None:
                 print(json.dumps(report, ensure_ascii=False, indent=2))
-                return int(report["status"] not in ("MATCH", "CAPTURED_SOURCE_STATES_NOT_VISUALLY_APPROVED", "SERVER_NEIGHBOR_STATES_RECORDED_NO_ASSUMED_CONNECTION", "SERVER_STATES_AND_F2_RECORDED", "ACTUAL_V11_BED_AIR_CONTROL_AND_TWO_PART_F2_NOT_YET_INDEPENDENTLY_AUDITED", "CAPTURED_REAL_S43_THREE_TIME_SEPARATED_F2_NOT_YET_INDEPENDENTLY_AUDITED"))
+                return int(report["status"] not in ("MATCH", "CAPTURED_SOURCE_STATES_NOT_VISUALLY_APPROVED", "SERVER_NEIGHBOR_STATES_RECORDED_NO_ASSUMED_CONNECTION", "SERVER_STATES_AND_F2_RECORDED", "ACTUAL_V11_BED_AIR_CONTROL_AND_TWO_PART_F2_NOT_YET_INDEPENDENTLY_AUDITED", "CAPTURED_REAL_S43_THREE_TIME_SEPARATED_F2_NOT_YET_INDEPENDENTLY_AUDITED", "ONE_REAL_FABRIC_SOURCE_RELEASE_F2_CAPTURED_NOT_CROSS_RELEASE_APPROVED"))
         else:
             command = [sys.executable, str(script), "--version", args.version,
                        "--work", str(args.work), "--output", str(args.output)]
