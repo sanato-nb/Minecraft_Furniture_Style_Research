@@ -1,0 +1,99 @@
+name: INT-4-H4 H06 integrated original INT2 and INT3 full test suites
+
+on:
+  push:
+    branches:
+      - work/int4-h4-h06-ci-full-suite-independent-20261123
+    paths:
+      - scripts/integration/build_int4_h4_h06_ci_integrated_source_audit.py
+      - tests/integration/test_int4_h4_h06_ci_integrated_source_audit.py
+      - .github/workflows/integration-int4-h4-h06-both-full-test-suites.yml
+
+permissions:
+  contents: write
+
+jobs:
+  complete-INT2-integration-original-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install original shared PNG and game state test dependencies
+        run: python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+      - name: Re-run all original and H3 H4 integrated regression tests without exclusions
+        run: python -m unittest discover -s tests/integration -p 'test_*.py' -v
+
+  complete-INT3-knowledge-original-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install original knowledge and native state evidence dependencies
+        run: python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+      - name: Re-run all original and newer knowledge regression tests without exclusions
+        run: python -m unittest discover -s tests/knowledge -p 'test_*.py' -v
+
+  independent-H06-source-after-both-suites-success:
+    needs:
+      - complete-INT2-integration-original-tests
+      - complete-INT3-knowledge-original-tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify five PR73 exact Git blob fixes and original H1/H3 evidence source
+        run: |
+          python scripts/integration/build_int4_h4_h06_ci_integrated_source_audit.py
+      - name: Byte-exact deterministic replay of CI source metadata
+        run: |
+          python scripts/integration/build_int4_h4_h06_ci_integrated_source_audit.py --verify
+      - name: Reconfirm H06 only CI, H05 F70 original PNG and full exit limitations
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('project/integration/INT4_H4_H06_CI_ENVIRONMENT_INTEGRATED_SOURCE_AUDIT_V1.json')
+          j=json.loads(p.read_text())
+          assert j['status']=='PASS_PR73_FIVE_EXACT_FIXES_PRESENT_ON_H3_STACK_H4_FULL_SUITES_RUN_SEPARATELY'
+          assert len(j['verified_original_PR73_fixed_workflows'])==5
+          assert all(x['original_PR73_exact_file_sha_matched'] is True
+                     for x in j['verified_original_PR73_fixed_workflows'].values())
+          assert j['H3_original_archive_20_and_PNG_91_sha_accepted'] is True
+          for k in ('F_unconditional_final_approved','G_unconditional_final_approved',
+                    'H_full_exit_approved','INT5_semantics_approved','INT6_rights_approved'):
+            assert j[k]==0,k
+          print('PASS H06 original all-integration and all-knowledge unit suites, exact five PR73 files')
+          PY
+          git diff --check
+      - name: Archive only audit output, not any third-party assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h4-h06-integrated-five-fixes-two-complete-shared-test-suites
+          retention-days: 45
+          path: |
+            project/integration/INT4_H4_H06_CI_ENVIRONMENT_INTEGRATED_SOURCE_AUDIT_V1.json
+            project/integration/INT4_H4_H06_CI_ENVIRONMENT_INTEGRATION_REPORT_V1.md
+      - name: Commit CI evidence metadata on stacked Draft branch only
+        if: success() && github.ref == 'refs/heads/work/int4-h4-h06-ci-full-suite-independent-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_H4_H06_CI_ENVIRONMENT_INTEGRATED_SOURCE_AUDIT_V1.json \
+                  project/integration/INT4_H4_H06_CI_ENVIRONMENT_INTEGRATION_REPORT_V1.md
+          if git diff --cached --quiet; then echo "Unchanged H06 integration proof"; else
+            git commit -m "INT-4-H4 병렬 5개 CI 복구와 전체 INT2/INT3 공유 회귀시험 통합 검증"
+            git push origin HEAD:refs/heads/work/int4-h4-h06-ci-full-suite-independent-20261123
+          fi
