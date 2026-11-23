@@ -1,0 +1,348 @@
+{
+  "INT5_part_semantics_approved": 0,
+  "INT6_AI_training_or_redistribution_rights_approved": 0,
+  "client_log_sha256": "f27c01c352a17f0b191aa7fcd1e38a82989f7fa83778f7244904d784bcfee56e",
+  "full_F_approved": 0,
+  "limitations": [
+    "Two-model V03 fence and seven-model V08 chiseled bookshelf source multipart selected in official client.",
+    "V03 northern neighbor was a real placed fence block but natural gameplay updates outside this trial not proven.",
+    "V08 inventory contents, actual book insertion, pixel UV and item rendering not approved.",
+    "V06 open=true /setblock verified, but player-driven opening, inventory and behavior not tested.",
+    "V04 pressure plate power dynamics and V09 white wool semantic roles not approved.",
+    "PNG and client log SHA does not prove image causal or AI asset redistribution rights."
+  ],
+  "native_F2_sha256": {
+    "V03": "c07832bdb22a4607c0aed1d8f2126c6ba44c30f782eb1d336712d13dca930d14",
+    "V04": "b3a55d0c64dccc44a50ccc3cef29913f4def4db4ed161c4ebdce484cfb33da61",
+    "V06": "e8a29987326a8c8858ceb35fe3b82c0c8673d5b59c56c71ff6f0c8f515f5d73a",
+    "V08": "31b90aceb3888b76f401a5584f659f9636111525fe433acb8a2658d60f4386b9",
+    "V09": "16d933f35ee8264c5d6ea798a16cf69830ed12610abe1a4f18a2eab3d4ac0392"
+  },
+  "native_F2_visible_pixel_counts": {
+    "V03": {
+      "chroma": 1862,
+      "neutral_white": 0
+    },
+    "V04": {
+      "chroma": 2778,
+      "neutral_white": 0
+    },
+    "V06": {
+      "chroma": 7699,
+      "neutral_white": 0
+    },
+    "V08": {
+      "chroma": 8308,
+      "neutral_white": 0
+    },
+    "V09": {
+      "chroma": 0,
+      "neutral_white": 2958
+    }
+  },
+  "official_client_sha1": "ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd",
+  "official_client_sha256": "1473c9489ac50fda3c435049a76a70d61a10b8610db27f5ba9d8756b686cd3bd",
+  "original_applications_source_sha256": "da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e",
+  "original_historical_case_ids": [
+    "V03",
+    "V04",
+    "V06",
+    "V08",
+    "V09"
+  ],
+  "original_model_applications": 12,
+  "original_source_elements": 13,
+  "original_source_faces": 45,
+  "real_game_native_F2_count": 5,
+  "real_game_server_exact_states": 5,
+  "schema": "MCFR_INT4_F11B_FIVE_VANILLA_MULTIPART_SOURCE_F2/v1",
+  "source_cases": {
+    "V03": {
+      "blockstate_git_blob_sha1": "394851e1883d0bda305aa0b47b04b0e04716200a",
+      "blockstate_path": "assets/minecraft/blockstates/oak_fence.json",
+      "elements": 3,
+      "faces": 16,
+      "multipart_source": true,
+      "original_applications": [
+        {
+          "elements": 1,
+          "faces": 6,
+          "model_git_blob_sha1": "e05dc4ae309d60b31488d6fb9d3793bf495c92f5",
+          "model_path": "assets/minecraft/models/block/oak_fence_post.json",
+          "model_uvlock": 0,
+          "model_x": 0,
+          "model_y": 0,
+          "official_parent_chain_git_blob_sha1": [
+            {
+              "git_blob_sha1": "4f6a7438647518cf3c2aada17462be1260dd86d2",
+              "path": "assets/minecraft/models/block/fence_post.json"
+            }
+          ],
+          "original_option_index": 0,
+          "original_rule_index": 0,
+          "provider_git_blob_sha1": "4f6a7438647518cf3c2aada17462be1260dd86d2",
+          "provider_path": "assets/minecraft/models/block/fence_post.json"
+        },
+        {
+          "elements": 2,
+          "faces": 10,
+          "model_git_blob_sha1": "fe4ed99e0deb7af04f3494469d0b65a753e5a80e",
+          "model_path": "assets/minecraft/models/block/oak_fence_side.json",
+          "model_uvlock": 1,
+          "model_x": 0,
+          "model_y": 0,
+          "official_parent_chain_git_blob_sha1": [
+            {
+              "git_blob_sha1": "7145349ba783848e35d4786db6bed22b77ff5e51",
+              "path": "assets/minecraft/models/block/fence_side.json"
+            }
+          ],
+          "original_option_index": 0,
+          "original_rule_index": 1,
+          "provider_git_blob_sha1": "7145349ba783848e35d4786db6bed22b77ff5e51",
+          "provider_path": "assets/minecraft/models/block/fence_side.json"
+        }
+      ],
+      "original_state": "minecraft:oak_fence[east=false,north=true,south=false,west=false]",
+      "selected_model_application_count": 2
+    },
+    "V04": {
+      "blockstate_git_blob_sha1": "6ecbfbc5fd703b033e05ff61fa05bb96be2afc30",
+      "blockstate_path": "assets/minecraft/blockstates/oak_pressure_plate.json",
+      "elements": 1,
+      "faces": 6,
+      "multipart_source": false,
+      "original_applications": [
+        {
+          "elements": 1,
+          "faces": 6,
+          "model_git_blob_sha1": "3fb5dd7c91d1c9de7e7938c5db23282a22840421",
+          "model_path": "assets/minecraft/models/block/oak_pressure_plate.json",
+          "model_uvlock": 0,
+          "model_x": 0,
+          "model_y": 0,
+          "official_parent_chain_git_blob_sha1": [
+            {
+              "git_blob_sha1": "689fbe4f968231325862003e5730c845592250fb",
+              "path": "assets/minecraft/models/block/pressure_plate_up.json"
+            }
+          ],
+          "original_option_index": 0,
+          "original_rule_index": 0,
+          "provider_git_blob_sha1": "689fbe4f968231325862003e5730c845592250fb",
+          "provider_path": "assets/minecraft/models/block/pressure_plate_up.json"
+        }
+      ],
+      "original_state": "minecraft:oak_pressure_plate[powered=false]",
+      "selected_model_application_count": 1
+    },
+    "V06": {
+      "blockstate_git_blob_sha1": "3ed4f4061207cfaa7860fbc67a6697d701ca22cb",
+      "blockstate_path": "assets/minecraft/blockstates/barrel.json",
+      "elements": 1,
+      "faces": 6,
+      "multipart_source": false,
+      "original_applications": [
+        {
+          "elements": 1,
+          "faces": 6,
+          "model_git_blob_sha1": "c7d013e7b442624011ab4a0bef8b4e9ac5570ea9",
+          "model_path": "assets/minecraft/models/block/barrel_open.json",
+          "model_uvlock": 0,
+          "model_x": 90,
+          "model_y": 0,
+          "official_parent_chain_git_blob_sha1": [
+            {
+              "git_blob_sha1": "4c610597880f4593c7b6e62d7da0feb95dac5b8f",
+              "path": "assets/minecraft/models/block/cube_bottom_top.json"
+            },
+            {
+              "git_blob_sha1": "1b9780b479aee527f79bde950656b82f1524128b",
+              "path": "assets/minecraft/models/block/cube.json"
+            }
+          ],
+          "original_option_index": 0,
+          "original_rule_index": 5,
+          "provider_git_blob_sha1": "1b9780b479aee527f79bde950656b82f1524128b",
+          "provider_path": "assets/minecraft/models/block/cube.json"
+        }
+      ],
+      "original_state": "minecraft:barrel[facing=north,open=true]",
+      "selected_model_application_count": 1
+    },
+    "V08": {
+      "blockstate_git_blob_sha1": "0c9b22b91093c4dfe3510a9a6aebe291df491e39",
+      "blockstate_path": "assets/minecraft/blockstates/chiseled_bookshelf.json",
+      "elements": 7,
+      "faces": 11,
+      "multipart_source": true,
+      "original_applications": [
+        {
+          "elements": 1,
+          "faces": 5,
+          "model_git_blob_sha1": "a9bda72e10095343fb80de2bc4654212a1dc6834",
+          "model_path": "assets/minecraft/models/block/chiseled_bookshelf.json",
+          "model_uvlock": 1,
+          "model_x": 0,
+          "model_y": 0,
+          "official_parent_chain_git_blob_sha1": [],
+          "original_option_index": 0,
+          "original_rule_index": 0,
+          "provider_git_blob_sha1": "a9bda72e10095343fb80de2bc4654212a1dc6834",
+          "provider_path": "assets/minecraft/models/block/chiseled_bookshelf.json"
+        },
+        {
+          "elements": 1,
+          "faces": 1,
+          "model_git_blob_sha1": "85331c01dedeb9d94a1dde20212e93705acdead1",
+          "model_path": "assets/minecraft/models/block/chiseled_bookshelf_occupied_slot_top_left.json",
+          "model_uvlock": 0,
+          "model_x": 0,
+          "model_y": 0,
+          "official_parent_chain_git_blob_sha1": [
+            {
+              "git_blob_sha1": "da9fc59136a95d14a3fbe5eb363564b8fa45bf36",
+              "path": "assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_left.json"
+            }
+          ],
+          "original_option_index": 0,
+          "original_rule_index": 1,
+          "provider_git_blob_sha1": "da9fc59136a95d14a3fbe5eb363564b8fa45bf36",
+          "provider_path": "assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_left.json"
+        },
+        {
+          "elements": 1,
+          "faces": 1,
+          "model_git_blob_sha1": "19f44bc16e3f638acc0c79990bd80b4d3a0e8204",
+          "model_path": "assets/minecraft/models/block/chiseled_bookshelf_empty_slot_top_mid.json",
+          "model_uvlock": 0,
+          "model_x": 0,
+          "model_y": 0,
+          "official_parent_chain_git_blob_sha1": [
+            {
+              "git_blob_sha1": "25cc8308d67d6223d455f6fca170a936208139fa",
+              "path": "assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_mid.json"
+            }
+          ],
+          "original_option_index": 0,
+          "original_rule_index": 4,
+          "provider_git_blob_sha1": "25cc8308d67d6223d455f6fca170a936208139fa",
+          "provider_path": "assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_mid.json"
+        },
+        {
+          "elements": 1,
+          "faces": 1,
+          "model_git_blob_sha1": "778d8873bab8c8adf352caf29d39e0dce1f35f6a",
+          "model_path": "assets/minecraft/models/block/chiseled_bookshelf_empty_slot_top_right.json",
+          "model_uvlock": 0,
+          "model_x": 0,
+          "model_y": 0,
+          "official_parent_chain_git_blob_sha1": [
+            {
+              "git_blob_sha1": "077f1276e833d2d58f6e86ae590bfd3899717c91",
+              "path": "assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_right.json"
+            }
+          ],
+          "original_option_index": 0,
+          "original_rule_index": 6,
+          "provider_git_blob_sha1": "077f1276e833d2d58f6e86ae590bfd3899717c91",
+          "provider_path": "assets/minecraft/models/block/template_chiseled_bookshelf_slot_top_right.json"
+        },
+        {
+          "elements": 1,
+          "faces": 1,
+          "model_git_blob_sha1": "1d68ce3b8781df62d71408e213ffc964ea78eac0",
+          "model_path": "assets/minecraft/models/block/chiseled_bookshelf_empty_slot_bottom_left.json",
+          "model_uvlock": 0,
+          "model_x": 0,
+          "model_y": 0,
+          "official_parent_chain_git_blob_sha1": [
+            {
+              "git_blob_sha1": "f224a1e88c819aa824c4cbe871f2b13a158a15ef",
+              "path": "assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_left.json"
+            }
+          ],
+          "original_option_index": 0,
+          "original_rule_index": 8,
+          "provider_git_blob_sha1": "f224a1e88c819aa824c4cbe871f2b13a158a15ef",
+          "provider_path": "assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_left.json"
+        },
+        {
+          "elements": 1,
+          "faces": 1,
+          "model_git_blob_sha1": "b3a2dc572b2577f999498e80e4bc73d2208faaa4",
+          "model_path": "assets/minecraft/models/block/chiseled_bookshelf_empty_slot_bottom_mid.json",
+          "model_uvlock": 0,
+          "model_x": 0,
+          "model_y": 0,
+          "official_parent_chain_git_blob_sha1": [
+            {
+              "git_blob_sha1": "a1c54d921e6568eea038e0eac82d6bcaf136eff1",
+              "path": "assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_mid.json"
+            }
+          ],
+          "original_option_index": 0,
+          "original_rule_index": 10,
+          "provider_git_blob_sha1": "a1c54d921e6568eea038e0eac82d6bcaf136eff1",
+          "provider_path": "assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_mid.json"
+        },
+        {
+          "elements": 1,
+          "faces": 1,
+          "model_git_blob_sha1": "8fb59f5eda248adc3f7fa98850132684375faff8",
+          "model_path": "assets/minecraft/models/block/chiseled_bookshelf_empty_slot_bottom_right.json",
+          "model_uvlock": 0,
+          "model_x": 0,
+          "model_y": 0,
+          "official_parent_chain_git_blob_sha1": [
+            {
+              "git_blob_sha1": "5acdabdfa5ed0815ad7c0c588f19cea8dd5e8644",
+              "path": "assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_right.json"
+            }
+          ],
+          "original_option_index": 0,
+          "original_rule_index": 12,
+          "provider_git_blob_sha1": "5acdabdfa5ed0815ad7c0c588f19cea8dd5e8644",
+          "provider_path": "assets/minecraft/models/block/template_chiseled_bookshelf_slot_bottom_right.json"
+        }
+      ],
+      "original_state": "minecraft:chiseled_bookshelf[facing=north,slot_0_occupied=true,slot_1_occupied=false,slot_2_occupied=false,slot_3_occupied=false,slot_4_occupied=false,slot_5_occupied=false]",
+      "selected_model_application_count": 7
+    },
+    "V09": {
+      "blockstate_git_blob_sha1": "3c23fc0931b6dd1c3f802886656037743684761c",
+      "blockstate_path": "assets/minecraft/blockstates/white_wool.json",
+      "elements": 1,
+      "faces": 6,
+      "multipart_source": false,
+      "original_applications": [
+        {
+          "elements": 1,
+          "faces": 6,
+          "model_git_blob_sha1": "8af86fa1b32d212d3305005ecaf0934280f87344",
+          "model_path": "assets/minecraft/models/block/white_wool.json",
+          "model_uvlock": 0,
+          "model_x": 0,
+          "model_y": 0,
+          "official_parent_chain_git_blob_sha1": [
+            {
+              "git_blob_sha1": "fa2f9e776173224b2b523b8b537c695b921267f6",
+              "path": "assets/minecraft/models/block/cube_all.json"
+            },
+            {
+              "git_blob_sha1": "1b9780b479aee527f79bde950656b82f1524128b",
+              "path": "assets/minecraft/models/block/cube.json"
+            }
+          ],
+          "original_option_index": 0,
+          "original_rule_index": 0,
+          "provider_git_blob_sha1": "1b9780b479aee527f79bde950656b82f1524128b",
+          "provider_path": "assets/minecraft/models/block/cube.json"
+        }
+      ],
+      "original_state": "minecraft:white_wool",
+      "selected_model_application_count": 1
+    }
+  },
+  "status": "PASS_FIVE_VANILLA_MULTIPART_12111_EXACT_STATE_NATIVE_F2_NOT_FINAL"
+}
