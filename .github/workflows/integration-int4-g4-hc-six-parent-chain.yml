@@ -1,0 +1,109 @@
+name: INT-4-G4 six HC base models original Git and 16572 parent-chain census
+
+on:
+  push:
+    branches:
+      - work/int4-g4-hc-six-base-parent-chain-audit-20261123
+    paths:
+      - scripts/integration/build_int4_g4_hc_six_base_parent_chain.py
+      - tests/integration/test_int4_g4_hc_six_base_parent_chain.py
+      - .github/workflows/integration-int4-g4-hc-six-parent-chain.yml
+
+permissions:
+  contents: write
+
+jobs:
+  original-HC-Git-six-source-parent-chain-full-join:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 24
+    steps:
+      - name: Read previous committed G3 and original research chain evidence
+        uses: actions/checkout@v4
+
+      - name: Python 3.12 for exact original SHA and full source census
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Verify original source pins, denominator, and non-approval gates
+        run: |
+          python -m unittest discover -s tests/integration \
+            -p 'test_int4_g4_hc_six_base_parent_chain.py' -v
+
+      - name: Reopen original 8d21 Handcrafted six base JSON and pinned 16572 ancestry records
+        run: |
+          python scripts/integration/build_int4_g4_hc_six_base_parent_chain.py \
+            --cache "$RUNNER_TEMP/g4-original-HC-8d21-six"
+
+      - name: "Deterministic second pass: parent/descendant and D selection results must be unchanged"
+        run: |
+          python scripts/integration/build_int4_g4_hc_six_base_parent_chain.py \
+            --cache "$RUNNER_TEMP/g4-original-HC-8d21-six" --verify
+
+      - name: Independent six model SHA, source decisions and descendant linkage audit
+        run: |
+          python - <<'PY'
+          import csv,gzip,hashlib,json
+          from pathlib import Path
+          root=Path('project/integration')
+          j=json.loads((root/'INT4_G4_HC6_PARENT_CHAIN_AND_ORIGINAL_GIT_AUDIT_V1.json').read_text(encoding='utf-8'))
+          assert j['status']=='PASS_ORIGINAL_HC_GIT_SIX_EMPTY_GUI_BASE_MODELS_REVIEWED_PARENT_CHILD_SCOPE'
+          assert j['original_HC_Git_commit']=='8d21d1665916850c3fa3bdaf1370c50ec2ca7035'
+          assert j['original_parent_chain_rows']==16572
+          assert j['original_HC_model_paths']==12394
+          assert j['original_D_option_rows']==78456
+          assert j['local_model_D_selected_options']==78420
+          assert j['six_source_base_model_count']==6
+          assert len(j['six_original_HC_base_model_git_sha1'])==6
+          assert set(j['six_original_HC_base_model_git_sha1'])=={'HC1','HC2','HC3','HC4','HC5','HC6'}
+          assert sum(j['base_scope_disposition_counts'].values())==6
+          assert all(x['base_own_static_elements']==0 for x in j['bases'])
+          assert j['source_static_scope_verified'] is True
+          assert j['G4_game_runtime_or_baked_UV_approved'] is False
+          for item in ('G_final_approved','H_final_approved','INT5_part_semantics_approved',
+                       'INT6_training_or_redistribution_rights_approved'):
+            assert j[item]==0,item
+          for file,n in [
+            ('INT4_G4_HC6_BASE_SOURCE_PARENT_DISPOSITIONS_V1.csv',6),
+            ('INT4_G4_HC6_DESCENDANT_PARENT_EVIDENCE_V1.csv.gz',j['base_descendant_total_pairs'])
+          ]:
+            blob=(root/file).read_bytes()
+            assert hashlib.sha256(blob).hexdigest()==j['outputs'][file]['sha256']
+            if file.endswith('.gz'):
+              with gzip.open(root/file,'rt',encoding='utf-8') as f:
+                count=sum(1 for _ in csv.DictReader(f))
+            else:
+              with (root/file).open(encoding='utf-8') as f:
+                count=sum(1 for _ in csv.DictReader(f))
+            assert count==n,(file,count,n)
+          print('PASS G4 six original HC Git parent bases, static descendants, G/H final approved 0')
+          PY
+          git diff --check
+
+      - name: Upload only derived model parent evidence, never original author model assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-g4-hc-six-empty-display-parent-original-source-census
+          retention-days: 45
+          path: |
+            project/integration/INT4_G4_HC6_BASE_SOURCE_PARENT_DISPOSITIONS_V1.csv
+            project/integration/INT4_G4_HC6_DESCENDANT_PARENT_EVIDENCE_V1.csv.gz
+            project/integration/INT4_G4_HC6_PARENT_CHAIN_AND_ORIGINAL_GIT_AUDIT_V1.json
+            project/integration/INT4_G4_HC_SIX_BASE_PARENT_SCOPE_REPORT_V1.md
+
+      - name: Commit verified derived metadata to G4 Draft PR branch, not main
+        if: success() && github.ref == 'refs/heads/work/int4-g4-hc-six-base-parent-chain-audit-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_G4_HC6_BASE_SOURCE_PARENT_DISPOSITIONS_V1.csv \
+                  project/integration/INT4_G4_HC6_DESCENDANT_PARENT_EVIDENCE_V1.csv.gz \
+                  project/integration/INT4_G4_HC6_PARENT_CHAIN_AND_ORIGINAL_GIT_AUDIT_V1.json \
+                  project/integration/INT4_G4_HC_SIX_BASE_PARENT_SCOPE_REPORT_V1.md
+          if git diff --cached --quiet; then
+            echo "No source-derived result changes"
+          else
+            git commit -m "INT-4-G4 Handcrafted 6개 GUI 부모 템플릿과 자손 모델·정적 선택 원본 검증"
+            git push origin HEAD:refs/heads/work/int4-g4-hc-six-base-parent-chain-audit-20261123
+          fi
