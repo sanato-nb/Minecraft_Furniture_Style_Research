@@ -86,13 +86,48 @@ def validate_source_targets(version,mod_dir,selected_cases=None,expected_case_mo
     return choices,pinned
 
 def send_minecraft_command(xdo, command_line, pause=sleep):
-    """Open the vanilla command box directly, avoiding chat-focus timing races."""
+    """Use the proven chat-input path; command acknowledgement is checked separately."""
     if not command_line.startswith("/") or len(command_line)<2:
         raise ValueError("Minecraft GUI command must start with /")
-    xdo("key","--clearmodifiers","slash")
-    pause(0.45)
-    xdo("type","--clearmodifiers","--delay","14",command_line[1:])
+    xdo("key","--clearmodifiers","t")
+    pause(0.40)
+    xdo("type","--clearmodifiers","--delay","14",command_line)
     xdo("key","--clearmodifiers","Return")
+
+
+def confirmed_spectator_mode(proc, textlog, command_text, refocus,
+                             pause=sleep, waiter=wait_for):
+    """Prove that X11 keyboard commands reach the integrated server before camera work."""
+    marker="[RenderAudit: Set own game mode to Spectator Mode]"
+    for attempt, timeout in enumerate((14, 20), start=1):
+        refocus()
+        checkpoint=len(textlog())
+        command_text("/gamemode spectator")
+        try:
+            waiter(proc,lambda: marker in textlog()[checkpoint:],
+                   "original-source chair spectator command acknowledgement",timeout)
+        except ValueError as exc:
+            if not str(exc).startswith("Timed out waiting for"):
+                raise
+            if attempt==2:
+                raise ValueError(
+                    "Spectator command did not reach a logged server acknowledgement "
+                    "after two focused GUI attempts; camera/F2 cannot be approved."
+                ) from exc
+            print("INT3_SPECTATOR_GUI_ACK_MISSING: one focused retry",flush=True)
+            continue
+        pause(0.8)
+        return
+
+
+def archive_gui_diagnostic(output, label):
+    """Keep a disposable GUI screenshot only in the Actions artifact on failure."""
+    try:
+        from PIL import ImageGrab
+        ImageGrab.grab().save(output/("INT3_GUI_DIAGNOSTIC_"+label+".png"))
+        print("INT3_GUI_DIAGNOSTIC_SAVED: "+label,flush=True)
+    except Exception as exc:
+        print("INT3_GUI_DIAGNOSTIC_UNAVAILABLE: "+repr(exc),flush=True)
 
 
 def confirmed_camera_teleport(proc, textlog, command_text, refocus, pos,
@@ -147,10 +182,15 @@ def capture_chairs(command,env,game,output,version,selected_cases=None,
                 ["xdotool",*parts],env=env,timeout=15,text=True).strip()
         def command_text(command_line):
             send_minecraft_command(xdo,command_line)
+        def refocus():
+            xdo("windowactivate","--sync",windows[0])
+            xdo("windowfocus","--sync",windows[0])
         def camera_at(pos):
-            confirmed_camera_teleport(
-                proc,textlog,command_text,
-                lambda:xdo("windowfocus","--sync",windows[0]),pos)
+            try:
+                confirmed_camera_teleport(proc,textlog,command_text,refocus,pos)
+            except ValueError:
+                archive_gui_diagnostic(output,"CAMERA_ACK_FAILURE")
+                raise
         try:
             wait_for(proc,lambda:"RenderAudit joined the game" in textlog(),
                      "original test world first client load",135)
@@ -159,8 +199,11 @@ def capture_chairs(command,env,game,output,version,selected_cases=None,
                 raise ValueError("Exactly one actual Minecraft client window was required")
             xdo("windowfocus","--sync",windows[0])
             sleep(1.5)
-            command_text("/gamemode spectator")
-            sleep(0.8)
+            try:
+                confirmed_spectator_mode(proc,textlog,command_text,refocus)
+            except ValueError:
+                archive_gui_diagnostic(output,"SPECTATOR_ACK_FAILURE")
+                raise
             camera_at("0.5 124 42.5 180 20")
             command_text("/function mcfr_chair:place")
             wait_for(proc,lambda:"[RenderAudit] MCFR_CHAIR_PLACED" in textlog(),
