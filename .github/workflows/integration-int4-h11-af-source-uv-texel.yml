@@ -1,0 +1,111 @@
+name: INT-4-H11 AF chair source face UV vs 54 changed texture texels
+
+on:
+  push:
+    branches:
+      - work/int4-h11-af-chair-variant3-uv-texel-source-20261123
+    paths:
+      - scripts/integration/build_int4_h11_af_variant3_uv_texel_source.py
+      - tests/integration/test_int4_h11_af_variant3_uv_texel_source.py
+      - .github/workflows/integration-int4-h11-af-source-uv-texel.yml
+
+permissions:
+  contents: write
+
+jobs:
+  source-face-UV-texel-overlap:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 23
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install only image decoder needed for original 16 by 16 PNG
+        run: python -m pip install 'Pillow>=10,<13'
+
+      - name: Regress source provenance, UV rectangles, 54 original image texels
+        run: |
+          python -m unittest discover -s tests/integration -p 'test_int4_h11_af_variant3_uv_texel_source.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_af_variant3_texture_audit.py' -v
+
+      - name: Reopen pinned Another Furniture Git original files and compare all changed source faces
+        timeout-minutes: 8
+        run: |
+          python scripts/integration/build_int4_h11_af_variant3_uv_texel_source.py
+
+      - name: Recalculate all derived source UV records deterministically
+        timeout-minutes: 8
+        run: |
+          python scripts/integration/build_int4_h11_af_variant3_uv_texel_source.py --verify
+
+      - name: Validate 12 source faces and original status never implies GPU or gameplay proof
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json
+          from pathlib import Path
+          r=Path('project/integration')
+          d=json.loads((r/'INT4_H11_AF_VARIANT3_SOURCE_UV_TEXEL_AUDIT_V1.json').read_text())
+          assert d['status']=='PASS_12_CHANGED_SOURCE_FACES_UV_TEXEL_COVERAGE_WITHOUT_GPU_CAUSAL_APPROVAL'
+          c=d['counts']
+          assert (c['source_blockstate_selectors'],c['variant3_direction_selectors'])==(88,4)
+          assert c['south_only_acacia_1_discontinuities']==1
+          assert (c['equal_inherited_elements_each'],c['equal_inherited_faces_each'])==(10,46)
+          assert (c['face_texture_bindings_changed'],c['face_texture_bindings_same'])==(12,34)
+          assert c['different_original_back_texture_RGBA_texels']==54
+          assert c['changed_texels_in_union_of_12_face_UV_footprints']<=54
+          assert c['different_texels_outside_changed_face_UV_footprints']+c['changed_texels_in_union_of_12_face_UV_footprints']==54
+          assert 0<=c['changed_binding_faces_with_any_different_texel']<=12
+          assert c['original_R07_game_F2_case_refs_reused']==4
+          assert c['distinct_original_R07_game_executions']==1
+          assert c['new_real_Minecraft_executions']==0
+          assert c['F70_conditionally_evidenced']==70 and c['F70_unconditional_approvals']==0
+          assert c['H03_full_exit']==0 and c['H05_full_exit']==0
+          assert c['INT5_parts_semantics_approved']==0 and c['INT6_training_rights_approved']==0
+          for path,expected_count in [
+              ('INT4_H11_AF_VARIANT3_12_FACE_UV_TEXEL_COVERAGE_V1.csv',12),
+              ('INT4_H11_AF_VARIANT3_4_DIRECTION_MODEL_SELECTORS_V1.csv',4)
+          ]:
+            rows=list(csv.DictReader((r/path).open(encoding='utf-8',newline='')))
+            assert len(rows)==expected_count
+            assert hashlib.sha256((r/path).read_bytes()).hexdigest()==d['output_sha256']['project/integration/'+path]
+          print('PASS original AF 12 faces, original 54 texture differences, no GPU F/H approval')
+          PY
+          git diff --check
+
+      - name: Preserve derived texture UV research without original mod assets
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h11-af-variant3-12-face-uv-54-texel-source-only
+          retention-days: 45
+          if-no-files-found: warn
+          path: |
+            project/integration/INT4_H11_AF_VARIANT3_12_FACE_UV_TEXEL_COVERAGE_V1.csv
+            project/integration/INT4_H11_AF_VARIANT3_4_DIRECTION_MODEL_SELECTORS_V1.csv
+            project/integration/INT4_H11_AF_VARIANT3_SOURCE_UV_TEXEL_AUDIT_V1.json
+            project/integration/INT4_H11_AF_VARIANT3_MODEL_TEXTURE_UV_RESEARCH_V1.md
+
+      - name: Commit derived metadata using safe fast-forward rebase; never overwrite source or main
+        if: success() && github.ref == 'refs/heads/work/int4-h11-af-chair-variant3-uv-texel-source-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_H11_AF_VARIANT3_12_FACE_UV_TEXEL_COVERAGE_V1.csv \
+                  project/integration/INT4_H11_AF_VARIANT3_4_DIRECTION_MODEL_SELECTORS_V1.csv \
+                  project/integration/INT4_H11_AF_VARIANT3_SOURCE_UV_TEXEL_AUDIT_V1.json \
+                  project/integration/INT4_H11_AF_VARIANT3_MODEL_TEXTURE_UV_RESEARCH_V1.md
+          if git diff --cached --quiet; then
+            echo "No changed data"
+          else
+            git commit -m "INT-4-H11 의자 variant3 12면 UV·원본 텍셀 겹침 증거 재연구"
+            git fetch origin work/int4-h11-af-chair-variant3-uv-texel-source-20261123
+            git rebase origin/work/int4-h11-af-chair-variant3-uv-texel-source-20261123
+            git push origin HEAD:refs/heads/work/int4-h11-af-chair-variant3-uv-texel-source-20261123
+          fi
