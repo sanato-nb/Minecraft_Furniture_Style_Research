@@ -179,9 +179,13 @@ def capture(command, env, game, output, version):
                     name=label(view,stage)
                     state=stage_state(stage)
                     x,y,z=BLOCK_XYZ
-                    acknowledge(f"/setblock {x} {y} {z} {state}",
-                               "[RenderAudit: Changed the block at",
-                               "new model stage "+name)
+                    if not (view == "south" and stage == "model1_before"):
+                        # The original pinned world pack already placed this exact
+                        # model. /setblock with an unchanged state may yield no
+                        # "Changed" acknowledgement in the actual server.
+                        acknowledge(f"/setblock {x} {y} {z} {state}",
+                                    "[RenderAudit: Changed the block at",
+                                    "new model stage "+name)
                     exact(view,stage)
                     sleep(5)
                     screenshot=h12.screenshot(xdo,window,screenshots,destination,name,{"proc":proc})
