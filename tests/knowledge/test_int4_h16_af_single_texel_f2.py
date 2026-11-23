@@ -40,14 +40,13 @@ def stub_game(root,raw):
 class H16SourceOneTexel(unittest.TestCase):
     def test_pinned_version_and_target_are_opaque(self):
         self.assertEqual(h16.VERSION,"1.21.1")
-        self.assertEqual(h16.PACK_FORMAT,34)
         self.assertEqual(h16.TARGET,(3,1))
         self.assertEqual(h16.SOURCE_RGBA,(173,93,50,255))
         self.assertEqual(h16.PROBE_RGBA,(255,0,255,255))
         self.assertEqual(h16.CAMERAS,h15.EXPECTED_CAMERAS)
         self.assertEqual(len(h16.VIEWS)*len(h16.STAGES),6)
 
-    def test_writes_one_temp_pixel_only_original_mod_unchanged(self):
+    def test_writes_exactly_one_texel_to_temporary_test_jar(self):
         raw=source_png()
         with tempfile.TemporaryDirectory() as td:
             jar=stub_game(td,raw)
@@ -56,21 +55,21 @@ class H16SourceOneTexel(unittest.TestCase):
                  patch.object(h12,"JAR_SHA1",original_jar_sha), \
                  patch.object(h16,"TEX_BLOB_PIN",h16.blob(raw)):
                 doc=h16.prepare_one_texel_probe(Path(td))
-            self.assertEqual(doc["RGBA_texels_modified"],1)
-            self.assertTrue(doc["original_jar_remains_byte_identical"])
+            self.assertEqual(doc["source_RGBA_texels_modified"],1)
+            self.assertTrue(doc["official_source_JAR_verified_before_patch"])
+            self.assertTrue(doc["all_other_ZIP_member_bytes_unchanged"])
             self.assertEqual(doc["original_texel_xy"],[3,1])
-            self.assertEqual(doc["new_texel_rgba"],[255,0,255,255])
-            self.assertEqual(hashlib.sha1(jar.read_bytes()).hexdigest(),original_jar_sha)
-            opt=(Path(td)/"options.txt").read_text()
-            self.assertIn("file/"+h16.PACK_NAME,opt)
-            pack=Path(td)/"resourcepacks"/h16.PACK_NAME
-            self.assertEqual(json.loads((pack/"pack.mcmeta").read_text())["pack"]["pack_format"],34)
-            with Image.open(pack/h16.TEX_REL) as new:
-                new=new.convert("RGBA")
-                with Image.open(io.BytesIO(raw)) as old:
-                    old=old.convert("RGBA")
-                    diffs=sum(new.getpixel((x,y))!=old.getpixel((x,y))
-                              for x in range(16) for y in range(16))
+            self.assertEqual(doc["modified_texel_rgba"],[255,0,255,255])
+            self.assertNotEqual(hashlib.sha1(jar.read_bytes()).hexdigest(),original_jar_sha)
+            self.assertEqual(hashlib.sha1(jar.read_bytes()).hexdigest(),
+                             doc["ephemeral_runtime_test_jar_sha1"])
+            self.assertNotIn("resourcePacks:",(Path(td)/"options.txt").read_text())
+            with ZipFile(jar) as z:
+                new=Image.open(io.BytesIO(z.read(h16.TEX_REL))).convert("RGBA")
+            with Image.open(io.BytesIO(raw)) as orig:
+                old=orig.convert("RGBA")
+                diffs=sum(new.getpixel((x,y))!=old.getpixel((x,y))
+                          for x in range(16) for y in range(16))
             self.assertEqual(diffs,1)
             self.assertEqual(new.getpixel(h16.TARGET),h16.PROBE_RGBA)
 
@@ -83,12 +82,11 @@ class H16SourceOneTexel(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError,"JAR_SHA_MISMATCH"):
                     h16.prepare_one_texel_probe(Path(td))
 
-    def test_no_faked_pack_activation_from_options_alone(self):
-        with self.assertRaisesRegex(ValueError,"NOT_LOADED"):
-            h16.assert_resource_pack_loaded(
-                "options resourcePacks selected file/"+h16.PACK_NAME)
-        valid="[Render thread/INFO]: Reloading ResourceManager: vanilla, fabric, file/"+h16.PACK_NAME
-        self.assertEqual(len(h16.assert_resource_pack_loaded(valid)),64)
+    def test_af_mod_reload_marker_does_not_claim_exact_texel_sampling(self):
+        with self.assertRaisesRegex(ValueError,"AF_MOD_NOT_LOADED"):
+            h16.assert_patched_mod_loaded("options resourcePacks selected file/test")
+        valid="[Render thread/INFO]: Reloading ResourceManager: vanilla, fabric, another_furniture"
+        self.assertEqual(len(h16.assert_patched_mod_loaded(valid)),64)
 
     def test_original_6_cases_same_facing_and_no_extra_mutation(self):
         self.assertEqual(h16.STAGES,("model1_before","model3","model1_after"))
