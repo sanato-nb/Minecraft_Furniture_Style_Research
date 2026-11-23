@@ -1,0 +1,116 @@
+name: INT-4-G5 independent source-scoped dispositions across five distinct fixed populations
+
+on:
+  push:
+    branches:
+      - work/int4-g5-four-populations-final-scoped-dispositions-20261123
+    paths:
+      - scripts/integration/build_int4_g5_scoped_final_dispositions.py
+      - tests/integration/test_int4_g5_scoped_final_dispositions.py
+      - .github/workflows/integration-int4-g5-scoped-final-dispositions.yml
+
+permissions:
+  contents: write
+
+jobs:
+  g5-five-source-populations-original-SHA-and-negative-gates:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Verify source pins and refuse automatic game/rights approval
+        run: |
+          python -m unittest discover -s tests/integration \
+            -p 'test_int4_g5_scoped_final_dispositions.py' -v
+
+      - name: Reopen original 16572 models 592312 faces 6343 exceptions D1158 E21 F70
+        run: |
+          python scripts/integration/build_int4_g5_scoped_final_dispositions.py
+
+      - name: Repeat original source joins and require deterministic exact output bytes
+        run: |
+          python scripts/integration/build_int4_g5_scoped_final_dispositions.py --verify
+
+      - name: Check all separate populations five disposition classes and H8 not approved
+        run: |
+          python - <<'PY'
+          import csv,gzip,hashlib,json
+          from pathlib import Path
+          p=Path('project/integration')
+          x=json.loads((p/'INT4_G5_FOUR_DENOMINATORS_SCOPED_DECISIONS_V1.json').read_text(encoding='utf-8'))
+          assert x['status']=='PASS_G5_PER_POPULATION_SCOPED_DISPOSITIONS_NOT_FINAL_G_OR_H_EXIT'
+          assert x['denominators']=={
+            'models':16572,'faces':592312,'mod_blockstate_sources':1158,
+            'historic_findings':21,'real_F_units':70}
+          counts=x['dispositions']
+          assert counts['models']=={'VERIFIED':16466,'CONDITIONAL':48,'NOT_APPLICABLE':58}
+          assert counts['faces']=={'VERIFIED':585969,'CONDITIONAL':6343}
+          assert counts['mod_blockstates']=={'CONDITIONAL':1157,'HOLD':1}
+          assert counts['historic_findings']=={'CONDITIONAL':14,'NOT_APPLICABLE':7}
+          assert counts['real_F_units']=={'CONDITIONAL':70}
+          assert x['C_exception_exact_source_face_matching']==6343
+          assert x['G4_six_HC_static_display_base_roles_considered'] is True
+          assert x['original_A_six_HOLD_retained_and_not_edited'] is True
+          for k in ('F_unconditional_exit_approved','G_unconditional_exit_approved',
+                    'H_independent_exit_approved','INT5_semantic_approved',
+                    'INT6_training_and_redistribution_rights_approved'):
+            assert x[k]==0,k
+          assert len(x['H_eight_gate_preflight_only'])==8
+          expect={
+             'INT4_G5_16572_MODEL_SCOPED_DISPOSITIONS_V1.csv.gz':16572,
+             'INT4_G5_592312_FACE_SCOPED_DISPOSITIONS_V1.csv.gz':592312,
+             'INT4_G5_1158_STATE_SCOPED_DISPOSITIONS_V1.csv':1158,
+             'INT4_G5_21_FINDING_SCOPED_DISPOSITIONS_V1.csv':21,
+             'INT4_G5_70_REAL_F2_SCOPED_DISPOSITIONS_V1.csv':70,
+          }
+          for name,count in expect.items():
+            blob=(p/name).read_bytes()
+            assert hashlib.sha256(blob).hexdigest()==x['derived_output_SHA256'][name]['sha256'],name
+            if name.endswith('.gz'):
+              with gzip.open(p/name,'rt',encoding='utf-8') as infile:
+                actual=sum(1 for _ in csv.DictReader(infile))
+            else:
+              with (p/name).open(encoding='utf-8') as infile:
+                actual=sum(1 for _ in csv.DictReader(infile))
+            assert actual==count,(name,actual)
+          print('PASS G5 five separate population disposition ledgers, H eight gates still pending')
+          PY
+          git diff --check
+
+      - name: Retain derived evidence only never original mod JAR or PNG
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-g5-frozen-full-populations-scoped-research-dispositions
+          retention-days: 45
+          path: |
+            project/integration/INT4_G5_16572_MODEL_SCOPED_DISPOSITIONS_V1.csv.gz
+            project/integration/INT4_G5_592312_FACE_SCOPED_DISPOSITIONS_V1.csv.gz
+            project/integration/INT4_G5_1158_STATE_SCOPED_DISPOSITIONS_V1.csv
+            project/integration/INT4_G5_21_FINDING_SCOPED_DISPOSITIONS_V1.csv
+            project/integration/INT4_G5_70_REAL_F2_SCOPED_DISPOSITIONS_V1.csv
+            project/integration/INT4_G5_FOUR_DENOMINATORS_SCOPED_DECISIONS_V1.json
+            project/integration/INT4_G5_SCOPED_DECISIONS_AND_H_PREFLIGHT_V1.md
+
+      - name: Commit scoped evidence only to new G5 Draft branch not main
+        if: success() && github.ref == 'refs/heads/work/int4-g5-four-populations-final-scoped-dispositions-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_G5_16572_MODEL_SCOPED_DISPOSITIONS_V1.csv.gz \
+                  project/integration/INT4_G5_592312_FACE_SCOPED_DISPOSITIONS_V1.csv.gz \
+                  project/integration/INT4_G5_1158_STATE_SCOPED_DISPOSITIONS_V1.csv \
+                  project/integration/INT4_G5_21_FINDING_SCOPED_DISPOSITIONS_V1.csv \
+                  project/integration/INT4_G5_70_REAL_F2_SCOPED_DISPOSITIONS_V1.csv \
+                  project/integration/INT4_G5_FOUR_DENOMINATORS_SCOPED_DECISIONS_V1.json \
+                  project/integration/INT4_G5_SCOPED_DECISIONS_AND_H_PREFLIGHT_V1.md
+          if git diff --cached --quiet; then
+            echo "Scoped source results unchanged"
+          else
+            git commit -m "INT-4-G5 분모별 모델 면 상태 연구 F70 조건부 및 출처 제한 최종 판정 원장"
+            git push origin HEAD:refs/heads/work/int4-g5-four-populations-final-scoped-dispositions-20261123
+          fi
