@@ -1,0 +1,112 @@
+{
+  "INT5_part_semantics_approved": 0,
+  "INT6_training_or_redistribution_rights_approved": 0,
+  "client_log_sha256": "48381e3b1bfd9f8fb6e9c4271b0f50fba7340a6a42e96db1ec288c9bb50be63d",
+  "historical_case_ids": [
+    "V12",
+    "V13",
+    "V14",
+    "V15"
+  ],
+  "limitations": [
+    "V11 white bed has no ordinary JSON elements, stays HOLD under a separately designed renderer audit.",
+    "V13 one animated liquid face and V14 lantern animated texture were not time-separated pixel verified.",
+    "Source geometry, runtime state and screenshots do not certify causal UV or UI gameplay.",
+    "No semantic/functional/right-to-train/reuse or redistribution approval."
+  ],
+  "native_F2_sha256": {
+    "V12": "60154e7718fd2b2ac004629a4ef40d9eb37d90af9bae75bf8548b51ddf21780c",
+    "V13": "d065a3b5d8dd49d41f31ca4b0c2bb69a4bf1da36195b88182c74cc2b9a45e481",
+    "V14": "a2320813069baca189df0f891c199f4ace17808a1f709badf7328f97eb24bdc8",
+    "V15": "1b78b6df80f2ee65a37d2871d66f3bf784ce37c6662a8259847ade9064736f9e"
+  },
+  "native_F2_visibility_pixels": {
+    "V12": {
+      "chroma": 0,
+      "dark_gray": 16408,
+      "paired_water_difference": 0
+    },
+    "V13": {
+      "chroma": 0,
+      "dark_gray": 15008,
+      "paired_water_difference": 1400
+    },
+    "V14": {
+      "chroma": 584,
+      "dark_gray": 10901,
+      "paired_water_difference": 0
+    },
+    "V15": {
+      "chroma": 1082,
+      "dark_gray": 11064,
+      "paired_water_difference": 0
+    }
+  },
+  "official_client_sha1": "ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd",
+  "official_client_sha256": "1473c9489ac50fda3c435049a76a70d61a10b8610db27f5ba9d8756b686cd3bd",
+  "original_1_5_ledger_sha256": "da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e",
+  "original_native_F2_PNG": 4,
+  "original_source_elements": 36,
+  "original_source_faces": 154,
+  "original_source_model_applications": 4,
+  "real_game_exact_server_states": 4,
+  "schema": "MCFR_INT4_F11C_FOUR_VANILLA_REAL_CLIENT_SOURCE_F2/v1",
+  "source_cases": {
+    "V12": {
+      "blockstate_git_blob_sha1": "9908cf5d4d631592e48fd436d4b90b3447fe3976",
+      "elements": 13,
+      "faces": 58,
+      "model_git_blob_sha1": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "model_path": "assets/minecraft/models/block/cauldron.json",
+      "official_parent_chain_git_blob_sha1": [],
+      "original_model_y": 0,
+      "original_state": "minecraft:cauldron",
+      "provider_git_blob_sha1": "788da3e1449187f15d820c0172f33b80f39620ca"
+    },
+    "V13": {
+      "blockstate_git_blob_sha1": "130d7b6b9da17611c4485f204d0b967bf6f4434c",
+      "elements": 14,
+      "faces": 59,
+      "model_git_blob_sha1": "7e246053f5423e53d4294c1d9beede35927b9d37",
+      "model_path": "assets/minecraft/models/block/water_cauldron_full.json",
+      "official_parent_chain_git_blob_sha1": [
+        {
+          "git_blob_sha1": "2925eba4c380e1c4dc32c618c1fd32fc01dcdb0c",
+          "path": "assets/minecraft/models/block/template_cauldron_full.json"
+        }
+      ],
+      "original_model_y": 0,
+      "original_state": "minecraft:water_cauldron[level=3]",
+      "provider_git_blob_sha1": "2925eba4c380e1c4dc32c618c1fd32fc01dcdb0c"
+    },
+    "V14": {
+      "blockstate_git_blob_sha1": "00cb4380c57005b299665f3f78dfc1373d26cb51",
+      "elements": 4,
+      "faces": 15,
+      "model_git_blob_sha1": "12970adc81a3bd51666060e8312b7ef4cf476930",
+      "model_path": "assets/minecraft/models/block/lantern.json",
+      "official_parent_chain_git_blob_sha1": [
+        {
+          "git_blob_sha1": "d54baf8db9aa52c0d828cb6047ea5aec21b8b341",
+          "path": "assets/minecraft/models/block/template_lantern.json"
+        }
+      ],
+      "original_model_y": 0,
+      "original_state": "minecraft:lantern[hanging=false]",
+      "provider_git_blob_sha1": "d54baf8db9aa52c0d828cb6047ea5aec21b8b341"
+    },
+    "V15": {
+      "blockstate_git_blob_sha1": "8a1ab93befbc6f0aec81bb781572b6f1a0880be0",
+      "elements": 5,
+      "faces": 22,
+      "model_git_blob_sha1": "45c7a75b1e69ce35bf3bc76d794e1a922deccf53",
+      "model_path": "assets/minecraft/models/block/flower_pot.json",
+      "official_parent_chain_git_blob_sha1": [],
+      "original_model_y": 0,
+      "original_state": "minecraft:flower_pot",
+      "provider_git_blob_sha1": "45c7a75b1e69ce35bf3bc76d794e1a922deccf53"
+    }
+  },
+  "status": "PASS_FOUR_MOJANG_12111_EXACT_VANILLA_STATES_NATIVE_F2_NOT_FINAL",
+  "unconditionally_full_F_approved": 0
+}
