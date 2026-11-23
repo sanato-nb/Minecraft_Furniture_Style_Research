@@ -231,13 +231,13 @@ def capture(command,env,game,output,version):
                     cmd("/gamemode creative",
                         "[RenderAudit: Set own game mode to Creative Mode]",
                         "actual player block break mode")
-                    cmd("/tp @s 1.5 120 43.5 180 21",
+                    cmd("/tp @s 1.5 120 43.5 180 16",
                         "[RenderAudit: Teleported RenderAudit to",
                         "east table break camera")
                     xdo("mousemove","--sync","512","342");sleep(1)
                     xdo("click","1");sleep(2.5)
                     gui_actions.append({"stage":"remove","action":"player_left_click",
-                                        "button":1,"pose":"1.5 120 43.5 180 21",
+                                        "button":1,"pose":"1.5 120 43.5 180 16",
                                         "target":list(EAST),"item":TABLE})
                     cmd("/gamemode spectator",
                         "[RenderAudit: Set own game mode to Spectator Mode]",
