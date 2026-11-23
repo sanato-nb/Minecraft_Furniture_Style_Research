@@ -48,6 +48,21 @@ def neutral_dark_specimen_pixels(image):
     return sum(1 for r,g,b in region.getdata()
                if 28<max(r,g,b)<158 and max(r,g,b)-min(r,g,b)<21)
 
+WATER_CAULDRON_ROI=(475,390,555,450)
+WATER_CHANGED_MIN_PIXELS=800
+
+def paired_water_vs_empty_pixels(empty_path,water_image):
+    """Same-coordinate original V12/V13 F2 ROI contrast, not animated-time proof."""
+    from PIL import Image
+    with Image.open(empty_path) as base:
+        base.load()
+        first=base.convert("RGB").crop(WATER_CAULDRON_ROI)
+    second=water_image.convert("RGB").crop(WATER_CAULDRON_ROI)
+    check(first.size==second.size,"Original V12/V13 water ROI size differs")
+    return sum(1 for a,b in zip(first.getdata(),second.getdata())
+               if max(abs(x-y) for x,y in zip(a,b))>=24)
+
+
 def sha(raw):
     return hashlib.sha256(raw).hexdigest()
 
@@ -304,9 +319,12 @@ def capture(command,env,game,output,version):
                         chroma=specimen_color_pixels(picture)
                         neutral_white=neutral_white_specimen_pixels(picture)
                         dark_gray=neutral_dark_specimen_pixels(picture)
+                        water_against_empty=(paired_water_vs_empty_pixels(output/"V12.png",picture)
+                                             if case.case_id=="V13" else 0)
                     check(size==[1024,684],"Real game F2 resolution changed")
                     visible=(chroma>=100 or
-                             (case.case_id=="V12" and dark_gray>=200))
+                             (case.case_id=="V12" and dark_gray>=200) or
+                             (case.case_id=="V13" and water_against_empty>=WATER_CHANGED_MIN_PIXELS))
                     if visible:
                         break
                     if attempt==2:
@@ -330,6 +348,7 @@ def capture(command,env,game,output,version):
                     "screen_foreground_chroma_pixels":chroma,
                     "screen_foreground_neutral_white_pixels":neutral_white,
                     "screen_foreground_neutral_dark_pixels":dark_gray,
+                    "screen_water_vs_empty_changed_pixels":water_against_empty,
                     "screen_foreground_visible_by_color_or_white_proxy":visible,
                     "screenshot_file":dst.name,"screenshot_dimensions":size,
                     "screenshot_sha256":sha(dst.read_bytes()),
@@ -396,6 +415,13 @@ def audit(folder):
         if cid=="V12":
             check(record["screen_foreground_neutral_dark_pixels"]>=200,
                   "Dark cauldron is not visible via independent gray foreground proxy")
+        if cid=="V13":
+            with Image.open(folder/"V13.png") as water:
+                water.load()
+                independently_changed=paired_water_vs_empty_pixels(folder/"V12.png",water)
+            check(independently_changed>=WATER_CHANGED_MIN_PIXELS and
+                  record["screen_water_vs_empty_changed_pixels"]==independently_changed,
+                  "Water cauldron must differ from original empty cauldron actual F2")
         picture=folder/(cid+".png")
         check(sha(picture.read_bytes())==record["screenshot_sha256"],
               "Original F2 SHA changed "+cid)
@@ -422,7 +448,8 @@ def audit(folder):
         "native_F2_sha256":{k:cases[k]["screenshot_sha256"] for k in ORDER},
         "native_F2_visibility_pixels":{k:{
             "chroma":cases[k]["screen_foreground_chroma_pixels"],
-            "dark_gray":cases[k]["screen_foreground_neutral_dark_pixels"]
+            "dark_gray":cases[k]["screen_foreground_neutral_dark_pixels"],
+            "paired_water_difference":cases[k]["screen_water_vs_empty_changed_pixels"]
         } for k in ORDER},
         "client_log_sha256":doc["client_log_sha256"],
         "unconditionally_full_F_approved":0,
