@@ -91,6 +91,10 @@ def send_minecraft_command(xdo, command_line, pause=sleep):
         raise ValueError("Minecraft GUI command must start with /")
     xdo("key","--clearmodifiers","t")
     pause(0.40)
+    # In a delayed client the chat widget may already be open: another 't'
+    # then becomes literal chat text (observed: 't/gamemode spectator').
+    # Select existing input so the next command starts with '/' every time.
+    xdo("key","--clearmodifiers","ctrl+a")
     xdo("type","--clearmodifiers","--delay","14",command_line)
     xdo("key","--clearmodifiers","Return")
 
