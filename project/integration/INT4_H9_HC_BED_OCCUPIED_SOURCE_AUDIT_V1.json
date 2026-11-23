@@ -1,0 +1,134 @@
+{
+  "counts": {
+    "INT5_semantics_approved": 0,
+    "INT6_AI_training_redistribution_rights_approved": 0,
+    "foot_parent_geometry_changed_pairs": 256,
+    "full_F_H_approvals": 0,
+    "head_model_leaf_byte_identical_pairs": 256,
+    "model_path_changes": 512,
+    "new_gameplay_sessions": 0,
+    "new_occupied_true_native_F2": 0,
+    "occupied_false_true_pairs": 512,
+    "shapes_with_foot_geometry_UV_source_delta": 4,
+    "source_selector_variants": 1024,
+    "unique_selected_model_leaf_files": 256
+  },
+  "derived_files_sha256": {
+    "project/integration/INT4_H9_4_SHAPES_GEOMETRY_FACE_UV_DELTA_V1.csv": "d0213154c14ec081243e612b5423037d1910b6b2486af448f86c72aafb043cef",
+    "project/integration/INT4_H9_512_OCCUPIED_SOURCE_MODEL_PAIRS_V1.csv": "45469902c637b81bce266f11800ba6592b68945bcd125f59b331682ee3f8e87f"
+  },
+  "four_foot_parent_geometry_comparisons": [
+    {
+      "added_element_records": 6,
+      "added_face_UV_records": 36,
+      "delta_elements": 3,
+      "delta_faces": 18,
+      "identical_element_records": 8,
+      "native_F2_pixel_per_face_UV_verified": false,
+      "occupied_elements": 14,
+      "occupied_faces": 84,
+      "occupied_provider_git_sha1": "66f7f2c1b9b259676ec6708f7abe6e5e72476e49",
+      "removed_element_records": 3,
+      "removed_face_UV_records": 18,
+      "same_parent_base": true,
+      "same_texture_slot_bindings": true,
+      "shape": "left",
+      "unoccupied_elements": 11,
+      "unoccupied_faces": 66,
+      "unoccupied_provider_git_sha1": "62832d9eee03901ef6abfcf893ecbbb77ae90aab"
+    },
+    {
+      "added_element_records": 8,
+      "added_face_UV_records": 48,
+      "delta_elements": 4,
+      "delta_faces": 24,
+      "identical_element_records": 6,
+      "native_F2_pixel_per_face_UV_verified": false,
+      "occupied_elements": 14,
+      "occupied_faces": 84,
+      "occupied_provider_git_sha1": "57a6d27ab7da57689b54f96e26aeed6ff4a1f0d2",
+      "removed_element_records": 4,
+      "removed_face_UV_records": 24,
+      "same_parent_base": true,
+      "same_texture_slot_bindings": true,
+      "shape": "middle",
+      "unoccupied_elements": 10,
+      "unoccupied_faces": 60,
+      "unoccupied_provider_git_sha1": "55d1b2be39e53ba847167a4192c870e9bca1d8a2"
+    },
+    {
+      "added_element_records": 6,
+      "added_face_UV_records": 36,
+      "delta_elements": 3,
+      "delta_faces": 18,
+      "identical_element_records": 8,
+      "native_F2_pixel_per_face_UV_verified": false,
+      "occupied_elements": 14,
+      "occupied_faces": 84,
+      "occupied_provider_git_sha1": "95a71ee98e578dc451115849c5058071cdbb7488",
+      "removed_element_records": 3,
+      "removed_face_UV_records": 18,
+      "same_parent_base": true,
+      "same_texture_slot_bindings": true,
+      "shape": "right",
+      "unoccupied_elements": 11,
+      "unoccupied_faces": 66,
+      "unoccupied_provider_git_sha1": "105151fa10dbfa9f946199119fdf80468a65f0f1"
+    },
+    {
+      "added_element_records": 3,
+      "added_face_UV_records": 18,
+      "delta_elements": 2,
+      "delta_faces": 12,
+      "identical_element_records": 11,
+      "native_F2_pixel_per_face_UV_verified": false,
+      "occupied_elements": 14,
+      "occupied_faces": 84,
+      "occupied_provider_git_sha1": "296e103447bfaaa6dd5d3a20d39169c1612474bc",
+      "removed_element_records": 1,
+      "removed_face_UV_records": 6,
+      "same_parent_base": true,
+      "same_texture_slot_bindings": true,
+      "shape": "single",
+      "unoccupied_elements": 12,
+      "unoccupied_faces": 72,
+      "unoccupied_provider_git_sha1": "01dcc76679443d37f3efa45d974e2acbc071cfc1"
+    }
+  ],
+  "limitations": [
+    "Pinned static source JSON geometry and face UV, NOT actual GPU per-face UV pixel attribution.",
+    "Head model path changes but source JSON bytes do not; do NOT claim a changed head shape.",
+    "Foot leaf texture bindings stay identical while chosen parent elements/faces differ; textures pixels not independently compared.",
+    "Previous original S37/S38 F2 only prove occupied=false states; no occupied=true actual F2.",
+    "No need to run sleep-wake-destroy gameplay sequence for model authoring goal.",
+    "Original study data, F70, H03/H05, model authoring meanings and asset distribution rights unchanged."
+  ],
+  "original_S37_S38_occupied_false_F2_sha256": {
+    "S37": "bf8936e0ca41bca85cf123f5bd85c3e2390793c59f9e3ac07f0f682e7f552fe3",
+    "S38": "92c1271ab5b2cff6ba71f77517272582d188af81424c5161fe1d4a8608733b61"
+  },
+  "schema": "MCFR_INT4_H9_HANDCRAFTED_BED_OCCUPIED_VISUAL_MODEL_SOURCE_V1",
+  "source_interpretation": {
+    "bed_lifecycle_gameplay_not_required_for_model_research": true,
+    "existing_H03_H05_and_F70_dispositions_unchanged": true,
+    "foot_source_geometry_faces_uv_records_change": true,
+    "head_only_model_resource_names_change_not_leaf_bytes": true,
+    "occupied_visual_modeling_relevant": true
+  },
+  "source_sha_pins": {
+    "common/src/main/generated/resources/assets/handcrafted/blockstates/oak_fancy_bed.json": "0dfb7493ac098a7e5549db6663bffd9310c1882a",
+    "common/src/main/generated/resources/assets/handcrafted/models/block/oak_fancy_bed_single_white_foot.json": "14c6bad5a40e3130cd8fa5725ce5260b74662bc2",
+    "common/src/main/generated/resources/assets/handcrafted/models/block/oak_fancy_bed_single_white_head.json": "81117620d95782b093fa23b396af04cf42f6729a",
+    "common/src/main/resources/assets/handcrafted/models/block/fancy_bed/bed_single.json": "01dcc76679443d37f3efa45d974e2acbc071cfc1",
+    "common/src/main/resources/assets/handcrafted/models/block/fancy_bed/bed_single_occupied.json": "296e103447bfaaa6dd5d3a20d39169c1612474bc",
+    "common/src/main/resources/assets/handcrafted/models/block/fancy_bed/cushion.json": "3b9147f7d5309913004d7dadb45e2b09dc98bb4f",
+    "project/integration/INT4_HANDCRAFTED_BED_F2_SOURCE_RESULT.json": "107b2b2c47a19cd8fb36939cc7f516111ed7548b",
+    "research/furniture_mods/phase_1-5/B/APPLICATIONS.csv": "56e6f4c21c50714b97079ec61f7219bea845f179"
+  },
+  "status": "PASS_1024_STATE_512_PAIR_256_MODEL_FOOT_GEOMETRY_SOURCE_VALIDATED",
+  "upstream": {
+    "blockstate_git_sha1": "0dfb7493ac098a7e5549db6663bffd9310c1882a",
+    "commit": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035",
+    "repo": "terrarium-earth/Handcrafted"
+  }
+}
