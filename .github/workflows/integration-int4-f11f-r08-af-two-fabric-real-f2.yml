@@ -1,0 +1,128 @@
+name: INT-4-F11F R08 AF 4.0.2 official vs 4.0.3 Git-built Fabric real F2
+
+on:
+  push:
+    branches:
+      - work/int4-f11f-r08-af-fabric-source-build-pair-20261123
+    paths:
+      - src/mcfr/int4_f11f_r08_af_dual_fabric_capture.py
+      - src/mcfr/int4_f11f_r08_pair_audit.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int4_f11f_r08_af_dual_fabric_capture.py
+      - .github/workflows/integration-int4-f11f-r08-af-two-fabric-real-f2.yml
+
+permissions:
+  contents: read
+
+jobs:
+  source-build-and-two-real-f2:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    env:
+      PYTHONPATH: src
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      ALSOFT_DRIVERS: 'null'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install original Minecraft GUI and image/source audit dependencies
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 update
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 install -y \
+              xvfb xauth xdotool unzip libgl1-mesa-dri libglx-mesa0
+          fi
+
+      - name: Run strict negative source identity tests for both loaders and Git build
+        run: |
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f11f_r08_af_dual_fabric_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_af_release_version_audit.py' -v
+
+      - name: Pin official upstream 4.0.3 source and Fabric build target
+        run: |
+          curl -fLsS --retry 3 --max-time 110 \
+            https://codeload.github.com/crispytwig/AnotherFurniture/zip/57eb624cbb7f408d43398c7434b0d38d312cb55d \
+            -o "$RUNNER_TEMP/r08-research-git-403.zip"
+          unzip -q "$RUNNER_TEMP/r08-research-git-403.zip" -d "$RUNNER_TEMP"
+          root="$RUNNER_TEMP/AnotherFurniture-57eb624cbb7f408d43398c7434b0d38d312cb55d"
+          test -f "$root/gradle.properties"
+          test -f "$root/fabric/build.gradle"
+          grep -Eq '^mod_version *= *4\.0\.3$' "$root/gradle.properties"
+          grep -Eq '^minecraft_version *= *1\.21\.1$' "$root/gradle.properties"
+          grep -Eq '^enabled_platforms *= *fabric,neoforge$' "$root/gradle.properties"
+          echo "R08_GIT_SOURCE=$root" >> "$GITHUB_ENV"
+
+      - name: Build historical 4.0.3 study Git as Fabric 1.21.1 (NOT official Fabric release)
+        run: |
+          cd "$R08_GIT_SOURCE"
+          chmod +x gradlew
+          ./gradlew :fabric:remapJar --no-daemon --max-workers=2 --stacktrace
+          find fabric/build/libs -maxdepth 1 -type f -name '*.jar' -printf '%f\n'
+          mod="$(find fabric/build/libs -maxdepth 1 -type f -name 'another_furniture-fabric-4.0.3.jar' -print -quit)"
+          test -s "$mod"
+          echo "R08_GIT_BUILT_FABRIC_JAR=$PWD/$mod" >> "$GITHUB_ENV"
+          sha256sum "$mod"
+          echo 'PINNED_GIT_SOURCE_BUILT_NOT_OFFICIAL_PUBLISHED_FABRIC_4_0_3'
+
+      - name: Generate a clean vanilla world shared by both independent game runs
+        run: |
+          echo "R08_WORLD=$RUNNER_TEMP/r08-world" >> "$GITHUB_ENV"
+          python -m mcfr.chair_runtime_fixture world --version 1.21.1 \
+            --path "$RUNNER_TEMP/r08-world" --cache "$RUNNER_TEMP/r08-world-cache"
+
+      - name: Actual Minecraft 1.21.1 Fabric 4.0.2 official Modrinth JAR F2
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int4-f11f-r08-fabric-pair --version 1.21.1 \
+              --world "$R08_WORLD" --work "$RUNNER_TEMP/r08-402-game" \
+              --output "$RUNNER_TEMP/r08-402-native-F2"
+
+      - name: Actual Minecraft 1.21.1 Fabric source-built 4.0.3 research Git F2
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int4-f11f-r08-fabric-pair --version 1.21.1 \
+              --world "$R08_WORLD" --af-source-jar "$R08_GIT_BUILT_FABRIC_JAR" \
+              --work "$RUNNER_TEMP/r08-403-game" \
+              --output "$RUNNER_TEMP/r08-403-native-F2"
+
+      - name: Verify both original images, real exact server states, and source-building limits
+        run: |
+          python -m mcfr.int4_f11f_r08_pair_audit \
+            --baseline "$RUNNER_TEMP/r08-402-native-F2" \
+            --study "$RUNNER_TEMP/r08-403-native-F2" \
+            --output "$RUNNER_TEMP/r08-two-source-releases-comparison.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          doc=json.loads((Path(os.environ['RUNNER_TEMP'])/'r08-two-source-releases-comparison.json').read_text())
+          assert doc['status']=='DUAL_FABRIC_NATIVE_F2_SOURCE_BUILD_COMPARISON_NOT_OFFICIAL_403_RELEASE'
+          assert doc['gates']['two_real_same_loader_Fabric_1_21_1_client_F2']
+          assert doc['gates']['source_built_fabric_4_0_3_matches_pinned_Git_state_and_model']
+          assert not doc['gates']['published_official_fabric_4_0_3']
+          assert not doc['gates']['official_4_0_3_NeoForge_client_F2']
+          assert not doc['gates']['INT4_F_final_unconditional_approval']
+          assert not doc['gates']['INT6_training_or_redistribution_rights']
+          print('PASS SOURCE-BUILT vs RELEASED TWO NATIVE F2; no false NeoForge/Fabric official claim')
+          PY
+          git diff --check
+
+      - name: Archive real original F2 screenshots and logs, without source/JAR/rights grant
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-f11f-r08-official402-vs-source403-two-native-F2
+          retention-days: 45
+          if-no-files-found: warn
+          path: |
+            ${{ runner.temp }}/r08-402-native-F2/
+            ${{ runner.temp }}/r08-403-native-F2/
+            ${{ runner.temp }}/r08-two-source-releases-comparison.json
