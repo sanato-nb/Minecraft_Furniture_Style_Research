@@ -1,0 +1,122 @@
+name: INT-4-H12 real AF chair same-pose acacia1/acacia3 A-B-A-Air F2
+
+on:
+  push:
+    branches:
+      - work/int4-h12-af-variant-samepose-native-f2-20261123
+    paths:
+      - src/mcfr/int4_h12_af_chair_samepose_f2_capture.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int4_h12_af_chair_samepose_f2_capture.py
+      - .github/workflows/integration-int4-h12-af-variant-samepose-f2.yml
+
+permissions:
+  contents: write
+
+jobs:
+  actual-Fabric-same-position-variant-model-visual:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 44
+    env:
+      PYTHONPATH: src
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      ALSOFT_DRIVERS: 'null'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare actual native F2 and independent PNG decoder
+        timeout-minutes: 8
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            timeout 180s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 update
+            timeout 240s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 install -y --no-install-recommends xvfb xauth xdotool
+          fi
+
+      - name: Run fail-closed fixed north AF source and pixel contrast controls
+        run: |
+          python -m unittest discover -s tests/knowledge -p 'test_int4_h12_af_chair_samepose_f2_capture.py' -v
+          python -m unittest discover -s tests/integration -p 'test_int4_h11_af_variant3_uv_texel_source.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_af_variant3_texture_audit.py' -v
+
+      - name: Make disposable official Minecraft Java 1.21.1 AF original flat world
+        run: |
+          python -m mcfr.chair_runtime_fixture world \
+            --version 1.21.1 \
+            --path "$RUNNER_TEMP/h12-af-world" \
+            --cache "$RUNNER_TEMP/h12-af-cache"
+
+      - name: Run real Fabric AF 4.0.2 GUI and take four original native F2 at SAME pose
+        timeout-minutes: 18
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int4-h12-af-chair-samepose \
+              --version 1.21.1 \
+              --world "$RUNNER_TEMP/h12-af-world" \
+              --work "$RUNNER_TEMP/h12-af-client" \
+              --output "$RUNNER_TEMP/h12-real-native-F2"
+
+      - name: Independently recheck server states, original 4 F2 SHA and A-B-A pixel drift
+        run: |
+          python -m mcfr.int4_h12_af_chair_samepose_f2_capture \
+            --directory "$RUNNER_TEMP/h12-real-native-F2"
+          cp "$RUNNER_TEMP/h12-real-native-F2/INT4_H12_AF_MODEL1_MODEL3_REAL_GAME_INDEPENDENT_AUDIT_V1.json" \
+            project/integration/INT4_H12_AF_MODEL1_MODEL3_NATIVE_F2_INDEPENDENT_RESULT_V1.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('project/integration/INT4_H12_AF_MODEL1_MODEL3_NATIVE_F2_INDEPENDENT_RESULT_V1.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          assert d['schema']=='MCFR_INT4_H12_AF_SAME_POSE_F2_INDEPENDENT_SOURCE_AUDIT/v1'
+          assert d['actual_Fabric_original_game_runs']==1
+          assert d['native_original_F2_count']==4
+          assert len(d['native_original_F2_sha256'])==4
+          assert d['same_camera']== '-87.5 122.3 45.5 180 20'
+          assert d['real_runtime_AF_JAR_sha1']=='c2f992081bdc4795ed6d87771a3b5f7c71103785'
+          assert d['source_12_different_texture_binding_faces']==12
+          assert d['source_2_UV_overlapping_changed_texel_faces']==2
+          assert d['source_54_RGBA_changed_texels']==54
+          assert d['UV_face_to_GPU_pixel_causal_proof'] is False
+          assert d['F70_unconditional_approvals']==0
+          assert d['H03_H05_full_exit'] is False
+          assert d['INT5_semantics_approved']==0
+          assert d['INT6_training_rights_approved']==0
+          assert d['status']=='PASS_REAL_FABRIC_ABA_AIR_SOURCE_MODEL_VISUAL_CONTRAST',d
+          m=d['pixel_measurement']
+          assert m['model1_to_model3']>=25,m
+          assert m['model_difference_overlapping_foreground']>=20,m
+          assert m['model_difference_not_explained_by_temporal_control']>=15,m
+          print('PASS H12 actual Fabric north AF acacia_1/acacia_3 source F2 real A-B-A+AIR visual contrast')
+          PY
+          git diff --check
+
+      - name: Keep original client.log and Minecraft F2 in expiring provenance artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h12-real-fabric-af-acacia1-acacia3-samepose-four-native-F2
+          retention-days: 45
+          if-no-files-found: warn
+          path: ${{ runner.temp }}/h12-real-native-F2/
+
+      - name: Commit derived independent metadata only to Draft PR head
+        if: success() && github.ref == 'refs/heads/work/int4-h12-af-variant-samepose-native-f2-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_H12_AF_MODEL1_MODEL3_NATIVE_F2_INDEPENDENT_RESULT_V1.json
+          if ! git diff --cached --quiet; then
+            git commit -m "INT-4-H12 의자 acacia_1·acacia_3 동일 시점 게임 F2 4장 독립 감사"
+            git fetch origin work/int4-h12-af-variant-samepose-native-f2-20261123
+            git rebase origin/work/int4-h12-af-variant-samepose-native-f2-20261123
+            git push origin HEAD:refs/heads/work/int4-h12-af-variant-samepose-native-f2-20261123
+          fi
