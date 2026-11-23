@@ -183,7 +183,8 @@ def capture_chairs(command,env,game,output,version,selected_cases=None,
         def command_text(command_line):
             send_minecraft_command(xdo,command_line)
         def refocus():
-            xdo("windowactivate","--sync",windows[0])
+            # Xvfb has no EWMH window manager: windowactivate --sync fails.
+            # Direct X11 input focus worked in the prior successful native F2 run.
             xdo("windowfocus","--sync",windows[0])
         def camera_at(pos):
             try:
