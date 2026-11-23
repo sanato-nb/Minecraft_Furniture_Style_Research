@@ -1,0 +1,92 @@
+name: INT-4-F11A 바닐라 네이티브 F2 5건 독립 재감사와 70개 원장
+
+on:
+  push:
+    branches:
+      - work/int4-f11-vanilla-five-native-f2-20261123
+    paths:
+      - scripts/integration/build_int4_f11a_vanilla_five_original_f2_audit.py
+      - tests/integration/test_int4_f11a_vanilla_five_original_f2_audit.py
+      - .github/workflows/integration-int4-f11a-70-source-audit.yml
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  five-native-vanilla-original-independent:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PNG decoder and preflight independent audit Python
+        run: |
+          python3 -m pip install --break-system-packages 'Pillow>=10,<13'
+          python3 -m compileall -q scripts/integration/build_int4_f11a_vanilla_five_original_f2_audit.py
+          python3 -m unittest discover -s tests/integration \
+            -p 'test_int4_f11a_vanilla_five_original_f2_audit.py' -v
+      - name: Re-download real original Minecraft artifact and reopen five PNG and client log
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/integration/build_int4_f11a_vanilla_five_original_f2_audit.py \
+            --artifact-dir "$RUNNER_TEMP/int4-f11a-original-native-artifact"
+      - name: Deterministic second original-ZIP recomputation of exactly 70 row ledger
+        run: |
+          python3 scripts/integration/build_int4_f11a_vanilla_five_original_f2_audit.py \
+            --artifact-dir "$RUNNER_TEMP/int4-f11a-original-native-artifact" --verify
+      - name: Assert conditional 58 and HOLD 12 with unchanged other 65 original F targets
+        run: |
+          python3 - <<'PY'
+          import csv,json,hashlib
+          from pathlib import Path
+          root=Path('project/integration')
+          j=json.loads((root/'INT4_F11A_FIVE_VANILLA_ORIGINAL_F2_INDEPENDENT_AUDIT_V1.json').read_text(encoding='utf-8'))
+          assert j['status']=='PASS_FIVE_REAL_VANILLA_F2_58_CONDITIONAL_12_HOLD_FULL_ZERO'
+          c=j['counts']
+          assert (c['F_fixed_targets'],c['historic_source_cases'])==(70,62)
+          assert (c['new_real_client_exact_states'],c['new_native_original_F2'])==(5,5)
+          assert (c['new_model_applications'],c['new_elements'],c['new_faces'])==(5,6,35)
+          assert (c['F_conditional_before'],c['F_conditional_after'])==(53,58)
+          assert (c['F_HOLD_before'],c['F_HOLD_after'])==(17,12)
+          assert (c['historical_original_F2_conditional_before'],c['historical_original_F2_conditional_after'])==(47,52)
+          assert c['F_full_approved']==c['INT5_semantics_new_approved']==c['INT6_AI_training_redistribution_rights_approved']==0
+          assert set(j['cases'])=={'V01','V02','V05','V07','V10'}
+          assert set(j['pending_HOLD_ids'])=={'V03','V04','V06','V08','V09','V11','V12','V13','V14','V15','R06','R08'}
+          for name,key,n in (
+            ('INT4_F11A_70_TARGET_EVIDENCE_DISPOSITIONS_V10.csv','F70',70),
+            ('INT4_F11A_12_PENDING_EXACT_F2_TARGETS_V1.csv','pending',12),
+          ):
+            raw=(root/name).read_bytes()
+            assert hashlib.sha256(raw).hexdigest()==j['output_sha256'][key]
+            with (root/name).open(encoding='utf-8',newline='') as f:
+              assert len(list(csv.DictReader(f)))==n
+          print('PASS F11A conditional58 HOLD12 fullF0; research source SHA and original native five F2 unchanged')
+          PY
+          git diff --check
+      - name: Preserve derived audit text only, original Minecraft PNG/JAR excluded
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-f11a-70-58-conditional-12-hold-vanilla-source-locked-audit
+          retention-days: 45
+          path: |
+            project/integration/INT4_F11A_70_TARGET_EVIDENCE_DISPOSITIONS_V10.csv
+            project/integration/INT4_F11A_12_PENDING_EXACT_F2_TARGETS_V1.csv
+            project/integration/INT4_F11A_FIVE_VANILLA_ORIGINAL_F2_INDEPENDENT_AUDIT_V1.json
+            project/integration/INT4_F11A_FIVE_CASE_ORIGINAL_IMAGE_REVIEW_V1.md
+          if-no-files-found: warn
+      - name: Update only Draft F11A evidence branch and never merge main
+        if: success() && github.ref == 'refs/heads/work/int4-f11-vanilla-five-native-f2-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F11A_70_TARGET_EVIDENCE_DISPOSITIONS_V10.csv \
+                  project/integration/INT4_F11A_12_PENDING_EXACT_F2_TARGETS_V1.csv \
+                  project/integration/INT4_F11A_FIVE_VANILLA_ORIGINAL_F2_INDEPENDENT_AUDIT_V1.json \
+                  project/integration/INT4_F11A_FIVE_CASE_ORIGINAL_IMAGE_REVIEW_V1.md
+          if ! git diff --cached --quiet; then
+            git commit -m "INT-4-F11A 바닐라 F2 5건 독립검증 조건부58·보류12 최신 원장 반영"
+            git push origin HEAD:refs/heads/work/int4-f11-vanilla-five-native-f2-20261123
+          fi
