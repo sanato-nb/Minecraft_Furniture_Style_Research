@@ -53,10 +53,10 @@ def archive(path):
     if path.exists():data=path.read_bytes()
     else:
         token=os.getenv("GH_TOKEN")
-        if not token:raise FileNotFoundError("Original F11C Actions artifact and GH_TOKEN both missing")
+        if not token:raise FileNotFoundError("Original F11D Actions artifact and GH_TOKEN both missing")
         api=f"https://api.github.com/repos/sanato-nb/Minecraft_Furniture_Style_Research/actions/artifacts/{ARTIFACT}/zip"
         heads={"Authorization":"Bearer "+token,"Accept":"application/vnd.github+json",
-               "X-GitHub-Api-Version":"2022-11-28","User-Agent":"MCFR-F11C-original-F2-audit"}
+               "X-GitHub-Api-Version":"2022-11-28","User-Agent":"MCFR-F11D-original-F2-audit"}
         class NoRedirect(urllib.request.HTTPRedirectHandler):
             def redirect_request(self,*a,**k):return None
         try:
@@ -69,7 +69,7 @@ def archive(path):
             target=urlsplit(location)
             assert target.scheme=="https" and target.netloc and target.netloc!="api.github.com"
             with urllib.request.urlopen(urllib.request.Request(
-                 location,headers={"User-Agent":"MCFR-F11C-original-F2-audit"}),timeout=120) as response:
+                 location,headers={"User-Agent":"MCFR-F11D-original-F2-audit"}),timeout=120) as response:
                 data=response.read()
         assert sha(data)==ZIP_SHA,("ORIGINAL_REMOTE_ZIP_CHANGED",sha(data))
         path.parent.mkdir(parents=True,exist_ok=True)
@@ -111,8 +111,8 @@ def build(original_zip):
     assert actual["real_game_two_exact_server_blockstates"]==2
     assert actual["actual_original_native_F2_PNG_count"]==4
     assert actual["direct_special_renderer_java_call_verified"] is False
-    assert actual["full_F_approved"]==actual["INT5_part_semantics_approved"]==
-           actual["INT6_AI_training_or_redistribution_rights_approved"]==0
+    assert (actual["full_F_approved"]==actual["INT5_part_semantics_approved"]==
+            actual["INT6_AI_training_or_redistribution_rights_approved"]==0)
     assert prior["V11"]["final_disposition"].startswith("HOLD")
     with ZipFile(io.BytesIO(archive(original_zip))) as z:
         assert z.testzip() is None
@@ -143,8 +143,8 @@ def build(original_zip):
         assert audit["source_model_git_blob_sha1"]==MODEL_SHA1
         assert audit["source_blockstate_git_blob_sha1"]==STATE_SHA1
         assert audit["direct_special_renderer_java_call_verified"] is False
-        assert audit["full_F_approved"]==audit["INT5_part_semantics_approved"]==
-               audit["INT6_AI_training_or_redistribution_rights_approved"]==0
+        assert (audit["full_F_approved"]==audit["INT5_part_semantics_approved"]==
+                audit["INT6_AI_training_or_redistribution_rights_approved"]==0)
         rawlog=z.read("client.log")
         assert sha(rawlog)==manifest["original_client_log_sha256"]==actual["client_log_sha256"]
         game_log=rawlog.decode("utf-8",errors="replace")
