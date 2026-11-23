@@ -30,11 +30,12 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install actual Minecraft source and screenshot validation requirements
+        timeout-minutes: 8
         run: |
           python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
           if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
-            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 update
-            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 install -y xvfb xauth xdotool libgl1-mesa-dri libglx-mesa0
+            timeout 180s sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 update
+            timeout 180s sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 install -y xvfb xauth xdotool libgl1-mesa-dri libglx-mesa0
           fi
       - name: Run source selectors and actual F2 fail-closed tests
         run: |
