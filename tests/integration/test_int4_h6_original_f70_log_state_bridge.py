@@ -68,6 +68,43 @@ class H6CaseLogSourceAudit(unittest.TestCase):
         log="[CHAT] S03 subject exact\n[CHAT] S030 subject exact\nS03 screenshot saved\nS03_same key\n"
         self.assertEqual(h6.log_line_mentions(log,"S03"),(2,1))
 
+    def test_f6_original_chair_and_couch_named_trial_source_values(self):
+        d={"server_states":{
+          "S02_NORTH_TABLE_TUCK":{"actual":{"tucked":"true"},"subject":{"exact":True}},
+          "S02_EAST_SLAB_CONTROL":{"actual":{"tucked":"false"},"subject":{"exact":False}},
+          "S34_NORTH_WEST_INNER_LEFT":{"actual":{"shape":"inner_left"},"subject":{"exact":True}},
+        }}
+        self.assertTrue(h6.structured_exact(d,"S02"))
+        self.assertTrue(h6.structured_exact(d,"S34"))
+        d["server_states"]["S02_NORTH_TABLE_TUCK"]["actual"]["tucked"]="false"
+        self.assertFalse(h6.structured_exact(d,"S02"))
+
+    def test_Handcrafted_bed_both_original_states_have_exact_field(self):
+        d={"states":[{"case_id":"S37","server_source_state_verified":True},
+                     {"case_id":"S38","server_source_state_verified":True}]}
+        self.assertTrue(h6.structured_exact(d,"S37"))
+        self.assertTrue(h6.structured_exact(d,"S38"))
+
+    def test_v11_special_bed_requires_both_foot_head_server_values(self):
+        doc={"original_historical_case_id":"V11","server_foot_exact":True,"server_head_exact":True}
+        self.assertTrue(h6.structured_exact(doc,"V11"))
+        doc["server_head_exact"]=False
+        self.assertFalse(h6.structured_exact(doc,"V11"))
+
+    def test_r08_single_state_explicit_release_only_not_r07(self):
+        doc={"risk_case":"R08","actual_server_original_state_PASS":True}
+        self.assertTrue(h6.structured_exact(doc,"R08"))
+        self.assertFalse(h6.structured_exact(doc,"R07"))
+        doc["actual_server_original_state_PASS"]=False
+        self.assertFalse(h6.structured_exact(doc,"R08"))
+
+    def test_r03_three_transition_F2_png_exact_name_sha(self):
+        sig="e"*64
+        doc={"native_F2":{"join":{"file":"join.png","sha256":sig}}}
+        self.assertTrue(h6.png_filename_sha_in_capture(doc,"join.png",sig))
+        self.assertFalse(h6.png_filename_sha_in_capture(doc,"remove.png",sig))
+        self.assertFalse(h6.png_filename_sha_in_capture(doc,"join.png","f"*64))
+
     def test_source_review_never_implies_full_f_contract(self):
         j=json.loads(h6.original("INT4_H5_H03_H05_H06_EXIT_GATE_REASSESSMENT_V1.json"))
         self.assertEqual(j["F_unconditional_full_exit_approved"],0)
