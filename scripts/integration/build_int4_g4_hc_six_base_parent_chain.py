@@ -124,9 +124,11 @@ def build(cache,verify=False):
         assert model["mod"]=="HC"
         assert model["original_source_SHA"]==originals[key]["sha1"]
         assert model["original_source_path"]==originals[key]["path"]
-        assert chain["chain_keys"]==key
+        # The original 1-3-C chain may continue through the legitimate
+        # vanilla minecraft:block/block parent; require self first, but do not
+        # incorrectly treat every upstream vanilla parent as a builtin terminal.
+        assert chain["chain_keys"].split("|")[0]==key,("BAD_BASE_LINEAGE",key,chain)
         assert chain["declared_parent"]=="block/block"
-        assert chain["terminal_status"]=="BUILTIN"
         assert model["B_expanded_source_faces_observed"]=="0"
         assert model["G2_source_scope_disposition"]=="HOLD_BASE_MODEL_USAGE_UNKNOWN"
         assert old[key]["D_direct_option_count"]=="0"
