@@ -5,7 +5,7 @@ from mcfr.chair_runtime_capture import send_minecraft_command, confirmed_camera_
 
 
 class ChairCameraCommandRecovery(TestCase):
-    def test_original_chat_input_uses_full_command_text(self):
+    def test_existing_chat_text_is_replaced_before_every_command(self):
         calls=[]
         pauses=[]
         send_minecraft_command(lambda *args:calls.append(args),
@@ -13,6 +13,7 @@ class ChairCameraCommandRecovery(TestCase):
                                pause=pauses.append)
         self.assertEqual(calls,[
             ("key","--clearmodifiers","t"),
+            ("key","--clearmodifiers","ctrl+a"),
             ("type","--clearmodifiers","--delay","14","/tp @s 0.5 124 42.5 180 20"),
             ("key","--clearmodifiers","Return"),
         ])
