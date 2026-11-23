@@ -1,0 +1,98 @@
+name: INT-4-H8 real player item click Macaw R03 neighbor experiment
+
+on:
+  push:
+    branches:
+      - work/int4-h8-r03-player-item-neighbor-fabric-20261123
+    paths:
+      - src/mcfr/int4_h8_r03_player_gui_capture.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int4_h8_r03_player_gui_capture.py
+      - .github/workflows/integration-int4-h8-r03-actual-player-gui.yml
+
+permissions:
+  contents: write
+
+jobs:
+  actual-player-item-mouse-click-fabric:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 44
+    env:
+      PYTHONPATH: src
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      ALSOFT_DRIVERS: 'null'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install original Minecraft GUI and source dependencies
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 update
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 install -y xvfb xauth xdotool libgl1-mesa-dri libglx-mesa0
+          fi
+      - name: Validate original Macaw source pins and unique GUI input path
+        run: |
+          python -m unittest discover -s tests/knowledge -p 'test_int4_h8_r03_player_gui_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_macaw_neighbor_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_chair_runtime_fixture.py' -v
+      - name: Generate disposable official Minecraft 1.21.11 game world
+        run: |
+          python -m mcfr.chair_runtime_fixture world --version 1.21.11 \
+            --path "$RUNNER_TEMP/h8-r03-world" --cache "$RUNNER_TEMP/h8-r03-cache"
+      - name: Actually equip item, GUI right click place and left click break east Macaw table
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int4-h8-r03-player-gui \
+              --version 1.21.11 \
+              --world "$RUNNER_TEMP/h8-r03-world" \
+              --work "$RUNNER_TEMP/h8-r03-work" \
+              --output "$RUNNER_TEMP/h8-r03-real-evidence"
+      - name: Independently reparse actual integrated server logs and all original native F2
+        run: |
+          python -m mcfr.int4_h8_r03_player_gui_capture --directory "$RUNNER_TEMP/h8-r03-real-evidence"
+          cp "$RUNNER_TEMP/h8-r03-real-evidence/INT4_H8_R03_PLAYER_GUI_INDEPENDENT_AUDIT_V1.json" \
+            project/integration/INT4_H8_R03_ACTUAL_PLAYER_ITEM_SERVER_SHA_RESULT_V1.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          a=json.loads(Path('project/integration/INT4_H8_R03_ACTUAL_PLAYER_ITEM_SERVER_SHA_RESULT_V1.json').read_text())
+          assert a['status']=='REAL_FABRIC_PLAYER_ITEM_PLACEMENT_AND_REMOVAL_SERVER_VERIFIED'
+          assert a['scope']['player_creative_GUI_item_placement_verified'] is True
+          assert a['scope']['original_server_setblock_east_join_function_executed'] is False
+          assert a['scope']['new_real_Minecraft_run']==1
+          assert a['scope']['full_F_unconditional_pass'] is False
+          assert a['scope']['UV_pixel_to_face_causal_proof'] is False
+          assert a['real_F2_count']==3
+          assert a['neighbor_transition_observation']['joined_bidirectionally'] is True
+          assert a['neighbor_transition_observation']['automatically_disconnected_after_remove'] is True
+          assert a['scope']['int5_semantic_approvals']==0
+          assert a['scope']['int6_rights_approvals']==0
+          print('REAL Minecraft R03: GUI mouse item place and break PASS')
+          PY
+          git diff --check
+      - name: Preserve original Minecraft F2, log and the input evidence separately from Git
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h8-r03-real-player-rightclick-place-leftclick-break-original-F2
+          path: ${{ runner.temp }}/h8-r03-real-evidence/
+          if-no-files-found: warn
+          retention-days: 45
+      - name: Commit verified audit metadata only onto Draft PR branch
+        if: success() && github.ref == 'refs/heads/work/int4-h8-r03-player-item-neighbor-fabric-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_H8_R03_ACTUAL_PLAYER_ITEM_SERVER_SHA_RESULT_V1.json
+          if ! git diff --cached --quiet; then
+            git commit -m "INT-4-H8 실제 Macaw 테이블 마우스 설치·제거 게임 서버 및 F2 증거 기록"
+            git push origin HEAD:refs/heads/work/int4-h8-r03-player-item-neighbor-fabric-20261123
+          fi
