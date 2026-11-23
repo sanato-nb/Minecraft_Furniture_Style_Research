@@ -1,0 +1,96 @@
+name: INT-4-H10 occupied foot four changed elements and 24 face UV source audit
+
+on:
+  push:
+    branches:
+      - work/int4-h10-hc-bed-occupied-real-f2-20261123
+    paths:
+      - scripts/integration/build_int4_h10_single_foot_face_uv_source_delta.py
+      - tests/integration/test_int4_h10_single_foot_face_uv_source_delta.py
+      - .github/workflows/integration-int4-h10-foot-face-source-audit.yml
+
+permissions:
+  contents: write
+
+jobs:
+  source-only-original-H9-geometry-face-UV:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Assert immutable H9 original sources and fail-closed modeling-only boundaries
+        run: |
+          python -m unittest discover -s tests/integration -p 'test_int4_h10_single_foot_face_uv_source_delta.py' -v
+      - name: Read exact pinned Handcrafted Git source archive, not unverified names
+        run: |
+          curl -fLSs --retry 3 --retry-delay 2 --max-time 120 \
+            'https://codeload.github.com/terrarium-earth/Handcrafted/zip/8d21d1665916850c3fa3bdaf1370c50ec2ca7035' \
+            -o "$RUNNER_TEMP/h10-source.zip"
+      - name: Independent audit of four changed source elements and 24 face UV coordinates
+        run: |
+          python scripts/integration/build_int4_h10_single_foot_face_uv_source_delta.py \
+            --source-zip "$RUNNER_TEMP/h10-source.zip"
+          python scripts/integration/build_int4_h10_single_foot_face_uv_source_delta.py \
+            --source-zip "$RUNNER_TEMP/h10-source.zip" --verify
+      - name: Validate row and SHA totals; prevent gameplay or GPU claims
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import csv,json,hashlib
+          p=Path('project/integration')
+          d=json.loads((p/'INT4_H10_OCCUPIED_SINGLE_FOOT_FACE_UV_SOURCE_AUDIT_V1.json').read_text())
+          assert d['status']=='PASS_PINNED_SINGLE_BED_FOOT_FOUR_CHANGED_ELEMENTS_24_SOURCE_FACE_UV'
+          assert d['element_counts']==dict(occupied_false=12,occupied_true=14,unchanged=11,removed=1,added=3)
+          assert d['face_counts']==dict(occupied_false=72,occupied_true=84,removed_face_UV_records=6,added_face_UV_records=18,changed_face_UV_records=24)
+          assert d['rotated_elements']['added_x_axis_22_5_degree']==2
+          assert d['scope']['actual_occupied_F2_captured_here'] is False
+          assert d['scope']['full_face_to_GPU_pixel_mapping_approved'] is False
+          assert d['scope']['sleep_wake_destroy_gameplay_tested'] is False
+          assert d['scope']['H03_H05_full_exit'] is False
+          for file,count in [
+            ('INT4_H10_OCCUPIED_SINGLE_FOOT_FOUR_ELEMENT_CHANGES_V1.csv',4),
+            ('INT4_H10_OCCUPIED_SINGLE_FOOT_24_SOURCE_FACE_UV_V1.csv',24)]:
+              raw=(p/file).read_bytes()
+              assert hashlib.sha256(raw).hexdigest()==d['outputs_sha256']['project/integration/'+file]
+              assert len(list(csv.DictReader((p/file).open(encoding='utf-8',newline=''))))==count
+          expected_sha1={
+            'INT4_H10_OCCUPIED_SINGLE_FOOT_FOUR_ELEMENT_CHANGES_V1.csv':'0ec0e578077051f5cab21c1f3b34487e038b3831',
+            'INT4_H10_OCCUPIED_SINGLE_FOOT_24_SOURCE_FACE_UV_V1.csv':'51804d4811612e5fe90311f14683ce5591241355',
+            'INT4_H10_OCCUPIED_SINGLE_FOOT_FACE_UV_SOURCE_AUDIT_V1.json':'65fbec88fde903d3f6858a1882215cc8ea859c2e'
+          }
+          for name,expected in expected_sha1.items():
+            raw=(p/name).read_bytes()
+            blob=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
+            assert blob==expected,(name,'original archived Git blob SHA changed')
+          print('PASS 4 changed original model elements 24 source face UVs; original archived Git blob SHA matched')
+          PY
+          git diff --check
+      - name: Preserve derived metadata only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h10-hc-bed-single-foot-original-4-element-24-face-uv
+          if-no-files-found: warn
+          retention-days: 45
+          path: |
+            project/integration/INT4_H10_OCCUPIED_SINGLE_FOOT_FOUR_ELEMENT_CHANGES_V1.csv
+            project/integration/INT4_H10_OCCUPIED_SINGLE_FOOT_24_SOURCE_FACE_UV_V1.csv
+            project/integration/INT4_H10_OCCUPIED_SINGLE_FOOT_FACE_UV_SOURCE_AUDIT_V1.json
+      - name: Commit only derived source geometry and UV metadata to Draft H10 branch
+        if: success() && github.ref == 'refs/heads/work/int4-h10-hc-bed-occupied-real-f2-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_H10_OCCUPIED_SINGLE_FOOT_FOUR_ELEMENT_CHANGES_V1.csv \
+                  project/integration/INT4_H10_OCCUPIED_SINGLE_FOOT_24_SOURCE_FACE_UV_V1.csv \
+                  project/integration/INT4_H10_OCCUPIED_SINGLE_FOOT_FACE_UV_SOURCE_AUDIT_V1.json
+          if git diff --cached --quiet; then
+            echo "No changed derived data"
+          else
+            git commit -m "INT-4-H10 침대 점유 전후 4모델 요소·24면 UV 출처 비교 감사"
+            git push origin HEAD:refs/heads/work/int4-h10-hc-bed-occupied-real-f2-20261123
+          fi

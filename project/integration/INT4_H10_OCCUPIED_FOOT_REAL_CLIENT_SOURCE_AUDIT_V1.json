@@ -1,0 +1,141 @@
+{
+  "H03_H05_full_exit_approved": false,
+  "INT5_semantic_approved": 0,
+  "INT6_AI_training_redistribution_approved": 0,
+  "contact_sheet_sha256": "ee777af95002e733a0cf46467a8466d1e30577f44d059725fe1365eb7e94a56a",
+  "face_by_face_texture_UV_pixel_causality_approved": false,
+  "full_F70_unconditional_approvals": 0,
+  "minecraft_version": "1.21.1",
+  "new_gameplay_sleeps_or_breaks": 0,
+  "original_client_log_sha256": "41ac3770f2bb67ebac8d6f854e042e47ebe93f8cf781c2b198686642512ff0fe",
+  "original_manifest_sha256": "9e846bce94078467abc77f50458cee529383c098107a87e8c941306fd45cad2b",
+  "original_native_F2_sha256": {
+    "air": "559bd5bc8161f5cb3a82a207971bc999f8bd4f1d7c2490d12ea207370288d301",
+    "false": "94b4eb2089df6654ea92ad3231288b36fa0c3ec223d7ca17b56c17c1d159e781",
+    "true": "99f91c5c223de06d25edae4eab5186446077f62960e3db7118dcf3e24c113c06"
+  },
+  "schema": "MCFR_INT4_H10_OCCUPIED_MODEL_FOOT_F2_INDEPENDENT_AUDIT/v1",
+  "screen_ROI_changed_pixels": {
+    "occupied_false_vs_air": 7830,
+    "occupied_false_vs_true": 2097,
+    "occupied_true_vs_air": 7578
+  },
+  "source_camera_exact_same_pose": "-15.5 122.3 45.5 180 20",
+  "source_reproduction": {
+    "H9_report_sha256": "e489dfac02bbb29c00d59c621130f686db1d923edd3f4db2dc56f268502642cb",
+    "H9_source_git_commit": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035",
+    "models": {
+      "false": {
+        "elements": 12,
+        "faces": 72,
+        "model": "handcrafted:block/oak_fancy_bed_single_white_foot",
+        "model_git_sha1": "14c6bad5a40e3130cd8fa5725ce5260b74662bc2",
+        "parent": "handcrafted:block/fancy_bed/bed_single",
+        "parent_git_sha1": "01dcc76679443d37f3efa45d974e2acbc071cfc1",
+        "runtime_leaf_JSON_equal": true,
+        "runtime_parent_JSON_equal": true,
+        "state": "handcrafted:oak_fancy_bed[color=white,facing=north,occupied=false,part=foot,shape=single]"
+      },
+      "true": {
+        "elements": 14,
+        "faces": 84,
+        "model": "handcrafted:block/oak_fancy_bed_single_white_foot_occupied",
+        "model_git_sha1": "a7af3c2bfa41088d5a5005a92e241bd9792979b1",
+        "parent": "handcrafted:block/fancy_bed/bed_single_occupied",
+        "parent_git_sha1": "296e103447bfaaa6dd5d3a20d39169c1612474bc",
+        "runtime_leaf_JSON_equal": true,
+        "runtime_parent_JSON_equal": true,
+        "state": "handcrafted:oak_fancy_bed[color=white,facing=north,occupied=true,part=foot,shape=single]"
+      }
+    },
+    "original_study": {
+      "HC_release_SHA1": "a9579fecd7ed429c282be21d5c921d220197acc6",
+      "cases": {
+        "S37": {
+          "elements": 12,
+          "faces": 72,
+          "model_git_blob_sha1": "14c6bad5a40e3130cd8fa5725ce5260b74662bc2",
+          "model_path": "common/src/main/generated/resources/assets/handcrafted/models/block/oak_fancy_bed_single_white_foot.json",
+          "model_rotation_y": 0,
+          "provider_git_blob_sha1": "01dcc76679443d37f3efa45d974e2acbc071cfc1",
+          "selection": {
+            "original": {
+              "rule_index": 915,
+              "selected_model": "assets/handcrafted/models/block/oak_fancy_bed_single_white_foot.json"
+            },
+            "release": {
+              "rule_index": 915,
+              "selected_model": "assets/handcrafted/models/block/oak_fancy_bed_single_white_foot.json"
+            }
+          },
+          "source_vs_release": {
+            "model": {
+              "byte_equal": true,
+              "git_blob_sha1": "14c6bad5a40e3130cd8fa5725ce5260b74662bc2",
+              "json_equal": true,
+              "runtime_sha256": "de909b5237878332215e58806b21b8e40babcc09e97cde9feb4c7241c24d88e3"
+            },
+            "provider": {
+              "byte_equal": true,
+              "git_blob_sha1": "01dcc76679443d37f3efa45d974e2acbc071cfc1",
+              "json_equal": true,
+              "runtime_sha256": "092aa7ca9a7c12fcc0ac8f84c9505ab0a19a1adaece7be57b917f66a6865cece"
+            },
+            "state": {
+              "byte_equal": true,
+              "git_blob_sha1": "0dfb7493ac098a7e5549db6663bffd9310c1882a",
+              "json_equal": true,
+              "runtime_sha256": "310227b993a6f4a1951b5ac9c3dc8710c7fd7d5f36e53a7363f0ce62587f01d1"
+            }
+          },
+          "state": "color=white;facing=north;occupied=false;part=foot;shape=single",
+          "state_git_blob_sha1": "0dfb7493ac098a7e5549db6663bffd9310c1882a"
+        },
+        "S38": {
+          "elements": 1,
+          "faces": 6,
+          "model_git_blob_sha1": "81117620d95782b093fa23b396af04cf42f6729a",
+          "model_path": "common/src/main/generated/resources/assets/handcrafted/models/block/oak_fancy_bed_single_white_head.json",
+          "model_rotation_y": 0,
+          "provider_git_blob_sha1": "3b9147f7d5309913004d7dadb45e2b09dc98bb4f",
+          "selection": {
+            "original": {
+              "rule_index": 919,
+              "selected_model": "assets/handcrafted/models/block/oak_fancy_bed_single_white_head.json"
+            },
+            "release": {
+              "rule_index": 919,
+              "selected_model": "assets/handcrafted/models/block/oak_fancy_bed_single_white_head.json"
+            }
+          },
+          "source_vs_release": {
+            "model": {
+              "byte_equal": true,
+              "git_blob_sha1": "81117620d95782b093fa23b396af04cf42f6729a",
+              "json_equal": true,
+              "runtime_sha256": "3d7a8d62e2ce9b5e9acc8946b9276d10371e382545b0bba1b68f18897dc65913"
+            },
+            "provider": {
+              "byte_equal": true,
+              "git_blob_sha1": "3b9147f7d5309913004d7dadb45e2b09dc98bb4f",
+              "json_equal": true,
+              "runtime_sha256": "a04d545393a67f9ea41012c73ec87a23950e43ccbaa572a9ccf6df05c3fd5970"
+            },
+            "state": {
+              "byte_equal": true,
+              "git_blob_sha1": "0dfb7493ac098a7e5549db6663bffd9310c1882a",
+              "json_equal": true,
+              "runtime_sha256": "310227b993a6f4a1951b5ac9c3dc8710c7fd7d5f36e53a7363f0ce62587f01d1"
+            }
+          },
+          "state": "color=white;facing=north;occupied=false;part=head;shape=single",
+          "state_git_blob_sha1": "0dfb7493ac098a7e5549db6663bffd9310c1882a"
+        }
+      },
+      "original_1_5_application_csv_sha256": "da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e",
+      "source_git_commit": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035"
+    },
+    "release_jar_SHA1": "a9579fecd7ed429c282be21d5c921d220197acc6"
+  },
+  "status": "PASS_SOURCE_STATE_AND_SAME_CAMERA_F2_VISUAL_CONTRAST"
+}
