@@ -5,7 +5,8 @@ verified against the actual Mojang client. V11 bed has ZERO ordinary model
 elements and is deliberately not in this normal-model capture path.
 Original F2 and client logs stay in GitHub Actions artifacts; no final
 UV/semantic/animation/licensing approvals.
-"""from __future__ import annotations
+"""
+from __future__ import annotations
 
 import argparse
 from dataclasses import dataclass
