@@ -1,0 +1,111 @@
+{
+  "A_model_source_dispositions": {
+    "CONDITIONAL_MISSING_PARENT_STATIC_UNREACHABLE_DYNAMIC_UNKNOWN": 48,
+    "HOLD_BASE_MODEL_USAGE_UNKNOWN": 6,
+    "NOT_APPLICABLE_GENERATED_ITEM_CUBOID": 58,
+    "VERIFIED_STATIC_SOURCE_ONLY": 16460
+  },
+  "B_face_source_dispositions": {
+    "VERIFIED_STATIC_FACE_PROVENANCE_ONLY": 592312
+  },
+  "B_source_sha_mismatch_rows": 0,
+  "B_unknown_A_model_rows": 0,
+  "C_B_face_crosslink_status": {
+    "FACE_SOURCE_SLOT_UV_MATCH": 6343
+  },
+  "C_exception_models_unique": 194,
+  "C_historic_pixel_source_reason_counts": {
+    "MISSING_PINNED_PNG": 139,
+    "NO_PINNED_SPRITE_INTERSECTION": 2,
+    "SLOT_UNBOUND_BOUND_CHILD_CONTEXT": 6196,
+    "SLOT_UNBOUND_NO_BOUND_CHILD": 6
+  },
+  "D_option_to_A_provenance": {
+    "A_D_PINNED_MODEL_SHA_JOIN": 78420,
+    "UNRESOLVED_ORIGINAL_MODEL_REFERENCE": 4,
+    "VANILLA_MODEL_OUTSIDE_MOD_A_PROVENANCE": 32
+  },
+  "D_reference_status": {
+    "LOCAL": 78420,
+    "UNRESOLVED_MODEL_REF": 4,
+    "VANILLA_JAR": 32
+  },
+  "D_state_source_exception_6_from_prior_audit": 6,
+  "D_state_source_gate_counts": {
+    "CONDITIONAL_DECLARED_SELECTOR_NOT_RUNTIME_PROVEN": 1157,
+    "HOLD_SOURCE_MODEL_REFERENCE_AND_RELEASE": 1
+  },
+  "E_findings_disposition": {
+    "CONDITIONAL_MEASURED_HISTORIC_SOURCE_REVIEW_REQUIRED": 14,
+    "NOT_APPLICABLE_AS_UNIVERSAL_RULE_SCOPE_LIMIT_STILL_VALUABLE_AS_COUNTEREXAMPLE": 7
+  },
+  "F_exact_case_conditional": 70,
+  "F_unconditional_full_exit_approved": 0,
+  "G_final_exit_approved": 0,
+  "H_final_exit_approved": 0,
+  "INT5_semantics_approved": 0,
+  "INT6_AI_training_rights_approved": 0,
+  "artifacts": {
+    "INT4_G2_1158_STATE_RUNTIME_SOURCE_GATES_V1.csv": {
+      "sha256": "3c03bfb5bd2e8709a03f08d704584ed7f0ce4fa2846f957b8d0bfac55e1868f0",
+      "size_bytes": 423570
+    },
+    "INT4_G2_16572_MODEL_SOURCE_SCOPE_DISPOSITIONS_V1.csv.gz": {
+      "sha256": "8266579dc9a59ed65ce77e6dd33855a796f7d5b621a28bf1d3c74528f46d0549",
+      "size_bytes": 586329
+    },
+    "INT4_G2_21_FINDING_F70_EVIDENCE_GATES_V1.csv": {
+      "sha256": "f9e14b7a8009f36307698002acd7df4e17e95ceb071ebe72769b10043ad5e1b3",
+      "size_bytes": 6816
+    },
+    "INT4_G2_592312_FACE_SOURCE_APPLICABILITY_V1.csv.gz": {
+      "sha256": "d752fd1f37dac41f338b97054a4a68a3ecab4d872731af9c0dde69fd54e0dd32",
+      "size_bytes": 3505605
+    },
+    "INT4_G2_6343_FACE_PIXEL_EXCEPTION_CROSSWALK_V1.csv.gz": {
+      "sha256": "bba8d7e9357827587913a74bcd3ccfd28cf808e0e4ac3424af85a5df06179026",
+      "size_bytes": 52889
+    },
+    "INT4_G2_70_F_CONTRACT_NONAPPROVAL_V1.csv": {
+      "sha256": "8103055f8d2f8baa9de4684318205828886a72a4a6d71ec0d8e7142b3b21db71",
+      "size_bytes": 38973
+    }
+  },
+  "misinterpretation_guards": [
+    "A static-source VERIFIED is NOT actual in-game model success.",
+    "B original face provenance is NOT an observed baked atlas or UV live render.",
+    "C original pixel-source exception is NOT a proven broken face on screen.",
+    "D selector source identity is NOT registered reachability nor version-wide equivalence.",
+    "F 70/70 conditional proof is NOT full-F PASS.",
+    "E 7 negative scope cases must not become universal modeling rules.",
+    "F11F study Git self-built Fabric 4.0.3 is NOT official published 4.0.3 NeoForge.",
+    "No model screenshot, upstream original JAR, or semantics newly observed in G2."
+  ],
+  "original_git_blob_pins": {
+    "INT4_A_ADJUDICATION_SUMMARY_V2.json": "621cce07862bbc5bb051809eeeef8df9607c0a37",
+    "INT4_A_EXCEPTION_DISPOSITIONS_V2.csv": "26c5764a37700626f3bfadba01fc229e49aadfc4",
+    "INT4_C_SOURCE_AUDIT_V1.json": "ace40f7aab319f61dc4d614f52aa01cae12f6cc0",
+    "INT4_D_1158_STATE_DISPOSITIONS_V1.csv": "db3ebc8b8df039bc334701bcf1f559fd48fd68c5",
+    "INT4_D_SOURCE_AUDIT_V1.json": "7617caf488ef2fd2a115c3ae1f3f7350fe1ba8d8",
+    "INT4_E_21_FINDING_DISPOSITIONS_V1.csv": "ff3025ffc9d924cc00b7d58cf05212b6dc5e08da",
+    "INT4_F11F_70_TARGET_EVIDENCE_DISPOSITIONS_V15.csv": "0cfbf3b1b174efc968de35c8466e2af8a9cd41c7",
+    "INT4_G1_SOURCE_LAYER_GATE_SUMMARY_V1.json": "9772bcb7bb3243b7f0d166b99d7f602c23a2e0fe"
+  },
+  "population_checks": {
+    "F_verification_units": 70,
+    "faces": 592312,
+    "historic_findings": 21,
+    "mod_state_options": 78456,
+    "mod_state_sources": 1158,
+    "models": 16572,
+    "pixel_source_exceptions": 6343
+  },
+  "schema": "MCFR_INT4_G2_FULL_SCOPE_CONSERVATIVE_DISPOSITIONS/v1",
+  "source_compressed_sha256": {
+    "INT4_A_MODEL_DISPOSITIONS_V2.csv.gz": "9bf1dc45cca4d85d4bf7ebdc60755910801adf1664b94ee38b28eb9082e3aeb3",
+    "INT4_B_592312_FACE_PROVENANCE_V1.csv.gz": "d5fe7708a194db723b49d4dbfe8bfd256a9c1bfbd00001d1ed17e1f9d760c578",
+    "INT4_C_6343_FACE_PIXEL_EXCEPTIONS_V1.csv.gz": "1bd4b9a670eb05a34be93d2569d22519f06463d8d52de3cf560859e68c6517cc",
+    "INT4_D_78456_OPTION_PROVENANCE_V1.csv.gz": "d8a007500262cee3e7ae2e24f1891ed640f2eac33cff6cd779a0352ece191301"
+  },
+  "status": "PASS_G2_PINNED_A_B_C_D_E_F_SOURCE_CROSSJOIN_WITH_REMAINING_LIMITS_NOT_FINAL_G"
+}
