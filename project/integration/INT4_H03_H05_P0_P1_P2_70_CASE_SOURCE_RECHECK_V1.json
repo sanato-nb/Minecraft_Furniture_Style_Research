@@ -1,6 +1,6 @@
 {
   "schema": "MCFR_INT4_H03_H05_F70_P0_P1_P2_FRESH_ORIGINAL_REVIEW_V1",
-  "status": "PASS_ALL_70_SOURCE_ZIP_LOG_IMAGE_REOPENED_SELECTIVE_GAME_STAGE_PENDING",
+  "status": "PASS_ALL_70_ORIGINAL_ARCHIVES_REOPENED_AND_P0_S20_S21_NORTH_ACTUAL_F2_SCOPED",
   "origin_head": "5f0eee2561745c5b9399bb36b07336025013db72",
   "fresh_archive_independent_evidence": {
     "github_actions_run": 45250155300,
@@ -31,8 +31,8 @@
         "old_F2_sha": "02ee02a4b05d0d9877fc12debd214a96823cea734e56e7f60972bb72ff29f566",
         "old_state": "facing=north,open=false",
         "source_leaf": "block/drawer/oak",
-        "new_actual_game_test": "SELECTED_NORTH_FRONT_VIEW_ONLY",
-        "remaining": "Old camera SouthEast does not expose north front; actual new front screenshot outcome separate"
+        "new_actual_game_test": "PASS_ACTUAL_NORTH_FRONT_F2_1208PIXEL_LOCALIZED",
+        "remaining": "Open/closed actual native visual front difference confirmed; precise per-face UV texel pixel and click-based opening not verified"
       },
       "S21": {
         "old_F2_sha": "02ee02a4b05d0d9877fc12debd214a96823cea734e56e7f60972bb72ff29f566",
@@ -40,8 +40,8 @@
         "source_leaf": "block/drawer/oak_open",
         "parent": "block/drawer/oak",
         "source_override": "textures.front: oak_front_open",
-        "new_actual_game_test": "SELECTED_NORTH_FRONT_VIEW_ONLY",
-        "remaining": "Real open/close player item interaction and GPU exact UV face attribution not within scoped screen probe"
+        "new_actual_game_test": "PASS_ACTUAL_NORTH_FRONT_F2_1208PIXEL_LOCALIZED",
+        "remaining": "Front texture slot changed and actual north F2 1208 pixels observed; no full GPU face UV or player interaction approval"
       },
       "R02": {
         "original_game_F2": 6,
@@ -126,10 +126,49 @@
     ],
     "independent_source_conflict": "S20/S21 same PNG from south-east despite front-texture difference. New north-front camera is required to resolve camera occlusion versus identical-render possibility.",
     "workflow_run": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45251124211",
-    "run_status_at_report_build": "in_progress",
+    "run_status_at_report_build": "success",
     "future_attempts_require_explicit_source_ambiguous_pixels": true,
     "do_not_schedule_70_duplicate_game_runs": true,
-    "gameplay_cases_not_mandatory_for_modelling_only_contract": true
+    "gameplay_cases_not_mandatory_for_modelling_only_contract": true,
+    "actual_selected_outcome": {
+      "case_ids": [
+        "S20",
+        "S21"
+      ],
+      "actual_fabric_execution_count": 1,
+      "exact_server_blocks_verified": 2,
+      "new_original_F2_count": 2,
+      "original_south_east_images_same_sha": "02ee02a4b05d0d9877fc12debd214a96823cea734e56e7f60972bb72ff29f566",
+      "new_north_view_model_state_screen_diff_RGB24_pixels": 1208,
+      "new_screen_diff_bounds_xyxy_inclusive": [
+        481,
+        450,
+        542,
+        470
+      ],
+      "diff_outside_drawer_ROI_pixels": 0,
+      "actual_open_false_front_appearance": "two visible drawer handles / closed texture",
+      "actual_open_true_front_appearance": "dark open upper recess / one lower drawer handle",
+      "targeted_source_differing_model_texture_slot": "front",
+      "source_modified_JAR": false,
+      "actual_run": 45251124211,
+      "run_conclusion": "success",
+      "success_code_sha": "075ab30792fee9ade6c9d8441620c48695c533a1",
+      "original_actions_artifact_id": 14855721943,
+      "downloaded_original_zip_SHA256": "5972c182837a766f1ee5515a1a1c895affcefb1d01d9ffbf1106aa9a327ae3ab",
+      "original_png_SHA256": {
+        "S20": "d0dc361b8db7094b512ce7144866b736ef3e4341c9c034ba8bf013ec40327863",
+        "S21": "1499e0f81313cc9c0c60f8c4ff50899cb44cfd5972d1224f7fad11ea4f067045"
+      },
+      "source_game_client_log_SHA256": "2394f757337f79173d5c71288e94e07ded1f8156fe08707d6537de668eabb01f",
+      "direct_independent_PNG_SHA_ZIP_CRC_log_server_verified": true,
+      "approved_claim": "S20 and S21 model state changed the original actual native F2 image from front/north camera",
+      "unapproved_claims": [
+        "Exact GPU per-face sampled UV texel",
+        "Player GUI opening or closing drawer",
+        "Full F70 or H03 H05 exit"
+      ]
+    }
   },
   "gates": {
     "H03": "HOLD",
@@ -146,7 +185,7 @@
     "All archived case original ZIP and PNG SHA verified again as original data, not a blanket re-approval of 70 game scene/model UV interpretations.",
     "P0 P1 P2 denotes research priority, not sample success percentages or H03/H05 gates.",
     "Legacy human qualitative observation text exists for 70 cases, but independent per-frame GPU face sampling remains untested.",
-    "Only bounded new game S20/S21 targeted; extra experiments selected exclusively on specific contradictory source/visible screen evidence.",
-    "Third-party source model/PNG/JAR bytes not copied into Git or output artifact."
+    "Third-party source model/PNG/JAR bytes not copied into Git or output artifact.",
+    "Only S20/S21 have new source-selected game screenshots, which verified north front visible difference but not pixel-specific GPU UV or any other F target."
   ]
 }
