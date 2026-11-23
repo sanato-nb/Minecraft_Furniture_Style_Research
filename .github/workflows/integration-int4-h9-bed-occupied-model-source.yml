@@ -17,6 +17,8 @@ jobs:
     if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
     runs-on: ubuntu-24.04
     timeout-minutes: 25
+    env:
+      PYTHONPATH: src
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
