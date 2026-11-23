@@ -17,12 +17,12 @@ PREV=OUT/"INT4_F11A_70_TARGET_EVIDENCE_DISPOSITIONS_V10.csv"
 NEW=OUT/"INT4_F11B_FIVE_VANILLA_REAL_F2_SOURCE_V1.json"
 STUDY=Path("research/furniture_mods/phase_1-5/B/APPLICATIONS.csv")
 PINS={str(PREV):"51aea1ec91472c4ff2ad99a6b2ce8f9975854b18",
-      str(NEW):"__CAPTURE_SHA__",
+      str(NEW):"73d3840db6a261cdfe42de619c5337eed3150dc4",
       str(STUDY):"56e6f4c21c50714b97079ec61f7219bea845f179"}
 RUN=45098021558
-ARTIFACT=0
+ARTIFACT=14784297231
 ZIP_NAME="INT4_F11B_VANILLA_FIVE_ORIGINAL_F2.zip"
-ZIP_SHA="__ZIP_SHA__"
+ZIP_SHA="14483549b057734fe124c36dc498bdb8a91f781016189707feeb9c9d27e50a9a"
 CLIENT_SHA1="ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd"
 CLIENT_SHA256="1473c9489ac50fda3c435049a76a70d61a10b8610db27f5ba9d8756b686cd3bd"
 STUDY_SHA="da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e"
@@ -264,6 +264,6 @@ def main():
             target.parent.mkdir(parents=True,exist_ok=True)
             target.write_bytes(content)
         print("VERIFIED" if a.verify else "CREATED",path,len(content))
-    print("F11B verified 70 targets conditional58 HOLD12 fullF0")
+    print("F11B verified 70 targets conditional63 HOLD7 fullF0")
 
 if __name__=="__main__":main()
