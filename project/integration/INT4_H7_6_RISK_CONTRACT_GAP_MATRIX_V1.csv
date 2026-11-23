@@ -1,0 +1,7 @@
+risk_id,original_F2_stage_occurrences,distinct_original_game_runs,exact_source_server_substages,stage_names,source_stage_SHA_and_log_verified,risk_contract_final_approved,remaining_condition
+R01,1,1,1,S10,true,false,Only source S10 reused; entire furniture category not re-executed
+R02,6,1,6,AFV3_north|AFV3_east|AFV3_south|AFV3_west|AFV1_north|AFV1_south,true,false,Six direction/variant states; release-study byte differences and pixel causality open
+R03,3,1,3,reset|join|remove,true,false,"Natural setblock neighbor transition, not player item placement"
+R04,2,1,2,S42|S43,true,false,"Two static sink states, not water animation or interaction proof"
+R05,5,2,5,bed_placed|bed_sleeping|bed_awake|bed_placed|bed_foot_broken,true,false,Sleep/wake and destruction come from TWO distinct original game runs
+R07,4,1,4,AFV3_north|AFV3_east|AFV3_south|AFV3_west,true,false,South variant3 selects acacia_1 while other variant3 directions select acacia_3; intent unresolved
