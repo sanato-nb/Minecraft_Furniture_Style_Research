@@ -106,8 +106,8 @@ def capture_cases(version=VERSION,root=ROOT):
            x,Y,40)
            for k,x in zip(ORDER,POSITIONS))
     check(len(cases)==5 and len({c.case_id for c in cases})==5 and
-          all(abs(c.x-cases[i].x)>=16 for i,c in enumerate(cases)
-              if i>0),"F11 original states overlap")
+          all(abs(c.x-other.x)>=16 for i,c in enumerate(cases)
+              for other in cases[i+1:]),"F11 original states overlap")
     return cases
 
 
