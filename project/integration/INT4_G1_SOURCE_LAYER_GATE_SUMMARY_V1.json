@@ -1,0 +1,234 @@
+{
+  "G_stage_final_disposition_approved": 0,
+  "H_exit_gate_approved": 0,
+  "INT5_semantics_approved": 0,
+  "INT6_AI_training_and_redistribution_approved": 0,
+  "finding_scope_restriction": {
+    "all_finding_cases_conditionally_evidenced": true,
+    "finding_claims_reclassified_as_verified_new_G": 0,
+    "findings_universally_approved": 0
+  },
+  "findings_gate_total": 21,
+  "fixed_layer_denominators_and_scoped_dispositions": {
+    "A": {
+      "generated_item_NA": 58,
+      "model_denominator": 16572,
+      "model_static_scope_verified": 16460,
+      "model_use_hold": 6,
+      "parent_missing_conditional": 48
+    },
+    "B": {
+      "element_denominator": 105383,
+      "face_denominator": 592312,
+      "live_baked_UV_approved": 0,
+      "reused_source_face_links": 592312
+    },
+    "C": {
+      "face_denominator": 592312,
+      "historic_PNG_pixel_supported": 585969,
+      "source_PNG_exception_reason_counts": {
+        "MISSING_PINNED_PNG": 139,
+        "NO_PINNED_SPRITE_INTERSECTION": 2,
+        "SLOT_UNBOUND_BOUND_CHILD_CONTEXT": 6196,
+        "SLOT_UNBOUND_NO_BOUND_CHILD": 6
+      },
+      "source_PNG_pixel_exceptions": 6343
+    },
+    "D": {
+      "mod_state_paths": 1158,
+      "not_claimed_runtime_resolved": true,
+      "source_option_rows": 78456,
+      "unresolved_option_refs": 4
+    },
+    "E": {
+      "claim_candidates_conditional": 14,
+      "counterexamples_or_scope_limit": 7,
+      "finding_disposition_rows": 21,
+      "historic_cases": 62,
+      "model_applications": 74,
+      "source_discrepancies": 0
+    },
+    "F": {
+      "historical_cases": 62,
+      "risk_scenarios": 8,
+      "unconditionally_final_F_pass": 0,
+      "verification_units": 70,
+      "with_conditional_real_client_or_source_evidence": 70
+    }
+  },
+  "frozen_Git_blob_SHA1": {
+    "INT4_A_ADJUDICATION_SUMMARY_V2.json": "621cce07862bbc5bb051809eeeef8df9607c0a37",
+    "INT4_A_EXCEPTION_DISPOSITIONS_V2.csv": "26c5764a37700626f3bfadba01fc229e49aadfc4",
+    "INT4_B_SOURCE_JOIN_SUMMARY_V1.json": "93c07092f683aaaacdb5b3e22c2754376439ca88",
+    "INT4_C_SOURCE_AUDIT_V1.json": "ace40f7aab319f61dc4d614f52aa01cae12f6cc0",
+    "INT4_D_6_SOURCE_OPTION_EXCEPTIONS_V1.csv": "75d61821a732ddec271314396e6c11335f40d4c3",
+    "INT4_D_SOURCE_AUDIT_V1.json": "7617caf488ef2fd2a115c3ae1f3f7350fe1ba8d8",
+    "INT4_E_21_FINDING_DISPOSITIONS_V1.csv": "ff3025ffc9d924cc00b7d58cf05212b6dc5e08da",
+    "INT4_E_CROSS_AUDIT_SUMMARY_V1.json": "6483b0fbd14d2b389a311a73201c1b160956f5c1",
+    "INT4_F11F_70_TARGET_EVIDENCE_DISPOSITIONS_V15.csv": "0cfbf3b1b174efc968de35c8466e2af8a9cd41c7",
+    "INT4_F11F_R08_TWO_FABRIC_ORIGINAL_F2_INDEPENDENT_AUDIT_V1.json": "dbf5118138851f664468e5bcb8ef84e1edde6fd5"
+  },
+  "frozen_compressed_ledgers": {
+    "INT4_A_MODEL_DISPOSITIONS_V2.csv.gz": {
+      "csv_columns": [
+        "mod",
+        "minecraft",
+        "model_key",
+        "resource_id",
+        "source_path",
+        "source_sha",
+        "source_hash_kind",
+        "parent_status",
+        "missing_parent_resource",
+        "geometry_status",
+        "own_elements",
+        "effective_elements",
+        "effective_faces",
+        "exception_class",
+        "static_blockstate_item_reachability",
+        "source_disposition",
+        "int4_a_review_result",
+        "runtime_visual_status",
+        "required_followup_stage",
+        "next_action",
+        "evidence_refs",
+        "source_scope",
+        "generated_in_int4_a_v2"
+      ],
+      "gzip_sha256": "9bf1dc45cca4d85d4bf7ebdc60755910801adf1664b94ee38b28eb9082e3aeb3",
+      "rows": 16572,
+      "source_scope": "PRIOR_PINNED_SOURCE_ONLY_NOT_NEW_ORIGINAL_UPSTREAM"
+    },
+    "INT4_B_592312_FACE_PROVENANCE_V1.csv.gz": {
+      "csv_columns": [
+        "model_key",
+        "model_resource_id",
+        "mod",
+        "minecraft",
+        "model_source_path",
+        "model_source_sha",
+        "provider_source_key",
+        "provider_resource_id",
+        "provider_source_sha",
+        "geometry_signature",
+        "element_index",
+        "face_direction",
+        "source_texture_slot",
+        "source_uv",
+        "uv_declared",
+        "uv_rotation",
+        "cullface",
+        "tintindex",
+        "int4_a_source_disposition",
+        "evidence_method",
+        "uv_pixel_or_runtime_approval"
+      ],
+      "gzip_sha256": "d5fe7708a194db723b49d4dbfe8bfd256a9c1bfbd00001d1ed17e1f9d760c578",
+      "rows": 592312,
+      "source_scope": "PRIOR_PINNED_SOURCE_ONLY_NOT_NEW_ORIGINAL_UPSTREAM"
+    },
+    "INT4_C_6343_FACE_PIXEL_EXCEPTIONS_V1.csv.gz": {
+      "csv_columns": [
+        "model_key",
+        "model_resource_id",
+        "model_original_sha",
+        "source_id",
+        "model_path",
+        "geometry_provider",
+        "element_index",
+        "face_direction",
+        "source_slot",
+        "uv",
+        "uv_declared",
+        "uv_rotation",
+        "texture_id",
+        "texture_resource_id",
+        "texture_original_sha",
+        "original_status",
+        "source_sample_status",
+        "exception_reason",
+        "exception_subtype",
+        "evidence_source",
+        "static_child_context",
+        "direct_model_blockstate_selected",
+        "pinned_original_png_path",
+        "pinned_release_check",
+        "int4_a_model_disposition",
+        "followup",
+        "int4_c_disposition"
+      ],
+      "gzip_sha256": "1bd4b9a670eb05a34be93d2569d22519f06463d8d52de3cf560859e68c6517cc",
+      "rows": 6343,
+      "source_scope": "PRIOR_PINNED_SOURCE_ONLY_NOT_NEW_ORIGINAL_UPSTREAM"
+    },
+    "INT4_D_78456_OPTION_PROVENANCE_V1.csv.gz": {
+      "csv_columns": [
+        "mod",
+        "state_id",
+        "state_path",
+        "state_source_sha",
+        "state_kind",
+        "rule_index",
+        "source_selector",
+        "condition",
+        "option_index",
+        "model_ref",
+        "model_id",
+        "original_model_key",
+        "original_model_source_sha",
+        "reference_status",
+        "model_geometry_status",
+        "parent_missing",
+        "x_original",
+        "y_original",
+        "x_mod_360",
+        "y_mod_360",
+        "uvlock",
+        "weight",
+        "explicit_fields",
+        "int4_a_model_disposition",
+        "model_static_elements",
+        "model_static_faces",
+        "selected_model_source_pixel_exception_rows",
+        "selected_model_pixel_exception_reasons",
+        "source_release_bound",
+        "release_equivalence_scope",
+        "source_evidence_method",
+        "runtime_register_or_visual_status",
+        "followup"
+      ],
+      "gzip_sha256": "d8a007500262cee3e7ae2e24f1891ed640f2eac33cff6cd779a0352ece191301",
+      "rows": 78456,
+      "source_scope": "PRIOR_PINNED_SOURCE_ONLY_NOT_NEW_ORIGINAL_UPSTREAM"
+    }
+  },
+  "outputs_sha256": {
+    "A_exception_review": "1111a235a80ce6e85f299a669bdd8540886a488086c355478ce6d886cac35517",
+    "D_option_exception_review": "6f165a36fb90878a1a71187aa4f221964d4203277a761293a465b1258370a374",
+    "finding_gates": "98baed9d58bbfd751512ae728fb6db904fa135495353bb2a6ece924302e9a74e"
+  },
+  "schema": "MCFR_INT4_G1_SOURCE_LAYERS_A_TO_F_PRELIMINARY_DECISION_GATES/v1",
+  "source_disposition_counts": {
+    "A_exception_union_distinct_models": 112,
+    "A_missing_parents": 48,
+    "A_no_static": 108,
+    "A_parent_missing_also_no_static_overlap": 44,
+    "C_face_pixel_exception_categories_total": 6343,
+    "D_option_exceptions": 6,
+    "E_findings_referenced_distinct_cases": 56
+  },
+  "status": "PASS_G1_ALL_FROZEN_SOURCE_SCOPE_AND_F70_CROSS_LINKED_G_FINAL_EXIT_NOT_ASSESSED",
+  "uncertainties_and_explicit_non_acceptance": [
+    "A parent missing 48 are pinned static ancestry unreachable; dynamic loader and resource pack usage not proven.",
+    "A six HC base models lack effective cuboids and have unresolved registered-state use.",
+    "A 58 generated item models are N/A static cuboids, not an observed renderer defect.",
+    "B source 592312 faces are structural provenance, NOT pixel-baked live UV verification.",
+    "C 6343 unsupported pixel-source faces include child slots, missing PNG and nonintersection; not all game visible.",
+    "D 78456 rule options are static source choices; 4 unresolved refs, no version-wide registered runtime equality claim.",
+    "E 21 conclusions remain 14 conditional candidates and 7 scope limits; no universal style rules automatically.",
+    "F 70/70 conditional evidence does not establish all original acceptance contracts or full F exit.",
+    "Official Another Furniture 4.0.3 NeoForge release NOT game tested by F11F; Git 4.0.3 Fabric self-build one state only.",
+    "Original 2026 INT-2/3 CI environment regressions fixed in Draft PR73, but unrelated chair UI capture failures remain.",
+    "G independent disposition needs source exception ownership, version scope, selected render applicability, conflict triage; H gates not started."
+  ]
+}
