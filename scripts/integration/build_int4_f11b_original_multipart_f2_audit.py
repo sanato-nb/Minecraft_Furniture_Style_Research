@@ -249,7 +249,7 @@ def build(archive_path):
       "- 남은 대상 V11~V15, R06, R08. UV 인과·자연 상태 전이·기능·부품 의미·AI 학습/재배포권은 별도 보류.",
       "",
     ]).encode("utf-8")
-    return {OUT70:allbytes,OUT12:waiting,AUDIT:jsonout(summary),REVIEW:notes}
+    return {OUT70:allbytes,OUT12:waiting,AUDIT:jout(summary),REVIEW:notes}
 
 
 def main():
