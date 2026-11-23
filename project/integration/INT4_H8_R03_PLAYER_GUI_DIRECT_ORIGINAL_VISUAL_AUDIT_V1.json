@@ -1,0 +1,115 @@
+{
+  "schema": "MCFR_INT4_H8_R03_NEW_REAL_GAME_PLAYER_GUI_DIRECT_VISUAL_PROVENANCE/v1",
+  "status": "R03_ONE_REAL_CREATIVE_GUI_MOUSE_PLACE_BREAK_SERVER_F2_VERIFIED_NOT_FULL_RISK_EXIT",
+  "origin": {
+    "draft_pr": 86,
+    "action_run_id": 45151609933,
+    "artifact_id": 14806817076,
+    "source_zip_sha256": "78c6b781ea74faf7805bf0d340987473d9ce5be3f9c2e198300b62b9923baa54",
+    "game": "Minecraft Java 1.21.11 Fabric",
+    "Macaw_furniture_release_sha256": "e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e",
+    "client_log_sha256": "11eecd71ccd6623d0d8e256ad3386719b0f6db2647f1f8f5d918eaef5344e1cd",
+    "git_original_integrated_server_audit_blob_sha1": "6475bfe55c5e7b1f9b579c692a5d21144b252ef5"
+  },
+  "original_game": {
+    "GUI_input_actions": [
+      {
+        "stage": "join",
+        "item": "mcwfurnitures:oak_table",
+        "mode": "creative",
+        "button": "right_click_button3",
+        "position": "1.5 120 43.5",
+        "yaw": 180,
+        "pitch": 28
+      },
+      {
+        "stage": "remove",
+        "mode": "creative",
+        "button": "left_click_button1",
+        "position": "1.5 120 43.5",
+        "yaw": 180,
+        "pitch": 16
+      }
+    ],
+    "center_table_reset_by_original_datapack": true,
+    "east_table_setblock_join_remove_used": false,
+    "stage_states": {
+      "reset": {
+        "center_east": false,
+        "east_block": "air",
+        "original_png_sha256": "407fa13cd1821f4b6e01ed4dd3d270cbb47ecb4a82128394842a35a53add94af",
+        "visual": "One narrow wooden Macaw table visible"
+      },
+      "join": {
+        "center_east": true,
+        "east_west": true,
+        "east_block": "table",
+        "original_png_sha256": "629acfe230eebd8b7810e3e9940820f170d6f555dd5739b4347f8625c1ae1031",
+        "visual": "Two adjoining tables create a wider continuous wooden surface"
+      },
+      "remove": {
+        "center_east": false,
+        "east_block": "air",
+        "original_png_sha256": "31b4dc49b2480325367bfa5c2d955d0c73c99e67363ac8c31c9ae41efbf9dea7",
+        "visual": "One narrow wooden table visible again"
+      }
+    },
+    "original_native_png_resolution": [
+      1024,
+      684
+    ],
+    "direct_visual_reviewed": true
+  },
+  "important_legacy_discrepancy": {
+    "original_macaw_neighbor_summarizer_inherited_fields": {
+      "player_item_placement_tested": false,
+      "state_changed_after_adjacent_setblock": true
+    },
+    "explanation": "These two flags were inherited verbatim from the original setblock-only neighbor summarizer; they do not describe the new H8 input mechanism. The H8 audit's separate scope.player_creative_GUI_item_placement_verified=true and captured GUI_actions+server log are the narrower authoritative record for this experiment. Never use the inherited flags to contradict the verified input or claim new setblock testing.",
+    "normalization_claim": "creative_GUI_table_item_placement_and_break_verified_in_one_runtime",
+    "original_artifact_unchanged": true
+  },
+  "original_failed_runs_preserved": [
+    {
+      "run": 45150181295,
+      "reason": "H8 new CLI missing version/world/work arguments; game interaction not started"
+    },
+    {
+      "run": 45150969249,
+      "reason": "Real GUI right-click placement and bidirectional connection succeeded; GUI left-click missed the tabletop; archived incomplete run"
+    },
+    {
+      "run": 45151601134,
+      "reason": "Intermediate workflow unit test expected old camera pitch while capture source was updated"
+    },
+    {
+      "run": 45151609933,
+      "reason": "Corrected tabletop-target angle 16deg: native 3 screenshots and independent server audit succeeded"
+    }
+  ],
+  "scope": {
+    "actual_new_real_game_executions_successful": 1,
+    "original_game_r03_manual_item_use_in_creative": true,
+    "R03_complete_risk_contract_approved": false,
+    "pixel_per_face_UV_causality_approved": false,
+    "R04_water_animation_approved": false,
+    "R05_continuous_bed_session_approved": false,
+    "R07_study_release_mismatch_approved": false,
+    "F70_original_conditional": 70,
+    "F_full_unconditional_pass": 0,
+    "H03_status": "HOLD_FULL_F_EXIT",
+    "H05_status": "CONDITIONAL",
+    "H_gate_scoped_pass": 6,
+    "H_gate_conditional": 1,
+    "H_gate_hold": 1,
+    "H_complete_exit_approved": 0,
+    "INT5_semantics_approved": 0,
+    "INT6_training_redistribution_rights_approved": 0
+  },
+  "limits": [
+    "Native original 3 F2 images and integrated client log exist in separate expiring Actions artifact; Git metadata only.",
+    "Scripted creative right-click/left-click is a genuine client input, not survival-mode gameplay or human user behavior testing.",
+    "Screenshot appearance and actual integrated server state do not prove model UV face-pixel causal attribution or general functional semantics.",
+    "H7's R03 setblock test and H8's GUI experiment are different real runs; neither is silently substituted for the other."
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "capture_manifest_sha256": "1ae44c3c09e1a3eca0c3c9e462570bf02c7ae932c4b9e80038ff79379a64ecab",
+  "client_log_sha256": "11eecd71ccd6623d0d8e256ad3386719b0f6db2647f1f8f5d918eaef5344e1cd",
+  "contact_sha256": "937d907938475bb1af0d3cfbd98e03ca081d1a131b4d2870e3028207fe0c2b39",
+  "macaw_jar_sha256": "e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e",
+  "neighbor_transition_observation": {
+    "automatically_disconnected_after_remove": true,
+    "centre_east_after_remove": false,
+    "centre_east_baseline": false,
+    "centre_east_with_neighbor": true,
+    "joined_bidirectionally": true,
+    "natural_server_block_neighbor_updates_observed": true,
+    "neighbor_west_with_centre": true,
+    "player_item_placement_tested": false,
+    "state_changed_after_adjacent_setblock": true
+  },
+  "observed_server_states": {
+    "join": {
+      "centre": {
+        "block": "table",
+        "east": true,
+        "north": false,
+        "south": false,
+        "west": false
+      },
+      "east": {
+        "block": "table",
+        "east": false,
+        "north": false,
+        "south": false,
+        "west": true
+      }
+    },
+    "remove": {
+      "centre": {
+        "block": "table",
+        "east": false,
+        "north": false,
+        "south": false,
+        "west": false
+      },
+      "east": {
+        "block": "air",
+        "east": null,
+        "north": null,
+        "south": null,
+        "west": null
+      }
+    },
+    "reset": {
+      "centre": {
+        "block": "table",
+        "east": false,
+        "north": false,
+        "south": false,
+        "west": false
+      },
+      "east": {
+        "block": "air",
+        "east": null,
+        "north": null,
+        "south": null,
+        "west": null
+      }
+    }
+  },
+  "per_F2_sha256": {
+    "join": "629acfe230eebd8b7810e3e9940820f170d6f555dd5739b4347f8625c1ae1031",
+    "remove": "31b4dc49b2480325367bfa5c2d955d0c73c99e67363ac8c31c9ae41efbf9dea7",
+    "reset": "407fa13cd1821f4b6e01ed4dd3d270cbb47ecb4a82128394842a35a53add94af"
+  },
+  "real_F2_count": 3,
+  "schema": "MCFR_INT4_H8_R03_REAL_PLAYER_ITEM_AUDIT/v1",
+  "scope": {
+    "UV_pixel_to_face_causal_proof": false,
+    "actual_bed_or_bookshelf_natural_connection_tested": false,
+    "full_F_unconditional_pass": false,
+    "int4_all_complete": false,
+    "int5_semantic_approvals": 0,
+    "int6_rights_approvals": 0,
+    "new_real_Minecraft_run": 1,
+    "original_server_setblock_east_join_function_executed": false,
+    "player_creative_GUI_item_placement_verified": true,
+    "server_neighbor_updates_observed": true,
+    "state_changed_only_if_measured": true
+  },
+  "source_state_sha256": "da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e",
+  "status": "REAL_FABRIC_PLAYER_ITEM_PLACEMENT_AND_REMOVAL_SERVER_VERIFIED"
+}
