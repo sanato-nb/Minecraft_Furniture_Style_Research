@@ -1,0 +1,100 @@
+{
+  "actual_original_client_log_sha256": "824bd93e82298b9474a7b40f8bed886eb673ced475b856764c825fce19f3964b",
+  "counts": {
+    "F_HOLD_after": 1,
+    "F_HOLD_before": 2,
+    "F_conditional_after": 69,
+    "F_conditional_before": 68,
+    "F_target_count": 70,
+    "F_unconditional_final_approved": 0,
+    "INT5_semantics_approved": 0,
+    "INT6_AI_training_redistribution_rights_approved": 0,
+    "historic_F2_after": 62,
+    "historic_F2_before": 62,
+    "historical_1_5_cases": 62
+  },
+  "direct_original_F2_pixel_review": {
+    "color_channel_difference_threshold": 24,
+    "foreground_blue_water_pixels_each_frame": {
+      "R06_T0": 778,
+      "R06_T1": 778,
+      "R06_T2": 778
+    },
+    "max_background_stone_control_delta": 0,
+    "paired_pixel_differences": {
+      "R06_T0_vs_R06_T1": {
+        "sink_changed_pixels": 22,
+        "stone_control_changed_pixels": 0,
+        "water_changed_pixels": 22
+      },
+      "R06_T0_vs_R06_T2": {
+        "sink_changed_pixels": 8,
+        "stone_control_changed_pixels": 0,
+        "water_changed_pixels": 8
+      },
+      "R06_T1_vs_R06_T2": {
+        "sink_changed_pixels": 9,
+        "stone_control_changed_pixels": 0,
+        "water_changed_pixels": 9
+      }
+    },
+    "sink_roi": [
+      462,
+      394,
+      564,
+      508
+    ],
+    "stone_control_roi": [
+      610,
+      530,
+      690,
+      610
+    ],
+    "temporal_interpretation": "WATER_REGION_CHANGED_AT_SAMPLED_TIMES_NOT_CAUSAL_ANIMATION_PROOF",
+    "water_pixel_changed_observed": true,
+    "water_roi": [
+      480,
+      415,
+      545,
+      443
+    ]
+  },
+  "limits": [
+    "Three native F2 at >=8sec intervals, one exact S43 water=true state; not user gameplay.",
+    "Pixel change would show sampled images differ, not directly prove animation.",
+    "Pixel stability would show sampled still frames, not prove no animation.",
+    "Original 1-5 study + previous 69 F ledger rows remain byte unchanged.",
+    "R08 official AF 4.0.3 vs 4.0.2 matched state real F2 remains HOLD.",
+    "No full F gate, G/H, INT5 semantics or INT6 rights final approval."
+  ],
+  "locked_source_git_blob_sha1": {
+    "project/integration/INT4_F11D_70_TARGET_EVIDENCE_DISPOSITIONS_V13.csv": "2304adf8904415a8e30f7bdae6f35d0e6354cc19",
+    "project/integration/INT4_F11E_R06_TEMPORAL_REAL_F2_SOURCE_V1.json": "049ea1046d17d6e5e24f089299b98f3fcbeff006",
+    "research/furniture_mods/phase_1-5/B/APPLICATIONS.csv": "56e6f4c21c50714b97079ec61f7219bea845f179"
+  },
+  "original_historical_case": "S43",
+  "original_mod_jar_sha256": "e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e",
+  "original_native_F2_artifact_id": 14786478182,
+  "original_native_F2_count": 3,
+  "original_native_F2_zip_sha256": "ddf965f6f87e91a2c4b65f435f36eae5ea6ed1fdee8e7638a0097f1fdb2e938e",
+  "output_sha256": {
+    "F70": "51178f11f79286195cbaff722b78d63a6ac5a34ae661c114a1a442bdf9942655",
+    "pending": "dabb00e2cb34c5e51b6920b2d0140385462af28d5cfdd88808c6c107555a67a3"
+  },
+  "real_Minecraft_client_game_actions_run": 45104714782,
+  "real_server_state_checks": 3,
+  "remaining_HOLD_target_ids": [
+    "R08"
+  ],
+  "risk_case": "R06",
+  "schema": "MCFR_INT4_F11E_R06_MACAW_REAL_TEMPORAL_F70_INDEPENDENT_AUDIT/v1",
+  "source_1_5_SHA256": "da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e",
+  "source_dry_faces": 55,
+  "source_wet_faces": 56,
+  "status": "PASS_R06_CONDITIONAL_69_HOLD_1_FULL_F_ZERO",
+  "time_separation_seconds": [
+    10.615,
+    10.358
+  ],
+  "water_animation_causally_approved": false
+}
