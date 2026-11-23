@@ -1,0 +1,153 @@
+{
+  "actual_F2_independent_reanalysis": {
+    "RGB_channel_threshold": 24,
+    "ROI_xyxy_exclusive": [
+      350,
+      275,
+      675,
+      620
+    ],
+    "changed_screen_pixel_bounds_xyxy_inclusive": [
+      493,
+      433,
+      530,
+      461
+    ],
+    "changed_screen_pixels_by_image_row_y": {
+      "433": 30,
+      "434": 30,
+      "435": 30,
+      "436": 30,
+      "441": 20,
+      "442": 15,
+      "443": 15,
+      "444": 15,
+      "445": 15,
+      "446": 38,
+      "447": 38,
+      "448": 38,
+      "449": 38,
+      "450": 38,
+      "451": 38,
+      "452": 38,
+      "453": 38,
+      "454": 38,
+      "455": 38,
+      "456": 38,
+      "457": 38,
+      "458": 38,
+      "459": 38,
+      "460": 38,
+      "461": 38
+    },
+    "original_F2_native_PNG_verified": 4,
+    "original_H12_artifact_id": 14822712371,
+    "original_H12_run_id": 45183488267,
+    "original_archive_SHA256": "6b305bda1f8d9e02f417cb2b2f4c3600936ed7bb11e6e3d494d6c448e3a0d2a4",
+    "original_exact_server_states_verified": 4,
+    "screen_difference_aggregates_not_raw_PNGs_committed": true,
+    "variant1_repeat_temporal_changed_pixels": 0,
+    "variant1_variant3_changed_pixels": 808,
+    "variant1_variant3_changed_pixels_outside_foreground_mask": 0
+  },
+  "conclusion": {
+    "F70_conditionally_evidenced": 70,
+    "F70_unconditional_approvals": 0,
+    "H03_exit_approved": false,
+    "H05_exit_approved": false,
+    "H12_same_pose_808_changed_pixels_reproduced": true,
+    "INT5_semantics_approved": 0,
+    "INT6_training_or_redistribution_rights_approved": 0,
+    "all_mods_or_versions_generalization_approved": false,
+    "changed_RGBA_54_texels_with_38_alpha_changes_verified": true,
+    "other_camera_angles_or_south_variant3_original_F2_tested": false,
+    "single_source_normal_side_candidate_identified": true,
+    "source_face_to_screen_pixel_GPU_causality_approved": false
+  },
+  "limits": [
+    "Camera on the +Z side of a zero-thickness parent element yields one source-normal candidate (south), NOT verified Minecraft GPU face selection or pixel UV lookup.",
+    "Differences in 38 texture alpha texels can change which background pixels are visible; screenshot RGB colors alone do not identify the sampled face or texel.",
+    "This is an independent reanalysis of the same original H12 run and four screenshots, not a new Minecraft game run.",
+    "The H12 archive is an expiring GitHub Actions artifact, so its availability must not be assumed indefinitely.",
+    "Original screenshots, mod textures, JAR and client.log bytes are not committed; no gameplay tests or automatic model corrections."
+  ],
+  "schema": "MCFR_INT4_H14_AF_CAMERA_SIDE_SOURCE_UV_REAL_F2_BRIDGE/v1",
+  "source": {
+    "H11_prior_git_blob_sha1": "1869ee05afce779bd37233ba1cc74850d736160f",
+    "H12_prior_git_blob_sha1": "5e40040a13146ae08b97cf9d4747a6a08bc1d208",
+    "in_game_mod_JAR_sha1": "c2f992081bdc4795ed6d87771a3b5f7c71103785",
+    "in_game_mod_release": "4.0.2",
+    "pinned_git_blob_sha1": {
+      "models/block/template/chair.json": "d9b64a818021f1a64b0cba13d16d18d6fea65d01",
+      "textures/block/chair/back_1/acacia.png": "55f3bbf986c0c10b731cc0e67038402f30340972",
+      "textures/block/chair/back_3/acacia.png": "e2282f2620fc8fbbcfd3bb69ab2a435e5421bbe8"
+    },
+    "repo": "crispytwig/AnotherFurniture",
+    "upstream_git_commit": "57eb624cbb7f408d43398c7434b0d38d312cb55d"
+  },
+  "source_backrest_camera_side": {
+    "camera_opposite_source_face": "north",
+    "camera_side_source_face_candidate": "south",
+    "camera_world_z": 45.5,
+    "center_plane_world_z": 40.8125,
+    "faces": [
+      {
+        "camera_on_face_normal_side": false,
+        "element_index": 7,
+        "exact_screen_pixel_to_face_approved": false,
+        "face": "north",
+        "gpu_visibility_confirmed": false,
+        "source_changed_texels_overlapping_UV": 54,
+        "source_plane_normal_z": -1,
+        "source_uv": [
+          0,
+          0,
+          8,
+          9
+        ]
+      },
+      {
+        "camera_on_face_normal_side": true,
+        "element_index": 7,
+        "exact_screen_pixel_to_face_approved": false,
+        "face": "south",
+        "gpu_visibility_confirmed": false,
+        "source_changed_texels_overlapping_UV": 54,
+        "source_plane_normal_z": 1,
+        "source_uv": [
+          8,
+          0,
+          0,
+          9
+        ]
+      }
+    ],
+    "fixed_camera": "-87.5 122.3 45.5 180 20",
+    "gpu_raster_face_visibility_or_exact_pixel_attribution_proven": false,
+    "source_2_faces_intersect_original_delta": 2,
+    "source_backrest_is_zero_thickness_two_sided_plane": true,
+    "source_faces_on_camera_side": 1
+  },
+  "source_texture_change": {
+    "changed_RGBA_texels": 54,
+    "changed_texels_only_RGB_change": 16,
+    "changed_texels_with_alpha_change": 38,
+    "diff_texel_bounds_xyxy": [
+      0,
+      0,
+      7,
+      6
+    ],
+    "diff_texels_by_texture_row_y": {
+      "0": 6,
+      "1": 8,
+      "2": 8,
+      "3": 8,
+      "4": 8,
+      "5": 8,
+      "6": 8
+    },
+    "original_RGBA_differences_not_committed": true
+  },
+  "status": "PASS_PINNED_SOURCE_CAMERA_SIDE_ONE_CANDIDATE_AND_ORIGINAL_F2_DIFF_NO_GPU_FACE_PROOF"
+}
