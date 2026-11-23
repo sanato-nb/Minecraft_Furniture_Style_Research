@@ -19,14 +19,14 @@ NEW=OUT/"INT4_F11E_R06_TEMPORAL_REAL_F2_SOURCE_V1.json"
 STUDY=Path("research/furniture_mods/phase_1-5/B/APPLICATIONS.csv")
 PIN={
  str(PREV):"2304adf8904415a8e30f7bdae6f35d0e6354cc19",
- str(NEW):"__CAPTURE_GIT_BLOB_SHA1__",
+ str(NEW):"049ea1046d17d6e5e24f089299b98f3fcbeff006",
  str(STUDY):"56e6f4c21c50714b97079ec61f7219bea845f179",
 }
 PINS=PIN
 RUN=45104714782
-ARTIFACT=__ARTIFACT__
+ARTIFACT=14786478182
 ZIP_NAME="INT4_F11E_R06_TEMPORAL_ORIGINAL_F2.zip"
-ZIP_SHA="__ZIP_SHA256__"
+ZIP_SHA="ddf965f6f87e91a2c4b65f435f36eae5ea6ed1fdee8e7638a0097f1fdb2e938e"
 STUDY_SHA256="da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e"
 MACAW_SHA256="e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e"
 KEYS=("R06_T0","R06_T1","R06_T2")
@@ -56,10 +56,10 @@ def archive(path):
     if path.exists():data=path.read_bytes()
     else:
         token=os.getenv("GH_TOKEN")
-        if not token:raise FileNotFoundError("Original F11D Actions artifact and GH_TOKEN both missing")
+        if not token:raise FileNotFoundError("Original F11E Actions artifact and GH_TOKEN both missing")
         api=f"https://api.github.com/repos/sanato-nb/Minecraft_Furniture_Style_Research/actions/artifacts/{ARTIFACT}/zip"
         heads={"Authorization":"Bearer "+token,"Accept":"application/vnd.github+json",
-               "X-GitHub-Api-Version":"2022-11-28","User-Agent":"MCFR-F11D-original-F2-audit"}
+               "X-GitHub-Api-Version":"2022-11-28","User-Agent":"MCFR-F11E-R06-temporal-F2-audit"}
         class NoRedirect(urllib.request.HTTPRedirectHandler):
             def redirect_request(self,*a,**k):return None
         try:
@@ -72,7 +72,7 @@ def archive(path):
             target=urlsplit(location)
             assert target.scheme=="https" and target.netloc and target.netloc!="api.github.com"
             with urllib.request.urlopen(urllib.request.Request(
-                 location,headers={"User-Agent":"MCFR-F11D-original-F2-audit"}),timeout=120) as response:
+                 location,headers={"User-Agent":"MCFR-F11E-R06-temporal-F2-audit"}),timeout=120) as response:
                 data=response.read()
         assert sha(data)==ZIP_SHA,("ORIGINAL_REMOTE_ZIP_CHANGED",sha(data))
         path.parent.mkdir(parents=True,exist_ok=True)
