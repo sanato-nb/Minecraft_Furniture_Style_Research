@@ -28,7 +28,7 @@ class H8ActualPlayerItem(unittest.TestCase):
         self.assertEqual(h8.EAST,(1,120,40))
         content=Path(h8.__file__).read_text(encoding="utf-8")
         self.assertIn('1.5 120 43.5 180 28',content)
-        self.assertIn('1.5 120 43.5 180 21',content)
+        self.assertIn('1.5 120 43.5 180 16',content)
     def test_no_f_H_final_rights_or_uv_claims(self):
         content=Path(h8.__file__).read_text(encoding="utf-8")
         self.assertIn('"full_F_unconditional_pass":False',content)
