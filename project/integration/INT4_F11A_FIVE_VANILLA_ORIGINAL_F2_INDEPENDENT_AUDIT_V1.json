@@ -1,0 +1,153 @@
+{
+  "cases": {
+    "V01": {
+      "block": "oak_stairs",
+      "disposition": "CONDITIONAL_SOURCE_AND_REAL_F2_NOT_FINAL",
+      "elements": 2,
+      "faces": 11,
+      "native_F2_sha256": "c9f91d2f30c90e459a9f4a6cbe7ff585490b4f4e3f03d0c90344e403d2f6b157",
+      "original_image_visual_observation": "실제 F2에서 계단의 높이 차이가 있는 윗면과 참나무 옆면 관찰",
+      "original_model_sha1": "d959a5f2894e4fd0821d06b36c049aaa30c129ef",
+      "source_parent_chain": [
+        {
+          "git_blob_sha1": "986ce9c6ee85c488fcce0ef924eec6ed118e5f09",
+          "path": "assets/minecraft/models/block/stairs.json"
+        }
+      ],
+      "state_exact": true
+    },
+    "V02": {
+      "block": "oak_slab",
+      "disposition": "CONDITIONAL_SOURCE_AND_REAL_F2_NOT_FINAL",
+      "elements": 1,
+      "faces": 6,
+      "native_F2_sha256": "6e8cc8f72a982ec94249e0af1c9fc618082bb5323fd928973292493d5d1dfdc2",
+      "original_image_visual_observation": "실제 F2에서 반 블록의 낮은 높이와 참나무 재질을 관찰",
+      "original_model_sha1": "f11ff8bad0b9faa4b6d1ef65c9a75ff2681a162a",
+      "source_parent_chain": [
+        {
+          "git_blob_sha1": "1eadc701d915521e782c1f8af4393a57732d4af2",
+          "path": "assets/minecraft/models/block/slab.json"
+        }
+      ],
+      "state_exact": true
+    },
+    "V05": {
+      "block": "barrel",
+      "disposition": "CONDITIONAL_SOURCE_AND_REAL_F2_NOT_FINAL",
+      "elements": 1,
+      "faces": 6,
+      "native_F2_sha256": "34a0d952f3f0091829bf3da646525ccb59665f6bc3aee76f077a721c4d739fef",
+      "original_image_visual_observation": "실제 F2에서 참나무 판재 및 통 테두리와 고리 형태를 관찰",
+      "original_model_sha1": "cff930084d47d226817f274616d14f4b07c0a9d4",
+      "source_parent_chain": [
+        {
+          "git_blob_sha1": "4c610597880f4593c7b6e62d7da0feb95dac5b8f",
+          "path": "assets/minecraft/models/block/cube_bottom_top.json"
+        },
+        {
+          "git_blob_sha1": "1b9780b479aee527f79bde950656b82f1524128b",
+          "path": "assets/minecraft/models/block/cube.json"
+        }
+      ],
+      "state_exact": true
+    },
+    "V07": {
+      "block": "bookshelf",
+      "disposition": "CONDITIONAL_SOURCE_AND_REAL_F2_NOT_FINAL",
+      "elements": 1,
+      "faces": 6,
+      "native_F2_sha256": "38e47578b4d42d97e7d8aee8b8dca5522ecd5b06685608bf345850b5edb3ee38",
+      "original_image_visual_observation": "실제 F2에서 갈색 나무 테두리와 여러 색의 책장 책 텍스처를 관찰",
+      "original_model_sha1": "c095a7d7ebf88c0a72dc9131b64e3b4f5963aad8",
+      "source_parent_chain": [
+        {
+          "git_blob_sha1": "358b9847efe8bb17811ef48eedd219d8c9b51499",
+          "path": "assets/minecraft/models/block/cube_column.json"
+        },
+        {
+          "git_blob_sha1": "1b9780b479aee527f79bde950656b82f1524128b",
+          "path": "assets/minecraft/models/block/cube.json"
+        }
+      ],
+      "state_exact": true
+    },
+    "V10": {
+      "block": "oak_planks",
+      "disposition": "CONDITIONAL_SOURCE_AND_REAL_F2_NOT_FINAL",
+      "elements": 1,
+      "faces": 6,
+      "native_F2_sha256": "9766b9378c9ed76af15d52abb49a01231b160d26116402b3ac2de567b9847495",
+      "original_image_visual_observation": "실제 F2에서 참나무 판자 무늬의 정육면체 한 블록을 관찰",
+      "original_model_sha1": "3a21a3f2e75848ac905b6819ceeb40d1dbb3b39c",
+      "source_parent_chain": [
+        {
+          "git_blob_sha1": "fa2f9e776173224b2b523b8b537c695b921267f6",
+          "path": "assets/minecraft/models/block/cube_all.json"
+        },
+        {
+          "git_blob_sha1": "1b9780b479aee527f79bde950656b82f1524128b",
+          "path": "assets/minecraft/models/block/cube.json"
+        }
+      ],
+      "state_exact": true
+    }
+  },
+  "counts": {
+    "F_HOLD_after": 12,
+    "F_HOLD_before": 17,
+    "F_conditional_after": 58,
+    "F_conditional_before": 53,
+    "F_fixed_targets": 70,
+    "F_full_approved": 0,
+    "INT5_semantics_new_approved": 0,
+    "INT6_AI_training_redistribution_rights_approved": 0,
+    "historic_source_cases": 62,
+    "historical_original_F2_conditional_after": 52,
+    "historical_original_F2_conditional_before": 47,
+    "new_elements": 6,
+    "new_faces": 35,
+    "new_model_applications": 5,
+    "new_native_original_F2": 5,
+    "new_real_client_exact_states": 5
+  },
+  "limits": [
+    "Five actual native F2 are qualitative visual evidence, not GPU pixel UV causality.",
+    "V05/V07/V10 final geometry carrier is two parent hops, not direct parent.",
+    "Other 65 F10 case rows and original 1-5 study were not changed.",
+    "V03,V04,V06,V08,V09,V11-V15 and R06/R08 are not accepted in this batch.",
+    "No original Minecraft client, models or PNGs committed to Git.",
+    "No final F approval or G/H/INT5/INT6 acceptance."
+  ],
+  "official_mojang_12111_client_sha1": "ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd",
+  "official_mojang_12111_client_sha256": "1473c9489ac50fda3c435049a76a70d61a10b8610db27f5ba9d8756b686cd3bd",
+  "original_client_log_sha256": "3068d710ce17494bdbaa55d389975cb0fc756b2e4b2da35d638aa42feffc8a9a",
+  "original_real_game_artifact": 14783186548,
+  "original_real_game_run": 45095295065,
+  "original_real_game_zip_sha256": "a72ed16c3665e1511e300fedc388c81ccb0413f5105fcc7b2d6ba49a13dc6827",
+  "output_sha256": {
+    "F70": "cd759f119e1f0aec85f7c52c3da603e968c0eee765f2ca7fde55f5dc34848789",
+    "pending": "f40f3cd0ad1e8efc278969d008fd444b1d6a33e120cd6b3acaf528c7d58d7539"
+  },
+  "pending_HOLD_ids": [
+    "R06",
+    "R08",
+    "V03",
+    "V04",
+    "V06",
+    "V08",
+    "V09",
+    "V11",
+    "V12",
+    "V13",
+    "V14",
+    "V15"
+  ],
+  "pinned_source_git_blob_SHA1": {
+    "project/integration/INT4_F10_70_TARGET_EVIDENCE_DISPOSITIONS_V9.csv": "44fdf3672a96afb4956a42cae8c11f195e24535b",
+    "project/integration/INT4_F11A_FIVE_VANILLA_REAL_F2_SOURCE_V1.json": "7a0773e665d96a683a442c4620b1337ef8da506d",
+    "research/furniture_mods/phase_1-5/B/APPLICATIONS.csv": "56e6f4c21c50714b97079ec61f7219bea845f179"
+  },
+  "schema": "MCFR_INT4_F11A_5_VANILLA_ORIGINAL_12111_F2_INDEPENDENT_AUDIT/v1",
+  "status": "PASS_FIVE_REAL_VANILLA_F2_58_CONDITIONAL_12_HOLD_FULL_ZERO"
+}
