@@ -71,7 +71,7 @@ jobs:
             --version 1.21.1 \
             --path "$RUNNER_TEMP/h16-original-world" \
             --cache "$RUNNER_TEMP/h16-original-world-cache"
-      - name: Run original Minecraft with ONE temporary back_1 texture texel changed
+      - name: Run original Minecraft with ONE source texel changed inside a disposable mod JAR copy
         timeout-minutes: 23
         run: |
           xvfb-run -a -s '-screen 0 1024x684x24' \
@@ -80,7 +80,7 @@ jobs:
               --world "$RUNNER_TEMP/h16-original-world" \
               --work "$RUNNER_TEMP/h16-pinned-fabric-client" \
               --output "$RUNNER_TEMP/h16-actual-six-F2"
-      - name: Independently verify source pack loaded, exact server states, PNG SHA and H15 negative control
+      - name: Independently verify source test JAR loaded, exact server states, PNG SHA and H15 negative control
         run: |
           python -m mcfr.int4_h16_af_single_texel_f2 \
             --directory "$RUNNER_TEMP/h16-actual-six-F2" \
@@ -93,9 +93,9 @@ jobs:
           assert d["new_actual_game_runs"]==1
           assert d["new_actual_native_game_F2"]==6
           assert d["exact_server_state_verified"]==6
-          assert d["confirmed_resourcepack_in_real_Minecraft_log"] is True
+          assert d["confirmed_AF_resource_in_real_Minecraft_log"] is True
           assert d["single_original_source_texel_modified"]==[3,1]
-          assert d["source_original_mod_JAR_unchanged"] is True
+          assert d["official_source_JAR_verified_before_ephemeral_patch"] is True
           assert d["specific_GPU_face_to_UV_texel_pixel_attribution_approved"] is False
           assert d["F70_unconditional_approvals"]==0
           assert d["INT5_semantics_approved"]==0
