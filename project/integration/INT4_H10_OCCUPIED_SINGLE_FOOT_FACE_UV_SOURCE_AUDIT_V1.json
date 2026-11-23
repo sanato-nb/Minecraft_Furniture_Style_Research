@@ -1,0 +1,48 @@
+{
+  "H9_original_audit_git_blob_sha1": "f6e5db38c22ed66d29d18c430336ef0e8f29d78e",
+  "element_counts": {
+    "added": 3,
+    "occupied_false": 12,
+    "occupied_true": 14,
+    "removed": 1,
+    "unchanged": 11
+  },
+  "face_counts": {
+    "added_face_UV_records": 18,
+    "changed_face_UV_records": 24,
+    "occupied_false": 72,
+    "occupied_true": 84,
+    "removed_face_UV_records": 6
+  },
+  "limits": [
+    "Each face UV is copied as coordinate metadata from the pinned upstream model; raw model asset files are not stored.",
+    "Element rotational origin and 22.5 degree tilt are source geometry, not observed screenshot pixels.",
+    "Source model parent alone is not proof that the runtime occupied state persisted when photographed.",
+    "No original Handcrafted textures or JAR bytes are redistributed."
+  ],
+  "original_parent_source_sha1": {
+    "occupied_false": "01dcc76679443d37f3efa45d974e2acbc071cfc1",
+    "occupied_true": "296e103447bfaaa6dd5d3a20d39169c1612474bc"
+  },
+  "outputs_sha256": {
+    "project/integration/INT4_H10_OCCUPIED_SINGLE_FOOT_24_SOURCE_FACE_UV_V1.csv": "4bdc323ce246a283a77071cc13cc2ba5c34ae9ea1dec3336d1d4f87cb18f02ac",
+    "project/integration/INT4_H10_OCCUPIED_SINGLE_FOOT_FOUR_ELEMENT_CHANGES_V1.csv": "9cea271c75a1141a034953b723629862f09890e04e08b42a6afe0bf32d59cb1e"
+  },
+  "rotated_elements": {
+    "added_x_axis_22_5_degree": 2
+  },
+  "same_texture_slot_bindings": true,
+  "schema": "MCFR_INT4_H10_HC_BED_OCCUPIED_SINGLE_SOURCE_FACE_DELTA/v1",
+  "scope": {
+    "H03_H05_full_exit": false,
+    "INT5_semantics_approved": 0,
+    "INT6_training_or_redistribution_approved": 0,
+    "actual_occupied_F2_captured_here": false,
+    "full_face_to_GPU_pixel_mapping_approved": false,
+    "modeling_geometry_and_source_UV": true,
+    "sleep_wake_destroy_gameplay_tested": false
+  },
+  "status": "PASS_PINNED_SINGLE_BED_FOOT_FOUR_CHANGED_ELEMENTS_24_SOURCE_FACE_UV",
+  "upstream_commit": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035",
+  "upstream_repo": "terrarium-earth/Handcrafted"
+}
