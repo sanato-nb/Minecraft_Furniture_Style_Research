@@ -18,7 +18,7 @@ PINS={
  "INT4_A_EXCEPTION_DISPOSITIONS_V2.csv":"26c5764a37700626f3bfadba01fc229e49aadfc4",
  "INT4_C_SOURCE_AUDIT_V1.json":"ace40f7aab319f61dc4d614f52aa01cae12f6cc0",
  "INT4_D_SOURCE_AUDIT_V1.json":"7617caf488ef2fd2a115c3ae1f3f7350fe1ba8d8",
- "INT4_D_1158_STATE_DISPOSITIONS_V1.csv":"a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+ "INT4_D_1158_STATE_DISPOSITIONS_V1.csv":"db3ebc8b8df039bc334701bcf1f559fd48fd68c5",
  "INT4_E_21_FINDING_DISPOSITIONS_V1.csv":"ff3025ffc9d924cc00b7d58cf05212b6dc5e08da",
  "INT4_F11F_70_TARGET_EVIDENCE_DISPOSITIONS_V15.csv":"0cfbf3b1b174efc968de35c8466e2af8a9cd41c7",
 }
@@ -252,11 +252,8 @@ def build(verify=False):
         a=Amap.get(key)
         model_scope=disposition_for_A(a["int4_a_review_result"]) if a else "CONFLICT_NO_A_MODEL"
         conflict=(not a or plain(row["model_source_sha"])!=plain(a["source_sha"]))
-        relation=("C_PIXEL_EXCEPTION_POSSIBLE_SAME_FACE_POSITION" if bkey[face_key(row)] and
-                  cby_model[key] and
-                  any(exact_key(row)==exact_key(e,True) for e in []) else "")
-        # Avoid guessing C pixel applicability from a model-level count:
-        # check full original source face key using a sparse exact key set.
+        # C exception evidence is retained at its own original face level;
+        # do not infer a pixel/UV failure from the model key alone.
         s="CONFLICT_A_B_SOURCE_SHA" if conflict else "VERIFIED_STATIC_FACE_PROVENANCE_ONLY"
         face_scope[s]+=1
         b_output.append({
