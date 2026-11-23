@@ -1,6 +1,6 @@
-"""INT-4-F11B Vanilla stair slab barrel bookshelf planks source-staged real Fabric F2.
+"""INT-4-F11B vanilla fence, pressure plate, open barrel, chiseled bookshelf and wool native F2.
 
-Five historical V01/V02/V05/V07/V10 source cases, including joined and corner states. Uses official-server
+Five original V03/V04/V06/V08/V09 study cases; source multipart selects 12 models for 5 states. Uses official-server
 world fixture and original Fabric 1.21.11 client. States are explicitly
 placed with /setblock and verified, NOT claimed to arise via natural
 adjacency mechanics. Source SHA, JAR identity, actual PNG SHA and
@@ -413,7 +413,7 @@ def capture(command,env,game,output,version):
                     proc.kill();proc.wait()
     check(len(rows)==5,"Not all five F11 original source cases generated real F2 images")
     output_doc={
-        "schema":"MCFR_INT4_F11_VANILLA_FIVE_REAL_F2/v1",
+        "schema":"MCFR_INT4_F11B_VANILLA_MULTIPART_FIVE_REAL_F2/v1",
         "status":"CAPTURED_SOURCE_STATES_NOT_VISUALLY_APPROVED",
         "minecraft_version":VERSION,"actual_game_capture":True,
         "source_state_verified_count":5,"minecraft_native_f2_screenshot_count":5,
