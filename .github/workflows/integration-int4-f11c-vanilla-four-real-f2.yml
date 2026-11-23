@@ -47,7 +47,7 @@ jobs:
         run: |
           python -m compileall -q src/mcfr/int4_f11c_vanilla_kitchen_decor_four_capture.py src/mcfr/runtime.py
           python -m unittest discover -s tests/knowledge -p 'test_int4_f11c_vanilla_kitchen_decor_four_capture.py' -v
-          python -m unittest discover -s tests/knowledge -p 'test_int4_f10_macaw_connected_four_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f10_macaw_connected_five_capture.py' -v
       - name: Create fresh Mojang official Minecraft 1.21.11 server world
         run: |
           python -m mcfr.chair_runtime_fixture world \
