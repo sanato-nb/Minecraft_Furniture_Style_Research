@@ -1,0 +1,114 @@
+name: INT-4-F11C 바닐라 가마솥·물·랜턴·화분 공식 Minecraft 1.21.11 원본 F2
+
+on:
+  push:
+    branches:
+      - work/int4-f11c-vanilla-cauldron-lantern-pot-f2-20261123
+    paths:
+      - src/mcfr/int4_f11c_vanilla_kitchen_decor_four_capture.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int4_f11c_vanilla_kitchen_decor_four_capture.py
+      - .github/workflows/integration-int4-f11c-vanilla-four-real-f2.yml
+
+permissions:
+  contents: write
+
+jobs:
+  vanilla-four-official-client:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 42
+    env:
+      PYTHONPATH: src
+    steps:
+      - name: Create isolated exact official 1.21.11 paths
+        run: |
+          echo "WORLD=$RUNNER_TEMP/int4-f11c-world" >> "$GITHUB_ENV"
+          echo "CACHE=$RUNNER_TEMP/int4-f11c-cache" >> "$GITHUB_ENV"
+          echo "WORK=$RUNNER_TEMP/int4-f11c-work" >> "$GITHUB_ENV"
+          echo "OUT=$RUNNER_TEMP/int4-f11c-original-F2" >> "$GITHUB_ENV"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PNG and native Minecraft GUI dependencies
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 update
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 install -y \
+              xvfb xauth xdotool libgl1-mesa-dri libglx-mesa0
+          fi
+      - name: Compile and test frozen original vanilla source and previous F10
+        run: |
+          python -m compileall -q src/mcfr/int4_f11c_vanilla_kitchen_decor_four_capture.py src/mcfr/runtime.py
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f11c_vanilla_kitchen_decor_four_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f10_macaw_connected_five_capture.py' -v
+      - name: Create fresh Mojang official Minecraft 1.21.11 server world
+        run: |
+          python -m mcfr.chair_runtime_fixture world \
+            --version 1.21.11 --path "$WORLD" --cache "$CACHE"
+      - name: Pin official client SHA, stage four vanilla cases and record native F2
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+          ALSOFT_DRIVERS: 'null'
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int4-f11c-vanilla-decor-four \
+              --version 1.21.11 --world "$WORLD" --work "$WORK" --output "$OUT"
+      - name: Independently decode four actual screenshots and check exact source
+        run: |
+          python -m mcfr.int4_f11c_vanilla_kitchen_decor_four_capture --directory "$OUT"
+          python - <<'PY'
+          import os,hashlib,json
+          from pathlib import Path
+          from PIL import Image
+          src=Path(os.environ["OUT"])
+          report=json.loads((src/"INT4_F11C_VANILLA_FOUR_F2_AUDIT.json").read_text(encoding="utf-8"))
+          assert report["status"]=="PASS_FOUR_MOJANG_12111_EXACT_VANILLA_STATES_NATIVE_F2_NOT_FINAL"
+          assert report["historical_case_ids"]==["V12","V13","V14","V15"]
+          assert report["real_game_exact_server_states"]==report["original_native_F2_PNG"]==4
+          assert report["original_source_model_applications"]==4
+          assert report["original_source_elements"]==36 and report["original_source_faces"]==154
+          assert report["official_client_sha1"]=="ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd"
+          assert report["official_client_sha256"]=="1473c9489ac50fda3c435049a76a70d61a10b8610db27f5ba9d8756b686cd3bd"
+          assert report["unconditionally_full_F_approved"]==0
+          assert report["INT5_part_semantics_approved"]==report["INT6_training_or_redistribution_rights_approved"]==0
+          assert report["native_F2_visibility_pixels"]["V12"]["dark_gray"]>=200
+          for case,hash_ in report["native_F2_sha256"].items():
+            png=src/(case+".png")
+            assert hashlib.sha256(png.read_bytes()).hexdigest()==hash_
+            with Image.open(png) as im:
+              im.load()
+              assert im.format=="PNG" and im.size==(1024,684)
+            print("PASS REAL F11",case,"foreground",report["native_F2_visibility_pixels"][case]["chroma"])
+          assert hashlib.sha256((src/"client.log").read_bytes()).hexdigest()==report["client_log_sha256"]
+          Path("project/integration/INT4_F11C_FOUR_VANILLA_REAL_F2_SOURCE_V1.json").write_text(
+            json.dumps(report,ensure_ascii=False,sort_keys=True,indent=2)+"\n",encoding="utf-8")
+          print("F11A native original screenshot 5, exact states 5, final full approval 0")
+          PY
+          git diff --check
+      - name: Retain original F2 PNG and client log only in expiring Actions artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-f11c-vanilla-four-official-12111-native-original-F2
+          path: ${{ env.OUT }}/
+          retention-days: 45
+          if-no-files-found: warn
+      - name: Commit SHA-only metadata to this Draft branch, not main
+        if: success() && github.ref == 'refs/heads/work/int4-f11c-vanilla-cauldron-lantern-pot-f2-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F11C_FOUR_VANILLA_REAL_F2_SOURCE_V1.json
+          if ! git diff --cached --quiet; then
+            git commit -m "INT-4-F11C 바닐라 4개 원본 실게임 F2·모델 SHA·서버 상태 기록"
+            git fetch origin refs/heads/work/int4-f11c-vanilla-cauldron-lantern-pot-f2-20261123
+            git rebase FETCH_HEAD
+            git push origin HEAD:refs/heads/work/int4-f11c-vanilla-cauldron-lantern-pot-f2-20261123
+          fi

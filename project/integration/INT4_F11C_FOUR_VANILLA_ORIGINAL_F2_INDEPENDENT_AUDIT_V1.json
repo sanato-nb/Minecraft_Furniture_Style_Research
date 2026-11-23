@@ -1,0 +1,104 @@
+{
+  "cases": {
+    "V12": {
+      "actual_original_native_F2_sha256": "60154e7718fd2b2ac004629a4ef40d9eb37d90af9bae75bf8548b51ddf21780c",
+      "conditional_source_F2_only": true,
+      "exact_original_state": "minecraft:cauldron",
+      "original_F2_direct_visual_observation": "원본 F2에서 비어 있는 회색 벽과 안쪽 공간이 있는 가마솥 형태 관찰",
+      "original_block": "cauldron",
+      "original_geometry_provider_git_blob_sha1": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "original_model_git_blob_sha1": "788da3e1449187f15d820c0172f33b80f39620ca",
+      "server_exact_state": true,
+      "source_elements": 13,
+      "source_faces": 58,
+      "water_vs_empty_original_F2_delta_pixels": 0
+    },
+    "V13": {
+      "actual_original_native_F2_sha256": "d065a3b5d8dd49d41f31ca4b0c2bb69a4bf1da36195b88182c74cc2b9a45e481",
+      "conditional_source_F2_only": true,
+      "exact_original_state": "minecraft:water_cauldron[level=3]",
+      "original_F2_direct_visual_observation": "원본 F2에서 가마솥 윗부분의 물 표면과 용기 외형 관찰, 시간차 애니메이션 미검증",
+      "original_block": "water_cauldron",
+      "original_geometry_provider_git_blob_sha1": "2925eba4c380e1c4dc32c618c1fd32fc01dcdb0c",
+      "original_model_git_blob_sha1": "7e246053f5423e53d4294c1d9beede35927b9d37",
+      "server_exact_state": true,
+      "source_elements": 14,
+      "source_faces": 59,
+      "water_vs_empty_original_F2_delta_pixels": 1400
+    },
+    "V14": {
+      "actual_original_native_F2_sha256": "a2320813069baca189df0f891c199f4ace17808a1f709badf7328f97eb24bdc8",
+      "conditional_source_F2_only": true,
+      "exact_original_state": "minecraft:lantern[hanging=false]",
+      "original_F2_direct_visual_observation": "원본 F2에서 매달리지 않은 소형 랜턴 외형 관찰, 전체 애니메이션 프레임 미검증",
+      "original_block": "lantern",
+      "original_geometry_provider_git_blob_sha1": "d54baf8db9aa52c0d828cb6047ea5aec21b8b341",
+      "original_model_git_blob_sha1": "12970adc81a3bd51666060e8312b7ef4cf476930",
+      "server_exact_state": true,
+      "source_elements": 4,
+      "source_faces": 15,
+      "water_vs_empty_original_F2_delta_pixels": 0
+    },
+    "V15": {
+      "actual_original_native_F2_sha256": "1b78b6df80f2ee65a37d2871d66f3bf784ce37c6662a8259847ade9064736f9e",
+      "conditional_source_F2_only": true,
+      "exact_original_state": "minecraft:flower_pot",
+      "original_F2_direct_visual_observation": "원본 F2에서 낮은 적갈색 빈 화분 외형 관찰",
+      "original_block": "flower_pot",
+      "original_geometry_provider_git_blob_sha1": "45c7a75b1e69ce35bf3bc76d794e1a922deccf53",
+      "original_model_git_blob_sha1": "45c7a75b1e69ce35bf3bc76d794e1a922deccf53",
+      "server_exact_state": true,
+      "source_elements": 5,
+      "source_faces": 22,
+      "water_vs_empty_original_F2_delta_pixels": 0
+    }
+  },
+  "counts": {
+    "F_HOLD_after": 3,
+    "F_HOLD_before": 7,
+    "F_conditional_after": 67,
+    "F_conditional_before": 63,
+    "F_unconditionally_accepted": 0,
+    "fixed_F_target_count": 70,
+    "historical_1_5_cases": 62,
+    "historical_F2_conditional_after": 61,
+    "historical_F2_conditional_before": 57,
+    "new_INT5_semantic_part_approvals": 0,
+    "new_INT6_training_redistribution_rights_approvals": 0,
+    "new_original_elements": 36,
+    "new_original_faces": 154,
+    "new_original_native_F2": 4,
+    "new_original_selected_model_applications": 4,
+    "new_real_game_exact_states": 4
+  },
+  "limits": [
+    "V11 white bed 0 ordinary JSON elements and special renderer not accepted.",
+    "V13 water cauldron / V14 lantern include animated texture facets; a still F2 does not validate time.",
+    "R06 water sink animated two-time frame and R08 matched different AF releases remain HOLD.",
+    "Exact game and source evidence is conditional, not GPU pixel UV causality, functionality or material semantics.",
+    "Previous 66 F target rows and frozen 1-5 study unchanged.",
+    "No game PNG/JAR/models committed to Git; no F unconditional, G/H, INT5 or INT6 approval."
+  ],
+  "official_client_sha1": "ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd",
+  "official_client_sha256": "1473c9489ac50fda3c435049a76a70d61a10b8610db27f5ba9d8756b686cd3bd",
+  "output_SHA256": {
+    "F70": "c93eab7ba60c6e551cd6749020c41a308b6f652e1919b98224fd80091983502c",
+    "pending": "4cb9bdc58c0b94afeaecc7676133016ed8d1a8d333091db518eb3f11e627663c"
+  },
+  "pinned_study_source_git_blob_sha1": {
+    "project/integration/INT4_F11B_70_TARGET_EVIDENCE_DISPOSITIONS_V11.csv": "962bcb50ba28dfbc10ba668069ed22f2a55798e4",
+    "project/integration/INT4_F11C_FOUR_VANILLA_REAL_F2_SOURCE_V1.json": "f150816ec73b31d617040822d190b9a61ffe058d",
+    "research/furniture_mods/phase_1-5/B/APPLICATIONS.csv": "56e6f4c21c50714b97079ec61f7219bea845f179"
+  },
+  "real_native_original_zip_sha256": "99f27ecfc1c284b03d4a5a1f29f332f849b3d3247dc5cd801694620f54ce6eaa",
+  "real_original_game_actions_run": 45100631875,
+  "real_original_game_artifact_id": 14784814227,
+  "real_original_game_client_log_sha256": "48381e3b1bfd9f8fb6e9c4271b0f50fba7340a6a42e96db1ec288c9bb50be63d",
+  "remaining_HOLD_ids": [
+    "R06",
+    "R08",
+    "V11"
+  ],
+  "schema": "MCFR_INT4_F11C_4_VANILLA_ORIGINAL_12111_F2_INDEPENDENT_AUDIT/v1",
+  "status": "PASS_FOUR_MOJANG_12111_NATIVE_F2_CONDITIONAL_67_HOLD_3_FINAL_ZERO"
+}
