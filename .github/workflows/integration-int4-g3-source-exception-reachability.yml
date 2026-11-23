@@ -1,0 +1,101 @@
+name: INT-4-G3 A112 C6343 D6 actual original source reachability audit
+
+on:
+  push:
+    branches:
+      - work/int4-g3-source-exception-reachability-20261123
+    paths:
+      - scripts/integration/build_int4_g3_source_exception_reachability.py
+      - tests/integration/test_int4_g3_source_exception_reachability.py
+      - .github/workflows/integration-int4-g3-source-exception-reachability.yml
+
+permissions:
+  contents: write
+
+jobs:
+  exact-static-selection-and-real-upstream-git-java:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 23
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require original A C D E F SHA and negative gates
+        run: |
+          python -m unittest discover -s tests/integration \
+            -p 'test_int4_g3_source_exception_reachability.py' -v
+      - name: Reopen original Git 4.0.3 AFBlocks Java and unused awning JSON with original blob SHA
+        run: |
+          python scripts/integration/build_int4_g3_source_exception_reachability.py \
+            --cache "$RUNNER_TEMP/g3-pinned-403-originals"
+      - name: Independently repeat original source cross-check without modifying prior artifacts
+        run: |
+          python scripts/integration/build_int4_g3_source_exception_reachability.py \
+            --cache "$RUNNER_TEMP/g3-pinned-403-originals" --verify
+      - name: Check all individual dispositions and unresolved runtime barriers
+        run: |
+          python - <<'PY'
+          import csv,gzip,hashlib,json
+          from pathlib import Path
+          p=Path('project/integration')
+          data=json.loads((p/'INT4_G3_EXCEPTION_SOURCE_REACHABILITY_AUDIT_V1.json').read_text())
+          assert data['status']=='PASS_G3_STATIC_OPTION_IMPACT_WITH_PINNED_UPSTREAM_JAVA_AND_NO_RUNTIME_EXIT'
+          assert data['original_D_options_reopened']==78456
+          assert data['original_local_D_options_joined']==78420
+          assert sum(data['A_112_exception_model_dispositions'].values())==112
+          assert sum(data['C_6343_pixel_face_source_selection_dispositions'].values())==6343
+          assert data['C_original_affected_models']==194
+          assert data['D_6_exception_reasons']=={
+            'UNRESOLVED_MODEL_REF':4,'PRIOR_CHAIR_VARIANT_3_POINTS_TO_1':2}
+          a=data['AF_403_awning_source_evidence']
+          assert a['unused_asset_selector_count']==12
+          assert a['unresolved_double_model_option_count']==4
+          assert a['AFBlocks_java_named_awning_reference'] is False
+          assert a['proves_global_runtime_registration_absence'] is False
+          for k in ('F70_full_exit_approved','G_final_approved','H_final_approved',
+                    'INT5_semantics_approved','INT6_rights_approved'):
+            assert data[k]==0,k
+          targets={
+            'INT4_G3_112_MODEL_EXCEPTION_SOURCE_USE_IMPACT_V1.csv':112,
+            'INT4_G3_6343_PIXEL_EXCEPTION_SOURCE_REACHABILITY_V1.csv.gz':6343,
+            'INT4_G3_6_BLOCKSTATE_ANOMALY_ORIGINAL_REGISTRY_V1.csv':6}
+          for filename,n in targets.items():
+            b=(p/filename).read_bytes()
+            assert hashlib.sha256(b).hexdigest()==data['outputs'][filename]['sha256']
+            if filename.endswith('.gz'):
+              with gzip.open(p/filename,'rt',encoding='utf-8') as f:
+                found=sum(1 for _ in csv.DictReader(f))
+            else:
+              with (p/filename).open(encoding='utf-8') as f:
+                found=sum(1 for _ in csv.DictReader(f))
+            assert found==n,(filename,found)
+          print('PASS_INT4_G3_SOURCE_OPTION_AND_ORIGINAL_PINNED_AF_JAVA_NO_GLOBAL_RUNTIME_CLAIM')
+          PY
+          git diff --check
+      - name: Preserve only source audit metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-g3-static-source-112-models-6343-exception-faces-6-option-anomalies
+          retention-days: 45
+          path: |
+            project/integration/INT4_G3_112_MODEL_EXCEPTION_SOURCE_USE_IMPACT_V1.csv
+            project/integration/INT4_G3_6343_PIXEL_EXCEPTION_SOURCE_REACHABILITY_V1.csv.gz
+            project/integration/INT4_G3_6_BLOCKSTATE_ANOMALY_ORIGINAL_REGISTRY_V1.csv
+            project/integration/INT4_G3_EXCEPTION_SOURCE_REACHABILITY_AUDIT_V1.json
+            project/integration/INT4_G3_STATIC_IMPACT_AND_RUNTIME_GATES_V1.md
+      - name: Commit verified derived metadata only to G3 Draft branch, never main
+        if: success() && github.ref == 'refs/heads/work/int4-g3-source-exception-reachability-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_G3_112_MODEL_EXCEPTION_SOURCE_USE_IMPACT_V1.csv \
+                  project/integration/INT4_G3_6343_PIXEL_EXCEPTION_SOURCE_REACHABILITY_V1.csv.gz \
+                  project/integration/INT4_G3_6_BLOCKSTATE_ANOMALY_ORIGINAL_REGISTRY_V1.csv \
+                  project/integration/INT4_G3_EXCEPTION_SOURCE_REACHABILITY_AUDIT_V1.json \
+                  project/integration/INT4_G3_STATIC_IMPACT_AND_RUNTIME_GATES_V1.md
+          if git diff --cached --quiet; then echo "Static results unchanged"; else
+            git commit -m "INT-4-G3 A112 C6343 D6 정적 선택 영향과 AF 4.0.3 원본 등록 코드 검수"
+            git push origin HEAD:refs/heads/work/int4-g3-source-exception-reachability-20261123
+          fi
