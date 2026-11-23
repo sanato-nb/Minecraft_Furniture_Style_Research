@@ -1,0 +1,91 @@
+name: INT-4-G1 source A-F cross-layer census 16572 models 592312 faces 70 F 21 findings
+
+on:
+  push:
+    branches:
+      - work/int4-g1-cross-layer-source-scope-gates-20261123
+    paths:
+      - scripts/integration/build_int4_g1_cross_layer_scope.py
+      - tests/integration/test_int4_g1_cross_layer_scope.py
+      - .github/workflows/integration-int4-g1-source-scope-census.yml
+
+permissions:
+  contents: write
+
+jobs:
+  cross-stage-source-scope-and-exception-gates:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Pin original A-E input SHA and F70 conditional but not full exit
+        run: |
+          python -m unittest discover -s tests/integration \
+            -p 'test_int4_g1_cross_layer_scope.py' -v
+      - name: Recount all 16572 A models 592312 B faces 6343 C face exceptions 78456 D options
+        run: python scripts/integration/build_int4_g1_cross_layer_scope.py
+      - name: Repeat deterministically and independently validate per-layer boundaries
+        run: |
+          python scripts/integration/build_int4_g1_cross_layer_scope.py --verify
+          python - <<'PY'
+          import csv,hashlib,json
+          from pathlib import Path
+          p=Path('project/integration')
+          j=json.loads((p/'INT4_G1_SOURCE_LAYER_GATE_SUMMARY_V1.json').read_text())
+          assert j['status']=='PASS_G1_ALL_FROZEN_SOURCE_SCOPE_AND_F70_CROSS_LINKED_G_FINAL_EXIT_NOT_ASSESSED'
+          d=j['fixed_layer_denominators_and_scoped_dispositions']
+          assert d['A']['model_denominator']==16572 and d['A']['model_use_hold']==6
+          assert d['B']['face_denominator']==592312
+          assert d['C']['source_PNG_pixel_exceptions']==6343
+          assert d['D']['mod_state_paths']==1158 and d['D']['source_option_rows']==78456
+          assert d['E']['historic_cases']==62 and d['E']['finding_disposition_rows']==21
+          assert d['F']['verification_units']==70
+          assert d['F']['with_conditional_real_client_or_source_evidence']==70
+          assert d['F']['unconditionally_final_F_pass']==0
+          assert j['G_stage_final_disposition_approved']==0
+          assert j['H_exit_gate_approved']==0
+          assert j['INT5_semantics_approved']==0
+          assert j['INT6_AI_training_and_redistribution_approved']==0
+          for name,key,rows in [
+            ('INT4_G1_21_FINDING_CASE_F2_GATES_V1.csv','finding_gates',21),
+            ('INT4_G1_112_MODEL_EXCEPTION_REVIEW_QUEUE_V1.csv','A_exception_review',112),
+            ('INT4_G1_6_BLOCKSTATE_EXCEPTION_REVIEW_QUEUE_V1.csv','D_option_exception_review',6)
+          ]:
+            b=(p/name).read_bytes()
+            assert hashlib.sha256(b).hexdigest()==j['outputs_sha256'][key],name
+            with (p/name).open(encoding='utf-8',newline='') as inp:
+              assert len(list(csv.DictReader(inp)))==rows
+          print('PASS INT4-G1 source SHA and all 6 separate denominator gates; full G/H 0')
+          PY
+          git diff --check
+      - name: Save G1 evidence metadata only, not original copyrighted PNG or JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-g1-six-layer-source-exception-crossgate
+          retention-days: 45
+          path: |
+            project/integration/INT4_G1_SOURCE_LAYER_GATE_SUMMARY_V1.json
+            project/integration/INT4_G1_21_FINDING_CASE_F2_GATES_V1.csv
+            project/integration/INT4_G1_112_MODEL_EXCEPTION_REVIEW_QUEUE_V1.csv
+            project/integration/INT4_G1_6_BLOCKSTATE_EXCEPTION_REVIEW_QUEUE_V1.csv
+            project/integration/INT4_G1_SOURCE_SCOPE_PRELIMINARY_REPORT_V1.md
+      - name: Commit only G1 preliminary source findings to Draft research branch
+        if: success() && github.ref == 'refs/heads/work/int4-g1-cross-layer-source-scope-gates-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_G1_SOURCE_LAYER_GATE_SUMMARY_V1.json \
+                  project/integration/INT4_G1_21_FINDING_CASE_F2_GATES_V1.csv \
+                  project/integration/INT4_G1_112_MODEL_EXCEPTION_REVIEW_QUEUE_V1.csv \
+                  project/integration/INT4_G1_6_BLOCKSTATE_EXCEPTION_REVIEW_QUEUE_V1.csv \
+                  project/integration/INT4_G1_SOURCE_SCOPE_PRELIMINARY_REPORT_V1.md
+          if git diff --cached --quiet; then echo "No differences"; else
+            git commit -m "INT-4-G1 A~F 모델·면·선택 상태·21판정·F70 출처 및 예외 감사 원장"
+            git push origin HEAD:refs/heads/work/int4-g1-cross-layer-source-scope-gates-20261123
+          fi
