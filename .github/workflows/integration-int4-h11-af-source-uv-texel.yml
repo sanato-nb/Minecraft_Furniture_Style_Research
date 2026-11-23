@@ -59,9 +59,9 @@ jobs:
           assert (c['equal_inherited_elements_each'],c['equal_inherited_faces_each'])==(10,46)
           assert (c['face_texture_bindings_changed'],c['face_texture_bindings_same'])==(12,34)
           assert c['different_original_back_texture_RGBA_texels']==54
-          assert c['changed_texels_in_union_of_12_face_UV_footprints']<=54
-          assert c['different_texels_outside_changed_face_UV_footprints']+c['changed_texels_in_union_of_12_face_UV_footprints']==54
-          assert 0<=c['changed_binding_faces_with_any_different_texel']<=12
+          assert c['changed_texels_in_union_of_12_face_UV_footprints']==54
+          assert c['different_texels_outside_changed_face_UV_footprints']==0
+          assert c['changed_binding_faces_with_any_different_texel']==2
           assert c['original_R07_game_F2_case_refs_reused']==4
           assert c['distinct_original_R07_game_executions']==1
           assert c['new_real_Minecraft_executions']==0
