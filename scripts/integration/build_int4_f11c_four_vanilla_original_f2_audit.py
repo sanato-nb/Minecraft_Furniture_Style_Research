@@ -17,12 +17,12 @@ PREV=OUT/"INT4_F11B_70_TARGET_EVIDENCE_DISPOSITIONS_V11.csv"
 NEW=OUT/"INT4_F11C_FOUR_VANILLA_REAL_F2_SOURCE_V1.json"
 STUDY=Path("research/furniture_mods/phase_1-5/B/APPLICATIONS.csv")
 PINS={str(PREV):"962bcb50ba28dfbc10ba668069ed22f2a55798e4",
-      str(NEW):"__CAPTURE_GIT_BLOB_SHA1__",
+      str(NEW):"f150816ec73b31d617040822d190b9a61ffe058d",
       str(STUDY):"56e6f4c21c50714b97079ec61f7219bea845f179"}
-RUN=__RUN__
-ARTIFACT=__ARTIFACT__
+RUN=45100631875
+ARTIFACT=14784814227
 ZIP_NAME="INT4_F11C_FOUR_ORIGINAL_F2.zip"
-ZIP_SHA="__ZIP_SHA256__"
+ZIP_SHA="99f27ecfc1c284b03d4a5a1f29f332f849b3d3247dc5cd801694620f54ce6eaa"
 CLIENT_SHA1="ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd"
 CLIENT_SHA256="1473c9489ac50fda3c435049a76a70d61a10b8610db27f5ba9d8756b686cd3bd"
 STUDY_SHA="da2a2c907dfe1fde0a9c5118feaa74efcdb1f91e33533147c9e6c237cb72581e"
@@ -126,6 +126,19 @@ def build(original_zip_path):
         logdata=z.read("client.log")
         assert sha(logdata)==manifest["client_log_sha256"]==captured["client_log_sha256"]==gameaudit["client_log_sha256"]
         log=logdata.decode("utf-8",errors="replace")
+        # Independent real-image water control. These original F2 images
+        # have the same relative camera/stone stage, but different cauldron
+        # water level. This is NOT temporal animation evidence.
+        with Image.open(io.BytesIO(z.read("V12.png"))) as empty, Image.open(
+            io.BytesIO(z.read("V13.png"))
+        ) as filled:
+            r=(475,390,555,450)
+            aa=empty.convert("RGB").crop(r)
+            bb=filled.convert("RGB").crop(r)
+            water_delta=sum(1 for a,b in zip(aa.getdata(),bb.getdata())
+                            if max(abs(x-y) for x,y in zip(a,b))>=24)
+        assert water_delta>=800
+        assert captured["native_F2_visibility_pixels"]["V13"]["paired_water_difference"]==water_delta
         observations={r["case_id"]:r for r in manifest["states"]}
         assert len(observations)==len(manifest["states"])==4 and set(observations)==set(CASES)
         for case in CASES:
@@ -169,6 +182,7 @@ def build(original_zip_path):
                 image.load()
                 assert image.format=="PNG" and image.size==(1024,684)
             checked[case]={
+                "water_vs_empty_original_F2_delta_pixels":water_delta if case=="V13" else 0,
                 "original_block":studyrow["block"],
                 "exact_original_state":exact,
                 "original_model_git_blob_sha1":studyrow["model_sha"],
