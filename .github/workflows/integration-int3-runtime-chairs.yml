@@ -5,6 +5,7 @@ on:
       - 'src/mcfr/chair_runtime_fixture.py'
       - 'src/mcfr/chair_capture_isolation_audit.py'
       - 'tests/knowledge/test_chair_capture_isolation.py'
+      - 'tests/knowledge/test_chair_camera_command_recovery.py'
       - 'src/mcfr/chair_runtime_capture.py'
       - 'src/mcfr/runtime.py'
       - 'tests/knowledge/test_chair_runtime_fixture.py'
@@ -49,6 +50,7 @@ jobs:
         run: |
           python -m unittest discover -s tests/knowledge -p 'test_chair_runtime_fixture.py' -v
           python -m unittest discover -s tests/knowledge -p 'test_chair_capture_isolation.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_chair_camera_command_recovery.py' -v
       - name: Generate disposable creative flat world with original Mojang server
         env:
           PYTHONPATH: src
