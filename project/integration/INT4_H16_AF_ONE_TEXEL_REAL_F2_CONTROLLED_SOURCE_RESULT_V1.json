@@ -1,0 +1,142 @@
+{
+  "schema": "MCFR_INT4_H16_AF_OPAQUE_SOURCE_TEXEL_INTERVENTION_REAL_F2_V1",
+  "status": "PASS_PINNED_EPHEMERAL_JAR_SINGLE_TEXEL_BIDIRECTIONAL_NATIVE_F2_PIXELS_WITH_NEGATIVE_CONTROLS",
+  "provenance": {
+    "parent_H15_PR": 94,
+    "parent_H15_HEAD": "ddb368f38bfed18f51e43554362ae1b9e7e10c4a",
+    "H16_PR": 95,
+    "verified_workflow_id": 45244056373,
+    "verified_job_id": 137936060566,
+    "original_F2_artifact_id": 14852517947,
+    "original_F2_zip_sha256": "58e2203b6a8ba849105555fee0898d184b8125d79da9cf47c319a0af481055cb",
+    "original_F2_zip_CRC_verified": true,
+    "original_client_log_sha256": "2a4bb8f0755dd0996b2809913f1c46049c3205003a9abd9025b1917b5984ebed",
+    "original_H15_archive_sha256": "4d674a097a2403f34da5c878c78f8a17e2b786a3d50fd945b5fca64fa755f462",
+    "six_original_F2_SHA256_and_exact_server_state_independently_verified": true,
+    "unit_test_H16": 8,
+    "unit_test_H15": 8,
+    "unit_test_H13_camera": 7,
+    "original_game_runs_new": 1,
+    "official_AnotherFurniture_4_0_2_JAR_SHA1_before_ephemeral_test_patch": "c2f992081bdc4795ed6d87771a3b5f7c71103785",
+    "ephemeral_test_only_JAR_SHA1": "87d75176a8f87520463f5adc1238b8167a07bc7d",
+    "model_geometry_UV_blockstate_code_original_unchanged": true
+  },
+  "initial_negative_experiment": {
+    "workflow_id": 45243047820,
+    "conclusion": "A loaded external pack did not yield an observable source texture intervention. Pack priority is a plausible explanation, not independently proven GPU-internal ordering.",
+    "original_artifact_id": 14853290355,
+    "original_zip_sha256": "a32bfc58a9cdc9645ea5bb5d907b6680da77efb1636961e71a4a121a81b0fced",
+    "observed_Fabric_resource_manager_order": "vanilla, file/MCFR_H16_SINGLE_TEXEL_TEMP, fabric, another_furniture, ...",
+    "temporary_pack_reported_loaded": true,
+    "intervention_delta_pixels_south": 0,
+    "intervention_delta_pixels_north": 0,
+    "unchanged_model3_negative_control_south": 0,
+    "unchanged_model3_negative_control_north": 0
+  },
+  "source_intervention": {
+    "target_source": "assets/another_furniture/textures/block/chair/back_1/acacia.png",
+    "original_png_sha256": "f45472f912932fc3ad7531b7d164723605a68f27b8654592e888576f93915138",
+    "original_source_texel_coordinate_xy": [
+      3,
+      1
+    ],
+    "original_rgba": [
+      173,
+      93,
+      50,
+      255
+    ],
+    "probe_rgba": [
+      255,
+      0,
+      255,
+      255
+    ],
+    "source_RGBA_texels_changed": 1,
+    "mod_JAR_uncompressed_members_changed": 1,
+    "other_uncompressed_members_bytes_unchanged": true,
+    "runtime_jar_is_a_temporary_modified_copy": true,
+    "original_official_jar_sha_verified_before_patch": true,
+    "patched_png_or_JAR_not_uploaded_or_committed": true,
+    "candidate_original_model_faces": [
+      "element7:north",
+      "element7:south"
+    ],
+    "camera_side_source_plane_candidates": {
+      "south": "element7:south",
+      "north": "element7:north"
+    }
+  },
+  "observation": {
+    "original_game_version": "Minecraft Java 1.21.1 Fabric",
+    "original_furniture_mod": "Another Furniture 4.0.2",
+    "source_chair_state": "another_furniture:acacia_chair[facing=north,tucked=false,variant=1]",
+    "source_modified_model": "another_furniture:block/chair/acacia_1",
+    "source_unchanged_model_negative_control": "another_furniture:block/chair/acacia_3",
+    "original_chair_block_xyz": [
+      -88,
+      120,
+      40
+    ],
+    "cameras": {
+      "south": "-87.5 122.3 45.5 180 20",
+      "north": "-87.5 122.3 35.5 0 20"
+    },
+    "native_F2_and_exact_game_state_count": 6,
+    "per_view": {
+      "south": {
+        "target_single_texel_RGBA_intervention_vs_H15_original_pixels": 20,
+        "unchanged_model3_negative_control_vs_H15_original_pixels": 0,
+        "patched_model1_before_to_after_temporal_control_pixels": 0,
+        "changed_pixels_outside_original_H15_chair_foreground": 0,
+        "screen_change_bounds_xyxy_inclusive": [
+          512,
+          437,
+          516,
+          440
+        ],
+        "patch_change_in_original_model1_model3_delta_region": 0
+      },
+      "north": {
+        "target_single_texel_RGBA_intervention_vs_H15_original_pixels": 16,
+        "unchanged_model3_negative_control_vs_H15_original_pixels": 0,
+        "patched_model1_before_to_after_temporal_control_pixels": 0,
+        "changed_pixels_outside_original_H15_chair_foreground": 0,
+        "screen_change_bounds_xyxy_inclusive": [
+          508,
+          412,
+          511,
+          415
+        ],
+        "patch_change_in_original_model1_model3_delta_region": 0
+      }
+    },
+    "ROI_pixels_channel_difference_threshold": 24,
+    "screen_change_in_original_H15_model1_to_model3_thresholded_difference_regions": {
+      "south": 0,
+      "north": 0
+    },
+    "note": "The one-texel magenta intervention lies outside the previously thresholded model1↔model3 808/692-pixel difference mask. The 20/16 new pixels MUST NOT be interpreted as direct explanation of all variant1↔variant3 changed pixels.",
+    "six_F2_sha256": {
+      "south_model1_before": "55272311a47923b18574e8460a8f29a98dc8ad6beedae43890f4feeffd44c8be",
+      "south_model3": "a989c788990c0853773c4b729a58910896fcd027430ae37db7f4881db371c952",
+      "south_model1_after": "55272311a47923b18574e8460a8f29a98dc8ad6beedae43890f4feeffd44c8be",
+      "north_model1_before": "ba97afa890cc93583e255554581d1f5b3c8d658da007fc21c4858d0cb97f627b",
+      "north_model3": "bcc56146b532a5f197aebac8668892ff07f3a1845047a8d2fcf6adf569ed5e7f",
+      "north_model1_after": "ba97afa890cc93583e255554581d1f5b3c8d658da007fc21c4858d0cb97f627b"
+    }
+  },
+  "boundaries": {
+    "model_source_texel_to_native_screen_patch_intervention_supported": true,
+    "exact_GPU_face_and_UV_barycentric_sampling_proven": false,
+    "camera_source_plane_face_candidates_are_geometric_only": true,
+    "other_mods_or_all_views_extrapolated": false,
+    "F70_conditionally_evidenced": 70,
+    "F70_unconditionally_approved": 0,
+    "H03_status": "HOLD",
+    "H05_status": "CONDITIONAL",
+    "INT4_unconditional_exit": 0,
+    "INT5_furniture_semantics_approved": 0,
+    "INT6_AI_training_or_redistribution_approved": 0
+  }
+}
