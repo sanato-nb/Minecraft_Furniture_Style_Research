@@ -1,0 +1,95 @@
+name: INT-4-H5 independent H05 H06 evidence-based eight-gate reassessment
+
+on:
+  push:
+    branches:
+      - work/int4-h5-independent-8gate-reassessment-20261123
+    paths:
+      - scripts/integration/build_int4_h5_independent_gate_reassessment.py
+      - tests/integration/test_int4_h5_independent_gate_reassessment.py
+      - .github/workflows/integration-int4-h5-eight-gate-reassessment.yml
+
+permissions:
+  actions: read
+  pull-requests: read
+  contents: write
+
+jobs:
+  H05-H06-original-source-and-eight-gate-review:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 22
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Confirm H1 H3 H4 G5 original bytes and zero F/G/H exit
+        run: |
+          python -m unittest discover -s tests/integration \
+            -p 'test_int4_h5_independent_gate_reassessment.py' -v
+      - name: Recheck independent H3 H4 Actions plus both test jobs via GitHub API
+        run: |
+          python scripts/integration/build_int4_h5_independent_gate_reassessment.py
+      - name: Recalculate against original remote main and full 8-gate statuses a second time
+        run: |
+          python scripts/integration/build_int4_h5_independent_gate_reassessment.py --verify
+      - name: Ensure H05 conditional H06 scoped pass H03 hold and full H exit zero
+        run: |
+          python - <<'PY'
+          import csv,json,hashlib
+          from pathlib import Path
+          base=Path('project/integration')
+          j=json.loads((base/'INT4_H5_H03_H05_H06_EXIT_GATE_REASSESSMENT_V1.json').read_text())
+          assert j['status']=='H5_ALL8_REASSESSED_6_SCOPED_PASS_1_CONDITIONAL_1_HOLD_NO_FULL_EXIT'
+          assert (j['H_eight_gates_reassessed'],j['H_gate_scoped_pass'],
+                  j['H_gate_conditional'],j['H_gate_hold'])==(8,6,1,1)
+          assert j['H_all_eight_gates_fully_satisfied'] is False
+          assert j['H3_real_original_ZIP_sha_CRC_verified']==20
+          assert j['H3_real_original_PNG_SHA_and_format_decoded']==91
+          assert j['H3_all_original_case_server_logs_and_visual_causality_reapproved'] is False
+          assert j['H4_original_PR73_exact_fixed_workflow_contents']==5
+          assert j['H4_complete_INT2_integration_shared_test_suite_success'] is True
+          assert j['H4_complete_INT3_knowledge_shared_test_suite_success'] is True
+          assert j['H4_research_environment_provenance_job_success'] is True
+          assert j['main_HEAD_sha']=='176f7f34de2336eb7984c4734e97b6eb156c19f4'
+          for k in ('F_unconditional_full_exit_approved','G_unconditional_full_exit_approved',
+                    'H_unconditional_full_exit_approved','INT5_semantics_approved',
+                    'INT6_AI_training_or_redistribution_rights_approved'):
+            assert j[k]==0,k
+          file=base/'INT4_H5_EIGHT_REASSESSED_SCOPED_EXIT_GATES_V1.csv'
+          blob=file.read_bytes()
+          assert hashlib.sha256(blob).hexdigest()==j['updated_eight_gate_csv_sha256']
+          with file.open(encoding='utf-8',newline='') as inp:
+            rows={r['gate_id']:r for r in csv.DictReader(inp)}
+          assert len(rows)==8
+          assert rows['H03']['review_status']=='HOLD_FULL_F_EXIT'
+          assert rows['H05']['review_status'].startswith('CONDITIONAL_')
+          assert rows['H06']['review_status']=='PASS_SHARED_UNIT_SUITE_SCOPE_ONLY'
+          assert all(x['full_unconditional_exit_satisfied']=='false' for x in rows.values())
+          print('PASS H5 8 reviewed, 6 scoped pass 1 conditional 1 hold, entire F/G/H exit 0')
+          PY
+          git diff --check
+      - name: Archive only updated independent gate judgment
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h5-h05-h06-all-8-gates-reassessed-no-final-exit
+          retention-days: 45
+          path: |
+            project/integration/INT4_H5_EIGHT_REASSESSED_SCOPED_EXIT_GATES_V1.csv
+            project/integration/INT4_H5_H03_H05_H06_EXIT_GATE_REASSESSMENT_V1.json
+            project/integration/INT4_H5_UPDATED_EIGHT_GATE_INDEPENDENT_REVIEW_V1.md
+      - name: Commit H5 independent gate disposition metadata to Draft branch only
+        if: success() && github.ref == 'refs/heads/work/int4-h5-independent-8gate-reassessment-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_H5_EIGHT_REASSESSED_SCOPED_EXIT_GATES_V1.csv \
+                  project/integration/INT4_H5_H03_H05_H06_EXIT_GATE_REASSESSMENT_V1.json \
+                  project/integration/INT4_H5_UPDATED_EIGHT_GATE_INDEPENDENT_REVIEW_V1.md
+          if git diff --cached --quiet; then echo "Independent gate evidence unchanged"; else
+            git commit -m "INT-4-H5 8개 종료 게이트 재심사 H05 PNG91·H06 전체 테스트 2개 통과·H03 F70 보류"
+            git push origin HEAD:refs/heads/work/int4-h5-independent-8gate-reassessment-20261123
+          fi
