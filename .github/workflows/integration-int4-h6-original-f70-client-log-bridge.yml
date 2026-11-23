@@ -1,0 +1,106 @@
+name: INT-4-H6 original 20 client logs with 70-case 91-F2 source bridge
+
+on:
+  push:
+    branches:
+      - work/int4-h6-original-case-log-and-capture-provenance-20261123
+    paths:
+      - scripts/integration/build_int4_h6_original_f70_log_state_bridge.py
+      - tests/integration/test_int4_h6_original_f70_log_state_bridge.py
+      - .github/workflows/integration-int4-h6-original-f70-client-log-bridge.yml
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  real-original-client-log-source-bridge:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 43
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install original PNG decoding dependency
+        run: python -m pip install 'Pillow>=10,<13'
+      - name: Unit tests for original SHA locks and independent case evidence logic
+        run: |
+          python -m unittest discover -s tests/integration -p 'test_int4_h6_original_f70_log_state_bridge.py' -v
+          python -m unittest discover -s tests/integration -p 'test_int4_h3_f70_original_20_zip_91_png_audit.py' -v
+      - name: Reopen 20 original ZIP client logs and source JSON and correlate 91 PNG occurrences to 70 cases
+        run: |
+          python scripts/integration/build_int4_h6_original_f70_log_state_bridge.py \
+            --cache "$RUNNER_TEMP/int4-h6-source-archives"
+      - name: Rebuild original log state outputs byte for byte
+        run: |
+          python scripts/integration/build_int4_h6_original_f70_log_state_bridge.py \
+            --cache "$RUNNER_TEMP/int4-h6-source-archives" --verify
+      - name: Independently validate counts, H03 HOLD, H05 conditional and no final acceptance
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import csv,hashlib,json
+          p=Path('project/integration')
+          j=json.loads((p/'INT4_H6_70_CASE_LOG_SOURCE_AUDIT_V1.json').read_text(encoding='utf-8'))
+          assert j['status']=='PASS_H6_SOURCE_LOG_TRACEABILITY_H05_CONDITIONAL_H03_HOLD_FULL_EXIT_ZERO'
+          c=j['counts']
+          assert c['original_archives']==20 and c['original_client_logs']>=20
+          assert (c['original_PNG_occurrences'],c['original_target_cases'])==(91,70)
+          assert (c['H_scoped_pass'],c['H_conditional'],c['H_hold'])==(6,1,1)
+          assert c['new_full_frame_causality_approvals']==0
+          assert c['new_manual_per_case_scene_UV_approvals']==0
+          assert c['full_F_unconditional_approvals']==0 and c['H_full_exit_approvals']==0
+          assert c['INT5_part_semantics_approved']==0
+          assert c['INT6_training_and_redistribution_rights_approved']==0
+          assert j['F70_original_dispositions_unchanged'] is True
+          assert j['other_seven_H_gates_unchanged'] is True
+          gates=list(csv.DictReader((p/'INT4_H6_H03_H05_SCOPE_REASSESSMENT_V1.csv').open()))
+          assert len(gates)==8
+          g={r['gate_id']:r for r in gates}
+          assert g['H03']['review_status']=='HOLD_FULL_F_EXIT'
+          assert g['H05']['review_status'].startswith('CONDITIONAL')
+          for name,count in (
+            ('INT4_H6_20_REAL_CLIENT_LOG_AND_CAPTURE_SOURCE_V1.csv',20),
+            ('INT4_H6_91_F2_PNG_CAPTURE_SERVER_LOG_LINKS_V1.csv',91),
+            ('INT4_H6_70_CASE_LOG_STATE_PROVENANCE_V1.csv',70),
+          ):
+            raw=(p/name).read_bytes()
+            rows=list(csv.DictReader((p/name).open(encoding='utf-8',newline='')))
+            assert len(rows)==count
+            assert j['outputs']['project/integration/'+name]['sha256']==hashlib.sha256(raw).hexdigest()
+          print('H6 original client log and 70 case source audit PASS, full-F approvals remain ZERO')
+          PY
+          git diff --check
+      - name: Preserve only derived source evidence and log hashes, not original game assets
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h6-20-original-logs-70-cases-91-native-F2-source-bridge
+          retention-days: 45
+          if-no-files-found: warn
+          path: |
+            project/integration/INT4_H6_20_REAL_CLIENT_LOG_AND_CAPTURE_SOURCE_V1.csv
+            project/integration/INT4_H6_91_F2_PNG_CAPTURE_SERVER_LOG_LINKS_V1.csv
+            project/integration/INT4_H6_70_CASE_LOG_STATE_PROVENANCE_V1.csv
+            project/integration/INT4_H6_H03_H05_SCOPE_REASSESSMENT_V1.csv
+            project/integration/INT4_H6_70_CASE_LOG_SOURCE_AUDIT_V1.json
+            project/integration/INT4_H6_H03_H05_SERVER_LOG_SCOPE_REPORT_V1.md
+      - name: Commit only derived audit to Draft H6 branch
+        if: success() && github.ref == 'refs/heads/work/int4-h6-original-case-log-and-capture-provenance-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_H6_20_REAL_CLIENT_LOG_AND_CAPTURE_SOURCE_V1.csv \
+                  project/integration/INT4_H6_91_F2_PNG_CAPTURE_SERVER_LOG_LINKS_V1.csv \
+                  project/integration/INT4_H6_70_CASE_LOG_STATE_PROVENANCE_V1.csv \
+                  project/integration/INT4_H6_H03_H05_SCOPE_REASSESSMENT_V1.csv \
+                  project/integration/INT4_H6_70_CASE_LOG_SOURCE_AUDIT_V1.json \
+                  project/integration/INT4_H6_H03_H05_SERVER_LOG_SCOPE_REPORT_V1.md
+          if git diff --cached --quiet; then echo "No new provenance bytes"; else
+            git commit -m "INT-4-H6 20개 원본 로그·70사례·91 F2 출처 연결 및 H03/H05 독립 감사"
+            git push origin HEAD:refs/heads/work/int4-h6-original-case-log-and-capture-provenance-20261123
+          fi
