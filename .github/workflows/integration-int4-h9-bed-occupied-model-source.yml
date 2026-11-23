@@ -1,0 +1,109 @@
+name: INT-4-H9 HC bed occupied static model geometry and UV source audit
+
+on:
+  push:
+    branches:
+      - work/int4-h9-hc-bed-occupied-model-uv-delta-20261123
+    paths:
+      - scripts/integration/build_int4_h9_hc_bed_occupied_model_delta.py
+      - tests/integration/test_int4_h9_hc_bed_occupied_model_delta.py
+      - .github/workflows/integration-int4-h9-bed-occupied-model-source.yml
+
+permissions:
+  contents: write
+
+jobs:
+  pinned-static-hc-1024-states-geometry:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Ensure modeling source regression stays independent of gameplay
+        run: |
+          python -m unittest discover -s tests/integration \
+            -p 'test_int4_h9_hc_bed_occupied_model_delta.py' -v
+          python -m unittest discover -s tests/knowledge \
+            -p 'test_int4_handcrafted_bed_capture.py' -v
+
+      - name: Obtain exact pinned Handcrafted original source checkout
+        run: |
+          curl -fLsS --retry 3 --max-time 120 \
+            'https://codeload.github.com/terrarium-earth/Handcrafted/zip/8d21d1665916850c3fa3bdaf1370c50ec2ca7035' \
+            -o "$RUNNER_TEMP/h9-handcrafted-original-source.zip"
+          unzip -t "$RUNNER_TEMP/h9-handcrafted-original-source.zip" | tail -n 2
+
+      - name: Audit all 1024 occupied bed selectors and 512 source model pairs
+        run: |
+          python scripts/integration/build_int4_h9_hc_bed_occupied_model_delta.py \
+            --source-zip "$RUNNER_TEMP/h9-handcrafted-original-source.zip"
+
+      - name: Recompute independent deterministic outputs with unchanged pinned source
+        run: |
+          python scripts/integration/build_int4_h9_hc_bed_occupied_model_delta.py \
+            --source-zip "$RUNNER_TEMP/h9-handcrafted-original-source.zip" --verify
+
+      - name: Verify geometry counts, source-only scope and original case immutability
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json
+          from pathlib import Path
+          p=Path('project/integration')
+          d=json.loads((p/'INT4_H9_HC_BED_OCCUPIED_SOURCE_AUDIT_V1.json').read_text(encoding='utf-8'))
+          assert d['status']=='PASS_1024_STATE_512_PAIR_256_MODEL_FOOT_GEOMETRY_SOURCE_VALIDATED'
+          c=d['counts']
+          assert (c['source_selector_variants'],c['occupied_false_true_pairs'])==(1024,512)
+          assert c['unique_selected_model_leaf_files']==256
+          assert c['foot_parent_geometry_changed_pairs']==256
+          assert c['head_model_leaf_byte_identical_pairs']==256
+          assert c['shapes_with_foot_geometry_UV_source_delta']==4
+          assert c['new_gameplay_sessions']==0
+          assert c['new_occupied_true_native_F2']==0
+          assert c['full_F_H_approvals']==0
+          assert c['INT5_semantics_approved']==0
+          assert c['INT6_AI_training_redistribution_rights_approved']==0
+          assert d['source_interpretation']['bed_lifecycle_gameplay_not_required_for_model_research']
+          for f,expected in [
+              ('INT4_H9_512_OCCUPIED_SOURCE_MODEL_PAIRS_V1.csv',512),
+              ('INT4_H9_4_SHAPES_GEOMETRY_FACE_UV_DELTA_V1.csv',4)
+          ]:
+              file=p/f
+              rows=list(csv.DictReader(file.open(encoding='utf-8',newline='')))
+              assert len(rows)==expected
+              assert hashlib.sha256(file.read_bytes()).hexdigest()==d['derived_files_sha256']['project/integration/'+f]
+          print('PASS 512 paired model selectors, no gameplay or H/F full acceptance')
+          PY
+          git diff --check
+
+      - name: Archive model provenance only, never upstream original assets
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h9-1024-occupied-bed-model-source-512-pairs-4-uv-deltas
+          retention-days: 45
+          if-no-files-found: warn
+          path: |
+            project/integration/INT4_H9_512_OCCUPIED_SOURCE_MODEL_PAIRS_V1.csv
+            project/integration/INT4_H9_4_SHAPES_GEOMETRY_FACE_UV_DELTA_V1.csv
+            project/integration/INT4_H9_HC_BED_OCCUPIED_SOURCE_AUDIT_V1.json
+            project/integration/INT4_H9_HC_BED_MODELING_SCOPE_REPORT_V1.md
+
+      - name: Commit derived model research metadata to Draft branch only
+        if: success() && github.ref == 'refs/heads/work/int4-h9-hc-bed-occupied-model-uv-delta-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_H9_512_OCCUPIED_SOURCE_MODEL_PAIRS_V1.csv \
+                  project/integration/INT4_H9_4_SHAPES_GEOMETRY_FACE_UV_DELTA_V1.csv \
+                  project/integration/INT4_H9_HC_BED_OCCUPIED_SOURCE_AUDIT_V1.json \
+                  project/integration/INT4_H9_HC_BED_MODELING_SCOPE_REPORT_V1.md
+          if git diff --cached --quiet; then
+            echo "Research metadata bytes unchanged"
+          else
+            git commit -m "INT-4-H9 침대 occupied 모델 1024상태·512선택 쌍·4형태 UV 부모 구조 감사"
+            git push origin HEAD:refs/heads/work/int4-h9-hc-bed-occupied-model-uv-delta-20261123
+          fi
