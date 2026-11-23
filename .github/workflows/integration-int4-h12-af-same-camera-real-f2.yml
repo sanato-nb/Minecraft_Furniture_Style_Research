@@ -1,0 +1,100 @@
+name: INT-4-H12 AF north variant1 variant3 repeated control real F2
+
+on:
+  push:
+    branches:
+      - work/int4-h12-af-north-variant1-v3-same-camera-f2-20261123
+    paths:
+      - src/mcfr/int4_h12_af_chair_variant_same_camera_f2.py
+      - tests/knowledge/test_int4_h12_af_chair_variant_same_camera_f2.py
+      - src/mcfr/runtime.py
+      - .github/workflows/integration-int4-h12-af-same-camera-real-f2.yml
+
+permissions:
+  contents: write
+
+jobs:
+  actual-fabric-chair-variant-texture:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      PYTHONPATH: src
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      ALSOFT_DRIVERS: 'null'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install actual game screenshot dependencies
+        timeout-minutes: 8
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            timeout 180s sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 update
+            timeout 180s sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 install -y xvfb xauth xdotool libgl1-mesa-dri libglx-mesa0
+          fi
+      - name: Nine H12 and nine H11 source only regressions
+        run: |
+          python -m unittest discover -s tests/knowledge -p 'test_int4_h12_af_chair_variant_same_camera_f2.py' -v
+          python -m unittest discover -s tests/integration -p 'test_int4_h11_af_variant3_uv_texel_source.py' -v
+      - name: Create original Minecraft 1.21.1 disposable world
+        run: |
+          python -m mcfr.chair_runtime_fixture world --version 1.21.1 \
+            --path "$RUNNER_TEMP/h12-af-world" --cache "$RUNNER_TEMP/h12-af-cache"
+      - name: Actual Fabric 4.0.2 north chair variant 1 3 1 AIR real F2
+        timeout-minutes: 22
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int4-h12-af-chair-variant \
+              --version 1.21.1 --world "$RUNNER_TEMP/h12-af-world" \
+              --work "$RUNNER_TEMP/h12-af-client" \
+              --output "$RUNNER_TEMP/h12-af-native-f2"
+      - name: Independently verify 4 native F2 and server state
+        run: |
+          python -m mcfr.int4_h12_af_chair_variant_same_camera_f2 \
+            --directory "$RUNNER_TEMP/h12-af-native-f2"
+          cp "$RUNNER_TEMP/h12-af-native-f2/INT4_H12_AF_NORTH_VARIANT_F2_INDEPENDENT_AUDIT_V1.json" \
+            project/integration/INT4_H12_AF_NORTH_VARIANT_REAL_F2_AUDIT_V1.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('project/integration/INT4_H12_AF_NORTH_VARIANT_REAL_F2_AUDIT_V1.json').read_text())
+          assert r['status'] in ('PASS_REAL_GAME_SOURCE_SELECTORS_AND_CONTRAST_SCREENED','CONDITIONAL_REAL_GAME_F2_CAPTURED_BUT_VISIBLE_MODEL_DIFF_NOT_PROVEN')
+          assert r['exact_server_states_verified']==4 and len(r['original_F2_sha256'])==4
+          assert r['source_models']['v1']['original_model']=='another_furniture:block/chair/acacia_1'
+          assert r['source_models']['v3']['original_model']=='another_furniture:block/chair/acacia_3'
+          assert r['official_runtime_jar_sha1']=='c2f992081bdc4795ed6d87771a3b5f7c71103785'
+          assert r['new_real_game_sessions']==1 and r['new_native_game_F2']==4
+          assert not r['face_by_face_GPU_UV_causality_approved'] and r['F70_full_approval']==0
+          assert not r['H03_H05_full_exit'] and r['INT5_semantic_approval']==0 and r['INT6_AI_training_redistribution_approval']==0
+          print('Actual Fabric F2:',r['status'],r['observed_RGB_diff_counts'])
+          PY
+          git diff --check
+      - name: Retain raw PNG, client log, manifest and comparison only in 45-day Actions artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h12-af-north-original-F2-variant1-variant3-repeated-air
+          retention-days: 45
+          if-no-files-found: warn
+          path: ${{ runner.temp }}/h12-af-native-f2/
+      - name: Commit derived JSON to Draft H12 branch only with safe fast-forward rebase
+        if: success() && github.ref == 'refs/heads/work/int4-h12-af-north-variant1-v3-same-camera-f2-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_H12_AF_NORTH_VARIANT_REAL_F2_AUDIT_V1.json
+          if ! git diff --cached --quiet; then
+            git commit -m "INT-4-H12 북향 의자 variant1·3 실제 F2·반복통제 서버 검수"
+            git fetch origin work/int4-h12-af-north-variant1-v3-same-camera-f2-20261123
+            git rebase origin/work/int4-h12-af-north-variant1-v3-same-camera-f2-20261123
+            git push origin HEAD:refs/heads/work/int4-h12-af-north-variant1-v3-same-camera-f2-20261123
+          fi
