@@ -166,8 +166,12 @@ def pixels_changed(a: Image.Image, b: Image.Image) -> set[tuple[int, int]]:
     pa = a.convert("RGB").crop(ROI)
     pb = b.convert("RGB").crop(ROI)
     changed = set()
-    for i, (v, w) in enumerate(zip(pa.getdata(), pb.getdata())):
-        if max(abs(v[c]-w[c]) for c in range(3)) >= THRESHOLD:
+    a_bytes, b_bytes = pa.tobytes(), pb.tobytes()
+    check(len(a_bytes) == len(b_bytes) == pa.width * pa.height * 3,
+          "ORIGINAL_F2_RGB_BYTE_COUNT_DRIFTED")
+    for i in range(pa.width * pa.height):
+        offset = i * 3
+        if max(abs(a_bytes[offset+c] - b_bytes[offset+c]) for c in range(3)) >= THRESHOLD:
             changed.add((ROI[0]+i%pa.width, ROI[1]+i//pa.width))
     return changed
 
