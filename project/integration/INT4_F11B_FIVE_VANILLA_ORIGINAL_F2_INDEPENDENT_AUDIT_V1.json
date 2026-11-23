@@ -1,0 +1,133 @@
+{
+  "cases": {
+    "V03": {
+      "conditional_not_final": true,
+      "direct_visual_observation": "F2에서 실제 북쪽 이웃에 연결된 참나무 울타리 기둥과 연결부 관찰",
+      "original_block": "oak_fence",
+      "original_native_F2_sha256": "f1da0b1ff6058f5d7106d4388d449f85290d697709a1295025216a08101cb376",
+      "original_selected_model_rule_indices": [
+        0,
+        1
+      ],
+      "server_game_exact": true,
+      "source_elements": 3,
+      "source_faces": 16,
+      "source_model_applications": 2,
+      "state": "minecraft:oak_fence[east=false,north=true,south=false,west=false]"
+    },
+    "V04": {
+      "conditional_not_final": true,
+      "direct_visual_observation": "F2에서 바닥의 매우 낮은 참나무 압력판 외형 관찰",
+      "original_block": "oak_pressure_plate",
+      "original_native_F2_sha256": "ed54a2bb4d238e069b1b56380022ceb8cc712926662063472a398aa01eb5737a",
+      "original_selected_model_rule_indices": [
+        0
+      ],
+      "server_game_exact": true,
+      "source_elements": 1,
+      "source_faces": 6,
+      "source_model_applications": 1,
+      "state": "minecraft:oak_pressure_plate[powered=false]"
+    },
+    "V06": {
+      "conditional_not_final": true,
+      "direct_visual_observation": "F2에서 참나무 통 외형 관찰; open=true는 서버 상태만 확인, GUI 기능 미승인",
+      "original_block": "barrel",
+      "original_native_F2_sha256": "3c82c638d851e6a096e5608588e4f5c74abc439f201c7149f582207baf49862b",
+      "original_selected_model_rule_indices": [
+        5
+      ],
+      "server_game_exact": true,
+      "source_elements": 1,
+      "source_faces": 6,
+      "source_model_applications": 1,
+      "state": "minecraft:barrel[facing=north,open=true]"
+    },
+    "V08": {
+      "conditional_not_final": true,
+      "direct_visual_observation": "F2에서 조각된 책장 블록 외형 관찰; 정확한 슬롯 픽셀 인과 미승인",
+      "original_block": "chiseled_bookshelf",
+      "original_native_F2_sha256": "3ab11dc1d360b741fc7884c75ec9d3f8af647dce4070367c3bfe2879ef637e1b",
+      "original_selected_model_rule_indices": [
+        0,
+        1,
+        4,
+        6,
+        8,
+        10,
+        12
+      ],
+      "server_game_exact": true,
+      "source_elements": 7,
+      "source_faces": 11,
+      "source_model_applications": 7,
+      "state": "minecraft:chiseled_bookshelf[facing=north,slot_0_occupied=true,slot_1_occupied=false,slot_2_occupied=false,slot_3_occupied=false,slot_4_occupied=false,slot_5_occupied=false]"
+    },
+    "V09": {
+      "conditional_not_final": true,
+      "direct_visual_observation": "F2에서 흰색 양털 정육면체를 무채색 밝은 전경 픽셀로 관찰",
+      "original_block": "white_wool",
+      "original_native_F2_sha256": "fc929bf47dfd555fbd0d5bd4496e36217e337470441fdb949848d43bf29d7a06",
+      "original_selected_model_rule_indices": [
+        0
+      ],
+      "server_game_exact": true,
+      "source_elements": 1,
+      "source_faces": 6,
+      "source_model_applications": 1,
+      "state": "minecraft:white_wool"
+    }
+  },
+  "counts": {
+    "F_HOLD_after": 7,
+    "F_HOLD_before": 12,
+    "F_conditional_after": 63,
+    "F_conditional_before": 58,
+    "INT5_semantics_approved": 0,
+    "INT6_AI_rights_approved": 0,
+    "fixed_F_targets": 70,
+    "full_F_unconditionally_accepted": 0,
+    "historical_original_F2_after": 57,
+    "historical_original_F2_before": 52,
+    "historical_original_cases": 62,
+    "new_original_native_F2": 5,
+    "new_real_exact_server_states": 5,
+    "original_model_elements": 13,
+    "original_model_faces": 45,
+    "original_selected_models": 12
+  },
+  "limitations": [
+    "V03 real fence north neighbor and source multipart state proven, not all natural placement dynamics.",
+    "V08 seven selected original models proven, not player book UI nor pixel-by-pixel slot causal proof.",
+    "V06 barrel open=true state observed on real server; user opening functionality untested.",
+    "Original PNGs re-opened visually but no pixel UV or semantic final approval.",
+    "Other 65 original F rows and original 1-5 unchanged. No copyrighted assets committed.",
+    "G/H/INT5/INT6 remain pending."
+  ],
+  "official_client_sha1": "ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd",
+  "official_client_sha256": "1473c9489ac50fda3c435049a76a70d61a10b8610db27f5ba9d8756b686cd3bd",
+  "original_client_log_sha256": "6e22bef99e864346d54e0caa9df02aac6921cf205cc6d0a92ac15735b729596c",
+  "original_source_git_sha1_pins": {
+    "project/integration/INT4_F11A_70_TARGET_EVIDENCE_DISPOSITIONS_V10.csv": "51aea1ec91472c4ff2ad99a6b2ce8f9975854b18",
+    "project/integration/INT4_F11B_FIVE_VANILLA_REAL_F2_SOURCE_V1.json": "73d3840db6a261cdfe42de619c5337eed3150dc4",
+    "research/furniture_mods/phase_1-5/B/APPLICATIONS.csv": "56e6f4c21c50714b97079ec61f7219bea845f179"
+  },
+  "original_zip_sha256": "14483549b057734fe124c36dc498bdb8a91f781016189707feeb9c9d27e50a9a",
+  "output_SHA256": {
+    "F70": "dbb6ceeed158c228f41afa361151e37231e5fc84a8fb9c14e0d17e6b3462018f",
+    "pending": "61693e3fc51195e7aaed566b99287168a23f000cadfe762d4f83e99cf00b9df5"
+  },
+  "real_original_game_artifact": 14784297231,
+  "real_original_game_run": 45098021558,
+  "remaining_HOLD_target_ids": [
+    "R06",
+    "R08",
+    "V11",
+    "V12",
+    "V13",
+    "V14",
+    "V15"
+  ],
+  "schema": "MCFR_INT4_F11B_ORIGINAL_MOJANG_MULTIPART_F2_INDEPENDENT_AUDIT/v1",
+  "status": "PASS_FIVE_VANILLA_NATIVE_F2_63_CONDITIONAL_7_HOLD_FULL_ZERO"
+}
