@@ -1,10 +1,10 @@
-"""INT-4-H16 actual Fabric single source-texel runtime intervention, not asset redistribution.
+"""INT-4-H16 original AF source 1-texel disposable JAR intervention.
 
-Install ONE temporary resource-pack override of AF 4.0.2 back_1/acacia.png,
-whose RGBA differs by exactly one opaque source texel. Record native F2 of
-acacia_1 (intervention) and acacia_3 (negative control) from both H15 cameras.
-The original AF JAR/parent/UV are never patched, and transient modified PNG
-never leaves the scratch game directory or gets committed/uploaded.
+An external temporary resource pack was loaded but had zero game pixels change;
+Fabric pack ordering made actual override inconclusive. The second test verifies
+the official JAR SHA first, then changes ONE texture texel in a disposable test
+copy, preserving every other uncompressed JAR member. Neither copyrighted JAR
+nor modified PNG leaves scratch; only actual native F2 / logs are archived.
 """
 from __future__ import annotations
 
@@ -30,8 +30,6 @@ from . import int4_h15_af_opposing_f2_capture as h15
 
 ROOT = Path(__file__).resolve().parents[2]
 VERSION = "1.21.1"
-PACK_NAME = "MCFR_H16_SINGLE_TEXEL_TEMP"
-PACK_FORMAT = 34
 TEX_REL = "assets/another_furniture/textures/block/chair/back_1/acacia.png"
 TEX_BLOB_PIN = "55f3bbf986c0c10b731cc0e67038402f30340972"
 TARGET = (3, 1)
@@ -61,13 +59,25 @@ def blob(data: bytes) -> str:
 
 
 def prepare_one_texel_probe(game: Path) -> dict:
-    """Read only pinned installed AF JAR; write override only into disposable game."""
-    original_source = h12.static_preflight(game)
-    jar = game / "mods" / "another_furniture-fabric-4.0.2.jar"
-    check(hashlib.sha1(jar.read_bytes()).hexdigest() == h12.JAR_SHA1,
-          "H16_ORIGINAL_JAR_SHA_MISMATCH")
-    with ZipFile(jar) as source_jar:
-        raw=source_jar.read(TEX_REL)
+    """Preflight official 4.0.2, then patch ONE texel in disposable runtime JAR.
+
+    A normal external resource pack was observed before Fabric's mod resource
+    pack in the live ResourceManager list, and had zero actual F2 effect.
+    This new test copy replaces ONE ZIP member and preserves all other
+    uncompressed ZIP member bytes. Neither modified JAR nor PNG is uploaded.
+    """
+    source=h12.static_preflight(game)
+    jar=game/"mods"/"another_furniture-fabric-4.0.2.jar"
+    original_bytes=jar.read_bytes()
+    original_sha=hashlib.sha1(original_bytes).hexdigest()
+    check(original_sha==h12.JAR_SHA1,"H16_OFFICIAL_SOURCE_JAR_PIN_MISMATCH")
+    with ZipFile(io.BytesIO(original_bytes)) as archive:
+        names=archive.namelist()
+        check(len(names)==len(set(names)) and TEX_REL in names,
+              "H16_JAR_MEMBER_NAMES_NONUNIQUE_OR_TARGET_MISSING")
+        metadata=archive.infolist()
+        original_resources={name:archive.read(name) for name in names}
+    raw=original_resources[TEX_REL]
     check(blob(raw)==TEX_BLOB_PIN, "H16_ORIGINAL_AF_PNG_GIT_SHA_MISMATCH")
     with Image.open(io.BytesIO(raw)) as original:
         original.load()
@@ -76,59 +86,67 @@ def prepare_one_texel_probe(game: Path) -> dict:
         rgba=original.convert("RGBA")
     check(rgba.getpixel(TARGET)==SOURCE_RGBA,
           "H16_SOURCE_PIXEL_RGBA_NOT_THE_PINNED_OPAQUE_PIXEL")
-    changed=rgba.copy()
-    changed.putpixel(TARGET,PROBE_RGBA)
-    changed_pixels=sum(rgba.getpixel((x,y))!=changed.getpixel((x,y))
-                       for x in range(16) for y in range(16))
-    check(changed_pixels==1 and changed.getpixel(TARGET)==PROBE_RGBA,
-          "H16_MUST_MUTATE_EXACTLY_ONE_RGBA_TEXEL")
-    pack=game / "resourcepacks" / PACK_NAME
-    check(not pack.exists(),"H16_TEMP_PACK_ALREADY_EXISTS")
-    override=pack / TEX_REL
-    override.parent.mkdir(parents=True,exist_ok=False)
-    changed.save(override,format="PNG")
-    (pack/"pack.mcmeta").write_text(
-        json.dumps({"pack":{"pack_format":PACK_FORMAT,
-                            "description":"MCFR H16 TEMP local single-texel causal probe"}},
-                   ensure_ascii=False)+"\n",encoding="utf-8")
-    with Image.open(override) as from_file:
-        from_file.load()
-        check(from_file.size==(16,16) and
-              list(from_file.convert("RGBA").getdata())==list(changed.getdata()),
-              "H16_TEMP_PACK_PIXEL_WRITE_DRIFTED")
-    options=game/"options.txt"
-    text=options.read_text(encoding="utf-8")
-    check("resourcePacks:" not in text,
-          "H16_RESOURCE_PACK_OPTIONS_AMBIGUOUS")
-    line='resourcePacks:'+json.dumps(["vanilla","file/"+PACK_NAME],separators=(",",":"))
-    options.write_text(text.rstrip("\n")+"\n"+line+"\n",encoding="utf-8")
-    check(line in options.read_text(encoding="utf-8"),"H16_PACK_NOT_SELECTED_IN_OPTIONS")
+    modified=rgba.copy()
+    modified.putpixel(TARGET,PROBE_RGBA)
+    changed=sum(rgba.getpixel((x,y))!=modified.getpixel((x,y))
+                for x in range(16) for y in range(16))
+    check(changed==1,"H16_MUST_CHANGE_ONE_AND_ONLY_ONE_SOURCE_TEXEL")
+    buffer=io.BytesIO()
+    modified.save(buffer,format="PNG")
+    patched_png=buffer.getvalue()
+    check(sha(patched_png)!=sha(raw),"H16_PROBE_PNG_BYTES_NOT_MODIFIED")
+    replacements={**original_resources,TEX_REL:patched_png}
+    patched_file=game/"mods"/"another_furniture-h16-modified-disposable.tmp"
+    with ZipFile(patched_file,"w") as output_zip:
+        for entry in metadata:
+            output_zip.writestr(entry,replacements[entry.filename])
+    with ZipFile(patched_file) as verified:
+        check(verified.testzip() is None and verified.namelist()==names,
+              "H16_MODIFIED_TEST_JAR_ZIP_CRC_OR_ENTRIES_DRIFT")
+        differences=[name for name in names
+                     if verified.read(name)!=original_resources[name]]
+        check(differences==[TEX_REL],
+              "H16_MORE_THAN_ONE_OR_WRONG_SOURCE_JAR_MEMBER_CHANGED")
+        with Image.open(io.BytesIO(verified.read(TEX_REL))) as after:
+            after.load()
+            pixels=after.convert("RGBA")
+            check(sum(pixels.getpixel((x,y))!=rgba.getpixel((x,y))
+                      for x in range(16) for y in range(16))==1 and
+                  pixels.getpixel(TARGET)==PROBE_RGBA,
+                  "H16_REOPENED_MODIFIED_JAR_TARGET_TEXEL_WRONG")
+    # Keep the public original release in memory for provenance only; the
+    # dedicated disposable Fabric runtime sees the modified test-copy JAR.
+    patched_bytes=patched_file.read_bytes()
+    patched_sha=hashlib.sha1(patched_bytes).hexdigest()
+    check(patched_sha!=original_sha,"H16_MODIFIED_JAR_SAME_AS_OFFICIAL_SHA")
+    patched_file.replace(jar)
+    check(hashlib.sha1(jar.read_bytes()).hexdigest()==patched_sha,
+          "H16_DISPOSABLE_RUNTIME_JAR_PATCH_NOT_INSTALLED")
     return {
-        "original_runtime_AF_jar_sha1":h12.JAR_SHA1,
-        "original_texture_git_blob_sha1":TEX_BLOB_PIN,
-        "original_texture_sha256":sha(raw),
-        "pinned_H12_source_h11_git_blob_sha1":original_source["h11_git_blob_sha1"],
-        "only_override_asset_path":TEX_REL,
-        "pack_name":PACK_NAME,
-        "pack_format":PACK_FORMAT,
-        "pack_selected_options_line":line,
+        "official_AF_jar_sha1_before_temporary_patch":original_sha,
+        "ephemeral_runtime_test_jar_sha1":patched_sha,
+        "official_source_JAR_verified_before_patch":True,
+        "original_AF_texture_git_blob_sha1":TEX_BLOB_PIN,
+        "original_AF_texture_sha256":sha(raw),
+        "original_H11_source_sha1":source["h11_git_blob_sha1"],
+        "only_original_source_resource_member_modified":TEX_REL,
         "original_texel_xy":list(TARGET),
         "original_texel_rgba":list(SOURCE_RGBA),
-        "new_texel_rgba":list(PROBE_RGBA),
-        "RGBA_texels_modified":changed_pixels,
-        "temp_png_sha256":sha(override.read_bytes()),
-        "original_jar_remains_byte_identical":hashlib.sha1(jar.read_bytes()).hexdigest()==h12.JAR_SHA1,
-        "modified_pack_not_saved_in_artifact_or_git":True,
+        "modified_texel_rgba":list(PROBE_RGBA),
+        "source_RGBA_texels_modified":1,
+        "changed_uncompressed_JAR_resources":1,
+        "all_other_ZIP_member_bytes_unchanged":True,
+        "original_JAR_test_copy_is_ephemerally_modified":True,
+        "modified_JAR_and_PNG_never_uploaded_to_GitHub":True,
     }
 
 
-def assert_resource_pack_loaded(log_text: str) -> str:
-    """Must see actual Minecraft resource manager list, not merely options."""
+def assert_patched_mod_loaded(log_text: str) -> str:
+    """Prove actual Fabric loads AF mod; JAR patch presence is separately SHA pinned."""
     lines=[s for s in log_text.splitlines()
-           if "Reloading ResourceManager:" in s and PACK_NAME in s]
-    check(bool(lines),"H16_TEMP_ONE_TEXEL_PACK_NOT_LOADED_BY_ACTUAL_MINECRAFT")
+           if "Reloading ResourceManager:" in s and "another_furniture" in s]
+    check(bool(lines),"H16_ORIGINAL_AF_MOD_NOT_LOADED_BY_FABRIC")
     return sha(lines[-1].encode("utf-8"))
-
 
 def model_state(stage: str) -> str:
     check(stage in STAGES,"H16_BAD_MODEL_CONTROL_STAGE")
@@ -176,7 +194,7 @@ def capture(command, env, game, output, version):
                      "H16 actual pinned Fabric world join",180)
             wait_for(proc,lambda:"Loaded 2 advancements" in read(),
                      "H16 actual client fully ready",90)
-            pack_loaded_marker_sha=assert_resource_pack_loaded(read())
+            mod_loaded_log_sha=assert_patched_mod_loaded(read())
             sleep(7)
             windows=xdo("search","--all","--onlyvisible","--pid",str(proc.pid),
                         "--name","^Minecraft").split()
@@ -222,17 +240,17 @@ def capture(command, env, game, output, version):
                 except subprocess.TimeoutExpired:proc.kill();proc.wait()
     check(all(set(states[v])==set(STAGES) for v in VIEWS),
           "H16_PINNED_ORIGINAL_F2_SIX_FRAMES_INCOMPLETE")
-    check(assert_resource_pack_loaded(log.read_text(encoding="utf-8",errors="replace"))==
-          pack_loaded_marker_sha,"H16_ORIGINAL_RESOURCEPACK_LOADED_LOG_CHANGED")
+    check(assert_patched_mod_loaded(log.read_text(encoding="utf-8",errors="replace"))==
+          mod_loaded_log_sha,"H16_AF_MOD_LOADED_LOG_CHANGED")
     manifest={
         "schema":"MCFR_INT4_H16_SINGLE_TEXEL_REAL_FABRIC_SOURCE_CAPTURE/v1",
-        "status":"H16_SIX_ACTUAL_F2_TEMP_SINGLE_TEXEL_PACK_REQUIRES_INDEPENDENT_AUDIT",
+        "status":"H16_SIX_ACTUAL_F2_TEMP_JAR_ONE_TEXEL_REQUIRES_INDEPENDENT_AUDIT",
         "game_version":VERSION,"game_session_count":1,
         "actual_native_F2_count":6,"original_source_facing":"north",
         "original_block_xyz":list(BLOCK),"camera_order":list(VIEWS),
         "cameras":CAMERAS,"models":h12.MODELS,"views":states,
         "provenance":provenance,
-        "resourcepack_actual_load_log_line_SHA256":pack_loaded_marker_sha,
+        "actual_AF_mod_load_log_line_SHA256":mod_loaded_log_sha,
         "client_log_sha256":sha(log.read_bytes()),
         "one_texel_GPU_screen_effect_approved":False,
         "precise_GPU_face_UV_pixel_attribution_approved":False,
@@ -243,7 +261,7 @@ def capture(command, env, game, output, version):
     (dest/ORIGINAL).write_text(
         json.dumps(manifest,ensure_ascii=False,sort_keys=True,indent=2)+"\n",
         encoding="utf-8")
-    # Do not copy the temporary derived PNG outside the scratch game.
+    # Do not copy the temporary patched mod JAR or derived PNG into the output.
     return manifest
 
 
@@ -258,17 +276,23 @@ def audit(directory, h15_original_zip):
           doc["original_source_facing"]=="north",
           "H16_ORIGINAL_REAL_MINECRAFT_CAPTURE_IDENTITY_MISSING")
     p=doc["provenance"]
-    check(p["RGBA_texels_modified"]==1 and p["original_texel_xy"]==list(TARGET) and
+    check(p["source_RGBA_texels_modified"]==1 and
+          p["original_texel_xy"]==list(TARGET) and
           p["original_texel_rgba"]==list(SOURCE_RGBA) and
-          p["new_texel_rgba"]==list(PROBE_RGBA) and p["original_jar_remains_byte_identical"] is True and
-          p["only_override_asset_path"]==TEX_REL and p["original_texture_git_blob_sha1"]==TEX_BLOB_PIN and
-          p["pack_format"]==PACK_FORMAT and p["pack_name"]==PACK_NAME and
-          p["modified_pack_not_saved_in_artifact_or_git"] is True,
-          "H16_MUST_BE_ONE_TEMP_SOURCE_TEXEL_NOT_MUTATED_JAR")
+          p["modified_texel_rgba"]==list(PROBE_RGBA) and
+          p["official_source_JAR_verified_before_patch"] is True and
+          p["official_AF_jar_sha1_before_temporary_patch"]==h12.JAR_SHA1 and
+          p["ephemeral_runtime_test_jar_sha1"]!=h12.JAR_SHA1 and
+          p["only_original_source_resource_member_modified"]==TEX_REL and
+          p["original_AF_texture_git_blob_sha1"]==TEX_BLOB_PIN and
+          p["changed_uncompressed_JAR_resources"]==1 and
+          p["all_other_ZIP_member_bytes_unchanged"] is True and
+          p["modified_JAR_and_PNG_never_uploaded_to_GitHub"] is True,
+          "H16_MORE_THAN_ONE_SOURCE_RESOURCE_MUTATED_OR_PROVENANCE_MISSING")
     text=(root/"client.log").read_text(encoding="utf-8",errors="replace")
     check(sha((root/"client.log").read_bytes())==doc["client_log_sha256"] and
-          assert_resource_pack_loaded(text)==doc["resourcepack_actual_load_log_line_SHA256"],
-          "H16_ACTUAL_RESOURCE_PACK_LOG_PROOF_MISSING")
+          assert_patched_mod_loaded(text)==doc["actual_AF_mod_load_log_line_SHA256"],
+          "H16_ACTUAL_FABRIC_AF_MOD_LOG_PROOF_MISSING")
     with ZipFile(h15_original_zip) as z:
         check(z.testzip() is None and
               sha(Path(h15_original_zip).read_bytes())==H15_SHA,
@@ -354,11 +378,11 @@ def audit(directory, h15_original_zip):
        "new_actual_game_runs":1,
        "new_actual_native_game_F2":6,
        "exact_server_state_verified":6,
-       "confirmed_resourcepack_in_real_Minecraft_log":True,
+       "confirmed_AF_resource_in_real_Minecraft_log":True,
        "single_original_source_texel_modified":list(TARGET),
        "target_original_RGBA":list(SOURCE_RGBA),
        "target_intervention_RGBA":list(PROBE_RGBA),
-       "source_original_mod_JAR_unchanged":True,
+       "official_source_JAR_verified_before_ephemeral_patch":True,
        "comparison_original_H15_artifact_zip_SHA256":H15_SHA,
        "native_F2_proof_SHA256":{label(v,s):doc["views"][v][s]["sha256"]
                                   for v in VIEWS for s in STAGES},
@@ -372,10 +396,10 @@ def audit(directory, h15_original_zip):
        "INT5_semantics_approved":0,
        "INT6_training_or_redistribution_rights_approved":0,
        "limits":[
-           "Resource-pack intervention is a controlled whole-source-texture override with only one pixel changed, and logs prove it is enabled.",
+           "A temporary external resource pack loaded but showed zero F2 difference; this follow-up directly patches exactly one RGBA texel in one archive member of a verified disposable test-copy JAR.",
            "A screen difference localized to a chair supports that the changed texel influenced the actual rendered frame, not precise GPU face / UV barycentric attribution.",
            "Both cameras are reviewed as separate evidence; no unproven GPU internals, author intention, model semantics or rights are approved.",
-           "The original unmodified 4.0.2 JAR, original PNGs and six native F2 remain only in controlled scratch and expiring Actions artifacts.",
+           "Official JAR SHA is verified before ephemeral test-copy patch; modified JAR/PNG never uploaded, only native F2 and game log archived.",
        ],
     }
     (root/AUDIT).write_text(json.dumps(conclusion,ensure_ascii=False,sort_keys=True,indent=2)+"\n",
