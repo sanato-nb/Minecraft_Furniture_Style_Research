@@ -37,7 +37,7 @@ CLIENT_LOG_SHA_KEYS={
 }
 STATE_KEYS={"server_state_verified","server_blockstate_verified",
             "server_exact_state_verified","server_state_exact",
-            "server_state_match","server_verified"}
+            "server_state_match","server_verified","server_source_state_verified"}
 
 def sha(b):return hashlib.sha256(b).hexdigest()
 def gitblob(b):return hashlib.sha1(b"blob "+str(len(b)).encode()+b"\0"+b).hexdigest()
@@ -96,6 +96,29 @@ def structured_exact(doc,case):
         checks=doc.get("state_check_evidence")
         if isinstance(checks,list) and checks and all(isinstance(x,dict) and x.get("PASS") is True for x in checks):
             good.append("risk_state_check_evidence_all_PASS")
+    # Original F6 stores exact historical property under named source-condition
+    # trials, not as server_states[S02] and server_states[S34].
+    f6_trials={
+        "S02":[("S02_NORTH_TABLE_TUCK","tucked","true"),
+               ("S02_NORTH_TOP_SLAB_TUCK","tucked","true")],
+        "S34":[("S34_NORTH_WEST_INNER_LEFT","shape","inner_left")],
+    }
+    if case in f6_trials and isinstance(states,dict):
+        for trial,property_name,expected in f6_trials[case]:
+            row=states.get(trial,{})
+            if (isinstance(row,dict) and
+                isinstance(row.get("subject"),dict) and row["subject"].get("exact") is True and
+                isinstance(row.get("actual"),dict) and row["actual"].get(property_name)==expected):
+                good.append("F6_source_condition_trial="+trial+".subject.exact+actual_property")
+    # V11 white bed uses two exact server parts (not cuboid elements).
+    if (case=="V11" and doc.get("original_historical_case_id")=="V11" and
+        doc.get("server_foot_exact") is True and doc.get("server_head_exact") is True):
+        good.append("V11_bed_both_foot_head_server_exact")
+    # R08 has two actual Fabric runs and each separate version records this
+    # risk case explicitly. Do not infer compatibility beyond tested state.
+    if (case=="R08" and doc.get("risk_case")=="R08" and
+        doc.get("actual_server_original_state_PASS") is True):
+        good.append("R08_single_release_original_server_state_PASS")
     return good
 
 def png_filename_sha_in_capture(doc,png_path,pngsha):
@@ -113,6 +136,14 @@ def png_filename_sha_in_capture(doc,png_path,pngsha):
             for ident,v in m.items():
                 if v==pngsha and (ident in names or ident+".png" in names or ident==Path(png_path).stem):
                     found.append(k+"["+str(ident)+"]")
+    # The Macaw R03 neighbor experiment uses a 3-stage native_F2 dict,
+    # not the generic states[] format. Match both original filename and SHA.
+    seq=doc.get("native_F2")
+    if isinstance(seq,dict):
+        for stage,entry in seq.items():
+            if (isinstance(entry,dict) and entry.get("file") in names and
+                entry.get("sha256")==pngsha):
+                found.append("native_F2["+str(stage)+"].file+SHA")
     return sorted(set(found))
 
 def log_line_mentions(data,case):
