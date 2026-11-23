@@ -14,7 +14,7 @@ permissions:
   contents: write
 
 jobs:
-  five-native-vanilla-original-independent:
+  v11-bed-air-native-independent:
     if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
     runs-on: ubuntu-24.04
     timeout-minutes: 18
@@ -63,7 +63,7 @@ jobs:
             ('INT4_F11D_2_PENDING_EXACT_F2_TARGETS_V1.csv','pending',2),
           ):
             raw=(root/name).read_bytes()
-            assert hashlib.sha256(raw).hexdigest()==j['output_SHA256'][key]
+            assert hashlib.sha256(raw).hexdigest()==j['output_sha256'][key]
             with (root/name).open(encoding='utf-8',newline='') as f:
               assert len(list(csv.DictReader(f)))==n
           print('PASS F11D conditional68 HOLD2 fullF0; research source SHA and original native AIR/bed four F2 unchanged')
