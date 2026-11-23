@@ -85,6 +85,43 @@ def validate_source_targets(version,mod_dir,selected_cases=None,expected_case_mo
         raise ValueError("One or more test cases were not validated against installed source JAR")
     return choices,pinned
 
+def send_minecraft_command(xdo, command_line, pause=sleep):
+    """Open the vanilla command box directly, avoiding chat-focus timing races."""
+    if not command_line.startswith("/") or len(command_line)<2:
+        raise ValueError("Minecraft GUI command must start with /")
+    xdo("key","--clearmodifiers","slash")
+    pause(0.45)
+    xdo("type","--clearmodifiers","--delay","14",command_line[1:])
+    xdo("key","--clearmodifiers","Return")
+
+
+def confirmed_camera_teleport(proc, textlog, command_text, refocus, pos,
+                              pause=sleep, waiter=wait_for):
+    """Retry ONE unacknowledged GUI command, but never accept an unverified camera."""
+    marker="[RenderAudit: Teleported RenderAudit to"
+    for attempt, timeout in enumerate((25, 35), start=1):
+        refocus()
+        checkpoint=len(textlog())
+        command_text("/tp @s "+pos)
+        try:
+            waiter(proc,lambda: marker in textlog()[checkpoint:],
+                   "original-source chair camera teleport",timeout)
+        except ValueError as exc:
+            # Process exit / any unrelated error is not a retryable input race.
+            if not str(exc).startswith("Timed out waiting for"):
+                raise
+            if attempt==2:
+                raise ValueError(
+                    "Camera teleport unconfirmed after two focused GUI commands; "
+                    "original-source chair evidence remains unapproved. "
+                    "Inspect the archived client.log for server acknowledgement."
+                ) from exc
+            print("INT3_CAMERA_GUI_ACK_MISSING: focused retry 1/1",flush=True)
+            continue
+        pause(2.5)
+        return
+
+
 def capture_chairs(command,env,game,output,version,selected_cases=None,
                    expected_case_models=None,report_name="INT3_REAL_GAME_CAPTURE.json"):
     # Optional image decoder is required only when real Fabric F2 capture runs;
@@ -109,16 +146,11 @@ def capture_chairs(command,env,game,output,version,selected_cases=None,
             return subprocess.check_output(
                 ["xdotool",*parts],env=env,timeout=15,text=True).strip()
         def command_text(command_line):
-            xdo("key","--clearmodifiers","t")
-            sleep(0.35)
-            xdo("type","--clearmodifiers","--delay","14",command_line)
-            xdo("key","--clearmodifiers","Return")
+            send_minecraft_command(xdo,command_line)
         def camera_at(pos):
-            start=len(textlog())
-            command_text("/tp @s "+pos)
-            wait_for(proc,lambda:"[RenderAudit: Teleported RenderAudit to" in textlog()[start:],
-                     "original-source chair camera teleport",75)
-            sleep(2.5)
+            confirmed_camera_teleport(
+                proc,textlog,command_text,
+                lambda:xdo("windowfocus","--sync",windows[0]),pos)
         try:
             wait_for(proc,lambda:"RenderAudit joined the game" in textlog(),
                      "original test world first client load",135)
