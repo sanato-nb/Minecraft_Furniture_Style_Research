@@ -1,0 +1,114 @@
+name: INT-4-H16 real Fabric AF controlled single-source-texel F2 intervention
+
+on:
+  push:
+    branches:
+      - work/int4-h16-af-one-texel-intervention-f2-20261124
+    paths:
+      - src/mcfr/int4_h16_af_single_texel_f2.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int4_h16_af_single_texel_f2.py
+      - .github/workflows/integration-int4-h16-af-single-texel-real-f2.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  real-fabric-temporary-one-texel-control:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 44
+    env:
+      PYTHONPATH: src
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      ALSOFT_DRIVERS: 'null'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare original native F2 and PNG decoder
+        timeout-minutes: 8
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            timeout 180s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 update
+            timeout 240s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 install -y --no-install-recommends xvfb xauth xdotool
+          fi
+      - name: Test exact 1 original texel and fail-closed negative game control
+        run: |
+          python -m unittest discover -s tests/knowledge -p 'test_int4_h16_af_single_texel_f2.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_h15_af_opposing_f2_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_chair_camera_command_recovery.py' -v
+      - name: Reopen unchanged H15 eight original F2 SHA-verified baseline artifact
+        timeout-minutes: 4
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api -H 'Accept: application/vnd.github+json' \
+            'repos/sanato-nb/Minecraft_Furniture_Style_Research/actions/artifacts/14851461698/zip' \
+            > "$RUNNER_TEMP/h15-original-native-f2.zip"
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,os,zipfile
+          path=Path(os.environ["RUNNER_TEMP"])/"h15-original-native-f2.zip"
+          expected="4d674a097a2403f34da5c878c78f8a17e2b786a3d50fd945b5fca64fa755f462"
+          actual=hashlib.sha256(path.read_bytes()).hexdigest()
+          assert actual==expected,("Not the exact H15 original Fabric capture",actual)
+          with zipfile.ZipFile(path) as z:
+              assert z.testzip() is None
+          print("H15 actual 8-F2 reference original SHA and CRC pass")
+          PY
+      - name: Prepare pinned real Fabric 1.21.1 source chair game world
+        run: |
+          python -m mcfr.chair_runtime_fixture world \
+            --version 1.21.1 \
+            --path "$RUNNER_TEMP/h16-original-world" \
+            --cache "$RUNNER_TEMP/h16-original-world-cache"
+      - name: Run original Minecraft with ONE temporary back_1 texture texel changed
+        timeout-minutes: 23
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int4-h16-af-one-texel-f2 \
+              --version 1.21.1 \
+              --world "$RUNNER_TEMP/h16-original-world" \
+              --work "$RUNNER_TEMP/h16-pinned-fabric-client" \
+              --output "$RUNNER_TEMP/h16-actual-six-F2"
+      - name: Independently verify source pack loaded, exact server states, PNG SHA and H15 negative control
+        run: |
+          python -m mcfr.int4_h16_af_single_texel_f2 \
+            --directory "$RUNNER_TEMP/h16-actual-six-F2" \
+            --h15-original-zip "$RUNNER_TEMP/h15-original-native-f2.zip"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ["RUNNER_TEMP"])/"h16-actual-six-F2"/"INT4_H16_SINGLE_TEXEL_VS_H15_ORIGINAL_F2_AUDIT_V1.json"
+          d=json.loads(p.read_text(encoding="utf-8"))
+          assert d["new_actual_game_runs"]==1
+          assert d["new_actual_native_game_F2"]==6
+          assert d["exact_server_state_verified"]==6
+          assert d["confirmed_resourcepack_in_real_Minecraft_log"] is True
+          assert d["single_original_source_texel_modified"]==[3,1]
+          assert d["source_original_mod_JAR_unchanged"] is True
+          assert d["specific_GPU_face_to_UV_texel_pixel_attribution_approved"] is False
+          assert d["F70_unconditional_approvals"]==0
+          assert d["INT5_semantics_approved"]==0
+          assert d["INT6_training_or_redistribution_rights_approved"]==0
+          print("H16 actual Fabric per-view one-texel screenshot changes",d["per_camera_screen_intervention_evidence"])
+          assert d["status"]=="PASS_CONTROLLED_ONE_SOURCE_TEXEL_CHANGED_NATIVE_F2_WITH_TWO_CAMERA_NEGATIVE_CONTROL",d["status"]
+          PY
+          git diff --check
+      - name: Keep only original F2, actual game log and derived SHA in expiring artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h16-real-original-fabric-one-texel-six-native-F2
+          retention-days: 45
+          if-no-files-found: warn
+          path: ${{ runner.temp }}/h16-actual-six-F2/
