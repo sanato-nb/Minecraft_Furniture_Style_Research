@@ -1,0 +1,73 @@
+{
+  "F70_original_dispositions_unchanged": true,
+  "counts": {
+    "H_conditional": 1,
+    "H_full_exit_approvals": 0,
+    "H_hold": 1,
+    "H_scoped_pass": 6,
+    "INT5_part_semantics_approved": 0,
+    "INT6_training_and_redistribution_rights_approved": 0,
+    "archives_with_capture_json": 20,
+    "archives_with_matching_pinned_client_log": 20,
+    "archives_with_unmatched_reported_whole_log_SHA": 0,
+    "cases_with_capture_image_filename_sha_match": 69,
+    "cases_with_exact_case_id_in_log": 26,
+    "cases_with_reopened_log_sha_matched_report": 70,
+    "cases_with_same_line_case_id_and_exact": 26,
+    "cases_with_source_server_exact_metadata": 58,
+    "full_F_unconditional_approvals": 0,
+    "new_full_frame_causality_approvals": 0,
+    "new_manual_per_case_scene_UV_approvals": 0,
+    "original_PNG_occurrences": 91,
+    "original_archives": 20,
+    "original_client_logs": 21,
+    "original_target_cases": 70
+  },
+  "limitations": [
+    "Capturing a case JSON boolean and checking the original log SHA do not prove exact frame-to-server-state causality.",
+    "A game client screenshot log line documents capture, not necessarily a unique case state.",
+    "Shared risk-case screenshots do not prove independent re-execution, especially R02/R05/R07.",
+    "No original client log, PNG, ZIP, Minecraft asset or mod JAR is committed.",
+    "Game UV per-face pixel mapping, dynamic Java behavior, human scene interpretation, rights and final exit remain unapproved."
+  ],
+  "other_seven_H_gates_unchanged": true,
+  "outputs": {
+    "project/integration/INT4_H6_20_REAL_CLIENT_LOG_AND_CAPTURE_SOURCE_V1.csv": {
+      "rows": 20,
+      "sha256": "5d42211597479dd7c63904c90b2bced082c8766d04b4ff8337bee071b233ea8d"
+    },
+    "project/integration/INT4_H6_70_CASE_LOG_STATE_PROVENANCE_V1.csv": {
+      "rows": 70,
+      "sha256": "075cd6ccd7a60efd0f3591c08af4c72d506b63cb323eb8a2017cd2a225231854"
+    },
+    "project/integration/INT4_H6_91_F2_PNG_CAPTURE_SERVER_LOG_LINKS_V1.csv": {
+      "rows": 91,
+      "sha256": "0630c370e19fa3635f3112bd0730961729fc03f17249e2c58160948766d46f97"
+    },
+    "project/integration/INT4_H6_H03_H05_SCOPE_REASSESSMENT_V1.csv": {
+      "rows": 8,
+      "sha256": "4df8082b29b2b9b6be7e750298b05b334dbaac9e5cbc6da1eb5cd17b8aedd588"
+    },
+    "project/integration/INT4_H6_H03_H05_SERVER_LOG_SCOPE_REPORT_V1.md": {
+      "rows": null,
+      "sha256": "7466931809af12c2242602ea3cea973017ddd08b3630a3277c388edf091aba07"
+    }
+  },
+  "per_case_evidence_quality": {
+    "ORIGINAL_LOG_SHA_BUT_NO_CASE_SPECIFIC_SERVER_EXACT": 12,
+    "SERVER_JSON_LOG_SHA_AND_IMAGE_SHA_BUT_NO_CASE_LINE": 32,
+    "SERVER_JSON_LOG_SHA_IMAGE_SHA_AND_CASE_LINE_BUT_FRAME_CAUSAL_OPEN": 26
+  },
+  "schema": "MCFR_INT4_H6_20_ORIGINAL_GAME_LOGS_CASE70_NATIVE_F2_SOURCE_BRIDGE/v1",
+  "source_original_git_blobs": {
+    "INT4_F11F_70_TARGET_EVIDENCE_DISPOSITIONS_V15.csv": "0cfbf3b1b174efc968de35c8466e2af8a9cd41c7",
+    "INT4_H3_20_ORIGINAL_ARTIFACT_ZIP_SHA_AUDIT_V1.csv": "430d39155c9b4287e8b5eb3deea55ac01e66f4e4",
+    "INT4_H3_70_CASE_ORIGINAL_F2_REOPEN_V1.csv": "ded3b656337609152d222a661081933f71ef012a",
+    "INT4_H3_91_NATIVE_F2_ORIGINAL_PNG_SHA_AUDIT_V1.csv": "fb6632667be7405369933b962446dc076f380277",
+    "INT4_H3_ALL_F70_ORIGINAL_ARTIFACT_REOPEN_AUDIT_V1.json": "e67f9c5f2ca4bac01f3e878811ed433f9713109b",
+    "INT4_H5_EIGHT_REASSESSED_SCOPED_EXIT_GATES_V1.csv": "39e56986c7e590c7d7ba562900a618f44325fbb5",
+    "INT4_H5_H03_H05_H06_EXIT_GATE_REASSESSMENT_V1.json": "b4af9222fb3ba5e0713b7dd55bc890a3f01fb777"
+  },
+  "status": "PASS_H6_SOURCE_LOG_TRACEABILITY_H05_CONDITIONAL_H03_HOLD_FULL_EXIT_ZERO",
+  "unmatched_original_report_whole_log_SHA": {}
+}
