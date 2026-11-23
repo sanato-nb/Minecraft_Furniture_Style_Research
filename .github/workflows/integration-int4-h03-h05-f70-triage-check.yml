@@ -1,0 +1,31 @@
+name: INT-4 H03 H05 70 original F2 case remainder triage provenance check
+
+on:
+  push:
+    branches:
+      - work/int4-h03-h05-f70-case-triage-20261124
+    paths:
+      - project/integration/INT4_H03_H05_F70_70_CASE_REMAINING_WORK_TRIAGE_V1.csv
+      - project/integration/INT4_H03_H05_F70_REMAINING_TRIAGE_SUMMARY_V1.json
+      - project/integration/INT4_H03_H05_F70_REMAINING_RESEARCH_REVIEW_PLAN_V1.md
+      - scripts/integration/check_int4_h03_h05_f70_triage.py
+      - .github/workflows/integration-int4-h03-h05-f70-triage-check.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-all-original-F70-70-case-evidence-gaps:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check pinned original F11F H3 H6 H7 H8 H16 Git blobs and 70 exact cases
+        run: |
+          python scripts/integration/check_int4_h03_h05_f70_triage.py
+          git diff --check
