@@ -157,9 +157,29 @@ def verify_running_source(command,root=ROOT):
                   int(option.get("weight",1))==int(original["weight"]),
                   "Official vanilla selected model/rotation/uvlock changed: "+case.case_id)
             leaf=loaded[original["model_path"]]
+            # Historical provider is the geometry carrier, which need not be
+            # the selected leaf's DIRECT parent. Follow actual official JSON
+            # parents and retain an evidence hash of each intervening model.
+            parent_chain=[]
+            seen={original["model_path"]}
+            ancestor=leaf
+            for _depth in range(16):
+                ref=ancestor.get("parent")
+                if not ref:
+                    break
+                path=kitchen.model_path(ref)
+                check(path not in seen,"Vanilla source model has cyclic parent: "+path)
+                seen.add(path)
+                raw=zip_.read(path)
+                parent_chain.append({"path":path,"git_blob_sha1":git_blob(raw)})
+                ancestor=json.loads(raw.decode("utf-8-sig"))
+                if path==original["provider_path"]:
+                    break
             if original["model_path"]!=original["provider_path"]:
-                check(kitchen.model_path(leaf["parent"])==original["provider_path"],
-                      "Official vanilla parent model no longer matches study "+case.case_id)
+                check(any(x["path"]==original["provider_path"] for x in parent_chain),
+                      "Original study geometry provider not found in official parent chain "+case.case_id+
+                      " direct="+str(parent_chain[:2])+
+                      " expected="+original["provider_path"])
             provider=loaded[original["provider_path"]]
             elements=provider.get("elements",[])
             check(len(elements)==int(original["elements"]) and
@@ -172,6 +192,7 @@ def verify_running_source(command,root=ROOT):
                 "provider_git_blob_sha1":original["provider_sha"],
                 "blockstate_git_blob_sha1":original["state_sha"],
                 "original_model_y":int(original["y"]),
+                "official_parent_chain_git_blob_sha1":parent_chain,
                 "elements":int(original["elements"]),
                 "faces":int(original["faces"]),
             }
