@@ -1,0 +1,98 @@
+name: INT-4-F11D 바닐라 V11 침대 원본 공백 대조4장·70개 원장 독립 감사
+
+on:
+  push:
+    branches:
+      - work/int4-f11d-vanilla-white-bed-special-f2-20261123
+    paths:
+      - scripts/integration/build_int4_f11d_v11_white_bed_original_f2_audit.py
+      - tests/integration/test_int4_f11d_v11_white_bed_original_f2_audit.py
+      - .github/workflows/integration-int4-f11d-70-source-audit.yml
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  five-native-vanilla-original-independent:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PNG decoder and preflight independent audit Python
+        run: |
+          python3 -m pip install --break-system-packages 'Pillow>=10,<13'
+          python3 -m compileall -q scripts/integration/build_int4_f11d_v11_white_bed_original_f2_audit.py
+          python3 -m unittest discover -s tests/integration \
+            -p 'test_int4_f11d_v11_white_bed_original_f2_audit.py' -v
+      - name: Re-download actual Minecraft source artifact and independently reopen four AIR/bed PNG and client log
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/integration/build_int4_f11d_v11_white_bed_original_f2_audit.py \
+            --artifact-dir "$RUNNER_TEMP/int4-f11d-original-native-artifact"
+      - name: Deterministic second original-ZIP recomputation of exactly 70 row ledger
+        run: |
+          python3 scripts/integration/build_int4_f11d_v11_white_bed_original_f2_audit.py \
+            --artifact-dir "$RUNNER_TEMP/int4-f11d-original-native-artifact" --verify
+      - name: Assert only original V11 changed, conditional 68 HOLD2 and source0 faces
+        run: |
+          python3 - <<'PY'
+          import csv,json,hashlib
+          from pathlib import Path
+          root=Path('project/integration')
+          j=json.loads((root/'INT4_F11D_V11_WHITE_BED_ORIGINAL_F2_INDEPENDENT_AUDIT_V1.json').read_text(encoding='utf-8'))
+          assert j['status']=='PASS_V11_NATIVE_BED_F2_CONDITIONAL_68_HOLD_2_FINAL_ZERO'
+          c=j['counts']
+          assert (c['F_targets'],c['historic_original_cases'])==(70,62)
+          assert (c['conditional_before'],c['conditional_after'])==(67,68)
+          assert (c['HOLD_before'],c['HOLD_after'])==(3,2)
+          assert (c['historic_F2_before'],c['historic_F2_after'])==(61,62)
+          assert c['unconditional_final_F_pass']==c['INT5_semantics_approved']==c['INT6_AI_training_or_redistribution_rights_approved']==0
+          assert set(j['remaining_HOLD_target_ids'])=={'R06','R08'}
+          v=j['V11_evidence']
+          assert (v['ordinary_model_elements'],v['ordinary_model_faces'])==(0,0)
+          assert (v['real_two_part_server_states'],v['native_F2_images'])==(2,4)
+          assert v['air_baseline_changed_pixels']<=250
+          assert v['actual_bed_minus_air_pixels']>=700
+          assert v['Java_renderer_callsite_instrumented'] is False
+          assert set(v['native_images_sha256'])=={'V11_AIR_A','V11_AIR_B','V11_BED','V11_BED_SIDE'}
+          for name,key,n in (
+            ('INT4_F11D_70_TARGET_EVIDENCE_DISPOSITIONS_V13.csv','F70',70),
+            ('INT4_F11D_2_PENDING_EXACT_F2_TARGETS_V1.csv','pending',2),
+          ):
+            raw=(root/name).read_bytes()
+            assert hashlib.sha256(raw).hexdigest()==j['output_SHA256'][key]
+            with (root/name).open(encoding='utf-8',newline='') as f:
+              assert len(list(csv.DictReader(f)))==n
+          print('PASS F11D conditional68 HOLD2 fullF0; research source SHA and original native AIR/bed four F2 unchanged')
+          PY
+          git diff --check
+      - name: Preserve derived audit text only, original Minecraft PNG/JAR excluded
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-f11d-70-68-conditional-2-hold-bed-special-audit
+          retention-days: 45
+          path: |
+            project/integration/INT4_F11D_70_TARGET_EVIDENCE_DISPOSITIONS_V13.csv
+            project/integration/INT4_F11D_2_PENDING_EXACT_F2_TARGETS_V1.csv
+            project/integration/INT4_F11D_V11_WHITE_BED_ORIGINAL_F2_INDEPENDENT_AUDIT_V1.json
+            project/integration/INT4_F11D_V11_SPECIAL_RENDER_IMAGE_REVIEW_V1.md
+          if-no-files-found: warn
+      - name: Update only Draft F11D evidence branch and never merge main
+        if: success() && github.ref == 'refs/heads/work/int4-f11d-vanilla-white-bed-special-f2-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F11D_70_TARGET_EVIDENCE_DISPOSITIONS_V13.csv \
+                  project/integration/INT4_F11D_2_PENDING_EXACT_F2_TARGETS_V1.csv \
+                  project/integration/INT4_F11D_V11_WHITE_BED_ORIGINAL_F2_INDEPENDENT_AUDIT_V1.json \
+                  project/integration/INT4_F11D_V11_SPECIAL_RENDER_IMAGE_REVIEW_V1.md
+          if ! git diff --cached --quiet; then
+            git commit -m "INT-4-F11D 바닐라 침대 특수렌더 실제 F2 독립검증 조건부68·보류2 반영"
+            git fetch origin refs/heads/work/int4-f11d-vanilla-white-bed-special-f2-20261123
+            git rebase FETCH_HEAD
+            git push origin HEAD:refs/heads/work/int4-f11d-vanilla-white-bed-special-f2-20261123
+          fi
