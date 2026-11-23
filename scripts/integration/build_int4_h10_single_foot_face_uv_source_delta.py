@@ -86,7 +86,7 @@ def build(source_zip,verify=False):
           "rotation_degrees":rotation.get("angle",0),
           "rotation_origin_xyz":json.dumps(rotation.get("origin",[]),separators=(",",":")),
           "source_face_count":len(face_details),
-          "source_element_sha256":sha(h9.canonical(element).encode("utf-8")),
+          "source_element_sha256":sha(json.dumps(element,ensure_ascii=False,sort_keys=True,separators=(",",":")).encode("utf-8")),
           "source_parent_model":F0 if action=="removed" else F1,
           "renderer_pixel_face_UV_proved":"false",
         })
