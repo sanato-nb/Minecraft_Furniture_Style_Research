@@ -57,7 +57,16 @@ jobs:
               raw=(p/file).read_bytes()
               assert hashlib.sha256(raw).hexdigest()==d['outputs_sha256']['project/integration/'+file]
               assert len(list(csv.DictReader((p/file).open(encoding='utf-8',newline=''))))==count
-          print('PASS 4 changed original model elements 24 source face UVs; no GPU/gameplay claim')
+          expected_sha1={
+            'INT4_H10_OCCUPIED_SINGLE_FOOT_FOUR_ELEMENT_CHANGES_V1.csv':'0ec0e578077051f5cab21c1f3b34487e038b3831',
+            'INT4_H10_OCCUPIED_SINGLE_FOOT_24_SOURCE_FACE_UV_V1.csv':'51804d4811612e5fe90311f14683ce5591241355',
+            'INT4_H10_OCCUPIED_SINGLE_FOOT_FACE_UV_SOURCE_AUDIT_V1.json':'65fbec88fde903d3f6858a1882215cc8ea859c2e'
+          }
+          for name,expected in expected_sha1.items():
+            raw=(p/name).read_bytes()
+            blob=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
+            assert blob==expected,(name,'original archived Git blob SHA changed')
+          print('PASS 4 changed original model elements 24 source face UVs; original archived Git blob SHA matched')
           PY
           git diff --check
       - name: Preserve derived metadata only
