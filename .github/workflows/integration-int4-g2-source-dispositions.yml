@@ -1,0 +1,116 @@
+name: INT-4-G2 independent full A B C D source dispositions and E F gates
+
+on:
+  push:
+    branches:
+      - work/int4-g2-exception-dispositions-crossjoins-20261123
+    paths:
+      - scripts/integration/build_int4_g2_full_scope_dispositions.py
+      - tests/integration/test_int4_g2_full_scope_dispositions.py
+      - .github/workflows/integration-int4-g2-source-dispositions.yml
+
+permissions:
+  contents: write
+
+jobs:
+  source-crossjoin-592312-faces-16572-models:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify pinned original sha, source classification and refusal of unapproved claims
+        run: |
+          python -m unittest discover -s tests/integration \
+            -p 'test_int4_g2_full_scope_dispositions.py' -v
+      - name: Reopen every original A B C D gzip and cross-join original E F
+        run: |
+          python scripts/integration/build_int4_g2_full_scope_dispositions.py
+      - name: Repeat exact audit and assert deterministic original-source output bytes
+        run: |
+          python scripts/integration/build_int4_g2_full_scope_dispositions.py --verify
+      - name: Verify all denominators, original SHA, conflict counts, negative rights gates
+        run: |
+          python - <<'PY'
+          import csv,gzip,json,hashlib
+          from pathlib import Path
+          base=Path("project/integration")
+          report=json.loads((base/"INT4_G2_SOURCE_CROSSJOIN_AUDIT_V1.json").read_text())
+          assert report["status"]=="PASS_G2_PINNED_A_B_C_D_E_F_SOURCE_CROSSJOIN_WITH_REMAINING_LIMITS_NOT_FINAL_G"
+          p=report["population_checks"]
+          assert p=={
+            "models":16572,"faces":592312,"pixel_source_exceptions":6343,
+            "mod_state_options":78456,"mod_state_sources":1158,
+            "historic_findings":21,"F_verification_units":70,
+          }
+          a=report["A_model_source_dispositions"]
+          assert a=={
+            "VERIFIED_STATIC_SOURCE_ONLY":16460,
+            "CONDITIONAL_MISSING_PARENT_STATIC_UNREACHABLE_DYNAMIC_UNKNOWN":48,
+            "HOLD_BASE_MODEL_USAGE_UNKNOWN":6,
+            "NOT_APPLICABLE_GENERATED_ITEM_CUBOID":58,
+          }
+          assert report["C_historic_pixel_source_reason_counts"]=={
+            "MISSING_PINNED_PNG":139,"NO_PINNED_SPRITE_INTERSECTION":2,
+            "SLOT_UNBOUND_BOUND_CHILD_CONTEXT":6196,
+            "SLOT_UNBOUND_NO_BOUND_CHILD":6,
+          }
+          assert report["D_reference_status"]=={
+            "LOCAL":78420,"UNRESOLVED_MODEL_REF":4,"VANILLA_JAR":32}
+          assert sorted(report["E_findings_disposition"].values())==[7,14]
+          assert report["F_exact_case_conditional"]==70
+          for key in ("F_unconditional_full_exit_approved","G_final_exit_approved",
+                      "H_final_exit_approved","INT5_semantics_approved",
+                      "INT6_AI_training_rights_approved"):
+            assert report[key]==0,key
+          expected={
+            "INT4_G2_16572_MODEL_SOURCE_SCOPE_DISPOSITIONS_V1.csv.gz":16572,
+            "INT4_G2_592312_FACE_SOURCE_APPLICABILITY_V1.csv.gz":592312,
+            "INT4_G2_6343_FACE_PIXEL_EXCEPTION_CROSSWALK_V1.csv.gz":6343,
+            "INT4_G2_1158_STATE_RUNTIME_SOURCE_GATES_V1.csv":1158,
+            "INT4_G2_21_FINDING_F70_EVIDENCE_GATES_V1.csv":21,
+            "INT4_G2_70_F_CONTRACT_NONAPPROVAL_V1.csv":70,
+          }
+          for name,rows in expected.items():
+            file=base/name
+            assert hashlib.sha256(file.read_bytes()).hexdigest()==report["artifacts"][name]["sha256"]
+            if name.endswith(".gz"):
+              with gzip.open(file,mode="rt",encoding="utf-8") as stream:
+                count=sum(1 for _ in csv.DictReader(stream))
+            else:
+              with file.open(encoding="utf-8") as stream:
+                count=sum(1 for _ in csv.DictReader(stream))
+            assert count==rows,(name,count)
+          print("PASS_INT4_G2_SIX_GATES_WITH_EXACT_COUNTS_NO_FINAL_G_H_LICENSE_APPROVAL")
+          PY
+          git diff --check
+      - name: Preserve only new source-derived CSV and JSON, not original JAR or PNG
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-g2-full-592312-face-source-application-and-6-review-ledgers
+          retention-days: 45
+          path: |
+            project/integration/INT4_G2_*_V1.csv.gz
+            project/integration/INT4_G2_*_V1.csv
+            project/integration/INT4_G2_SOURCE_CROSSJOIN_AUDIT_V1.json
+            project/integration/INT4_G2_EXCEPTION_IMPACT_REPORT_V1.md
+      - name: Commit only evidence metadata to new Draft branch (never main)
+        if: success() && github.ref == 'refs/heads/work/int4-g2-exception-dispositions-crossjoins-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_G2_*_V1.csv.gz \
+                  project/integration/INT4_G2_*_V1.csv \
+                  project/integration/INT4_G2_SOURCE_CROSSJOIN_AUDIT_V1.json \
+                  project/integration/INT4_G2_EXCEPTION_IMPACT_REPORT_V1.md
+          if git diff --cached --quiet; then
+            echo "Research evidence metadata unchanged"
+          else
+            git commit -m "INT-4-G2 16,572모델 592,312면 6,343화소 예외 및 D/E/F 개별 출처 판정"
+            git push origin HEAD:refs/heads/work/int4-g2-exception-dispositions-crossjoins-20261123
+          fi
