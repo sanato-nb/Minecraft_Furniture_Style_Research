@@ -107,6 +107,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add project/integration/INT4_F11C_FOUR_VANILLA_REAL_F2_SOURCE_V1.json
           if ! git diff --cached --quiet; then
-            git commit -m "INT-4-F11A 바닐라 5개 원본 실게임 F2·모델 SHA·서버 상태 기록"
+            git commit -m "INT-4-F11C 바닐라 4개 원본 실게임 F2·모델 SHA·서버 상태 기록"
+            git fetch origin refs/heads/work/int4-f11c-vanilla-cauldron-lantern-pot-f2-20261123
+            git rebase FETCH_HEAD
             git push origin HEAD:refs/heads/work/int4-f11c-vanilla-cauldron-lantern-pot-f2-20261123
           fi
