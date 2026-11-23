@@ -1,0 +1,113 @@
+name: INT-4-F11D 바닐라 V11 침대 특수 렌더 실게임 공백 대조 F2
+
+on:
+  push:
+    branches:
+      - work/int4-f11d-vanilla-white-bed-special-f2-20261123
+    paths:
+      - src/mcfr/int4_f11d_vanilla_white_bed_special_capture.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int4_f11d_vanilla_white_bed_special_capture.py
+      - .github/workflows/integration-int4-f11d-vanilla-bed-special-real-f2.yml
+
+permissions:
+  contents: write
+
+jobs:
+  vanilla-white-bed-special-client:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 42
+    env:
+      PYTHONPATH: src
+    steps:
+      - name: Create isolated exact official 1.21.11 paths
+        run: |
+          echo "WORLD=$RUNNER_TEMP/int4-f11d-world" >> "$GITHUB_ENV"
+          echo "CACHE=$RUNNER_TEMP/int4-f11d-cache" >> "$GITHUB_ENV"
+          echo "WORK=$RUNNER_TEMP/int4-f11d-work" >> "$GITHUB_ENV"
+          echo "OUT=$RUNNER_TEMP/int4-f11d-original-F2" >> "$GITHUB_ENV"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PNG and native Minecraft GUI dependencies
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 update
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 install -y \
+              xvfb xauth xdotool libgl1-mesa-dri libglx-mesa0
+          fi
+      - name: Compile and test zero-element V11 and previous F11C regression
+        run: |
+          python -m compileall -q src/mcfr/int4_f11d_vanilla_white_bed_special_capture.py src/mcfr/runtime.py
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f11d_vanilla_white_bed_special_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f11c_vanilla_kitchen_decor_four_capture.py' -v
+      - name: Create fresh Mojang official Minecraft 1.21.11 server world
+        run: |
+          python -m mcfr.chair_runtime_fixture world \
+            --version 1.21.11 --path "$WORLD" --cache "$CACHE"
+      - name: Pin Mojang 1.21.11 V11 two-part bed and record AIR+bed native F2
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+          ALSOFT_DRIVERS: 'null'
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int4-f11d-vanilla-bed \
+              --version 1.21.11 --world "$WORLD" --work "$WORK" --output "$OUT"
+      - name: Independently decode 2 AIR + 2 bed native F2 and check 0-model element source
+        run: |
+          python -m mcfr.int4_f11d_vanilla_white_bed_special_capture --directory "$OUT"
+          python - <<'PY'
+          import os,hashlib,json
+          from pathlib import Path
+          from PIL import Image
+          src=Path(os.environ["OUT"])
+          report=json.loads((src/"INT4_F11D_V11_WHITE_BED_NATIVE_F2_AUDIT.json").read_text(encoding="utf-8"))
+          assert report["status"]=="PASS_V11_REAL_TWO_PART_BED_AIR_CONTROL_NATIVE_F2_NOT_FINAL_GATE"
+          assert report["historical_case_id"]=="V11"
+          assert report["official_client_sha256"]=="1473c9489ac50fda3c435049a76a70d61a10b8610db27f5ba9d8756b686cd3bd"
+          assert report["original_no_ordinary_elements_or_faces"] is True
+          assert report["real_game_two_exact_server_blockstates"]==2
+          assert report["actual_original_native_F2_PNG_count"]==4
+          assert report["same_camera_air_vs_bed_pixel_contrast"]["bed_vs_air_changed_pixels"]>=700
+          assert report["same_camera_air_vs_bed_pixel_contrast"]["air_control_changed_pixels"]<=250
+          assert report["direct_special_renderer_java_call_verified"] is False
+          assert report["full_F_approved"]==report["INT5_part_semantics_approved"]==report["INT6_AI_training_or_redistribution_rights_approved"]==0
+          for key,digest in report["native_F2_png_sha256"].items():
+            png=src/(key+".png")
+            assert hashlib.sha256(png.read_bytes()).hexdigest()==digest
+            with Image.open(png) as im:
+              im.load()
+              assert im.format=="PNG" and im.size==(1024,684)
+          assert hashlib.sha256((src/"client.log").read_bytes()).hexdigest()==report["client_log_sha256"]
+          Path("project/integration/INT4_F11D_V11_WHITE_BED_REAL_F2_SOURCE_V1.json").write_text(
+            json.dumps(report,ensure_ascii=False,sort_keys=True,indent=2)+"\n",encoding="utf-8")
+          print("PASS V11 actual foot/head blockstates 2 and native AIR+bed F2 4; full F still 0")
+          PY
+          git diff --check
+      - name: Retain original F2 PNG and client log only in expiring Actions artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-f11d-vanilla-bed-air-pair-12111-native-F2
+          path: ${{ env.OUT }}/
+          retention-days: 45
+          if-no-files-found: warn
+      - name: Commit SHA-only metadata to this Draft branch, not main
+        if: success() && github.ref == 'refs/heads/work/int4-f11d-vanilla-white-bed-special-f2-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F11D_V11_WHITE_BED_REAL_F2_SOURCE_V1.json
+          if ! git diff --cached --quiet; then
+            git commit -m "INT-4-F11D 바닐라 V11 침대 머리·발 원본 F2 공백대조 실험 기록"
+            git fetch origin refs/heads/work/int4-f11d-vanilla-white-bed-special-f2-20261123
+            git rebase FETCH_HEAD
+            git push origin HEAD:refs/heads/work/int4-f11d-vanilla-white-bed-special-f2-20261123
+          fi
