@@ -11,6 +11,8 @@ permissions:
   contents: read
 jobs:
   recheck:
+    env:
+      PYTHONPATH: src
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
