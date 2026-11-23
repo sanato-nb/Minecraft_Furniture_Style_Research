@@ -97,7 +97,7 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
         if args.command=="int4-f11e-r06-temporal-sink":
             from .int4_f11e_r06_macaw_sink_temporal_capture import prepare_r06_datapack
             prepare_r06_datapack(copied_world/"datapacks/mcfr_chair")
-    if args.command=="macaw-neighbor-capture":
+    if args.command in ("macaw-neighbor-capture","int4-h8-r03-player-gui"):
         from .int4_macaw_neighbor_capture import make_pack as make_neighbor_pack
         make_neighbor_pack(args.version,copied_world/"datapacks/mcfr_neighbor")
     (game / "options.txt").write_text(
@@ -162,6 +162,9 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
     if args.command=="macaw-neighbor-capture":
         from .int4_macaw_neighbor_capture import capture
         return capture(command,env,game,args.output,args.version)
+    if args.command=="int4-h8-r03-player-gui":
+        from .int4_h8_r03_player_gui_capture import capture
+        return capture(command,env,game,args.output,args.version)
     if args.command == "int4-nonchair-capture":
         from .int4_nonchair_runtime import capture
         return capture(command, env, game, args.output, args.version, interaction=args.interaction)
@@ -210,6 +213,7 @@ def main(argv: list[str] | None = None) -> int:
     f11fr08 = sub.add_parser("int4-f11f-r08-fabric-pair", help="INT-4-F11F same-loader 4.0.2 official vs 4.0.3 Git source-built acacia north original F2")
     hcbed = sub.add_parser("hc-bed-capture", help="pinned Handcrafted 1.21.1 bed foot/head individual native F2")
     neighbor = sub.add_parser("macaw-neighbor-capture", help="actual Macaw table placement/removal adjacent block update trial")
+    h8 = sub.add_parser("int4-h8-r03-player-gui", help="actual Fabric 1.21.11 Macaw table player right-click join and left-click break")
     nonchair = sub.add_parser("int4-nonchair-capture", help="remaining source states and actual shelf/bed transitions")
     fmissing = sub.add_parser("int4-f-missing-capture", help="INT-4-F2 four original 1-5 study cases with native F2")
     f3mod = sub.add_parser("int4-f3-mod-capture", help="INT-4-F3 seven source storage/shelf/lamp cases native F2")
@@ -243,6 +247,7 @@ def main(argv: list[str] | None = None) -> int:
     f11fr08.add_argument("--af-source-jar", type=Path, help="Pinned Git 4.0.3 self-built Fabric JAR; omit for official Fabric 4.0.2")
     hcbed.add_argument("--output", type=_scratch_path, required=True)
     neighbor.add_argument("--output", type=_scratch_path, required=True)
+    h8.add_argument("--output", type=_scratch_path, required=True)
     nonchair.add_argument("--interaction", action="store_true", help="run player placement and sleeping trials")
     nonchair.add_argument("--output", type=_scratch_path, required=True)
     fmissing.add_argument("--output", type=_scratch_path, required=True)
@@ -272,7 +277,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.command != "engine":
             if not (args.display or os.environ.get("DISPLAY")):
                 raise ValueError("An X11 display is required for visual capture")
-            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "int4-f11f-r08-fabric-pair", "hc-bed-capture", "macaw-neighbor-capture", "int4-nonchair-capture", "int4-f-missing-capture", "int4-f3-mod-capture", "int4-f4-mod-capture", "int4-f5-state-diagnostic", "int4-f6-causal-replay", "int4-f7-source-cases", "int4-bed-exterior"):
+            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "int4-f11f-r08-fabric-pair", "hc-bed-capture", "macaw-neighbor-capture", "int4-h8-r03-player-gui", "int4-nonchair-capture", "int4-f-missing-capture", "int4-f3-mod-capture", "int4-f4-mod-capture", "int4-f5-state-diagnostic", "int4-f6-causal-replay", "int4-f7-source-cases", "int4-bed-exterior"):
                 if shutil.which("xdotool") is None:
                     raise ValueError("Automatic visual capture requires xdotool")
                 if args.output.exists():
