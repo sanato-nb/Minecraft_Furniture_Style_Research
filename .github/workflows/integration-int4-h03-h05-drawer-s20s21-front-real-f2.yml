@@ -1,0 +1,98 @@
+name: INT-4 H03 H05 P0 S20 S21 AF drawer north-front exact F2
+
+on:
+  push:
+    branches:
+      - work/int4-h03-h05-p0p1p2-f70-reopen-selective-20261124
+    paths:
+      - src/mcfr/int4_h03_h05_s20_s21_drawer_front.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int4_h03_h05_s20_s21_drawer_front.py
+      - .github/workflows/integration-int4-h03-h05-drawer-s20s21-front-real-f2.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  S20_S21_restricted_actual_Fabric_121_front_F2:
+    runs-on: ubuntu-24.04
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    timeout-minutes: 35
+    env:
+      PYTHONPATH: src
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      ALSOFT_DRIVERS: 'null'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install original geometry and native F2 decoder
+        timeout-minutes: 6
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            timeout 180s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 update
+            timeout 240s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 install -y --no-install-recommends xvfb xauth xdotool
+          fi
+      - name: Fail closed 6 source and camera invariants
+        run: |
+          python -m unittest discover -s tests/knowledge \
+            -p 'test_int4_h03_h05_s20_s21_drawer_front.py' -v
+      - name: Retrieve original pinned Handcrafted Git source ZIP required by nonchair source preflight
+        shell: bash
+        timeout-minutes: 4
+        run: |
+          set -euo pipefail
+          curl -fLsS --retry 3 --max-time 90 \
+            'https://codeload.github.com/terrarium-earth/Handcrafted/zip/8d21d1665916850c3fa3bdaf1370c50ec2ca7035' \
+            -o "$RUNNER_TEMP/h03_h05_hc_original_source.zip"
+          echo "MCFR_HC_SOURCE_ZIP=$RUNNER_TEMP/h03_h05_hc_original_source.zip" >> "$GITHUB_ENV"
+      - name: Create actual pinned Minecraft Fabric world
+        run: |
+          python -m mcfr.chair_runtime_fixture world \
+            --version 1.21.1 \
+            --path "$RUNNER_TEMP/h03_h05_drawer_world" \
+            --cache "$RUNNER_TEMP/h03_h05_drawer_cache"
+      - name: Run original official AF 4.0.2 JAR with S20 closed then S21 open from new north front
+        timeout-minutes: 21
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int4-h03-h05-drawer-front-f2 \
+              --version 1.21.1 \
+              --world "$RUNNER_TEMP/h03_h05_drawer_world" \
+              --work "$RUNNER_TEMP/h03_h05_drawer_game" \
+              --output "$RUNNER_TEMP/h03_h05_drawer_actual_F2"
+      - name: Independently decode original F2 and reject no-change or off-chair differences
+        run: |
+          python -m mcfr.int4_h03_h05_s20_s21_drawer_front \
+            --directory "$RUNNER_TEMP/h03_h05_drawer_actual_F2"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ["RUNNER_TEMP"])/"h03_h05_drawer_actual_F2"/"INT4_H03_H05_S20_S21_NORTH_FACE_ACTUAL_FABRIC_F2_AUDIT_V1.json"
+          d=json.loads(p.read_text(encoding="utf-8"))
+          assert d["new_actual_Fabric_game_executions"]==1
+          assert d["new_actual_native_F2"]==2
+          assert d["exact_original_server_blockstates_verified"]==2
+          assert d["source_front_texture_slot_diff_in_actual_release"] is True
+          assert d["new_s20_s21_screen_diff_outside_drawer_ROI"]==0
+          assert d["status"]=="PASS_ACTUAL_NORTH_FACE_VISIBLE_CHANGE",d["status"]
+          assert d["full_F70_unconditional_approvals"]==0
+          assert d["H03_full_exit"] is False and d["H05_full_exit"] is False
+          print("P0_S20_S21_ACTUAL_FRONT_VIEW_F2_CAUSAL_CONTRAST",d["new_s20_s21_screen_diff_at_threshold24"])
+          PY
+          git diff --check
+      - name: Preserve real source F2 with game log no JAR
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: int4-h03-h05-p0-s20-s21-original-Fabric-front-two-F2
+          retention-days: 45
+          if-no-files-found: warn
+          path: ${{ runner.temp }}/h03_h05_drawer_actual_F2/

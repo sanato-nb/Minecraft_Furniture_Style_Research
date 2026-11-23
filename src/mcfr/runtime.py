@@ -192,6 +192,9 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
     if args.command == "int4-f3-mod-capture":
         from .int4_f3_storage_shelf_light_capture import capture
         return capture(command, env, game, args.output, args.version)
+    if args.command == "int4-h03-h05-drawer-front-f2":
+        from .int4_h03_h05_s20_s21_drawer_front import capture
+        return capture(command, env, game, args.output, args.version)
     if args.command == "int4-f4-mod-capture":
         from .int4_f4_chair_bench_couch_capture import capture
         return capture(command, env, game, args.output, args.version)
@@ -239,19 +242,20 @@ def main(argv: list[str] | None = None) -> int:
     nonchair = sub.add_parser("int4-nonchair-capture", help="remaining source states and actual shelf/bed transitions")
     fmissing = sub.add_parser("int4-f-missing-capture", help="INT-4-F2 four original 1-5 study cases with native F2")
     f3mod = sub.add_parser("int4-f3-mod-capture", help="INT-4-F3 seven source storage/shelf/lamp cases native F2")
+    drawer_front = sub.add_parser("int4-h03-h05-drawer-front-f2", help="H03 H05 original AF drawer open/closed at front north observer native F2")
     f4mod = sub.add_parser("int4-f4-mod-capture", help="INT-4-F4 seven chair/bench/couch/pot cases native F2")
     f5mode = sub.add_parser("int4-f5-state-diagnostic", help="INT-4-F5 S02/S34 server property diagnosis and native F2")
     f6mode = sub.add_parser("int4-f6-causal-replay", help="INT-4-F6 S02/S34 source-coded tucked/inner-left game replay")
     f7mode = sub.add_parser("int4-f7-source-cases", help="INT-4-F7 AF variant3, bench double and HC vanilla parent 4 original F2")
     exterior = sub.add_parser("int4-bed-exterior", help="observe occupied bed from an independent client")
-    for command in (engine, visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, f11fr08, hcbed, h10, h12, h15, h16, neighbor, h8, nonchair, fmissing, f3mod, f4mod, f5mode, f6mode, f7mode, exterior):
+    for command in (engine, visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, f11fr08, hcbed, h10, h12, h15, h16, neighbor, h8, nonchair, fmissing, f3mod, drawer_front, f4mod, f5mode, f6mode, f7mode, exterior):
         command.add_argument("--version", required=True)
         command.add_argument("--work", type=_scratch_path, required=True)
         command.add_argument("--client-cache", type=_scratch_path)
         command.add_argument("--display", help="X11 display, for example :99")
     engine.add_argument("--output", type=_scratch_path, required=True)
     engine.add_argument("--ecj", type=Path)
-    for command in (visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, f11fr08, hcbed, h10, h12, h15, h16, neighbor, h8, nonchair, fmissing, f3mod, f4mod, f5mode, f6mode, f7mode, exterior):
+    for command in (visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, f11fr08, hcbed, h10, h12, h15, h16, neighbor, h8, nonchair, fmissing, f3mod, drawer_front, f4mod, f5mode, f6mode, f7mode, exterior):
         command.add_argument("--world", type=Path, required=True)
     capture.add_argument("--output", type=_scratch_path, required=True)
     chairs.add_argument("--output", type=_scratch_path, required=True)
@@ -278,6 +282,7 @@ def main(argv: list[str] | None = None) -> int:
     nonchair.add_argument("--output", type=_scratch_path, required=True)
     fmissing.add_argument("--output", type=_scratch_path, required=True)
     f3mod.add_argument("--output", type=_scratch_path, required=True)
+    drawer_front.add_argument("--output", type=_scratch_path, required=True)
     f4mod.add_argument("--output", type=_scratch_path, required=True)
     f5mode.add_argument("--output", type=_scratch_path, required=True)
     f6mode.add_argument("--output", type=_scratch_path, required=True)
@@ -303,7 +308,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.command != "engine":
             if not (args.display or os.environ.get("DISPLAY")):
                 raise ValueError("An X11 display is required for visual capture")
-            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "int4-f11f-r08-fabric-pair", "hc-bed-capture", "int4-h10-hc-bed-occupied", "int4-h12-af-chair-samepose", "int4-h15-af-opposing-f2", "int4-h16-af-one-texel-f2", "macaw-neighbor-capture", "int4-h8-r03-player-gui", "int4-nonchair-capture", "int4-f-missing-capture", "int4-f3-mod-capture", "int4-f4-mod-capture", "int4-f5-state-diagnostic", "int4-f6-causal-replay", "int4-f7-source-cases", "int4-bed-exterior"):
+            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "int4-f11f-r08-fabric-pair", "hc-bed-capture", "int4-h10-hc-bed-occupied", "int4-h12-af-chair-samepose", "int4-h15-af-opposing-f2", "int4-h16-af-one-texel-f2", "macaw-neighbor-capture", "int4-h8-r03-player-gui", "int4-nonchair-capture", "int4-f-missing-capture", "int4-f3-mod-capture", "int4-h03-h05-drawer-front-f2", "int4-f4-mod-capture", "int4-f5-state-diagnostic", "int4-f6-causal-replay", "int4-f7-source-cases", "int4-bed-exterior"):
                 if shutil.which("xdotool") is None:
                     raise ValueError("Automatic visual capture requires xdotool")
                 if args.output.exists():

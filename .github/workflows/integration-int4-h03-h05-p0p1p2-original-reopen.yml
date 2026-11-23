@@ -1,0 +1,84 @@
+name: INT-4 H03 H05 P0 P1 P2 all 70 real F2 original archive re-open
+
+on:
+  push:
+    branches:
+      - work/int4-h03-h05-p0p1p2-f70-reopen-selective-20261124
+    paths:
+      - scripts/integration/audit_int4_h03_h05_f70_original_reopen.py
+      - project/integration/INT4_H03_H05_P0_P1_P2_70_CASE_SOURCE_RECHECK_V1.json
+      - project/integration/INT4_H03_H05_P0_P1_P2_70_CASE_RESEARCH_REPORT_V1.md
+      - .github/workflows/integration-int4-h03-h05-p0p1p2-original-reopen.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  F70-original-source-and-20-archives:
+    runs-on: ubuntu-24.04
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned original F2 RGB decoder
+        run: python -m pip install 'Pillow>=10,<13'
+      - name: Re-download 20 actual original GitHub Actions archives by pinned IDs
+        shell: bash
+        timeout-minutes: 12
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/f70_archive_originals"
+          python - <<'PY' > "$RUNNER_TEMP/f70-ids.txt"
+          from pathlib import Path
+          import csv
+          path=Path("project/integration/INT4_H3_20_ORIGINAL_ARTIFACT_ZIP_SHA_AUDIT_V1.csv")
+          ids=[r["artifact_id"] for r in csv.DictReader(path.open(encoding="utf-8"))]
+          assert len(ids)==20 and len(set(ids))==20
+          print("\n".join(ids))
+          PY
+          while IFS= read -r artifact; do
+            test -n "$artifact" || continue
+            gh api --method GET -H 'Accept: application/vnd.github+json' \
+              "repos/sanato-nb/Minecraft_Furniture_Style_Research/actions/artifacts/$artifact/zip" \
+              > "$RUNNER_TEMP/f70_archive_originals/$artifact.zip"
+            echo "H03_H05_ORIGINAL_ACTIONS_ZIP_REDOWNLOADED $artifact"
+          done < "$RUNNER_TEMP/f70-ids.txt"
+      - name: Independently reopen original ZIP CRC PNG SHA game client logs and all 70 source case links
+        shell: bash
+        timeout-minutes: 6
+        run: |
+          set -euo pipefail
+          python scripts/integration/check_int4_h03_h05_f70_triage.py
+          python scripts/integration/audit_int4_h03_h05_f70_original_reopen.py \
+            --archives "$RUNNER_TEMP/f70_archive_originals" \
+            --output "$RUNNER_TEMP/h03_h05_p0_p1_p2_result"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ["RUNNER_TEMP"])/"h03_h05_p0_p1_p2_result"/"INT4_H03_H05_F70_NEW_ORIGINAL_REOPEN_INDEPENDENT_AUDIT_V1.json"
+          d=json.loads(p.read_text(encoding="utf-8"))
+          assert d["new_original_zip_downloaded_and_sha_verified"]==20
+          assert d["actual_original_native_F2_independently_read_and_verified"]==91
+          assert d["real_original_client_log_SHA_verified"]==21
+          assert d["case_ids_independently_relinked"]==70
+          assert d["original_case_count_by_priority"]=={"P0":6,"P1":21,"P2":43}
+          assert d["actual_each_frame_server_state_causality_full_reapproved"]==0
+          assert d["full_F70_approved"]==0
+          print("H03_H05_ORIGINAL_F70_70_CASES_INDEPENDENT_SOURCE_PASS")
+          PY
+          git diff --check
+      - name: Upload ONLY derived case audit data; no original screenshots, mods or logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h03-h05-f70-70case-new-original-reopen-results-no-source-assets
+          retention-days: 45
+          if-no-files-found: warn
+          path: ${{ runner.temp }}/h03_h05_p0_p1_p2_result/
