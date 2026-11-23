@@ -229,7 +229,7 @@ def capture(command,env,game,output,version):
                     sleep(2)
         try:
             wait_for(proc,lambda:"RenderAudit joined the game" in read_log(),
-                     "pinned Macaw client started and joined world",150)
+                     "pinned vanilla client started and joined world",150)
             windows=xdo("search","--all","--onlyvisible","--pid",str(proc.pid),
                         "--name","^Minecraft").split()
             check(len(windows)==1,"Exactly one real Minecraft GUI required")
@@ -316,7 +316,7 @@ def capture(command,env,game,output,version):
                     proc.kill();proc.wait()
     check(len(rows)==5,"Not all five F11 original source cases generated real F2 images")
     output_doc={
-        "schema":"MCFR_INT4_F11_MACAW_FIVE_REAL_F2/v1",
+        "schema":"MCFR_INT4_F11_VANILLA_FIVE_REAL_F2/v1",
         "status":"CAPTURED_SOURCE_STATES_NOT_VISUALLY_APPROVED",
         "minecraft_version":VERSION,"actual_game_capture":True,
         "source_state_verified_count":5,"minecraft_native_f2_screenshot_count":5,
