@@ -79,7 +79,7 @@ class H16SourceOneTexel(unittest.TestCase):
             stub_game(td,raw)
             with patch.object(h12,"static_preflight",return_value={"h11_git_blob_sha1":"old"}), \
                  patch.object(h12,"JAR_SHA1","bogus"):
-                with self.assertRaisesRegex(ValueError,"JAR_SHA_MISMATCH"):
+                with self.assertRaisesRegex(ValueError,"OFFICIAL_SOURCE_JAR_PIN_MISMATCH"):
                     h16.prepare_one_texel_probe(Path(td))
 
     def test_af_mod_reload_marker_does_not_claim_exact_texel_sampling(self):
