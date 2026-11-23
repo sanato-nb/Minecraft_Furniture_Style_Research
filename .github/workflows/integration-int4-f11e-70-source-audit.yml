@@ -1,0 +1,97 @@
+name: INT-4-F11E R06 Macaw 싱크 시간차 3장·70개 원장 독립 감사
+
+on:
+  push:
+    branches:
+      - work/int4-f11e-r06-macaw-sink-temporal-f2-20261123
+    paths:
+      - scripts/integration/build_int4_f11e_r06_temporal_f2_audit.py
+      - tests/integration/test_int4_f11e_r06_temporal_f2_audit.py
+      - .github/workflows/integration-int4-f11e-70-source-audit.yml
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  r06-water-temporal-native-independent:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PNG decoder and preflight independent audit Python
+        run: |
+          python3 -m pip install --break-system-packages 'Pillow>=10,<13'
+          python3 -m compileall -q scripts/integration/build_int4_f11e_r06_temporal_f2_audit.py
+          python3 -m unittest discover -s tests/integration \
+            -p 'test_int4_f11e_r06_temporal_f2_audit.py' -v
+      - name: Re-download actual Minecraft source artifact and independently reopen three timed S43 PNG and client log
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/integration/build_int4_f11e_r06_temporal_f2_audit.py \
+            --artifact-dir "$RUNNER_TEMP/int4-f11e-original-native-artifact"
+      - name: Deterministic second original-ZIP recomputation of exactly 70 row ledger
+        run: |
+          python3 scripts/integration/build_int4_f11e_r06_temporal_f2_audit.py \
+            --artifact-dir "$RUNNER_TEMP/int4-f11e-original-native-artifact" --verify
+      - name: Assert only R06 changed, conditional 69 HOLD1 and stable S43 three-time temporal F2
+        run: |
+          python3 - <<'PY'
+          import csv,json,hashlib
+          from pathlib import Path
+          root=Path('project/integration')
+          j=json.loads((root/'INT4_F11E_R06_TEMPORAL_ORIGINAL_F2_INDEPENDENT_AUDIT_V1.json').read_text(encoding='utf-8'))
+          assert j['status']=='PASS_R06_CONDITIONAL_69_HOLD_1_FULL_F_ZERO'
+          c=j['counts']
+          assert (c['F_target_count'],c['historical_1_5_cases'])==(70,62)
+          assert (c['F_conditional_before'],c['F_conditional_after'])==(68,69)
+          assert (c['F_HOLD_before'],c['F_HOLD_after'])==(2,1)
+          assert (c['historic_F2_before'],c['historic_F2_after'])==(62,62)
+          assert c['F_unconditional_final_approved']==c['INT5_semantics_approved']==c['INT6_AI_training_redistribution_rights_approved']==0
+          assert set(j['remaining_HOLD_target_ids'])=={'R08'}
+          assert j['risk_case']=='R06' and j['original_historical_case']=='S43'
+          assert j['real_server_state_checks']==j['original_native_F2_count']==3
+          assert min(j['time_separation_seconds'])>=8.0
+          assert j['source_dry_faces']==55 and j['source_wet_faces']==56
+          assert j['direct_original_F2_pixel_review']['max_background_stone_control_delta']<=40
+          assert j['water_animation_causally_approved'] is False
+          for name,key,n in (
+            ('INT4_F11E_70_TARGET_EVIDENCE_DISPOSITIONS_V14.csv','F70',70),
+            ('INT4_F11E_1_PENDING_EXACT_F2_TARGETS_V1.csv','pending',1),
+          ):
+            raw=(root/name).read_bytes()
+            assert hashlib.sha256(raw).hexdigest()==j['output_sha256'][key]
+            with (root/name).open(encoding='utf-8',newline='') as f:
+              assert len(list(csv.DictReader(f)))==n
+          print('PASS F11E conditional69 HOLD1 fullF0; research source SHA and original native AIR/bed four F2 unchanged')
+          PY
+          git diff --check
+      - name: Preserve derived audit text only, original Minecraft PNG/JAR excluded
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-f11e-70-69-conditional-1-hold-r06-real-temporal-audit
+          retention-days: 45
+          path: |
+            project/integration/INT4_F11E_70_TARGET_EVIDENCE_DISPOSITIONS_V14.csv
+            project/integration/INT4_F11E_1_PENDING_EXACT_F2_TARGETS_V1.csv
+            project/integration/INT4_F11E_R06_TEMPORAL_ORIGINAL_F2_INDEPENDENT_AUDIT_V1.json
+            project/integration/INT4_F11E_R06_THREE_TIMEPOINT_DIRECT_VISUAL_REVIEW_V1.md
+          if-no-files-found: warn
+      - name: Update only Draft F11E evidence branch and never merge main
+        if: success() && github.ref == 'refs/heads/work/int4-f11e-r06-macaw-sink-temporal-f2-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_F11E_70_TARGET_EVIDENCE_DISPOSITIONS_V14.csv \
+                  project/integration/INT4_F11E_1_PENDING_EXACT_F2_TARGETS_V1.csv \
+                  project/integration/INT4_F11E_R06_TEMPORAL_ORIGINAL_F2_INDEPENDENT_AUDIT_V1.json \
+                  project/integration/INT4_F11E_R06_THREE_TIMEPOINT_DIRECT_VISUAL_REVIEW_V1.md
+          if ! git diff --cached --quiet; then
+            git commit -m "INT-4-F11E Macaw R06 시간차 F2 원본 독립감사 조건부69·보류1 반영"
+            git fetch origin refs/heads/work/int4-f11e-r06-macaw-sink-temporal-f2-20261123
+            git rebase FETCH_HEAD
+            git push origin HEAD:refs/heads/work/int4-f11e-r06-macaw-sink-temporal-f2-20261123
+          fi
