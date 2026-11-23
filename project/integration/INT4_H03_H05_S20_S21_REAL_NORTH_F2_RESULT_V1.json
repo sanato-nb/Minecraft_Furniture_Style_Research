@@ -1,0 +1,71 @@
+{
+  "schema": "MCFR_INT4_H03_H05_S20_S21_P0_NORTH_FRONT_REAL_FABRIC_F2_V1",
+  "status": "PASS_REAL_FABRIC_S20_S21_NORTH_FRONT_1208_CHANGED_PIXELS_SOURCE_LIMITED",
+  "original_F3_archived_source": {
+    "artifact_id": 14748847662,
+    "run_id": 45008591423,
+    "original_camera": "3.4 123.6 45.7 151 28",
+    "original_S20_S21_same_F2_sha256": "02ee02a4b05d0d9877fc12debd214a96823cea734e56e7f60972bb72ff29f566",
+    "status": "DIFFERENT_REAL_SERVER_STATES_BUT_NO_VISIBLE_DIFFERENCE_FROM_SOUTHEAST"
+  },
+  "source_model": {
+    "minecraft": "Java 1.21.1 Fabric",
+    "mod": "Another Furniture 4.0.2",
+    "official_original_AF_mod_jar_sha1": "c2f992081bdc4795ed6d87771a3b5f7c71103785",
+    "unchanged_mod_jar": true,
+    "S20_exact_state": "another_furniture:oak_drawer[facing=north,open=false]",
+    "S21_exact_state": "another_furniture:oak_drawer[facing=north,open=true]",
+    "S20_leaf": "assets/another_furniture/models/block/drawer/oak.json",
+    "S21_leaf": "assets/another_furniture/models/block/drawer/oak_open.json",
+    "S21_model_inherits_S20_model": true,
+    "differing_model_texture_binding": "front",
+    "actual_S20_front_texture_original_sha256": "d35ccb907f9bdc8167a5cd662e14ebe8dc761c7ab95148a77914ecd5a6eec391",
+    "actual_S21_front_texture_original_sha256": "8421fd0bd80d188b2f368ff04850c80582a079381df6e4bb5d50ff511f9b899b",
+    "source_front_face_normal_candidate": "north"
+  },
+  "verified_new_real_game": {
+    "github_actions_run": 45251124211,
+    "job_id": 137960728732,
+    "code_commit_sha": "075ab30792fee9ade6c9d8441620c48695c533a1",
+    "run_conclusion": "success",
+    "original_F2_artifact_id": 14855721943,
+    "downloaded_artifact_zip_sha256": "5972c182837a766f1ee5515a1a1c895affcefb1d01d9ffbf1106aa9a327ae3ab",
+    "independent_zip_CRC_pass": true,
+    "independent_actual_PNG_SHA_and_dimensions_2_of_2": true,
+    "independent_client_log_SHA_pass": true,
+    "exact_game_state_markers_2_of_2": true,
+    "one_real_original_Fabric_session": true,
+    "real_original_native_F2_count": 2,
+    "camera_position": "0.5 122.3 35.5 0 20",
+    "s20_native_F2_sha256": "d0dc361b8db7094b512ce7144866b736ef3e4341c9c034ba8bf013ec40327863",
+    "s21_native_F2_sha256": "1499e0f81313cc9c0c60f8c4ff50899cb44cfd5972d1224f7fad11ea4f067045",
+    "original_client_log_sha256": "2394f757337f79173d5c71288e94e07ded1f8156fe08707d6537de668eabb01f",
+    "new_north_open_closed_RGB24_changed_screen_pixels": 1208,
+    "changed_pixel_bounds_xyxy_inclusive": [
+      481,
+      450,
+      542,
+      470
+    ],
+    "outside_drawer_ROI_changed_pixels": 0,
+    "direct_image_observation": "North front camera sees two metallic handles when closed and a dark open upper recess with one bottom handle when open.",
+    "unit_tests_pass": 6
+  },
+  "study_scope": {
+    "P0_S20_S21_front_visible_state_visual_difference_verified": true,
+    "H03_case_fully_approved": false,
+    "H05_full_exit_approved": false,
+    "exact_GPU_face_texel_pixel_UV_attribution_approved": false,
+    "actual_player_click_open_close_tested": false,
+    "all_F70_approved": 0,
+    "INT5_furniture_part_semantics_approved": 0,
+    "INT6_asset_AI_training_redistribution_rights_approved": 0,
+    "note": "This resolves the original SAME F2 archive counterexample as an observer limitation, without inventing missing interactive or per-pixel UV proof."
+  },
+  "original_data_not_committed": [
+    "original native PNG",
+    "official Another Furniture JAR",
+    "original game client log",
+    "texture source binary"
+  ]
+}
