@@ -1,0 +1,171 @@
+{
+  "schema": "MCFR_INT4_H15_ORIGINAL_FABRIC_TWO_CAMERA_SOURCE_VISUAL_RESEARCH_V1",
+  "status": "PASS_H15_EIGHT_REAL_F2_BOTH_CAMERA_MODEL_CONTRAST_WITHOUT_GPU_FACE_TEXEL_ATTRIBUTION",
+  "verified_run": {
+    "github_actions_run_id": 45239516512,
+    "job_id": 137920057147,
+    "code_head_sha": "b70965d427c50cc97edd50de57601e2808b0ef21",
+    "conclusion": "success",
+    "original_artifact_id": 14851461698,
+    "original_zip_sha256": "4d674a097a2403f34da5c878c78f8a17e2b786a3d50fd945b5fca64fa755f462",
+    "artifact_zip_crc_pass": true,
+    "original_manifest_and_client_log_sha_verified": true,
+    "original_native_F2_sha256_8_of_8_verified": true,
+    "original_exact_server_state_markers_8_of_8_verified": true,
+    "native_png_format_and_resolution_8_of_8": true,
+    "regression_tests_H15": 8,
+    "regression_tests_H13_camera": 7,
+    "regression_tests_H12_source": 8
+  },
+  "source_scope": {
+    "block": "another_furniture:acacia_chair",
+    "original_runtime_minecraft": "Java 1.21.1 Fabric",
+    "runtime_mod_version": "4.0.2",
+    "runtime_mod_jar_sha1": "c2f992081bdc4795ed6d87771a3b5f7c71103785",
+    "source_block_facing": "north",
+    "original_block_xyz": [
+      -88,
+      120,
+      40
+    ],
+    "research_cameras": {
+      "south": "-87.5 122.3 45.5 180 20",
+      "north": "-87.5 122.3 35.5 0 20"
+    },
+    "model_candidates": {
+      "model1": "another_furniture:block/chair/acacia_1",
+      "model3": "another_furniture:block/chair/acacia_3"
+    },
+    "same_fixed_original_block_with_opposing_camera": true,
+    "new_actual_game_sessions": 1,
+    "new_original_native_F2": 8,
+    "H12_south_view_native_F2_byte_identical": true,
+    "original_H12_south_f2_model1_sha256": "5e3d5494985e7af7dea54bc8b6ee3443c85a3146e30c3e459fb01d1ca6d2d31e"
+  },
+  "source_game_independent_result": {
+    "schema": "MCFR_INT4_H15_AF_OPPOSING_CAMERA_REAL_F2_INDEPENDENT_AUDIT/v1",
+    "status": "PASS_TWO_ORIGINAL_FABRIC_CAMERA_SOURCE_MODEL_CONTRAST",
+    "runtime_version": "1.21.1",
+    "actual_game_runs": 1,
+    "original_game_native_F2_verified": 8,
+    "original_game_exact_server_states_verified": 8,
+    "source_block_coordinates": [
+      -88,
+      120,
+      40
+    ],
+    "same_original_source_block_facing_north": true,
+    "source_camera_face_candidates": {
+      "north": "north",
+      "south": "south"
+    },
+    "source_original_manifest_sha256": "93c5be96f479e64e3505943f65713c0b3763551fe79f586d2b8df995c5fad34f",
+    "source_game_client_log_sha256": "518196c62991ec32a82714355e64904842a3aac6d3bab407925af473a9c5f791",
+    "original_native_F2_SHA256": {
+      "south_model1_before": "5e3d5494985e7af7dea54bc8b6ee3443c85a3146e30c3e459fb01d1ca6d2d31e",
+      "south_model3": "a989c788990c0853773c4b729a58910896fcd027430ae37db7f4881db371c952",
+      "south_model1_after": "5e3d5494985e7af7dea54bc8b6ee3443c85a3146e30c3e459fb01d1ca6d2d31e",
+      "south_air": "559bd5bc8161f5cb3a82a207971bc999f8bd4f1d7c2490d12ea207370288d301",
+      "north_model1_before": "b9ef90331fcd33da56cf449fbbcea03ee155f30db6de5f5944813885b5e412db",
+      "north_model3": "bcc56146b532a5f197aebac8668892ff07f3a1845047a8d2fcf6adf569ed5e7f",
+      "north_model1_after": "b9ef90331fcd33da56cf449fbbcea03ee155f30db6de5f5944813885b5e412db",
+      "north_air": "48bdeb29394586b312faa6ea84143355f956499c2971f7ff2b22fd97537da086"
+    },
+    "per_view_original_RGB_ROI": {
+      "south": {
+        "ROI": [
+          350,
+          275,
+          675,
+          620
+        ],
+        "channel_threshold": 24,
+        "model1_to_model3_changed_pixels": 808,
+        "model1_to_model1_temporal_changed_pixels": 0,
+        "model1_to_air_changed_pixels": 3552,
+        "model3_to_air_changed_pixels": 3432,
+        "model_delta_outside_air_foreground": 0,
+        "model_delta_not_in_temporal_control": 808,
+        "model_delta_bounds_xyxy_inclusive": [
+          493,
+          433,
+          530,
+          461
+        ]
+      },
+      "north": {
+        "ROI": [
+          350,
+          275,
+          675,
+          620
+        ],
+        "channel_threshold": 24,
+        "model1_to_model3_changed_pixels": 692,
+        "model1_to_model1_temporal_changed_pixels": 0,
+        "model1_to_air_changed_pixels": 4216,
+        "model3_to_air_changed_pixels": 4144,
+        "model_delta_outside_air_foreground": 0,
+        "model_delta_not_in_temporal_control": 692,
+        "model_delta_bounds_xyxy_inclusive": [
+          494,
+          409,
+          529,
+          435
+        ]
+      }
+    },
+    "model_contrast_visually_detected_by_camera": {
+      "south": true,
+      "north": true
+    },
+    "source_parent_two_sided_UV_candidates": [
+      "north",
+      "south"
+    ],
+    "verified_GPU_face_texel_pixel_attribution": false,
+    "new_model_semantic_or_license_approval": false,
+    "F70_unconditional_approvals": 0,
+    "H03_H05_full_exit": false,
+    "INT5_semantics_approved": 0,
+    "INT6_training_or_redistribution_approved": 0,
+    "limits": [
+      "Opposing observer images and source face-normal candidates do not themselves prove exact GPU face UV texel sampling.",
+      "Use original PNG alpha, model parent, source variants, exact server log and temporal AIR controls separately.",
+      "North-facing chair state remains pinned; only spectator camera world Z and yaw are changed between groups.",
+      "All actual native F2/JAR/client.log bytes stay in temporary Actions artifacts."
+    ]
+  },
+  "direct_original_F2_review": {
+    "viewed_original_two_by_four_panel_contact_locally": true,
+    "south_camera_original_observation": "Model 1 has slatted rear backrest visible; model 3 changes inner backrest into more continuous plank-like bands; model 1 restored exactly; AIR shows no chair.",
+    "north_camera_original_observation": "Opposite side reveals front seating surface and open backrest slats for model 1; model 3 displays an altered filled backrest band; model 1 restored exactly; AIR removes chair.",
+    "observed_two_view_source_face_normal_alignment": [
+      "south",
+      "north"
+    ],
+    "original_pixels_modified_before_statistics": false,
+    "screenshots_and_mod_texture_asset_bytes_committed_to_git": false
+  },
+  "research_boundary": {
+    "source_camera_face_candidates_narrowed_by_view": true,
+    "direct_two_camera_original_model_visual_difference_verified": true,
+    "precise_GPU_face_to_UV_texel_pixel_causality_proven": false,
+    "version_and_mods_wide_generality_proven": false,
+    "mod_author_intent_proven": false,
+    "F70_conditionally_evidenced": 70,
+    "F70_unconditionally_approved": 0,
+    "H03_exit": "HOLD",
+    "H05_exit": "CONDITIONAL",
+    "all_H_gates_unconditional_exit": false,
+    "INT5_furniture_semantics_approved": 0,
+    "INT6_asset_AI_training_or_redistribution_rights_approved": 0
+  },
+  "notes": [
+    "All 8 original Minecraft F2 screenshots + actual integrated server logs were independently downloaded and verified by SHA256 and ZIP CRC, not inferred from workflow success alone.",
+    "The south observer's 4 original F2 screenshots have the same respective SHA as the H12 four-view control, proving exact byte-level reproducibility for this pinned environment.",
+    "Changing spectator camera Z/yaw while leaving block facing and model options fixed supports two-sided visual contrast; no automatic conclusion about per-pixel texture sampling is granted.",
+    "A first workflow on the previous runtime launcher returned exit code 1 after capturing 8 images because an audit-pending success state was absent from the accepted exit statuses; corrected without suppressing server validation. The final workflow succeeded.",
+    "Original images and JAR source materials are only in the temporary Actions artifact, not copied into the repository."
+  ]
+}
