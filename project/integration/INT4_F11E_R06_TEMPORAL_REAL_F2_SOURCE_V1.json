@@ -1,0 +1,69 @@
+{
+  "INT5_semantics_approved": 0,
+  "INT6_training_or_redistribution_rights_approved": 0,
+  "full_F_approved": 0,
+  "historical_source_case": "S43",
+  "native_F2_sha256": {
+    "R06_T0": "d43da9b30444b7f51d630483ba4d3d519db727fb042ad409e3a8a4842f94facf",
+    "R06_T1": "611b28b68439565f4840c4366a461049e517eb5ecfcf9b5184494d8ff4ff5363",
+    "R06_T2": "5d2722a20e4c84fe34c20477fe604358ee128856af8018ac8535d0d789d13bca"
+  },
+  "original_client_log_sha256": "824bd93e82298b9474a7b40f8bed886eb673ced475b856764c825fce19f3964b",
+  "original_native_F2_count": 3,
+  "pixel_observation": {
+    "color_channel_difference_threshold": 24,
+    "foreground_blue_water_pixels_each_frame": {
+      "R06_T0": 778,
+      "R06_T1": 778,
+      "R06_T2": 778
+    },
+    "max_background_stone_control_delta": 0,
+    "paired_pixel_differences": {
+      "R06_T0_vs_R06_T1": {
+        "sink_changed_pixels": 22,
+        "stone_control_changed_pixels": 0,
+        "water_changed_pixels": 22
+      },
+      "R06_T0_vs_R06_T2": {
+        "sink_changed_pixels": 8,
+        "stone_control_changed_pixels": 0,
+        "water_changed_pixels": 8
+      },
+      "R06_T1_vs_R06_T2": {
+        "sink_changed_pixels": 9,
+        "stone_control_changed_pixels": 0,
+        "water_changed_pixels": 9
+      }
+    },
+    "sink_roi": [
+      462,
+      394,
+      564,
+      508
+    ],
+    "stone_control_roi": [
+      610,
+      530,
+      690,
+      610
+    ],
+    "temporal_interpretation": "WATER_REGION_CHANGED_AT_SAMPLED_TIMES_NOT_CAUSAL_ANIMATION_PROOF",
+    "water_pixel_changed_observed": true,
+    "water_roi": [
+      480,
+      415,
+      545,
+      443
+    ]
+  },
+  "real_exact_server_state_checks": 3,
+  "risk_id": "R06",
+  "schema": "MCFR_INT4_F11E_R06_THREE_NATIVE_TEMPORAL_F2_AUDIT/v1",
+  "source_mod_jar_sha256": "e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e",
+  "status": "PASS_R06_3_TIME_SEPARATED_EXACT_STATE_NATIVE_F2_NO_ANIMATION_CAUSAL_CLAIM",
+  "time_intervals_seconds": [
+    10.615,
+    10.358
+  ],
+  "water_animation_causally_proven": false
+}
