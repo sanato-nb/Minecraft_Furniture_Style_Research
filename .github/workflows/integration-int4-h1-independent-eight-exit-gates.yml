@@ -1,0 +1,101 @@
+name: INT-4-H1 independently review all eight source and runtime exit gates
+
+on:
+  push:
+    branches:
+      - work/int4-h1-independent-eight-exit-gates-20261123
+    paths:
+      - scripts/integration/build_int4_h1_independent_eight_exit_gates.py
+      - tests/integration/test_int4_h1_independent_eight_exit_gates.py
+      - .github/workflows/integration-int4-h1-independent-eight-exit-gates.yml
+
+permissions:
+  actions: read
+  contents: write
+  pull-requests: read
+
+jobs:
+  independent-eight-actual-exit-gate-review:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 24
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Check out pinned G5 Draft research source
+        uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify original A G F and G5 output SHA without treating history as new full approval
+        run: |
+          python -m unittest discover -s tests/integration \
+            -p 'test_int4_h1_independent_eight_exit_gates.py' -v
+      - name: Recompute five source populations and live GitHub PR main CI audit
+        run: |
+          python scripts/integration/build_int4_h1_independent_eight_exit_gates.py
+      - name: Repeat independently with pinned remote main and historical CI states
+        run: |
+          python scripts/integration/build_int4_h1_independent_eight_exit_gates.py --verify
+      - name: Require exactly eight reviewed gates and zero false final approvals
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json
+          from collections import Counter
+          from pathlib import Path
+          p=Path('project/integration')
+          x=json.loads((p/'INT4_H1_INDEPENDENT_EXIT_AUDIT_V1.json').read_text(encoding='utf-8'))
+          assert x['status']=='H1_EIGHT_GATES_INDEPENDENTLY_REVIEWED_FULL_EXIT_BLOCKED'
+          assert (x['H_eight_gates_reviewed'],x['H_gate_scoped_pass'],
+                  x['H_gate_conditional'],x['H_gate_hold'])==(8,5,1,2)
+          assert x['H_eight_gates_unconditionally_approved']==0
+          for k in ('F_unconditionally_approved','G_final_unconditional_exit_approved',
+                    'H_full_exit_approved','INT5_part_role_semantics_approved',
+                    'INT6_training_or_redistribution_rights_approved'):
+            assert x[k]==0,k
+          assert x['A_missing_parents']==48
+          assert x['A_no_static_models']==108
+          assert x['A_overlap_missing_parent_and_no_static']==44
+          assert x['C_pixel_exception_faces']==6343
+          assert x['F_conditionally_documented']==70
+          assert x['live_GitHub_provenance']['main_head_sha']=='176f7f34de2336eb7984c4734e97b6eb156c19f4'
+          ci=x['live_GitHub_provenance']['checked_actions']
+          assert ci['G4_first_failed_parent_chain_assumption']['conclusion']=='failure'
+          assert ci['G4_corrected_parent_chain']['conclusion']=='success'
+          for id in ('72','73','74','75','76','77','78'):
+            pr=x['live_GitHub_provenance']['draft_pull_requests'][id]
+            assert pr['draft'] is True and pr['merged'] is False
+          with (p/'INT4_H1_EIGHT_INDEPENDENT_EXIT_GATES_V1.csv').open(encoding='utf-8',newline='') as fp:
+            rows=list(csv.DictReader(fp))
+          assert len(rows)==8
+          assert len({r['gate_id'] for r in rows})==8
+          assert Counter(r['review_status'].split('_')[0] for r in rows)=={
+            'PASS':5,'HOLD':2,'CONDITIONAL':1}
+          assert all(r['full_unconditional_exit_satisfied']=='false' for r in rows)
+          assert hashlib.sha256((p/'INT4_H1_EIGHT_INDEPENDENT_EXIT_GATES_V1.csv').read_bytes()).hexdigest()==x['outputs']['eight_gate_csv_sha256']
+          print('PASS independent H 8 assessed, 5 scoped pass 1 conditional 2 hold; full exit 0')
+          PY
+          git diff --check
+      - name: Archive only audit gate metadata and owner followups
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h1-eight-real-exit-gates-scoped-hold-and-independent-provenance
+          retention-days: 45
+          path: |
+            project/integration/INT4_H1_EIGHT_INDEPENDENT_EXIT_GATES_V1.csv
+            project/integration/INT4_H1_INDEPENDENT_EXIT_AUDIT_V1.json
+            project/integration/INT4_H1_EXIT_AUDIT_AND_HANDOFF_V1.md
+      - name: Commit negative as well as positive H1 gate evidence to Draft branch not main
+        if: success() && github.ref == 'refs/heads/work/int4-h1-independent-eight-exit-gates-20261123'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/integration/INT4_H1_EIGHT_INDEPENDENT_EXIT_GATES_V1.csv \
+                  project/integration/INT4_H1_INDEPENDENT_EXIT_AUDIT_V1.json \
+                  project/integration/INT4_H1_EXIT_AUDIT_AND_HANDOFF_V1.md
+          if git diff --cached --quiet; then
+            echo "Independent review output unchanged"
+          else
+            git commit -m "INT-4-H1 8개 종료 게이트 독립 심사 및 F70·원본 F2·CI 보류와 main 불변 증거"
+            git push origin HEAD:refs/heads/work/int4-h1-independent-eight-exit-gates-20261123
+          fi
