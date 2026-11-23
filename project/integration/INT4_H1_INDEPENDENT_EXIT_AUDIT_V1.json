@@ -1,0 +1,212 @@
+{
+  "A_missing_parents": 48,
+  "A_no_static_models": 108,
+  "A_overlap_missing_parent_and_no_static": 44,
+  "C_pixel_exception_faces": 6343,
+  "F_conditionally_documented": 70,
+  "F_unconditionally_approved": 0,
+  "G_final_unconditional_exit_approved": 0,
+  "H_eight_gates_reviewed": 8,
+  "H_eight_gates_unconditionally_approved": 0,
+  "H_full_exit_approved": 0,
+  "H_gate_conditional": 1,
+  "H_gate_hold": 2,
+  "H_gate_scoped_pass": 5,
+  "INT5_part_role_semantics_approved": 0,
+  "INT6_training_or_redistribution_rights_approved": 0,
+  "gate_summary": [
+    {
+      "full_exit_satisfied": false,
+      "gate_id": "H01",
+      "owner": "INT4-G",
+      "review_status": "PASS_SOURCE_SCOPE"
+    },
+    {
+      "full_exit_satisfied": false,
+      "gate_id": "H02",
+      "owner": "INT4-C_INT4-A",
+      "review_status": "PASS_EXCEPTIONS_DOCUMENTED"
+    },
+    {
+      "full_exit_satisfied": false,
+      "gate_id": "H03",
+      "owner": "INT4-F",
+      "review_status": "HOLD_FULL_F_EXIT"
+    },
+    {
+      "full_exit_satisfied": false,
+      "gate_id": "H04",
+      "owner": "INT4-G",
+      "review_status": "PASS_SCOPED_G_LEDGER"
+    },
+    {
+      "full_exit_satisfied": false,
+      "gate_id": "H05",
+      "owner": "INT4-F_INT4-H",
+      "review_status": "HOLD_FULL_IMAGE_REOPEN"
+    },
+    {
+      "full_exit_satisfied": false,
+      "gate_id": "H06",
+      "owner": "INT4-H_CI",
+      "review_status": "CONDITIONAL_PARALLEL_CI_FIX"
+    },
+    {
+      "full_exit_satisfied": false,
+      "gate_id": "H07",
+      "owner": "INT4-H",
+      "review_status": "PASS_FAILED_RUN_AND_RETRY_RECORDED"
+    },
+    {
+      "full_exit_satisfied": false,
+      "gate_id": "H08",
+      "owner": "INT4-H",
+      "review_status": "PASS_PINNED_HISTORY_AND_MAIN_DRAFT"
+    }
+  ],
+  "git_original_audit_blob_SHA1": {
+    "INT4_A_ADJUDICATION_SUMMARY_V2.json": "621cce07862bbc5bb051809eeeef8df9607c0a37",
+    "INT4_F11F_R08_TWO_FABRIC_ORIGINAL_F2_INDEPENDENT_AUDIT_V1.json": "dbf5118138851f664468e5bcb8ef84e1edde6fd5",
+    "INT4_G1_SOURCE_LAYER_GATE_SUMMARY_V1.json": "9772bcb7bb3243b7f0d166b99d7f602c23a2e0fe",
+    "INT4_G3_EXCEPTION_SOURCE_REACHABILITY_AUDIT_V1.json": "5224ff016e32f5a431b922bce629c2e0aa6bbc2f",
+    "INT4_G4_HC6_PARENT_CHAIN_AND_ORIGINAL_GIT_AUDIT_V1.json": "9de9cd59e5aa4ef6ca5b16932aa31244a4cf488b",
+    "INT4_G5_FOUR_DENOMINATORS_SCOPED_DECISIONS_V1.json": "779e2435b38fbb002437372eabc5198eec39fbeb"
+  },
+  "independent_reopened_population_rows": {
+    "INT4_G5_1158_STATE_SCOPED_DISPOSITIONS_V1.csv": 1158,
+    "INT4_G5_16572_MODEL_SCOPED_DISPOSITIONS_V1.csv.gz": 16572,
+    "INT4_G5_21_FINDING_SCOPED_DISPOSITIONS_V1.csv": 21,
+    "INT4_G5_592312_FACE_SCOPED_DISPOSITIONS_V1.csv.gz": 592312,
+    "INT4_G5_70_REAL_F2_SCOPED_DISPOSITIONS_V1.csv": 70
+  },
+  "live_GitHub_provenance": {
+    "checked_actions": {
+      "F11F_original_F2_independent": {
+        "conclusion": "success",
+        "head_sha": "5aa00779f9a8a228d24a2114a338e3c670cac6a7",
+        "id": 45109242418
+      },
+      "F11F_original_two_F2_real_game": {
+        "conclusion": "success",
+        "head_sha": "8bd3828508846c81a051014b0e253d6d04c49848",
+        "id": 45108332421
+      },
+      "G1_source_census": {
+        "conclusion": "success",
+        "head_sha": "6c3e8aedb5de81474ac59ffc95d74a77dba3520c",
+        "id": 45109756624
+      },
+      "G2_full_source_join": {
+        "conclusion": "success",
+        "head_sha": "82683518be35d94273db957949e755411d1313a2",
+        "id": 45110599720
+      },
+      "G3_source_exception": {
+        "conclusion": "success",
+        "head_sha": "727ec9334b5c2d8a358d0a62cbab630e29d5124e",
+        "id": 45111136606
+      },
+      "G4_corrected_parent_chain": {
+        "conclusion": "success",
+        "head_sha": "0e9f27c988de1c74f82dd6d02b3ac628bc8df443",
+        "id": 45112966090
+      },
+      "G4_first_failed_parent_chain_assumption": {
+        "conclusion": "failure",
+        "head_sha": "7770b9b8005d91a476a9e8c4acb609fdf895f8bb",
+        "id": 45112877045
+      },
+      "G5_five_population_scope": {
+        "conclusion": "success",
+        "head_sha": "92db8cdbfc4860b8e2dc011e7e0bb954d43943a3",
+        "id": 45113845823
+      }
+    },
+    "draft_pull_requests": {
+      "72": {
+        "base": "work/int4-f11e-r06-macaw-sink-temporal-f2-20261123",
+        "draft": true,
+        "head_sha": "ef4f6729698b29d7bab473b07efe9294afc0018e",
+        "merged": false
+      },
+      "73": {
+        "base": "work/int4-f11f-r08-af-fabric-source-build-pair-20261123",
+        "draft": true,
+        "head_sha": "80a91857cd2bd2447930a71e463691de7f184bcf",
+        "merged": false
+      },
+      "74": {
+        "base": "work/int4-f11f-r08-af-fabric-source-build-pair-20261123",
+        "draft": true,
+        "head_sha": "2c04bd7bf4fce939d0a95f7cadd954d451735df8",
+        "merged": false
+      },
+      "75": {
+        "base": "work/int4-g1-cross-layer-source-scope-gates-20261123",
+        "draft": true,
+        "head_sha": "1ac1c4c1becd30d2ba07a63d159cd0f44a0f66f1",
+        "merged": false
+      },
+      "76": {
+        "base": "work/int4-g2-exception-dispositions-crossjoins-20261123",
+        "draft": true,
+        "head_sha": "fb6185d2b5374245d89fc7d0af74d1bafb5837d9",
+        "merged": false
+      },
+      "77": {
+        "base": "work/int4-g3-source-exception-reachability-20261123",
+        "draft": true,
+        "head_sha": "13e1b8bc3af28bb2d3d353cfec3786e1707673f8",
+        "merged": false
+      },
+      "78": {
+        "base": "work/int4-g4-hc-six-base-parent-chain-audit-20261123",
+        "draft": true,
+        "head_sha": "53cd969e002794542cce2d3400d1f1e3bba62e53",
+        "merged": false
+      }
+    },
+    "main_head_sha": "176f7f34de2336eb7984c4734e97b6eb156c19f4"
+  },
+  "original_G5_ledger_sha256": {
+    "INT4_G5_1158_STATE_SCOPED_DISPOSITIONS_V1.csv": "f53c417d29a461dfc90fbcf2cd5701bd0138964dc562800e3eae690eb9cabdfe",
+    "INT4_G5_16572_MODEL_SCOPED_DISPOSITIONS_V1.csv.gz": "cd16c4f8f882c1ed1890cac0d1a6e440ab3fca52c341012743c3940648344e3b",
+    "INT4_G5_21_FINDING_SCOPED_DISPOSITIONS_V1.csv": "81fc967e4a5b7e97f8f090b5dad9d4fae6e653250b4867fb4ca5314c6a9ff363",
+    "INT4_G5_592312_FACE_SCOPED_DISPOSITIONS_V1.csv.gz": "af94b7f33b97aab92b306c77e3104cae769b4a618ce15aa31ee9fd8354b08f20",
+    "INT4_G5_70_REAL_F2_SCOPED_DISPOSITIONS_V1.csv": "962860cc1546c9832e208e0415202ebda5919a1fbd2a1ea372333a727f44f6ae"
+  },
+  "outputs": {
+    "eight_gate_csv_sha256": "60c04e3580083bd79a01aa2fd638db694ac9df723ee04d4b5b8591988f7ea5cf"
+  },
+  "reason_for_not_accepting_H_full_exit": [
+    "70 F case-specific original render contracts remain conditional, not individually fully closed.",
+    "This H run verifies archived screenshot SHA metadata and selected independent F11F original image audit, not every historic original image file/scene.",
+    "Parallel PR73 CI environment fix must be reconciled with stacked head; unrelated prior CI failures not hidden.",
+    "The only held D state is an unused awning JSON with four unresolved references; a missing registration proof cannot be substituted for a full dynamic loader audit.",
+    "A-G source-level dispositions permit bounded structural research usage only; no INT5 semantic or INT6 content rights permissions."
+  ],
+  "schema": "MCFR_INT4_H1_INDEPENDENT_EIGHT_EXIT_GATE_REVIEW/v1",
+  "scoped_disposition_counts": {
+    "faces": {
+      "CONDITIONAL": 6343,
+      "VERIFIED": 585969
+    },
+    "historic_findings": {
+      "CONDITIONAL": 14,
+      "NOT_APPLICABLE": 7
+    },
+    "mod_blockstates": {
+      "CONDITIONAL": 1157,
+      "HOLD": 1
+    },
+    "models": {
+      "CONDITIONAL": 48,
+      "NOT_APPLICABLE": 58,
+      "VERIFIED": 16466
+    },
+    "real_F_units": {
+      "CONDITIONAL": 70
+    }
+  },
+  "status": "H1_EIGHT_GATES_INDEPENDENTLY_REVIEWED_FULL_EXIT_BLOCKED"
+}
