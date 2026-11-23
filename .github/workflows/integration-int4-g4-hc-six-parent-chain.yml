@@ -36,7 +36,7 @@ jobs:
           python scripts/integration/build_int4_g4_hc_six_base_parent_chain.py \
             --cache "$RUNNER_TEMP/g4-original-HC-8d21-six"
 
-      - name: Deterministic second pass: parent/descendant and D selection results must be unchanged
+      - name: "Deterministic second pass: parent/descendant and D selection results must be unchanged"
         run: |
           python scripts/integration/build_int4_g4_hc_six_base_parent_chain.py \
             --cache "$RUNNER_TEMP/g4-original-HC-8d21-six" --verify
