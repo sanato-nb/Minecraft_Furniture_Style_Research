@@ -1,0 +1,125 @@
+name: INT-4 H19 official Mojang V11 BED field and BedRenderer registration opcode
+
+on:
+  push:
+    branches:
+      - work/int4-h19-v11-bed-blockentitytype-registry-opcode-20261124
+    paths:
+      - src/mcfr/int4_h19_v11_bed_registry_opcode.py
+      - tests/knowledge/test_int4_h19_v11_bed_registry_opcode.py
+      - .github/workflows/integration-int4-h19-v11-bed-registry-opcode.yml
+      - project/integration/INT4_H19_V11_BED_TYPE_RENDERER_REGISTRATION_RESULT_V1.json
+  pull_request:
+    paths:
+      - src/mcfr/int4_h19_v11_bed_registry_opcode.py
+      - tests/knowledge/test_int4_h19_v11_bed_registry_opcode.py
+      - .github/workflows/integration-int4-h19-v11-bed-registry-opcode.yml
+      - project/integration/INT4_H19_V11_BED_TYPE_RENDERER_REGISTRATION_RESULT_V1.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  Mojang_12111_V11_BED_field_exact_registration:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 17
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test exact BED field mapping, bootstrap and negative opcode cases
+        run: |
+          python -m unittest discover -s tests/knowledge \
+            -p 'test_int4_h19_v11_bed_registry_opcode.py' -v
+      - name: Retrieve Mojang 1.21.11 source-pinned official client and mappings
+        timeout-minutes: 9
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fLsS --retry 3 --retry-all-errors --max-time 120 \
+            'https://piston-meta.mojang.com/v1/packages/a969d96978af7b52dba8df44e177f48ec4ebe0d8/1.21.11.json' \
+            -o "$RUNNER_TEMP/h19-1.21.11-version.json"
+          python - <<'PY'
+          import hashlib, json, os, pathlib, subprocess
+          root=pathlib.Path(os.environ["RUNNER_TEMP"])
+          version_bytes=(root/"h19-1.21.11-version.json").read_bytes()
+          assert hashlib.sha1(version_bytes).hexdigest()=="a969d96978af7b52dba8df44e177f48ec4ebe0d8"
+          meta=json.loads(version_bytes)
+          assert meta["id"]=="1.21.11"
+          for kind,filename in (
+              ("client","h19-1.21.11-client.jar"),
+              ("client_mappings","h19-1.21.11-client-mappings.txt"),
+          ):
+              item=meta["downloads"][kind]
+              target=root/filename
+              subprocess.run(["curl","-fLsS","--retry","3","--retry-all-errors",
+                              "--max-time","360",item["url"],"-o",str(target)],check=True)
+              actual=hashlib.sha1(target.read_bytes()).hexdigest()
+              assert actual==item["sha1"],(kind,actual,item["sha1"])
+              print("OFFICIAL_MOJANG_PINNED_DOWNLOAD_PASS",kind,target.stat().st_size,flush=True)
+          assert hashlib.sha1((root/"h19-1.21.11-client.jar").read_bytes()).hexdigest()=="ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd"
+          assert hashlib.sha256((root/"h19-1.21.11-client.jar").read_bytes()).hexdigest()=="1473c9489ac50fda3c435049a76a70d61a10b8610db27f5ba9d8756b686cd3bd"
+          PY
+      - name: Match exact official BED block entity type field with renderer creation and registration
+        timeout-minutes: 5
+        run: |
+          python -m mcfr.int4_h19_v11_bed_registry_opcode \
+            --version-json "$RUNNER_TEMP/h19-1.21.11-version.json" \
+            --client-mappings "$RUNNER_TEMP/h19-1.21.11-client-mappings.txt" \
+            --official-client "$RUNNER_TEMP/h19-1.21.11-client.jar" \
+            --prior-V11 project/integration/INT4_F11D_V11_WHITE_BED_REAL_F2_SOURCE_V1.json \
+            --h18-ledger project/integration/INT4_H18_V11_BED_RENDERER_STATIC_BYTECODE_SOURCE_V1.json \
+            --output "$RUNNER_TEMP/h19-derived/INT4_H19_V11_BED_TYPE_TO_RENDERER_INVOKEDYNAMIC_BYTECODE_AUDIT_V1.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ["RUNNER_TEMP"])/"h19-derived/INT4_H19_V11_BED_TYPE_TO_RENDERER_INVOKEDYNAMIC_BYTECODE_AUDIT_V1.json"
+          d=json.loads(p.read_text(encoding="utf-8"))
+          assert d["status"]=="PASS_OFFICIAL_12111_BED_FIELD_TO_RENDERER_CTOR_SAME_REGISTRATION_SEQUENCE"
+          assert d["registration"]["bootstrap_constructor_method_handle_verified"] is True
+          assert d["previous_actual_native_F2_count"]==4 if "previous_actual_native_F2_count" in d else d["parent_V11_actual_native_F2_count"]==4
+          assert d["new_game_runs"]==0 and d["F70_unconditional_approved"]==0
+          assert not d["jvm_BedRenderer_invocation_during_previous_game_confirmed"]
+          assert d["H03"]=="HOLD" and d["H05"]=="CONDITIONAL"
+          print("H19_ACTUAL_OFFICIAL_MOJANG_BED_REGISTRATION_STATIC_PAIR_PASS",d["registration"])
+          PY
+          git diff --check
+      - name: Independently compare every new official source result with permanent Git H19 ledger
+        run: |
+          python - <<'PY'
+          import json,hashlib,os
+          from pathlib import Path
+          actual=Path(os.environ["RUNNER_TEMP"])/"h19-derived/INT4_H19_V11_BED_TYPE_TO_RENDERER_INVOKEDYNAMIC_BYTECODE_AUDIT_V1.json"
+          permanent=Path("project/integration/INT4_H19_V11_BED_TYPE_RENDERER_REGISTRATION_RESULT_V1.json")
+          a=json.loads(actual.read_text(encoding="utf-8"))
+          p=json.loads(permanent.read_text(encoding="utf-8"))
+          assert p==a,("H19_MOJANG_ORIGINAL_JAR_DERIVATION_NO_LONGER_MATCHES_PERSISTENT_RESEARCH",
+                       sorted(k for k in set(p)|set(a) if p.get(k)!=a.get(k)))
+          assert hashlib.sha256(actual.read_bytes()).hexdigest()=="ff1f3233a969aa6751a3817623511d2ea0663e94144d17fadb9efd2d7e953ed2"
+          assert a["BED_field_classfile_flags"]==["ACC_FINAL","ACC_PUBLIC","ACC_STATIC"]
+          assert a["registration"]["block_entity_type_BED_getstatic_pc"]==193
+          assert a["registration"]["bed_renderer_lambda_invokedynamic_pc"]==196
+          assert a["registration"]["registration_invokestatic_pc"]==201
+          assert a["registration"]["bootstrap_index"]==17
+          assert a["registration"]["bootstrap_constructor_method_handle_verified"] is True
+          assert a["jvm_BedRenderer_invocation_during_previous_game_confirmed"] is False
+          assert a["F70_unconditional_approved"]==0
+          print("H19_OFFICIAL_BED_TO_RENDERER_BYTECODE_EQUALS_PERSISTENT_GIT_SOURCE_LEDGER")
+          PY
+      - name: Preserve H19 derived SHA and original registry instructions only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h19-v11-original-mojang-bed-static-registry-pair-derived
+          retention-days: 45
+          if-no-files-found: warn
+          path: ${{ runner.temp }}/h19-derived/*.json
