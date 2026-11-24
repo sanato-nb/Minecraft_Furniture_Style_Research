@@ -94,6 +94,44 @@ jobs:
           print("H18_STATIC_BED_RENDERER_REGISTRY_LINK_PROVEN_NOT_ACTUAL_GAME_JVM_CALL")
           PY
           git diff --check
+      - name: Independently match original Mojang mapping and bytecode evidence to the persisted H18 ledger
+        run: |
+          python - <<'PY'
+          import json,os,pathlib
+          led=json.loads(pathlib.Path("project/integration/INT4_H18_V11_BED_RENDERER_STATIC_BYTECODE_SOURCE_V1.json").read_text(encoding="utf-8"))
+          got=json.loads((pathlib.Path(os.environ["RUNNER_TEMP"])/"h18-result/INT4_H18_V11_BED_RENDERER_STATIC_BYTECODE_SOURCE_V1.json").read_text(encoding="utf-8"))
+          pins=led["pinned_official"]
+          for key,other in (
+              ("official_version_json_sha1","version_json_sha1"),
+              ("official_client_sha1","client_jar_sha1"),
+              ("official_client_sha256","client_jar_sha256"),
+              ("client_mappings_sha1","client_mappings_sha1")):
+              assert got["official_inputs"][key]==pins[other],(key,got["official_inputs"][key],pins[other])
+          m=got["original_class_mappings"]
+          for k,name in (
+              ("BedRenderer","net.minecraft.client.renderer.blockentity.BedRenderer"),
+              ("BlockEntityRenderers","net.minecraft.client.renderer.blockentity.BlockEntityRenderers"),
+              ("BlockEntityRenderDispatcher","net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher"),
+              ("BedBlockEntity","net.minecraft.world.level.block.entity.BedBlockEntity"),
+              ("BlockEntityType","net.minecraft.world.level.block.entity.BlockEntityType"),
+              ("BedRenderState","net.minecraft.client.renderer.blockentity.state.BedRenderState"),
+              ("BedSpecialRenderer_item_path","net.minecraft.client.renderer.special.BedSpecialRenderer")):
+              assert m[name]==led["mapped_classfile"][k].removesuffix(".class")
+          proof=led["registry_proof"]
+          assert got["registry_to_bed_renderer_owner_references"]==proof["matched_classfile_references"]==5
+          assert got["registry_javap_sha256"]==proof["registrar_javap_sha256"]
+          assert got["bed_renderer_compiled_bytecode_sha256"]==proof["renderer_javap_sha256"]
+          assert got["dispatcher_javap_sha256"]==proof["dispatcher_javap_sha256"]
+          assert got["original_v11_source"]["existing_F2_BED_vs_AIR_pixels"]==led["previous_game_evidence"]["bed_vs_air_changed_pixels_rgb24"]==6446
+          assert got["previous_actual_game_run"]==led["previous_game_evidence"]["actions_run"]==45103243455
+          assert got["new_actual_game_runs"]==led["scope_and_gates"]["new_game_runs"]==0
+          assert got["jvm_render_method_invocation_during_V11_F2_traced"] is False
+          assert proof["dynamic_bed_render_method_invoked_during_original_F2_verified"] is False
+          assert proof["precise_blockentitytype_BED_field_registration_pair_independently_verified"] is False
+          assert led["scope_and_gates"]["H03"]=="HOLD" and led["scope_and_gates"]["H05"]=="CONDITIONAL"
+          assert led["scope_and_gates"]["F70_unconditional"]==0
+          print("H18_ORIGINAL_BYTECODE_MAPPED_CLASSES_SHA_EQUALS_PERSISTED_RESEARCH_LEDGER")
+          PY
       - name: Store derived bytecode-mapping source identities only
         if: always()
         uses: actions/upload-artifact@v4
