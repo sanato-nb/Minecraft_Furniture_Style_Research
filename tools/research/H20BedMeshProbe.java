@@ -29,6 +29,11 @@ public class H20BedMeshProbe {
         fs.get(0).setAccessible(true);
         return (Vector3fc)fs.get(0).get(obj);
     }
+    static String vertexPosition(Object v) throws Exception {
+        if(names.containsKey("Vertex.x")&&names.containsKey("Vertex.y")&&names.containsKey("Vertex.z"))
+            return field(v,"Vertex","x")+"\t"+field(v,"Vertex","y")+"\t"+field(v,"Vertex","z");
+        return vec(vectorField(v));
+    }
     static void visit(String half,String path,Object p) throws Exception {
         String part="ModelPart";
         StringBuilder out=new StringBuilder("PART\t"+half+"\t"+path);
@@ -52,7 +57,7 @@ public class H20BedMeshProbe {
                 Object vertices=field(poly,"Polygon","vertices");
                 for(int v=0;v<Array.getLength(vertices);v++){
                     Object vertex=Array.get(vertices,v);
-                    System.out.println("VERTEX\t"+half+"\t"+path+"\t"+c+"\t"+s+"\t"+v+"\t"+vec(vectorField(vertex))+"\t"+field(vertex,"Vertex","u")+"\t"+field(vertex,"Vertex","v"));
+                    System.out.println("VERTEX\t"+half+"\t"+path+"\t"+c+"\t"+s+"\t"+v+"\t"+vertexPosition(vertex)+"\t"+field(vertex,"Vertex","u")+"\t"+field(vertex,"Vertex","v"));
                 }
             }
         }
