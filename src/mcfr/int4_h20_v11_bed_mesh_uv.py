@@ -149,7 +149,7 @@ def audit(args):
         props.write_text("\n".join(k+"="+v for k,v in sorted(names.items()))+"\n")
         cp=":".join([str(client)]+libs)
         subprocess.run(["javac","-cp",cp,"-d",str(td),"tools/research/H20BedMeshProbe.java"],check=True)
-        p=subprocess.run(["java","-cp",str(td)+":"+cp,"H20BedMeshProbe",str(props)],capture_output=True,text=True,timeout=120)
+        p=subprocess.run(["java","-cp",str(td)+":"+cp,"mcfrprobe.H20BedMeshProbe",str(props)],capture_output=True,text=True,timeout=120)
         need(p.returncode==0,"original JVM factory failed "+p.stderr[-4000:]+" "+p.stdout[-1000:])
         mesh=parse_mesh(p.stdout)
     with ZipFile(client) as z:
