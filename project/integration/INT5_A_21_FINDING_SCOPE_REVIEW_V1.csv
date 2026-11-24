@@ -1,0 +1,22 @@
+finding_id,category,original_axis,original_case_ids,original_disposition,source_measurements_reconciled,review_condition,scope_limit,role_or_universal_style_approved,review_decision
+C01,SEATING_CHAIR,STAIR_ANALOGUE_HEIGHT,V01|S01|S06|S08,SCOPE_LIMIT_ONLY,true,계단은 단차·높이 대조군으로 사용하고 착석 기능과 세 모드 의자의 좌판·등받이 구조를 각각 확인한다.,계단은 단차 외형 대조군이며 착석 기능·좌판 구조의 등가 근거는 없다.,false,RETAIN_NON_GENERALIZABLE_COUNTEREXAMPLE
+C02,SEATING_CHAIR,TUCKED_GEOMETRY,S01|S02,CANDIDATE_REQUIRES_REVIEW,true,넣은 상태의 위치 변화와 면 PNG·UV 유지 조건을 같은 의자 변형 및 방향에서 재현한다.,선택한 오크 의자의 두 상태에 한정한다.,false,REVIEW_SCOPED_CANDIDATE
+C03,SEATING_CHAIR,CUSHION_SLOT,S06|S07,CANDIDATE_REQUIRES_REVIEW,true,쿠션 슬롯 교체와 완전 투명 면의 실제 표시 여부를 구분한다.,영면적이거나 가려진 면의 게임 내 표시는 별도 확인이 필요하다.,false,REVIEW_SCOPED_CANDIDATE
+C04,SMALL_TABLE,SLAB_COMPONENT,V02|S12|S13,CANDIDATE_REQUIRES_REVIEW,true,단일 판재의 폭·깊이·두께를 독립 값으로 비교하고 하부 지지부와 회전 조건을 기록한다.,높이는 0.5와 0.125블록으로 다르며 적용 구조의 비교다.,false,REVIEW_SCOPED_CANDIDATE
+C05,SMALL_TABLE,OVERLAY_AND_CONNECTION,S10|S11|S12|S13,SCOPE_LIMIT_ONLY,true,영면적 UV와 투명 실측 면을 구분하며 연결 상태에서 지지 요소 수를 재확인한다.,영면적 UV와 완전 투명 실측 면은 다른 판정이며 HC·Macaw 전체 제품군으로 일반화하지 않는다.,false,RETAIN_NON_GENERALIZABLE_COUNTEREXAMPLE
+C06,LARGE_TABLE,CONNECTED_TABLE_TOP,S14|S15|S16|S17|S18|S19,CANDIDATE_REQUIRES_REVIEW,true,대표 테이블 상판의 높이와 연결 조건을 함께 보존하고 치수를 보편 제작값으로 확대하지 않는다.,연결 속성의 이름과 조립 조건은 모드별로 다르다.,false,REVIEW_SCOPED_CANDIDATE
+C07,LARGE_TABLE,MULTIPART_AND_THIN_PART,V03|V04|S14|S15,CANDIDATE_REQUIRES_REVIEW,true,조건부 모델 조립의 선택 규칙과 회전·UV lock을 월드에서 비교한다.,울타리의 기둥·연결부와 테이블 상판·다리의 기능은 다르다.,false,REVIEW_SCOPED_CANDIDATE
+C08,STORAGE,OPEN_SURFACE_SWAP,V05|V06|S20|S21,CANDIDATE_REQUIRES_REVIEW,true,열림의 표면 변화와 실제 개방 공간·충돌을 구분해 검증한다.,통의 로컬 up과 서랍의 로컬 north는 상태 회전 전 면 방향이다.,false,REVIEW_SCOPED_CANDIDATE
+C09,STORAGE,HANDLE_PART_COUNTEREXAMPLE,S20|S22|S23|S24|S25,SCOPE_LIMIT_ONLY,true,별도 손잡이 요소의 돌출 형상과 히트박스 반영 여부를 따로 확인한다.,모든 수납장에 단일 큐브 방식이나 독립 손잡이 방식을 적용할 근거는 없다.,false,RETAIN_NON_GENERALIZABLE_COUNTEREXAMPLE
+C10,SHELVING,SHARED_BOOKSHELF_PNG,V07|S28,CANDIDATE_REQUIRES_REVIEW,true,동일 PNG 원본의 SHA와 샘플링 UV를 함께 보존하고 본체 형상은 별도로 비교한다.,동일 PNG는 모델 조립이나 크롭 영역 전체의 일치를 뜻하지 않는다.,false,REVIEW_SCOPED_CANDIDATE
+C11,SHELVING,ZERO_THICKNESS_OVERLAY,V08|S27,CANDIDATE_REQUIRES_REVIEW,true,0두께 표면의 알파와 실제 가림·슬롯 표시를 구분한다.,슬롯의 시각·상호작용 효과와 선반의 빈 오버레이는 별개다.,false,REVIEW_SCOPED_CANDIDATE
+C12,SHELVING,BOOKSHELF_CONNECTION,S28|S29,CANDIDATE_REQUIRES_REVIEW,true,동일 PNG에 대해 연결 상태별 UV 배치와 월드 패턴 방향을 다시 확인한다.,요소 AABB와 로컬 면 방향을 포함한 정적 서명 기준이다.,false,REVIEW_SCOPED_CANDIDATE
+C13,SOFA_BENCH,CORNER_COUCH_LAYOUT,S33|S34|S35|S36,CANDIDATE_REQUIRES_REVIEW,true,독립형과 코너형의 요소 수 및 방향·UV 배치를 재현한다.,동일 PNG의 UV 배치까지 유지된다는 근거는 없다.,false,REVIEW_SCOPED_CANDIDATE
+C14,SOFA_BENCH,BENCH_BACK_AND_STAIR,V01|V02|S30|S31|S32,SCOPE_LIMIT_ONLY,true,소파와 벤치의 하위 유형을 구분하고 등받이 제거 및 연결 조건을 확인한다.,등받이 없는 판재와 좌대·등받이 조립을 동일한 소파 구성으로 묶을 근거는 없다.,false,RETAIN_NON_GENERALIZABLE_COUNTEREXAMPLE
+C15,BED,BED_SPECIAL_RENDER,V09|V11|S37|S38,SCOPE_LIMIT_ONLY,true,바닐라 특수 렌더의 월드·아이템 결과와 HC 두 칸 조립 관찰을 확보한 뒤 형상을 비교한다.,바닐라 양털은 표면 대조군이며 특수 렌더 침대의 월드 형상은 미확인이다.,false,RETAIN_NON_GENERALIZABLE_COUNTEREXAMPLE
+C16,BED,BED_FOOT_HEAD,S37|S38,CANDIDATE_REQUIRES_REVIEW,true,머리·발치 조립에서 겹치는 요소의 실제 표시·충돌을 확인한다.,두 상태의 원본 조립 범위이며 겹침·실제 표시와 배치 결과는 별도 검토한다.,false,REVIEW_SCOPED_CANDIDATE
+C17,KITCHEN,WATER_SURFACE_ADDITION,V12|V13|S42|S43,CANDIDATE_REQUIRES_REVIEW,true,물 추가 면과 시트의 프레임·tint 및 월드 수면 위치를 별도 확인한다.,정적 면 다중집합을 비교했다. 물 표면 위치·시트의 UV와 런타임 물 동작은 각각 다를 수 있다.,false,REVIEW_SCOPED_CANDIDATE
+C18,KITCHEN,COUNTER_FINISH,S39|S40,CANDIDATE_REQUIRES_REVIEW,true,다른 PNG 경로라도 크롭 화소가 같은 면을 구분하고 UV·RGBA 지문을 함께 검토한다.,다른 PNG 경로가 항상 다른 크롭 화소를 의미하지 않는다.,false,REVIEW_SCOPED_CANDIDATE
+C19,KITCHEN,COUNTER_TWO_PARTS,S39|S40|S41,CANDIDATE_REQUIRES_REVIEW,true,외곽과 요소 수를 비교하는 조건에 상판 두께·재질·UV를 별도 항목으로 둔다.,같은 개수와 외곽이어도 상판 두께·재질·UV는 모델마다 확인한다.,false,REVIEW_SCOPED_CANDIDATE
+C20,LIGHT_DECOR,LAMP_UV_AND_EMISSION,V14|S44|S45,SCOPE_LIMIT_ONLY,true,정적 UV·화소 변화와 광량 선언 및 월드 광량 전파를 구분한다.,광량·렌더 효과·발광 판정은 런타임 근거가 필요하다.,false,RETAIN_NON_GENERALIZABLE_COUNTEREXAMPLE
+C21,LIGHT_DECOR,PLANT_CONTAINER_SUBTYPES,V15|S46|S47,SCOPE_LIMIT_ONLY,true,화단 상자와 화분을 독립 하위 유형으로 유지하고 실제 내부·가림을 검증한다.,화단 상자와 화분을 동일 하위 유형으로 합치거나 빈 내부의 렌더를 판정할 근거는 없다.,false,RETAIN_NON_GENERALIZABLE_COUNTEREXAMPLE
