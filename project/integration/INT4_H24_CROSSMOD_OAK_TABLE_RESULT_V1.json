@@ -1,0 +1,288 @@
+{
+  "schema": "MCFR_INT4_H24_CROSSMOD_OAK_TABLE_SOURCE_V1",
+  "parent_H23_head": "07925fbee8758e64bbbfc532587eb035821c6c3a",
+  "source_blob_pins": {
+    "INT4_F70_MODELING_CONTRACT_CASE_REVIEW_V5.csv": "95ee0efa5dda895a8ce08e1291286e775d9a73dd",
+    "INT4_F70_MODELING_CONTRACT_SUMMARY_V5.json": "2c7092534d377cdbb5676fa3b96df2ef6b4615bd",
+    "INT4_H21_AF16_RELEASE_SOURCE_UV_RESULT_V1.json": "8b6ba58b0fcdd6f6681019dd1f8b58047c8b9d97",
+    "INT4_H22_HC_MACAW12_SOURCE_RESULT_V1.json": "b659e12153d0d2c12710bb4e24e236c934b06c14"
+  },
+  "research_scope": {
+    "verified_original_states": 6,
+    "paired_comparisons": 3,
+    "cohorts": [
+      "AF",
+      "HC",
+      "MACAW"
+    ],
+    "new_game_runs": 0,
+    "new_F2": 0,
+    "reuses_original_F2": true,
+    "not_claimed_as_equivalent_state": true
+  },
+  "cases": [
+    {
+      "target_id": "S14",
+      "cohort": "AF",
+      "minecraft_version": "1.21.1",
+      "block": "another_furniture:oak_table",
+      "source_applications": 5,
+      "source_elements": 13,
+      "source_faces": 42,
+      "source_uv_measured_faces": 42,
+      "documented_zero_uv_faces": 0,
+      "animated_source_faces": 0,
+      "original_f2_run_ids": "44986580186",
+      "original_f2_sha256s": "b6224049e63840d7810b7a2d7868aa3b557f999e844ba82177a8a506f438a4e4",
+      "modeling_status": "PASS_MODELING_SCOPE",
+      "legacy_unconditional_F": "false",
+      "INT5_meaning_approved": "false",
+      "INT6_rights_approved": "false",
+      "state": "facing=north;leg_1=true;leg_2=true;leg_3=true;leg_4=true",
+      "selected_model_paths": [
+        "assets/another_furniture/models/block/table/oak_leg.json",
+        "assets/another_furniture/models/block/table/oak_top.json"
+      ],
+      "provider_paths": [
+        "assets/another_furniture/models/block/template/table_leg.json",
+        "assets/another_furniture/models/block/template/table_top.json"
+      ],
+      "source_component_count": 10
+    },
+    {
+      "target_id": "S15",
+      "cohort": "AF",
+      "minecraft_version": "1.21.1",
+      "block": "another_furniture:oak_table",
+      "source_applications": 1,
+      "source_elements": 1,
+      "source_faces": 6,
+      "source_uv_measured_faces": 6,
+      "documented_zero_uv_faces": 0,
+      "animated_source_faces": 0,
+      "original_f2_run_ids": "44986580186",
+      "original_f2_sha256s": "a00c0636e1a07679386a94e15922bd0003dc1c70f8153b2eb94672b26aa31ce4",
+      "modeling_status": "PASS_MODELING_SCOPE",
+      "legacy_unconditional_F": "false",
+      "INT5_meaning_approved": "false",
+      "INT6_rights_approved": "false",
+      "state": "facing=north;leg_1=false;leg_2=false;leg_3=false;leg_4=false",
+      "selected_model_paths": [
+        "assets/another_furniture/models/block/table/oak_top.json"
+      ],
+      "provider_paths": [
+        "assets/another_furniture/models/block/template/table_top.json"
+      ],
+      "source_component_count": 7
+    },
+    {
+      "target_id": "S16",
+      "cohort": "HC",
+      "minecraft_version": "1.21.1",
+      "block": "handcrafted:oak_table",
+      "source_applications": 1,
+      "source_elements": 10,
+      "source_faces": 60,
+      "source_uv_measured_faces": 40,
+      "documented_zero_uv_faces": 20,
+      "animated_source_faces": 0,
+      "original_f2_run_ids": "44986580186",
+      "original_f2_sha256s": "effcbd0452968105fc3bd6806684f722ebac469cf7a8381e44db2712c81de1c4",
+      "modeling_status": "PASS_MODELING_SCOPE",
+      "legacy_unconditional_F": "false",
+      "INT5_meaning_approved": "false",
+      "INT6_rights_approved": "false",
+      "state": "color=none;shape=single;waterlogged=false",
+      "selected_model_paths": [
+        "assets/handcrafted/models/block/oak_table_single_none.json"
+      ],
+      "provider_paths": [
+        "assets/handcrafted/models/block/table/single.json"
+      ],
+      "source_component_count": 6
+    },
+    {
+      "target_id": "S17",
+      "cohort": "HC",
+      "minecraft_version": "1.21.1",
+      "block": "handcrafted:oak_table",
+      "source_applications": 1,
+      "source_elements": 2,
+      "source_faces": 12,
+      "source_uv_measured_faces": 8,
+      "documented_zero_uv_faces": 4,
+      "animated_source_faces": 0,
+      "original_f2_run_ids": "44986580186",
+      "original_f2_sha256s": "0b720c227dad8d69e0cc0d6c6c3916002b32becaa84bd2268e5f21431d72c7f3",
+      "modeling_status": "PASS_MODELING_SCOPE",
+      "legacy_unconditional_F": "false",
+      "INT5_meaning_approved": "false",
+      "INT6_rights_approved": "false",
+      "state": "color=none;shape=center;waterlogged=false",
+      "selected_model_paths": [
+        "assets/handcrafted/models/block/oak_table_center_none.json"
+      ],
+      "provider_paths": [
+        "assets/handcrafted/models/block/table/center.json"
+      ],
+      "source_component_count": 6
+    },
+    {
+      "target_id": "S18",
+      "cohort": "MACAW",
+      "minecraft_version": "1.21.11",
+      "block": "mcwfurnitures:oak_table",
+      "source_applications": 1,
+      "source_elements": 6,
+      "source_faces": 31,
+      "source_uv_measured_faces": 31,
+      "documented_zero_uv_faces": 0,
+      "animated_source_faces": 0,
+      "original_f2_run_ids": "44923726837",
+      "original_f2_sha256s": "7a38fc91b1697f8fe6d471a6cfa3d4affeb0749b8ff0547a9040109daf012625",
+      "modeling_status": "PASS_MODELING_SCOPE",
+      "legacy_unconditional_F": "false",
+      "INT5_meaning_approved": "false",
+      "INT6_rights_approved": "false",
+      "state": "east=false;north=false;south=false;west=false",
+      "selected_model_paths": [
+        "assets/mcwfurnitures/models/block/table/oak_table_single.json"
+      ],
+      "provider_paths": [
+        "assets/mcwfurnitures/models/block/parent/table_single.json"
+      ],
+      "source_component_count": 4
+    },
+    {
+      "target_id": "S19",
+      "cohort": "MACAW",
+      "minecraft_version": "1.21.11",
+      "block": "mcwfurnitures:oak_table",
+      "source_applications": 1,
+      "source_elements": 1,
+      "source_faces": 6,
+      "source_uv_measured_faces": 6,
+      "documented_zero_uv_faces": 0,
+      "animated_source_faces": 0,
+      "original_f2_run_ids": "44923726837",
+      "original_f2_sha256s": "735077f700bd69dc6ce3c66a93ed3fbd6cde3c19638cd05f8e329cbe47b93455",
+      "modeling_status": "PASS_MODELING_SCOPE",
+      "legacy_unconditional_F": "false",
+      "INT5_meaning_approved": "false",
+      "INT6_rights_approved": "false",
+      "state": "east=true;north=true;south=true;west=true",
+      "selected_model_paths": [
+        "assets/mcwfurnitures/models/block/table/oak_table_center.json"
+      ],
+      "provider_paths": [
+        "assets/mcwfurnitures/models/block/parent/table_center.json"
+      ],
+      "source_component_count": 4
+    }
+  ],
+  "within_mod_comparisons": [
+    {
+      "cohort": "AF",
+      "block": "another_furniture:oak_table",
+      "more_geometry_case": "S14",
+      "less_geometry_case": "S15",
+      "changed_state_keys": [
+        "leg_1",
+        "leg_2",
+        "leg_3",
+        "leg_4"
+      ],
+      "more_geometry_state_values": {
+        "leg_1": "true",
+        "leg_2": "true",
+        "leg_3": "true",
+        "leg_4": "true"
+      },
+      "less_geometry_state_values": {
+        "leg_1": "false",
+        "leg_2": "false",
+        "leg_3": "false",
+        "leg_4": "false"
+      },
+      "selected_model_delta": {
+        "source_applications": 4,
+        "source_elements": 12,
+        "source_faces": 36,
+        "source_uv_measured_faces": 36,
+        "documented_zero_uv_faces": 0
+      }
+    },
+    {
+      "cohort": "HC",
+      "block": "handcrafted:oak_table",
+      "more_geometry_case": "S16",
+      "less_geometry_case": "S17",
+      "changed_state_keys": [
+        "shape"
+      ],
+      "more_geometry_state_values": {
+        "shape": "single"
+      },
+      "less_geometry_state_values": {
+        "shape": "center"
+      },
+      "selected_model_delta": {
+        "source_applications": 0,
+        "source_elements": 8,
+        "source_faces": 48,
+        "source_uv_measured_faces": 32,
+        "documented_zero_uv_faces": 16
+      }
+    },
+    {
+      "cohort": "MACAW",
+      "block": "mcwfurnitures:oak_table",
+      "more_geometry_case": "S18",
+      "less_geometry_case": "S19",
+      "changed_state_keys": [
+        "east",
+        "north",
+        "south",
+        "west"
+      ],
+      "more_geometry_state_values": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "west": "false"
+      },
+      "less_geometry_state_values": {
+        "east": "true",
+        "north": "true",
+        "south": "true",
+        "west": "true"
+      },
+      "selected_model_delta": {
+        "source_applications": 0,
+        "source_elements": 5,
+        "source_faces": 25,
+        "source_uv_measured_faces": 25,
+        "documented_zero_uv_faces": 0
+      }
+    }
+  ],
+  "strict_legacy_F70": {
+    "conditional": 70,
+    "unconditional": 0,
+    "H03": "HOLD",
+    "H05": "CONDITIONAL",
+    "INT5": 0,
+    "INT6": 0
+  },
+  "interpretation": [
+    "Same oak_table lexical ID does not identify interchangeable models or state properties.",
+    "AF legs, HC shape, and Macaw cardinal neighbor connections select different model structures.",
+    "Only pinned exact original source face-UV, selected state and F2 identities are compared."
+  ],
+  "limitations": [
+    "No cross-mod pixel correspondence or same-camera equivalence is established.",
+    "No new client captures, exact GPU texel-to-pixel claim, semantic/INT5 or IP/INT6 approval.",
+    "Different MC and mod releases prevent treating measured states as direct visual substitutes.",
+    "The H24 six-case subset does not change the 70/70 V5 modeling scope denominator."
+  ]
+}
