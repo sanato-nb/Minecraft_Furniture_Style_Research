@@ -30,7 +30,7 @@ class H27OfficialAdornMojangRotation(unittest.TestCase):
     def test_parent_H26_sources_are_exactly_pinned(self):
         self.assertEqual(len(self.h26result["five_model_unique_source_faces"]), 139)
         self.assertEqual(self.h26result["counts"]["state_weighted_original_mojang_default_uv"], 400)
-        self.assertEqual(self.h26result["counts"]["state_weighted_source_faces"], 656)
+        self.assertEqual(self.h26result["counts"]["state_weighted_face_records"], 656)
         self.assertEqual(self.h26result["preserved_approvals"]["strict_F70_unconditional"], 0)
 
     def test_adorn_five_original_models_have_29_distinct_elements(self):
