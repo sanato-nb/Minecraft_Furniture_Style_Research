@@ -1,0 +1,76 @@
+name: INT-4 F70 modeling scope and legacy contract independent review
+
+on:
+  push:
+    branches:
+      - work/int4-f70-modeling-contract-review-20261124
+    paths:
+      - src/mcfr/int4_f70_modeling_contract_review.py
+      - tests/knowledge/test_int4_f70_modeling_contract_review.py
+      - .github/workflows/integration-int4-f70-modeling-contract-review.yml
+      - project/integration/INT4_F70_MODELING_CONTRACT_CASE_REVIEW_V1.csv
+      - project/integration/INT4_F70_MODELING_CONTRACT_SUMMARY_V1.json
+  pull_request:
+    paths:
+      - src/mcfr/int4_f70_modeling_contract_review.py
+      - tests/knowledge/test_int4_f70_modeling_contract_review.py
+      - .github/workflows/integration-int4-f70-modeling-contract-review.yml
+      - project/integration/INT4_F70_MODELING_CONTRACT_CASE_REVIEW_V1.csv
+      - project/integration/INT4_F70_MODELING_CONTRACT_SUMMARY_V1.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  modeling_scope:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fail-closed modeling scope and source drift negative tests
+        run: |
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f70_modeling_contract_review.py' -v
+      - name: Reopen frozen case, model, geometry, UV, animation and real-F2 evidence ledgers
+        run: |
+          python -m mcfr.int4_f70_modeling_contract_review --root . --out "$RUNNER_TEMP/f70-modeling-review"
+          git diff --check
+      - name: Recheck 70 case assignments, all prior nonapprovals and derived deterministic outputs
+        run: |
+          python - <<'PY'
+          import json,os,csv
+          from pathlib import Path
+          src=Path(os.environ["RUNNER_TEMP"])/"f70-modeling-review"
+          result=json.loads((src/"INT4_F70_MODELING_CONTRACT_SUMMARY_V1.json").read_text(encoding="utf-8"))
+          rs=list(csv.DictReader((src/"INT4_F70_MODELING_CONTRACT_CASE_REVIEW_V1.csv").open(encoding="utf-8")))
+          assert len(rs)==len({r["target_id"] for r in rs})==70
+          assert all(r["legacy_unconditional_F"]==r["runtime_GPU_per_face_approved"]==r["INT5_meaning_approved"]==r["INT6_rights_approved"]=="false" for r in rs)
+          assert result["legacy_F70"]=={"conditional":70,"unconditional":0,"H03":"HOLD","H05":"CONDITIONAL","INT5":0,"INT6":0}
+          assert result["historical_modeling"]["denominator"]==62 and result["risk_question_scope"]["denominator"]==8
+          assert result["reconciled_source"]["new_game_runs"]==result["reconciled_source"]["new_F2"]==0
+          for name in ("INT4_F70_MODELING_CONTRACT_SUMMARY_V1.json","INT4_F70_MODELING_CONTRACT_CASE_REVIEW_V1.csv"):
+              existing=Path("project/integration")/name
+              if existing.exists():
+                  assert existing.read_bytes()==(src/name).read_bytes(),("persisted result differs",name)
+          print("F70_MODELLING_CONTRACT_REVIEW_VERIFIED_NOT_LEGACY_F_GATE")
+          print("F70_MODELING_ROW_REVIEW_START")
+          for r in rs:
+              print(json.dumps(r,ensure_ascii=False,separators=(",",":")))
+          print("F70_MODELING_ROW_REVIEW_END")
+          print("F70_MODELING_SUMMARY_START")
+          print(json.dumps(result,ensure_ascii=False,separators=(",",":")))
+          print("F70_MODELING_SUMMARY_END")
+          PY
+      - name: Preserve only derived case decisions and summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-f70-modeling-contract-review-derived
+          retention-days: 45
+          path: ${{ runner.temp }}/f70-modeling-review
+          if-no-files-found: error
