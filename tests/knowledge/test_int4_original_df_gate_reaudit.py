@@ -1,7 +1,9 @@
 """Fail-closed regression controls for immutable INT-4 original D/F contracts."""
 import copy
 import json
+import tempfile
 import unittest
+from pathlib import Path
 from mcfr import int4_original_df_gate_reaudit as d
 
 
@@ -73,6 +75,18 @@ class OriginalDFGates(unittest.TestCase):
         bad["blockstates/birch_chair.json"] = json.dumps(obj)
         with self.assertRaisesRegex(ValueError, "source variant3->1 mismatch"):
             d.adjudicate(self.original, bad, self.proof)
+
+    def test_70_full_exit_case_blocker_csv_recomputed_and_mutation_rejected(self):
+        result = d.adjudicate(self.original, self.source, self.proof)
+        self.assertEqual(len(d.blocker_rows(result)), 70)
+        d.verify_blocker_csv(result)
+        old = d.CASE_CSV.read_text(encoding="utf-8")
+        self.assertIn("R01", old)
+        with tempfile.TemporaryDirectory() as td:
+            p = Path(td) / "bad.csv"
+            p.write_text(old.replace("R01", "NOT_R01", 1), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "!="):
+                d.verify_blocker_csv(result, p)
 
     def test_whole_registry_absence_not_inferred_from_one_class(self):
         result = d.adjudicate(self.original, self.source, self.proof)
