@@ -1,0 +1,128 @@
+name: INT-4 H20 V11 official bed mesh and UV
+
+on:
+  push:
+    branches:
+      - work/int4-h20-v11-bed-model-mesh-uv-20261124
+    paths:
+      - src/mcfr/int4_h20_v11_bed_mesh_uv.py
+      - tools/research/H20BedMeshProbe.java
+      - tools/research/H20BedPoseMaterialProbe.java
+      - src/mcfr/int4_h20_v11_bed_pose_material.py
+      - src/mcfr/int4_h20_modeling_delta.py
+      - project/integration/INT4_F70_MODELING_CONTRACT_CASE_REVIEW_V2.csv
+      - project/integration/INT4_F70_MODELING_CONTRACT_SUMMARY_V2.json
+      - project/integration/INT4_H20_V11_BED_POSE_MATERIAL_RESULT_V1.json
+      - tests/knowledge/test_int4_h20_v11_bed_mesh_uv.py
+      - .github/workflows/integration-int4-h20-v11-bed-mesh-uv.yml
+      - project/integration/INT4_H20_V11_BED_MESH_UV_RESULT_V1.json
+  pull_request:
+    paths:
+      - src/mcfr/int4_h20_v11_bed_mesh_uv.py
+      - tools/research/H20BedMeshProbe.java
+      - tools/research/H20BedPoseMaterialProbe.java
+      - src/mcfr/int4_h20_v11_bed_pose_material.py
+      - src/mcfr/int4_h20_modeling_delta.py
+      - project/integration/INT4_F70_MODELING_CONTRACT_CASE_REVIEW_V2.csv
+      - project/integration/INT4_F70_MODELING_CONTRACT_SUMMARY_V2.json
+      - project/integration/INT4_H20_V11_BED_POSE_MATERIAL_RESULT_V1.json
+      - tests/knowledge/test_int4_h20_v11_bed_mesh_uv.py
+      - .github/workflows/integration-int4-h20-v11-bed-mesh-uv.yml
+      - project/integration/INT4_H20_V11_BED_MESH_UV_RESULT_V1.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bed_mesh_uv:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 17
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Retrieve Mojang 1.21.11 source-pinned official client and mappings
+        timeout-minutes: 9
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fLsS --retry 3 --retry-all-errors --max-time 120 \
+            'https://piston-meta.mojang.com/v1/packages/a969d96978af7b52dba8df44e177f48ec4ebe0d8/1.21.11.json' \
+            -o "$RUNNER_TEMP/h20-1.21.11-version.json"
+          python - <<'PY'
+          import hashlib, json, os, pathlib, subprocess
+          root=pathlib.Path(os.environ["RUNNER_TEMP"])
+          version_bytes=(root/"h20-1.21.11-version.json").read_bytes()
+          assert hashlib.sha1(version_bytes).hexdigest()=="a969d96978af7b52dba8df44e177f48ec4ebe0d8"
+          meta=json.loads(version_bytes)
+          assert meta["id"]=="1.21.11"
+          for kind,filename in (
+              ("client","h20-1.21.11-client.jar"),
+              ("client_mappings","h20-1.21.11-client-mappings.txt"),
+          ):
+              item=meta["downloads"][kind]
+              target=root/filename
+              subprocess.run(["curl","-fLsS","--retry","3","--retry-all-errors",
+                              "--max-time","360",item["url"],"-o",str(target)],check=True)
+              actual=hashlib.sha1(target.read_bytes()).hexdigest()
+              assert actual==item["sha1"],(kind,actual,item["sha1"])
+              print("OFFICIAL_MOJANG_PINNED_DOWNLOAD_PASS",kind,target.stat().st_size,flush=True)
+          assert hashlib.sha1((root/"h20-1.21.11-client.jar").read_bytes()).hexdigest()=="ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd"
+          assert hashlib.sha256((root/"h20-1.21.11-client.jar").read_bytes()).hexdigest()=="1473c9489ac50fda3c435049a76a70d61a10b8610db27f5ba9d8756b686cd3bd"
+          PY
+      - name: Execute original Minecraft model factories and bake source meshes in isolated JVM
+        timeout-minutes: 8
+        run: |
+          python -m mcfr.int4_h20_v11_bed_mesh_uv \
+            --version-json "$RUNNER_TEMP/h20-1.21.11-version.json" \
+            --official-client "$RUNNER_TEMP/h20-1.21.11-client.jar" \
+            --client-mappings "$RUNNER_TEMP/h20-1.21.11-client-mappings.txt" \
+            --output "$RUNNER_TEMP/h20-derived/INT4_H20_V11_BED_MESH_UV_RESULT_V1.json"
+          python - <<'PY'
+          import json,pathlib,os
+          d=pathlib.Path(os.environ["RUNNER_TEMP"])/"h20-derived/INT4_H20_V11_BED_MESH_UV_RESULT_V1.json"
+          r=json.loads(d.read_text())
+          assert r["isolated_original_JVM_model_bake"] and r["counts"]=={"root_parts":2,"child_parts":6,"cubes":6,"polygons":36,"vertices":144}
+          assert r["new_game_runs"]==0 and r["legacy_F70_unconditional"]==0
+          p=pathlib.Path("project/integration/INT4_H20_V11_BED_MESH_UV_RESULT_V1.json")
+          if p.exists(): assert json.loads(p.read_text())==r
+          print("H20_DERIVED_JSON_START")
+          print(json.dumps(r,sort_keys=True,separators=(",",":")))
+          print("H20_DERIVED_JSON_END")
+          PY
+      - name: Execute official block orientation and white bed material lookup in isolated JVM
+        timeout-minutes: 8
+        run: |
+          python -m mcfr.int4_h20_v11_bed_pose_material \
+            --version-json "$RUNNER_TEMP/h20-1.21.11-version.json" \
+            --official-client "$RUNNER_TEMP/h20-1.21.11-client.jar" \
+            --client-mappings "$RUNNER_TEMP/h20-1.21.11-client-mappings.txt" \
+            --output "$RUNNER_TEMP/h20-derived/INT4_H20_V11_BED_POSE_MATERIAL_RESULT_V1.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ["RUNNER_TEMP"])/"h20-derived/INT4_H20_V11_BED_POSE_MATERIAL_RESULT_V1.json"
+          a=json.loads(p.read_text())
+          old=Path("project/integration/INT4_H20_V11_BED_POSE_MATERIAL_RESULT_V1.json")
+          if old.exists(): assert json.loads(old.read_text())==a
+          assert a["world_vertex_count"]==576 and a["modeling_V11_scope_evidence_complete"]
+          assert a["new_game_runs"]==a["legacy_F70_unconditional"]==0
+          PY
+      - name: Verify V11-only modeling gate promotion without changing legacy F70
+        run: python -m mcfr.int4_h20_modeling_delta
+      - name: Save numeric derived geometry and UV only
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h20-v11-bed-mesh-uv-derived
+          retention-days: 45
+          path: ${{ runner.temp }}/h20-derived
+          if-no-files-found: error
