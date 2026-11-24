@@ -1,0 +1,98 @@
+name: INT-4 H20 V11 official bed mesh and UV
+
+on:
+  push:
+    branches:
+      - work/int4-h20-v11-bed-model-mesh-uv-20261124
+    paths:
+      - src/mcfr/int4_h20_v11_bed_mesh_uv.py
+      - tests/knowledge/test_int4_h20_v11_bed_mesh_uv.py
+      - .github/workflows/integration-int4-h20-v11-bed-mesh-uv.yml
+      - project/integration/INT4_H20_V11_BED_MESH_UV_RESULT_V1.json
+  pull_request:
+    paths:
+      - src/mcfr/int4_h20_v11_bed_mesh_uv.py
+      - tests/knowledge/test_int4_h20_v11_bed_mesh_uv.py
+      - .github/workflows/integration-int4-h20-v11-bed-mesh-uv.yml
+      - project/integration/INT4_H20_V11_BED_MESH_UV_RESULT_V1.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bed_mesh_uv:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 17
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Retrieve Mojang 1.21.11 source-pinned official client and mappings
+        timeout-minutes: 9
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fLsS --retry 3 --retry-all-errors --max-time 120 \
+            'https://piston-meta.mojang.com/v1/packages/a969d96978af7b52dba8df44e177f48ec4ebe0d8/1.21.11.json' \
+            -o "$RUNNER_TEMP/h20-1.21.11-version.json"
+          python - <<'PY'
+          import hashlib, json, os, pathlib, subprocess
+          root=pathlib.Path(os.environ["RUNNER_TEMP"])
+          version_bytes=(root/"h20-1.21.11-version.json").read_bytes()
+          assert hashlib.sha1(version_bytes).hexdigest()=="a969d96978af7b52dba8df44e177f48ec4ebe0d8"
+          meta=json.loads(version_bytes)
+          assert meta["id"]=="1.21.11"
+          for kind,filename in (
+              ("client","h20-1.21.11-client.jar"),
+              ("client_mappings","h20-1.21.11-client-mappings.txt"),
+          ):
+              item=meta["downloads"][kind]
+              target=root/filename
+              subprocess.run(["curl","-fLsS","--retry","3","--retry-all-errors",
+                              "--max-time","360",item["url"],"-o",str(target)],check=True)
+              actual=hashlib.sha1(target.read_bytes()).hexdigest()
+              assert actual==item["sha1"],(kind,actual,item["sha1"])
+              print("OFFICIAL_MOJANG_PINNED_DOWNLOAD_PASS",kind,target.stat().st_size,flush=True)
+          assert hashlib.sha1((root/"h20-1.21.11-client.jar").read_bytes()).hexdigest()=="ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd"
+          assert hashlib.sha256((root/"h20-1.21.11-client.jar").read_bytes()).hexdigest()=="1473c9489ac50fda3c435049a76a70d61a10b8610db27f5ba9d8756b686cd3bd"
+          PY
+      - name: Inspect exact mapped geometry factory and model builder signatures
+        run: |
+          python - <<'PY'
+          import os,re,pathlib
+          from mcfr import int4_h18_v11_bed_renderer_bytecode as h
+          root=pathlib.Path(os.environ["RUNNER_TEMP"])
+          j=root/"h20-1.21.11-client.jar"
+          m=root/"h20-1.21.11-client-mappings.txt"
+          print(h.version_preflight((root/"h20-1.21.11-version.json").read_bytes(),j.read_bytes(),m.read_bytes()))
+          raw=m.read_text()
+          classes=h.parse_class_mappings(raw)
+          for name,obf in classes.items():
+              if name.endswith(("BedRenderer","BedModel","BedHeadModel","BedFootModel","CubeListBuilder","CubeDefinition","LayerDefinition","PartDefinition","PartPose","ModelPart$Cube","ModelPart$Polygon","ModelPart$Vertex","Material","Sheets")) and (".client." in name):
+                  print("CLASS",name,obf)
+                  section=raw.split(name+" -> "+obf+":",1)[1].split("\n")
+                  for line in section[1:]:
+                      if line and not line.startswith((" ","#")): break
+                      if line.startswith("    ") and any(k in line.lower() for k in ("bed","create","bake","tex","box","child","offset","rotation","polygon","vertex","mirror","material","layer","render","part")):
+                          print("MAPPED",line.strip())
+          for name,obf in classes.items():
+              if name.endswith(("BedRenderer","BedModel","BedHeadModel","BedFootModel")) and ".client." in name:
+                  print("GEOMETRY_OWNER",name,obf)
+                  # Print only method headers and selected structural operations,
+                  # not an entire disassembly or copied asset.
+                  lines=h.javap_output(j,obf).splitlines()
+                  for line in lines:
+                      if re.match(r"^  (public|private|protected|static)",line):
+                          print("METHOD",line.strip())
+                      elif re.match(r"^\s+\d+: ",line) and any(t in line for t in ("invoke","ldc","bipush","sipush","fconst","iconst","getstatic","putfield","new ")):
+                          print("OP",line.strip())
+          PY
