@@ -46,7 +46,7 @@ Mojang ProGuard 매핑의 필드 선언에는 수식어가 없으므로, 매핑�
 
 ## 5. 완료와 남은 연구 경계
 
-**H19 범위 통과:** 원본 Mojang 1.21.11 `BlockEntityType.BED` 정적 필드 → 특정 `BedRenderer.<init>` bootstrap #17 → 등록 코드 순서가 정확히 확인됨. 별도 최신 검사에서 영구 원장과 공식 원본 재계산 내용이 일치해야 최종 기록한다.
+**H19 범위 통과:** 원본 Mojang 1.21.11 `BlockEntityType.BED` 정적 필드 → 특정 `BedRenderer.<init>` bootstrap #17 → 등록 코드 순서가 정확히 확인됨. [최종 Git 원장 대 공식 원본 전체 재계산 Actions #45327458960](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45327458960)에서도 **13/13 단위시험, 공식 원본 해시, BED 등록 코드, 파생 JSON 원장 전 필드 1:1 일치 검증 모두 성공**했다.
 
 **아직 미승인:** 이전 실게임 V11 F2 촬영 중 **실제 JVM BedRenderer.render 호출 계측**(이번에는 새로운 게임 실행 없음), BedRenderer 생성 모델의 개별 파트 3D 기하·면별 UV 좌표, 원본 텍셀 → GPU 출력 화면 픽셀의 일대일 인과, 게임플레이 수면·파괴·충돌, 가구 의미·학습 및 재배포 권리.
 
