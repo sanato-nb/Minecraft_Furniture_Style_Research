@@ -1,3 +1,5 @@
+package mcfrprobe;
+
 // H20 isolated official model-layer baking probe (no game, no render context).
 // Names supplied from SHA-pinned Mojang mapping. Do not patch original classes.
 import java.lang.reflect.*;
