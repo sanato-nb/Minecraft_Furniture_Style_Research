@@ -1,0 +1,120 @@
+{
+  "schema": "MCFR_INT4_H17_AF_DRAWER_ORIGINAL_PARENT_FACE_UV_TEXEL_RESEARCH_V1",
+  "status": "PASS_SCOPED_ORIGINAL_RELEASE_STATIC_MODEL_UV_AND_COLOR_TEXELS",
+  "upstream_pr": 97,
+  "h17_pr": 98,
+  "official_release": {
+    "name": "Another Furniture Fabric 4.0.2",
+    "jar_sha1": "c2f992081bdc4795ed6d87771a3b5f7c71103785"
+  },
+  "native_F2_reference": {
+    "run_id": 45251124211,
+    "case_ids": [
+      "S20",
+      "S21"
+    ],
+    "screenshots": 2,
+    "changed_screen_pixels_rgb24": 1208,
+    "source": "project/integration/INT4_H03_H05_S20_S21_REAL_NORTH_F2_RESULT_V1.json",
+    "new_execution_for_h17": 0
+  },
+  "actual_H17_actions": {
+    "run_id": 45320157848,
+    "conclusion": "success",
+    "source_commit": "3220ca220407d8754abd9e67a60fff3fb857b405",
+    "unit_tests_passed": 9,
+    "artifact_id": 14886494724,
+    "derived_only_zip_sha256": "6818e95873b621445410356fd1dc981ed34881fad1cb6cc838bff9cdc9084c84",
+    "zip_crc_pass": true
+  },
+  "original_blockstate": {
+    "path": "assets/another_furniture/blockstates/oak_drawer.json",
+    "canonical_json_sha256": "e648f500b836595477cf5271b27badd7a6857c4d20e1ac03bb18125e4bf1eedf"
+  },
+  "s20": {
+    "selector": "facing=north,open=false",
+    "leaf": "another_furniture:block/drawer/oak",
+    "elements": 1,
+    "faces": 6,
+    "parent_minecraft_not_opened": "minecraft:block/block",
+    "geometry_provider": "assets/another_furniture/models/block/template/drawer.json",
+    "model_source_chain": [
+      {
+        "path": "assets/another_furniture/models/block/template/drawer.json",
+        "sha256": "0f8b70cff1f722d34e0fbeacd6c107428f9fb30911c5b31e285e6f0fc202506f"
+      },
+      {
+        "path": "assets/another_furniture/models/block/drawer/oak.json",
+        "sha256": "52629e833f8c9a66d0c7c5453b548f9fb611d360364ea3ab0300ba108b1c4c67"
+      }
+    ]
+  },
+  "s21": {
+    "selector": "facing=north,open=true",
+    "leaf": "another_furniture:block/drawer/oak_open",
+    "elements": 1,
+    "faces": 6,
+    "parent_minecraft_not_opened": "minecraft:block/block",
+    "geometry_provider": "assets/another_furniture/models/block/template/drawer.json",
+    "model_source_chain": [
+      {
+        "path": "assets/another_furniture/models/block/template/drawer.json",
+        "sha256": "0f8b70cff1f722d34e0fbeacd6c107428f9fb30911c5b31e285e6f0fc202506f"
+      },
+      {
+        "path": "assets/another_furniture/models/block/drawer/oak.json",
+        "sha256": "52629e833f8c9a66d0c7c5453b548f9fb611d360364ea3ab0300ba108b1c4c67"
+      },
+      {
+        "path": "assets/another_furniture/models/block/drawer/oak_open.json",
+        "sha256": "a70086f68568519f457b27e3ffe9aac2596378b19ddb872e7cdda888a12bfd76"
+      }
+    ]
+  },
+  "differential_source": {
+    "same_elements": true,
+    "same_face_uv": true,
+    "changed_texture_slot": "front",
+    "changed_face_count": 1,
+    "element_index": 0,
+    "face_direction": "north",
+    "face_uv": [
+      0,
+      0,
+      16,
+      16
+    ],
+    "face_uv_rotation": 0,
+    "closed_texture": {
+      "path": "assets/another_furniture/textures/block/drawer/oak_front.png",
+      "sha256": "d35ccb907f9bdc8167a5cd662e14ebe8dc761c7ab95148a77914ecd5a6eec391"
+    },
+    "open_texture": {
+      "path": "assets/another_furniture/textures/block/drawer/oak_front_open.png",
+      "sha256": "8421fd0bd80d188b2f368ff04850c80582a079381df6e4bb5d50ff511f9b899b"
+    },
+    "size": [
+      16,
+      16
+    ],
+    "rgba_changed_texels": 60,
+    "alpha_changed_texels": 0,
+    "rgb_only_changed_texels": 60,
+    "changed_texels_in_explicit_face_uv": 60,
+    "changed_texels_outside_uv": 0
+  },
+  "gates": {
+    "H03": "HOLD",
+    "H05": "CONDITIONAL",
+    "F70_conditional": 70,
+    "F70_unconditional": 0,
+    "INT5_semantics_approved": 0,
+    "INT6_training_redistribution_rights_approved": 0,
+    "exact_gpu_face_uv_texel_to_screen_pixels_approved": false
+  },
+  "limits": [
+    "Official mod JAR geometry/model/PNG content was inspected; builtin minecraft:block/block parent data was not directly opened.",
+    "16x16 full-face UV and 60 texture changes are source/static facts; the independent 1208 screen-pixel comparison was verified previously by #97, not captured again.",
+    "No source JAR, texture PNG or modified game byte assets committed. Only reproducible analytical code and derived metadata."
+  ]
+}
