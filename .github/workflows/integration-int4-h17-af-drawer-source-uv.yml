@@ -7,11 +7,13 @@ on:
     paths:
       - src/mcfr/int4_h17_af_drawer_parent_face_uv.py
       - tests/knowledge/test_int4_h17_af_drawer_parent_face_uv.py
+      - project/integration/INT4_H17_AF_DRAWER_ORIGINAL_PARENT_FACE_UV_TEXEL_RESEARCH_V1.json
       - .github/workflows/integration-int4-h17-af-drawer-source-uv.yml
   pull_request:
     paths:
       - src/mcfr/int4_h17_af_drawer_parent_face_uv.py
       - tests/knowledge/test_int4_h17_af_drawer_parent_face_uv.py
+      - project/integration/INT4_H17_AF_DRAWER_ORIGINAL_PARENT_FACE_UV_TEXEL_RESEARCH_V1.json
       - .github/workflows/integration-int4-h17-af-drawer-source-uv.yml
   workflow_dispatch:
 
@@ -72,6 +74,37 @@ jobs:
           print("H17_ORIGINAL_FACE_UV_TEXEL_STATIC_SOURCE",d["changed_faces"])
           PY
           git diff --check
+      - name: Compare the original JAR derivation with the persisted H17 knowledge ledger
+        run: |
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          led=json.loads(Path("project/integration/INT4_H17_AF_DRAWER_ORIGINAL_PARENT_FACE_UV_TEXEL_RESEARCH_V1.json").read_text(encoding="utf-8"))
+          actual=json.loads((Path(os.environ["RUNNER_TEMP"])/"h17-source-face-uv/INT4_H17_AF_DRAWER_ORIGINAL_PARENT_FACE_UV_TEXEL_AUDIT_V1.json").read_text(encoding="utf-8"))
+          assert actual["official_AF_402_release_sha1"]==led["official_release"]["jar_sha1"]
+          assert actual["original_blockstate_sha256"]==led["original_blockstate"]["canonical_json_sha256"]
+          assert actual["changed_face_count"]==led["differential_source"]["changed_face_count"]==1
+          assert actual["changed_faces"][0]["element"]==led["differential_source"]["element_index"]==0
+          assert actual["changed_faces"][0]["direction"]==led["differential_source"]["face_direction"]=="north"
+          assert actual["changed_faces"][0]["uv"]==led["differential_source"]["face_uv"]==[0,0,16,16]
+          assert actual["changed_faces"][0]["uv_rotation"]==led["differential_source"]["face_uv_rotation"]==0
+          assert actual["front_png_changed_rgba_texels"]==led["differential_source"]["rgba_changed_texels"]==60
+          assert actual["front_png_changed_alpha_texels"]==led["differential_source"]["alpha_changed_texels"]==0
+          assert actual["changed_png_texels_inside_explicit_front_face_uv_union"]==led["differential_source"]["changed_texels_in_explicit_face_uv"]==60
+          for key in ("S20","S21"):
+              case=key.lower()
+              assert actual["source_cases"][key]["element_count"]==led[case]["elements"]==1
+              assert actual["source_cases"][key]["face_count"]==led[case]["faces"]==6
+              assert actual["source_cases"][key]["geometry_provider"]==led[case]["geometry_provider"]
+              assert actual["source_cases"][key]["source_chain"]==led[case]["model_source_chain"]
+              assert actual["source_cases"][key]["external_vanilla_parent_not_opened"]==led[case]["parent_minecraft_not_opened"]
+              assert actual["front_png_sources"][key]["path"]==led["differential_source"]["closed_texture" if key=="S20" else "open_texture"]["path"]
+              assert actual["front_png_sources"][key]["sha256"]==led["differential_source"]["closed_texture" if key=="S20" else "open_texture"]["sha256"]
+          assert actual["prior_exact_game_run"]==led["native_F2_reference"]["run_id"]==45251124211
+          assert not actual["pixel_to_GPU_face_UV_texel_exact_causal_approved"]
+          assert led["gates"]["F70_unconditional"]==0 and not led["gates"]["exact_gpu_face_uv_texel_to_screen_pixels_approved"]
+          print("H17_PINNED_ORIGINAL_JAR_DERIVATION_MATCHES_GIT_RESEARCH_LEDGER")
+          PY
       - name: Retain only derived research evidence; exclude original JAR and PNG
         if: always()
         uses: actions/upload-artifact@v4
