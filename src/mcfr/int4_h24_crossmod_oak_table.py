@@ -102,8 +102,7 @@ def reconcile(h21: dict, h22: dict, ledger: list[dict], summary: dict) -> dict:
         for target in ids:
             raw = source["cases"][target]
             row = by_id[target]
-            require(raw["block"] == row["block"] and raw["state"] == row["block"] * 0 + raw["state"],
-                    "block/state source field is invalid")
+            require(raw["block"] == row["block"], "block source field mismatches V5")
             require(raw["block"].split(":")[0] == COHORT_NS[cohort],
                     "wrong source namespace for " + target)
             require(row["cohort"] == cohort and row["minecraft_version"] == COHORT_MINECRAFT[cohort],
