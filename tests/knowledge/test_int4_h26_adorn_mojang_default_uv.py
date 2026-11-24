@@ -2,6 +2,7 @@
 from collections import Counter
 import copy
 import json
+import tempfile
 from pathlib import Path
 import unittest
 
@@ -96,6 +97,38 @@ class H26OriginalMojangUV(unittest.TestCase):
         self.assertIn("uv.invoke(null, from, to, enumerations.get(face))", source)
         self.assertNotIn("bakeQuad", source)
         self.assertNotIn("renderMinecraftClientFrame", source)
+
+    def test_real_jvm_recorded_139_unique_face_uvs_offline(self):
+        saved = json.loads(h.OUT.read_text(encoding="utf-8"))
+        self.assertEqual(saved["counts"]["source_unique_faces"], 139)
+        self.assertEqual(saved["counts"]["source_unique_mojang_default_uv_faces"], 107)
+        self.assertEqual(saved["counts"]["state_weighted_original_mojang_default_uv"], 400)
+        self.assertEqual(saved["counts"]["state_weighted_adorn_explicit_uv"], 256)
+        self.assertEqual(saved["original_jvm_default_uv_probe"]["calls"], 107)
+        self.assertTrue(saved["original_jvm_default_uv_probe"]["not_full_quad_bake"])
+        self.assertTrue(saved["original_jvm_default_uv_probe"]["not_real_game_F2"])
+        self.assertEqual(len(saved["original_library_sha1"]), 55)
+
+    def test_original_five_vanilla_pngs_are_source_pinned(self):
+        saved = json.loads(h.OUT.read_text(encoding="utf-8"))
+        self.assertEqual({k: p["sha256"] for k,p in saved["original_vanilla_pngs"].items()},
+                         h.VANILLA_PNGS)
+        self.assertTrue(all(p["size"] == [16,16] for p in saved["original_vanilla_pngs"].values()))
+        self.assertEqual(saved["counts"]["new_actual_game_runs"], 0)
+        self.assertEqual(saved["counts"]["new_native_F2"], 0)
+
+    def test_persisted_face_csv_independent_and_mutation_rejected(self):
+        saved = json.loads(h.OUT.read_text(encoding="utf-8"))
+        rows = h.source_face_csv_rows(saved)
+        self.assertEqual(len(rows), 139)
+        self.assertEqual(sum(r["source_uv_provenance"].startswith("MOJANG") for r in rows), 107)
+        h.verify_face_csv(saved)
+        with tempfile.TemporaryDirectory() as td:
+            f = Path(td) / "face.csv"
+            old = h.FACE_CSV.read_text(encoding="utf-8")
+            f.write_text(old.replace("M0E0F", "INJECTED_M0E0F", 1), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "does not match"):
+                h.verify_face_csv(saved, f)
 
     def test_original_asset_library_not_redistributed(self):
         self.assertFalse(any(x.endswith(".png") for x in h.VANILLA_PNGS))
