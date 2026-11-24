@@ -1,0 +1,70 @@
+name: INT-4 H25 Adorn 7.6.1 official release 21-state model UV audit
+
+on:
+  push:
+    branches: [work/int4-h25-adorn-761-source-audit-20261124]
+    paths:
+      - src/mcfr/int4_h25_adorn_release_source.py
+      - tests/knowledge/test_int4_h25_adorn_release_source.py
+      - project/integration/INT4_H25_ADORN_761_SELECTED_MODEL_SOURCE_V1.json
+      - .github/workflows/integration-int4-h25-adorn-source.yml
+  pull_request:
+    paths:
+      - src/mcfr/int4_h25_adorn_release_source.py
+      - tests/knowledge/test_int4_h25_adorn_release_source.py
+      - project/integration/INT4_H25_ADORN_761_SELECTED_MODEL_SOURCE_V1.json
+      - .github/workflows/integration-int4-h25-adorn-source.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit-official-adorn:
+    runs-on: ubuntu-24.04
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Prove official Git tag and download one official Fabric release jar
+        run: |
+          set -euo pipefail
+          test "$(gh api repos/Juuxel/Adorn/git/ref/tags/7.6.1 --jq .object.sha)" = "6bfee0ee1ec2c259a577c5cde0b038641874fb2c"
+          gh release download 7.6.1 --repo Juuxel/Adorn --pattern 'Adorn-7.6.1+1.21.11-fabric.jar' --dir "$RUNNER_TEMP"
+          sha256sum "$RUNNER_TEMP/Adorn-7.6.1+1.21.11-fabric.jar"
+      - name: Compare actual release JSON with exact pinned tag Git blob and enumerate 21 state selectors
+        run: |
+          python -m mcfr.int4_h25_adorn_release_source --jar "$RUNNER_TEMP/Adorn-7.6.1+1.21.11-fabric.jar" --output "$RUNNER_TEMP/INT4_H25_ADORN_761_SELECTED_MODEL_SOURCE_V1.json"
+      - name: Test model inheritance, texture override and negative provenance controls
+        run: |
+          python -m unittest discover -s tests/knowledge -p test_int4_h25_adorn_release_source.py -v
+      - name: Check persistent result without falsely promoting original F70 or rights
+        run: |
+          python - <<'PY'
+          import json,os,pathlib
+          p=pathlib.Path(os.environ["RUNNER_TEMP"])/"INT4_H25_ADORN_761_SELECTED_MODEL_SOURCE_V1.json"
+          r=json.loads(p.read_text(encoding="utf-8"))
+          assert r["scope"]["verified_exact_selected_states"]==21
+          assert r["scope"]["verified_source_model_profiles"]==5
+          assert r["scope"]["new_game_runs"]==r["scope"]["new_native_F2"]==0
+          assert r["legacy_gates_unchanged"]=={
+              "modeling_F70_scope_from_H23":"70/70", "strict_F70_unconditional":0,
+              "H03":"HOLD","H05":"CONDITIONAL", "INT5":0,"INT6":0,
+              "GPU_per_face_approved":False}
+          saved=pathlib.Path("project/integration")/p.name
+          if saved.exists():
+              assert json.loads(saved.read_text(encoding="utf-8"))==r
+              print("H25_PERSISTED_RESULT_INDEPENDENT_SOURCE_JAR_MATCH")
+          else:
+              print("H25_FIRST_INDEPENDENT_RUN_REPORT_NOT_YET_COMMITTED")
+          print("H25_ADORN_5_MODELS_21_SELECTOR_STATES_SOURCE_AUDIT_PASS")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: int4-h25-adorn-source-audit-json-only
+          path: ${{ runner.temp }}/INT4_H25_ADORN_761_SELECTED_MODEL_SOURCE_V1.json
+          retention-days: 45
