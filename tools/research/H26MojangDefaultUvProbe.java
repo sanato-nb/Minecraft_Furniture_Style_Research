@@ -18,9 +18,9 @@ import java.util.Map;
 public final class H26MojangDefaultUvProbe {
     @SuppressWarnings({"unchecked", "rawtypes"})
     public static void main(String[] args) throws Exception {
-        if (args.length != 12) {
+        if (args.length != 10) {
             throw new IllegalArgumentException(
-                "Expected bakerClass directionClass methodName UVClass accessor4 and enumNames6");
+                "Expected bakerClass directionClass methodName UVClass and enumNames6");
         }
         Class<?> baker = Class.forName(args[0]);
         Class<?> direction = Class.forName(args[1]);
@@ -42,7 +42,7 @@ public final class H26MojangDefaultUvProbe {
         Map<String, Object> enumerations = new HashMap<>();
         for (int i = 0; i < dirs.length; ++i) {
             enumerations.put(dirs[i], Enum.valueOf(
-                (Class<? extends Enum>)direction.asSubclass(Enum.class), args[i + 6]));
+                (Class<? extends Enum>)direction.asSubclass(Enum.class), args[i + 4]));
         }
         BufferedReader input = new BufferedReader(
             new InputStreamReader(System.in, StandardCharsets.UTF_8));
