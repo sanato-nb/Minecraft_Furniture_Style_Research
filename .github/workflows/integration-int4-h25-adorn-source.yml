@@ -7,6 +7,7 @@ on:
       - src/mcfr/int4_h25_adorn_release_source.py
       - tests/knowledge/test_int4_h25_adorn_release_source.py
       - project/integration/INT4_H25_ADORN_761_SELECTED_MODEL_SOURCE_V1.json
+      - project/integration/INT4_H25_ADORN_761_STATE_SELECTOR_CASES_V1.csv
       - .github/workflows/integration-int4-h25-adorn-source.yml
   pull_request:
     paths:
@@ -56,8 +57,12 @@ jobs:
               "H03":"HOLD","H05":"CONDITIONAL", "INT5":0,"INT6":0,
               "GPU_per_face_approved":False}
           saved=pathlib.Path("project/integration")/p.name
+          assert r["brewer_active_front_animation"]["distinct_source_frames"]==6
+          assert r["brewer_active_front_animation"]["sequence_steps"]==12
           if saved.exists():
               assert json.loads(saved.read_text(encoding="utf-8"))==r
+              from mcfr import int4_h25_adorn_release_source as audit
+              audit.verify_csv(r)
               print("H25_PERSISTED_RESULT_INDEPENDENT_SOURCE_JAR_MATCH")
           else:
               print("H25_FIRST_INDEPENDENT_RUN_REPORT_NOT_YET_COMMITTED")
