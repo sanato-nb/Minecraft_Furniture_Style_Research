@@ -33,6 +33,7 @@ SOURCE_BLOBS = {
     "models/block/iron_shelf.json": "1bfa8c5533a19e5d09224beddf20497571009131",
     "models/block/templates/coffee_table.json": "ecf0ae2a63d621f4d76667b48bb0559a9f02c8d9",
     "models/block/templates/shelf.json": "449aa0c5c13adf0bf78030b417bd9dd9153e2e57",
+    "textures/block/brewer_front_active.png.mcmeta": "2197c0e9c49f74854bed7c290e5ad1e8911ea30d",
 }
 GENERATED_ONLY = "blockstates/acacia_coffee_table.json"
 MODELS = (
@@ -249,6 +250,13 @@ def audit(jar: Path, downloads: dict[str, bytes] | None = None) -> dict:
                         "sha256": sha256(raw),
                         "size": [w, h],
                     }
+        anim_meta = files[root + "textures/block/brewer_front_active.png.mcmeta"]["animation"]
+        frames = list(anim_meta.get("frames", []))
+        require(frames == [0, 1, 2, 3, 4, 5, 5, 4, 3, 2, 1, 0] and
+                anim_meta.get("frametime") == 5 and anim_meta.get("interpolate") is True,
+                "original active brewer animation metadata changed")
+        require(textures["adorn:block/brewer_front_active"]["size"] == [16, 96],
+                "animated active brewer PNG frame layout changed")
         meta = json.loads(z.read("fabric.mod.json"))
         require(meta["id"] == "adorn" and meta["version"] == "7.6.1+1.21.11" and
                 meta["depends"]["minecraft"] == "=1.21.11",
@@ -336,6 +344,19 @@ def audit(jar: Path, downloads: dict[str, bytes] | None = None) -> dict:
             },
             "resolved_models": profiles,
             "resolved_texture_paths": textures,
+            "brewer_active_front_animation": {
+                "texture": "adorn:block/brewer_front_active",
+                "source_frame_dimensions": [16, 16],
+                "distinct_source_frames": 6,
+                "ordered_frame_sequence": frames,
+                "sequence_steps": len(frames),
+                "frametime_ticks": anim_meta["frametime"],
+                "interpolate": True,
+                "frame_index_equals_F2_pixel_causality": False,
+                "metadata_tag_blob_sha1": SOURCE_BLOBS["textures/block/brewer_front_active.png.mcmeta"],
+                "metadata_release_sha256": comparison[
+                    "textures/block/brewer_front_active.png.mcmeta"]["released_sha256"],
+            },
             "selected_state_cases": cases,
             "scope": {
                 "verified_source_model_profiles": len(profiles),
