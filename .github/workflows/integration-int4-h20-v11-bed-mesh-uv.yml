@@ -9,6 +9,9 @@ on:
       - tools/research/H20BedMeshProbe.java
       - tools/research/H20BedPoseMaterialProbe.java
       - src/mcfr/int4_h20_v11_bed_pose_material.py
+      - src/mcfr/int4_h20_modeling_delta.py
+      - project/integration/INT4_F70_MODELING_CONTRACT_CASE_REVIEW_V2.csv
+      - project/integration/INT4_F70_MODELING_CONTRACT_SUMMARY_V2.json
       - project/integration/INT4_H20_V11_BED_POSE_MATERIAL_RESULT_V1.json
       - tests/knowledge/test_int4_h20_v11_bed_mesh_uv.py
       - .github/workflows/integration-int4-h20-v11-bed-mesh-uv.yml
@@ -19,6 +22,9 @@ on:
       - tools/research/H20BedMeshProbe.java
       - tools/research/H20BedPoseMaterialProbe.java
       - src/mcfr/int4_h20_v11_bed_pose_material.py
+      - src/mcfr/int4_h20_modeling_delta.py
+      - project/integration/INT4_F70_MODELING_CONTRACT_CASE_REVIEW_V2.csv
+      - project/integration/INT4_F70_MODELING_CONTRACT_SUMMARY_V2.json
       - project/integration/INT4_H20_V11_BED_POSE_MATERIAL_RESULT_V1.json
       - tests/knowledge/test_int4_h20_v11_bed_mesh_uv.py
       - .github/workflows/integration-int4-h20-v11-bed-mesh-uv.yml
@@ -111,6 +117,8 @@ jobs:
           assert a["world_vertex_count"]==576 and a["modeling_V11_scope_evidence_complete"]
           assert a["new_game_runs"]==a["legacy_F70_unconditional"]==0
           PY
+      - name: Verify V11-only modeling gate promotion without changing legacy F70
+        run: python -m mcfr.int4_h20_modeling_delta
       - name: Save numeric derived geometry and UV only
         uses: actions/upload-artifact@v4
         with:
