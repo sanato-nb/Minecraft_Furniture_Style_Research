@@ -15,6 +15,7 @@ import argparse
 import csv
 import hashlib
 import json
+import os
 from collections import Counter
 from pathlib import Path
 import urllib.request
@@ -40,11 +41,8 @@ PINNED = {
     "INT4_F11F_70_TARGET_EVIDENCE_DISPOSITIONS_V15.csv": "0cfbf3b1b174efc968de35c8466e2af8a9cd41c7",
     "INT4_H6_70_CASE_LOG_STATE_PROVENANCE_V1.csv": "f820efd9e85c4cee8df4673a2db4f4d868b4de31",
     "INT4_H03_H05_P0_P1_P2_70_CASE_NEW_ARCHIVE_REAUDIT_V1.csv": "54fbaa1b89c29c46106ade51638f8170306a15b0",
-    "INT4_F70_MODELING_CONTRACT_SUMMARY_V5.json": "TBD",
+    "INT4_F70_MODELING_CONTRACT_SUMMARY_V5.json": "2c7092534d377cdbb5676fa3b96df2ef6b4615bd",
 }
-# The immutable H23 summary SHA is asserted by upstream tracked source inspection
-# separately; never guess a SHA if it has not been retrieved.
-del PINNED["INT4_F70_MODELING_CONTRACT_SUMMARY_V5.json"]
 
 
 def ensure(ok: bool, detail: str) -> None:
@@ -78,20 +76,23 @@ def csv_rows(data: bytes) -> list[dict[str, str]]:
 def fetch_upstream() -> tuple[dict, dict]:
     source = {}
     pins = {}
+    headers = {"User-Agent": "MCFR-INT4-original-DF/1"}
+    if os.getenv("GITHUB_TOKEN"):
+        headers["Authorization"] = "Bearer " + os.environ["GITHUB_TOKEN"]
     for filename, expected in AF_FILES.items():
         if filename == "java/AFBlocks.java":
             p = "common/src/main/java/com/starfish_studios/another_furniture/registry/AFBlocks.java"
         else:
             p = AF_PREFIX + filename
         url = "https://raw.githubusercontent.com/" + UPSTREAM + "/" + SOURCE_COMMIT + "/" + p
-        req = urllib.request.Request(url, headers={"User-Agent": "MCFR-INT4-original-DF/1"})
+        req = urllib.request.Request(url, headers=headers)
         with urllib.request.urlopen(req, timeout=35) as r:
             content = r.read()
         ensure(blob_sha(content) == expected, "external fixed AF source SHA mismatch " + filename)
         source[filename] = content.decode("utf-8")
         pins[filename] = {"path": p, "git_blob_sha1": expected}
     tree_url = "https://api.github.com/repos/" + UPSTREAM + "/git/trees/" + SOURCE_COMMIT + "?recursive=1"
-    req = urllib.request.Request(tree_url, headers={"User-Agent": "MCFR-INT4-original-DF/1"})
+    req = urllib.request.Request(tree_url, headers=headers)
     with urllib.request.urlopen(req, timeout=55) as r:
         tree = json.loads(r.read())
     ensure(tree.get("truncated") is False, "AF Git tree is truncated")
@@ -242,7 +243,7 @@ def adjudicate(original: dict[str, bytes], source: dict[str, str], source_proof:
     ensure(Counter(x["strict_original_F_disposition"] for x in F_rows) == {"CONDITIONAL": 70},
            "F case strict source disposition mismatch")
 
-    model_summary = json.loads((DIR / "INT4_F70_MODELING_CONTRACT_SUMMARY_V5.json").read_text())
+    model_summary = json.loads(original["INT4_F70_MODELING_CONTRACT_SUMMARY_V5.json"])
     ensure(model_summary["combined_review_scope_only"] ==
            {"closed_units": 70, "conditional": 0, "denominator": 70, "hold": 0},
            "separate modeling-only contract altered")
