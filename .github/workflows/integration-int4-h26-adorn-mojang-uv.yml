@@ -1,0 +1,114 @@
+name: INT-4 H26 official Mojang FaceBakery 107 default UV plus 5 vanilla PNG
+
+on:
+  push:
+    branches: [work/int4-h26-adorn-vanilla-uv-source-20261124]
+    paths:
+      - src/mcfr/int4_h26_adorn_mojang_default_uv.py
+      - tools/research/H26MojangDefaultUvProbe.java
+      - tests/knowledge/test_int4_h26_adorn_mojang_default_uv.py
+      - project/integration/INT4_H26_ADORN_MOJANG_DEFAULT_UV_RESULT_V1.json
+      - .github/workflows/integration-int4-h26-adorn-mojang-uv.yml
+  pull_request:
+    paths:
+      - src/mcfr/int4_h26_adorn_mojang_default_uv.py
+      - tools/research/H26MojangDefaultUvProbe.java
+      - tests/knowledge/test_int4_h26_adorn_mojang_default_uv.py
+      - project/integration/INT4_H26_ADORN_MOJANG_DEFAULT_UV_RESULT_V1.json
+      - .github/workflows/integration-int4-h26-adorn-mojang-uv.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mojang-facebakery-uv:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 22
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fail-closed source class mapping, six directions and approval boundary tests
+        run: python -m unittest discover -s tests/knowledge -p test_int4_h26_adorn_mojang_default_uv.py -v
+      - name: Download official Mojang version, client and mappings and exact Adorn 7.6.1 JAR
+        timeout-minutes: 9
+        run: |
+          set -euo pipefail
+          curl -fLsS --retry 3 --retry-all-errors --max-time 100 \
+            'https://piston-meta.mojang.com/v1/packages/a969d96978af7b52dba8df44e177f48ec4ebe0d8/1.21.11.json' \
+            -o "$RUNNER_TEMP/h26-version.json"
+          python - <<'PY'
+          import json,hashlib,os,pathlib,subprocess
+          r=pathlib.Path(os.environ["RUNNER_TEMP"])
+          p=r/"h26-version.json"; b=p.read_bytes()
+          assert hashlib.sha1(b).hexdigest()=="a969d96978af7b52dba8df44e177f48ec4ebe0d8"
+          manifest=json.loads(b)
+          assert manifest["id"]=="1.21.11"
+          for k,name in (("client","h26-client.jar"),("client_mappings","h26-client-mappings.txt")):
+            spec=manifest["downloads"][k]
+            target=r/name
+            subprocess.run(["curl","-fLsS","--retry","3","--retry-all-errors",
+                            "--max-time","360",spec["url"],"-o",str(target)],check=True)
+            assert hashlib.sha1(target.read_bytes()).hexdigest()==spec["sha1"]
+            print("H26_VERIFIED_OFFICIAL_MOJANG",k,target.stat().st_size,flush=True)
+          PY
+          gh release download 7.6.1 --repo Juuxel/Adorn \
+            --pattern 'Adorn-7.6.1+1.21.11-fabric.jar' --dir "$RUNNER_TEMP"
+      - name: Execute unmodified Mojang FaceBakery.defaultFaceUV method in real JVM and reconcile Adorn 21 selected states
+        timeout-minutes: 10
+        run: |
+          python -m mcfr.int4_h26_adorn_mojang_default_uv \
+            --version-json "$RUNNER_TEMP/h26-version.json" \
+            --official-client "$RUNNER_TEMP/h26-client.jar" \
+            --client-mappings "$RUNNER_TEMP/h26-client-mappings.txt" \
+            --adorn-jar "$RUNNER_TEMP/Adorn-7.6.1+1.21.11-fabric.jar" \
+            --output "$RUNNER_TEMP/INT4_H26_ADORN_MOJANG_DEFAULT_UV_RESULT_V1.json"
+      - name: Verify 107 actual JVM default UV faces, five original vanilla PNGs and H25 guardrails
+        run: |
+          python - <<'PY'
+          import json,pathlib,os
+          p=pathlib.Path(os.environ["RUNNER_TEMP"])/"INT4_H26_ADORN_MOJANG_DEFAULT_UV_RESULT_V1.json"
+          d=json.loads(p.read_text(encoding="utf-8"))
+          k=d["counts"]
+          assert k["vanilla_original_pngs"]==5
+          assert k["source_models"]==5
+          assert k["source_unique_faces"]==139
+          assert k["source_unique_mojang_default_uv_faces"]==107
+          assert k["source_unique_adorn_explicit_uv_faces"]==32
+          assert k["selected_state_cases"]==21
+          assert k["state_weighted_face_records"]==656
+          assert k["state_weighted_original_mojang_default_uv"]==400
+          assert k["state_weighted_adorn_explicit_uv"]==256
+          assert k["state_weighted_vanilla_png_face_references"]==120
+          assert k["state_weighted_model_applications"]==29
+          assert k["new_actual_game_runs"]==k["new_native_F2"]==0
+          assert d["preserved_approvals"]=={
+            "modeling_F70_scope_from_H23":"70/70",
+            "strict_F70_unconditional":0,"H03":"HOLD","H05":"CONDITIONAL",
+            "INT5":0,"INT6":0,"GPU_per_face_approved":False,
+          }
+          saved=pathlib.Path("project/integration")/p.name
+          if saved.exists():
+            assert json.loads(saved.read_text(encoding="utf-8"))==d
+            print("H26_INDEPENDENT_JVM_AND_MOJANG_PNG_PERSISTED_RESULT_MATCH")
+          else:
+            print("H26_FIRST_MOJANG_JVM_PROBE_RESULT_TO_BE_COMMITTED")
+          print("H26_5_VANILLA_PNGS_107_REAL_MOJANG_UV_CALLS_400_STATE_WEIGHTED_PASS")
+          PY
+      - name: Upload numeric face UV and SHA source evidence only
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h26-adorn-mojang-default-uv-derived-json-only
+          path: ${{ runner.temp }}/INT4_H26_ADORN_MOJANG_DEFAULT_UV_RESULT_V1.json
+          retention-days: 45
+          if-no-files-found: error
