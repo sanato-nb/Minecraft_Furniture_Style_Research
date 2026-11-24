@@ -221,7 +221,7 @@ def read_artifacts(archives,source,runtime,texture):
     grouped=defaultdict(list)
     for x in face_rows:
         grouped[(x["provider_key"],x["element_index"])].append(x)
-        require(len(x["original_png_sha"])==40 and x["uv"] and
+        require(len(x["original_png_sha"]) in (40,64) and x["uv"] and
                 x["source_evidence"].startswith("ORIGINAL_CHILD_MODEL"),
                 "source face texture UV hash/reference missing")
     require(len(grouped)==45 and
@@ -319,7 +319,10 @@ def calculate(raw,archives):
             "child_model_sha":part["texture_child_source_git_sha"],
             "source_element_face_count":str(len(f)),
             "source_element_png_paths":"|".join(paths),
-            "source_element_png_git_sha1":"|".join(sha),
+            "source_element_png_source_hashes":"|".join(sha),
+            "source_element_png_hash_algorithms":"|".join(sorted({
+                "GIT_BLOB_SHA1" if len(x["original_png_sha"])==40 else "SHA256"
+                for x in f})),
             "exact_source_uv_face_keys":"|".join(
                 x["face_direction"]+":"+x["uv"]+":"+x["uv_rotation"] for x in f),
             "same_child_direct_original_F2_reopened":"4",
