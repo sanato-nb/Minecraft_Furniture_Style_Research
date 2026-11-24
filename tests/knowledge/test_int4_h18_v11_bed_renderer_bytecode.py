@@ -57,7 +57,7 @@ class H18V11VanillaRenderer(unittest.TestCase):
             h18.parse_class_mappings(MAPPING+MAPPING.splitlines()[0]+"\n")
 
     def test_bytecode_mapping_pin_required(self):
-        v=version_json(h18.CLIENT_SHA1,"a"*40)
+        v=version_json(hashlib.sha1(b"client").hexdigest(),"a"*40)
         with patch.object(h18,"VERSION_JSON_SHA1",hashlib.sha1(v).hexdigest()), \
              patch.object(h18,"CLIENT_SHA256",hashlib.sha256(b"client").hexdigest()), \
              patch.object(h18,"CLIENT_SHA1",hashlib.sha1(b"client").hexdigest()):
@@ -67,22 +67,25 @@ class H18V11VanillaRenderer(unittest.TestCase):
     def test_mapped_class_missing_rejected(self):
         with tempfile.TemporaryDirectory() as td:
             td=Path(td)
-            v=version_json(hashlib.sha1(b"client").hexdigest(),hashlib.sha1(MAPPING.encode()).hexdigest())
+            with ZipFile(td/"c.jar","w") as z:
+                z.writestr("hrk.class",b"fake registry bytecode")
+                z.writestr("hrs.class",b"fake dispatcher bytecode")
+            fake_client=(td/"c.jar").read_bytes()
+            v=version_json(hashlib.sha1(fake_client).hexdigest(),hashlib.sha1(MAPPING.encode()).hexdigest())
             (td/"v.json").write_bytes(v)
             (td/"map.txt").write_bytes(MAPPING.encode())
-            (td/"c.jar").write_bytes(b"client")
             (td/"prior.json").write_text(json.dumps(old_v11()))
             with patch.object(h18,"VERSION_JSON_SHA1",hashlib.sha1(v).hexdigest()), \
-                 patch.object(h18,"CLIENT_SHA1",hashlib.sha1(b"client").hexdigest()), \
-                 patch.object(h18,"CLIENT_SHA256",hashlib.sha256(b"client").hexdigest()), \
+                 patch.object(h18,"CLIENT_SHA1",hashlib.sha1(fake_client).hexdigest()), \
+                 patch.object(h18,"CLIENT_SHA256",hashlib.sha256(fake_client).hexdigest()), \
                  patch.object(h18,"prior_v11_check",return_value={"ordinary_elements":0}):
-                with self.assertRaisesRegex(Exception,"H18_"):
+                with self.assertRaisesRegex(ValueError,"H18_OFFICIAL_CLIENT_MAPPED_CLASS_MISSING"):
                     h18.audit(td/"v.json",td/"map.txt",td/"c.jar",td/"prior.json")
 
     def test_java_render_invocation_not_inferred_from_class_presence(self):
-        self.assertIn("jvm_render_method_invocation_during_V11_F2_traced",h18.audit.__code__.co_consts.__repr__()+
-                      h18.audit.__code__.co_names.__repr__() if False else
-                      "jvm_render_method_invocation_during_V11_F2_traced")
+        import inspect
+        self.assertIn('"jvm_render_method_invocation_during_V11_F2_traced":False',
+                      inspect.getsource(h18.audit))
         self.assertTrue(h18.CLASS_NAMES[0].endswith("BedRenderer"))
 
     def test_wrong_old_evidence_rejected(self):
