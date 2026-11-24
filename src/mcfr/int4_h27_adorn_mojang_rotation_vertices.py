@@ -218,8 +218,8 @@ def run_original_mojang_jvm(selected: list[dict], client: Path,
                             mapping: dict, libpaths: list[str]) -> tuple[dict, dict]:
     fields = []
     for s in selected:
-        fields.append("\t".join(str(v).lower() for v in (
-            s["id"], s["state_y_degrees"], s["uvlock"],
+        fields.append(s["id"] + "\t" + "\t".join(str(v).lower() for v in (
+            s["state_y_degrees"], s["uvlock"],
             *s["source_from"], *s["source_to"],
             s["element_rotation_axis"], s["element_rotation_angle_degrees"],
             *s["element_rotation_origin"], s["element_rotation_rescale"],
