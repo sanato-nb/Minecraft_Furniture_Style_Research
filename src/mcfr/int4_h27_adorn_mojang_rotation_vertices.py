@@ -390,8 +390,8 @@ def csv_rows(report: dict) -> list[dict[str, str]]:
             "original_full_quad_bake": "false", "native_F2_verified": "false",
         }
         for axis, label in enumerate("xyz"):
-            row["bbox_min_" + label] = str(c["rotated_bounds_min_xyz_pixel_units"][axis])
-            row["bbox_max_" + label] = str(c["rotated_bounds_max_xyz_pixel_units"][axis])
+            row["bbox_min_" + label] = str(float(c["rotated_bounds_min_xyz_pixel_units"][axis]))
+            row["bbox_max_" + label] = str(float(c["rotated_bounds_max_xyz_pixel_units"][axis]))
         entries.append({key: row[key] for key in CSV_COLUMNS})
     return entries
 
