@@ -79,6 +79,23 @@ class INT5OriginalSourceReview(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"INT5-A fail closed"):
             stage.require(False,"injected finding mismatch")
 
+    def test_c_and_f_original_dimensions_and_center_mismatch_fails_closed(self):
+        good = {
+            "size":"2|4|6", "center":"1|2|3",
+        }
+        raw = {
+            "source_from":"0|0|0","source_to":"2|4|6",
+        }
+        stage.verify_original_C_dimensions(good,raw)
+        invalid = dict(good)
+        invalid["center"]="2|2|3"
+        with self.assertRaisesRegex(ValueError,"part center disagreement"):
+            stage.verify_original_C_dimensions(invalid,raw)
+        invalid = dict(good)
+        invalid["size"]="2|4|9"
+        with self.assertRaisesRegex(ValueError,"part size disagreement"):
+            stage.verify_original_C_dimensions(invalid,raw)
+
     def test_all_committed_outputs_match_recomputed_when_present(self):
         present=[p for p in self.files if (stage.ROOT/p).exists()]
         if present:
