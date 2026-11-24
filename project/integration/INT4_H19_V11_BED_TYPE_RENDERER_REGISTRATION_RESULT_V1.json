@@ -1,0 +1,57 @@
+{
+  "BED_field_classfile_flags": [
+    "ACC_FINAL",
+    "ACC_PUBLIC",
+    "ACC_STATIC"
+  ],
+  "BED_field_public_static_final_verified": true,
+  "F70_unconditional_approved": 0,
+  "H03": "HOLD",
+  "H05": "CONDITIONAL",
+  "INT5_semantic_approvals": 0,
+  "INT6_training_or_redistribution_approvals": 0,
+  "bed_renderer_owner": "hrf",
+  "block_entity_type_owner": "eld",
+  "exact_model_geometry_and_per_face_UV_extracted": false,
+  "historical_V11_case": "V11",
+  "jvm_BedRenderer_invocation_during_previous_game_confirmed": false,
+  "limitations": [
+    "Original Mojang field mappings may omit modifiers: ACC_PUBLIC/ACC_STATIC/ACC_FINAL are independently verified in the official compiled BlockEntityType classfile.",
+    "Same static block registration bytecode sequence proves original BED field is paired with BedRenderer constructor handle; it does not prove runtime calls in an earlier screenshot.",
+    "No original Mojang mapping/client/class bytes or full disassembly copied to the repository.",
+    "Field, bootstrap and call-site PC offsets are static original Java bytecode, not geometry or GPU UV.",
+    "Existing four V11 native F2 screenshots and two exact server states are linked to the preserved original F11D ledger, not rerun."
+  ],
+  "new_game_runs": 0,
+  "new_native_F2": 0,
+  "official_BED_static_field_mapped_name": "z",
+  "original_bed_model_elements": 0,
+  "original_bed_model_faces": 0,
+  "parent_V11_actual_game_run": 45103243455,
+  "parent_V11_actual_native_F2_count": 4,
+  "parent_V11_air_vs_bed_changed_pixels": 6446,
+  "parent_h18_registry_static_class_proof": true,
+  "parent_h18_repo_ledger": "project/integration/INT4_H18_V11_BED_RENDERER_STATIC_BYTECODE_SOURCE_V1.json",
+  "registration": {
+    "bed_field_reference_summary": "Field eld.z:Leld;",
+    "bed_renderer_lambda_invokedynamic_pc": 196,
+    "block_entity_type_BED_getstatic_pc": 193,
+    "bootstrap_constructor_method_handle_verified": true,
+    "bootstrap_index": 17,
+    "lambda_reference_summary": "InvokeDynamic #17:create:()Lhrj;",
+    "register_method_reference_summary": "Method a:(Leld;Lhrj;)V",
+    "registration_invokestatic_pc": 201
+  },
+  "registry_javap_sha256": "ce7ce95aaf6eaf85313e981a53ac33401b0a81ea4117c0b85034a34809df9d09",
+  "registry_owner": "hrk",
+  "schema": "MCFR_INT4_H19_V11_MOJANG_BED_FIELD_EXACT_STATIC_REGISTRY_PAIR/v1",
+  "screen_pixel_to_GPU_texel_causality_confirmed": false,
+  "source": "official Mojang 1.21.11 client JAR + exact client_mappings",
+  "source_pins": {
+    "client_mappings_sha1": "031a68bebf55d824f66d6573d8c752f0e1bf232a",
+    "official_client_sha1": "ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd",
+    "official_client_sha256": "1473c9489ac50fda3c435049a76a70d61a10b8610db27f5ba9d8756b686cd3bd",
+    "official_version_json_sha1": "a969d96978af7b52dba8df44e177f48ec4ebe0d8"
+  },
+  "status": "PASS_OFFICIAL_12111_BED_FIELD_TO_RENDERER_CTOR_SAME_REGISTRATION_SEQUENCE"
+}
