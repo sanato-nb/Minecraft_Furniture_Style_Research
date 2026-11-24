@@ -1,0 +1,862 @@
+{
+  "brewer_active_front_animation": {
+    "distinct_source_frames": 6,
+    "frame_index_equals_F2_pixel_causality": false,
+    "frametime_ticks": 5,
+    "interpolate": true,
+    "metadata_release_sha256": "9bcf6603fc15f88817aa0b85940a16885a3736e57584bde73335bec6f4a418ea",
+    "metadata_tag_blob_sha1": "2197c0e9c49f74854bed7c290e5ad1e8911ea30d",
+    "ordered_frame_sequence": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      5,
+      4,
+      3,
+      2,
+      1,
+      0
+    ],
+    "sequence_steps": 12,
+    "source_frame_dimensions": [
+      16,
+      16
+    ],
+    "texture": "adorn:block/brewer_front_active"
+  },
+  "generated_only_blockstate": {
+    "path": "assets/adorn/blockstates/acacia_coffee_table.json",
+    "sha256": "1b28f37682fe565c7e60679196caa2efc9a58d7665adccdb86633ec9218ed13a",
+    "status": "JAR_EXISTS_GIT_STATIC_SOURCE_FILE_ABSENT",
+    "variants": [
+      ""
+    ]
+  },
+  "legacy_gates_unchanged": {
+    "GPU_per_face_approved": false,
+    "H03": "HOLD",
+    "H05": "CONDITIONAL",
+    "INT5": 0,
+    "INT6": 0,
+    "modeling_F70_scope_from_H23": "70/70",
+    "strict_F70_unconditional": 0
+  },
+  "limits": [
+    "Static source selectors and model JSON only. No real Minecraft native F2 or GPU evidence.",
+    "Implicit/default face UV is counted but cannot be called exact baked UV without Mojang bake.",
+    "External minecraft:block textures require separately pinned Mojang source assets.",
+    "Element from/to bounds precede any element rotation, not exact world-space AABB.",
+    "Mod upstream code license does not prove AI training or redistribution rights for all assets."
+  ],
+  "official_fabric_metadata": {
+    "id": "adorn",
+    "version": "7.6.1+1.21.11"
+  },
+  "official_jar_members": 13538,
+  "official_jar_name": "Adorn-7.6.1+1.21.11-fabric.jar",
+  "official_jar_sha256": "d431be4ee89d0d71b1ababedaa5275f478cfff5de94eba1165f5cd10d1b676d3",
+  "official_jar_size": 6676304,
+  "resolved_models": {
+    "adorn:block/acacia_coffee_table": {
+      "documented_zero_area_explicit_uv_faces": 0,
+      "elements_with_rotation": 0,
+      "explicit_uv_faces": 0,
+      "external_minecraft_face_count": 56,
+      "implicit_uv_faces_require_bake": 56,
+      "model": "adorn:block/acacia_coffee_table",
+      "resolved_face_textures": {
+        "minecraft:block/acacia_log": 44,
+        "minecraft:block/acacia_planks": 10,
+        "minecraft:block/orange_stained_glass": 2
+      },
+      "source_elements": 12,
+      "source_faces": 56,
+      "source_parent_chain_leaf_first": [
+        "assets/adorn/models/block/acacia_coffee_table.json",
+        "assets/adorn/models/block/templates/coffee_table.json"
+      ],
+      "unrotated_source_bounds": {
+        "from": [
+          0,
+          0,
+          0
+        ],
+        "to": [
+          16,
+          12,
+          16
+        ]
+      }
+    },
+    "adorn:block/brewer": {
+      "documented_zero_area_explicit_uv_faces": 0,
+      "elements_with_rotation": 0,
+      "explicit_uv_faces": 16,
+      "external_minecraft_face_count": 0,
+      "implicit_uv_faces_require_bake": 0,
+      "model": "adorn:block/brewer",
+      "resolved_face_textures": {
+        "adorn:block/brewer_back": 3,
+        "adorn:block/brewer_bottom_top": 3,
+        "adorn:block/brewer_front": 3,
+        "adorn:block/brewer_grating": 1,
+        "adorn:block/brewer_side": 6
+      },
+      "source_elements": 3,
+      "source_faces": 16,
+      "source_parent_chain_leaf_first": [
+        "assets/adorn/models/block/brewer.json"
+      ],
+      "unrotated_source_bounds": {
+        "from": [
+          4,
+          0,
+          2
+        ],
+        "to": [
+          12,
+          14,
+          12
+        ]
+      }
+    },
+    "adorn:block/brewer_active": {
+      "documented_zero_area_explicit_uv_faces": 0,
+      "elements_with_rotation": 0,
+      "explicit_uv_faces": 16,
+      "external_minecraft_face_count": 0,
+      "implicit_uv_faces_require_bake": 0,
+      "model": "adorn:block/brewer_active",
+      "resolved_face_textures": {
+        "adorn:block/brewer_back": 3,
+        "adorn:block/brewer_bottom_top": 3,
+        "adorn:block/brewer_front_active": 3,
+        "adorn:block/brewer_grating": 1,
+        "adorn:block/brewer_side": 6
+      },
+      "source_elements": 3,
+      "source_faces": 16,
+      "source_parent_chain_leaf_first": [
+        "assets/adorn/models/block/brewer_active.json",
+        "assets/adorn/models/block/brewer.json"
+      ],
+      "unrotated_source_bounds": {
+        "from": [
+          4,
+          0,
+          2
+        ],
+        "to": [
+          12,
+          14,
+          12
+        ]
+      }
+    },
+    "adorn:block/brewer_mug": {
+      "documented_zero_area_explicit_uv_faces": 0,
+      "elements_with_rotation": 0,
+      "explicit_uv_faces": 0,
+      "external_minecraft_face_count": 0,
+      "implicit_uv_faces_require_bake": 35,
+      "model": "adorn:block/brewer_mug",
+      "resolved_face_textures": {
+        "adorn:block/brewer_mug": 35
+      },
+      "source_elements": 8,
+      "source_faces": 35,
+      "source_parent_chain_leaf_first": [
+        "assets/adorn/models/block/brewer_mug.json"
+      ],
+      "unrotated_source_bounds": {
+        "from": [
+          4,
+          2,
+          3
+        ],
+        "to": [
+          10,
+          7,
+          7
+        ]
+      }
+    },
+    "adorn:block/iron_shelf": {
+      "documented_zero_area_explicit_uv_faces": 0,
+      "elements_with_rotation": 2,
+      "explicit_uv_faces": 0,
+      "external_minecraft_face_count": 16,
+      "implicit_uv_faces_require_bake": 16,
+      "model": "adorn:block/iron_shelf",
+      "resolved_face_textures": {
+        "minecraft:block/iron_block": 6,
+        "minecraft:block/stone": 10
+      },
+      "source_elements": 3,
+      "source_faces": 16,
+      "source_parent_chain_leaf_first": [
+        "assets/adorn/models/block/iron_shelf.json",
+        "assets/adorn/models/block/templates/shelf.json"
+      ],
+      "unrotated_source_bounds": {
+        "from": [
+          0,
+          0,
+          0
+        ],
+        "to": [
+          7,
+          6,
+          16
+        ]
+      }
+    }
+  },
+  "resolved_texture_paths": {
+    "adorn:block/brewer_back": {
+      "path": "assets/adorn/textures/block/brewer_back.png",
+      "sha256": "3af23a9e9726e4dcd391398436ff4e8539752b0aa3c5786d8e463aec4958b828",
+      "size": [
+        16,
+        16
+      ],
+      "status": "OFFICIAL_RELEASE_PNG_PRESENT"
+    },
+    "adorn:block/brewer_bottom_top": {
+      "path": "assets/adorn/textures/block/brewer_bottom_top.png",
+      "sha256": "ead2f143bb3b2c825d085c836e0db6175f9a5cafb4ec311516ba8b04f25fa30f",
+      "size": [
+        16,
+        16
+      ],
+      "status": "OFFICIAL_RELEASE_PNG_PRESENT"
+    },
+    "adorn:block/brewer_front": {
+      "path": "assets/adorn/textures/block/brewer_front.png",
+      "sha256": "c5e16ca5b4a3f2ac96d9d7a4ccf54680d8ea18afae364b29ee780f26b07b8f65",
+      "size": [
+        16,
+        16
+      ],
+      "status": "OFFICIAL_RELEASE_PNG_PRESENT"
+    },
+    "adorn:block/brewer_front_active": {
+      "path": "assets/adorn/textures/block/brewer_front_active.png",
+      "sha256": "c779804917d17b97a140a8ac2057fec4bd84432d7008cddec5035e69f725e0d6",
+      "size": [
+        16,
+        96
+      ],
+      "status": "OFFICIAL_RELEASE_PNG_PRESENT"
+    },
+    "adorn:block/brewer_grating": {
+      "path": "assets/adorn/textures/block/brewer_grating.png",
+      "sha256": "efaac160899c1a3a6483b01ac7b2bdd79bb7650f81ee998a822d1819a9919681",
+      "size": [
+        16,
+        16
+      ],
+      "status": "OFFICIAL_RELEASE_PNG_PRESENT"
+    },
+    "adorn:block/brewer_mug": {
+      "path": "assets/adorn/textures/block/brewer_mug.png",
+      "sha256": "1fdda5f68160bb349d7a11805ea735601fa8e9d54ff438a121cdae41e104869b",
+      "size": [
+        16,
+        16
+      ],
+      "status": "OFFICIAL_RELEASE_PNG_PRESENT"
+    },
+    "adorn:block/brewer_side": {
+      "path": "assets/adorn/textures/block/brewer_side.png",
+      "sha256": "7b17ac07f67d6dfb45f944feaa7a2b6b1e8017076e050647ba1126db88390832",
+      "size": [
+        16,
+        16
+      ],
+      "status": "OFFICIAL_RELEASE_PNG_PRESENT"
+    },
+    "minecraft:block/acacia_log": {
+      "status": "EXTERNAL_VANILLA_TEXTURE_NOT_IN_ADORN_JAR"
+    },
+    "minecraft:block/acacia_planks": {
+      "status": "EXTERNAL_VANILLA_TEXTURE_NOT_IN_ADORN_JAR"
+    },
+    "minecraft:block/iron_block": {
+      "status": "EXTERNAL_VANILLA_TEXTURE_NOT_IN_ADORN_JAR"
+    },
+    "minecraft:block/orange_stained_glass": {
+      "status": "EXTERNAL_VANILLA_TEXTURE_NOT_IN_ADORN_JAR"
+    },
+    "minecraft:block/stone": {
+      "status": "EXTERNAL_VANILLA_TEXTURE_NOT_IN_ADORN_JAR"
+    }
+  },
+  "schema": "MCFR_INT4_H25_ADORN_761_OFFICIAL_SOURCE_SELECTORS_V1",
+  "scope": {
+    "brewer_state_combinations": 16,
+    "mod_cohort": "ADORN",
+    "new_game_runs": 0,
+    "new_native_F2": 0,
+    "official_jar_checked": true,
+    "shelf_rotations": 4,
+    "tagged_json_and_release_semantic_match": true,
+    "verified_exact_selected_states": 21,
+    "verified_source_model_profiles": 5
+  },
+  "selected_state_cases": [
+    {
+      "block": "adorn:acacia_coffee_table",
+      "case_kind": "SINGLETON_GENERATED_BLOCKSTATE",
+      "selected": [
+        {
+          "model": "adorn:block/acacia_coffee_table",
+          "source_elements": 12,
+          "source_faces": 56,
+          "uvlock": false,
+          "y": 0
+        }
+      ],
+      "selected_applications": 1,
+      "state": {},
+      "sum_source_elements": 12,
+      "sum_source_faces": 56
+    },
+    {
+      "block": "adorn:iron_shelf",
+      "case_kind": "VARIANTS_FACING_ROTATION",
+      "selected": [
+        {
+          "model": "adorn:block/iron_shelf",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 270
+        }
+      ],
+      "selected_applications": 1,
+      "state": {
+        "facing": "north"
+      },
+      "sum_source_elements": 3,
+      "sum_source_faces": 16
+    },
+    {
+      "block": "adorn:iron_shelf",
+      "case_kind": "VARIANTS_FACING_ROTATION",
+      "selected": [
+        {
+          "model": "adorn:block/iron_shelf",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 0
+        }
+      ],
+      "selected_applications": 1,
+      "state": {
+        "facing": "east"
+      },
+      "sum_source_elements": 3,
+      "sum_source_faces": 16
+    },
+    {
+      "block": "adorn:iron_shelf",
+      "case_kind": "VARIANTS_FACING_ROTATION",
+      "selected": [
+        {
+          "model": "adorn:block/iron_shelf",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 90
+        }
+      ],
+      "selected_applications": 1,
+      "state": {
+        "facing": "south"
+      },
+      "sum_source_elements": 3,
+      "sum_source_faces": 16
+    },
+    {
+      "block": "adorn:iron_shelf",
+      "case_kind": "VARIANTS_FACING_ROTATION",
+      "selected": [
+        {
+          "model": "adorn:block/iron_shelf",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 180
+        }
+      ],
+      "selected_applications": 1,
+      "state": {
+        "facing": "west"
+      },
+      "sum_source_elements": 3,
+      "sum_source_faces": 16
+    },
+    {
+      "block": "adorn:brewer",
+      "case_kind": "MULTIPART_BASE_WITH_OPTIONAL_MUG",
+      "selected": [
+        {
+          "model": "adorn:block/brewer",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 0
+        }
+      ],
+      "selected_applications": 1,
+      "state": {
+        "active": false,
+        "facing": "north",
+        "has_mug": false
+      },
+      "sum_source_elements": 3,
+      "sum_source_faces": 16
+    },
+    {
+      "block": "adorn:brewer",
+      "case_kind": "MULTIPART_BASE_WITH_OPTIONAL_MUG",
+      "selected": [
+        {
+          "model": "adorn:block/brewer",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 0
+        },
+        {
+          "model": "adorn:block/brewer_mug",
+          "source_elements": 8,
+          "source_faces": 35,
+          "uvlock": false,
+          "y": 0
+        }
+      ],
+      "selected_applications": 2,
+      "state": {
+        "active": false,
+        "facing": "north",
+        "has_mug": true
+      },
+      "sum_source_elements": 11,
+      "sum_source_faces": 51
+    },
+    {
+      "block": "adorn:brewer",
+      "case_kind": "MULTIPART_BASE_WITH_OPTIONAL_MUG",
+      "selected": [
+        {
+          "model": "adorn:block/brewer_active",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 0
+        }
+      ],
+      "selected_applications": 1,
+      "state": {
+        "active": true,
+        "facing": "north",
+        "has_mug": false
+      },
+      "sum_source_elements": 3,
+      "sum_source_faces": 16
+    },
+    {
+      "block": "adorn:brewer",
+      "case_kind": "MULTIPART_BASE_WITH_OPTIONAL_MUG",
+      "selected": [
+        {
+          "model": "adorn:block/brewer_active",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 0
+        },
+        {
+          "model": "adorn:block/brewer_mug",
+          "source_elements": 8,
+          "source_faces": 35,
+          "uvlock": false,
+          "y": 0
+        }
+      ],
+      "selected_applications": 2,
+      "state": {
+        "active": true,
+        "facing": "north",
+        "has_mug": true
+      },
+      "sum_source_elements": 11,
+      "sum_source_faces": 51
+    },
+    {
+      "block": "adorn:brewer",
+      "case_kind": "MULTIPART_BASE_WITH_OPTIONAL_MUG",
+      "selected": [
+        {
+          "model": "adorn:block/brewer",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 90
+        }
+      ],
+      "selected_applications": 1,
+      "state": {
+        "active": false,
+        "facing": "east",
+        "has_mug": false
+      },
+      "sum_source_elements": 3,
+      "sum_source_faces": 16
+    },
+    {
+      "block": "adorn:brewer",
+      "case_kind": "MULTIPART_BASE_WITH_OPTIONAL_MUG",
+      "selected": [
+        {
+          "model": "adorn:block/brewer",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 90
+        },
+        {
+          "model": "adorn:block/brewer_mug",
+          "source_elements": 8,
+          "source_faces": 35,
+          "uvlock": false,
+          "y": 90
+        }
+      ],
+      "selected_applications": 2,
+      "state": {
+        "active": false,
+        "facing": "east",
+        "has_mug": true
+      },
+      "sum_source_elements": 11,
+      "sum_source_faces": 51
+    },
+    {
+      "block": "adorn:brewer",
+      "case_kind": "MULTIPART_BASE_WITH_OPTIONAL_MUG",
+      "selected": [
+        {
+          "model": "adorn:block/brewer_active",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 90
+        }
+      ],
+      "selected_applications": 1,
+      "state": {
+        "active": true,
+        "facing": "east",
+        "has_mug": false
+      },
+      "sum_source_elements": 3,
+      "sum_source_faces": 16
+    },
+    {
+      "block": "adorn:brewer",
+      "case_kind": "MULTIPART_BASE_WITH_OPTIONAL_MUG",
+      "selected": [
+        {
+          "model": "adorn:block/brewer_active",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 90
+        },
+        {
+          "model": "adorn:block/brewer_mug",
+          "source_elements": 8,
+          "source_faces": 35,
+          "uvlock": false,
+          "y": 90
+        }
+      ],
+      "selected_applications": 2,
+      "state": {
+        "active": true,
+        "facing": "east",
+        "has_mug": true
+      },
+      "sum_source_elements": 11,
+      "sum_source_faces": 51
+    },
+    {
+      "block": "adorn:brewer",
+      "case_kind": "MULTIPART_BASE_WITH_OPTIONAL_MUG",
+      "selected": [
+        {
+          "model": "adorn:block/brewer",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 180
+        }
+      ],
+      "selected_applications": 1,
+      "state": {
+        "active": false,
+        "facing": "south",
+        "has_mug": false
+      },
+      "sum_source_elements": 3,
+      "sum_source_faces": 16
+    },
+    {
+      "block": "adorn:brewer",
+      "case_kind": "MULTIPART_BASE_WITH_OPTIONAL_MUG",
+      "selected": [
+        {
+          "model": "adorn:block/brewer",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 180
+        },
+        {
+          "model": "adorn:block/brewer_mug",
+          "source_elements": 8,
+          "source_faces": 35,
+          "uvlock": false,
+          "y": 180
+        }
+      ],
+      "selected_applications": 2,
+      "state": {
+        "active": false,
+        "facing": "south",
+        "has_mug": true
+      },
+      "sum_source_elements": 11,
+      "sum_source_faces": 51
+    },
+    {
+      "block": "adorn:brewer",
+      "case_kind": "MULTIPART_BASE_WITH_OPTIONAL_MUG",
+      "selected": [
+        {
+          "model": "adorn:block/brewer_active",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 180
+        }
+      ],
+      "selected_applications": 1,
+      "state": {
+        "active": true,
+        "facing": "south",
+        "has_mug": false
+      },
+      "sum_source_elements": 3,
+      "sum_source_faces": 16
+    },
+    {
+      "block": "adorn:brewer",
+      "case_kind": "MULTIPART_BASE_WITH_OPTIONAL_MUG",
+      "selected": [
+        {
+          "model": "adorn:block/brewer_active",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 180
+        },
+        {
+          "model": "adorn:block/brewer_mug",
+          "source_elements": 8,
+          "source_faces": 35,
+          "uvlock": false,
+          "y": 180
+        }
+      ],
+      "selected_applications": 2,
+      "state": {
+        "active": true,
+        "facing": "south",
+        "has_mug": true
+      },
+      "sum_source_elements": 11,
+      "sum_source_faces": 51
+    },
+    {
+      "block": "adorn:brewer",
+      "case_kind": "MULTIPART_BASE_WITH_OPTIONAL_MUG",
+      "selected": [
+        {
+          "model": "adorn:block/brewer",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 270
+        }
+      ],
+      "selected_applications": 1,
+      "state": {
+        "active": false,
+        "facing": "west",
+        "has_mug": false
+      },
+      "sum_source_elements": 3,
+      "sum_source_faces": 16
+    },
+    {
+      "block": "adorn:brewer",
+      "case_kind": "MULTIPART_BASE_WITH_OPTIONAL_MUG",
+      "selected": [
+        {
+          "model": "adorn:block/brewer",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 270
+        },
+        {
+          "model": "adorn:block/brewer_mug",
+          "source_elements": 8,
+          "source_faces": 35,
+          "uvlock": false,
+          "y": 270
+        }
+      ],
+      "selected_applications": 2,
+      "state": {
+        "active": false,
+        "facing": "west",
+        "has_mug": true
+      },
+      "sum_source_elements": 11,
+      "sum_source_faces": 51
+    },
+    {
+      "block": "adorn:brewer",
+      "case_kind": "MULTIPART_BASE_WITH_OPTIONAL_MUG",
+      "selected": [
+        {
+          "model": "adorn:block/brewer_active",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 270
+        }
+      ],
+      "selected_applications": 1,
+      "state": {
+        "active": true,
+        "facing": "west",
+        "has_mug": false
+      },
+      "sum_source_elements": 3,
+      "sum_source_faces": 16
+    },
+    {
+      "block": "adorn:brewer",
+      "case_kind": "MULTIPART_BASE_WITH_OPTIONAL_MUG",
+      "selected": [
+        {
+          "model": "adorn:block/brewer_active",
+          "source_elements": 3,
+          "source_faces": 16,
+          "uvlock": false,
+          "y": 270
+        },
+        {
+          "model": "adorn:block/brewer_mug",
+          "source_elements": 8,
+          "source_faces": 35,
+          "uvlock": false,
+          "y": 270
+        }
+      ],
+      "selected_applications": 2,
+      "state": {
+        "active": true,
+        "facing": "west",
+        "has_mug": true
+      },
+      "sum_source_elements": 11,
+      "sum_source_faces": 51
+    }
+  ],
+  "source_json_comparisons": {
+    "blockstates/brewer.json": {
+      "JSON_semantics_equal": true,
+      "raw_bytes_equal": false,
+      "released_sha256": "047eeb05c6da78326760bd4df211cc9ba226ba148128bf52133b3e7ff2dc9841",
+      "upstream_git_blob_sha1": "74fbd445677c8f94379df8e88a65a8f97f2d5856"
+    },
+    "blockstates/iron_shelf.json": {
+      "JSON_semantics_equal": true,
+      "raw_bytes_equal": false,
+      "released_sha256": "6225c8f4402a18556e72d7e5b5f4a73d4a2fa413bd987b812b306c03e6167be9",
+      "upstream_git_blob_sha1": "59dac5476515cae40791b73a113a82162249039b"
+    },
+    "models/block/acacia_coffee_table.json": {
+      "JSON_semantics_equal": true,
+      "raw_bytes_equal": false,
+      "released_sha256": "e0e93383cf3b97ce096c1d8d62436306016700759e637d72e6dfd66009df27f3",
+      "upstream_git_blob_sha1": "98dd595f3bd0060c1a17868d8aac5abea3362ebd"
+    },
+    "models/block/brewer.json": {
+      "JSON_semantics_equal": true,
+      "raw_bytes_equal": false,
+      "released_sha256": "46c0e8a3a857b2c73c670d3c0ea1d998948b24b97ffae8c17cd046577b21026c",
+      "upstream_git_blob_sha1": "40fac2d74c56f086ef056ca50221c29debee05e4"
+    },
+    "models/block/brewer_active.json": {
+      "JSON_semantics_equal": true,
+      "raw_bytes_equal": false,
+      "released_sha256": "3daf7009f1115b3c718798312696d70bbaba59419ba3e1a40ad60fcad412cf11",
+      "upstream_git_blob_sha1": "15d548856f306ecbd2727f10d758fc560019969b"
+    },
+    "models/block/brewer_mug.json": {
+      "JSON_semantics_equal": true,
+      "raw_bytes_equal": false,
+      "released_sha256": "ec9b2f3038d389e6f59afa3b799bd987989823b549e19090a2a816910f3cf6d4",
+      "upstream_git_blob_sha1": "9b5f3b0cdecb7fa9a62883e2391ec6c684dac38f"
+    },
+    "models/block/iron_shelf.json": {
+      "JSON_semantics_equal": true,
+      "raw_bytes_equal": false,
+      "released_sha256": "62d07a18c8935444623be480ebce3acc69203a7fd68f6c0b32db77a236d66987",
+      "upstream_git_blob_sha1": "1bfa8c5533a19e5d09224beddf20497571009131"
+    },
+    "models/block/templates/coffee_table.json": {
+      "JSON_semantics_equal": true,
+      "raw_bytes_equal": false,
+      "released_sha256": "73aa28d9d664c9dc9e2fdac5791ed62745863a229725992b5fe3937726c17390",
+      "upstream_git_blob_sha1": "ecf0ae2a63d621f4d76667b48bb0559a9f02c8d9"
+    },
+    "models/block/templates/shelf.json": {
+      "JSON_semantics_equal": true,
+      "raw_bytes_equal": false,
+      "released_sha256": "50afd9015ea08cae1ebff1b3c1abcec057ade29334f6f8df2fbc6853be703a6f",
+      "upstream_git_blob_sha1": "449aa0c5c13adf0bf78030b417bd9dd9153e2e57"
+    },
+    "textures/block/brewer_front_active.png.mcmeta": {
+      "JSON_semantics_equal": true,
+      "raw_bytes_equal": true,
+      "released_sha256": "9bcf6603fc15f88817aa0b85940a16885a3736e57584bde73335bec6f4a418ea",
+      "upstream_git_blob_sha1": "2197c0e9c49f74854bed7c290e5ad1e8911ea30d"
+    }
+  },
+  "source_repo": "https://github.com/Juuxel/Adorn",
+  "upstream_release_tag": "7.6.1",
+  "upstream_tag_commit": "6bfee0ee1ec2c259a577c5cde0b038641874fb2c"
+}
