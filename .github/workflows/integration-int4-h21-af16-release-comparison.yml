@@ -4,12 +4,18 @@ on:
     branches: [work/int4-h21-af16-release-source-uv-20261124]
     paths:
       - src/mcfr/int4_h21_af16_release_comparison.py
+      - src/mcfr/int4_h21_modeling_delta.py
+      - project/integration/INT4_F70_MODELING_CONTRACT_CASE_REVIEW_V3.csv
+      - project/integration/INT4_F70_MODELING_CONTRACT_SUMMARY_V3.json
       - tests/knowledge/test_int4_h21_af16_release_comparison.py
       - .github/workflows/integration-int4-h21-af16-release-comparison.yml
       - project/integration/INT4_H21_AF16_RELEASE_SOURCE_UV_RESULT_V1.json
   pull_request:
     paths:
       - src/mcfr/int4_h21_af16_release_comparison.py
+      - src/mcfr/int4_h21_modeling_delta.py
+      - project/integration/INT4_F70_MODELING_CONTRACT_CASE_REVIEW_V3.csv
+      - project/integration/INT4_F70_MODELING_CONTRACT_SUMMARY_V3.json
       - tests/knowledge/test_int4_h21_af16_release_comparison.py
       - .github/workflows/integration-int4-h21-af16-release-comparison.yml
       - project/integration/INT4_H21_AF16_RELEASE_SOURCE_UV_RESULT_V1.json
@@ -56,6 +62,8 @@ jobs:
           print(json.dumps(d,sort_keys=True,separators=(",",":")))
           print("H21_JSON_END")
           PY
+      - name: Validate all 70 V3 dispositions and preserve prior legacy approvals
+        run: python -m mcfr.int4_h21_modeling_delta
       - name: Preserve derived source comparison metadata only
         uses: actions/upload-artifact@v4
         with:
