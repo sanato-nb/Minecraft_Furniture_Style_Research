@@ -34,7 +34,7 @@ jobs:
     env:
       PYTHONPATH: src
       GITHUB_TOKEN: ${{ github.token }}
-      INT5_B2_ARTIFACT_DIR: ${{ runner.temp }}/int5-b2-original-reopen
+      INT5_B2_ARTIFACT_DIR: /tmp/int5-b2-original-reopen
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
