@@ -1,0 +1,104 @@
+name: INT-4 H18 official Mojang 1.21.11 V11 BedRenderer static registry bytecode
+
+on:
+  push:
+    branches:
+      - work/int4-h18-v11-vanilla-bed-renderer-bytecode-20261124
+    paths:
+      - src/mcfr/int4_h18_v11_bed_renderer_bytecode.py
+      - tests/knowledge/test_int4_h18_v11_bed_renderer_bytecode.py
+      - .github/workflows/integration-int4-h18-v11-mojang-bedrenderer-bytecode.yml
+      - project/integration/INT4_H18_V11_BED_RENDERER_STATIC_BYTECODE_SOURCE_V1.json
+  pull_request:
+    paths:
+      - src/mcfr/int4_h18_v11_bed_renderer_bytecode.py
+      - tests/knowledge/test_int4_h18_v11_bed_renderer_bytecode.py
+      - .github/workflows/integration-int4-h18-v11-mojang-bedrenderer-bytecode.yml
+      - project/integration/INT4_H18_V11_BED_RENDERER_STATIC_BYTECODE_SOURCE_V1.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  Mojang_12111_V11_original_renderer_registry:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 17
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fail-closed version, mapped class, source and game boundary tests
+        run: |
+          python -m unittest discover -s tests/knowledge \
+            -p 'test_int4_h18_v11_bed_renderer_bytecode.py' -v
+      - name: Retrieve Mojang 1.21.11 source-pinned official client and mappings
+        timeout-minutes: 9
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fLsS --retry 3 --retry-all-errors --max-time 120 \
+            'https://piston-meta.mojang.com/v1/packages/a969d96978af7b52dba8df44e177f48ec4ebe0d8/1.21.11.json' \
+            -o "$RUNNER_TEMP/h18-1.21.11-version.json"
+          python - <<'PY'
+          import hashlib, json, os, pathlib, subprocess
+          root=pathlib.Path(os.environ["RUNNER_TEMP"])
+          version_bytes=(root/"h18-1.21.11-version.json").read_bytes()
+          assert hashlib.sha1(version_bytes).hexdigest()=="a969d96978af7b52dba8df44e177f48ec4ebe0d8"
+          meta=json.loads(version_bytes)
+          assert meta["id"]=="1.21.11"
+          for kind,filename in (
+              ("client","h18-1.21.11-client.jar"),
+              ("client_mappings","h18-1.21.11-client-mappings.txt"),
+          ):
+              item=meta["downloads"][kind]
+              target=root/filename
+              subprocess.run(["curl","-fLsS","--retry","3","--retry-all-errors",
+                              "--max-time","360",item["url"],"-o",str(target)],check=True)
+              actual=hashlib.sha1(target.read_bytes()).hexdigest()
+              assert actual==item["sha1"],(kind,actual,item["sha1"])
+              print("OFFICIAL_MOJANG_PINNED_DOWNLOAD_PASS",kind,target.stat().st_size,flush=True)
+          assert hashlib.sha1((root/"h18-1.21.11-client.jar").read_bytes()).hexdigest()=="ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd"
+          assert hashlib.sha256((root/"h18-1.21.11-client.jar").read_bytes()).hexdigest()=="1473c9489ac50fda3c435049a76a70d61a10b8610db27f5ba9d8756b686cd3bd"
+          PY
+      - name: Inspect official mapped BedRenderer registry, renderer and dispatcher javap
+        timeout-minutes: 5
+        run: |
+          python -m mcfr.int4_h18_v11_bed_renderer_bytecode \
+            --version-json "$RUNNER_TEMP/h18-1.21.11-version.json" \
+            --client-mappings "$RUNNER_TEMP/h18-1.21.11-client-mappings.txt" \
+            --official-client "$RUNNER_TEMP/h18-1.21.11-client.jar" \
+            --prior-V11 project/integration/INT4_F11D_V11_WHITE_BED_REAL_F2_SOURCE_V1.json \
+            --output "$RUNNER_TEMP/h18-result/INT4_H18_V11_BED_RENDERER_STATIC_BYTECODE_SOURCE_V1.json"
+          python - <<'PY'
+          import json,os,pathlib
+          p=pathlib.Path(os.environ["RUNNER_TEMP"])/"h18-result/INT4_H18_V11_BED_RENDERER_STATIC_BYTECODE_SOURCE_V1.json"
+          d=json.loads(p.read_text(encoding="utf-8"))
+          assert d["status"]=="PASS_PINNED_OFFICIAL_MOJANG_MAPPING_BED_RENDERER_REGISTRY_STATIC_BYTECODE_LINK"
+          assert d["registry_to_bed_renderer_owner_references"]>0
+          assert d["original_v11_source"]["ordinary_faces"]==0
+          assert d["previous_actual_game_F2_count"]==4 and d["new_actual_game_runs"]==0
+          assert d["registered_class_compiled_bytecode_proof"] is True
+          assert d["jvm_render_method_invocation_during_V11_F2_traced"] is False
+          assert d["bed_model_geometry_and_per_face_UV_from_BedRenderer_extracted"] is False
+          assert d["F70_unconditional"]==d["INT5_semantic_approvals"]==d["INT6_AI_training_and_asset_redistribution_approvals"]==0
+          assert d["H03"]=="HOLD" and d["H05"]=="CONDITIONAL"
+          print("H18_STATIC_BED_RENDERER_REGISTRY_LINK_PROVEN_NOT_ACTUAL_GAME_JVM_CALL")
+          PY
+          git diff --check
+      - name: Store derived bytecode-mapping source identities only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h18-v11-official-mojang-bed-renderer-static-bytecode-evidence
+          retention-days: 45
+          if-no-files-found: warn
+          path: ${{ runner.temp }}/h18-result/*.json
