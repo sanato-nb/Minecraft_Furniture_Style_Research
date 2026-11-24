@@ -23,6 +23,16 @@ import urllib.request
 ROOT = Path(__file__).resolve().parents[2]
 DIR = ROOT / "project/integration"
 OUTPUT = DIR / "INT4_DF_ORIGINAL_EXIT_CONTRACT_REAUDIT_V1.json"
+CASE_CSV = DIR / "INT4_DF_F70_CASE_ORIGINAL_EXIT_BLOCKERS_V1.csv"
+CASE_CSV_COLUMNS = ("target_id", "original_F2_run_ids", "original_F2_sha256s",
+ "source_quality", "source_structured_exact_metadata", "exact_case_log_lines",
+ "historical_human_visual_text_present", "original_F_strict_disposition",
+ "next_required_evidence", "full_F_unconditional_approved")
+REMAINING_BY_QUALITY = {
+ "ORIGINAL_LOG_SHA_BUT_NO_CASE_SPECIFIC_SERVER_EXACT": "VERIFY_OR_RECAPTURE_CASE_SPECIFIC_SERVER_STATE_AND_FRAME",
+ "SERVER_JSON_LOG_SHA_AND_IMAGE_SHA_BUT_NO_CASE_LINE": "REVIEW_STRUCTURED_EXACT_STATE_TO_FRAME_WITH_ORIGINAL_SCENE",
+ "SERVER_JSON_LOG_SHA_IMAGE_SHA_AND_CASE_LINE_BUT_FRAME_CAUSAL_OPEN": "INDEPENDENT_FRAME_TO_STATE_VISUAL_CAUSAL_ADJUDICATION",
+}
 UPSTREAM = "crispytwig/AnotherFurniture"
 SOURCE_COMMIT = "57eb624cbb7f408d43398c7434b0d38d312cb55d"
 AF_PREFIX = "common/src/main/resources/assets/another_furniture/"
@@ -303,6 +313,40 @@ def adjudicate(original: dict[str, bytes], source: dict[str, str], source_proof:
     }
 
 
+
+def blocker_rows(result: dict) -> list[dict[str, str]]:
+    rows = []
+    for case in result["F"]["original_per_case_classifications"]:
+        row = {
+            "target_id": case["target_id"],
+            "original_F2_run_ids": case["original_F2_run_ids"],
+            "original_F2_sha256s": case["original_F2_sha256s"],
+            "source_quality": case["source_quality"],
+            "source_structured_exact_metadata": str(case["source_structured_exact_metadata"]).lower(),
+            "exact_case_log_lines": str(case["exact_case_log_lines"]),
+            "historical_human_visual_text_present": str(case["historical_human_visual_text_present"]).lower(),
+            "original_F_strict_disposition": case["strict_original_F_disposition"],
+            "next_required_evidence": REMAINING_BY_QUALITY[case["source_quality"]],
+            "full_F_unconditional_approved": "false",
+        }
+        ensure(tuple(row) == CASE_CSV_COLUMNS, "F70 blocker row schema drift")
+        rows.append(row)
+    ensure(len(rows) == 70 and len({x["target_id"] for x in rows}) == 70,
+           "F70 blocker records incomplete")
+    return rows
+
+
+def verify_blocker_csv(result: dict, filename: Path = CASE_CSV) -> None:
+    with filename.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        ensure(tuple(reader.fieldnames or ()) == CASE_CSV_COLUMNS,
+               "F70 blocker CSV column schema changed")
+        current = list(reader)
+    ensure(current == blocker_rows(result),
+           "F70 blocker CSV != immutable source-provenance re-adjudication")
+    print("INT4_F70_PERSISTED_70_CASE_BLOCKER_CSV_MATCH")
+
+
 def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--verify", action="store_true")
@@ -312,6 +356,7 @@ def main() -> None:
     if args.verify:
         ensure(json.loads(args.output.read_text(encoding="utf-8")) == result,
                "persistent D/F original gate result differs on independent source replay")
+        verify_blocker_csv(result)
         print("INT4_ORIGINAL_D_1158_78456_6_EXCEPTION_F70_REAL_F2_LINKS_REVERIFIED")
     else:
         args.output.parent.mkdir(parents=True, exist_ok=True)
