@@ -58,6 +58,9 @@ public final class H27MojangElementStateRotationProbe {
         Class<?> vector = Class.forName("org.joml.Vector3f");
         Constructor<?> vectorConstructor = vector.getConstructor(
             float.class, float.class, float.class);
+        Method[] vectorComponents = new Method[] {
+            vector.getMethod("x"), vector.getMethod("y"), vector.getMethod("z"),
+        };
         Constructor<?> variantConstructor = variant.getDeclaredConstructor(
             quadrant, quadrant, quadrant, boolean.class);
         variantConstructor.setAccessible(true);
@@ -177,8 +180,8 @@ public final class H27MojangElementStateRotationProbe {
                     rotate.invoke(null, vertex, elementPivot, elementMatrix);
                 }
                 rotate.invoke(null, vertex, blockCenter, originalStateMatrix);
-                org.joml.Vector3f result = (org.joml.Vector3f) vertex;
-                for (float n : new float[]{result.x()*16f, result.y()*16f, result.z()*16f}) {
+                for (Method component : vectorComponents) {
+                    float n = ((Number) component.invoke(vertex)).floatValue() * 16f;
                     if (!Float.isFinite(n)) throw new AssertionError("Nonfinite original Mojang vertex");
                     output.append('\t').append(Float.toString(n));
                 }
