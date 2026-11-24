@@ -6,12 +6,14 @@ on:
       - work/int4-h20-v11-bed-model-mesh-uv-20261124
     paths:
       - src/mcfr/int4_h20_v11_bed_mesh_uv.py
+      - tools/research/H20BedMeshProbe.java
       - tests/knowledge/test_int4_h20_v11_bed_mesh_uv.py
       - .github/workflows/integration-int4-h20-v11-bed-mesh-uv.yml
       - project/integration/INT4_H20_V11_BED_MESH_UV_RESULT_V1.json
   pull_request:
     paths:
       - src/mcfr/int4_h20_v11_bed_mesh_uv.py
+      - tools/research/H20BedMeshProbe.java
       - tests/knowledge/test_int4_h20_v11_bed_mesh_uv.py
       - .github/workflows/integration-int4-h20-v11-bed-mesh-uv.yml
       - project/integration/INT4_H20_V11_BED_MESH_UV_RESULT_V1.json
@@ -65,34 +67,30 @@ jobs:
           assert hashlib.sha1((root/"h20-1.21.11-client.jar").read_bytes()).hexdigest()=="ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd"
           assert hashlib.sha256((root/"h20-1.21.11-client.jar").read_bytes()).hexdigest()=="1473c9489ac50fda3c435049a76a70d61a10b8610db27f5ba9d8756b686cd3bd"
           PY
-      - name: Inspect exact mapped geometry factory and model builder signatures
+      - name: Execute original Minecraft model factories and bake source meshes in isolated JVM
+        timeout-minutes: 8
         run: |
+          python -m mcfr.int4_h20_v11_bed_mesh_uv \
+            --version-json "$RUNNER_TEMP/h20-1.21.11-version.json" \
+            --official-client "$RUNNER_TEMP/h20-1.21.11-client.jar" \
+            --client-mappings "$RUNNER_TEMP/h20-1.21.11-client-mappings.txt" \
+            --output "$RUNNER_TEMP/h20-derived/INT4_H20_V11_BED_MESH_UV_RESULT_V1.json"
           python - <<'PY'
-          import os,re,pathlib
-          from mcfr import int4_h18_v11_bed_renderer_bytecode as h
-          root=pathlib.Path(os.environ["RUNNER_TEMP"])
-          j=root/"h20-1.21.11-client.jar"
-          m=root/"h20-1.21.11-client-mappings.txt"
-          print(h.version_preflight((root/"h20-1.21.11-version.json").read_bytes(),j.read_bytes(),m.read_bytes()))
-          raw=m.read_text()
-          classes=h.parse_class_mappings(raw)
-          for name,obf in classes.items():
-              if name.endswith(("BedRenderer","BedModel","BedHeadModel","BedFootModel","CubeListBuilder","CubeDefinition","LayerDefinition","PartDefinition","PartPose","ModelPart$Cube","ModelPart$Polygon","ModelPart$Vertex","Material","Sheets")) and (".client." in name):
-                  print("CLASS",name,obf)
-                  section=raw.split(name+" -> "+obf+":",1)[1].split("\n")
-                  for line in section[1:]:
-                      if line and not line.startswith((" ","#")): break
-                      if line.startswith("    ") and any(k in line.lower() for k in ("bed","create","bake","tex","box","child","offset","rotation","polygon","vertex","mirror","material","layer","render","part")):
-                          print("MAPPED",line.strip())
-          for name,obf in classes.items():
-              if name.endswith(("BedRenderer","BedModel","BedHeadModel","BedFootModel")) and ".client." in name:
-                  print("GEOMETRY_OWNER",name,obf)
-                  # Print only method headers and selected structural operations,
-                  # not an entire disassembly or copied asset.
-                  lines=h.javap_output(j,obf).splitlines()
-                  for line in lines:
-                      if re.match(r"^  (public|private|protected|static)",line):
-                          print("METHOD",line.strip())
-                      elif re.match(r"^\s+\d+: ",line) and any(t in line for t in ("invoke","ldc","bipush","sipush","fconst","iconst","getstatic","putfield","new ")):
-                          print("OP",line.strip())
+          import json,pathlib,os
+          d=pathlib.Path(os.environ["RUNNER_TEMP"])/"h20-derived/INT4_H20_V11_BED_MESH_UV_RESULT_V1.json"
+          r=json.loads(d.read_text())
+          assert r["isolated_original_JVM_model_bake"] and r["counts"]=={"root_parts":2,"child_parts":6,"cubes":6,"polygons":36,"vertices":144}
+          assert r["new_game_runs"]==0 and r["legacy_F70_unconditional"]==0
+          p=pathlib.Path("project/integration/INT4_H20_V11_BED_MESH_UV_RESULT_V1.json")
+          if p.exists(): assert json.loads(p.read_text())==r
+          print("H20_DERIVED_JSON_START")
+          print(json.dumps(r,sort_keys=True,separators=(",",":")))
+          print("H20_DERIVED_JSON_END")
           PY
+      - name: Save numeric derived geometry and UV only
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h20-v11-bed-mesh-uv-derived
+          retention-days: 45
+          path: ${{ runner.temp }}/h20-derived
+          if-no-files-found: error
