@@ -50,7 +50,7 @@ def mapped_field(mapping, original_owner, name):
             require("static" in declaration.split() and
                     "final" in declaration.split() and
                     "BlockEntityType" in declaration,
-                    "H19_BED_FIELD_DECLARATION_NOT_STATIC_FINAL_ENTITY_TYPE")
+                    "H19_BED_FIELD_DECLARATION_NOT_STATIC_FINAL_ENTITY_TYPE: "+declaration[:200])
             found.append(hit.group("obf"))
     require(len(found)==1,"H19_ORIGINAL_BED_FIELD_MAPPING_MISSING_OR_AMBIGUOUS")
     return found[0]
