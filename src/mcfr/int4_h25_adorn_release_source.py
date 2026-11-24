@@ -6,6 +6,7 @@ No game runtime proof, no asset copying or INT5/INT6 rights promotion.
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import json
 import struct
@@ -362,6 +363,62 @@ def audit(jar: Path, downloads: dict[str, bytes] | None = None) -> dict:
         }
 
 
+
+CSV_FILE = ROOT / "project/integration/INT4_H25_ADORN_761_STATE_SELECTOR_CASES_V1.csv"
+CSV_FIELDS = (
+    "case_id", "block", "blockstate", "selection_kind", "selected_source_models",
+    "y_rotation_degrees", "model_applications", "source_elements", "source_faces",
+    "explicit_uv_faces", "implicit_uv_faces", "external_vanilla_texture_faces",
+    "source_status", "new_F2", "GPU_per_face_approved",
+)
+
+
+def selector_rows(result: dict) -> list[dict[str, str]]:
+    profiles = result["resolved_models"]
+    rows = []
+    for index, case in enumerate(result["selected_state_cases"], start=1):
+        selected = case["selected"]
+        models = [profiles[p["model"]] for p in selected]
+        state = ";".join(k + "=" + str(v).lower()
+                         for k, v in sorted(case["state"].items())) or "(default)"
+        row = {
+            "case_id": "ADORN" + str(index).zfill(2),
+            "block": case["block"],
+            "blockstate": state,
+            "selection_kind": case["case_kind"],
+            "selected_source_models": "|".join(p["model"] for p in selected),
+            "y_rotation_degrees": "|".join(str(p["y"]) for p in selected),
+            "model_applications": str(case["selected_applications"]),
+            "source_elements": str(case["sum_source_elements"]),
+            "source_faces": str(case["sum_source_faces"]),
+            "explicit_uv_faces": str(sum(p["explicit_uv_faces"] for p in models)),
+            "implicit_uv_faces": str(sum(p["implicit_uv_faces_require_bake"] for p in models)),
+            "external_vanilla_texture_faces": str(sum(
+                p["external_minecraft_face_count"] for p in models
+            )),
+            "source_status": "OFFICIAL_JAR_AND_TAG_SOURCE_PINNED",
+            "new_F2": "false",
+            "GPU_per_face_approved": "false",
+        }
+        require(list(row) == list(CSV_FIELDS), "CSV schema changed")
+        rows.append(row)
+    require(len(rows) == 21 and len({r["case_id"] for r in rows}) == 21,
+            "not 21 source state rows")
+    require(all(int(x["explicit_uv_faces"]) + int(x["implicit_uv_faces"]) ==
+                int(x["source_faces"]) for x in rows),
+            "per-state explicit/implicit UV face sum mismatch")
+    return rows
+
+
+def verify_csv(result: dict, path: Path = CSV_FILE) -> None:
+    with path.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        require(reader.fieldnames == list(CSV_FIELDS), "CSV column schema drift")
+        actual = list(reader)
+    require(actual == selector_rows(result), "saved 21-row CSV differs from JAR audit")
+    print("H25_PERSISTED_21_CASE_CSV_SOURCE_MODEL_UV_MATCH")
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--jar", type=Path, required=True)
@@ -373,6 +430,7 @@ def main():
         require(a.output.is_file(), "saved H25 output missing")
         require(json.loads(a.output.read_text(encoding="utf-8")) == result,
                 "saved output differs from independent JAR/source recomputation")
+        verify_csv(result)
         print("H25_ADORN_7_6_1_OFFICIAL_JAR_21_STATES_5_MODELS_INDEPENDENT_VERIFIED")
     else:
         a.output.parent.mkdir(parents=True, exist_ok=True)
