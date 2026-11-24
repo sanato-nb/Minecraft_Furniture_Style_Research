@@ -224,7 +224,7 @@ def invoke_original_mojang_uv(
                        capture_output=True, text=True, timeout=60)
         args = [
             "java", "-cp", str(root) + ":" + str(client) + ":" + ":".join(libraries),
-            "H26MojangDefaultUvProbe",
+            "mcfr.research.H26MojangDefaultUvProbe",
             mappings["face_bakery_class"], mappings["direction_class"],
             mappings["default_uv_method"], mappings["uv_record_class"],
         ] + [mappings["direction_enum_names"][d] for d in DIRECTIONS]
