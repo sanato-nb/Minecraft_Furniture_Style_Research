@@ -1,0 +1,70 @@
+name: INT-4 H03 H05 modeling-only scoped evidence exit
+
+on:
+  push:
+    branches:
+      - work/int4-modeling-h03-h05-scoped-exit-20261125
+    paths:
+      - src/mcfr/int4_modeling_scope_exit.py
+      - tests/knowledge/test_int4_modeling_scope_exit.py
+      - project/integration/INT4_H03_H05_MODELING_SCOPED_EXIT_V1.json
+      - project/integration/INT4_H03_H05_MODELING_SCOPED_EXIT_REPORT_V1.md
+      - .github/workflows/integration-int4-modeling-h03-h05-scoped-exit.yml
+  pull_request:
+    paths:
+      - src/mcfr/int4_modeling_scope_exit.py
+      - tests/knowledge/test_int4_modeling_scope_exit.py
+      - project/integration/INT4_H03_H05_MODELING_SCOPED_EXIT_V1.json
+      - project/integration/INT4_H03_H05_MODELING_SCOPED_EXIT_REPORT_V1.md
+      - .github/workflows/integration-int4-modeling-h03-h05-scoped-exit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  modeling-only-H03-H05-scoped-exit-with-strict-history-preserved:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test all 70 case provenance and reject fabricated historic approvals
+        run: |
+          python -m unittest discover -s tests/knowledge -p test_int4_modeling_scope_exit.py -v
+      - name: Recompute committed new modeling-only decision using pinned historical bytes
+        run: |
+          python -m mcfr.int4_modeling_scope_exit --verify
+      - name: Assert separate modeling-only and original strict gates
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          o=json.loads(Path("project/integration/INT4_H03_H05_MODELING_SCOPED_EXIT_V1.json").read_text())
+          assert o["modeling_case_count"]==70
+          assert o["modeling_historical_pass"]==62 and o["modeling_risk_question_pass"]==8
+          assert o["modeling_H03"]=="PASS_SCOPED_MODEL_RENDER_EVIDENCE"
+          assert o["modeling_H05"]=="PASS_SCOPED_HISTORICAL_PROVENANCE"
+          assert o["historical_original_ZIP_verified"]==20
+          assert o["historical_original_F2_PNG_verified"]==91
+          assert o["historical_original_client_logs_indexed"]==21
+          assert o["original_strict_H03"]=="HOLD" and o["original_strict_H05"]=="CONDITIONAL"
+          assert o["original_strict_F_unconditional"]==0 and o["original_strict_F_conditional"]==70
+          assert o["full_INT4_unconditional_exit"] is False
+          assert o["full_GPU_face_to_pixel_causality_approved"] is False
+          assert o["INT5_semantics_approved"]==0
+          assert o["INT6_asset_training_redistribution_rights_approved"]==0
+          assert o["new_game_executions"]==0 and o["new_human_F2_scene_reapprovals"]==0
+          print("MODEL_ONLY_SCOPED_EXIT_70_70_AND_LEGACY_STRICT_UNCHANGED")
+          PY
+      - name: Preserve decision metadata only, no third-party model or texture assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-modeling-H03-H05-scoped-exit-metadata
+          path: project/integration/INT4_H03_H05_MODELING_SCOPED_EXIT_V1.json
+          retention-days: 45
+          if-no-files-found: error
