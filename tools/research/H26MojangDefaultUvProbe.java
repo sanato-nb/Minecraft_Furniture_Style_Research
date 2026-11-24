@@ -1,3 +1,5 @@
+package mcfr.research;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.reflect.Constructor;
