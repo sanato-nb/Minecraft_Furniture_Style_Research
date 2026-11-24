@@ -1,0 +1,67 @@
+{
+  "AF16_source_comparison": {
+    "all_asset_content_equal": 80,
+    "applications": 21,
+    "asset_bytes_equal": 40,
+    "cases": 16,
+    "face_rows": 535,
+    "json_content_equal": 41,
+    "png_byte_equal": 39
+  },
+  "af16_original_comparison_git_blob": "8b6ba58b0fcdd6f6681019dd1f8b58047c8b9d97",
+  "changed_targets": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S14",
+    "S15",
+    "S20",
+    "S21",
+    "S26",
+    "S30",
+    "S31",
+    "S32",
+    "S44",
+    "S45",
+    "S46"
+  ],
+  "combined_review_scope_only": {
+    "closed_units": 57,
+    "conditional": 13,
+    "denominator": 70,
+    "hold": 0
+  },
+  "historical_modeling": {
+    "conditional": 12,
+    "denominator": 62,
+    "hold": 0,
+    "pass": 50
+  },
+  "legacy_F70": {
+    "H03": "HOLD",
+    "H05": "CONDITIONAL",
+    "INT5": 0,
+    "INT6": 0,
+    "conditional": 70,
+    "unconditional": 0
+  },
+  "new_F2": 0,
+  "new_game_runs": 0,
+  "parent_modeling_csv_git_blob": "4c220f4026bb187ce9a61634073fb4e4cf9247e7",
+  "parent_modeling_summary_git_blob": "2545f1943ccc7e2fd43e71912a11e3ca473559aa",
+  "remaining_work": {
+    "AF_release_comparison": 0,
+    "R06_temporal_source": 1,
+    "historical_runtime_source_identity": 12
+  },
+  "risk_questions": {
+    "conditional": 1,
+    "denominator": 8,
+    "hold": 0,
+    "pass": 7
+  },
+  "schema": "MCFR_INT4_F70_MODELING_CONTRACT_H21_DELTA_V3",
+  "scope": "H21 selected historical states only; exact study/release JSON content, historical face UV and source PNG byte correspondence plus retained prior exact F2 provenance. No full release or GPU causality approval."
+}
