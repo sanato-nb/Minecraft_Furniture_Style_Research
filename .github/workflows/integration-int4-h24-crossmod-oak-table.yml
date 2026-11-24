@@ -1,0 +1,55 @@
+name: INT-4 H24 cross-mod oak table source geometry UV audit
+
+on:
+  push:
+    branches:
+      - work/int4-h24-crossmod-oak-table-source-20261124
+    paths:
+      - src/mcfr/int4_h24_crossmod_oak_table.py
+      - tests/knowledge/test_int4_h24_crossmod_oak_table.py
+      - project/integration/INT4_H24_CROSSMOD_OAK_TABLE_CASES_V1.csv
+      - project/integration/INT4_H24_CROSSMOD_OAK_TABLE_RESULT_V1.json
+      - .github/workflows/integration-int4-h24-crossmod-oak-table.yml
+  pull_request:
+    paths:
+      - src/mcfr/int4_h24_crossmod_oak_table.py
+      - tests/knowledge/test_int4_h24_crossmod_oak_table.py
+      - project/integration/INT4_H24_CROSSMOD_OAK_TABLE_CASES_V1.csv
+      - project/integration/INT4_H24_CROSSMOD_OAK_TABLE_RESULT_V1.json
+      - .github/workflows/integration-int4-h24-crossmod-oak-table.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-source-audit:
+    name: Verify 6 pinned selected oak_table states and V5 no-promotion
+    runs-on: ubuntu-24.04
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recalculate pinned H21 H22 V5 cross-mod case geometry and face UV
+        run: python -m mcfr.int4_h24_crossmod_oak_table --verify
+      - name: Run independent negative controls on original F2 SHA and approvals
+        run: python -m unittest discover -s tests/knowledge -p test_int4_h24_crossmod_oak_table.py -v
+      - name: Ensure H24 did not change historical H23 modeling approval data
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from mcfr import int4_h24_crossmod_oak_table as h
+          import csv, json
+          result=h.reconcile(*h.load_sources())
+          assert len(result["cases"])==6
+          assert len(result["within_mod_comparisons"])==3
+          assert result["strict_legacy_F70"]["H03"]=="HOLD"
+          assert result["strict_legacy_F70"]["H05"]=="CONDITIONAL"
+          assert result["strict_legacy_F70"]["unconditional"]==0
+          assert result["strict_legacy_F70"]["INT5"]==0
+          assert result["strict_legacy_F70"]["INT6"]==0
+          print("H24_3_MODS_6_SOURCE_CASES_3_PAIRS_ALL_VERIFIED")
+          PY
