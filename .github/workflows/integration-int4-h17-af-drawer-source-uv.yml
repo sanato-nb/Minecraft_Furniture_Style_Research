@@ -79,4 +79,4 @@ jobs:
           name: int4-h17-af-drawer-parent-face-uv-original-source-derivation-only
           retention-days: 45
           if-no-files-found: warn
-          path: {{ runner.temp }}/h17-source-face-uv/*.json
+          path: ${{ runner.temp }}/h17-source-face-uv/*.json
