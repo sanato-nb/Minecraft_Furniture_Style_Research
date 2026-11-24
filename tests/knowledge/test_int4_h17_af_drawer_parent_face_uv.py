@@ -67,7 +67,7 @@ def fake_prior():
         "source_model": {"official_original_AF_mod_jar_sha1": h17.AF_RELEASE_SHA1},
         "verified_new_real_game": {
             "run_conclusion": "success",
-            "actual_run": h17.F2_ORIGINAL_RUN,
+            "github_actions_run": h17.F2_ORIGINAL_RUN,
             "exact_game_state_markers_2_of_2": True,
             "new_north_open_closed_RGB24_changed_screen_pixels": 1208,
         },
