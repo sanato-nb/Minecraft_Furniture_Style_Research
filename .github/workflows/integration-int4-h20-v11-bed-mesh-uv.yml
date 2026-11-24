@@ -7,6 +7,9 @@ on:
     paths:
       - src/mcfr/int4_h20_v11_bed_mesh_uv.py
       - tools/research/H20BedMeshProbe.java
+      - tools/research/H20BedPoseMaterialProbe.java
+      - src/mcfr/int4_h20_v11_bed_pose_material.py
+      - project/integration/INT4_H20_V11_BED_POSE_MATERIAL_RESULT_V1.json
       - tests/knowledge/test_int4_h20_v11_bed_mesh_uv.py
       - .github/workflows/integration-int4-h20-v11-bed-mesh-uv.yml
       - project/integration/INT4_H20_V11_BED_MESH_UV_RESULT_V1.json
@@ -14,6 +17,9 @@ on:
     paths:
       - src/mcfr/int4_h20_v11_bed_mesh_uv.py
       - tools/research/H20BedMeshProbe.java
+      - tools/research/H20BedPoseMaterialProbe.java
+      - src/mcfr/int4_h20_v11_bed_pose_material.py
+      - project/integration/INT4_H20_V11_BED_POSE_MATERIAL_RESULT_V1.json
       - tests/knowledge/test_int4_h20_v11_bed_mesh_uv.py
       - .github/workflows/integration-int4-h20-v11-bed-mesh-uv.yml
       - project/integration/INT4_H20_V11_BED_MESH_UV_RESULT_V1.json
@@ -86,6 +92,24 @@ jobs:
           print("H20_DERIVED_JSON_START")
           print(json.dumps(r,sort_keys=True,separators=(",",":")))
           print("H20_DERIVED_JSON_END")
+          PY
+      - name: Execute official block orientation and white bed material lookup in isolated JVM
+        timeout-minutes: 8
+        run: |
+          python -m mcfr.int4_h20_v11_bed_pose_material \
+            --version-json "$RUNNER_TEMP/h20-1.21.11-version.json" \
+            --official-client "$RUNNER_TEMP/h20-1.21.11-client.jar" \
+            --client-mappings "$RUNNER_TEMP/h20-1.21.11-client-mappings.txt" \
+            --output "$RUNNER_TEMP/h20-derived/INT4_H20_V11_BED_POSE_MATERIAL_RESULT_V1.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ["RUNNER_TEMP"])/"h20-derived/INT4_H20_V11_BED_POSE_MATERIAL_RESULT_V1.json"
+          a=json.loads(p.read_text())
+          old=Path("project/integration/INT4_H20_V11_BED_POSE_MATERIAL_RESULT_V1.json")
+          if old.exists(): assert json.loads(old.read_text())==a
+          assert a["world_vertex_count"]==576 and a["modeling_V11_scope_evidence_complete"]
+          assert a["new_game_runs"]==a["legacy_F70_unconditional"]==0
           PY
       - name: Save numeric derived geometry and UV only
         uses: actions/upload-artifact@v4
