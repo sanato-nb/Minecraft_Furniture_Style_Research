@@ -1,0 +1,80 @@
+name: INT-4 original D F gate source audit and no-false-promotion
+
+on:
+  push:
+    branches:
+      - work/int4-original-d-f-gate-closure-audit-20261124
+    paths:
+      - src/mcfr/int4_original_df_gate_reaudit.py
+      - tests/knowledge/test_int4_original_df_gate_reaudit.py
+      - project/integration/INT4_DF_ORIGINAL_EXIT_CONTRACT_REAUDIT_V1.json
+      - project/integration/INT4_DF_F70_CASE_ORIGINAL_EXIT_BLOCKERS_V1.csv
+      - .github/workflows/integration-int4-original-df-closure.yml
+  pull_request:
+    paths:
+      - src/mcfr/int4_original_df_gate_reaudit.py
+      - tests/knowledge/test_int4_original_df_gate_reaudit.py
+      - project/integration/INT4_DF_ORIGINAL_EXIT_CONTRACT_REAUDIT_V1.json
+      - project/integration/INT4_DF_F70_CASE_ORIGINAL_EXIT_BLOCKERS_V1.csv
+      - .github/workflows/integration-int4-original-df-closure.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  immutable-original-D-F-contract-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 13
+    env:
+      PYTHONPATH: src
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reopen pinned Another Furniture 4.0.3 original Git tree and 4 original source files
+        run: |
+          python -m mcfr.int4_original_df_gate_reaudit \
+            --output "$RUNNER_TEMP/INT4_DF_ORIGINAL_EXIT_CONTRACT_REAUDIT_V1.json"
+      - name: Independently check original D/F source provenance and negative approvals
+        run: |
+          python -m unittest discover \
+            -s tests/knowledge -p test_int4_original_df_gate_reaudit.py -v
+      - name: Enforce original D and F distinct completion gates and persisted evidence
+        run: |
+          python - <<'PY'
+          import json,os,pathlib
+          p=pathlib.Path(os.environ["RUNNER_TEMP"])/"INT4_DF_ORIGINAL_EXIT_CONTRACT_REAUDIT_V1.json"
+          r=json.loads(p.read_text(encoding="utf-8"))
+          D,F=r["D"],r["F"]
+          assert D["original_blockstates_examined"]==1158
+          assert D["original_selector_options_examined"]==78456
+          assert D["strict_original_scope_conditional"]==1157
+          assert D["strict_original_scope_HOLD"]==1
+          assert len(D["six_exception_rows_actual_source_verified"])==6
+          assert F["original_F2_image_links"]==70
+          assert F["original_strict_F_conditional"]==70
+          assert F["original_strict_F_unconditional"]==0
+          assert F["modeling_only_contract_from_H23"]=="70/70"
+          assert r["original_H_gates"]=={"H03":"HOLD","H05":"CONDITIONAL"}
+          assert not D["full_D_unconditional_approved"]
+          assert not F["full_F_unconditional_approved"]
+          saved=pathlib.Path("project/integration")/p.name
+          if saved.exists():
+              assert json.loads(saved.read_text(encoding="utf-8"))==r
+              from mcfr import int4_original_df_gate_reaudit as audit
+              audit.verify_blocker_csv(r)
+              print("INT4_ORIGINAL_DF_PERSISTED_SOURCE_REPLAY_MATCH")
+          else:
+              print("INT4_ORIGINAL_DF_FIRST_RUN_TO_BE_COMMITTED")
+          print("INT4_D_1158_STATIC_F70_F2_SOURCED_H03_H05_UNAPPROVED_GUARD_PASS")
+          PY
+      - name: Publish derived decision metadata only, never redistribute original art
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-original-df-source-gate-reaudit-json
+          path: ${{ runner.temp }}/INT4_DF_ORIGINAL_EXIT_CONTRACT_REAUDIT_V1.json
+          retention-days: 45
+          if-no-files-found: error
