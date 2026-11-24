@@ -1,0 +1,85 @@
+name: INT-4 H23 R06 original vs frozen animation real native F2
+
+on:
+  push:
+    branches:
+      - work/int4-h23-r06-water-animation-control-20261124
+    paths:
+      - src/mcfr/int4_h23_r06_animation_control.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int4_h23_r06_animation_control.py
+      - .github/workflows/integration-int4-h23-r06-animation-control.yml
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  macaw-sink-temporal-native-client:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 42
+    env:
+      PYTHONPATH: src
+    steps:
+      - name: Create isolated exact official 1.21.11 paths
+        run: |
+          echo "WORLD=$RUNNER_TEMP/int4-f11e-world" >> "$GITHUB_ENV"
+          echo "CACHE=$RUNNER_TEMP/int4-f11e-cache" >> "$GITHUB_ENV"
+          echo "WORK=$RUNNER_TEMP/int4-f11e-work" >> "$GITHUB_ENV"
+          echo "OUT=$RUNNER_TEMP/int4-f11e-original-F2" >> "$GITHUB_ENV"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PNG and native Minecraft GUI dependencies
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 update
+            sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 install -y \
+              xvfb xauth xdotool libgl1-mesa-dri libglx-mesa0
+          fi
+      - name: Compile and test original Macaw S43 temporal native F2 and prior V11
+        run: |
+          python -m compileall -q src/mcfr/int4_f11e_r06_macaw_sink_temporal_capture.py src/mcfr/runtime.py
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f11e_r06_macaw_sink_temporal_capture.py' -v
+          python -m unittest discover -s tests/knowledge -p 'test_int4_f11d_vanilla_white_bed_special_capture.py' -v
+      - name: Create fresh Mojang official Minecraft 1.21.11 server world
+        run: |
+          python -m mcfr.chair_runtime_fixture world \
+            --version 1.21.11 --path "$WORLD" --cache "$CACHE"
+      - name: Original real client three temporal F2
+        env:
+          MCFR_H23_MODE: original
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int4-f11e-r06-temporal-sink \
+              --version 1.21.11 --world "$WORLD" --work "$WORK-original" --output "$OUT-original"
+      - name: Frozen frame zero real client three temporal F2
+        env:
+          MCFR_H23_MODE: frozen
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int4-f11e-r06-temporal-sink \
+              --version 1.21.11 --world "$WORLD" --work "$WORK-frozen" --output "$OUT-frozen"
+      - name: Independently verify temporal water ROI and frozen negative control
+        run: |
+          python -m mcfr.int4_h23_r06_animation_control --original "$OUT-original" --frozen "$OUT-frozen" --output "$RUNNER_TEMP/h23-derived/INT4_H23_R06_ANIMATION_CONTROL_RESULT_V1.json"
+          git diff --check
+      - name: Retain derived result and native F2 logs only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h23-r06-controlled-native-f2
+          retention-days: 45
+          if-no-files-found: warn
+          path: |
+            ${{ env.OUT }}-original/
+            ${{ env.OUT }}-frozen/
+            ${{ runner.temp }}/h23-derived/

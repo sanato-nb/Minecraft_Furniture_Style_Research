@@ -1,0 +1,72 @@
+name: INT-4 H23 independently reopen controlled F2 and derive V5
+on:
+  push:
+    branches: [work/int4-h23-r06-water-animation-control-20261124]
+    paths:
+      - project/integration/INT4_H23_R06_ANIMATION_CONTROL_RESULT_V1.json
+      - project/integration/INT4_F70_MODELING_CONTRACT_CASE_REVIEW_V5.csv
+      - project/integration/INT4_F70_MODELING_CONTRACT_SUMMARY_V5.json
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    env:
+      PYTHONPATH: src
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install independent PNG decoder
+        run: python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+      - name: Download only the successful H23 original and frozen native F2 artifact
+        run: |
+          set -euo pipefail
+          run=45339878802
+          test "$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$run" --jq .conclusion)" = success
+          id=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$run/artifacts" --jq '.artifacts[] | select(.name=="int4-h23-r06-controlled-native-f2") | .id')
+          test -n "$id"
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$id/zip" > "$RUNNER_TEMP/h23-actual.zip"
+          python - <<'PY'
+          import os,zipfile,pathlib,hashlib
+          root=pathlib.Path(os.environ["RUNNER_TEMP"])
+          path=root/"h23-actual.zip"
+          with zipfile.ZipFile(path) as z:
+              assert z.testzip() is None
+              assert len(z.namelist())==len(set(z.namelist()))
+              assert all(not n.startswith("/") and ".." not in n.split("/") for n in z.namelist())
+              z.extractall(root/"h23-actual")
+          print("H23_CONTROL_ARTIFACT_ZIP_SHA256",hashlib.sha256(path.read_bytes()).hexdigest())
+          PY
+      - name: Independently re-decode 6 real native F2 and compare exact persistent result
+        run: |
+          python - <<'PY'
+          import os,pathlib,subprocess,sys,json
+          root=pathlib.Path(os.environ["RUNNER_TEMP"])
+          paths=list((root/"h23-actual").rglob("INT4_H23_CONTROL_CAPTURE.json"))
+          assert len(paths)==2
+          modes={json.loads(p.read_text())["intervention"]["mode"]:p.parent for p in paths}
+          assert set(modes)=={"original","frozen"}
+          out=root/"h23-v5"/"INT4_H23_R06_ANIMATION_CONTROL_RESULT_V1.json"
+          subprocess.run([sys.executable,"-m","mcfr.int4_h23_r06_animation_control","--original",str(modes["original"]),"--frozen",str(modes["frozen"]),"--output",str(out)],check=True)
+          saved=pathlib.Path("project/integration")/out.name
+          assert json.loads(saved.read_text())==json.loads(out.read_text())
+          subprocess.run([sys.executable,"-m","mcfr.int4_h23_modeling_delta","--source",str(saved),"--output",str(out.parent)],check=True)
+          for name in ("INT4_F70_MODELING_CONTRACT_CASE_REVIEW_V5.csv","INT4_F70_MODELING_CONTRACT_SUMMARY_V5.json"):
+              p=pathlib.Path("project/integration")/name
+              if p.exists(): assert p.read_bytes()==(out.parent/name).read_bytes()
+          print("H23_V5_INDEPENDENT_F2_AND_GATE_PASS")
+          for p in sorted(out.parent.glob("*V5.*")):
+              print("H23_V5_OUTPUT_START",p.name)
+              print(p.read_text(),end="")
+              print("H23_V5_OUTPUT_END",p.name)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: int4-h23-v5-derived-only
+          path: ${{ runner.temp }}/h23-v5/
+          retention-days: 45

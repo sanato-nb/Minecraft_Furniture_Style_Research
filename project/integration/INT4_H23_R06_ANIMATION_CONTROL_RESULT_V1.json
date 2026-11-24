@@ -1,0 +1,278 @@
+{
+  "INT5": 0,
+  "INT6": 0,
+  "R06_animation_source_causal_scope": true,
+  "cross_session_sink_nonwater_changed": 0,
+  "cross_session_stone_changed": 0,
+  "exact_GPU_texel_causality": false,
+  "legacy_F70_unconditional": 0,
+  "limits": [
+    "Original and frozen metadata in separately started disposable clients, same exact state and camera; no old-frame index or full GPU proof.",
+    "Changes below RGB24 threshold not excluded. No original JAR or PNG distributed."
+  ],
+  "new_F2": 6,
+  "new_game_runs": 2,
+  "old_F2_exact_frame_index_proven": false,
+  "schema": "MCFR_INT4_H23_R06_CONTROLLED_ANIMATION_METADATA_V1",
+  "sessions": {
+    "frozen": {
+      "capture": {
+        "INT5_semantics_approved": 0,
+        "INT6_training_or_redistribution_rights_approved": 0,
+        "full_F_approved": 0,
+        "historical_source_case": "S43",
+        "native_F2_sha256": {
+          "R06_T0": "6f1793b53ed5e80591c7365c62dbd8b74c9ddc09e2ce95065a8c15762c554aa8",
+          "R06_T1": "02e4c9fca4a4b6fd49787c4b1f03e75890de4c53f130e4946012e40683908615",
+          "R06_T2": "730f5f3ad73b7a54b21131f12481a1ea79c8cfd096a1415c754c686a5359a84c"
+        },
+        "original_client_log_sha256": "3177fd4ad72a00f04cd33bd8661c56277b10aab216e2098cbb275a242f10f94a",
+        "original_native_F2_count": 3,
+        "pixel_observation": {
+          "color_channel_difference_threshold": 24,
+          "foreground_blue_water_pixels_each_frame": {
+            "R06_T0": 778,
+            "R06_T1": 778,
+            "R06_T2": 778
+          },
+          "max_background_stone_control_delta": 0,
+          "paired_pixel_differences": {
+            "R06_T0_vs_R06_T1": {
+              "sink_changed_pixels": 0,
+              "stone_control_changed_pixels": 0,
+              "water_changed_pixels": 0
+            },
+            "R06_T0_vs_R06_T2": {
+              "sink_changed_pixels": 0,
+              "stone_control_changed_pixels": 0,
+              "water_changed_pixels": 0
+            },
+            "R06_T1_vs_R06_T2": {
+              "sink_changed_pixels": 0,
+              "stone_control_changed_pixels": 0,
+              "water_changed_pixels": 0
+            }
+          },
+          "sink_roi": [
+            462,
+            394,
+            564,
+            508
+          ],
+          "stone_control_roi": [
+            610,
+            530,
+            690,
+            610
+          ],
+          "temporal_interpretation": "NO_WATER_REGION_CHANGE_AT_SAMPLED_TIMES_NOT_PROOF_ANIMATION_ABSENT",
+          "water_pixel_changed_observed": false,
+          "water_roi": [
+            480,
+            415,
+            545,
+            443
+          ]
+        },
+        "real_exact_server_state_checks": 3,
+        "risk_id": "R06",
+        "schema": "MCFR_INT4_F11E_R06_THREE_NATIVE_TEMPORAL_F2_AUDIT/v1",
+        "source_mod_jar_sha256": "e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e",
+        "status": "PASS_R06_3_TIME_SEPARATED_EXACT_STATE_NATIVE_F2_NO_ANIMATION_CAUSAL_CLAIM",
+        "time_intervals_seconds": [
+          10.367,
+          10.379
+        ],
+        "water_animation_causally_proven": false
+      },
+      "intervention": {
+        "changed_members": [
+          "assets/mcwfurnitures/textures/block/water_still.png.mcmeta"
+        ],
+        "declared_frame_time_ticks": 2,
+        "distinct_source_frames": 32,
+        "distinct_source_uv_crops": 32,
+        "mode": "frozen",
+        "official_original_jar_sha256": "e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e",
+        "original_mcmeta_sha256": "e9b8025fde1b09b0a4d2a38427b04f98f28a593045be6d177eb2b29164c872b0",
+        "original_texture_sha256": "d5d63ddd36311d6b064123750715fe551fbeccb5cb1f677ef93027e9305791de",
+        "runtime_jar_sha256": "16c0562bb972c7d8c2a19ddd79748b715593833f1931d9c26bfa7d4300cef301",
+        "selected_frame_indices": [
+          0
+        ],
+        "source_frames": 32,
+        "source_uv": [
+          1,
+          2,
+          13,
+          11
+        ]
+      },
+      "pair_diffs": {
+        "R06_T0_R06_T1": {
+          "sink_nonwater_changed": 0,
+          "stone_changed": 0,
+          "water_both_blue": 0,
+          "water_changed": 0
+        },
+        "R06_T0_R06_T2": {
+          "sink_nonwater_changed": 0,
+          "stone_changed": 0,
+          "water_both_blue": 0,
+          "water_changed": 0
+        },
+        "R06_T1_R06_T2": {
+          "sink_nonwater_changed": 0,
+          "stone_changed": 0,
+          "water_both_blue": 0,
+          "water_changed": 0
+        }
+      }
+    },
+    "original": {
+      "capture": {
+        "INT5_semantics_approved": 0,
+        "INT6_training_or_redistribution_rights_approved": 0,
+        "full_F_approved": 0,
+        "historical_source_case": "S43",
+        "native_F2_sha256": {
+          "R06_T0": "a6e4b615c6065bf6e5d85ecc438d00a1c68dfdd5eae27ed0f39d253d7178a09a",
+          "R06_T1": "8c0cd29df360f1148bd0ae8a321b93372398c04101534858a236c65501f64f13",
+          "R06_T2": "74da139658661d203b3550eb07c44b85839ce50574d5ac25fc37410dcc0307a1"
+        },
+        "original_client_log_sha256": "ddf28dca50508cfde09b579e2ab256cc60e42d1c0c16116a9b69b64fbec99afc",
+        "original_native_F2_count": 3,
+        "pixel_observation": {
+          "color_channel_difference_threshold": 24,
+          "foreground_blue_water_pixels_each_frame": {
+            "R06_T0": 778,
+            "R06_T1": 778,
+            "R06_T2": 778
+          },
+          "max_background_stone_control_delta": 0,
+          "paired_pixel_differences": {
+            "R06_T0_vs_R06_T1": {
+              "sink_changed_pixels": 0,
+              "stone_control_changed_pixels": 0,
+              "water_changed_pixels": 0
+            },
+            "R06_T0_vs_R06_T2": {
+              "sink_changed_pixels": 17,
+              "stone_control_changed_pixels": 0,
+              "water_changed_pixels": 17
+            },
+            "R06_T1_vs_R06_T2": {
+              "sink_changed_pixels": 10,
+              "stone_control_changed_pixels": 0,
+              "water_changed_pixels": 10
+            }
+          },
+          "sink_roi": [
+            462,
+            394,
+            564,
+            508
+          ],
+          "stone_control_roi": [
+            610,
+            530,
+            690,
+            610
+          ],
+          "temporal_interpretation": "WATER_REGION_CHANGED_AT_SAMPLED_TIMES_NOT_CAUSAL_ANIMATION_PROOF",
+          "water_pixel_changed_observed": true,
+          "water_roi": [
+            480,
+            415,
+            545,
+            443
+          ]
+        },
+        "real_exact_server_state_checks": 3,
+        "risk_id": "R06",
+        "schema": "MCFR_INT4_F11E_R06_THREE_NATIVE_TEMPORAL_F2_AUDIT/v1",
+        "source_mod_jar_sha256": "e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e",
+        "status": "PASS_R06_3_TIME_SEPARATED_EXACT_STATE_NATIVE_F2_NO_ANIMATION_CAUSAL_CLAIM",
+        "time_intervals_seconds": [
+          10.636,
+          10.367
+        ],
+        "water_animation_causally_proven": false
+      },
+      "intervention": {
+        "changed_members": [],
+        "declared_frame_time_ticks": 2,
+        "distinct_source_frames": 32,
+        "distinct_source_uv_crops": 32,
+        "mode": "original",
+        "official_original_jar_sha256": "e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e",
+        "original_mcmeta_sha256": "e9b8025fde1b09b0a4d2a38427b04f98f28a593045be6d177eb2b29164c872b0",
+        "original_texture_sha256": "d5d63ddd36311d6b064123750715fe551fbeccb5cb1f677ef93027e9305791de",
+        "runtime_jar_sha256": "e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e",
+        "selected_frame_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        "source_frames": 32,
+        "source_uv": [
+          1,
+          2,
+          13,
+          11
+        ]
+      },
+      "pair_diffs": {
+        "R06_T0_R06_T1": {
+          "sink_nonwater_changed": 0,
+          "stone_changed": 0,
+          "water_both_blue": 0,
+          "water_changed": 0
+        },
+        "R06_T0_R06_T2": {
+          "sink_nonwater_changed": 0,
+          "stone_changed": 0,
+          "water_both_blue": 17,
+          "water_changed": 17
+        },
+        "R06_T1_R06_T2": {
+          "sink_nonwater_changed": 0,
+          "stone_changed": 0,
+          "water_both_blue": 10,
+          "water_changed": 10
+        }
+      }
+    }
+  },
+  "source_H22_git_blob": "b659e12153d0d2c12710bb4e24e236c934b06c14",
+  "status": "PASS_R06_CONTROLLED_ANIMATION_SCOPE"
+}

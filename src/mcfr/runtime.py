@@ -157,7 +157,10 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
         from .int4_f11d_vanilla_white_bed_special_capture import capture
         return capture(command,env,game,args.output,args.version)
     if args.command=="int4-f11e-r06-temporal-sink":
-        from .int4_f11e_r06_macaw_sink_temporal_capture import capture
+        if os.environ.get("MCFR_H23_MODE"):
+            from .int4_h23_r06_animation_control import capture
+        else:
+            from .int4_f11e_r06_macaw_sink_temporal_capture import capture
         return capture(command,env,game,args.output,args.version)
     if args.command=="int4-f11f-r08-fabric-pair":
         from .int4_f11f_r08_af_dual_fabric_capture import capture
