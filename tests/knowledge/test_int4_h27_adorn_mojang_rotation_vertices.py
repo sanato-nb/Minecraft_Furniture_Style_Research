@@ -1,8 +1,10 @@
 """INT-4 H27 source provenance and negative controls for actual Mojang vertices."""
 import copy
 import json
+import tempfile
 import unittest
 from collections import Counter
+from pathlib import Path
 
 from mcfr import int4_h27_adorn_mojang_rotation_vertices as h
 from mcfr import int4_h25_adorn_release_source as h25
@@ -97,6 +99,43 @@ class H27OfficialAdornMojangRotation(unittest.TestCase):
         self.assertIn("rotate.invoke(null, vertex, blockCenter, originalStateMatrix)", java)
         self.assertIn("elementTransform.invoke(originalElement)", java)
         self.assertNotIn("bakeQuad(", java)
+
+    def test_real_mojang_JVM_original_vertex_ledger_136_x_8(self):
+        report = json.loads(h.OUTPUT.read_text(encoding="utf-8"))
+        proof = report["official_jvm_proof"]
+        self.assertEqual(proof["invocations"], 136)
+        self.assertEqual(proof["rotated_source_element_instances"], 8)
+        self.assertEqual(proof["output_source_corners"], 1088)
+        self.assertTrue(proof["not_full_bake_quad"])
+        self.assertTrue(proof["not_minecraft_real_game_F2"])
+        self.assertIn("FaceBakery.rotateVertexBy", proof["original_methods"])
+        elements = report["original_selected_element_vertices"]
+        self.assertEqual(len(elements), 136)
+        self.assertTrue(all(len(e["original_jvm_rotated_corners_xyz_pixel_units"]) == 8
+                            for e in elements))
+
+    def test_original_Mojang_shelf_rotation_and_pixel_bounds(self):
+        report = json.loads(h.OUTPUT.read_text(encoding="utf-8"))
+        shelf = [c for c in report["selected_state_cases"]
+                 if c["block"] == "adorn:iron_shelf"]
+        self.assertEqual(len(shelf), 4)
+        self.assertEqual([c["element_rotations_applied"] for c in shelf], [2,2,2,2])
+        self.assertEqual([c["rotated_corners"] for c in shelf], [24,24,24,24])
+        self.assertLess(shelf[1]["rotated_bounds_min_xyz_pixel_units"][0], 0)
+        self.assertGreater(shelf[0]["rotated_bounds_max_xyz_pixel_units"][2], 16)
+        self.assertLess(shelf[2]["rotated_bounds_min_xyz_pixel_units"][2], 0)
+        self.assertGreater(shelf[3]["rotated_bounds_max_xyz_pixel_units"][0], 16)
+
+    def test_stored_21_state_csv_recomputed_and_corruption_rejected(self):
+        report = json.loads(h.OUTPUT.read_text(encoding="utf-8"))
+        self.assertEqual(len(h.csv_rows(report)), 21)
+        h.verify_csv(report)
+        with tempfile.TemporaryDirectory() as td:
+            altered = Path(td) / "H27.csv"
+            original = h.CASES_CSV.read_text(encoding="utf-8")
+            altered.write_text(original.replace("ADORN01", "INVALID01", 1), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "differ"):
+                h.verify_csv(report, altered)
 
     def test_original_approvals_and_no_game_calls(self):
         approved = self.h26result["preserved_approvals"]
