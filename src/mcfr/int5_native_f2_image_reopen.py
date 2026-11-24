@@ -129,12 +129,49 @@ def download_archives(folder:Path):
 
 
 def png_dimensions_and_verify(data):
-    # Actual full pixel decode, not just PNG magic/header or a SHA metadata match.
-    from PIL import Image
-    img=Image.open(io.BytesIO(data))
-    require(img.format=="PNG","not a PNG image")
-    width,height=img.size
-    img.load()
+    """CRC-validate every PNG chunk, inflate IDAT, check every scanline filter.
+
+    Actual raster data is decompressed; no reliance on just a header/SHA. This
+    lightweight source integrity decoder does not perform GPU texture baking.
+    """
+    import struct
+    import zlib
+    require(data.startswith(b"\x89PNG\r\n\x1a\n"),"not a PNG image")
+    pos=8
+    dim=None
+    compressed=[]
+    seen_end=False
+    while pos+12<=len(data):
+        size=struct.unpack(">I",data[pos:pos+4])[0]
+        tag=data[pos+4:pos+8]
+        start=pos+8
+        end=start+size
+        require(end+4<=len(data),"truncated PNG chunk")
+        chunk=data[start:end]
+        crc=struct.unpack(">I",data[end:end+4])[0]
+        require(zlib.crc32(tag+chunk)&0xffffffff==crc,
+                "PNG chunk CRC mismatch")
+        if tag==b"IHDR":
+            require(size==13 and dim is None,"invalid PNG IHDR")
+            width,height,depth,ctype,compression,filter_method,interlace=struct.unpack(
+                ">IIBBBBB",chunk)
+            require(width>0 and height>0 and depth==8 and
+                    ctype in (2,6) and compression==filter_method==interlace==0,
+                    "unexpected original F2 PNG pixel format")
+            dim=(width,height,3 if ctype==2 else 4)
+        if tag==b"IDAT":compressed.append(chunk)
+        if tag==b"IEND":
+            require(size==0 and end+4==len(data),"trailing/malformed PNG")
+            seen_end=True
+            break
+        pos=end+4
+    require(dim is not None and compressed and seen_end,"incomplete PNG")
+    width,height,bpp=dim
+    raster=zlib.decompress(b"".join(compressed))
+    stride=width*bpp+1
+    require(len(raster)==stride*height,"PNG decompressed raster size mismatch")
+    require(all(raster[y*stride] in (0,1,2,3,4) for y in range(height)),
+            "invalid PNG scanline filter")
     return (width,height)
 
 
