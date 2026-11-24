@@ -1,6 +1,7 @@
 """Unit checks for exact-source Adorn 7.6.1 selection and evidence limits."""
 import copy
 import json
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -9,7 +10,8 @@ from mcfr import int4_h25_adorn_release_source as m
 
 class H25AdornReleaseSource(unittest.TestCase):
     def test_release_and_upstream_sha_frozen(self):
-        self.assertEqual(len(m.SOURCE_BLOBS), 9)
+        self.assertEqual(len(m.SOURCE_BLOBS), 10)
+        self.assertIn("textures/block/brewer_front_active.png.mcmeta", m.SOURCE_BLOBS)
         self.assertEqual(m.UPSTREAM_COMMIT, "6bfee0ee1ec2c259a577c5cde0b038641874fb2c")
         self.assertEqual(len(m.RELEASE_SHA256), 64)
         self.assertEqual(m.RELEASE_FILE, "Adorn-7.6.1+1.21.11-fabric.jar")
@@ -98,6 +100,27 @@ class H25AdornReleaseSource(unittest.TestCase):
                             "apply": {"model": "adorn:block/brewer"}}]}
         with self.assertRaisesRegex(ValueError, "unsupported"):
             m.selected_parts(d, {"facing": "north"})
+
+    def test_21_saved_case_rows_and_csv_recompute(self):
+        path = m.ROOT / "project/integration/INT4_H25_ADORN_761_SELECTED_MODEL_SOURCE_V1.json"
+        result = json.loads(path.read_text(encoding="utf-8"))
+        rows = m.selector_rows(result)
+        self.assertEqual(len(rows), 21)
+        self.assertEqual(sum(int(x["source_faces"]) for x in rows), 656)
+        self.assertEqual(sum(int(x["implicit_uv_faces"]) for x in rows), 400)
+        self.assertEqual(sum(int(x["external_vanilla_texture_faces"]) for x in rows), 120)
+        m.verify_csv(result)
+
+    def test_case_csv_tamper_rejected(self):
+        path = m.ROOT / "project/integration/INT4_H25_ADORN_761_SELECTED_MODEL_SOURCE_V1.json"
+        result = json.loads(path.read_text(encoding="utf-8"))
+        saved = m.CSV_FILE.read_text(encoding="utf-8")
+        self.assertIn("ADORN01", saved)
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "modified.csv"
+            p.write_text(saved.replace("ADORN01", "ADORN99", 1), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "differs"):
+                m.verify_csv(result, p)
 
     def test_existing_legacy_gates_still_unapproved(self):
         i = m.ROOT / "project/integration"
