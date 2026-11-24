@@ -263,7 +263,7 @@ def finding_rows(root):
 
 def csv_text(rows):
     out=io.StringIO(newline="")
-    writer=csv.DictWriter(out,fieldnames=list(rows[0]))
+    writer=csv.DictWriter(out,fieldnames=list(rows[0]),lineterminator="\n")
     writer.writeheader()
     writer.writerows(rows)
     return out.getvalue()
