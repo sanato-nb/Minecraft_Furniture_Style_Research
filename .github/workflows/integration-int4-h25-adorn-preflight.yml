@@ -1,0 +1,61 @@
+name: INT-4 H25 official Adorn 7.6.1 release and source preflight
+on:
+  push:
+    branches: [work/int4-h25-adorn-761-source-audit-20261124]
+    paths:
+      - .github/workflows/integration-int4-h25-adorn-preflight.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  official-release:
+    runs-on: ubuntu-24.04
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify exact upstream Adorn tag and official Minecraft Fabric release
+        run: |
+          set -euo pipefail
+          test "$(gh api repos/Juuxel/Adorn/git/ref/tags/7.6.1 --jq .object.sha)" = "6bfee0ee1ec2c259a577c5cde0b038641874fb2c"
+          gh release download 7.6.1 --repo Juuxel/Adorn --pattern 'Adorn-7.6.1+1.21.11-fabric.jar' --dir "$RUNNER_TEMP"
+          python - <<'PY'
+          import pathlib,os,hashlib,json,zipfile
+          p=pathlib.Path(os.environ["RUNNER_TEMP"])/"Adorn-7.6.1+1.21.11-fabric.jar"
+          assert p.is_file() and p.stat().st_size > 1_000_000
+          names=[
+            "assets/adorn/blockstates/acacia_coffee_table.json",
+            "assets/adorn/blockstates/iron_shelf.json",
+            "assets/adorn/blockstates/brewer.json",
+            "assets/adorn/models/block/acacia_coffee_table.json",
+            "assets/adorn/models/block/templates/coffee_table.json",
+            "assets/adorn/models/block/iron_shelf.json",
+            "assets/adorn/models/block/templates/shelf.json",
+            "assets/adorn/models/block/brewer.json",
+            "assets/adorn/models/block/brewer_active.json",
+            "assets/adorn/models/block/brewer_mug.json",
+            "fabric.mod.json",
+          ]
+          with zipfile.ZipFile(p) as z:
+            assert z.testzip() is None
+            allnames=z.namelist()
+            assert len(allnames)==len(set(allnames))
+            report={
+              "official_jar_file":p.name,
+              "official_jar_sha256":hashlib.sha256(p.read_bytes()).hexdigest(),
+              "official_jar_size":p.stat().st_size,
+              "jar_members":len(allnames),
+              "paths":{name:{"present":name in allnames,
+                  "sha256":hashlib.sha256(z.read(name)).hexdigest() if name in allnames else None,
+                  "elements":len(json.loads(z.read(name)).get("elements",[])) if name in allnames and "models/block/" in name else None,
+                  "variants":list(json.loads(z.read(name)).get("variants",{}))[:8] if name in allnames and "blockstates/" in name else None,
+                  "multipart_count":len(json.loads(z.read(name)).get("multipart",[])) if name in allnames and "blockstates/" in name else None,
+                  } for name in names},
+            }
+            mod=json.loads(z.read("fabric.mod.json"))
+            report["mod_metadata"]={"id":mod.get("id"),"version":mod.get("version"),"minecraft":mod.get("depends",{}).get("minecraft")}
+            print("H25_OFFICIAL_PREFLIGHT_JSON_START")
+            print(json.dumps(report,sort_keys=True))
+            print("H25_OFFICIAL_PREFLIGHT_JSON_END")
+            assert report["mod_metadata"]["id"]=="adorn"
+          PY
