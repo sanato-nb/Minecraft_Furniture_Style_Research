@@ -6,7 +6,7 @@
 
 이번 연구 모드: [Juuxel/Adorn](https://github.com/Juuxel/Adorn), 공식 소스 [태그 7.6.1](https://github.com/Juuxel/Adorn/tree/7.6.1), commit 6bfee0ee1ec2c259a577c5cde0b038641874fb2c. 공식 Fabric 배포 [릴리스 7.6.1](https://github.com/Juuxel/Adorn/releases/tag/7.6.1)의 Adorn-7.6.1+1.21.11-fabric.jar. 배포 JAR SHA-256 **d431be4ee89d0d71b1ababedaa5275f478cfff5de94eba1165f5cd10d1b676d3** (6,676,304바이트; ZIP 멤버 13,538개). 내장 fabric.mod.json: id=adorn, version=7.6.1+1.21.11, Minecraft 정확히 =1.21.11. 원본 ZIP CRC 통과.
 
-공식 배포 JAR에서 모델·블록상태·애니메이션 메타데이터를 직접 읽고 소스 태그의 **정확한 10개 Git blob SHA-1**을 별도로 검증했다. 각 JSON/MCMeta 원본의 **파싱된 내용 10/10 일치**, 원시 파일 바이트는 10/10 불일치(직렬화 포맷 차이). 바이트 동일성으로 잘못 주장하지 않는다. Git의 모드 원본을 복제해 저장하지 않으며, 실제 릴리스 파일도 Git에 저장하지 않는다.
+공식 배포 JAR에서 모델·블록상태·애니메이션 메타데이터를 직접 읽고 소스 태그의 **정확한 10개 Git blob SHA-1**을 별도로 검증했다. 각 JSON/MCMeta 원본의 **파싱된 내용 10/10 일치**, 원시 파일 바이트는 **1/10 일치(.mcmeta), 9/10 불일치(모델·블록상태 JSON 직렬화 포맷 차이)**. 바이트 동일성으로 잘못 주장하지 않는다. Git의 모드 원본을 복제해 저장하지 않으며, 실제 릴리스 파일도 Git에 저장하지 않는다.
 
 ## 2. 원본 모델 5종의 직접 측정
 
