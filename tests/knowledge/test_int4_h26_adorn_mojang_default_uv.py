@@ -6,7 +6,6 @@ from pathlib import Path
 import unittest
 
 from mcfr import int4_h26_adorn_mojang_default_uv as h
-from mcfr import int4_h21_af16_release_comparison as h21
 
 
 def original_mapping_fixture():
@@ -80,14 +79,14 @@ class H26OriginalMojangUV(unittest.TestCase):
             "east": [5, 6, 12, 13],
         }
         for side, expected in cases.items():
-            got, status = h21.uv_values(element, side, {"texture": "#test"})
+            got, status = h.historical_default_uv_formula(element, side, {"texture": "#test"})
             self.assertEqual(status, "DEFAULT")
             self.assertEqual(list(map(float, got)), expected)
 
     def test_explicit_uv_not_promoted_to_default(self):
         element = {"from": [2, 3, 4], "to": [9, 10, 11]}
         face = {"texture": "#test", "uv": [3.5, 1, 9.5, 9]}
-        got, status = h21.uv_values(element, "north", face)
+        got, status = h.historical_default_uv_formula(element, "north", face)
         self.assertEqual(status, "EXPLICIT")
         self.assertEqual(list(map(float, got)), face["uv"])
 
