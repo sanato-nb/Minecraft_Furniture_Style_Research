@@ -21,7 +21,6 @@ import tempfile
 from zipfile import ZipFile
 
 from . import int4_h20_v11_bed_mesh_uv as h20
-from . import int4_h21_af16_release_comparison as h21
 from . import int4_h25_adorn_release_source as h25
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -125,6 +124,30 @@ def original_uv_mapping(raw: str) -> dict:
     }
 
 
+
+def historical_default_uv_formula(element: dict, direction: str, face: dict
+                                  ) -> tuple[tuple[Fraction, ...], str]:
+    """Independently cross-check the same documented H21 direction formulas.
+
+    Deliberately no import of the full H21 pipeline, which loads optional image
+    libraries. The actual original JVM FaceBakery call remains authoritative.
+    """
+    if "uv" in face:
+        return tuple(Fraction(str(v)) for v in face["uv"]), "EXPLICIT"
+    x, y, z = (Fraction(str(v)) for v in element["from"])
+    X, Y, Z = (Fraction(str(v)) for v in element["to"])
+    rect = {
+        "down": (x, 16-Z, X, 16-z),
+        "up": (x, z, X, Z),
+        "north": (16-X, 16-Y, 16-x, 16-y),
+        "south": (x, 16-Y, X, 16-y),
+        "west": (z, 16-Y, Z, 16-y),
+        "east": (16-Z, 16-Y, 16-z, 16-y),
+    }
+    need(direction in rect, "unsupported face for default UV formula")
+    return rect[direction], "DEFAULT"
+
+
 def original_model_faces(jar: ZipFile, parent: dict) -> list[dict]:
     rows = []
     for mi, model in enumerate(h25.MODELS):
@@ -150,7 +173,7 @@ def original_model_faces(jar: ZipFile, parent: dict) -> list[dict]:
                 explicit = face.get("uv")
                 if explicit is not None:
                     need(len(explicit) == 4, "malformed explicit UV")
-                uv_prior, method = h21.uv_values(element, d, face)
+                uv_prior, method = historical_default_uv_formula(element, d, face)
                 need((explicit is None) == (method == "DEFAULT"), "prior default UV class mismatch")
                 row = {
                     "id": "M" + str(mi) + "E" + str(i) + "F" + d,
@@ -176,9 +199,6 @@ def original_model_faces(jar: ZipFile, parent: dict) -> list[dict]:
     need(counts == {"MOJANG_ORIGINAL_FACEBAKERY_DEFAULT_METHOD": 107,
                    "ORIGINAL_ADORN_EXPLICIT_UV": 32},
          "five-model 107 default/32 explicit source face partition changed")
-    for model, counts0 in [(m, Counter(r["model"] == m and r["direction"] for r in rows))
-                           for m in ()]:
-        pass
     for model in h25.MODELS:
         p = parent["resolved_models"][model]
         same = [r for r in rows if r["model"] == model]
