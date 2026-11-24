@@ -1,0 +1,51 @@
+{
+  "artifact_zips_sha256": {
+    "native_1_21_1": "8f95d1d54dec9b026c78a10dcbd897e6dcd8ae1800ef750301d2698ed7544aae",
+    "native_1_21_11": "d9ac5077aec034ffd44394a520faad0e8d88783b351d3649f9751632adde6741",
+    "textured_face_uv": "f7d30dfd0076bc7a160ff31d131491f1ee1287568780ba501ed160e671824e85"
+  },
+  "counts": {
+    "INT6_training_redistribution_rights_approved": 0,
+    "native_1_21_11_images": 4,
+    "native_1_21_1_images": 12,
+    "native_screenshot_PNG_opened_SHA_decoded": 16,
+    "new_Minecraft_game_runs": 0,
+    "new_game_F2_captures": 0,
+    "original_archives_downloaded": 3,
+    "original_client_logs_SHA_verified": 2,
+    "original_source_face_to_part_keys_linked": 45,
+    "original_source_faces_reopened": 229,
+    "original_source_texture_uv_contact_sheet_opened": 1,
+    "part_function_approved": 0,
+    "source_part_individual_F2_pixel_mapping_approved": 0,
+    "style_or_material_approved": 0,
+    "whole_chair_scenes_partly_occluded": 4,
+    "whole_chair_scenes_with_clear_group_forms": 12
+  },
+  "derived_csv_sha256": {
+    "project/integration/INT5_B2_16_NATIVE_F2_DIRECT_SCENE_REVIEW_V1.csv": "a629459b6cc591d212686cd13315e4058ca30b63f2487c8d4b4e22f9c7d77748",
+    "project/integration/INT5_B2_45_ELEMENT_SOURCE_TEXTURE_FACE_REVIEW_V1.csv": "ad367073bffd4b852c46cd6a22a09d3cee084b24502943d7521d4e4d2c8aea9d"
+  },
+  "limitations": [
+    "Direct visual inspection supports visible chair assemblies and selected color/texture contrast, not unique pixel segmentation for each of 45 source elements.",
+    "AF tucked four views have adjacent light table masking portions of chair seat; cannot conclude exact source tucked transform from whole-object screenshot.",
+    "Original source UV face link is fixed by provider/element and original PNG hashes but does not prove baked GPU UV for all faces.",
+    "Original AF research blockstate versus runtime release bytes differ; prior INT5-B1 release caveat preserved.",
+    "No game execution or new F2; all three original GitHub Actions ZIP assets are downloaded only to temporary CI or local inspection storage.",
+    "No original assets/screenshots included in GitHub research commits; no third-party AI learning or redistribution rights inferred."
+  ],
+  "manual_scene_scope": "Direct visual inspection of 16 existing 1024x684 F2 images and original-texture UV source diagnostic; per-model whole-object appearance only.",
+  "original_actions_artifact_ids": {
+    "native_1_21_1": 14703481861,
+    "native_1_21_11": 14702933021,
+    "textured_face_uv": 14700114922
+  },
+  "schema": "MCFR_INT5_B2_16_ORIGINAL_NATIVE_PNG_DIRECT_REOPEN_229_FACE_UV_45_PART/v1",
+  "source_pinned_git_blobs": {
+    "INT3_CLIENT_RUNTIME_16_F2_EVIDENCE.json": "ace5ae8b48874be5272bde8b2a46e67564f4636e",
+    "INT3_TEXTURED_CHAIRS_SOURCE_SUMMARY.json": "581ab19382d2f39b56589937fff66cc2045b9f87",
+    "INT5_B_45_ELEMENT_TEXTURING_F2_SOURCE_BRIDGE_V1.csv": "f7ca2ab4b6764df53369213b6772f5ff51525e65",
+    "INT5_B_VISUAL_SOURCE_BRIDGE_RESULT_V1.json": "ce03b2fef34e1f8f95cd7475ce5218b5d4f19625"
+  },
+  "status": "PASS_16_ORIGINAL_NATIVE_F2_BYTES_VISUALLY_REVIEWED__PART_PIXEL_AND_FUNCTION_NOT_YET_APPROVED"
+}
