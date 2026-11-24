@@ -3,6 +3,7 @@ package mcfr.research;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
@@ -43,8 +44,13 @@ public final class H26MojangDefaultUvProbe {
         String[] dirs = {"down", "up", "north", "south", "west", "east"};
         Map<String, Object> enumerations = new HashMap<>();
         for (int i = 0; i < dirs.length; ++i) {
-            enumerations.put(dirs[i], Enum.valueOf(
-                (Class<? extends Enum>)direction.asSubclass(Enum.class), args[i + 4]));
+            Field mappedField = direction.getDeclaredField(args[i + 4]);
+            mappedField.setAccessible(true);
+            Object mappedEnum = mappedField.get(null);
+            if (!direction.isInstance(mappedEnum)) {
+                throw new AssertionError("Mojang mapped Direction field is not an enum value");
+            }
+            enumerations.put(dirs[i], mappedEnum);
         }
         BufferedReader input = new BufferedReader(
             new InputStreamReader(System.in, StandardCharsets.UTF_8));
