@@ -1,0 +1,43 @@
+{
+  "schema": "MCFR_INT4_H03_H05_MODELING_SCOPED_EXIT_V1",
+  "decision": "PASS_PINNED_MODELING_RESEARCH_SCOPE_ONLY",
+  "modeling_case_count": 70,
+  "modeling_historical_pass": 62,
+  "modeling_risk_question_pass": 8,
+  "modeling_H03": "PASS_SCOPED_MODEL_RENDER_EVIDENCE",
+  "modeling_H05": "PASS_SCOPED_HISTORICAL_PROVENANCE",
+  "historical_original_ZIP_verified": 20,
+  "historical_original_F2_PNG_verified": 91,
+  "historical_original_client_logs_indexed": 21,
+  "original_strict_H03": "HOLD",
+  "original_strict_H05": "CONDITIONAL",
+  "original_strict_F_unconditional": 0,
+  "original_strict_F_conditional": 70,
+  "original_F_evidence_gaps": {
+    "ORIGINAL_LOG_SHA_BUT_NO_CASE_SPECIFIC_SERVER_EXACT": 6,
+    "SERVER_JSON_LOG_SHA_AND_IMAGE_SHA_BUT_NO_CASE_LINE": 38,
+    "SERVER_JSON_LOG_SHA_IMAGE_SHA_AND_CASE_LINE_BUT_FRAME_CAUSAL_OPEN": 26
+  },
+  "full_INT4_unconditional_exit": false,
+  "full_GPU_face_to_pixel_causality_approved": false,
+  "INT5_semantics_approved": 0,
+  "INT6_asset_training_redistribution_rights_approved": 0,
+  "new_game_executions": 0,
+  "new_human_F2_scene_reapprovals": 0,
+  "source_git_blobs": {
+    "INT4_DF_F70_CASE_ORIGINAL_EXIT_BLOCKERS_V1.csv": "d3f595a95f812e3f04f5c41c218b6d68299d23a8",
+    "INT4_DF_ORIGINAL_EXIT_CONTRACT_REAUDIT_V1.json": "8aef3f0b561cda49b2adb1f32cf96a5d8aa2b149",
+    "INT4_F70_MODELING_CONTRACT_CASE_REVIEW_V5.csv": "95ee0efa5dda895a8ce08e1291286e775d9a73dd",
+    "INT4_F70_MODELING_CONTRACT_SUMMARY_V5.json": "2c7092534d377cdbb5676fa3b96df2ef6b4615bd",
+    "INT4_H3_ALL_F70_ORIGINAL_ARTIFACT_REOPEN_AUDIT_V1.json": "e67f9c5f2ca4bac01f3e878811ed433f9713109b",
+    "INT4_H5_H03_H05_H06_EXIT_GATE_REASSESSMENT_V1.json": "b4af9222fb3ba5e0713b7dd55bc890a3f01fb777",
+    "INT4_H6_70_CASE_LOG_SOURCE_AUDIT_V1.json": "9a63e0058ccd3344560c4283fbd0551e718feb11"
+  },
+  "limits": [
+    "Research-only closure for 62 specific models and 8 bounded risk questions, not all future furniture or all game states.",
+    "H05 accepts historical ZIP/PNG/log provenance and case-linked source observations; NOT renewed per-case exact frame/server log plus visual causality.",
+    "H03 accepts source geometry/UV/blockstate and existing bounded native F2 modeling evidence; NOT per-face GPU pixel reconstruction or exhaustive runtime.",
+    "Legacy strict F70 remains 0/70 unconditional, H03 HOLD, H05 CONDITIONAL; INT-4 original full exit remains unapproved.",
+    "Existing fixed third-party assets are referenced by source/sha only; no license, AI training or redistribution permission is inferred."
+  ]
+}
