@@ -1,0 +1,65 @@
+name: INT-4 H21 AF16 original Git and official release modeling source audit
+on:
+  push:
+    branches: [work/int4-h21-af16-release-source-uv-20261124]
+    paths:
+      - src/mcfr/int4_h21_af16_release_comparison.py
+      - tests/knowledge/test_int4_h21_af16_release_comparison.py
+      - .github/workflows/integration-int4-h21-af16-release-comparison.yml
+      - project/integration/INT4_H21_AF16_RELEASE_SOURCE_UV_RESULT_V1.json
+  pull_request:
+    paths:
+      - src/mcfr/int4_h21_af16_release_comparison.py
+      - tests/knowledge/test_int4_h21_af16_release_comparison.py
+      - .github/workflows/integration-int4-h21-af16-release-comparison.yml
+      - project/integration/INT4_H21_AF16_RELEASE_SOURCE_UV_RESULT_V1.json
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  af16:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PNG decoder and run negative controls
+        run: |
+          python -m pip install 'Pillow>=10,<13'
+          python -m unittest discover -s tests/knowledge -p 'test_int4_h21_af16_release_comparison.py' -v
+      - name: Retrieve immutable study commit and pinned original AF and Minecraft binaries
+        run: |
+          set -euo pipefail
+          curl -fLsS --retry 3 --max-time 120 https://codeload.github.com/crispytwig/AnotherFurniture/zip/57eb624cbb7f408d43398c7434b0d38d312cb55d -o "$RUNNER_TEMP/h21-study.zip"
+          curl -fLsS --retry 3 --max-time 120 https://cdn.modrinth.com/data/ulloLmqG/versions/8xUs6Teu/another_furniture-fabric-4.0.2.jar -o "$RUNNER_TEMP/h21-af.jar"
+          curl -fLsS --retry 3 --max-time 120 https://piston-data.mojang.com/v1/objects/30c73b1c5da787909b2f73340419fdf13b9def88/client.jar -o "$RUNNER_TEMP/h21-mc.jar"
+      - name: Reconcile all sixteen selected cases and every historical face UV and texture hash
+        run: |
+          python -m mcfr.int4_h21_af16_release_comparison \
+            --study "$RUNNER_TEMP/h21-study.zip" --release "$RUNNER_TEMP/h21-af.jar" \
+            --vanilla "$RUNNER_TEMP/h21-mc.jar" --output "$RUNNER_TEMP/h21-derived/INT4_H21_AF16_RELEASE_SOURCE_UV_RESULT_V1.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ["RUNNER_TEMP"])/"h21-derived/INT4_H21_AF16_RELEASE_SOURCE_UV_RESULT_V1.json"
+          d=json.loads(p.read_text())
+          assert d["case_count"]==16 and d["application_count"]==21
+          assert d["legacy_F70_unconditional"]==d["INT5"]==d["INT6"]==d["new_game_runs"]==d["new_F2"]==0
+          old=Path("project/integration/INT4_H21_AF16_RELEASE_SOURCE_UV_RESULT_V1.json")
+          if old.exists():assert json.loads(old.read_text())==d
+          print("H21_JSON_BEGIN")
+          print(json.dumps(d,sort_keys=True,separators=(",",":")))
+          print("H21_JSON_END")
+          PY
+      - name: Preserve derived source comparison metadata only
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h21-af16-derived-source-comparison
+          retention-days: 45
+          path: ${{ runner.temp }}/h21-derived
+          if-no-files-found: error
