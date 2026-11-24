@@ -47,13 +47,25 @@ def mapped_field(mapping, original_owner, name):
                            r"\s+->\s+(?P<obf>[A-Za-z_$][A-Za-z0-9_$]*)",line)
         if hit:
             declaration = hit.group("decl")
-            require("static" in declaration.split() and
-                    "final" in declaration.split() and
-                    "BlockEntityType" in declaration,
-                    "H19_BED_FIELD_DECLARATION_NOT_STATIC_FINAL_ENTITY_TYPE: "+declaration[:200])
+            require("BlockEntityType" in declaration,
+                    "H19_BED_FIELD_DECLARATION_WRONG_TYPE: "+declaration[:200])
             found.append(hit.group("obf"))
     require(len(found)==1,"H19_ORIGINAL_BED_FIELD_MAPPING_MISSING_OR_AMBIGUOUS")
     return found[0]
+
+
+def confirm_bed_field_flags(javap, owner, field):
+    """Classfile ACC_STATIC/ACC_FINAL proof; Mojang mapping can omit flags."""
+    pattern=re.compile(
+        r"(?m)^\s*[^\n;]*\b"+re.escape(field)+
+        r";\s*\n\s*descriptor:\s+L"+re.escape(owner)+
+        r";\s*\n\s*flags:\s+\([^)]+\)\s*(?P<flags>[^\n]+)")
+    rows=list(pattern.finditer(javap))
+    require(len(rows)==1,"H19_BED_FIELD_CLASSFILE_DECLARATION_NOT_UNIQUE")
+    flags={x.strip() for x in rows[0].group("flags").split(",")}
+    require({"ACC_PUBLIC","ACC_STATIC","ACC_FINAL"} <= flags,
+            "H19_BED_FIELD_CLASSFILE_FLAGS_NOT_PUBLIC_STATIC_FINAL")
+    return sorted(flags)
 
 
 def instructions(javap):
@@ -163,6 +175,8 @@ def audit(version_json, mapping_file, original_client, prior_v11, h18_ledger, ja
     owner=classes[BLOCK_ENTITY_TYPE].replace(".","/")
     renderer_owner=classes[RENDERER].replace(".","/")
     registry_obf=classes[REGISTRY]
+    type_javap=h18.javap_output(Path(original_client),owner,javap)
+    field_flags=confirm_bed_field_flags(type_javap,owner,field)
     registry_javap=h18.javap_output(Path(original_client),registry_obf,javap)
     require(h18.sha256(registry_javap.encode())==root["registry_javap_sha256"] and
             root["registry_to_bed_renderer_owner_references"]==5,
@@ -181,6 +195,8 @@ def audit(version_json, mapping_file, original_client, prior_v11, h18_ledger, ja
         "original_bed_model_faces":root["original_v11_source"]["ordinary_faces"],
         "block_entity_type_owner":owner,
         "official_BED_static_field_mapped_name":field,
+        "BED_field_classfile_flags":field_flags,
+        "BED_field_public_static_final_verified":True,
         "registry_owner":registry_obf.replace(".","/"),
         "bed_renderer_owner":renderer_owner,
         "registration":pair,
@@ -200,6 +216,7 @@ def audit(version_json, mapping_file, original_client, prior_v11, h18_ledger, ja
         "INT5_semantic_approvals":0,
         "INT6_training_or_redistribution_approvals":0,
         "limitations":[
+            "Original Mojang field mappings may omit modifiers: ACC_PUBLIC/ACC_STATIC/ACC_FINAL are independently verified in the official compiled BlockEntityType classfile.",
             "Same static block registration bytecode sequence proves original BED field is paired with BedRenderer constructor handle; it does not prove runtime calls in an earlier screenshot.",
             "No original Mojang mapping/client/class bytes or full disassembly copied to the repository.",
             "Field, bootstrap and call-site PC offsets are static original Java bytecode, not geometry or GPU UV.",
