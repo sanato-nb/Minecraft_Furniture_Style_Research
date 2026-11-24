@@ -1,0 +1,69 @@
+{
+  "schema": "MCFR_INT4_H23_R06_HISTORICAL_ORIGINAL_F2_REOPEN_V1",
+  "parent_H22": "6faf00547f05f0d8a22abe8265920f0dd468318c",
+  "historical_run": 45104714782,
+  "artifact": 14786478182,
+  "zip_sha256": "ddf965f6f87e91a2c4b65f435f36eae5ea6ed1fdee8e7638a0097f1fdb2e938e",
+  "zip_crc_verified": true,
+  "actual_png_sha256": {
+    "R06_T0": "d43da9b30444b7f51d630483ba4d3d519db727fb042ad409e3a8a4842f94facf",
+    "R06_T1": "611b28b68439565f4840c4366a461049e517eb5ecfcf9b5184494d8ff4ff5363",
+    "R06_T2": "5d2722a20e4c84fe34c20477fe604358ee128856af8018ac8535d0d789d13bca"
+  },
+  "independent_reopened_png_pixel_comparison": {
+    "threshold_RGB_max": 24,
+    "water_roi": [
+      480,
+      415,
+      545,
+      443
+    ],
+    "stone_roi": [
+      610,
+      530,
+      690,
+      610
+    ],
+    "T0_T1": {
+      "water": 22,
+      "both_blue": 22,
+      "stone": 0
+    },
+    "T0_T2": {
+      "water": 8,
+      "both_blue": 8,
+      "stone": 0
+    },
+    "T1_T2": {
+      "water": 9,
+      "both_blue": 9,
+      "stone": 0
+    }
+  },
+  "source_uv_and_animation": {
+    "H22_original_source_git_blob": "b659e12153d0d2c12710bb4e24e236c934b06c14",
+    "frames": 32,
+    "frametime_ticks": 2,
+    "texture_size": [
+      16,
+      512
+    ],
+    "uv": [
+      1,
+      2,
+      13,
+      11
+    ]
+  },
+  "synthetic_intervention_unit_tests": {
+    "run": 45339987452,
+    "passed": 4,
+    "total": 4
+  },
+  "new_actual_game_comparison_run": 45339878802,
+  "scope": "Historical original three PNGs directly re-opened; exact old frame index and causal animation approval still false until controlled experiment result separately verified.",
+  "historical_frame_animation_causally_approved": false,
+  "legacy_F70_unconditional": 0,
+  "INT5": 0,
+  "INT6": 0
+}
