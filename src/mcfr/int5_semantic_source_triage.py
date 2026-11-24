@@ -94,6 +94,25 @@ def fixed_sources(root):
     return semantic, visual, scoped
 
 
+
+def verify_original_C_dimensions(c, item):
+    """Cross-check C's reported dimensions and center against F's raw coordinates."""
+    from fractions import Fraction
+    a=tuple(Fraction(v) for v in item["source_from"].split("|"))
+    b=tuple(Fraction(v) for v in item["source_to"].split("|"))
+    expected_size=tuple(abs(y-x) for x,y in zip(a,b))
+    expected_center=tuple((x+y)/2 for x,y in zip(a,b))
+    c_size=tuple(Fraction(v) for v in c["size"].split("|"))
+    c_center=tuple(Fraction(v) for v in c["center"].split("|"))
+    require(len(a)==len(b)==len(c_size)==len(c_center)==3,
+            "C/F source must contain 3D coordinate vectors")
+    eps=Fraction(1,1000000)
+    require(all(abs(x-y)<=eps for x,y in zip(c_size,expected_size)),
+            "original C/F part size disagreement")
+    require(all(abs(x-y)<=eps for x,y in zip(c_center,expected_center)),
+            "original C/F part center disagreement")
+
+
 def shape_rows(root):
     original = source_part_rows(root)
     require(len(original) == 1911, "C geometry census is not 1911")
@@ -132,6 +151,7 @@ def shape_rows(root):
                 if k not in c_roles:
                     continue
                 c = c_roles[k]
+                verify_original_C_dimensions(c, item)
                 require(c["candidate_part"] == item["part_candidate"] and
                         c["evidence"] == item["part_evidence"] ==
                         "GEOMETRY_AND_FACE_SLOTS",
