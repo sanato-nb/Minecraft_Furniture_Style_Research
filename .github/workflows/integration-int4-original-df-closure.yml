@@ -8,12 +8,14 @@ on:
       - src/mcfr/int4_original_df_gate_reaudit.py
       - tests/knowledge/test_int4_original_df_gate_reaudit.py
       - project/integration/INT4_DF_ORIGINAL_EXIT_CONTRACT_REAUDIT_V1.json
+      - project/integration/INT4_DF_F70_CASE_ORIGINAL_EXIT_BLOCKERS_V1.csv
       - .github/workflows/integration-int4-original-df-closure.yml
   pull_request:
     paths:
       - src/mcfr/int4_original_df_gate_reaudit.py
       - tests/knowledge/test_int4_original_df_gate_reaudit.py
       - project/integration/INT4_DF_ORIGINAL_EXIT_CONTRACT_REAUDIT_V1.json
+      - project/integration/INT4_DF_F70_CASE_ORIGINAL_EXIT_BLOCKERS_V1.csv
       - .github/workflows/integration-int4-original-df-closure.yml
   workflow_dispatch:
 
@@ -62,6 +64,8 @@ jobs:
           saved=pathlib.Path("project/integration")/p.name
           if saved.exists():
               assert json.loads(saved.read_text(encoding="utf-8"))==r
+              from mcfr import int4_original_df_gate_reaudit as audit
+              audit.verify_blocker_csv(r)
               print("INT4_ORIGINAL_DF_PERSISTED_SOURCE_REPLAY_MATCH")
           else:
               print("INT4_ORIGINAL_DF_FIRST_RUN_TO_BE_COMMITTED")
