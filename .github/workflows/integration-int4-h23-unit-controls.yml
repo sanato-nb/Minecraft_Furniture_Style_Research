@@ -1,0 +1,23 @@
+name: INT-4 H23 water animation intervention negative controls
+on:
+  push:
+    branches: [work/int4-h23-r06-water-animation-control-20261124]
+    paths:
+      - tests/integration/test_int4_h23_animation_control.py
+      - .github/workflows/integration-int4-h23-unit-controls.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-24.04
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          python -m unittest discover -s tests/integration -p test_int4_h23_animation_control.py -v
