@@ -1,0 +1,51 @@
+{
+  "counts": {
+    "INT6_training_rights_approvals": 0,
+    "chair_provider_models": 4,
+    "chair_role_candidates_by_label": {
+      "BACKREST_ASSEMBLY": 16,
+      "LEG_OR_LOWER_POST": 16,
+      "LOWER_FRAME": 7,
+      "SEAT_LAYER": 6
+    },
+    "chair_source_role_candidates_measured": 45,
+    "comparison_candidates": 14,
+    "comparison_findings_reopened": 21,
+    "independent_new_role_visual_approvals": 0,
+    "new_verified_material_or_style_claims": 0,
+    "non_generalizable_limits": 7,
+    "original_geometry_elements_reopened": 1911,
+    "pending_semantic_review_queue": 59,
+    "sample_specific_claims_reopened": 94
+  },
+  "decision": "PASS_SOURCE_CROSSCHECK_ONLY_SEMANTIC_VISUAL_APPROVAL_PENDING",
+  "game_or_visual_observation_new_this_run": 0,
+  "limits": [
+    "45 element AABBs, rotations and neighboring AABBs are source-space metrics, not observed seat/backrest function.",
+    "94 historical sample-part labels are scoped annotations; they do not verify 94 distinct functional parts.",
+    "14 candidate rules are not universally valid and 7 limitation/counterexample findings must be retained.",
+    "No original Minecraft screenshots were opened in this run. The prior 45 SVGs are texture-free diagnostic projections.",
+    "No new client F2, texture-level material, GPU bake, semantic human approval or AI training rights inferred."
+  ],
+  "new_original_3D_model_or_texture_assets_redistributed": 0,
+  "origin_git_blobs": {
+    "project/integration/INT2_1_5_21_FINDING_CHECKS.csv": "5b05951f9f20509df1ad17e78cabb06e8137b22f",
+    "project/integration/INT3_SEMANTIC_SUMMARY.json": "8add16f7a01c8f8fa09176851927a0c76532e606",
+    "research/furniture_mods/phase_1-5/E/PHASE2_HANDOFF.csv": "466d5abcd56c93d397fbe5b51223e2dfb6d026db"
+  },
+  "original_INT4_strict_H03_H05": {
+    "H03": "HOLD",
+    "H05": "CONDITIONAL"
+  },
+  "original_source_sha256": {
+    "C_PARTS": "b0249a3337d30daf4c088acdac41954fc01d658ea6719a24a5d146356f264642",
+    "F_database_xz": "21683d623f2abfb54f35aa5e328ed595749ec467e338c8c725c7104e36a43f88"
+  },
+  "output_sha256": {
+    "project/integration/INT5_A_21_FINDING_SCOPE_REVIEW_V1.csv": "8d9d93077b5852e092a7c2fb9cd759746332c0165068ab49dc7cc7a7db11cf48",
+    "project/integration/INT5_A_45_ELEMENT_GEOMETRY_ROLE_REVIEW_V1.csv": "38c674b55d0f9d801a601ffe79f72ec034ac851c41384c982540442afd1a1a6b",
+    "project/integration/INT5_A_94_SAMPLE_ROLE_PROVENANCE_V1.csv": "a84ce2651e3fe1a2ab2aa0147a5dea8364dc69d111e4335008ee2d81193cde66"
+  },
+  "previous_INT4_scoped_modeling": "70/70",
+  "schema": "MCFR_INT5_A_ORIGINAL_GEOMETRY_AND_SEMANTIC_TRIAGE_V1"
+}
