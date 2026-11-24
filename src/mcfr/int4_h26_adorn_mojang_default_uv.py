@@ -8,6 +8,7 @@ Original assets are read on Actions, never committed.
 from __future__ import annotations
 
 import argparse
+import csv
 from collections import Counter
 from fractions import Fraction
 import hashlib
@@ -26,6 +27,11 @@ from . import int4_h25_adorn_release_source as h25
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "project/integration/INT4_H26_ADORN_MOJANG_DEFAULT_UV_RESULT_V1.json"
 H25_JSON = ROOT / "project/integration/INT4_H25_ADORN_761_SELECTED_MODEL_SOURCE_V1.json"
+FACE_CSV = ROOT / "project/integration/INT4_H26_ADORN_139_ORIGINAL_SOURCE_FACE_UV_V1.csv"
+FACE_CSV_FIELDS = ("face_id", "model", "geometry_provider", "element_index", "direction",
+                   "texture", "source_uv_provenance", "uv_u0", "uv_v0", "uv_u1", "uv_v1",
+                   "uv_rotation_degrees", "original_cullface", "original_tintindex",
+                   "full_quad_baked", "native_F2_verified")
 H25_CSV = ROOT / "project/integration/INT4_H25_ADORN_761_STATE_SELECTOR_CASES_V1.csv"
 H25_JSON_BLOB = "5aefb171ab57d48aebba213ccedc8dbad268fbba"
 H25_CSV_BLOB = "762c6f0b6b650b9ac4e137486f886e037149124a"
@@ -381,6 +387,51 @@ def audit(args: argparse.Namespace) -> dict:
     }
 
 
+
+def source_face_csv_rows(result: dict) -> list[dict[str, str]]:
+    def number(value) -> str:
+        val = float(value)
+        return str(int(val)) if val.is_integer() else str(val)
+    rows = []
+    for face in result["five_model_unique_source_faces"]:
+        uv = face["source_uv_texel_units"]
+        need(len(uv) == 4, "source UV CSV has invalid face rectangle")
+        row = {
+            "face_id": face["id"],
+            "model": face["model"],
+            "geometry_provider": face["geometry_provider"],
+            "element_index": str(face["element"]),
+            "direction": face["direction"],
+            "texture": face["texture"],
+            "source_uv_provenance": face["uv_source"],
+            "uv_u0": number(uv[0]),
+            "uv_v0": number(uv[1]),
+            "uv_u1": number(uv[2]),
+            "uv_v1": number(uv[3]),
+            "uv_rotation_degrees": str(face["original_face_uv_rotation_degrees"]),
+            "original_cullface": str(face["cullface"]) if face["cullface"] is not None else "",
+            "original_tintindex": str(face["tintindex"]) if face["tintindex"] is not None else "",
+            "full_quad_baked": "false",
+            "native_F2_verified": "false",
+        }
+        need(tuple(row) == FACE_CSV_FIELDS, "source UV CSV schema differs")
+        rows.append(row)
+    need(len(rows) == 139 and len({r["face_id"] for r in rows}) == 139,
+         "source UV CSV must have 139 distinct original faces")
+    return rows
+
+
+def verify_face_csv(result: dict, filename: Path = FACE_CSV) -> None:
+    with filename.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        need(tuple(reader.fieldnames or ()) == FACE_CSV_FIELDS,
+             "H26 source face CSV column schema changed")
+        got = list(reader)
+    need(got == source_face_csv_rows(result),
+         "H26 139-row face CSV does not match real Mojang JVM original UV")
+    print("H26_PERSISTED_139_FACE_CSV_ORIGINAL_JVM_MATCH")
+
+
 def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--version-json", type=Path, required=True)
@@ -394,6 +445,7 @@ def main() -> None:
     if a.verify:
         need(json.loads(a.output.read_text(encoding="utf-8")) == result,
              "persisted H26 original UV result not identical to independent re-run")
+        verify_face_csv(result)
         print("H26_5_VANILLA_PNGS_107_ORIGINAL_JVM_DEFAULT_FACE_UV_400_STATE_WEIGHTED_PASS")
     else:
         a.output.parent.mkdir(parents=True, exist_ok=True)
