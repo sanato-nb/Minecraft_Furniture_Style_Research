@@ -1,0 +1,46 @@
+{
+  "context": "Whole-object F2 screenshots apply to the same selected source child/parent; none identifies individual source element pixels.",
+  "counts": {
+    "AF_candidates_with_known_research_vs_release_state_file_diff": 20,
+    "F2_per_child": 4,
+    "HC_MACAW_candidates_with_blockstate_sha_equal_only": 25,
+    "INT6_training_redistribution_rights_approved": 0,
+    "different_versions": 2,
+    "material_style_approvals": 0,
+    "new_F2_directly_visual_inspected": 0,
+    "original_children_textured": 4,
+    "original_native_F2_same_child_direction_views": 16,
+    "original_provider_models": 4,
+    "role_approvals": 0,
+    "source_faces_across_children": 229,
+    "source_role_candidates_linked": 45,
+    "specific_element_to_F2_pixel_observations": 0,
+    "unique_source_PNG": 8
+  },
+  "limitations": [
+    "Screen images in original Actions are reused by exact identity/hash metadata, not downloaded and visually inspected anew here.",
+    "Source PNG and face UV are confirmed for the four textured children at whole-model level, not independently mapped for every one of 45 element faces in this bridge.",
+    "AF study 4.0.3 blockstate bytes differ from official Fabric 4.0.2 for acacia, and complete runtime model parent SHA parity is unverified for all providers.",
+    "A geometry plausible candidate plus a visible whole chair is NOT proof of functional seat/backrest/leg role, material, or Minecraft baked per-face UV.",
+    "No new game run or F2 screenshot; previous 16 re-captured isolation views not counted as 16 new independent model/part approvals.",
+    "No third-party textures/models/game images copied or approved for AI training, learning rights or redistribution."
+  ],
+  "output_sha256": {
+    "project/integration/INT5_B_16_NATIVE_F2_DIRECTION_SOURCE_BRIDGE_V1.csv": "b36f2767d05f0d0ee6f0e3651ce3fd689a0c554d26da3fdc9be42ce42640d0d6",
+    "project/integration/INT5_B_45_ELEMENT_TEXTURING_F2_SOURCE_BRIDGE_V1.csv": "91cedf6c123f66977b580442e32c08a6377d612ac6a51b5b67eb6316b05881f9"
+  },
+  "prior_16_native_F2_run": 44894353504,
+  "prior_isolation_native_F2_recapture": 16,
+  "research_and_release_differences_preserved": true,
+  "schema": "MCFR_INT5_B_CHAIR_45_SOURCE_TO_16_NATIVE_F2_SCOPED_BRIDGE_V1",
+  "source_github_git_blobs": {
+    "INT3_45_CHAIR_GEOMETRY_REVIEW.csv": "2a2fea79d9e7b5290a77230fb21c10ed96d9a91e",
+    "INT3_CHAIR_BLOCKSTATE_SOURCE_SUMMARY.json": "31a2ffe6073e609feaf0d063a5b3b71c4e57e993",
+    "INT3_CLIENT_RUNTIME_16_F2_EVIDENCE.json": "ace5ae8b48874be5272bde8b2a46e67564f4636e",
+    "INT3_ISOLATED_F2_FINAL_SUMMARY.json": "fd76011fae63caaf3d9bea9b93be2bef29cd79c9",
+    "INT3_TEXTURED_CHAIRS_SOURCE_SUMMARY.json": "581ab19382d2f39b56589937fff66cc2045b9f87",
+    "INT5_A_45_ELEMENT_GEOMETRY_ROLE_REVIEW_V1.csv": "a88dcaf534a912f48375757b34ade6f9a15f7f97",
+    "INT5_A_EVIDENCE_TRIAGE_SUMMARY_V1.json": "cacaf8361860f88134c6911bf6f6678031b0ef38"
+  },
+  "status": "PASS_SOURCE_TEXTURING_AND_WHOLE_OBJECT_F2_PROVENANCE__SEMANTICS_NOT_APPROVED"
+}

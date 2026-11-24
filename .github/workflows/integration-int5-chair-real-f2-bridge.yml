@@ -1,0 +1,81 @@
+name: INT-5 B chair original texture geometry to native F2 provenance
+
+on:
+  push:
+    branches:
+      - work/int5-b-chair-visual-evidence-bridge-20261125
+    paths:
+      - src/mcfr/int5_chair_visual_source_bridge.py
+      - tests/knowledge/test_int5_chair_visual_source_bridge.py
+      - project/integration/INT5_B_45_ELEMENT_TEXTURING_F2_SOURCE_BRIDGE_V1.csv
+      - project/integration/INT5_B_16_NATIVE_F2_DIRECTION_SOURCE_BRIDGE_V1.csv
+      - project/integration/INT5_B_VISUAL_SOURCE_BRIDGE_RESULT_V1.json
+      - project/integration/INT5_B_VISUAL_SOURCE_BRIDGE_REPORT_V1.md
+      - .github/workflows/integration-int5-chair-real-f2-bridge.yml
+  pull_request:
+    paths:
+      - src/mcfr/int5_chair_visual_source_bridge.py
+      - tests/knowledge/test_int5_chair_visual_source_bridge.py
+      - project/integration/INT5_B_45_ELEMENT_TEXTURING_F2_SOURCE_BRIDGE_V1.csv
+      - project/integration/INT5_B_16_NATIVE_F2_DIRECTION_SOURCE_BRIDGE_V1.csv
+      - project/integration/INT5_B_VISUAL_SOURCE_BRIDGE_RESULT_V1.json
+      - project/integration/INT5_B_VISUAL_SOURCE_BRIDGE_REPORT_V1.md
+      - .github/workflows/integration-int5-chair-real-f2-bridge.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-to-real-f2-link-only-no-semantic-promotion:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently rejoin pinned model SHA and actual 16 Minecraft native F2 source cases
+        run: |
+          python -m mcfr.int5_chair_visual_source_bridge \
+            --root . --out "$RUNNER_TEMP" --emit-json
+      - name: Run 10 negative and source provenance controls
+        run: |
+          python -m unittest discover -s tests/knowledge \
+            -p test_int5_chair_visual_source_bridge.py -v
+      - name: Assert exact 45/16 scope and no false role permissions
+        run: |
+          python - <<'PY'
+          import json,os,pathlib
+          p=pathlib.Path(os.environ["RUNNER_TEMP"])/"project/integration/INT5_B_VISUAL_SOURCE_BRIDGE_RESULT_V1.json"
+          j=json.loads(p.read_text(encoding="utf-8"))
+          c=j["counts"]
+          assert c["source_role_candidates_linked"]==45
+          assert c["original_native_F2_same_child_direction_views"]==16
+          assert c["source_faces_across_children"]==229
+          assert c["unique_source_PNG"]==8
+          assert c["AF_candidates_with_known_research_vs_release_state_file_diff"]==20
+          assert c["HC_MACAW_candidates_with_blockstate_sha_equal_only"]==25
+          assert c["role_approvals"]==c["new_F2_directly_visual_inspected"]==0
+          assert c["INT6_training_redistribution_rights_approved"]==0
+          print("INT5_B_REAL_F2_16_45_PARTS_PROVENANCE_ONLY_NO_FAKE_SEMANTIC_PASS")
+          PY
+      - name: Verify derived permanent GitHub data if present
+        run: |
+          if [ -f project/integration/INT5_B_VISUAL_SOURCE_BRIDGE_RESULT_V1.json ]; then
+            python -m mcfr.int5_chair_visual_source_bridge --verify
+          else
+            echo "FIRST_RUN_DERIVED_CSV_AND_JSON_ARE_STORED_AS_ACTIONS_ARTIFACT"
+          fi
+      - name: Store derived context ledgers without redistributing third-party artwork
+        uses: actions/upload-artifact@v4
+        with:
+          name: int5-b-original-45-chair-parts-16-native-f2-source-ledger
+          path: |
+            ${{ runner.temp }}/project/integration/INT5_B_45_ELEMENT_TEXTURING_F2_SOURCE_BRIDGE_V1.csv
+            ${{ runner.temp }}/project/integration/INT5_B_16_NATIVE_F2_DIRECTION_SOURCE_BRIDGE_V1.csv
+            ${{ runner.temp }}/project/integration/INT5_B_VISUAL_SOURCE_BRIDGE_RESULT_V1.json
+          retention-days: 45
+          if-no-files-found: error
