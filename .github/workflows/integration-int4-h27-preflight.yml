@@ -63,3 +63,33 @@ jobs:
               print("H27_JAVAP_SIGNATURE",name,p.returncode,p.stdout[:8000],flush=True)
           print("H27_MAPPED_CLASS_COUNT",len(items),flush=True)
           PY
+
+      - name: Resolve official axis, quadrant and transformation matrices reflection interfaces
+        run: |
+          python - <<'PY'
+          import os,pathlib,re,subprocess
+          r=pathlib.Path(os.environ["RUNNER_TEMP"])
+          s=(r/"client_mappings.dat").read_text()
+          names=[
+             "com.mojang.math.Transformation",
+             "com.mojang.math.Quadrant",
+             "net.minecraft.core.Direction$Axis",
+             "net.minecraft.client.renderer.block.model.Variant$SimpleModelState",
+             "net.minecraft.client.renderer.block.model.BlockElementRotation$SingleAxisRotation",
+             "net.minecraft.client.renderer.block.model.BlockElementRotation",
+             "net.minecraft.client.resources.model.BlockModelRotation",
+          ]
+          for name in names:
+            p=re.compile(r"(?m)^"+re.escape(name)+r" -> ([\w.$]+):$")
+            found=list(p.finditer(s))
+            assert len(found)==1,name
+            m=found[0];obf=m.group(1)
+            members=[]
+            for line in s[m.end():].splitlines():
+              if line and not line.startswith((" ","#")):break
+              if line.startswith("    "):members.append(line.strip())
+            p=subprocess.run(["javap","-classpath",str(r/"client.dat"),"-p",obf],
+                             capture_output=True,text=True,check=True)
+            print("H27_EXACT_CLASS",name,obf,"SOURCE_MEMBERS",repr(members[:80]),flush=True)
+            print("H27_EXACT_SIGNATURE",name,p.stdout[:8000],flush=True)
+          PY
