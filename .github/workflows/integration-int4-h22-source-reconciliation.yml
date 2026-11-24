@@ -59,6 +59,8 @@ jobs:
           print(json.dumps(d,sort_keys=True,separators=(",",":")))
           print("H22_JSON_END")
           PY
+      - name: Independently verify V4 promotion and preserve R06 and legacy gates
+        run: python -m mcfr.int4_h22_modeling_delta
       - name: Preserve derived metadata only
         uses: actions/upload-artifact@v4
         with:
