@@ -52,7 +52,7 @@ INT-5의 목표는 **원본 데이터로 측정한 형상과 실제 화면에서
 - `project/integration/INT5_A_EVIDENCE_TRIAGE_SUMMARY_V1.json` — 원본 SHA와 각 CSV의 SHA256, 집계 및 승인 구분.
 - `.github/workflows/integration-int5-semantic-source-triage.yml` — 실제 GitHub Actions에서 원본 C/F 압축 자료 재독해·CSV/JSON 재계산·단위시험·영구 결과 일치 검증.
 
-첫 실실행 GitHub Actions [#45439692973](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45439692973) **SUCCESS**: 산출 원장 45/94/21 및 9개 회귀시험 PASS. 후속 치수·중심의 독립 산식과 반례 시험은 별도 새 커밋 및 CI에서 최종 재실행 확인이 필요하다.
+첫 GitHub Actions [#45439692973](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45439692973) **SUCCESS**: 원본 45/94/21 재계산 및 최초 회귀시험 9/9 통과. 저장된 CSV의 줄바꿈(CRLF/LF) 해시 불일치를 실제 CI에서 발견해 **LF로 정규화하고 모든 영구 CSV·JSON의 SHA를 갱신**했다. 후속 원본 치수·중심의 분수 산식과 변조 반례를 포함한 [최종 독립 Actions #45440347331](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45440347331) **SUCCESS**, 회귀시험 **10/10**, 45/94/21 산출물 영구 GitHub 바이트 재계산 일치, 연구 아티팩트 `int5-a-45-role-94-sample-21-finding-audit` 생성 확인. 실패했던 초기 CI도 숨기지 않는다.
 
 ## 5. INT-5 진행 판정
 
