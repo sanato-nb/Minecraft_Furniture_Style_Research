@@ -1,0 +1,108 @@
+name: INT-4 H27 official Mojang model rotation/quad signatures preflight
+on:
+  push:
+    branches: [work/int4-h27-adorn-original-rotation-quad-preflight-20261124]
+    paths: [.github/workflows/integration-int4-h27-preflight.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-mojang-classes:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Load source pinned 1.21.11 official client and mappings
+        run: |
+          set -euo pipefail
+          curl -fLsS --retry 3 --max-time 100 \
+            'https://piston-meta.mojang.com/v1/packages/a969d96978af7b52dba8df44e177f48ec4ebe0d8/1.21.11.json' \
+            -o "$RUNNER_TEMP/version.json"
+          python - <<'PY'
+          import json,hashlib,os,pathlib,subprocess
+          r=pathlib.Path(os.environ["RUNNER_TEMP"])
+          b=(r/"version.json").read_bytes()
+          assert hashlib.sha1(b).hexdigest()=="a969d96978af7b52dba8df44e177f48ec4ebe0d8"
+          j=json.loads(b)
+          for kind in ("client","client_mappings"):
+            entry=j["downloads"][kind]
+            p=r/(kind+".dat")
+            subprocess.run(["curl","-fLsS","--retry","3","--max-time","360",entry["url"],"-o",str(p)],check=True)
+            assert hashlib.sha1(p.read_bytes()).hexdigest()==entry["sha1"]
+          print("H27_OFFICIAL_MOJANG_SOURCE_PINNED")
+          PY
+      - name: Extract exact Mojang model state and element rotation mapped members and JVM code
+        run: |
+          python - <<'PY'
+          import os,pathlib,re,subprocess
+          r=pathlib.Path(os.environ["RUNNER_TEMP"])
+          s=(r/"client_mappings.dat").read_text()
+          items=[]
+          for m in re.finditer(r"(?m)^([\w.$]+) -> ([\w.$]+):$",s):
+            klass,obf=m.groups()
+            if any(k in klass for k in ("BlockModelRotation","ModelState","BlockElementRotation","ModelRotation","FaceBakery","Quadrant")):
+              name=klass.split(".")[-1]
+              if name not in ("FaceBakery$1",):
+                section=s[m.end():].splitlines()
+                members=[]
+                for line in section:
+                  if line and not line.startswith((" ","#")): break
+                  if line.startswith("    "): members.append(line.strip())
+                items.append((klass,obf,members))
+          for name,obf,members in items:
+            print("H27_MAPPED_CLASS",name,obf,"FIELDS",repr(members[:85]),flush=True)
+            if any(x in name for x in ("BlockModelRotation","ModelState","BlockElementRotation","ModelRotation")):
+              p=subprocess.run(["javap","-classpath",str(r/"client.dat"),"-p",obf],capture_output=True,text=True)
+              print("H27_JAVAP_SIGNATURE",name,p.returncode,p.stdout[:8000],flush=True)
+          print("H27_MAPPED_CLASS_COUNT",len(items),flush=True)
+          PY
+
+      - name: Resolve official axis, quadrant and transformation matrices reflection interfaces
+        run: |
+          python - <<'PY'
+          import os,pathlib,re,subprocess
+          r=pathlib.Path(os.environ["RUNNER_TEMP"])
+          s=(r/"client_mappings.dat").read_text()
+          names=[
+             "com.mojang.math.Transformation",
+             "com.mojang.math.Quadrant",
+             "net.minecraft.core.Direction$Axis",
+             "net.minecraft.client.renderer.block.model.Variant$SimpleModelState",
+             "net.minecraft.client.renderer.block.model.BlockElementRotation$SingleAxisRotation",
+             "net.minecraft.client.renderer.block.model.BlockElementRotation",
+             "net.minecraft.client.resources.model.BlockModelRotation",
+          ]
+          for name in names:
+            p=re.compile(r"(?m)^"+re.escape(name)+r" -> ([\w.$]+):$")
+            found=list(p.finditer(s))
+            assert len(found)==1,name
+            m=found[0];obf=m.group(1)
+            members=[]
+            for line in s[m.end():].splitlines():
+              if line and not line.startswith((" ","#")):break
+              if line.startswith("    "):members.append(line.strip())
+            p=subprocess.run(["javap","-classpath",str(r/"client.dat"),"-p",obf],
+                             capture_output=True,text=True,check=True)
+            print("H27_EXACT_CLASS",name,obf,"SOURCE_MEMBERS",repr(members[:80]),flush=True)
+            print("H27_EXACT_SIGNATURE",name,p.stdout[:8000],flush=True)
+          PY
+
+      - name: Inspect Mojang FaceBakery.rotateVertexBy native pivot implementation
+        run: |
+          python - <<'PY'
+          import pathlib,os,subprocess,re
+          r=pathlib.Path(os.environ["RUNNER_TEMP"])
+          out=subprocess.run(["javap","-classpath",str(r/"client.dat"),
+                              "-p","-c","hqi"],capture_output=True,text=True,check=True).stdout
+          a=re.search(r"(?m)^  private static void a\(org\.joml\.Vector3f, org\.joml\.Vector3fc, org\.joml\.Matrix4fc\);$",out)
+          assert a,"original Mojang rotateVertexBy method missing"
+          p=out[a.start():].split("\n\n",1)[0]
+          print("H27_NATIVE_FACEBAKERY_ROTATE_VERTEX_BY",p[:6500],flush=True)
+          PY

@@ -1,0 +1,124 @@
+name: INT-4 H27 original Mojang 21-state/136-element vertex rotation audit
+
+on:
+  push:
+    branches:
+      - work/int4-h27-adorn-original-rotation-quad-preflight-20261124
+    paths:
+      - src/mcfr/int4_h27_adorn_mojang_rotation_vertices.py
+      - tools/research/H27MojangElementStateRotationProbe.java
+      - tests/knowledge/test_int4_h27_adorn_mojang_rotation_vertices.py
+      - project/integration/INT4_H27_ADORN_ORIGINAL_MOJANG_ROTATED_VERTICES_V1.json
+      - project/integration/INT4_H27_ADORN_21_STATE_ROTATED_BOUNDS_V1.csv
+      - .github/workflows/integration-int4-h27-adorn-mojang-rotated-vertices.yml
+  pull_request:
+    paths:
+      - src/mcfr/int4_h27_adorn_mojang_rotation_vertices.py
+      - tools/research/H27MojangElementStateRotationProbe.java
+      - tests/knowledge/test_int4_h27_adorn_mojang_rotation_vertices.py
+      - project/integration/INT4_H27_ADORN_ORIGINAL_MOJANG_ROTATED_VERTICES_V1.json
+      - project/integration/INT4_H27_ADORN_21_STATE_ROTATED_BOUNDS_V1.csv
+      - .github/workflows/integration-int4-h27-adorn-mojang-rotated-vertices.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-element-and-state-rotations:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 23
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate 21 Adorn state selection and 136 original element negative controls
+        run: python -m unittest discover -s tests/knowledge -p test_int4_h27_adorn_mojang_rotation_vertices.py -v
+      - name: Download pinned original Mojang 1.21.11 client/mappings and Adorn 7.6.1
+        timeout-minutes: 9
+        run: |
+          set -euo pipefail
+          curl -fLsS --retry 3 --retry-all-errors --max-time 110 \
+            'https://piston-meta.mojang.com/v1/packages/a969d96978af7b52dba8df44e177f48ec4ebe0d8/1.21.11.json' \
+            -o "$RUNNER_TEMP/h27-version.json"
+          python - <<'PY'
+          import json,hashlib,os,pathlib,subprocess
+          r=pathlib.Path(os.environ["RUNNER_TEMP"])
+          b=(r/"h27-version.json").read_bytes()
+          assert hashlib.sha1(b).hexdigest()=="a969d96978af7b52dba8df44e177f48ec4ebe0d8"
+          meta=json.loads(b)
+          assert meta["id"]=="1.21.11"
+          for kind,filename in (
+              ("client","h27-client.jar"),
+              ("client_mappings","h27-client-mappings.txt"),
+          ):
+              x=meta["downloads"][kind]
+              dest=r/filename
+              subprocess.run(["curl","-fLsS","--retry","3","--retry-all-errors",
+                              "--max-time","360",x["url"],"-o",str(dest)],check=True)
+              assert hashlib.sha1(dest.read_bytes()).hexdigest()==x["sha1"]
+              print("H27_ORIGINAL_MOJANG_JAR_MAPPINGS_PINNED",kind,dest.stat().st_size,flush=True)
+          PY
+          gh release download 7.6.1 --repo Juuxel/Adorn \
+            --pattern 'Adorn-7.6.1+1.21.11-fabric.jar' --dir "$RUNNER_TEMP"
+      - name: Execute original Mojang ModelState and BlockElementRotation for 1088 source corners
+        timeout-minutes: 10
+        run: |
+          python -m mcfr.int4_h27_adorn_mojang_rotation_vertices \
+            --version-json "$RUNNER_TEMP/h27-version.json" \
+            --official-client "$RUNNER_TEMP/h27-client.jar" \
+            --client-mappings "$RUNNER_TEMP/h27-client-mappings.txt" \
+            --adorn-jar "$RUNNER_TEMP/Adorn-7.6.1+1.21.11-fabric.jar" \
+            --output "$RUNNER_TEMP/INT4_H27_ADORN_ORIGINAL_MOJANG_ROTATED_VERTICES_V1.json"
+      - name: Verify 21 states, 136 elements, 8 element rotations and unchanged approvals
+        run: |
+          python - <<'PY'
+          import json,os,pathlib
+          p=pathlib.Path(os.environ["RUNNER_TEMP"])/"INT4_H27_ADORN_ORIGINAL_MOJANG_ROTATED_VERTICES_V1.json"
+          d=json.loads(p.read_text(encoding="utf-8"))
+          k=d["counts"]
+          assert k=={
+            "source_models":5,"source_unique_elements":29,
+            "selected_state_cases":21,"selected_model_applications":29,
+            "state_weighted_source_element_instances":136,
+            "state_weighted_element_rotations":8,
+            "original_jvm_rotated_corners":1088,
+            "previous_H26_unique_source_faces":139,
+            "previous_H26_original_default_uv_calls":107,
+            "previous_H26_state_weighted_source_faces":656,
+            "new_actual_game_runs":0,"new_native_F2":0,
+          }
+          assert d["preserved_approvals"]=={
+            "modeling_F70_scope_from_H23":"70/70",
+            "strict_F70_unconditional":0,"H03":"HOLD","H05":"CONDITIONAL",
+            "INT5":0,"INT6":0,"GPU_per_face_approved":False,
+          }
+          assert len(d["original_selected_element_vertices"])==136
+          assert d["official_jvm_proof"]["output_source_corners"]==1088
+          assert d["official_jvm_proof"]["not_full_bake_quad"]
+          target=pathlib.Path("project/integration")/p.name
+          if target.exists():
+            assert json.loads(target.read_text(encoding="utf-8"))==d
+            from mcfr import int4_h27_adorn_mojang_rotation_vertices as m
+            m.verify_csv(d)
+            print("H27_OFFICIAL_MOJANG_JVM_ROTATIONS_SAVED_JSON_AND_CSV_MATCH")
+          else:
+            print("H27_FIRST_ORIGINAL_MOJANG_ROTATION_RESULT_TO_BE_COMMITTED")
+          print("H27_21_STATES_136_ELEMENTS_1088_MOJANG_VERTEX_TRANSFORMS_PASS")
+          PY
+      - name: Keep numeric transformations and digests only, no original assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h27-original-mojang-rotated-vertices-json-only
+          path: ${{ runner.temp }}/INT4_H27_ADORN_ORIGINAL_MOJANG_ROTATED_VERTICES_V1.json
+          retention-days: 45
+          if-no-files-found: error
