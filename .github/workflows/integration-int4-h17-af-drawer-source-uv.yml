@@ -1,0 +1,82 @@
+name: INT-4 H17 original AF 4.0.2 drawer parent face UV texel source audit
+
+on:
+  push:
+    branches:
+      - work/int4-h17-af-drawer-parent-face-uv-texel-source-20261124
+    paths:
+      - src/mcfr/int4_h17_af_drawer_parent_face_uv.py
+      - tests/knowledge/test_int4_h17_af_drawer_parent_face_uv.py
+      - .github/workflows/integration-int4-h17-af-drawer-source-uv.yml
+  pull_request:
+    paths:
+      - src/mcfr/int4_h17_af_drawer_parent_face_uv.py
+      - tests/knowledge/test_int4_h17_af_drawer_parent_face_uv.py
+      - .github/workflows/integration-int4-h17-af-drawer-source-uv.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original_AF_402_drawer_parent_face_UV:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact PNG decoder
+        run: python -m pip install 'Pillow>=10,<13'
+      - name: Fail-closed synthetic geometry, alias and F2 lineage controls
+        run: |
+          python -m unittest discover -s tests/knowledge \
+            -p 'test_int4_h17_af_drawer_parent_face_uv.py' -v
+      - name: Download pinned ORIGINAL official Another Furniture Fabric 4.0.2 JAR
+        timeout-minutes: 4
+        run: |
+          set -euo pipefail
+          curl -fLsS --retry 3 --retry-all-errors --max-time 120 \
+            'https://cdn.modrinth.com/data/ulloLmqG/versions/8xUs6Teu/another_furniture-fabric-4.0.2.jar' \
+            -o "$RUNNER_TEMP/h17-AF-original.jar"
+          python - <<'PY'
+          import hashlib, os, pathlib, zipfile
+          jar=pathlib.Path(os.environ["RUNNER_TEMP"])/"h17-AF-original.jar"
+          actual=hashlib.sha1(jar.read_bytes()).hexdigest()
+          assert actual=="c2f992081bdc4795ed6d87771a3b5f7c71103785",actual
+          with zipfile.ZipFile(jar) as z:
+              assert z.testzip() is None
+          print("ORIGINAL_OFFICIAL_AF_402_SHA1_AND_ZIP_CRC_PASS")
+          PY
+      - name: Resolve original state-selected model parents, face UV and texel differences
+        run: |
+          python -m mcfr.int4_h17_af_drawer_parent_face_uv \
+            --original-af-jar "$RUNNER_TEMP/h17-AF-original.jar" \
+            --prior-result project/integration/INT4_H03_H05_S20_S21_REAL_NORTH_F2_RESULT_V1.json \
+            --output "$RUNNER_TEMP/h17-source-face-uv/INT4_H17_AF_DRAWER_ORIGINAL_PARENT_FACE_UV_TEXEL_AUDIT_V1.json"
+          python - <<'PY'
+          import json,os,pathlib
+          output=pathlib.Path(os.environ["RUNNER_TEMP"])/"h17-source-face-uv/INT4_H17_AF_DRAWER_ORIGINAL_PARENT_FACE_UV_TEXEL_AUDIT_V1.json"
+          d=json.loads(output.read_text(encoding="utf-8"))
+          assert d["status"]=="PASS_PINNED_ORIGINAL_PARENT_TEXTURE_FACE_UV_STATIC_SOURCE_ONLY"
+          assert d["changed_face_count"]>0 and d["front_png_changed_rgba_texels"]>0
+          assert d["only_front_texture_binding_changed"] is True
+          assert d["geometry_and_face_uv_arrays_identical"] is True
+          assert d["prior_front_camera_changed_pixels_threshold24"]==1208
+          assert d["new_game_runs"]==0 and d["F70_unconditional_approved"]==0
+          assert not d["pixel_to_GPU_face_UV_texel_exact_causal_approved"]
+          print("H17_ORIGINAL_FACE_UV_TEXEL_STATIC_SOURCE",d["changed_faces"])
+          PY
+          git diff --check
+      - name: Retain only derived research evidence; exclude original JAR and PNG
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int4-h17-af-drawer-parent-face-uv-original-source-derivation-only
+          retention-days: 45
+          if-no-files-found: warn
+          path: {{ runner.temp }}/h17-source-face-uv/*.json
