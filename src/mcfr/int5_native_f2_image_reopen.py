@@ -120,7 +120,21 @@ def download_archives(folder:Path):
                      "Accept":"application/vnd.github+json",
                      "X-GitHub-Api-Version":"2022-11-28",
                      "User-Agent":"MCFR-INT5-B2-source-visual-audit/1"})
-        with urllib.request.urlopen(req,timeout=90) as response:
+        # Azure's short-lived redirect URL must not inherit GitHub Bearer
+        # Authorization: its SAS signature is sufficient and Azure rejects
+        # Authorization: Bearer as an unsupported storage auth scheme.
+        from urllib.parse import urlparse
+
+        class StripCrossHostAuth(urllib.request.HTTPRedirectHandler):
+            def redirect_request(self, old_req, fp, code, msg, headers, newurl):
+                fresh=super().redirect_request(old_req,fp,code,msg,headers,newurl)
+                if fresh and urlparse(newurl).netloc!=urlparse(old_req.full_url).netloc:
+                    fresh.remove_header("Authorization")
+                    fresh.unredirected_hdrs.pop("Authorization",None)
+                return fresh
+
+        opener=urllib.request.build_opener(StripCrossHostAuth)
+        with opener.open(req,timeout=90) as response:
             payload=response.read()
         require(zipfile.is_zipfile(io.BytesIO(payload)),
                 "downloaded Actions artifact is not ZIP: "+tag)
