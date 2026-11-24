@@ -230,7 +230,7 @@ def inspect_jar(jar_file, prior):
                 eligible |= in_face
     require(prior["source_model"]["official_original_AF_mod_jar_sha1"] == AF_RELEASE_SHA1 and
             prior["verified_new_real_game"]["run_conclusion"] == "success" and
-            prior["verified_new_real_game"]["actual_run"] == F2_ORIGINAL_RUN and
+            prior["verified_new_real_game"]["github_actions_run"] == F2_ORIGINAL_RUN and
             prior["verified_new_real_game"]["exact_game_state_markers_2_of_2"] and
             prior["verified_new_real_game"]["new_north_open_closed_RGB24_changed_screen_pixels"] == 1208 and
             prior["study_scope"]["H03_case_fully_approved"] is False,
