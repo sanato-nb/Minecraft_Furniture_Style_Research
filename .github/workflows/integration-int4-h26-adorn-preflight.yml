@@ -1,0 +1,73 @@
+name: INT-4 H26 Mojang 1.21.11 Adorn external texture and UV preflight
+
+on:
+  push:
+    branches: [work/int4-h26-adorn-vanilla-uv-source-20261124]
+    paths: [.github/workflows/integration-int4-h26-adorn-preflight.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  official-source-probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download Mojang pinned 1.21.11 manifest mapping and official asset index
+        run: |
+          set -euo pipefail
+          curl -fLsS --retry 3 --max-time 100 'https://piston-meta.mojang.com/v1/packages/a969d96978af7b52dba8df44e177f48ec4ebe0d8/1.21.11.json' -o "$RUNNER_TEMP/version.json"
+          python - <<'PY'
+          import os,hashlib,json,pathlib,subprocess
+          r=pathlib.Path(os.environ["RUNNER_TEMP"]); b=(r/"version.json").read_bytes()
+          assert hashlib.sha1(b).hexdigest()=="a969d96978af7b52dba8df44e177f48ec4ebe0d8"
+          j=json.loads(b)
+          assert j["id"]=="1.21.11"
+          for k in ("client","client_mappings"):
+              d=j["downloads"][k]
+              target=r/(k+".dat")
+              subprocess.run(["curl","-fLsS","--retry","3","--max-time","360",d["url"],"-o",str(target)],check=True)
+              assert hashlib.sha1(target.read_bytes()).hexdigest()==d["sha1"]
+              print("H26_MOJANG_PINNED",k,hashlib.sha256(target.read_bytes()).hexdigest(),flush=True)
+          index=j["assetIndex"]
+          target=r/"asset_index.json"
+          subprocess.run(["curl","-fLsS","--retry","3","--max-time","180",index["url"],"-o",str(target)],check=True)
+          assert hashlib.sha1(target.read_bytes()).hexdigest()==index["sha1"]
+          o=json.loads(target.read_text())["objects"]
+          p=[
+            "minecraft/textures/block/acacia_log.png",
+            "minecraft/textures/block/acacia_planks.png",
+            "minecraft/textures/block/iron_block.png",
+            "minecraft/textures/block/orange_stained_glass.png",
+            "minecraft/textures/block/stone.png"
+          ]
+          print("H26_ASSET_INDEX_META",json.dumps(index,sort_keys=True),flush=True)
+          print("H26_ASSET_LOOKUP",json.dumps({a:o.get(a) for a in p},sort_keys=True),flush=True)
+          print("H26_MAPPING_LINES_BEGIN")
+          for line in (r/"client_mappings.dat").read_text().splitlines():
+              if "net.minecraft.client.renderer.block.model." in line and ("BlockElement" in line or "FaceBakery" in line or "BlockModel" in line or "UV" in line or "ModelElement" in line):
+                  print(line,flush=True)
+          print("H26_MAPPING_LINES_END")
+          PY
+      - name: Read official Mojang block model UV-related JVM bytecode signature
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import pathlib,os,subprocess,re
+          p=pathlib.Path(os.environ["RUNNER_TEMP"])
+          lines=(p/"client_mappings.dat").read_text().splitlines()
+          matches=[(name,obf) for line in lines if (m:=re.match(r"^(net\.minecraft\.client\.renderer\.block\.model\.[A-Za-z0-9_$]+) -> ([A-Za-z0-9_$.]+):$",line)) for name,obf in [m.groups()]]
+          for name, obf in matches:
+              if any(q in name for q in ("BlockElement","FaceBakery","BlockModel")):
+                  print("H26_MAPPED_CLASS",name,obf,flush=True)
+                  if "BlockElement" in name:
+                      r=subprocess.run(["javap","-classpath",str(p/"client.dat"),"-p","-c",obf],capture_output=True,text=True)
+                      print("H26_JAVAP",name,"status",r.returncode,r.stdout[:12500],flush=True)
+          PY
