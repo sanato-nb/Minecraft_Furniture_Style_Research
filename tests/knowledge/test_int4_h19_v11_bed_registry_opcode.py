@@ -46,11 +46,24 @@ class H19V11BedRegistration(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"MISSING_OR_AMBIGUOUS"):
             h19.mapped_field(MAPPING,h19.BLOCK_ENTITY_TYPE,"FURNACE")
 
-    def test_static_final_required(self):
-        bad=MAPPING.replace("public static final net.minecraft.world.level.block.entity.BlockEntityType BED",
-                            "public net.minecraft.world.level.block.entity.BlockEntityType BED")
-        with self.assertRaisesRegex(ValueError,"NOT_STATIC_FINAL"):
-            h19.mapped_field(bad,h19.BLOCK_ENTITY_TYPE,"BED")
+    def test_mappings_can_omit_modifiers_but_field_type_remains_exact(self):
+        modified=MAPPING.replace("public static final net.minecraft.world.level.block.entity.BlockEntityType BED",
+                                 "net.minecraft.world.level.block.entity.BlockEntityType BED")
+        self.assertEqual(h19.mapped_field(modified,h19.BLOCK_ENTITY_TYPE,"BED"),"b")
+        wrong=modified.replace("net.minecraft.world.level.block.entity.BlockEntityType BED",
+                               "java.lang.String BED")
+        with self.assertRaisesRegex(ValueError,"WRONG_TYPE"):
+            h19.mapped_field(wrong,h19.BLOCK_ENTITY_TYPE,"BED")
+
+    def test_bytecode_flags_must_prove_public_static_final(self):
+        text="""public static final eld b;
+           descriptor: Leld;
+           flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+"""
+        self.assertEqual(h19.confirm_bed_field_flags(text,"eld","b"),
+                         ["ACC_FINAL","ACC_PUBLIC","ACC_STATIC"])
+        with self.assertRaisesRegex(ValueError,"FLAGS_NOT_PUBLIC_STATIC_FINAL"):
+            h19.confirm_bed_field_flags(text.replace("ACC_STATIC, ",""),"eld","b")
 
     def test_duplicate_bed_mapping_denied(self):
         bad=MAPPING.replace("    public static final net.minecraft.world.level.block.entity.BlockEntityType CHEST -> c",
