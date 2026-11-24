@@ -54,6 +54,11 @@ def member_names(raw):
             hits=[m.group(1) for line in members if (m:=re.search(pat,line))]
             need(len(hits)==1,"member mapping not unique "+short+"."+name+" "+str(hits))
             data[short+"."+name]=hits[0]
+        if short=="Vertex":
+            for name in ("x","y","z"):
+                hits=[m.group(1) for line in members if (m:=re.search(r"(?:^|\s)"+name+r"\s+->\s+(\w+)$",line))]
+                if len(hits)==1:data[short+"."+name]=hits[0]
+            print("H20_VERTEX_MAPPED_MEMBER_TYPES",members,flush=True)
     return data
 
 def download_libraries(meta,root):
