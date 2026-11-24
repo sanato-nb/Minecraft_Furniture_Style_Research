@@ -1,0 +1,92 @@
+{
+  "schema": "MCFR_INT4_H18_V11_MOJANG_BED_RENDERER_SOURCE_CHAIN_KNOWLEDGE_V1",
+  "status": "PASS_OFFICIAL_MOJANG_12111_STATIC_RENDERER_REGISTRY_REFERENCE_SCOPE",
+  "parent_pr": 98,
+  "h18_draft_pr": 99,
+  "pinned_official": {
+    "minecraft": "Java 1.21.11",
+    "version_json_sha1": "a969d96978af7b52dba8df44e177f48ec4ebe0d8",
+    "client_jar_sha1": "ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd",
+    "client_jar_sha256": "1473c9489ac50fda3c435049a76a70d61a10b8610db27f5ba9d8756b686cd3bd",
+    "client_mappings_sha1": "031a68bebf55d824f66d6573d8c752f0e1bf232a",
+    "tool": "JDK 21 javap -v -c -p"
+  },
+  "actual_H18_actions": {
+    "run_id": 45324711008,
+    "conclusion": "success",
+    "source_commit": "0ca0e94f1a19772ca3d5cbd5cac928e8a7194600",
+    "unit_tests": 10,
+    "artifact_id": 14889091838,
+    "artifact_derived_zip_sha256": "b446a87566ca7232fb4a2f128c5d9b374e06f9d9b0eef8b1bb64b1e171df4f32",
+    "artifact_zip_CRC_verified": true,
+    "contains_original_mojang_client_jar_mappings_classfiles": false
+  },
+  "original_source": {
+    "model_path": "assets/minecraft/models/block/bed.json",
+    "model_git_blob_sha1": "9406a8491ed2532d4878b0a91b16a0e5f8d93d80",
+    "blockstate_path": "assets/minecraft/blockstates/white_bed.json",
+    "blockstate_git_blob_sha1": "6577c90a27efb34a7099150253c0bf557d75214c",
+    "ordinary_elements": 0,
+    "ordinary_faces": 0
+  },
+  "mapped_classfile": {
+    "BedRenderer": "hrf.class",
+    "BlockEntityRenderers": "hrk.class",
+    "BlockEntityRenderDispatcher": "hrh.class",
+    "BedRenderState": "hsk",
+    "BedBlockEntity": "ekx",
+    "BlockEntityType": "eld",
+    "BedSpecialRenderer_item_path": "ijx"
+  },
+  "registry_proof": {
+    "renderer_constructor_owner": "hrf",
+    "matched_classfile_references": 5,
+    "matching_reference_types": [
+      "Class",
+      "Methodref",
+      "MethodHandle REF_newInvokeSpecial"
+    ],
+    "registrar_javap_sha256": "abd98a24b265345ee88e88581f1f1ac62e31c2b0735ca211a7f6a9b75d3b9f7e",
+    "renderer_javap_sha256": "5ddf796ac8a055331c079909df76f68208ef22fbea916796e6ef351af7905a44",
+    "dispatcher_javap_sha256": "95393de2216f7042e02368382bad65295cbbc8603d5fb89e9de9c99b21e6b78c",
+    "bed_renderer_related_owner_refs": {
+      "BedRenderState": 32,
+      "BedBlockEntity": 18,
+      "BlockEntityType": 4,
+      "BedSpecialRenderer": 0
+    },
+    "static_compiled_registry_owner_verified": true,
+    "dynamic_bed_render_method_invoked_during_original_F2_verified": false,
+    "precise_blockentitytype_BED_field_registration_pair_independently_verified": false
+  },
+  "previous_game_evidence": {
+    "actions_run": 45103243455,
+    "artifact_id": 14786302262,
+    "previous_native_F2_count": 4,
+    "exact_foot_head_server_blocks": 2,
+    "air_control_changed_pixels": 0,
+    "bed_vs_air_changed_pixels_rgb24": 6446,
+    "previous_game_reexecuted_for_H18": false
+  },
+  "scope_and_gates": {
+    "new_game_runs": 0,
+    "full_renderer_geometry_and_UV_extracted": false,
+    "pixel_to_GPU_exact_causal_approved": false,
+    "H03": "HOLD",
+    "H05": "CONDITIONAL",
+    "F70_conditional": 70,
+    "F70_unconditional": 0,
+    "H_six_scoped_pass": 6,
+    "H_one_conditional": 1,
+    "H_one_hold": 1,
+    "INT5_semantics_approved": 0,
+    "INT6_training_redistribution_rights_approved": 0
+  },
+  "limitations": [
+    "Official bytecode references prove the BedRenderer class exists and the renderer registration class contains constructor linkage; they do NOT prove actual invocation in the earlier V11 captured client.",
+    "Compiled renderer implementation and mapping inspection are not a validated object-space geometry/UV extraction or evidence of exact GPU pixel texel causality.",
+    "Earlier V11 native F2 and server states were linked to SHA-pinned saved audit, not rerun nor independently reopened in H18.",
+    "BedSpecialRenderer corresponds to a distinct item/special model path; zero BedRenderer owner reference in the examined classfile is not general exclusion proof.",
+    "Original client JAR, Mojang class mapping file and full disassembly are not stored in research Git."
+  ]
+}
