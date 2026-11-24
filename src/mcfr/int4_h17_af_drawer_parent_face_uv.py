@@ -56,7 +56,13 @@ def resolve_leaf(archive, model_id):
     lineage = []
     visited = set()
     current = model_id
+    external_vanilla_parent = None
     while True:
+        # A mod's geometry-bearing template can inherit vanilla block/block.
+        # Do not invent vanilla parent data from an absent Minecraft client JAR.
+        if current.startswith("minecraft:"):
+            external_vanilla_parent = current
+            break
         require(current not in visited, "H17_MODEL_PARENT_CYCLE")
         visited.add(current)
         name = identifier_to_path(current, "models")
@@ -85,6 +91,7 @@ def resolve_leaf(archive, model_id):
             {"path": p, "sha256": digest} for p, digest, _ in reversed(lineage)
         ],
         "geometry_provider": provider,
+        "external_vanilla_parent_not_opened": external_vanilla_parent,
         "textures": textures,
         "elements": elements,
     }
@@ -239,6 +246,7 @@ def inspect_jar(jar_file, prior):
                 "state": STATE_MODELS[case][0], "leaf": STATE_MODELS[case][1],
                 "source_chain": item["model"]["source_chain_root_to_leaf"],
                 "geometry_provider": item["model"]["geometry_provider"],
+                "external_vanilla_parent_not_opened": item["model"]["external_vanilla_parent_not_opened"],
                 "element_count": len(item["model"]["elements"]),
                 "face_count": len(item["faces"]),
             } for case, item in cases.items()
@@ -269,6 +277,7 @@ def inspect_jar(jar_file, prior):
         "pixel_to_GPU_face_UV_texel_exact_causal_approved": False,
         "limitations": [
             "Texture sources and model/face selectors are inspected statically from one pinned Fabric 4.0.2 release.",
+            "An external minecraft: parent is explicitly marked uninspected: inherited vanilla metadata is not certified; geometry must be explicitly provided inside the inspected AF JAR.",
             "An explicit UV rectangle provides candidate texel coverage, not GPU sampling proof; implicit UV is not fabricated.",
             "Previous north native F2 1208 pixels is reused by SHA/run reference, not rerun or independently reaudited here.",
             "Source image/JAR original bytes are neither committed nor uploaded in this derived report.",
