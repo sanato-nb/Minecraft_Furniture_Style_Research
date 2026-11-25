@@ -41,9 +41,9 @@ jobs:
             timeout 180s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 update
             timeout 240s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 install -y --no-install-recommends xvfb xauth xdotool
           fi
-      - name: Verify source element7 and nine bounded negative-control tests
+      - name: Verify AF123 source index7 and 13 child-only / original support controls
         run: |
-          python -m unittest discover -s tests/knowledge -p test_int5_af_element7_removal_f2.py -v
+          python -m unittest discover -s tests/knowledge -p test_int5_b12_af123_backrest_element7_native_f2.py -v
           python -m unittest discover -s tests/knowledge -p test_int5_af_tucked_slab_control.py -v
       - name: Reopen exact B4 original native 8 F2 and SHA pin whole ZIP and anchored B4 audit
         env:
