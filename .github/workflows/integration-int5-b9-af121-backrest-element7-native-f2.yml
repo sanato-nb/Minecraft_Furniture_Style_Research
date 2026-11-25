@@ -3,12 +3,12 @@ name: INT-5 B9 AF121 backrest element7 isolated removal native two-camera F2
 on:
   push:
     branches:
-      - work/int5-b9-af121-element7-isolated-child-native-f2-20261125
+      - work/int5-b9-af121-backrest-element7-native-f2-20261125
     paths:
       - src/mcfr/int5_b9_af121_backrest_element7_native_f2.py
       - src/mcfr/runtime.py
       - tests/knowledge/test_int5_b9_af121_backrest_element7_native_f2.py
-      - .github/workflows/integration-int5-b9-af121-child-element7-native-f2.yml
+      - .github/workflows/integration-int5-b9-af121-backrest-element7-native-f2.yml
   workflow_dispatch:
 
 permissions:
@@ -80,7 +80,7 @@ jobs:
               --output "$RUNNER_TEMP/int5-b9-native-f2"
       - name: Independently audit exact 8 original H15 and new F2, eight server states
         run: |
-          python -m mcfr.int5_b7_af121_child_element7_f2 \
+          python -m mcfr.int5_b9_af121_backrest_element7_native_f2 \
             --directory "$RUNNER_TEMP/int5-b9-native-f2" \
             --h15-original-zip "$RUNNER_TEMP/int5-b9-h15-original-8-F2.zip"
           python - <<'PY'

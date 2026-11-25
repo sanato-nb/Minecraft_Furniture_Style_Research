@@ -6,7 +6,7 @@ import unittest
 
 from PIL import Image, ImageDraw
 
-from mcfr import int5_b9_af121_child_element7_f2 as b9
+from mcfr import int5_b9_af121_backrest_element7_native_f2 as b9
 from mcfr import int4_h15_af_opposing_f2_capture as h15
 
 
@@ -88,7 +88,7 @@ class B9IndependentSourceEvidenceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"both inherit"):
             b9.isolated_child_override(child,json.dumps(doc).encode(),parent)
 
-    def test_unexpected_source_geometry_or_index4_face_count_is_rejected(self):
+    def test_unexpected_source_geometry_or_index7_face_count_is_rejected(self):
         child,control,parent=original_synthetic_models()
         doc=json.loads(parent);doc["elements"][7]["faces"].pop("0")
         with self.assertRaisesRegex(ValueError,"46-face template"):

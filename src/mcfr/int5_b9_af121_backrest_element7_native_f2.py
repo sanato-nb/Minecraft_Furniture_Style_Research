@@ -2,11 +2,11 @@
 
 Original 4.0.2 child inherits the shared template/chair with ten elements.
 Only the *acacia_1 child JSON* is changed in one disposable verified JAR to
-override inherited elements by nine originals excluding source element index 4.
+override inherited elements by nine originals excluding source element index 7.
 The original parent and acacia_3 child stay byte-identical, giving a genuinely
 independent variant3 negative control. Compare against the original H15 eight
 real native F2 frames at identical camera/stages. Never treat a removal-induced
-screen response as pixel ownership, seat functionality, material, style or rights.
+screen response as pixel ownership, backrest functionality, material, style or rights.
 """
 from __future__ import annotations
 
@@ -68,7 +68,7 @@ def original_role():
          int(matches[0]["source_element_original_face_count"])==2 and
          matches[0]["source_texture_role_cue"]=="ROLE_NAMED_ORIGINAL_BACK_PNG" and
          matches[0]["causal_screen_response_status"]=="NOT_INDIVIDUALLY_CAUSAL_TESTED",
-         "B6 pinned original AF121 seat source role or experiment state drift")
+         "B6 pinned original AF121 backrest source role or experiment state drift")
     need(queue[2]["child_model_key"]=="AF121" and
          queue[2]["original_source_element_index"]=="7" and
          summary["counts"]["tested_element_render_response"]==1 and
@@ -484,7 +484,7 @@ def audit(directory,baseline_zip):
            "Removal screen changes may include revealed faces, occlusion and lighting; no direct exclusive original per-face/F2 pixel ownership proven.",
            "Four original H15 stages are unchanged baseline native PNGs, not newly reproduced source assets.",
            "No source name-based backrest function, texture material, style, training rights, or redistribution rights granted.",
-           "Original B6 1/45 causal case is independent, not reclassified or imported as new B9 pixels.",
+           "Historical B6 1/45 source snapshot preserved; separate B5/B7/B8 game interventions are not reused as B9 screen pixels.",
        ],
     }
     (target/AUDIT).write_text(json.dumps(result,ensure_ascii=False,sort_keys=True,indent=2)+"\n",encoding="utf-8")
