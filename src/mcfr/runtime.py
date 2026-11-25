@@ -89,10 +89,10 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
         elif args.command=="int4-h10-hc-bed-occupied":
             from .int4_h10_hc_bed_occupied_f2_capture import capture_case
             selected=capture_case()
-        elif args.command in ("int4-h12-af-chair-samepose","int4-h15-af-opposing-f2","int4-h16-af-one-texel-f2", "int5-b7-af121-child-element4-f2", "int5-b8-hc-cushion12-native-f2"):
+        elif args.command in ("int4-h12-af-chair-samepose","int4-h15-af-opposing-f2","int4-h16-af-one-texel-f2", "int5-b7-af121-child-element4-f2"):
             from .int4_h12_af_chair_samepose_f2_capture import original_case
             selected=original_case()
-        elif args.command in ("int5-b4-af-tucked-slab", "int5-b5-af-element4-removal", "int5-b7-af121-child-element4-f2", "int5-b8-hc-cushion12-native-f2"):
+        elif args.command in ("int5-b4-af-tucked-slab", "int5-b5-af-element4-removal", "int5-b7-af121-child-element4-f2"):
             from .int5_af_tucked_slab_control import target_case
             selected=(target_case(),)
         elif args.command=="int5-b8-hc-cushion12-native-f2":
