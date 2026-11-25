@@ -1,0 +1,100 @@
+{
+  "INT6_training_redistribution_approvals": 0,
+  "actual_game_sessions": 1,
+  "decision": "PASS_REAL_FABRIC_BOTH_VIEW_SUPPORTED_TUCKED_CHAIR_VS_SLAB_CONTROLS",
+  "exact_Fabric_client_version": "1.21.1",
+  "exact_server_chair_state_and_slab_pair_checks": 16,
+  "limits": [
+    "With legal top slab fixed, chair vs slab-only screen pixels isolate visible chair assembly but do not reveal parts hidden behind the slab.",
+    "Opposing camera views are explicit and exact game state markers correspond to every F2, no illicit unsupported tucked=true inference.",
+    "No seat/leg/back element-index pixel attribution, functional occupancy or physical properties proved.",
+    "No broad material, style, AI training or redistribution rights approved."
+  ],
+  "native_F2_sha256": {
+    "north_chair_plus_slab_after": "eda8fa8031e7cb061a9d7e49249b902c118622da897133f66b46fe8de3b652a0",
+    "north_chair_plus_slab_before": "eda8fa8031e7cb061a9d7e49249b902c118622da897133f66b46fe8de3b652a0",
+    "north_empty": "e2669fe0a23ca8b2f65a3a743bf85da19d703ed240d9740a00edb2956eaa86e6",
+    "north_slab_only": "08600c5229f5010a68c0a69066051367946a87432e375c3e743e8424c4cf4cd3",
+    "south_chair_plus_slab_after": "c568082cce53fae8abe99b0ef65cdb39e8b16daabc9cc7422031fc4982375245",
+    "south_chair_plus_slab_before": "93e8edb5f96bb1464234f4c3c9e19a6a5b3cfafc9e73397bf6968e8a295f8e55",
+    "south_empty": "559bd5bc8161f5cb3a82a207971bc999f8bd4f1d7c2490d12ea207370288d301",
+    "south_slab_only": "e8b463f063d5b845435d2b036e8e0d97d69d497bc69a0dfaddc9d69bc6e6692c"
+  },
+  "new_element_function_approvals": 0,
+  "new_individual_element_F2_pixel_identifications": 0,
+  "original_client_log_sha256": "7670fa2a0bf378c6fc3e6db01da6bfc7efb72e4332d739bc51c7df7257a4cd6b",
+  "original_manifest_sha256": "f46e65aead79e21f2e380072739e696505d774f1f54f54a87e856fcf3a9f42d5",
+  "original_native_F2_verified": 8,
+  "per_camera_original_screen_pixel_differences": {
+    "north": {
+      "ROI": [
+        350,
+        275,
+        675,
+        620
+      ],
+      "chair_delta_bounds_xyxy": [
+        485,
+        392,
+        538,
+        479
+      ],
+      "chair_delta_minus_temporal": 386,
+      "chair_pixel_delta_with_slab_fixed": 386,
+      "chair_plus_slab_pixel_delta_vs_empty": 6102,
+      "chair_slab_difference_pixel_intersection": 0,
+      "channel_threshold": 24,
+      "same_chair_state_temporal_delta": 0,
+      "slab_delta_bounds_xyxy": [
+        471,
+        402,
+        552,
+        474
+      ],
+      "slab_pixel_delta_with_chair_absent": 5716
+    },
+    "south": {
+      "ROI": [
+        350,
+        275,
+        675,
+        620
+      ],
+      "chair_delta_bounds_xyxy": [
+        485,
+        409,
+        538,
+        473
+      ],
+      "chair_delta_minus_temporal": 2656,
+      "chair_pixel_delta_with_slab_fixed": 2656,
+      "chair_plus_slab_pixel_delta_vs_empty": 5738,
+      "chair_slab_difference_pixel_intersection": 808,
+      "channel_threshold": 24,
+      "same_chair_state_temporal_delta": 0,
+      "slab_delta_bounds_xyxy": [
+        477,
+        374,
+        546,
+        431
+      ],
+      "slab_pixel_delta_with_chair_absent": 3890
+    }
+  },
+  "per_camera_pass_flags": {
+    "north": {
+      "actual_visible_chair_pixels_vs_slab_only": true,
+      "actual_visible_support_pixels_vs_empty": true,
+      "temporal_chair_delta_not_explained_by_drift": true
+    },
+    "south": {
+      "actual_visible_chair_pixels_vs_slab_only": true,
+      "actual_visible_support_pixels_vs_empty": true,
+      "temporal_chair_delta_not_explained_by_drift": true
+    }
+  },
+  "schema": "MCFR_INT5_B4_AF_TUCKED_SLAB_NATIVE_F2_8_INDEPENDENT_AUDIT/v1",
+  "source_case": "AF123_north",
+  "source_chair_variant_and_model_unchanged_for_A_and_A_return": true,
+  "tucked_true_without_support_was_tested": false
+}
