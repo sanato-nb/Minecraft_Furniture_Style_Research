@@ -64,6 +64,13 @@ class B10IndependentSourceEvidenceTests(unittest.TestCase):
         self.assertEqual(source["source_texture_role_cue"],
                          "ROLE_NAMED_ORIGINAL_BACK_PNG")
 
+    def test_exact_original_element8_identity_not_prior_B9_element7(self):
+        self.assertEqual(b10.SOURCE_INDEX,8)
+        self.assertEqual(b10.SOURCE_KEY,("AF121","AF1393",8))
+        source=Path(b10.__file__).read_text(encoding="utf-8")
+        self.assertIn('"original_source_part_key":"/".join(',source)
+        self.assertNotIn('"original_source_part_key":"AF121/AF1393/7"',source)
+
     def test_original_template_10_elements_46_faces_and_single_child_only_override(self):
         child,control,parent=original_synthetic_models()
         patch,scope=b10.isolated_child_override(child,control,parent)

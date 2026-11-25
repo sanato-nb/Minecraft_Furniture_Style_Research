@@ -452,7 +452,7 @@ def audit(directory,baseline_zip):
        "decision":decision,
        "runtime_version":VERSION,
        "tested_case":"AF121_north",
-       "original_source_part_key":"AF121/AF1393/7",
+       "original_source_part_key":"/".join([SOURCE_KEY[0],SOURCE_KEY[1],str(SOURCE_INDEX)]),
        "source_role_hypothesis_not_function":"BACKREST_ASSEMBLY",
        "official_baseline_H15_zip_sha256":BASELINE_ARTIFACT_SHA256,
        "original_H15_native_F2_verified":8,

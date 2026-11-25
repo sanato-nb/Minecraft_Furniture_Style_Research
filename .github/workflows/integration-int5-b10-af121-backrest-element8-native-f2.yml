@@ -91,6 +91,14 @@ jobs:
           assert result["new_disposable_native_F2_verified"]==8
           assert result["new_exact_server_state_confirmations"]==8
           assert result["two_separate_game_sessions_in_comparison"]==2
+          assert result["original_source_part_key"]=="AF121/AF1393/8"
+          assert result["source_role_hypothesis_not_function"]=="BACKREST_ASSEMBLY"
+          assert result["source_provenance"]["removed_source_index"]==8
+          assert result["source_provenance"]["parent_original_element_count"]==10
+          assert result["source_provenance"]["parent_original_face_count"]==46
+          assert result["source_provenance"]["child_new_element_count"]==9
+          assert result["source_provenance"]["child_new_face_count"]==41
+          assert len(result["source_provenance"]["removed_source_element_faces"])==5
           assert result["source_provenance"]["one_and_only_one_uncompressed_JAR_member_modified"] is True
           assert result["source_provenance"]["original_parent_unmodified"] is True
           assert result["source_provenance"]["acacia3_negative_control_unmodified"] is True
