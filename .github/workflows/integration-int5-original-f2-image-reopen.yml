@@ -1,0 +1,86 @@
+name: INT-5 B2 original 16 native F2 PNG direct byte and visual scene audit
+
+on:
+  push:
+    branches:
+      - work/int5-b2-original-f2-image-reopen-20261125
+    paths:
+      - src/mcfr/int5_native_f2_image_reopen.py
+      - tests/knowledge/test_int5_native_f2_image_reopen.py
+      - project/integration/INT5_B2_45_ELEMENT_SOURCE_TEXTURE_FACE_REVIEW_V1.csv
+      - project/integration/INT5_B2_16_NATIVE_F2_DIRECT_SCENE_REVIEW_V1.csv
+      - project/integration/INT5_B2_REAL_ORIGINAL_IMAGE_REOPEN_RESULT_V1.json
+      - project/integration/INT5_B2_RESEARCH_REPORT_V1.md
+      - .github/workflows/integration-int5-original-f2-image-reopen.yml
+  pull_request:
+    paths:
+      - src/mcfr/int5_native_f2_image_reopen.py
+      - tests/knowledge/test_int5_native_f2_image_reopen.py
+      - project/integration/INT5_B2_45_ELEMENT_SOURCE_TEXTURE_FACE_REVIEW_V1.csv
+      - project/integration/INT5_B2_16_NATIVE_F2_DIRECT_SCENE_REVIEW_V1.csv
+      - project/integration/INT5_B2_REAL_ORIGINAL_IMAGE_REOPEN_RESULT_V1.json
+      - project/integration/INT5_B2_RESEARCH_REPORT_V1.md
+      - .github/workflows/integration-int5-original-f2-image-reopen.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  independent-original-F2-16-and-textured-229-face-reopen:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    env:
+      PYTHONPATH: src
+      GITHUB_TOKEN: ${{ github.token }}
+      INT5_B2_ARTIFACT_DIR: /tmp/int5-b2-original-reopen
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reopen 3 pinned historical GitHub Actions archives and decode all 16 original native F2 screenshots
+        run: |
+          python -m mcfr.int5_native_f2_image_reopen \
+            --root . --archive-dir "$INT5_B2_ARTIFACT_DIR" \
+            --out "$RUNNER_TEMP" --emit-json
+      - name: Independently test original 229 source texture faces and all 45 part keys
+        run: |
+          python -m unittest discover -s tests/knowledge \
+            -p test_int5_native_f2_image_reopen.py -v
+      - name: Strictly prevent equating contextual visuals with 45 part-function approvals
+        run: |
+          python - <<'PY'
+          import json,os,pathlib
+          file=pathlib.Path(os.environ["RUNNER_TEMP"])/"project/integration/INT5_B2_REAL_ORIGINAL_IMAGE_REOPEN_RESULT_V1.json"
+          j=json.loads(file.read_text(encoding="utf-8"))
+          c=j["counts"]
+          assert c["native_screenshot_PNG_opened_SHA_decoded"]==16
+          assert c["original_source_faces_reopened"]==229
+          assert c["original_source_face_to_part_keys_linked"]==45
+          assert c["whole_chair_scenes_with_clear_group_forms"]==12
+          assert c["whole_chair_scenes_partly_occluded"]==4
+          assert c["part_function_approved"]==0
+          assert c["source_part_individual_F2_pixel_mapping_approved"]==0
+          assert c["INT6_training_redistribution_rights_approved"]==0
+          print("INT5_B2_ORIGINAL_F2_16_PNG_AND_229_UV_REAL_BYTES_SOURCE_PROOF_PASS")
+          PY
+      - name: Independently replay exact committed research CSV and JSON
+        run: |
+          if [ -e project/integration/INT5_B2_REAL_ORIGINAL_IMAGE_REOPEN_RESULT_V1.json ]; then
+            python -m mcfr.int5_native_f2_image_reopen \
+              --archive-dir "$INT5_B2_ARTIFACT_DIR" --verify
+          else
+            echo "FIRST_RUN_RESULTS_ARE_ATTACHED_AS_DERIVED_METADATA_ONLY"
+          fi
+      - name: Upload derived verification JSON and CSV only
+        uses: actions/upload-artifact@v4
+        with:
+          name: int5-b2-16-original-png-229-source-face-45-geometry-meta
+          path: |
+            ${{ runner.temp }}/project/integration/INT5_B2_45_ELEMENT_SOURCE_TEXTURE_FACE_REVIEW_V1.csv
+            ${{ runner.temp }}/project/integration/INT5_B2_16_NATIVE_F2_DIRECT_SCENE_REVIEW_V1.csv
+            ${{ runner.temp }}/project/integration/INT5_B2_REAL_ORIGINAL_IMAGE_REOPEN_RESULT_V1.json
+          retention-days: 45
+          if-no-files-found: error
