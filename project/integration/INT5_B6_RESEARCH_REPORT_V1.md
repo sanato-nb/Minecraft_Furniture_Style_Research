@@ -53,7 +53,7 @@ B3까지 축적한 **4모델의 원본 요소 45개·소스 면 229개·역할 �
 - `project/integration/INT5_B6_45_PART_CAUSAL_SCOPE_RESULT_V1.json`: 입력 Git blob SHA와 재생성 CSV SHA-256, 승인·미실험 카운트, 실험 기준 이미지 SHA 메타데이터.
 - `.github/workflows/integration-int5-b6-source-causal-ledger.yml`: 정적 증거 재계산·11개 변조 부정 시험·커밋 원장 바이트 동일성 감사.
 
-첫 실제 [**GitHub Actions #45540108685 SUCCESS**](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45540108685): 기존 소스 원본 SHA·45/229/15 분할·B5 실제 F2 751/0 인과 감사, 11/11 테스트·메타데이터 재생성. 최초 테스트 성공만으로 재생성 산출물을 **원본 JAR 직접 열람/새 F2 촬영**으로 간주하지 않음. 저장 후 같은 워크플로를 **바이트 수준으로 재실행**해 최종 확인한다.
+첫 실제 [**GitHub Actions #45540108685 SUCCESS**](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45540108685): 기존 소스 원본 SHA·45/229/15 분할·B5 실제 F2 751/0 인과 감사, 11/11 테스트·메타데이터 재생성. 최초 테스트 성공만으로 재생성 산출물을 **원본 JAR 직접 열람/새 F2 촬영**으로 간주하지 않음. 원장 5파일을 GitHub에 커밋한 뒤 **[실제 Actions #45540316095 SUCCESS](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45540316095)**를 재실행하여 **11개 회귀시험, 45/229/15 재계산 및 영구 보존 CSV/JSON 4개 바이트 일치 검증**까지 통과했다. 검증한 커밋은 `da1af415dc56ef3601e740963875002546c67c67`이다. 다음 보고서 전용 갱신은 연구 코드와 데이터에 영향을 주지 않는다.
 
 ## 5. 다음 실험 후보와 분기 기준
 
