@@ -42,7 +42,7 @@ def sha(data):
     return hashlib.sha256(data).hexdigest()
 
 def blob(data):
-    return hashlib.sha1(b"blob " + str(len(data)).encode() + b"\\0" + data).hexdigest()
+    return hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()
 
 def source_role(index):
     require(index in INDICES, "not a selected, previously untested AF123 source element")
@@ -153,7 +153,7 @@ def capture(command, env, game, output, version, index):
     metadata = prepare(game,index)
     result = b4.capture(command,env,game,output,version)
     (Path(output)/PROVENANCE).write_text(
-        json.dumps(metadata,ensure_ascii=False,sort_keys=True,indent=2)+"\\n",
+        json.dumps(metadata,ensure_ascii=False,sort_keys=True,indent=2)+"\n",
         encoding="utf-8")
     return result
 
@@ -244,7 +244,7 @@ def audit(baseline_dir, modified_dir, index):
         ],
     }
     (modified_dir/AUDIT).write_text(
-        json.dumps(report,ensure_ascii=False,sort_keys=True,indent=2)+"\\n",
+        json.dumps(report,ensure_ascii=False,sort_keys=True,indent=2)+"\n",
         encoding="utf-8")
     return report
 
