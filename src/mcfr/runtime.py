@@ -47,7 +47,7 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
          "--pack", str(copied_world / "datapacks/cd_audit")],
         check=True,
     )
-    if args.command in ("chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "int4-f11f-r08-fabric-pair", "hc-bed-capture", "int4-h10-hc-bed-occupied", "int4-h12-af-chair-samepose", "int4-h15-af-opposing-f2", "int4-h16-af-one-texel-f2", "int5-b4-af-tucked-slab", "int5-b5-af-element4-removal", "int5-b7-af121-child-element4-f2", "int5-b8-hc-cushion12-native-f2", "int5-b9-af121-backrest7-native-f2", "int5-b10-af121-backrest8-native-f2", "int5-b11-af121-backrest9-native-f2", "int5-b12-af123-backrest7-native-f2", "int5-b13-af123-backrest8-native-f2", "int5-b14-af123-backrest9-native-f2", "int5-b15-af123-batch-f2"):
+    if args.command in ("chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "int4-f11f-r08-fabric-pair", "hc-bed-capture", "int4-h10-hc-bed-occupied", "int4-h12-af-chair-samepose", "int4-h15-af-opposing-f2", "int4-h16-af-one-texel-f2", "int5-b4-af-tucked-slab", "int5-b5-af-element4-removal", "int5-b7-af121-child-element4-f2", "int5-b8-hc-cushion12-native-f2", "int5-b9-af121-backrest7-native-f2", "int5-b10-af121-backrest8-native-f2", "int5-b11-af121-backrest9-native-f2", "int5-b12-af123-backrest7-native-f2", "int5-b13-af123-backrest8-native-f2", "int5-b14-af123-backrest9-native-f2", "int5-b15-af123-batch-f2", "int5-b16-af121-batch-f2"):
         from .chair_runtime_fixture import make_pack
         selected=None
         if args.command=="af-variant3-capture":
@@ -89,10 +89,10 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
         elif args.command=="int4-h10-hc-bed-occupied":
             from .int4_h10_hc_bed_occupied_f2_capture import capture_case
             selected=capture_case()
-        elif args.command in ("int4-h12-af-chair-samepose","int4-h15-af-opposing-f2","int4-h16-af-one-texel-f2", "int5-b7-af121-child-element4-f2", "int5-b9-af121-backrest7-native-f2", "int5-b10-af121-backrest8-native-f2", "int5-b11-af121-backrest9-native-f2"):
+        elif args.command in ("int4-h12-af-chair-samepose","int4-h15-af-opposing-f2","int4-h16-af-one-texel-f2", "int5-b7-af121-child-element4-f2", "int5-b9-af121-backrest7-native-f2", "int5-b10-af121-backrest8-native-f2", "int5-b11-af121-backrest9-native-f2", "int5-b16-af121-batch-f2"):
             from .int4_h12_af_chair_samepose_f2_capture import original_case
             selected=original_case()
-        elif args.command in ("int5-b4-af-tucked-slab", "int5-b5-af-element4-removal", "int5-b7-af121-child-element4-f2", "int5-b12-af123-backrest7-native-f2", "int5-b13-af123-backrest8-native-f2", "int5-b14-af123-backrest9-native-f2", "int5-b15-af123-batch-f2"):
+        elif args.command in ("int5-b4-af-tucked-slab", "int5-b5-af-element4-removal", "int5-b7-af121-child-element4-f2", "int5-b12-af123-backrest7-native-f2", "int5-b13-af123-backrest8-native-f2", "int5-b14-af123-backrest9-native-f2", "int5-b15-af123-batch-f2", "int5-b16-af121-batch-f2"):
             from .int5_af_tucked_slab_control import target_case
             selected=(target_case(),)
         elif args.command=="int5-b8-hc-cushion12-native-f2":
@@ -204,6 +204,10 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
     if args.command=="int5-b15-af123-batch-f2":
         from .int5_b15_af123_six_element_batch_f2 import capture
         return capture(command,env,game,args.output,args.version,args.index)
+    if args.command=="int5-b16-af121-batch-f2":
+        from . import int5_b16_af121_six_element_batch_f2 as b16
+        b16.select_index(args.index)
+        return b16.capture(command,env,game,args.output,args.version)
     if args.command=="int5-b7-af121-child-element4-f2":
         from .int5_b7_af121_child_element4_f2 import capture
         return capture(command,env,game,args.output,args.version)
@@ -291,6 +295,8 @@ def main(argv: list[str] | None = None) -> int:
     b14 = sub.add_parser("int5-b14-af123-backrest9-native-f2", help="AF123 tucked variant10 original backrest index9 child-only native F2 vs anchored B4 support slab")
     b15 = sub.add_parser("int5-b15-af123-batch-f2", help="six independent AF123 original source element removals on real Fabric F2")
     b15.add_argument("--index", type=int, choices=(0,1,2,3,5,6), required=True)
+    b16 = sub.add_parser("int5-b16-af121-batch-f2", help="six independent AF121 source elements isolated child/variant3 original H15 F2")
+    b16.add_argument("--index", type=int, choices=(0,1,2,3,5,6), required=True)
     neighbor = sub.add_parser("macaw-neighbor-capture", help="actual Macaw table placement/removal adjacent block update trial")
     h8 = sub.add_parser("int4-h8-r03-player-gui", help="actual Fabric 1.21.11 Macaw table player right-click join and left-click break")
     nonchair = sub.add_parser("int4-nonchair-capture", help="remaining source states and actual shelf/bed transitions")
@@ -302,14 +308,14 @@ def main(argv: list[str] | None = None) -> int:
     f6mode = sub.add_parser("int4-f6-causal-replay", help="INT-4-F6 S02/S34 source-coded tucked/inner-left game replay")
     f7mode = sub.add_parser("int4-f7-source-cases", help="INT-4-F7 AF variant3, bench double and HC vanilla parent 4 original F2")
     exterior = sub.add_parser("int4-bed-exterior", help="observe occupied bed from an independent client")
-    for command in (engine, visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, f11fr08, hcbed, h10, h12, h15, h16, b4, b5, b7, b8, b9, b10, b11, b12, b13, b14, b15, neighbor, h8, nonchair, fmissing, f3mod, drawer_front, f4mod, f5mode, f6mode, f7mode, exterior):
+    for command in (engine, visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, f11fr08, hcbed, h10, h12, h15, h16, b4, b5, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, neighbor, h8, nonchair, fmissing, f3mod, drawer_front, f4mod, f5mode, f6mode, f7mode, exterior):
         command.add_argument("--version", required=True)
         command.add_argument("--work", type=_scratch_path, required=True)
         command.add_argument("--client-cache", type=_scratch_path)
         command.add_argument("--display", help="X11 display, for example :99")
     engine.add_argument("--output", type=_scratch_path, required=True)
     engine.add_argument("--ecj", type=Path)
-    for command in (visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, f11fr08, hcbed, h10, h12, h15, h16, b4, b5, b7, b8, b9, b10, b11, b12, b13, b14, b15, neighbor, h8, nonchair, fmissing, f3mod, drawer_front, f4mod, f5mode, f6mode, f7mode, exterior):
+    for command in (visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, f11fr08, hcbed, h10, h12, h15, h16, b4, b5, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, neighbor, h8, nonchair, fmissing, f3mod, drawer_front, f4mod, f5mode, f6mode, f7mode, exterior):
         command.add_argument("--world", type=Path, required=True)
     capture.add_argument("--output", type=_scratch_path, required=True)
     chairs.add_argument("--output", type=_scratch_path, required=True)
@@ -341,6 +347,7 @@ def main(argv: list[str] | None = None) -> int:
     b13.add_argument("--output", type=_scratch_path, required=True)
     b14.add_argument("--output", type=_scratch_path, required=True)
     b15.add_argument("--output", type=_scratch_path, required=True)
+    b16.add_argument("--output", type=_scratch_path, required=True)
     neighbor.add_argument("--output", type=_scratch_path, required=True)
     h8.add_argument("--output", type=_scratch_path, required=True)
     nonchair.add_argument("--interaction", action="store_true", help="run player placement and sleeping trials")
@@ -373,7 +380,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.command != "engine":
             if not (args.display or os.environ.get("DISPLAY")):
                 raise ValueError("An X11 display is required for visual capture")
-            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "int4-f11f-r08-fabric-pair", "hc-bed-capture", "int4-h10-hc-bed-occupied", "int4-h12-af-chair-samepose", "int4-h15-af-opposing-f2", "int4-h16-af-one-texel-f2", "int5-b4-af-tucked-slab", "int5-b5-af-element4-removal", "int5-b7-af121-child-element4-f2", "int5-b8-hc-cushion12-native-f2", "int5-b9-af121-backrest7-native-f2", "int5-b10-af121-backrest8-native-f2", "int5-b11-af121-backrest9-native-f2", "int5-b12-af123-backrest7-native-f2", "int5-b13-af123-backrest8-native-f2", "int5-b14-af123-backrest9-native-f2", "int5-b15-af123-batch-f2", "macaw-neighbor-capture", "int4-h8-r03-player-gui", "int4-nonchair-capture", "int4-f-missing-capture", "int4-f3-mod-capture", "int4-h03-h05-drawer-front-f2", "int4-f4-mod-capture", "int4-f5-state-diagnostic", "int4-f6-causal-replay", "int4-f7-source-cases", "int4-bed-exterior"):
+            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "int4-f11f-r08-fabric-pair", "hc-bed-capture", "int4-h10-hc-bed-occupied", "int4-h12-af-chair-samepose", "int4-h15-af-opposing-f2", "int4-h16-af-one-texel-f2", "int5-b4-af-tucked-slab", "int5-b5-af-element4-removal", "int5-b7-af121-child-element4-f2", "int5-b8-hc-cushion12-native-f2", "int5-b9-af121-backrest7-native-f2", "int5-b10-af121-backrest8-native-f2", "int5-b11-af121-backrest9-native-f2", "int5-b12-af123-backrest7-native-f2", "int5-b13-af123-backrest8-native-f2", "int5-b14-af123-backrest9-native-f2", "int5-b15-af123-batch-f2", "int5-b16-af121-batch-f2", "macaw-neighbor-capture", "int4-h8-r03-player-gui", "int4-nonchair-capture", "int4-f-missing-capture", "int4-f3-mod-capture", "int4-h03-h05-drawer-front-f2", "int4-f4-mod-capture", "int4-f5-state-diagnostic", "int4-f6-causal-replay", "int4-f7-source-cases", "int4-bed-exterior"):
                 if shutil.which("xdotool") is None:
                     raise ValueError("Automatic visual capture requires xdotool")
                 if args.output.exists():
@@ -381,7 +388,7 @@ def main(argv: list[str] | None = None) -> int:
             report = open_visual_client(args, script, prepare["prepare"])
             if report is not None:
                 print(json.dumps(report, ensure_ascii=False, indent=2))
-                return int(report["status"] not in ("MATCH", "CAPTURED_SOURCE_STATES_NOT_VISUALLY_APPROVED", "SERVER_NEIGHBOR_STATES_RECORDED_NO_ASSUMED_CONNECTION", "SERVER_STATES_AND_F2_RECORDED", "ACTUAL_V11_BED_AIR_CONTROL_AND_TWO_PART_F2_NOT_YET_INDEPENDENTLY_AUDITED", "CAPTURED_REAL_S43_THREE_TIME_SEPARATED_F2_NOT_YET_INDEPENDENTLY_AUDITED", "ONE_REAL_FABRIC_SOURCE_RELEASE_F2_CAPTURED_NOT_CROSS_RELEASE_APPROVED", "REAL_PLAYER_ITEM_RIGHT_CLICK_JOIN_AND_LEFT_CLICK_REMOVE", "CAPTURED_OCCUPIED_F2_SOURCE_STATES_WITH_NONZERO_ROI_DIFF", "CAPTURED_OCCUPIED_F2_BUT_VISIBLE_SOURCE_DIFF_NOT_PROVEN", "ACTUAL_NATIVE_F2_MODEL_TEXTURE_CONTRAST_CANDIDATE", "REAL_GAME_F2_BUT_VISUAL_DIFFERENCE_NOT_YET_PROVEN", "ORIGINAL_REAL_FABRIC_TWO_CAMERA_F2_CAPTURED_REQUIRES_INDEPENDENT_AUDIT", "H16_SIX_ACTUAL_F2_TEMP_JAR_ONE_TEXEL_REQUIRES_INDEPENDENT_AUDIT", "ACTUAL_NATIVE_F2_8_SERVER_STATES_REQUIRES_INDEPENDENT_AUDIT", "ACTUAL_SOURCE_ELEMENT4_PATCHED_CHILD_NATIVE_F2_NEEDS_INDEPENDENT_AUDIT", "TWO_ACTUAL_NATIVE_F2_SESSIONS_PENDING_INDEPENDENT_REOPEN", "ACTUAL_SOURCE_ELEMENT7_PATCHED_CHILD_NATIVE_F2_NEEDS_INDEPENDENT_AUDIT", "ACTUAL_SOURCE_ELEMENT8_PATCHED_CHILD_NATIVE_F2_NEEDS_INDEPENDENT_AUDIT", "ACTUAL_SOURCE_ELEMENT9_PATCHED_CHILD_NATIVE_F2_NEEDS_INDEPENDENT_AUDIT"))
+                return int(report["status"] not in ("MATCH", "CAPTURED_SOURCE_STATES_NOT_VISUALLY_APPROVED", "SERVER_NEIGHBOR_STATES_RECORDED_NO_ASSUMED_CONNECTION", "SERVER_STATES_AND_F2_RECORDED", "ACTUAL_V11_BED_AIR_CONTROL_AND_TWO_PART_F2_NOT_YET_INDEPENDENTLY_AUDITED", "CAPTURED_REAL_S43_THREE_TIME_SEPARATED_F2_NOT_YET_INDEPENDENTLY_AUDITED", "ONE_REAL_FABRIC_SOURCE_RELEASE_F2_CAPTURED_NOT_CROSS_RELEASE_APPROVED", "REAL_PLAYER_ITEM_RIGHT_CLICK_JOIN_AND_LEFT_CLICK_REMOVE", "CAPTURED_OCCUPIED_F2_SOURCE_STATES_WITH_NONZERO_ROI_DIFF", "CAPTURED_OCCUPIED_F2_BUT_VISIBLE_SOURCE_DIFF_NOT_PROVEN", "ACTUAL_NATIVE_F2_MODEL_TEXTURE_CONTRAST_CANDIDATE", "REAL_GAME_F2_BUT_VISUAL_DIFFERENCE_NOT_YET_PROVEN", "ORIGINAL_REAL_FABRIC_TWO_CAMERA_F2_CAPTURED_REQUIRES_INDEPENDENT_AUDIT", "H16_SIX_ACTUAL_F2_TEMP_JAR_ONE_TEXEL_REQUIRES_INDEPENDENT_AUDIT", "ACTUAL_NATIVE_F2_8_SERVER_STATES_REQUIRES_INDEPENDENT_AUDIT", "ACTUAL_SOURCE_ELEMENT4_PATCHED_CHILD_NATIVE_F2_NEEDS_INDEPENDENT_AUDIT", "TWO_ACTUAL_NATIVE_F2_SESSIONS_PENDING_INDEPENDENT_REOPEN", "ACTUAL_SOURCE_ELEMENT7_PATCHED_CHILD_NATIVE_F2_NEEDS_INDEPENDENT_AUDIT", "ACTUAL_SOURCE_ELEMENT8_PATCHED_CHILD_NATIVE_F2_NEEDS_INDEPENDENT_AUDIT", "ACTUAL_SOURCE_ELEMENT9_PATCHED_CHILD_NATIVE_F2_NEEDS_INDEPENDENT_AUDIT", "ACTUAL_SOURCE_ELEMENT_SELECTED_PATCHED_CHILD_NATIVE_F2_NEEDS_INDEPENDENT_AUDIT"))
         else:
             command = [sys.executable, str(script), "--version", args.version,
                        "--work", str(args.work), "--output", str(args.output)]

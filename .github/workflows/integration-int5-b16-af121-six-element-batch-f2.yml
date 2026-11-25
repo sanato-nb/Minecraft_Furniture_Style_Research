@@ -1,0 +1,132 @@
+name: INT-5 B16 AF121 six isolated original elements H15 native F2 matrix
+
+on:
+  push:
+    branches:
+      - work/int5-b16-af121-six-original-elements-batch-f2-20261125
+    paths:
+      - src/mcfr/int5_b16_af121_six_element_batch_f2.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int5_b16_af121_six_element_batch_f2.py
+      - .github/workflows/integration-int5-b16-af121-six-element-batch-f2.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  AF121-six-independent-source-element-probes:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 48
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        source_index: [0, 1, 2, 3, 5, 6]
+    env:
+      PYTHONPATH: src
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      ALSOFT_DRIVERS: 'null'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install only original Fabric launcher and real F2 decoder requirements
+        timeout-minutes: 9
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            timeout 180s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 update
+            timeout 240s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 install -y --no-install-recommends xvfb xauth xdotool
+          fi
+      - name: Verify 13 original six-index source/texture/negative-control tests
+        run: |
+          python -m unittest discover -s tests/knowledge -p test_int5_b16_af121_six_element_batch_f2.py -v
+          python -m unittest discover -s tests/knowledge -p test_chair_camera_command_recovery.py -v
+      - name: Fetch original H15 eight real F2 frames and verify exact original ZIP SHA
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api -H 'Accept: application/vnd.github+json' \
+            'repos/sanato-nb/Minecraft_Furniture_Style_Research/actions/artifacts/14851461698/zip' \
+            > "$RUNNER_TEMP/int5-b16-h15-original-8-F2.zip"
+          python - <<'PY'
+          import hashlib,os,pathlib,zipfile
+          path=pathlib.Path(os.environ["RUNNER_TEMP"])/"int5-b16-h15-original-8-F2.zip"
+          assert hashlib.sha256(path.read_bytes()).hexdigest()== \
+            "4d674a097a2403f34da5c878c78f8a17e2b786a3d50fd945b5fca64fa755f462"
+          with zipfile.ZipFile(path) as z:
+            assert z.testzip() is None
+            assert len(z.namelist())==len(set(z.namelist()))
+            assert "INT4_H15_AF_OPPOSING_VIEW_REAL_NATIVE_F2_MANIFEST_V1.json" in z.namelist()
+          print("INT5_B11_H15_PINNED_UNMODIFIED_8_REAL_GAME_F2_BASELINE_PASS")
+          PY
+      - name: Create disposable original Minecraft Java 1.21.1 Fabric world
+        run: |
+          python -m mcfr.chair_runtime_fixture world \
+            --version 1.21.1 \
+            --path "$RUNNER_TEMP/int5-b16-world" \
+            --cache "$RUNNER_TEMP/int5-b16-cache"
+      - name: Run real Minecraft native F2 with ONLY chosen AF121 original child element removed
+        timeout-minutes: 25
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int5-b16-af121-batch-f2 \
+              --index "${{ matrix.source_index }}" \
+              --version 1.21.1 \
+              --world "$RUNNER_TEMP/int5-b16-world" \
+              --work "$RUNNER_TEMP/int5-b16-client" \
+              --output "$RUNNER_TEMP/int5-b16-element${{ matrix.source_index }}-native-f2"
+      - name: Audit independent source index, eight real F2, and negative controls
+        env:
+          B16_SOURCE_INDEX: ${{ matrix.source_index }}
+        run: |
+          python -m mcfr.int5_b16_af121_six_element_batch_f2 \
+            --index "${{ matrix.source_index }}" \
+            --directory "$RUNNER_TEMP/int5-b16-element${{ matrix.source_index }}-native-f2" \
+            --h15-original-zip "$RUNNER_TEMP/int5-b16-h15-original-8-F2.zip"
+          python - <<'PY'
+          import json, os, pathlib
+          idx=int(os.environ["B16_SOURCE_INDEX"])
+          expected_faces={0:5,1:5,2:5,3:5,5:4,6:4}[idx]
+          folder=pathlib.Path(os.environ["RUNNER_TEMP"])/("int5-b16-element"+str(idx)+"-native-f2")
+          result=json.loads((folder/"INT5_B16_AF121_ELEMENT_SELECTED_INDEPENDENT_CAUSAL_AUDIT_V1.json").read_text())
+          assert result["original_source_part_key"]=="AF121/AF1393/"+str(idx)
+          assert result["original_H15_native_F2_verified"]==8
+          assert result["new_disposable_native_F2_verified"]==8
+          assert result["new_exact_server_state_confirmations"]==8
+          assert result["two_separate_game_sessions_in_comparison"]==2
+          scope=result["source_provenance"]
+          assert scope["removed_source_index"]==idx
+          assert len(scope["removed_source_element_faces"])==expected_faces
+          assert scope["child_new_element_count"]==9 and scope["child_new_face_count"]==46-expected_faces
+          assert scope["one_and_only_one_uncompressed_JAR_member_modified"] is True
+          assert scope["original_parent_unmodified"] is True and scope["acacia3_negative_control_unmodified"] is True
+          assert result["model3_negative_control_stayed_unchanged"] is True
+          assert result["air_and_temporal_negative_controls_stayed_unchanged"] is True
+          assert result["unique_original_element_pixel_ownership_approved"] is False
+          assert result["part_seating_or_function_approved"] is False
+          assert result["part_material_or_style_approved"] is False
+          assert result["INT5_final_semantics_approvals"]==0
+          assert result["INT6_AI_training_or_redistribution_rights_approved"]==0
+          assert result["decision"]!="CONDITIONAL_FAILED_OR_DRIFTED_SCREEN_CONTROLS"
+          print("INT5_B16_INDEPENDENT_REAL_GAME_DECISION",idx,result["decision"])
+          for view,pixels in result["per_camera_screen_response"].items():
+              print("INT5_B16_PIXELS",idx,view,
+                pixels["removed_selected_element_original_vs_patched_model1_before_pixels"])
+          PY
+      - name: Keep only real native F2 PNG/client log/metadata, NEVER temporary JAR
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int5-b16-af121-element${{ matrix.source_index }}-native-f2
+          path: ${{ runner.temp }}/int5-b16-element${{ matrix.source_index }}-native-f2/
+          retention-days: 45
+          if-no-files-found: warn
