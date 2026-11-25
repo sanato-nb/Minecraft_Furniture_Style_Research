@@ -2,16 +2,15 @@
 
 Original 4.0.2 child inherits the shared template/chair with ten elements.
 Only the *acacia_1 child JSON* is changed in one disposable verified JAR to
-override inherited elements by nine originals excluding source element index 7.
+override inherited elements with precisely one selected original element removed.
 The original parent and acacia_3 child stay byte-identical, giving a genuinely
 independent variant3 negative control. Compare against the original H15 eight
 real native F2 frames at identical camera/stages. Never treat a removal-induced
-screen response as pixel ownership, backrest functionality, material, style or rights.
+screen response as pixel ownership, physical function, material, style or rights.
 """
 from __future__ import annotations
 
 import argparse
-import csv
 import csv
 import hashlib
 import io
@@ -509,7 +508,7 @@ def audit(directory,baseline_zip):
            "Modified child overrides original inherited geometry in ONE disposable JAR member. Template and variant3 control child remain byte-identical.",
            "Removal screen changes may include revealed faces, occlusion and lighting; no direct exclusive original per-face/F2 pixel ownership proven.",
            "Four original H15 stages are unchanged baseline native PNGs, not newly reproduced source assets.",
-           "No source name-based backrest function, texture material, style, training rights, or redistribution rights granted.",
+           "No role-name-based physical function, texture material, style, training rights, or redistribution rights granted.",
            "B6 historical snapshot retained; previous B5/B7/B8/B9/B10 render responses never substitute for B16 real F2 evidence.",
        ],
     }
