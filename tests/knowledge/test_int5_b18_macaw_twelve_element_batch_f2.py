@@ -91,7 +91,7 @@ class Macaw12BatchTests(unittest.TestCase):
         child,parent,_=models()
         doc=json.loads(parent);doc["elements"][0]["faces"].pop("0")
         with self.assertRaisesRegex(ValueError,"12/59"):
-            b18.override_child(child,json.dumps(doc).encode(),parent,0)
+            b18.override_child(child,json.dumps(doc).encode(),0)
 
     def test_wrong_selected_face_count_rejected(self):
         child,parent,_=models()
@@ -100,7 +100,7 @@ class Macaw12BatchTests(unittest.TestCase):
         doc["elements"][0]["faces"].pop("0")
         doc["elements"][1]["faces"]["new"]={"texture":"#original"}
         with self.assertRaisesRegex(ValueError,"12/59"):
-            b18.override_child(child,json.dumps(doc).encode(),parent,0)
+            b18.override_child(child,json.dumps(doc).encode(),0)
 
     def test_synthetic_pixels_respond_in_both_A_sessions_only(self):
         result=b18.measure(frames(),frames(absent=True))
