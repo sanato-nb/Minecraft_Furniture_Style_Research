@@ -124,6 +124,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: int5-b15-element${{ matrix.source_index }}-source-removal-native-f2
-          path: ${{ runner.temp }}/int5-b14-element9-native-F2/
+          path: ${{ runner.temp }}/int5-b15-element${{ matrix.source_index }}-native-F2/
           retention-days: 45
           if-no-files-found: warn
