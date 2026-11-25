@@ -1,0 +1,103 @@
+name: INT-5 B19 four formerly invisible originals 4-camera genuine Fabric F2 matrix
+on:
+  push:
+    branches: [work/int5-b19-four-unresolved-sources-four-view-real-f2-20261126]
+    paths:
+      - src/mcfr/int5_b19_four_unresolved_four_view_f2.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int5_b19_four_unresolved_four_view_f2.py
+      - .github/workflows/integration-int5-b19-four-unresolved-four-camera-f2.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  four-original-source-element-independent-four-camera-f2:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        original_target: [AF121_5, AF123_5, HC11210_3, HC11210_4]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 65
+    env:
+      PYTHONPATH: src
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      ALSOFT_DRIVERS: 'null'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install original Minecraft Fabric real GUI and F2 verification requirements
+        timeout-minutes: 10
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            timeout 180s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 update
+            timeout 240s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 install -y --no-install-recommends xvfb xauth xdotool
+          fi
+      - name: Source identity, original model patch, four camera, legal slab, white control and negative tests
+        run: |
+          python -m unittest discover -s tests/knowledge -p test_int5_b19_four_unresolved_four_view_f2.py -v
+          python -m unittest discover -s tests/knowledge -p test_chair_camera_command_recovery.py -v
+      - name: Generate exact official Minecraft Java 1.21.1 original game world
+        run: |
+          python -m mcfr.chair_runtime_fixture world \
+            --version 1.21.1 \
+            --path "$RUNNER_TEMP/int5-b19-source-world" \
+            --cache "$RUNNER_TEMP/int5-b19-minecraft-cache"
+      - name: Run two independent real Fabric clients with FOUR cardinal viewpoints, 32 F2 PNG
+        timeout-minutes: 48
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int5-b19-four-unresolved-four-view-f2 \
+              --target "${{ matrix.original_target }}" \
+              --version 1.21.1 \
+              --world "$RUNNER_TEMP/int5-b19-source-world" \
+              --work "$RUNNER_TEMP/int5-b19-real-client" \
+              --output "$RUNNER_TEMP/int5-b19-${{ matrix.original_target }}-two-games"
+      - name: Reopen 32 real native F2, both logs, server markers, source metadata, all four negative controls
+        env:
+          B19_TARGET: ${{ matrix.original_target }}
+        run: |
+          python -m mcfr.int5_b19_four_unresolved_four_view_f2 \
+            --target "${{ matrix.original_target }}" \
+            --directory "$RUNNER_TEMP/int5-b19-${{ matrix.original_target }}-two-games"
+          python - <<'PY'
+          import os,json,pathlib
+          target=os.environ["B19_TARGET"]
+          directory=pathlib.Path(os.environ["RUNNER_TEMP"])/("int5-b19-"+target+"-two-games")
+          a=json.loads((directory/"INT5_B19_FOUR_VIEW_ORIGINAL_SOURCE_CAUSAL_AUDIT_V1.json").read_text(encoding="utf-8"))
+          assert a["source_key"]=={"AF121_5":"AF121/AF1393/5","AF123_5":"AF123/AF1394/5",
+               "HC11210_3":"HC11210/HC13/3","HC11210_4":"HC11210/HC13/4"}[target]
+          assert a["original_source_face_count"]==(6 if target.startswith("HC") else 4)
+          assert a["new_actual_native_F2_images"]==32
+          assert a["baseline_native_F2_verified"]==a["modified_native_F2_verified"]==16
+          assert a["server_state_proofs_total"]==(64 if target=="AF123_5" else 32)
+          assert a["dropped_item_entity_absent_server_proofs"]==(32 if target.startswith("HC") else 0)
+          assert set(a["four_view_pixel_response"])=={"south","north","east","west"}
+          assert all(len(x)==16 for x in a["real_F2_SHA256_by_session"].values())
+          assert a["four_view_negative_controls_passed"] is True
+          assert a["decision"]!="CONDITIONAL_FAILED_OR_DRIFTED_SCREEN_CONTROLS"
+          assert a["exclusive_source_face_GPU_pixel_ownership_approved"] is False
+          assert a["physical_function_material_style_approved"] is False
+          assert a["AI_training_redistribution_rights_approved"] is False
+          assert a["F70_unconditional_approved"]==0
+          print("INT5_B19_FOUR_VIEW_DECISION",target,a["decision"])
+          for view,metrics in a["four_view_pixel_response"].items():
+            print("INT5_B19_F2_PIXELS",target,view,
+              metrics["new_source_intervention_before_pixels"])
+          PY
+      - name: Keep only original screen F2, logs, SHA reports, never original or modified mod JARs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int5-b19-${{ matrix.original_target }}-four-view-original-native-f2
+          retention-days: 45
+          path: ${{ runner.temp }}/int5-b19-${{ matrix.original_target }}-two-games/
+          if-no-files-found: warn

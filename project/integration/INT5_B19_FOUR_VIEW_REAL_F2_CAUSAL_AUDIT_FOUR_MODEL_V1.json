@@ -1,0 +1,395 @@
+{
+  "schema": "MCFR_INT5_B19_FOUR_NOT_VISIBLE_ORIGINAL_PARTS_REAL_4_CAMERA_CAUSAL_CROSSCHECK/v1",
+  "PR_number": 131,
+  "successful_actions_run": 45664823385,
+  "successful_actions_commit": "14246d3f0494f96a2387ec9a61f01d0ed4bb3bd4",
+  "first_4case_failed_replay_unit_test_run": 45662975773,
+  "second_replay_F2_captured_but_status_exit_failed_run": 45663184282,
+  "cause_of_nonpassing_runs": "Earlier B18 CSV permitted blank legacy pixels; subsequently unknown capture status exited code1 even after complete native F2. Both issues fixed before final SUCCESS, not counted as PASS.",
+  "original_B3_45_source_role_study_git_blob": "d314941b950b70fa637536f86182eb4866b7aed1",
+  "original_B18_45_source_status_git_blob": "15030658f3254b8e34ab75b0d2f6a2c15f5a7526",
+  "original_source_identity_count": 45,
+  "original_source_faces": 229,
+  "selected_four_previously_no_visible_original_parts": 4,
+  "selected_four_original_faces": 20,
+  "real_game_version": "1.21.1",
+  "original_game_clients": 4,
+  "modified_game_clients": 4,
+  "total_real_new_native_F2": 128,
+  "real_exact_blockstate_server_proofs": 160,
+  "HC_dropped_item_free_game_server_proofs": 64,
+  "independent_reopened_ZIP_CRC_verified": 4,
+  "independent_reopened_F2_SHA256_verified": 128,
+  "independent_reopened_game_client_logs_SHA256_verified": 8,
+  "independently_recomputed_four_view_pixels_and_zero_negatives_verified": true,
+  "ROI": [
+    350,
+    275,
+    675,
+    620
+  ],
+  "RGB_channel_threshold": 24,
+  "new_bounded_side_view_causes_detected": 2,
+  "new_stable_four_view_no_response": 2,
+  "previous_bounded_causal_pass_count": 41,
+  "new_cumulative_bounded_causal_pass_count": 43,
+  "remaining_four_view_no_visible_count": 2,
+  "original_source_never_tested_count": 0,
+  "whole_original_model_counts": {
+    "AF121": {
+      "source_elements": 10,
+      "source_faces": 46,
+      "bounded_causal_pass": 9,
+      "screen_response_unobserved": 1,
+      "untested": 0
+    },
+    "AF123": {
+      "source_elements": 10,
+      "source_faces": 46,
+      "bounded_causal_pass": 9,
+      "screen_response_unobserved": 1,
+      "untested": 0
+    },
+    "HC11210": {
+      "source_elements": 13,
+      "source_faces": 78,
+      "bounded_causal_pass": 13,
+      "screen_response_unobserved": 0,
+      "untested": 0
+    },
+    "MACAW67": {
+      "source_elements": 12,
+      "source_faces": 59,
+      "bounded_causal_pass": 12,
+      "screen_response_unobserved": 0,
+      "untested": 0
+    }
+  },
+  "original_HC_new_east_response": {
+    "part": "HC11210/HC13/3",
+    "east_changed_pixels": 452,
+    "source_from": [
+      14,
+      6,
+      4
+    ],
+    "source_to": [
+      14,
+      9,
+      13
+    ],
+    "X_extent": 0
+  },
+  "original_HC_new_west_response": {
+    "part": "HC11210/HC13/4",
+    "west_changed_pixels": 390,
+    "source_from": [
+      2,
+      6,
+      4
+    ],
+    "source_to": [
+      2,
+      9,
+      13
+    ],
+    "X_extent": 0
+  },
+  "untouched_two_original_AF_reversed_X_candidates": [
+    {
+      "part": "AF121/AF1393/5",
+      "original_from": [
+        13,
+        2,
+        3
+      ],
+      "original_to": [
+        3,
+        4,
+        13
+      ],
+      "X_reversed": true,
+      "all_four_views_response": 0
+    },
+    {
+      "part": "AF123/AF1394/5",
+      "original_from": [
+        13,
+        2,
+        -6
+      ],
+      "original_to": [
+        3,
+        4,
+        4
+      ],
+      "X_reversed": true,
+      "all_four_views_response": 0
+    }
+  ],
+  "limits": {
+    "own_element_face_exclusive_GPU_pixel_ownership_approved": 0,
+    "physical_seating_or_function_material_style_final_approvals": 0,
+    "original_face_UV_gpu_exclusive_approvals": 0,
+    "training_and_redistribution_rights_approved": 0,
+    "H03": "HOLD",
+    "H05": "CONDITIONAL",
+    "F70_unconditional_pass": 0,
+    "negative_or_zero_pixel_does_NOT_imply_model_part_unused": true,
+    "mirrored_planes_camera_face_culling_hypothesis_not_proven_as_exclusive_cause": true
+  },
+  "four_original_element_real_game_f2_trials": [
+    {
+      "target": "AF121_5",
+      "model": "AF121",
+      "provider": "AF1393",
+      "index": 5,
+      "faces": 4,
+      "from": [
+        13,
+        2,
+        3
+      ],
+      "to": [
+        3,
+        4,
+        13
+      ],
+      "face_keys": [
+        "east",
+        "north",
+        "south",
+        "west"
+      ],
+      "pixels": {
+        "south": 0,
+        "north": 0,
+        "east": 0,
+        "west": 0
+      },
+      "artifact_id": 15048260672,
+      "artifact_zip_sha256": "cb967260b0c04f6956ae9aa9c28f62e05f0a113bf2198a1e26e0168f7e3dfdc9",
+      "original_client_log_sha256": "909c286d4b814c23ef6cf7d3d5a04bd0972ae5bae9cd2a72e2b14cd0f5d026b5",
+      "modified_client_log_sha256": "fa28f6fe1602c890e52f07d0d1febd4cb24d85b2161fd23c2e24852cb4755f97",
+      "original_foreground_pixel_count": {
+        "east": 3351,
+        "north": 3018,
+        "south": 3552,
+        "west": 2357
+      },
+      "decision": "NO_VISIBLE_SOURCE_RESPONSE_WITH_STABLE_FOUR_VIEW_CONTROLS",
+      "previously_recorded_state": "B16_NO_VISIBLE_RESPONSE",
+      "prior_south_pixel_entry": "",
+      "prior_north_pixel_entry": "",
+      "original_source_key": "AF121/AF1393/5",
+      "original_native_F2_verified": 16,
+      "modified_native_F2_verified": 16,
+      "source_render_after_pixel_change": {
+        "south": 0,
+        "north": 0,
+        "east": 0,
+        "west": 0
+      },
+      "original_camera_source_90_degree_side_view": true,
+      "negative_control_original_vs_modified_pixels": 0,
+      "original_A_A_temporal_change_pixels": 0,
+      "modified_A_A_temporal_change_pixels": 0,
+      "changed_pixels_outside_original_foreground": 0,
+      "unchanged_source_parent_and_other_JAR_members": true,
+      "HC_zero_dropped_item_game_server_checks": 0,
+      "verified_true_source_material_style_function": false,
+      "exclusive_original_GPU_face_UV_pixel_ownership_approved": false,
+      "third_party_AI_training_redistribution_approved": false
+    },
+    {
+      "target": "AF123_5",
+      "model": "AF123",
+      "provider": "AF1394",
+      "index": 5,
+      "faces": 4,
+      "from": [
+        13,
+        2,
+        -6
+      ],
+      "to": [
+        3,
+        4,
+        4
+      ],
+      "face_keys": [
+        "east",
+        "north",
+        "south",
+        "west"
+      ],
+      "pixels": {
+        "south": 0,
+        "north": 0,
+        "east": 0,
+        "west": 0
+      },
+      "artifact_id": 15048026278,
+      "artifact_zip_sha256": "c09f3ba7b24fd803b90d799a573973c11b39585d918f4c0c3f8691388025dc5f",
+      "original_client_log_sha256": "b33767a5cfa6d8d967bf8a16ec5cc681e26429368211300c298d07f3fcf8591a",
+      "modified_client_log_sha256": "82a25b50d875d50e2da7c9b6ef3bb19bcfed0e6e62dab7ad51b757c89043ad40",
+      "original_foreground_pixel_count": {
+        "east": 8207,
+        "north": 6102,
+        "south": 5738,
+        "west": 5704
+      },
+      "decision": "NO_VISIBLE_SOURCE_RESPONSE_WITH_STABLE_FOUR_VIEW_CONTROLS",
+      "previously_recorded_state": "B15_NO_VISIBLE_RESPONSE",
+      "prior_south_pixel_entry": "",
+      "prior_north_pixel_entry": "",
+      "original_source_key": "AF123/AF1394/5",
+      "original_native_F2_verified": 16,
+      "modified_native_F2_verified": 16,
+      "source_render_after_pixel_change": {
+        "south": 0,
+        "north": 0,
+        "east": 0,
+        "west": 0
+      },
+      "original_camera_source_90_degree_side_view": true,
+      "negative_control_original_vs_modified_pixels": 0,
+      "original_A_A_temporal_change_pixels": 0,
+      "modified_A_A_temporal_change_pixels": 0,
+      "changed_pixels_outside_original_foreground": 0,
+      "unchanged_source_parent_and_other_JAR_members": true,
+      "HC_zero_dropped_item_game_server_checks": 0,
+      "verified_true_source_material_style_function": false,
+      "exclusive_original_GPU_face_UV_pixel_ownership_approved": false,
+      "third_party_AI_training_redistribution_approved": false
+    },
+    {
+      "target": "HC11210_3",
+      "model": "HC11210",
+      "provider": "HC13",
+      "index": 3,
+      "faces": 6,
+      "from": [
+        14,
+        6,
+        4
+      ],
+      "to": [
+        14,
+        9,
+        13
+      ],
+      "face_keys": [
+        "down",
+        "east",
+        "north",
+        "south",
+        "up",
+        "west"
+      ],
+      "pixels": {
+        "south": 0,
+        "north": 0,
+        "east": 452,
+        "west": 0
+      },
+      "artifact_id": 15046624386,
+      "artifact_zip_sha256": "3251c6249ae27d1088af7ff94db8d3db7de4f204522452c980e617a3d8e59b57",
+      "original_client_log_sha256": "94fb41c59b694fde7e9da0c78ec16056fc960086ade319123f8912cd9f416656",
+      "modified_client_log_sha256": "57a7bc5715b966e4711f32f45cc5db4c7634f5b93da73e9f779ccbc15cd3747b",
+      "original_foreground_pixel_count": {
+        "east": 5888,
+        "north": 5676,
+        "south": 7038,
+        "west": 4138
+      },
+      "decision": "PASS_NEW_EAST_WEST_NATIVE_F2_BOUNDED_SOURCE_CAUSAL_RESPONSE",
+      "previously_recorded_state": "B17_NO_VISIBLE_RESPONSE",
+      "prior_south_pixel_entry": "0",
+      "prior_north_pixel_entry": "0",
+      "original_source_key": "HC11210/HC13/3",
+      "original_native_F2_verified": 16,
+      "modified_native_F2_verified": 16,
+      "source_render_after_pixel_change": {
+        "south": 0,
+        "north": 0,
+        "east": 452,
+        "west": 0
+      },
+      "original_camera_source_90_degree_side_view": true,
+      "negative_control_original_vs_modified_pixels": 0,
+      "original_A_A_temporal_change_pixels": 0,
+      "modified_A_A_temporal_change_pixels": 0,
+      "changed_pixels_outside_original_foreground": 0,
+      "unchanged_source_parent_and_other_JAR_members": true,
+      "HC_zero_dropped_item_game_server_checks": 32,
+      "verified_true_source_material_style_function": false,
+      "exclusive_original_GPU_face_UV_pixel_ownership_approved": false,
+      "third_party_AI_training_redistribution_approved": false
+    },
+    {
+      "target": "HC11210_4",
+      "model": "HC11210",
+      "provider": "HC13",
+      "index": 4,
+      "faces": 6,
+      "from": [
+        2,
+        6,
+        4
+      ],
+      "to": [
+        2,
+        9,
+        13
+      ],
+      "face_keys": [
+        "down",
+        "east",
+        "north",
+        "south",
+        "up",
+        "west"
+      ],
+      "pixels": {
+        "south": 0,
+        "north": 0,
+        "east": 0,
+        "west": 390
+      },
+      "artifact_id": 15046724979,
+      "artifact_zip_sha256": "2f3946b76f58b398e932332cc5ac8128f08fcfe37b5814324538ca473784ef2a",
+      "original_client_log_sha256": "f33fb0516866b63b9eec6b528d45df3e4b8ed95a126d0cd35843714b3f70a0c1",
+      "modified_client_log_sha256": "5aab1e8fbe03a24cf32fec1578d5962697d90e17bbaf80b1940bfba105fb30ea",
+      "original_foreground_pixel_count": {
+        "east": 5888,
+        "north": 5676,
+        "south": 7038,
+        "west": 4138
+      },
+      "decision": "PASS_NEW_EAST_WEST_NATIVE_F2_BOUNDED_SOURCE_CAUSAL_RESPONSE",
+      "previously_recorded_state": "B17_NO_VISIBLE_RESPONSE",
+      "prior_south_pixel_entry": "0",
+      "prior_north_pixel_entry": "0",
+      "original_source_key": "HC11210/HC13/4",
+      "original_native_F2_verified": 16,
+      "modified_native_F2_verified": 16,
+      "source_render_after_pixel_change": {
+        "south": 0,
+        "north": 0,
+        "east": 0,
+        "west": 390
+      },
+      "original_camera_source_90_degree_side_view": true,
+      "negative_control_original_vs_modified_pixels": 0,
+      "original_A_A_temporal_change_pixels": 0,
+      "modified_A_A_temporal_change_pixels": 0,
+      "changed_pixels_outside_original_foreground": 0,
+      "unchanged_source_parent_and_other_JAR_members": true,
+      "HC_zero_dropped_item_game_server_checks": 32,
+      "verified_true_source_material_style_function": false,
+      "exclusive_original_GPU_face_UV_pixel_ownership_approved": false,
+      "third_party_AI_training_redistribution_approved": false
+    }
+  ]
+}
