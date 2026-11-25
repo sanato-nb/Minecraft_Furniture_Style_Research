@@ -1,0 +1,540 @@
+{
+  "schema": "MCFR_INT5_B18_MACAW_TWELVE_NATIVE_F2_FOUR_MODEL_FULL_SOURCE_LEDGER/v1",
+  "PR_number": 130,
+  "actions_run_id": 45638195899,
+  "actions_conclusion": "success",
+  "actions_tested_source_commit": "ebba1a84b35d8162c40ddc648260652e02f51074",
+  "initial_failed_actions_run": 45637854461,
+  "initial_failure": "Two synthetically wrong unit-test call arguments; corrected and all 12 actual game jobs succeeded",
+  "original_B17_full_45_source_ledger_git_blob": "3be603438b7a125cb2a68915301f4590eec0e12a",
+  "original_B3_45_source_git_blob": "d314941b950b70fa637536f86182eb4866b7aed1",
+  "actual_MACAW_JAR_SHA256": "e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e",
+  "official_model_child_SHA256": "f0aeb2ad025179dfd68c63b3c2ea5a25ab8d4a7e3e161dc43f270772672bda3b",
+  "official_model_parent_SHA256": "26f389f8cc286dcdd97a608adf685294bcc2f60323e7b1ea40755b2110ff1650",
+  "official_blockstate_SHA256": "e6405186a33100104cb6dcbddd2cad774f157298cafe8e750dc228cd9ba24b95",
+  "historical_model_parent_runtime_byte_identity_now_verified_on_official_3_4_2": true,
+  "original_Macaw_elements": 12,
+  "original_Macaw_faces": 59,
+  "game_version": "1.21.11",
+  "real_game_sessions_original": 12,
+  "real_game_sessions_disposable_modified": 12,
+  "total_actual_native_F2": 192,
+  "exact_server_state_checks": 192,
+  "independent_reopened_artifact_ZIP_CRC_passed": 12,
+  "independent_reopened_PNG_sha256_matches": 192,
+  "independent_server_marker_and_client_log_sha_verified": 24,
+  "independent_RGB_ROI_24_threshold_pixel_metrics_recomputed": 12,
+  "untouched_vanilla_oak_stairs_air_temporal_outside_screen_changed_pixels": 0,
+  "prior_bounded_causal_PASS": 29,
+  "new_Macaw_bounded_causal_PASS": 12,
+  "cumulative_bounded_causal_PASS": 41,
+  "screen_no_visible": 4,
+  "never_individually_tested": 0,
+  "four_model_summary": {
+    "AF121": {
+      "source_parts": 10,
+      "source_faces": 46,
+      "causal_pass": 9,
+      "screen_no_visible": 1,
+      "untested": 0
+    },
+    "AF123": {
+      "source_parts": 10,
+      "source_faces": 46,
+      "causal_pass": 9,
+      "screen_no_visible": 1,
+      "untested": 0
+    },
+    "HC11210": {
+      "source_parts": 13,
+      "source_faces": 78,
+      "causal_pass": 11,
+      "screen_no_visible": 2,
+      "untested": 0
+    },
+    "MACAW67": {
+      "source_parts": 12,
+      "source_faces": 59,
+      "causal_pass": 12,
+      "screen_no_visible": 0,
+      "untested": 0
+    }
+  },
+  "additional_independent_symmetric_source_pixel_mask_crosscheck": {
+    "Macaw_index2_vs_index4_south": {
+      "pixel_counts": [
+        284,
+        284
+      ],
+      "overlap_pixels": 0
+    },
+    "Macaw_index2_vs_index4_north": {
+      "pixel_counts": [
+        10,
+        10
+      ],
+      "overlap_pixels": 0
+    },
+    "Macaw_index3_vs_index5_south": {
+      "pixel_counts": [
+        12,
+        12
+      ],
+      "overlap_pixels": 0
+    },
+    "Macaw_index3_vs_index5_north": {
+      "pixel_counts": [
+        194,
+        193
+      ],
+      "overlap_pixels": 0
+    },
+    "interpretation": "Different original source members are screen-resolved in distinct regions despite symmetric total pixel changes; not exclusive original GPU-face ownership."
+  },
+  "existing_four_nonvisible_followup": [
+    "AF121/AF1393/5",
+    "AF123/AF1394/5",
+    "HC11210/HC13/3",
+    "HC11210/HC13/4"
+  ],
+  "legacy_strict_H03": "HOLD",
+  "legacy_strict_H05": "CONDITIONAL",
+  "legacy_strict_F70_unconditional_APPROVED": 0,
+  "physical_function_material_style_semantic_approvals": 0,
+  "exclusive_original_face_to_GPU_pixel_approvals": 0,
+  "INT6_third_party_AI_training_redistribution_rights_approvals": 0,
+  "individual_macaw_original_source_interventions": [
+    {
+      "source_key": "MACAW67/MACAW1424/0",
+      "original_element_index": 0,
+      "original_faces": 5,
+      "original_from": [
+        2,
+        11,
+        3
+      ],
+      "original_to": [
+        12,
+        11.6,
+        13
+      ],
+      "original_role_hypothesis": "SEAT_LAYER",
+      "south_changed_pixels": 664,
+      "north_changed_pixels": 890,
+      "bounded_decision": "PASS_BOUNDED_MACAW_SINGLE_SOURCE_RENDER_RESPONSE",
+      "original_real_native_F2": 8,
+      "modified_real_native_F2": 8,
+      "server_state_checks": 16,
+      "untouched_vanilla_control_changed_pixels": 0,
+      "unchanged_air_pixels": 0,
+      "original_and_modified_A_A_temporal_changed_pixels": 0,
+      "changed_pixels_outside_original_foreground": 0,
+      "repeated_camera_A_A_intervention_pixels_equal": true,
+      "artifact_id": 15034277937,
+      "artifact_name": "int5-b18-macaw-element0-native-f2",
+      "artifact_zip_sha256": "484e621afd6152d0650c721516de7ef71fa736850d545fed309acadb9aaa636d",
+      "original_client_log_sha256": "76d1834436b6134725b14e3b7da97a7c64123847e0b73924b3b00757dbcca133",
+      "modified_client_log_sha256": "959b85fa314e1e0fef722f9d4b7dacd792645f13272f2e543133e1828e2c3937",
+      "only_child_model_JSON_modified": true,
+      "face_GPU_pixel_ownership_approved": false,
+      "physical_function_material_style_approved": false,
+      "AI_training_redistribution_rights_approved": false
+    },
+    {
+      "source_key": "MACAW67/MACAW1424/1",
+      "original_element_index": 1,
+      "original_faces": 4,
+      "original_from": [
+        12.5,
+        13.9,
+        3.8
+      ],
+      "original_to": [
+        13.5,
+        15.9,
+        12.1
+      ],
+      "original_role_hypothesis": "BACKREST_ASSEMBLY",
+      "south_changed_pixels": 440,
+      "north_changed_pixels": 266,
+      "bounded_decision": "PASS_BOUNDED_MACAW_SINGLE_SOURCE_RENDER_RESPONSE",
+      "original_real_native_F2": 8,
+      "modified_real_native_F2": 8,
+      "server_state_checks": 16,
+      "untouched_vanilla_control_changed_pixels": 0,
+      "unchanged_air_pixels": 0,
+      "original_and_modified_A_A_temporal_changed_pixels": 0,
+      "changed_pixels_outside_original_foreground": 0,
+      "repeated_camera_A_A_intervention_pixels_equal": true,
+      "artifact_id": 15035385538,
+      "artifact_name": "int5-b18-macaw-element1-native-f2",
+      "artifact_zip_sha256": "8d67fe9775b9f8320efd9bcef85298969a93bd9eb53c2a4b5fe831d2e3a070af",
+      "original_client_log_sha256": "e4ce6c4519ecd26ae12816dea77e582da51019a235bf5f3ce29363eae847057e",
+      "modified_client_log_sha256": "a19b7115c0ccf1112c2e28d5b60e3f5c5acccf67d219fc1bec52b851e69a035b",
+      "only_child_model_JSON_modified": true,
+      "face_GPU_pixel_ownership_approved": false,
+      "physical_function_material_style_approved": false,
+      "AI_training_redistribution_rights_approved": false
+    },
+    {
+      "source_key": "MACAW67/MACAW1424/2",
+      "original_element_index": 2,
+      "original_faces": 5,
+      "original_from": [
+        11,
+        0,
+        12
+      ],
+      "original_to": [
+        13,
+        9,
+        14
+      ],
+      "original_role_hypothesis": "LEG_OR_LOWER_POST",
+      "south_changed_pixels": 284,
+      "north_changed_pixels": 10,
+      "bounded_decision": "PASS_BOUNDED_MACAW_SINGLE_SOURCE_RENDER_RESPONSE",
+      "original_real_native_F2": 8,
+      "modified_real_native_F2": 8,
+      "server_state_checks": 16,
+      "untouched_vanilla_control_changed_pixels": 0,
+      "unchanged_air_pixels": 0,
+      "original_and_modified_A_A_temporal_changed_pixels": 0,
+      "changed_pixels_outside_original_foreground": 0,
+      "repeated_camera_A_A_intervention_pixels_equal": true,
+      "artifact_id": 15034152908,
+      "artifact_name": "int5-b18-macaw-element2-native-f2",
+      "artifact_zip_sha256": "e38ae9ddd1703d21d5cce407882f514d957369287d37bccdc3948d8d8723ae4c",
+      "original_client_log_sha256": "c37c5b9b236b91cd4791ae50347f093ce1e94ecf0632410aa10a89d26448f027",
+      "modified_client_log_sha256": "5e6216fa4df6ed5cd9d2e29845a313278fa5be2dda27c79992a67f3bda74d7f9",
+      "only_child_model_JSON_modified": true,
+      "face_GPU_pixel_ownership_approved": false,
+      "physical_function_material_style_approved": false,
+      "AI_training_redistribution_rights_approved": false
+    },
+    {
+      "source_key": "MACAW67/MACAW1424/3",
+      "original_element_index": 3,
+      "original_faces": 5,
+      "original_from": [
+        2,
+        0,
+        12
+      ],
+      "original_to": [
+        4,
+        9,
+        14
+      ],
+      "original_role_hypothesis": "LEG_OR_LOWER_POST",
+      "south_changed_pixels": 12,
+      "north_changed_pixels": 194,
+      "bounded_decision": "PASS_BOUNDED_MACAW_SINGLE_SOURCE_RENDER_RESPONSE",
+      "original_real_native_F2": 8,
+      "modified_real_native_F2": 8,
+      "server_state_checks": 16,
+      "untouched_vanilla_control_changed_pixels": 0,
+      "unchanged_air_pixels": 0,
+      "original_and_modified_A_A_temporal_changed_pixels": 0,
+      "changed_pixels_outside_original_foreground": 0,
+      "repeated_camera_A_A_intervention_pixels_equal": true,
+      "artifact_id": 15034267940,
+      "artifact_name": "int5-b18-macaw-element3-native-f2",
+      "artifact_zip_sha256": "519ce52d467c140d8061bcacba70332b7594fe3f2c6f9c90e62542c766b38fac",
+      "original_client_log_sha256": "2c3b7accbdb389b2f8bdb2ccbd0835b01d32a75452f8f1328c8895a3d142f7d2",
+      "modified_client_log_sha256": "816faeefbe3d748720b507f805f0b304bafb3e70e2c5d0ce9555ce860ec8f2c6",
+      "only_child_model_JSON_modified": true,
+      "face_GPU_pixel_ownership_approved": false,
+      "physical_function_material_style_approved": false,
+      "AI_training_redistribution_rights_approved": false
+    },
+    {
+      "source_key": "MACAW67/MACAW1424/4",
+      "original_element_index": 4,
+      "original_faces": 5,
+      "original_from": [
+        11,
+        0,
+        2
+      ],
+      "original_to": [
+        13,
+        9,
+        4
+      ],
+      "original_role_hypothesis": "LEG_OR_LOWER_POST",
+      "south_changed_pixels": 284,
+      "north_changed_pixels": 10,
+      "bounded_decision": "PASS_BOUNDED_MACAW_SINGLE_SOURCE_RENDER_RESPONSE",
+      "original_real_native_F2": 8,
+      "modified_real_native_F2": 8,
+      "server_state_checks": 16,
+      "untouched_vanilla_control_changed_pixels": 0,
+      "unchanged_air_pixels": 0,
+      "original_and_modified_A_A_temporal_changed_pixels": 0,
+      "changed_pixels_outside_original_foreground": 0,
+      "repeated_camera_A_A_intervention_pixels_equal": true,
+      "artifact_id": 15034048767,
+      "artifact_name": "int5-b18-macaw-element4-native-f2",
+      "artifact_zip_sha256": "91438ca153a72660ff605ef33a56e8b6ca34e16ec3f1fa05db6a96ba8c793f55",
+      "original_client_log_sha256": "313e967e0cc102049f02b4d555d5e92f16ef64c809e957e176926bddcefde83e",
+      "modified_client_log_sha256": "d111063c82406057df9fae714f0a6e41b16c408faf738e052428e49c30e539f7",
+      "only_child_model_JSON_modified": true,
+      "face_GPU_pixel_ownership_approved": false,
+      "physical_function_material_style_approved": false,
+      "AI_training_redistribution_rights_approved": false
+    },
+    {
+      "source_key": "MACAW67/MACAW1424/5",
+      "original_element_index": 5,
+      "original_faces": 5,
+      "original_from": [
+        2,
+        0,
+        2
+      ],
+      "original_to": [
+        4,
+        9,
+        4
+      ],
+      "original_role_hypothesis": "LEG_OR_LOWER_POST",
+      "south_changed_pixels": 12,
+      "north_changed_pixels": 193,
+      "bounded_decision": "PASS_BOUNDED_MACAW_SINGLE_SOURCE_RENDER_RESPONSE",
+      "original_real_native_F2": 8,
+      "modified_real_native_F2": 8,
+      "server_state_checks": 16,
+      "untouched_vanilla_control_changed_pixels": 0,
+      "unchanged_air_pixels": 0,
+      "original_and_modified_A_A_temporal_changed_pixels": 0,
+      "changed_pixels_outside_original_foreground": 0,
+      "repeated_camera_A_A_intervention_pixels_equal": true,
+      "artifact_id": 15034608535,
+      "artifact_name": "int5-b18-macaw-element5-native-f2",
+      "artifact_zip_sha256": "d2d066204d36d1bde4e248b7df88621fe879f264e5cf62dfa3efb169fa4758ca",
+      "original_client_log_sha256": "4929a14747a49b137af0acb11286324ab6f881bcbb73e816dcdbcd3d0d8df54d",
+      "modified_client_log_sha256": "88d1f47f7cd82e669ed786906894562ad7246dec23282ded194820b2336a0fd6",
+      "only_child_model_JSON_modified": true,
+      "face_GPU_pixel_ownership_approved": false,
+      "physical_function_material_style_approved": false,
+      "AI_training_redistribution_rights_approved": false
+    },
+    {
+      "source_key": "MACAW67/MACAW1424/6",
+      "original_element_index": 6,
+      "original_faces": 5,
+      "original_from": [
+        12,
+        11,
+        12.01
+      ],
+      "original_to": [
+        14,
+        15.9,
+        14.01
+      ],
+      "original_role_hypothesis": "BACKREST_ASSEMBLY",
+      "south_changed_pixels": 179,
+      "north_changed_pixels": 117,
+      "bounded_decision": "PASS_BOUNDED_MACAW_SINGLE_SOURCE_RENDER_RESPONSE",
+      "original_real_native_F2": 8,
+      "modified_real_native_F2": 8,
+      "server_state_checks": 16,
+      "untouched_vanilla_control_changed_pixels": 0,
+      "unchanged_air_pixels": 0,
+      "original_and_modified_A_A_temporal_changed_pixels": 0,
+      "changed_pixels_outside_original_foreground": 0,
+      "repeated_camera_A_A_intervention_pixels_equal": true,
+      "artifact_id": 15034838033,
+      "artifact_name": "int5-b18-macaw-element6-native-f2",
+      "artifact_zip_sha256": "39f42a137efc2f1c314d0600ad9fd7591d05ebd82f2568d5afaff3bb77a2fe02",
+      "original_client_log_sha256": "362bebae37c37ec3a3c02c8720639c56a719483cd6cd2b6526ea180fdcc35b2b",
+      "modified_client_log_sha256": "5e349725462618968ce7d6ac6b36bd80429f01bf1683be0eac0e57434307471a",
+      "only_child_model_JSON_modified": true,
+      "face_GPU_pixel_ownership_approved": false,
+      "physical_function_material_style_approved": false,
+      "AI_training_redistribution_rights_approved": false
+    },
+    {
+      "source_key": "MACAW67/MACAW1424/7",
+      "original_element_index": 7,
+      "original_faces": 5,
+      "original_from": [
+        12,
+        15.9,
+        12.01
+      ],
+      "original_to": [
+        14,
+        23.9,
+        14.01
+      ],
+      "original_role_hypothesis": "BACKREST_ASSEMBLY",
+      "south_changed_pixels": 415,
+      "north_changed_pixels": 263,
+      "bounded_decision": "PASS_BOUNDED_MACAW_SINGLE_SOURCE_RENDER_RESPONSE",
+      "original_real_native_F2": 8,
+      "modified_real_native_F2": 8,
+      "server_state_checks": 16,
+      "untouched_vanilla_control_changed_pixels": 0,
+      "unchanged_air_pixels": 0,
+      "original_and_modified_A_A_temporal_changed_pixels": 0,
+      "changed_pixels_outside_original_foreground": 0,
+      "repeated_camera_A_A_intervention_pixels_equal": true,
+      "artifact_id": 15033577964,
+      "artifact_name": "int5-b18-macaw-element7-native-f2",
+      "artifact_zip_sha256": "c15689915873fc4133a88df9217d06632498da31d27c6a7f9bbd08be17e39943",
+      "original_client_log_sha256": "347d939ca98a97d1b3b21ab71f3a30947881cc3a0513f764e98b16c03cab6551",
+      "modified_client_log_sha256": "8f156825bdb5f0ae45bbecc053c0f68b00f39b6697f9950fdeed7ac21fc64829",
+      "only_child_model_JSON_modified": true,
+      "face_GPU_pixel_ownership_approved": false,
+      "physical_function_material_style_approved": false,
+      "AI_training_redistribution_rights_approved": false
+    },
+    {
+      "source_key": "MACAW67/MACAW1424/8",
+      "original_element_index": 8,
+      "original_faces": 5,
+      "original_from": [
+        12,
+        15.9,
+        1.99
+      ],
+      "original_to": [
+        14,
+        23.9,
+        3.99
+      ],
+      "original_role_hypothesis": "BACKREST_ASSEMBLY",
+      "south_changed_pixels": 378,
+      "north_changed_pixels": 254,
+      "bounded_decision": "PASS_BOUNDED_MACAW_SINGLE_SOURCE_RENDER_RESPONSE",
+      "original_real_native_F2": 8,
+      "modified_real_native_F2": 8,
+      "server_state_checks": 16,
+      "untouched_vanilla_control_changed_pixels": 0,
+      "unchanged_air_pixels": 0,
+      "original_and_modified_A_A_temporal_changed_pixels": 0,
+      "changed_pixels_outside_original_foreground": 0,
+      "repeated_camera_A_A_intervention_pixels_equal": true,
+      "artifact_id": 15034369636,
+      "artifact_name": "int5-b18-macaw-element8-native-f2",
+      "artifact_zip_sha256": "41e8b9642eeb1575a30c1550a2563709d8c59264538fb6b5eee2802c23f58d0b",
+      "original_client_log_sha256": "7962f07a848418769c1c9177ebfd1d4618e0ac663b668c8b1ceda15726ee5bca",
+      "modified_client_log_sha256": "5dfd0489617d88e1f96de7f9c99e1bef9cba1b4e88dc20772a424cf6a0a20087",
+      "only_child_model_JSON_modified": true,
+      "face_GPU_pixel_ownership_approved": false,
+      "physical_function_material_style_approved": false,
+      "AI_training_redistribution_rights_approved": false
+    },
+    {
+      "source_key": "MACAW67/MACAW1424/9",
+      "original_element_index": 9,
+      "original_faces": 4,
+      "original_from": [
+        12.4,
+        19.8,
+        3.8
+      ],
+      "original_to": [
+        13.4,
+        21.8,
+        12.1
+      ],
+      "original_role_hypothesis": "BACKREST_ASSEMBLY",
+      "south_changed_pixels": 440,
+      "north_changed_pixels": 288,
+      "bounded_decision": "PASS_BOUNDED_MACAW_SINGLE_SOURCE_RENDER_RESPONSE",
+      "original_real_native_F2": 8,
+      "modified_real_native_F2": 8,
+      "server_state_checks": 16,
+      "untouched_vanilla_control_changed_pixels": 0,
+      "unchanged_air_pixels": 0,
+      "original_and_modified_A_A_temporal_changed_pixels": 0,
+      "changed_pixels_outside_original_foreground": 0,
+      "repeated_camera_A_A_intervention_pixels_equal": true,
+      "artifact_id": 15035407045,
+      "artifact_name": "int5-b18-macaw-element9-native-f2",
+      "artifact_zip_sha256": "192e886ffa1cf404e1553a52a75e6c70acd4ad6baf34948fe5241e983df2a541",
+      "original_client_log_sha256": "8e6a231574056f364e836be0b4c7b7dd88b19342d251d7ccd6ff7144f46f2269",
+      "modified_client_log_sha256": "8dc538273620bd24c9da851581d33d53dd7097702b8ff486903eddb19675aa88",
+      "only_child_model_JSON_modified": true,
+      "face_GPU_pixel_ownership_approved": false,
+      "physical_function_material_style_approved": false,
+      "AI_training_redistribution_rights_approved": false
+    },
+    {
+      "source_key": "MACAW67/MACAW1424/10",
+      "original_element_index": 10,
+      "original_faces": 5,
+      "original_from": [
+        12,
+        11,
+        1.99
+      ],
+      "original_to": [
+        14,
+        15.9,
+        3.99
+      ],
+      "original_role_hypothesis": "BACKREST_ASSEMBLY",
+      "south_changed_pixels": 128,
+      "north_changed_pixels": 109,
+      "bounded_decision": "PASS_BOUNDED_MACAW_SINGLE_SOURCE_RENDER_RESPONSE",
+      "original_real_native_F2": 8,
+      "modified_real_native_F2": 8,
+      "server_state_checks": 16,
+      "untouched_vanilla_control_changed_pixels": 0,
+      "unchanged_air_pixels": 0,
+      "original_and_modified_A_A_temporal_changed_pixels": 0,
+      "changed_pixels_outside_original_foreground": 0,
+      "repeated_camera_A_A_intervention_pixels_equal": true,
+      "artifact_id": 15034689353,
+      "artifact_name": "int5-b18-macaw-element10-native-f2",
+      "artifact_zip_sha256": "115c28cb2f13fb74bd23db85e7bf279752158e05a1ca21e6e006dc3ec4f448fd",
+      "original_client_log_sha256": "4947712c3c0ca9420810cb896ed3e015e48e3e2e77cb252d0f01238ce0f4cbec",
+      "modified_client_log_sha256": "674515578de903e8cca5960cf75241b0f21584c6860d2f13a77aa8731677eab0",
+      "only_child_model_JSON_modified": true,
+      "face_GPU_pixel_ownership_approved": false,
+      "physical_function_material_style_approved": false,
+      "AI_training_redistribution_rights_approved": false
+    },
+    {
+      "source_key": "MACAW67/MACAW1424/11",
+      "original_element_index": 11,
+      "original_faces": 6,
+      "original_from": [
+        1,
+        9,
+        2
+      ],
+      "original_to": [
+        14,
+        11,
+        14
+      ],
+      "original_role_hypothesis": "SEAT_LAYER",
+      "south_changed_pixels": 570,
+      "north_changed_pixels": 522,
+      "bounded_decision": "PASS_BOUNDED_MACAW_SINGLE_SOURCE_RENDER_RESPONSE",
+      "original_real_native_F2": 8,
+      "modified_real_native_F2": 8,
+      "server_state_checks": 16,
+      "untouched_vanilla_control_changed_pixels": 0,
+      "unchanged_air_pixels": 0,
+      "original_and_modified_A_A_temporal_changed_pixels": 0,
+      "changed_pixels_outside_original_foreground": 0,
+      "repeated_camera_A_A_intervention_pixels_equal": true,
+      "artifact_id": 15033383701,
+      "artifact_name": "int5-b18-macaw-element11-native-f2",
+      "artifact_zip_sha256": "ca85a30eb747f12643d3cc9d5df4e6ad6e6cb282c1c52a9ad3199569f158359c",
+      "original_client_log_sha256": "7e56aaf9dca52f0e6d150460f3952aa371e49867f5b992431d84ad9fd84bb305",
+      "modified_client_log_sha256": "0429c67167b4bfb1eb3b9831c717fb53aceccd067e0f4c0d5f0f3b1a1a833876",
+      "only_child_model_JSON_modified": true,
+      "face_GPU_pixel_ownership_approved": false,
+      "physical_function_material_style_approved": false,
+      "AI_training_redistribution_rights_approved": false
+    }
+  ]
+}
