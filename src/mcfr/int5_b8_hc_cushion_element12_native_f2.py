@@ -226,6 +226,23 @@ def capture_session(command,env,game,output,session,preflight):
                 sleep(.7)
                 return
             raise ValueError("INT5-B8 no exact server response "+reason)
+        def prove_no_dropped_items(view,stage):
+            """Color changes in Handcrafted may create moving dropped items."""
+            marker="MCFR_INT5_B8_"+session.upper()+"_"+label(view,stage).upper()+"_NO_ITEM_ENTITY=PASS"
+            for retry in range(2):
+                focus()
+                send("/kill @e[type=minecraft:item]")
+                sleep(.7)
+                try:
+                    acknowledge(
+                        f"/execute unless entity @e[type=minecraft:item] run say {marker}",
+                        "[RenderAudit] "+marker,
+                        "server proves zero dropped item entities "+label(view,stage))
+                    return marker
+                except ValueError as exc:
+                    if retry==1 or "Timed out waiting for" not in str(exc):
+                        raise
+            raise ValueError("B8 dropped item entity negative control not verified")
         try:
             wait_for(proc,lambda:"RenderAudit joined the game" in read(),
                      "B8 "+session+" real Minecraft joined",180)
@@ -261,10 +278,15 @@ def capture_session(command,env,game,output,session,preflight):
                                 "[RenderAudit] "+server_marker,
                                 "source exact blockstate "+key)
                     sleep(5)
+                    no_items=prove_no_dropped_items(view,stage)
+                    sleep(1)
                     screenshot=h12.screenshot(xdo,window,shots,output,key,{"proc":proc})
                     state_rows[view][stage]={
                         "state":block,"server_marker":server_marker,
-                        "exact_server_checked":True,**screenshot}
+                        "exact_server_checked":True,
+                        "dropped_items_zero_game_server_marker":no_items,
+                        "dropped_items_zero_game_server_verified":True,
+                        **screenshot}
                     print("INT5_B8_NATIVE_F2_"+session.upper()+" "+key,flush=True)
         except Exception:
             archive_gui_diagnostic(output,"INT5_B8_"+session.upper()+"_SOURCE_OR_CLIENT_FAILURE")
@@ -460,6 +482,8 @@ def audit(directory):
                 need(source["state"]==state(stage) and
                      source["exact_server_checked"] is True and
                      "[RenderAudit] "+source["server_marker"] in log and
+                     source.get("dropped_items_zero_game_server_verified") is True and
+                     "[RenderAudit] "+source["dropped_items_zero_game_server_marker"] in log and
                      source["image"]==key+".png" and
                      source["dimensions"]==[1024,684],
                      "real game server original state not confirmed "+session+"/"+key)
@@ -503,6 +527,8 @@ def audit(directory):
         "real_original_native_F2_verified":8,
         "real_modified_native_F2_verified":8,
         "real_exact_server_state_markers_verified":16,
+        "dropped_item_entities_zero_at_all_16_F2":True,
+        "dropped_item_negative_controls_proven_by_server":16,
         "per_camera_pixel_response":per_camera,
         "white_child_and_AIR_negative_controls_equal":controls,
         "any_real_cushion12_element_removal_render_response":causal,
@@ -533,6 +559,7 @@ def audit(directory):
             "Black cushion is an original source texture role cue, not proof of sitting, cushion physics, materials, or style.",
             "Only north-facing HC11210 black cushion variant was tested from two observers; other block facings, cushion colors and elements remain untested.",
             "The original 4.0.3 official Fabric JAR parent bytes were SHA matched to research, but do not generalize this equivalence to all mod releases.",
+            "At each stage purge block-swap item drops, then require exact server proof zero item entities before native F2.",
             "The untouched white model state and AIR are exact byte/original client negative controls; separate game sessions require temporal A/A and outside-foreground zero.",
             "Third-party mod JAR, edited model and raw textures never enter Git or the CI screenshot artifact.",
             "Previously established B5 AF123 and B7 AF121 remain independently verified and unchanged.",

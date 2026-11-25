@@ -136,6 +136,14 @@ class HCCushionElement12Tests(unittest.TestCase):
             ):
                 self.assertEqual(x[key],0)
 
+    def test_handcrafted_dropped_item_must_be_purged_and_server_verified(self):
+        code=Path(b8.__file__).read_text(encoding="utf-8")
+        self.assertIn('/kill @e[type=minecraft:item]',code)
+        self.assertIn('/execute unless entity @e[type=minecraft:item]',code)
+        self.assertIn('"dropped_items_zero_game_server_marker":no_items',code)
+        self.assertIn('"dropped_items_zero_game_server_verified":True',code)
+        self.assertIn('"dropped_item_entities_zero_at_all_16_F2":True',code)
+
     def test_white_child_mutation_detected_as_negative_control(self):
         m=b8.measure(sample_sessions(),
                      sample_sessions(patched=True,wrong_white=True))
