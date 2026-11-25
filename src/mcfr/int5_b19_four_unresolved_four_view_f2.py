@@ -79,8 +79,8 @@ def source():
             "source_faces":faces,
             "original_role_hypothesis":original[0]["original_role_hypothesis"],
             "B18_prior_state":recent[0]["state"],
-            "B18_prior_south_pixels":int(recent[0]["south_changed_pixels"]),
-            "B18_prior_north_pixels":int(recent[0]["north_changed_pixels"])}
+            "B18_prior_south_pixels":int(recent[0]["south_changed_pixels"] or "0"),
+            "B18_prior_north_pixels":int(recent[0]["north_changed_pixels"] or "0")}
 
 def case():
     if CHOSEN.startswith("AF121"):
