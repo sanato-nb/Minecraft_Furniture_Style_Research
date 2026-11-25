@@ -1,0 +1,88 @@
+name: INT-5 B3 source element texture role cue vs actual F2 scene audit
+
+on:
+  push:
+    branches:
+      - work/int5-b3-element-texture-semantic-triage-20261125
+    paths:
+      - src/mcfr/int5_element_texture_role_triage.py
+      - tests/knowledge/test_int5_element_texture_role_triage.py
+      - project/integration/INT5_B3_45_PART_ROLE_TEXTURE_CUE_DECISIONS_V1.csv
+      - project/integration/INT5_B3_15_ROLE_GROUP_SCREEN_EVIDENCE_V1.csv
+      - project/integration/INT5_B3_45_ROLE_TEXTURE_SOURCE_SCOPE_RESULT_V1.json
+      - project/integration/INT5_B3_RESEARCH_REPORT_V1.md
+      - .github/workflows/integration-int5-b3-role-cue.yml
+  pull_request:
+    paths:
+      - src/mcfr/int5_element_texture_role_triage.py
+      - tests/knowledge/test_int5_element_texture_role_triage.py
+      - project/integration/INT5_B3_45_PART_ROLE_TEXTURE_CUE_DECISIONS_V1.csv
+      - project/integration/INT5_B3_15_ROLE_GROUP_SCREEN_EVIDENCE_V1.csv
+      - project/integration/INT5_B3_45_ROLE_TEXTURE_SOURCE_SCOPE_RESULT_V1.json
+      - project/integration/INT5_B3_RESEARCH_REPORT_V1.md
+      - .github/workflows/integration-int5-b3-role-cue.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  direct-original-45-parts-229-face-role-cues:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    env:
+      PYTHONPATH: src
+      GITHUB_TOKEN: ${{ github.token }}
+      INT5_B3_ARTIFACT_DIR: /tmp/int5-b3-reopened-original-assets
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reopen and byte-check 3 existing original PNG/F2 source archives
+        run: |
+          python -m mcfr.int5_element_texture_role_triage \
+            --archive-dir "$INT5_B3_ARTIFACT_DIR" --out "$RUNNER_TEMP" --emit-json
+      - name: Reproduce ten independent role cue / occlusion / no-rights tests
+        run: |
+          python -m unittest discover -s tests/knowledge \
+            -p test_int5_element_texture_role_triage.py -v
+      - name: Fail closed on any false individual pixel or function approval
+        run: |
+          python - <<'PY'
+          import json,os,pathlib
+          p=pathlib.Path(os.environ["RUNNER_TEMP"])/"project/integration/INT5_B3_45_ROLE_TEXTURE_SOURCE_SCOPE_RESULT_V1.json"
+          j=json.loads(p.read_text(encoding="utf-8")); c=j["counts"]
+          assert c["source_elements_reopened"]==45
+          assert c["original_source_faces_reopened"]==229
+          assert c["native_F2_screenshots_reopened"]==16
+          assert c["role_groups_context_checked"]==15
+          assert c["named_source_texture_role_cue_elements"]==9
+          assert c["role_cue_and_visible_group_appearance_consistent"]==8
+          assert c["AF_tucked_seat_cue_obscured"]==1
+          assert c["distinct_texture_without_role_name"]==1
+          assert c["generic_texture_only_role_hypotheses"]==35
+          assert c["new_exact_element_to_screen_pixel_identifications"]==0
+          assert c["element_function_semantics_final_approvals"]==0
+          assert c["INT6_training_or_redistribution_approvals"]==0
+          print("INT5_B3_ROLE_TEXTURE_CUE_9_OF_45_AND_OCCLUSION_1_SCOPE_PASS")
+          PY
+      - name: Rebuild and compare all 45 and 15 rows if committed
+        run: |
+          if [ -e project/integration/INT5_B3_45_ROLE_TEXTURE_SOURCE_SCOPE_RESULT_V1.json ]; then
+            python -m mcfr.int5_element_texture_role_triage \
+              --archive-dir "$INT5_B3_ARTIFACT_DIR" --verify
+          else
+            echo "FIRST_RUN_DERIVED_ONLY_NOT_AN_ELEMENT_FUNCTION_PASS"
+          fi
+      - name: Upload metadata-only research outputs without screenshots and textures
+        uses: actions/upload-artifact@v4
+        with:
+          name: int5-b3-role-texture-45-elements-15-groups
+          path: |
+            ${{ runner.temp }}/project/integration/INT5_B3_45_PART_ROLE_TEXTURE_CUE_DECISIONS_V1.csv
+            ${{ runner.temp }}/project/integration/INT5_B3_15_ROLE_GROUP_SCREEN_EVIDENCE_V1.csv
+            ${{ runner.temp }}/project/integration/INT5_B3_45_ROLE_TEXTURE_SOURCE_SCOPE_RESULT_V1.json
+          retention-days: 45
+          if-no-files-found: error

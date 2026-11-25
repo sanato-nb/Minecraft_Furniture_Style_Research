@@ -1,0 +1,43 @@
+{
+  "caveat": "9/45 role-specific filename/UV cues and 8 group-compatible visual contexts do not prove 8 individually identified or functionally validated JSON elements.",
+  "counts": {
+    "AF_tucked_seat_cue_obscured": 1,
+    "INT6_training_or_redistribution_approvals": 0,
+    "distinct_texture_without_role_name": 1,
+    "element_function_semantics_final_approvals": 0,
+    "generic_texture_only_role_hypotheses": 35,
+    "named_source_texture_role_cue_elements": 9,
+    "native_F2_screenshots_reopened": 16,
+    "new_exact_element_to_screen_pixel_identifications": 0,
+    "new_minecraft_runs_or_screenshots": 0,
+    "original_source_faces_reopened": 229,
+    "role_cue_and_visible_group_appearance_consistent": 8,
+    "role_groups_context_checked": 15,
+    "source_elements_reopened": 45
+  },
+  "decision": "PASS_INDEPENDENT_SOURCE_UV_ROLE_CUE_AND_WHOLE_GROUP_VISUAL_TRIAGE_ONLY",
+  "limits": [
+    "Texture filename cues such as chair/seat, chair/back or cushion can corroborate a source author's intended appearance; they cannot alone prove actual seat usage, physics, or element-to-pixel mappings.",
+    "AF tucked seat element's source seat texture cue exists but neighboring table obscures relevant screenshot region.",
+    "Macaw stripped_acacia_log provides a distinctive color texture for element 0 without an inherently seat-specific texture name.",
+    "Other 35 source parts have shared/generic texture; no filename-only material or structural function inference is permitted.",
+    "Scene grades refer to whole-chair group shape, never per-element unique pixel segmentation.",
+    "Minecraft F2 screenshots and third-party textures/JARs remain outside new GitHub commits; no AI training/redistribution rights claimed."
+  ],
+  "original_actions_artifact_ids": {
+    "native_1_21_1": 14703481861,
+    "native_1_21_11": 14702933021,
+    "textured_face_uv": 14700114922
+  },
+  "original_source_git_blobs": {
+    "INT5_B2_16_NATIVE_F2_DIRECT_SCENE_REVIEW_V1.csv": "a2f8b9c1ea5a559036e0ee92e32b5de5b626542a",
+    "INT5_B2_45_ELEMENT_SOURCE_TEXTURE_FACE_REVIEW_V1.csv": "13775fadcbe3f385cf853a2c5fe923a06a33a9ae",
+    "INT5_B2_REAL_ORIGINAL_IMAGE_REOPEN_RESULT_V1.json": "7c6885c415bf312c1352b81961d53df64970cfcc"
+  },
+  "output_sha256": {
+    "project/integration/INT5_B3_15_ROLE_GROUP_SCREEN_EVIDENCE_V1.csv": "986b73163f33cad1baae7f2fb63c3b458e3fbc2a83f7fcb521cda7846c1c9e05",
+    "project/integration/INT5_B3_45_PART_ROLE_TEXTURE_CUE_DECISIONS_V1.csv": "c76fefdb236aba659f379e03e4f3c065e91b7d1146f94db0dc45f89ee8fbcae4"
+  },
+  "schema": "MCFR_INT5_B3_ORIGINAL_45_ELEMENT_TEXTURE_ROLE_CUE_TRIAGE_V1",
+  "source_versus_runtime_AF_drift_preserved": true
+}
