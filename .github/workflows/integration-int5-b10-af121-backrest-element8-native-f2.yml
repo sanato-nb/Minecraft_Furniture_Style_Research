@@ -1,0 +1,117 @@
+name: INT-5 B10 AF121 backrest element8 isolated removal native two-camera F2
+
+on:
+  push:
+    branches:
+      - work/int5-b10-af121-backrest-element8-native-f2-20261125
+    paths:
+      - src/mcfr/int5_b10_af121_backrest_element8_native_f2.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int5_b10_af121_backrest_element8_native_f2.py
+      - .github/workflows/integration-int5-b10-af121-backrest-element8-native-f2.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  AF121-official-child-only-model-intervention:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 48
+    env:
+      PYTHONPATH: src
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      ALSOFT_DRIVERS: 'null'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install only original Fabric launcher and real F2 decoder requirements
+        timeout-minutes: 9
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            timeout 180s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 update
+            timeout 240s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 install -y --no-install-recommends xvfb xauth xdotool
+          fi
+      - name: Ten original model-child isolation and negative-control regression tests
+        run: |
+          python -m unittest discover -s tests/knowledge -p test_int5_b10_af121_backrest_element8_native_f2.py -v
+          python -m unittest discover -s tests/knowledge -p test_chair_camera_command_recovery.py -v
+      - name: Fetch original H15 eight real F2 frames and verify exact original ZIP SHA
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api -H 'Accept: application/vnd.github+json' \
+            'repos/sanato-nb/Minecraft_Furniture_Style_Research/actions/artifacts/14851461698/zip' \
+            > "$RUNNER_TEMP/int5-b10-h15-original-8-F2.zip"
+          python - <<'PY'
+          import hashlib,os,pathlib,zipfile
+          path=pathlib.Path(os.environ["RUNNER_TEMP"])/"int5-b10-h15-original-8-F2.zip"
+          assert hashlib.sha256(path.read_bytes()).hexdigest()== \
+            "4d674a097a2403f34da5c878c78f8a17e2b786a3d50fd945b5fca64fa755f462"
+          with zipfile.ZipFile(path) as z:
+            assert z.testzip() is None
+            assert len(z.namelist())==len(set(z.namelist()))
+            assert "INT4_H15_AF_OPPOSING_VIEW_REAL_NATIVE_F2_MANIFEST_V1.json" in z.namelist()
+          print("INT5_B10_H15_PINNED_UNMODIFIED_8_REAL_GAME_F2_BASELINE_PASS")
+          PY
+      - name: Create disposable original Minecraft Java 1.21.1 Fabric world
+        run: |
+          python -m mcfr.chair_runtime_fixture world \
+            --version 1.21.1 \
+            --path "$RUNNER_TEMP/int5-b10-world" \
+            --cache "$RUNNER_TEMP/int5-b10-cache"
+      - name: Run real Minecraft native F2 with ONLY AF121 child element8 removed
+        timeout-minutes: 25
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int5-b10-af121-backrest7-native-f2 \
+              --version 1.21.1 \
+              --world "$RUNNER_TEMP/int5-b10-world" \
+              --work "$RUNNER_TEMP/int5-b10-client" \
+              --output "$RUNNER_TEMP/int5-b10-native-f2"
+      - name: Independently audit exact 8 original H15 and new F2, eight server states
+        run: |
+          python -m mcfr.int5_b10_af121_backrest_element8_native_f2 \
+            --directory "$RUNNER_TEMP/int5-b10-native-f2" \
+            --h15-original-zip "$RUNNER_TEMP/int5-b10-h15-original-8-F2.zip"
+          python - <<'PY'
+          import json,os,pathlib
+          d=pathlib.Path(os.environ["RUNNER_TEMP"])/"int5-b10-native-f2"
+          result=json.loads((d/"INT5_B10_AF121_ELEMENT8_INDEPENDENT_CAUSAL_AUDIT_V1.json").read_text())
+          assert result["original_H15_native_F2_verified"]==8
+          assert result["new_disposable_native_F2_verified"]==8
+          assert result["new_exact_server_state_confirmations"]==8
+          assert result["two_separate_game_sessions_in_comparison"]==2
+          assert result["source_provenance"]["one_and_only_one_uncompressed_JAR_member_modified"] is True
+          assert result["source_provenance"]["original_parent_unmodified"] is True
+          assert result["source_provenance"]["acacia3_negative_control_unmodified"] is True
+          assert result["unique_original_element_pixel_ownership_approved"] is False
+          assert result["part_seating_or_function_approved"] is False
+          assert result["part_material_or_style_approved"] is False
+          assert result["INT5_final_semantics_approvals"]==0
+          assert result["INT6_AI_training_or_redistribution_rights_approved"]==0
+          print("INT5_B10_ACTUAL_REAL_F2_DECISION",result["decision"])
+          print("INT5_B10_ACTUAL_PER_CAMERA_RESPONSE",result["per_camera_screen_response"])
+          print("INT5_B10_AUDIT_BEGIN")
+          print(json.dumps(result,ensure_ascii=True,sort_keys=True))
+          print("INT5_B10_AUDIT_END")
+          assert result["decision"]=="PASS_AF121_ISOLATED_CHILD_ELEMENT8_REMOVAL_NATIVE_F2_RESPONSE", \
+            "Conditional actual F2 remains explicitly unapproved; see artifact"
+          PY
+      - name: Keep only real native F2 PNG/client log/metadata, NEVER temporary JAR
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int5-b10-af121-backrest-element8-eight-original-game-f2
+          path: ${{ runner.temp }}/int5-b10-native-f2/
+          retention-days: 45
+          if-no-files-found: warn
