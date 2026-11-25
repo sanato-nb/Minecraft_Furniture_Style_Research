@@ -98,7 +98,7 @@ class B5SourceAndScreenControls(unittest.TestCase):
             "assets/another_furniture/models/block/chair/acacia_10_tucked.json")
         with self.assertRaisesRegex(ValueError,"invalid source"):
             b5.model_member("another_furniture:../../secrets")
-        with self.assertRaisesRegex(ValueError, "model parent"):
+        with self.assertRaisesRegex(ValueError, "parent outside AF pinned namespace"):
             b5.find_provider({b5.model_member(b5.MODEL_ID):
                               json.dumps({"parent":"minecraft:block/cube_all"}).encode()})
 
