@@ -125,7 +125,7 @@ def identity():
     info=source()
     c=case()
     need(c.version==VERSION and c.facing=="north" and c.y==120 and
-         (c.x,c.z)==((8,40) if CHOSEN.startswith("AF123") else
+         (c.x,c.z)==((-24,40) if CHOSEN.startswith("AF123") else
                       (-88,40) if CHOSEN.startswith("AF121") else (40,40)),
          "original fixture block positions changed")
     return {"target":CHOSEN,"source":info,"source_case":c.case_id,
@@ -415,12 +415,12 @@ def audit(folder):
     provenance=modified["original_source_scope"]
     name=provenance.get("removed_source_index",provenance.get("original_element_index",
          provenance.get("removed_original_element_index")))
-    need(int(name)==orig["source_element_index"] and
-         provenance.get("source_element_face_count",len(provenance.get("removed_source_element_faces",[]))
-             if "removed_source_element_faces" in provenance else
-             len(provenance.get("original_element_faces",[])))==orig["source_faces"] or
-         provenance.get("source_element_face_count")==orig["source_faces"] or
-         provenance.get("original_source_element_face_count")==orig["source_faces"],
+    faces=(provenance.get("source_element_face_count") or
+           provenance.get("original_element_face_count") or
+           len(provenance.get("removed_source_element_faces",
+                 provenance.get("original_element_faces",
+                 provenance.get("removed_original_element_faces",[])))))
+    need(int(name)==orig["source_element_index"] and int(faces)==orig["source_faces"],
          "changed original index/face count not pinned")
     need(child in (af1.CHILD,af10.CHILD,hc.member(hc.CHILD)),
          "original child-only resource not selected")
