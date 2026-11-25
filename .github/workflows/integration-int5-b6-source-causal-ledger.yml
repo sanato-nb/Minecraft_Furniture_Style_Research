@@ -1,0 +1,103 @@
+name: INT-5 B6 45 original source elements and B5 single-element causal evidence ledger
+
+on:
+  push:
+    branches:
+      - work/int5-b6-45-element-causal-evidence-ledger-20261125
+    paths:
+      - src/mcfr/int5_b6_element_causal_evidence_ledger.py
+      - tests/knowledge/test_int5_b6_element_causal_evidence_ledger.py
+      - project/integration/INT5_B6_45_ELEMENT_CAUSAL_EVIDENCE_LEDGER_V1.csv
+      - project/integration/INT5_B6_15_ROLE_GROUP_CAUSAL_COVERAGE_V1.csv
+      - project/integration/INT5_B6_NEXT_SOURCE_ELEMENT_EXPERIMENT_QUEUE_V1.csv
+      - project/integration/INT5_B6_45_PART_CAUSAL_SCOPE_RESULT_V1.json
+      - .github/workflows/integration-int5-b6-source-causal-ledger.yml
+  pull_request:
+    paths:
+      - src/mcfr/int5_b6_element_causal_evidence_ledger.py
+      - tests/knowledge/test_int5_b6_element_causal_evidence_ledger.py
+      - project/integration/INT5_B6_45_ELEMENT_CAUSAL_EVIDENCE_LEDGER_V1.csv
+      - project/integration/INT5_B6_15_ROLE_GROUP_CAUSAL_COVERAGE_V1.csv
+      - project/integration/INT5_B6_NEXT_SOURCE_ELEMENT_EXPERIMENT_QUEUE_V1.csv
+      - project/integration/INT5_B6_45_PART_CAUSAL_SCOPE_RESULT_V1.json
+      - .github/workflows/integration-int5-b6-source-causal-ledger.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-45-source-to-one-real-causal-proof:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run eleven falsifiable original SHA, source ID, scene and approval tests
+        run: |
+          python -m unittest discover -s tests/knowledge \
+            -p test_int5_b6_element_causal_evidence_ledger.py -v
+      - name: Independently recompute 45 source-part rows, 15 group rows, nine proposal rows
+        run: |
+          python -m mcfr.int5_b6_element_causal_evidence_ledger \
+            --out "$RUNNER_TEMP" \
+            > "$RUNNER_TEMP/int5-b6-result.json"
+          python - <<'PY'
+          import json,os,pathlib
+          root=pathlib.Path(os.environ["RUNNER_TEMP"])
+          d=json.loads((root/"int5-b6-result.json").read_text())
+          c=d["counts"]
+          assert d["decision"]=="PASS_PINNED_B3_B4_B5_META_EVIDENCE_RECONCILIATION_ONLY"
+          assert c["original_source_elements"]==45
+          assert c["original_source_faces"]==229
+          assert c["role_groups"]==15
+          assert c["tested_element_render_response"]==1
+          assert c["untested_elements"]==44
+          assert c["source_role_named_cues_all"]==9
+          assert c["source_role_named_cues_still_untested"]==8
+          assert c["proposed_priority_queue_not_executed"]==9
+          assert c["original_pixel_ownership_confirmations"]==0
+          assert c["part_function_final_approvals"]==0
+          assert c["material_or_style_final_approvals"]==0
+          assert c["INT6_AI_training_or_redistribution_approvals"]==0
+          assert c["new_native_F2_captured_in_B6"]==0
+          assert d["tested_exact_part"]["actual_game_south_intervention_delta_pixels"]==751
+          assert d["tested_exact_part"]["actual_game_north_intervention_delta_pixels"]==0
+          print("INT5_B6_SOURCE_B3_45_GROUPS15_B5_CAUSAL_ONE_UNTESTED44_PASS")
+          PY
+      - name: Enforce byte-identical regeneration if ledger is already committed
+        run: |
+          if [ -f project/integration/INT5_B6_45_PART_CAUSAL_SCOPE_RESULT_V1.json ]; then
+            python -m mcfr.int5_b6_element_causal_evidence_ledger --verify
+          else
+            echo "INT5_B6_NEW_LEDGER_NOT_YET_COMMITTED_NO_FALSE_HISTORICAL_APPROVAL"
+          fi
+      - name: Publish four short metadata outputs for exact commit, not third-party images
+        run: |
+          python - <<'PY'
+          import base64,os,pathlib
+          from mcfr.int5_b6_element_causal_evidence_ledger import OUT
+          root=pathlib.Path(os.environ["RUNNER_TEMP"])
+          for name,path in OUT.items():
+              raw=(root/path).read_bytes()
+              data=base64.b64encode(raw).decode()
+              for i,start in enumerate(range(0,len(data),1600)):
+                  print("INT5_B6_EXPORT",name,i,data[start:start+1600],flush=True)
+              print("INT5_B6_EXPORT_END",name,len(raw),flush=True)
+          PY
+      - name: Save metadata only with SHA outputs; no original F2, mods or textures
+        uses: actions/upload-artifact@v4
+        with:
+          name: int5-b6-original-45-elements-15-groups-one-bounded-causal-proof
+          path: |
+            ${{ runner.temp }}/project/integration/INT5_B6_45_ELEMENT_CAUSAL_EVIDENCE_LEDGER_V1.csv
+            ${{ runner.temp }}/project/integration/INT5_B6_15_ROLE_GROUP_CAUSAL_COVERAGE_V1.csv
+            ${{ runner.temp }}/project/integration/INT5_B6_NEXT_SOURCE_ELEMENT_EXPERIMENT_QUEUE_V1.csv
+            ${{ runner.temp }}/project/integration/INT5_B6_45_PART_CAUSAL_SCOPE_RESULT_V1.json
+          retention-days: 45
+          if-no-files-found: error

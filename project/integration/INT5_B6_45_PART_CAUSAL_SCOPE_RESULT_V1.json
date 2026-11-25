@@ -1,0 +1,94 @@
+{
+  "counts": {
+    "INT6_AI_training_or_redistribution_approvals": 0,
+    "b5_actual_game_sessions_total_in_comparison": 2,
+    "b5_disposable_new_native_F2": 8,
+    "b5_server_chair_slab_pair_checks": 16,
+    "distinct_texture_no_role_name_untested": 1,
+    "generic_source_texture_untested": 35,
+    "historical_b4_native_F2_used": 8,
+    "material_or_style_final_approvals": 0,
+    "new_game_sessions_in_B6": 0,
+    "new_native_F2_captured_in_B6": 0,
+    "original_native_F2_B3": 16,
+    "original_pixel_ownership_confirmations": 0,
+    "original_source_elements": 45,
+    "original_source_faces": 229,
+    "part_function_final_approvals": 0,
+    "proposed_priority_queue_not_executed": 9,
+    "role_groups": 15,
+    "source_role_named_cues_all": 9,
+    "source_role_named_cues_still_untested": 8,
+    "tested_element_render_response": 1,
+    "untested_elements": 44
+  },
+  "decision": "PASS_PINNED_B3_B4_B5_META_EVIDENCE_RECONCILIATION_ONLY",
+  "limits": [
+    "All 45 B3 source elements and 15 role groups remain intact; only AF123 element4 has tested removal-induced screen response.",
+    "Original B3 source is Git 4.0.3, while the tested AF123 runtime model is official Fabric 4.0.2. No cross-version byte equivalence inferred.",
+    "AF123 element4 is only proven to change 751 pixels south and 0 north under the pinned B4 supported tucked state and ROI, not to exclusively own those pixels.",
+    "No evidence is transferred from the tested north-facing AF123 to the untested three facings, AF121, HC, Macaw, or the other 44 elements.",
+    "Texture role names, screen shape, geometric positioning, and pixel response do not prove seating, structural function, material, style, AI training or redistribution rights.",
+    "Priority order is a research hypothesis, not a completion percentage or certification.",
+    "Old strict INT4 H03 HOLD, H05 CONDITIONAL and F70 0 unconditional approvals remain unchanged."
+  ],
+  "next_high_priority_explicit_candidate": {
+    "model_key": "AF121",
+    "source_element_index": 4,
+    "test_status": "NOT_RUN",
+    "why": "B3 seat-specific texture and four whole-chair F2 views; no tucked=true support slab; B5 response is not transferred to AF121."
+  },
+  "output_sha256": {
+    "project/integration/INT5_B6_15_ROLE_GROUP_CAUSAL_COVERAGE_V1.csv": "42759e2cb7d4196f57c1514c04364719cdbbadea2bbc34f02b39e0668c4d606d",
+    "project/integration/INT5_B6_45_ELEMENT_CAUSAL_EVIDENCE_LEDGER_V1.csv": "7074415fffd90854d1af8ffbec24b37c8fdd2f8384c6023664076c4ecb5fda1d",
+    "project/integration/INT5_B6_NEXT_SOURCE_ELEMENT_EXPERIMENT_QUEUE_V1.csv": "b72c9e50134dcd526603234f4a26a85abc0627c0c46ebc6cb5e62bc1938f0206"
+  },
+  "pinned_B3_output_sha256": {
+    "project/integration/INT5_B3_15_ROLE_GROUP_SCREEN_EVIDENCE_V1.csv": "986b73163f33cad1baae7f2fb63c3b458e3fbc2a83f7fcb521cda7846c1c9e05",
+    "project/integration/INT5_B3_45_PART_ROLE_TEXTURE_CUE_DECISIONS_V1.csv": "c76fefdb236aba659f379e03e4f3c065e91b7d1146f94db0dc45f89ee8fbcae4"
+  },
+  "pinned_B4_native_F2_sha256": {
+    "north_chair_plus_slab_after": "eda8fa8031e7cb061a9d7e49249b902c118622da897133f66b46fe8de3b652a0",
+    "north_chair_plus_slab_before": "eda8fa8031e7cb061a9d7e49249b902c118622da897133f66b46fe8de3b652a0",
+    "north_empty": "e2669fe0a23ca8b2f65a3a743bf85da19d703ed240d9740a00edb2956eaa86e6",
+    "north_slab_only": "08600c5229f5010a68c0a69066051367946a87432e375c3e743e8424c4cf4cd3",
+    "south_chair_plus_slab_after": "c568082cce53fae8abe99b0ef65cdb39e8b16daabc9cc7422031fc4982375245",
+    "south_chair_plus_slab_before": "93e8edb5f96bb1464234f4c3c9e19a6a5b3cfafc9e73397bf6968e8a295f8e55",
+    "south_empty": "559bd5bc8161f5cb3a82a207971bc999f8bd4f1d7c2490d12ea207370288d301",
+    "south_slab_only": "e8b463f063d5b845435d2b036e8e0d97d69d497bc69a0dfaddc9d69bc6e6692c"
+  },
+  "pinned_B5_disposable_native_F2_sha256": {
+    "north_chair_plus_slab_after": "eda8fa8031e7cb061a9d7e49249b902c118622da897133f66b46fe8de3b652a0",
+    "north_chair_plus_slab_before": "eda8fa8031e7cb061a9d7e49249b902c118622da897133f66b46fe8de3b652a0",
+    "north_empty": "e2669fe0a23ca8b2f65a3a743bf85da19d703ed240d9740a00edb2956eaa86e6",
+    "north_slab_only": "08600c5229f5010a68c0a69066051367946a87432e375c3e743e8424c4cf4cd3",
+    "south_chair_plus_slab_after": "b0c43975569daa09881dba47a29c7f83827a405d833a663f5de1072081a9a537",
+    "south_chair_plus_slab_before": "09cece6cb6c5f95b4b61abdcc7540f59602dc72d7f0cf09a2925e781e892d8dd",
+    "south_empty": "559bd5bc8161f5cb3a82a207971bc999f8bd4f1d7c2490d12ea207370288d301",
+    "south_slab_only": "e8b463f063d5b845435d2b036e8e0d97d69d497bc69a0dfaddc9d69bc6e6692c"
+  },
+  "pinned_git_blob_sha1": {
+    "INT5_B3_15_ROLE_GROUP_SCREEN_EVIDENCE_V1.csv": "5b329287591d413cf47b23762e0c5b2755f6a210",
+    "INT5_B3_45_PART_ROLE_TEXTURE_CUE_DECISIONS_V1.csv": "d314941b950b70fa637536f86182eb4866b7aed1",
+    "INT5_B3_45_ROLE_TEXTURE_SOURCE_SCOPE_RESULT_V1.json": "3af3bf3db640439a88d8a9fc2d8c1d92fbd677e6",
+    "INT5_B4_AF_TUCKED_SLAB_REAL_F2_AUDIT_V1.json": "aa7afebac071a21e497d396a9b77840f2f4047cd",
+    "INT5_B5_AF123_ELEMENT4_NATIVE_F2_CAUSAL_AUDIT_V1.json": "a1943b38c12025d41e6948670a67694ff9a39456"
+  },
+  "schema": "MCFR_INT5_B6_45_ORIGINAL_ELEMENT_CAUSAL_PROVENANCE_LEDGER/v1",
+  "tested_exact_part": {
+    "actual_game_north_intervention_delta_pixels": 0,
+    "actual_game_south_intervention_delta_pixels": 751,
+    "actual_running_fabric_release": "4.0.2",
+    "child_model_key": "AF123",
+    "negative_controls_per_view_all_zero": true,
+    "no_pixel_change_outside_original_chair_foreground": true,
+    "original_release_provider": "assets/another_furniture/models/block/template/chair_tucked.json",
+    "provider_key": "AF1394",
+    "source_element_index": 4,
+    "source_element_removal_vs_exclusive_original_pixels": "REMOVAL_RENDER_RESPONSE_ONLY_NOT_UNIQUE_ORIGINAL_ELEMENT_OWNERSHIP",
+    "source_provider_git_blob_sha1": "bbfd54f73fd764015ce320082ba531bd314a6dfd",
+    "source_role_hypothesis_not_function": "SEAT_LAYER",
+    "tested_original_F2_state": "AF123_north",
+    "tested_source_blockstate": "another_furniture:acacia_chair[facing=north,tucked=true,variant=10]"
+  }
+}
