@@ -76,6 +76,18 @@ class HCCushionElement12Tests(unittest.TestCase):
         self.assertEqual(b8.state("white"),pre.CTRL_STATE)
         self.assertEqual(b8.state("air"),"minecraft:air")
 
+    def test_runtime_HC_fixture_branch_cannot_be_shadowed_by_AF_cases(self):
+        path=b8.ROOT/"src/mcfr/runtime.py"
+        source=path.read_text(encoding="utf-8")
+        clauses=[x.strip() for x in source.splitlines()
+                 if x.strip().startswith("elif args.command in (")]
+        self.assertTrue(all(
+            "int5-b8-hc-cushion12-native-f2" not in c for c in clauses),
+            "B8 will accidentally launch AF121 or AF123 chair fixture")
+        self.assertEqual(source.count(
+            'elif args.command=="int5-b8-hc-cushion12-native-f2":'),1)
+        self.assertIn('selected=(pinned_chair_case(),)',source)
+
     def test_source_study_and_official_pinned_mod_4_0_3(self):
         self.assertEqual(pre.SHA1,"a9579fecd7ed429c282be21d5c921d220197acc6")
         self.assertEqual(pre.SOURCE_PARENT_BLOB,
