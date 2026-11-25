@@ -73,7 +73,7 @@ jobs:
         timeout-minutes: 25
         run: |
           xvfb-run -a -s '-screen 0 1024x684x24' \
-            python -m mcfr.runtime int5-b10-af121-backrest7-native-f2 \
+            python -m mcfr.runtime int5-b10-af121-backrest8-native-f2 \
               --version 1.21.1 \
               --world "$RUNNER_TEMP/int5-b10-world" \
               --work "$RUNNER_TEMP/int5-b10-client" \
