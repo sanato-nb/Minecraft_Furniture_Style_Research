@@ -36,7 +36,7 @@ B3의 45요소 텍스처 원본 기록과 B6 원본 45행 원장/실험 큐 **4�
 
 최초 실게임 [Actions #45554039558](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45554039558)에서도 원본 5면, index8 제거 및 남392/북362, 대조0으로 실제 화면 인과는 나타났으나, **출력 감사 JSON `original_source_part_key` 필드가 이전 B9의 `AF121/AF1393/7`**로 남은 메타데이터 오류를 독립 검수 과정에서 발견했다. 이 JSON을 영구 승인·커밋하지 않았다.
 
-이를 **`SOURCE_KEY`와 `SOURCE_INDEX`에서 원본 키를 직접 조립하도록 변경**하고, 이탈을 방지하는 추가 회귀시험과 CI 필수 assert `source key==AF121/AF1393/8`, `removed index==8`, `13? ` 아님: 정확 원본 **10요소·46면**, 수정 **9요소·41면**, 삭제 원본 **5면**을 명시했다. 수정된 최종 별도 Actions **#45554490160 SUCCESS**에서 첫 화면 실측·음성대조 결과가 정확히 재현되고 메타데이터 문제도 사라진 것을 확인했다.
+이를 **`SOURCE_KEY`와 `SOURCE_INDEX`에서 원본 키를 직접 조립하도록 변경**하고, 이탈을 방지하는 추가 회귀시험과 CI 필수 assert `source key==AF121/AF1393/8`, `removed index==8`, 정확한 원본 **10요소·46면**, 수정 **9요소·41면**, 삭제 원본 **5면**을 명시했다. 수정된 최종 별도 Actions **#45554490160 SUCCESS**에서 첫 화면 실측·음성대조 결과가 정확히 재현되고 메타데이터 문제도 사라진 것을 확인했다.
 
 **최종 판정:** `PASS_AF121_ISOLATED_CHILD_ELEMENT8_REMOVAL_NATIVE_F2_RESPONSE`, 이는 **출처가 검증된 원본 모델 소스 element8 제거의 국소적 게임 화면 변화**에 한정된다. 개별 GPU 픽셀/face 소유권, 부품 구조 기능·재질·스타일, 실제 앉기 메커니즘, INT-6 학습/재배포 라이선스를 승인하지 않는다.
 
