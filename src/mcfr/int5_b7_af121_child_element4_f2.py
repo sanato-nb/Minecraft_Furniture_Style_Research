@@ -135,10 +135,21 @@ def prepare_disposable_child(game):
              all(n in names for n in (CHILD,CONTROL,PARENT)),
              "official original JAR file identity/CRC invalid")
         content={n:z.read(n) for n in names}
-    need(blob(content[CHILD])==h12.source.EXPECTED_SHA["models/block/chair/acacia_1.json"] and
-         blob(content[CONTROL])==h12.source.EXPECTED_SHA["models/block/chair/acacia_3.json"] and
-         blob(content[PARENT])==h12.source.EXPECTED_SHA["models/block/template/chair.json"],
-         "official released model source exact Git blob mismatch")
+    # The research Git 4.0.3 blobs differ from official Fabric 4.0.2
+    # serialized JSON bytes despite H12's confirmed semantic model parity.
+    # Require the PINNED 4.0.2 runtime Git blobs verified by H12 preflight.
+    runtime_pins={
+        CHILD:("models/block/chair/acacia_1.json",
+               "2261460299d13a15220f4fecfe059628ac28e813"),
+        CONTROL:("models/block/chair/acacia_3.json",
+                 "1c5ef86b8413f7c8d246869cb63b21dfd8f6853e"),
+        PARENT:("models/block/template/chair.json",
+                "31c643617a7178ac5113702e785620f4d1150adf"),
+    }
+    need(all(blob(content[member])==expected and
+             source["actual_runtime_provenance"][rel]["git_blob_sha1"]==expected
+             for member,(rel,expected) in runtime_pins.items()),
+         "official released 4.0.2 model JSON pin mismatched H12 certified runtime")
     patch,scope=isolated_child_override(content[CHILD],content[CONTROL],content[PARENT])
     before_hashes={n:sha(content[n]) for n in (CHILD,CONTROL,PARENT)}
     contents={**content,CHILD:patch}
