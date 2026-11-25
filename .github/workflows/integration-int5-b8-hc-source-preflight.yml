@@ -1,0 +1,51 @@
+name: INT-5 B8 official Handcrafted source preflight 13 elements and control
+on:
+  push:
+    branches: [work/int5-b8-hc11210-cushion-element12-f2-20261125]
+    paths:
+      - src/mcfr/int5_b8_hc_cushion_source_preflight.py
+      - .github/workflows/integration-int5-b8-hc-source-preflight.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  official-hc-model-chain-and-cushion:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Retrieve OFFICIAL SHA-pinned released Handcrafted Fabric JAR only
+        run: |
+          curl -fLsS --retry 3 --max-time 60 \
+            'https://cdn.modrinth.com/data/pJmCFF0p/versions/f0pKpUWd/handcrafted-fabric-1.21.1-4.0.3.jar' \
+            -o "$RUNNER_TEMP/handcrafted-fabric-1.21.1-4.0.3.jar"
+      - name: Read real parent chain and exact original cushion and white control
+        run: |
+          python -m mcfr.int5_b8_hc_cushion_source_preflight \
+            --jar "$RUNNER_TEMP/handcrafted-fabric-1.21.1-4.0.3.jar" \
+            > "$RUNNER_TEMP/int5-b8-release-source-preflight.json"
+          cat "$RUNNER_TEMP/int5-b8-release-source-preflight.json"
+          python - <<'PY'
+          import json,os,pathlib
+          p=pathlib.Path(os.environ['RUNNER_TEMP'])/'int5-b8-release-source-preflight.json'
+          j=json.loads(p.read_text())
+          assert j['original_black_13_elements_78_faces'] is True
+          assert j['source_element_index']==12
+          assert j['source_element_face_count']==6
+          assert j['white_control_distinct_child'] is True
+          assert j['original_source_jars_or_assets_exported'] is False
+          assert j['INT6_rights_approved'] is False
+          print("INT5_B8_ORIGINAL_HC_MODEL_CHAIN_AND_CUSHION_PROVED")
+          PY
+      - name: Retain ONLY source provenance JSON no original JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: int5-b8-official-hc-parent-chain-metadata-only
+          path: ${{ runner.temp }}/int5-b8-release-source-preflight.json
+          retention-days: 45
+          if-no-files-found: error
