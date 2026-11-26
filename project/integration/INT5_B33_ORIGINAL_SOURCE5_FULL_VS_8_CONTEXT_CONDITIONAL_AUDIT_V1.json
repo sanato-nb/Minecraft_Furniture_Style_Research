@@ -1,0 +1,222 @@
+{
+  "schema": "MCFR_INT5_B33_B23_B27_B28_ORIGINAL_SOURCE5_CONTEXT_CONDITIONALITY/v1",
+  "verified_by_GitHub_Actions_run": 45843425631,
+  "input_blob_SHA": {
+    "B23": "19b216f4b879c9b8d5a70e6f7f07e36bca58aa4e",
+    "B28": "b364fc03cc42840e3158ec7b507b3125cbb6efa0",
+    "B27": "cc07c6461a394b49ed2dafbe4d01720249bbffe5"
+  },
+  "original_full_model_and_B23_controls": {
+    "AF121_5": {
+      "B27_full_original_south_north": [
+        0,
+        0
+      ],
+      "B23_all_others_four_views": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "B23_front_0_4_four_views": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "AF123_5": {
+      "B27_full_original_south_north": [
+        0,
+        0
+      ],
+      "B23_all_others_four_views": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "B23_front_0_4_four_views": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "different_context_B28_two_model_eight_dropouts": {
+    "AF121_5": [
+      {
+        "omitted": 0,
+        "four_view_pixels": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "changed_pixel_coordinates": {},
+        "original_artifact_sha256": "36f9a7fb1d45a40c1e95efd300b5243adba4c372cedd743d9f4410028f781a47"
+      },
+      {
+        "omitted": 1,
+        "four_view_pixels": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "changed_pixel_coordinates": {
+          "south": [
+            [
+              535,
+              481
+            ]
+          ],
+          "east": [
+            [
+              488,
+              481
+            ]
+          ]
+        },
+        "original_artifact_sha256": "9c67b0fc2d9436ea62780cfe1c946ed43a9188027b05cf989ffd4d6de6f96627"
+      },
+      {
+        "omitted": 2,
+        "four_view_pixels": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "changed_pixel_coordinates": {
+          "east": [
+            [
+              535,
+              481
+            ]
+          ]
+        },
+        "original_artifact_sha256": "ea8aa9693630c9aa8b56bd8f22e089b17e65c6730eb49f1435986a5dc725abe0"
+      },
+      {
+        "omitted": 3,
+        "four_view_pixels": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "changed_pixel_coordinates": {
+          "south": [
+            [
+              488,
+              481
+            ]
+          ]
+        },
+        "original_artifact_sha256": "aa92bc7ab970f411da7137d6e2b6a238db9cd70ce76e656dafe61b1d51dba00c"
+      }
+    ],
+    "AF123_5": [
+      {
+        "omitted": 0,
+        "four_view_pixels": [
+          0,
+          0,
+          0,
+          2
+        ],
+        "changed_pixel_coordinates": {
+          "west": [
+            [
+              455,
+              439
+            ],
+            [
+              456,
+              439
+            ]
+          ]
+        },
+        "original_artifact_sha256": "a37fb7be115017d74fbd6c81e69f57f17193f9d3c17df3846f6f65f235c9c0a3"
+      },
+      {
+        "omitted": 1,
+        "four_view_pixels": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "changed_pixel_coordinates": {
+          "south": [
+            [
+              533,
+              456
+            ]
+          ]
+        },
+        "original_artifact_sha256": "34db06c2315ffc618c835138698fd4994160e1fa889ad356739025e527d320f7"
+      },
+      {
+        "omitted": 2,
+        "four_view_pixels": [
+          0,
+          0,
+          2,
+          0
+        ],
+        "changed_pixel_coordinates": {
+          "east": [
+            [
+              576,
+              481
+            ],
+            [
+              577,
+              481
+            ]
+          ]
+        },
+        "original_artifact_sha256": "5fa823971ae8d5614ecd1efe746a9ee815cb9ee70820a9f96483f1e50b6d12fe"
+      },
+      {
+        "omitted": 3,
+        "four_view_pixels": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "changed_pixel_coordinates": {
+          "south": [
+            [
+              490,
+              456
+            ]
+          ]
+        },
+        "original_artifact_sha256": "b62e4b9c0e3b9c1e94016d11963e9e1b487acce46c02d0389f0159e9f8137905"
+      }
+    ]
+  },
+  "B23_F2_recorded": 320,
+  "B28_F2_directly_reaudited": 256,
+  "B28_positive_intervention_cases": 7,
+  "B28_nonzero_camera_comparisons": 8,
+  "B28_total_micro_changed_screen_pixels": 10,
+  "B28_pixel_positions_verified_against_per_view_metrics": 10,
+  "one_or_two_pixel_screen_response_is_not_unique_physical_leg_or_UV_face_owner": true,
+  "original_B27_full_model_render_responses_43_of_45_unchanged": true,
+  "source5_unchanged_in_B27_full_model": [
+    "AF121#5",
+    "AF123#5"
+  ],
+  "physical_role_material_style_approved": 0,
+  "GPU_original_face_UV_exclusive_pixel_approved": 0,
+  "third_party_training_and_distribution_rights_approved": 0,
+  "H03": "HOLD",
+  "H05": "CONDITIONAL",
+  "F70_unconditional_approved": 0
+}
