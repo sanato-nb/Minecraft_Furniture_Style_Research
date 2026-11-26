@@ -46,3 +46,18 @@
 - 후속 [#45737409387](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45737409387): 11개 B20 원본/반증 단위시험 통과 후 `--version/--work/--world/--output` 신규 하위 명령의 공통 등록 누락으로 게임 시작 전 중단. 이 또한 원본 렌더링 인과 실패가 아님.
 - 각각 한국어 커밋으로 인자 오류를 고치고, `runtime --help`에 각 필수 옵션이 실제로 표시되는지 검증하는 스모크 단계도 CI에 추가.
 - 현재 재검증 대상 [#45737601134](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45737601134), 코드 HEAD `443217ae6b7f05927a236aff408cb299fb4fbef8`. **중간 조회 시 두 AF 대상 모두 실제 Fabric 3세션 촬영 단계 진행 중**. 독립 F2 SHA 검증·원본 vs 상속전개 vs 교정 결과를 확인하기 전에는 B20 실험 완료나 새로운 원인 입증으로 표기하지 않는다.
+
+## 6. AF121/AF1393/5 실제 3세션 결과 — 독립 ZIP 재검증
+
+[GitHub Actions #45737585060](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45737585060) 중 **AF121_5 job 성공**. 해당 실험 실행 커밋 `4677698532936955655837204f89ade000399dfd`. 증거 artifact ID `15080486304` (원본 ZIP SHA-256 `41b6e8da5c97f2aff8a7659c580cf9c0dd4dd9b5098916358166408535f529b3`).
+
+원본 `B19 AF121_5` 32 F2는 독립 재검증에서 ZIP CRC·32개 PNG SHA·원본/수정 각 16 이미지 및 4카메라 전부 0픽셀 확인. B20 3세션 ZIP 재다운로드 후 Python/Pillow/NumPy로 **48개 PNG SHA256, 세 로그 SHA256, 개별 서버 블록상태 marker 48개, ZIP CRC** 재확인.
+
+| 비교 | south | north | east | west |
+|---|---:|---:|---:|---:|
+| 원본 inherited ↔ flatten 동일 요소·UV parent | 0 | 0 | 0 | 0 |
+| flatten ↔ element5 X만 `from:3,to:13` 정렬 | 0 | 0 | 0 | 0 |
+
+모든 A/A 시차·variant3 음성 대조·AIR 차이 0. 실제 감사 판정 **`NO_VISIBLE_RESPONSE_AFTER_ORIGINAL_X_ENDPOINT_NORMALIZATION`**. 실게임 F2에서 원본 X 정렬이 관찰 가능 모델 차이를 만든다는 근거는 얻지 못함. **역방향 좌표의 배타적 원인·원본 요소 사용 여부·원본 엔진 버그·모델 요소 의미/권리 및 부품 픽셀 귀속을 승인하지 않음**.
+
+AF123의 별도 실험 완료/독립 ZIP 감사 전에는 B20 전체 완료를 선언하지 않으며, B19 누적 **43/45** 렌더 가시성 검증 및 2개 미검출 기록을 변경하지 않는다.
