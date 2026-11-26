@@ -12,7 +12,6 @@ import json
 from pathlib import Path
 from zipfile import ZipFile
 
-from PIL import Image
 
 RECORD_PATH = "INT5_B27_FULL_45_ORIGINAL_F2_SOURCE_VISUAL_SPATIAL_INDEPENDENT_EVIDENCE_V1.csv"
 
@@ -42,6 +41,7 @@ def audit_one(row, directory):
     ensure(path.is_file(), "Missing unmodified GitHub ZIP " + key)
     expected = row["original_GitHub_artifact_ZIP_sha256"]
     ensure(sha(path.read_bytes()) == expected, "Original archive SHA256 " + key)
+    from PIL import Image
     with ZipFile(path) as z:
         ensure(z.testzip() is None, "ZIP CRC " + key)
         names = z.namelist()
