@@ -47,10 +47,10 @@ def evidence_selected(context,mode):
     setup(context)
     indices=b23.choose(context,mode)
     missing=int(context[-1])
-    need(indices==tuple(i for i in range(10)
-                         if i in (4,5,6) or
-                         (i in range(4) and i!=missing)
-                         if (mode!="without_5" or i!=5)),
+    expected=tuple(sorted(({0,1,2,3}-{missing}) |
+                           {4,6} |
+                           ({5} if mode=="with_5" else set())))
+    need(indices==expected,
          "original source6, source4, three legs with source5 single intervention")
     return indices
 
