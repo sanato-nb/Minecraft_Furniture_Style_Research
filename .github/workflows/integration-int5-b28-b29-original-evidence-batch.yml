@@ -1,0 +1,105 @@
+name: INT-5 B28+B29 original artifact SHA and 45-source independent batched audit
+on:
+  push:
+    branches: [work/int5-b28-b29-b25-artifact-full45-cross-audit-20261126]
+    paths:
+      - 'src/mcfr/int5_b28_aggregate_original_artifact_reaudit.py'
+      - 'src/mcfr/int5_b29_full45_crossledger_audit.py'
+      - 'tests/knowledge/test_int5_b28_b29_original_evidence_batch.py'
+      - 'src/mcfr/int4_bed_exterior.py'
+      - 'tests/knowledge/test_int5_b30_native_client_join_guard.py'
+      - '.github/workflows/integration-int5-b28-b29-original-evidence-batch.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  b28-actual-eight-original-artifact-zip-independent:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact image comparison libraries
+        run: python -m pip install 'numpy>=1.26,<3' 'Pillow>=10,<13'
+      - name: Re-download all eight pinned B25 source artifact ZIPs; keep JARs and F2 out of Git
+        run: |
+          mkdir -p "$RUNNER_TEMP/b25-original-archive"
+          python - <<'PY' > "$RUNNER_TEMP/b25-artifact-ids.txt"
+          from mcfr.int5_b28_aggregate_original_artifact_reaudit import ARTIFACTS
+          for key, (artifact, sha) in ARTIFACTS.items():
+              print(key, artifact, sha)
+          PY
+          while read -r key artifact sha; do
+            curl --fail --show-error --silent --location --retry 3 --max-time 120 \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/sanato-nb/Minecraft_Furniture_Style_Research/actions/artifacts/$artifact/zip" \
+              -o "$RUNNER_TEMP/b25-original-archive/B25_$key.zip"
+            echo "Received pinned original B25 artifact $artifact for $key"
+          done < "$RUNNER_TEMP/b25-artifact-ids.txt"
+      - name: Independently re-decode original 256 native F2 and client logs / server state proof
+        run: |
+          python -m mcfr.int5_b28_aggregate_original_artifact_reaudit \
+            --directory "$RUNNER_TEMP/b25-original-archive" \
+            --output "$RUNNER_TEMP/int5-b28-final-audit.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          result=json.loads((Path(os.environ['RUNNER_TEMP'])/'int5-b28-final-audit.json').read_text())
+          assert len(result['records'])==8
+          assert result['zip_sha256_crc_verified']==8
+          assert result['native_F2_sha256_verified']==256
+          assert result['client_log_sha256_verified']==16
+          assert result['chair_state_markers_verified']==256
+          assert result['support_slab_markers_verified']==128
+          assert result['physical_role_approved']==result['material_style_approved']==0
+          assert result['face_UV_exclusive_pixel_approved']==0
+          assert result['third_party_AI_training_distribution_approved']==0
+          assert result['H03']=='HOLD' and result['H05']=='CONDITIONAL'
+          assert result['F70_unconditional']==0
+          PY
+      - name: Upload only derived hashes, provenance and changed pixel coordinates
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int5-b28-b25-original8-256f2-independent-only-metadata
+          path: ${{ runner.temp }}/int5-b28-final-audit.json
+          if-no-files-found: warn
+          retention-days: 45
+  b29-source-45-b24-b26-b27-independent-static:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image-array libraries for B28 regression tests
+        run: python -m pip install 'numpy>=1.26,<3' 'Pillow>=10,<13'
+      - name: B29 crossjoin B24 45 roles and source faces with B26/B27 actual F2 provenance
+        run: |
+          python -m mcfr.int5_b29_full45_crossledger_audit \
+            --directory project/integration \
+            --output "$RUNNER_TEMP/int5-b29-crossledger.json"
+      - name: Run seven fail-closed tests including spoofed approval, source and RGB 24 threshold
+        run: |
+          python -m unittest discover -s tests/knowledge \
+            -p 'test_int5_b28_b29_original_evidence_batch.py' -v
+          python -m unittest discover -s tests/knowledge \
+            -p 'test_int5_b30_native_client_join_guard.py' -v
+      - name: Upload derived 45-element research audit without original third-party assets
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int5-b29-full45-source-crossledger-evidence-only-metadata
+          path: ${{ runner.temp }}/int5-b29-crossledger.json
+          if-no-files-found: warn
+          retention-days: 45
