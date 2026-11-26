@@ -345,14 +345,14 @@ def main(argv: list[str] | None = None) -> int:
     f6mode = sub.add_parser("int4-f6-causal-replay", help="INT-4-F6 S02/S34 source-coded tucked/inner-left game replay")
     f7mode = sub.add_parser("int4-f7-source-cases", help="INT-4-F7 AF variant3, bench double and HC vanilla parent 4 original F2")
     exterior = sub.add_parser("int4-bed-exterior", help="observe occupied bed from an independent client")
-    for command in (engine, visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, f11fr08, hcbed, h10, h12, h15, h16, b4, b5, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, neighbor, h8, nonchair, fmissing, f3mod, drawer_front, f4mod, f5mode, f6mode, f7mode, exterior):
+    for command in (engine, visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, f11fr08, hcbed, h10, h12, h15, h16, b4, b5, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, neighbor, h8, nonchair, fmissing, f3mod, drawer_front, f4mod, f5mode, f6mode, f7mode, exterior):
         command.add_argument("--version", required=True)
         command.add_argument("--work", type=_scratch_path, required=True)
         command.add_argument("--client-cache", type=_scratch_path)
         command.add_argument("--display", help="X11 display, for example :99")
     engine.add_argument("--output", type=_scratch_path, required=True)
     engine.add_argument("--ecj", type=Path)
-    for command in (visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, f11fr08, hcbed, h10, h12, h15, h16, b4, b5, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, neighbor, h8, nonchair, fmissing, f3mod, drawer_front, f4mod, f5mode, f6mode, f7mode, exterior):
+    for command in (visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, f11fr08, hcbed, h10, h12, h15, h16, b4, b5, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, neighbor, h8, nonchair, fmissing, f3mod, drawer_front, f4mod, f5mode, f6mode, f7mode, exterior):
         command.add_argument("--world", type=Path, required=True)
     capture.add_argument("--output", type=_scratch_path, required=True)
     chairs.add_argument("--output", type=_scratch_path, required=True)
@@ -380,6 +380,7 @@ def main(argv: list[str] | None = None) -> int:
     b17.add_argument("--output", type=_scratch_path, required=True)
     b18.add_argument("--output", type=_scratch_path, required=True)
     b19.add_argument("--output", type=_scratch_path, required=True)
+    b20.add_argument("--output", type=_scratch_path, required=True)
     b9.add_argument("--output", type=_scratch_path, required=True)
     b10.add_argument("--output", type=_scratch_path, required=True)
     b11.add_argument("--output", type=_scratch_path, required=True)
