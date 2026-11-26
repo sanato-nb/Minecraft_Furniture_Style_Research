@@ -1,0 +1,69 @@
+name: INT-5 B24 all 45 source elements 229 faces role semantics strict evidence audit
+on:
+  push:
+    branches: [work/int5-b23-b24-multigroup-full45-role-batch-f2-20261126]
+    paths:
+      - src/mcfr/int5_b24_role_evidence_batch.py
+      - tests/knowledge/test_int5_b24_role_evidence_batch.py
+      - project/integration/INT5_B24_45_PART_ORIGINAL_SOURCE_ROLE_SEMANTICS_EVIDENCE_REVIEW_V1.csv
+      - .github/workflows/integration-int5-b24-role-45part-independent-source-audit.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-full45-source-meaning-provenance-audit:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test source roles, textures and strict unapproved semantics on all original 45
+        run: |
+          python -m unittest discover -s tests/knowledge -p test_int5_b24_role_evidence_batch.py -v
+      - name: Independently regenerate all 45 parts and 229 faces, no images or third-party JAR
+        run: |
+          python -m mcfr.int5_b24_role_evidence_batch \
+            --root . \
+            --csv-out "$RUNNER_TEMP/int5-b24-45-original-role-evidence.csv" \
+            --json-out "$RUNNER_TEMP/int5-b24-45-original-role-evidence.json"
+          python - <<'PY'
+          import csv,json,pathlib,os
+          import sys
+          sys.path.insert(0,"src")
+          from mcfr import int5_b24_role_evidence_batch as b24
+          base=pathlib.Path(os.environ["RUNNER_TEMP"])
+          report=json.loads((base/"int5-b24-45-original-role-evidence.json").read_text())
+          with (base/"int5-b24-45-original-role-evidence.csv").open(newline="") as f:
+              generated=list(csv.DictReader(f))
+          with pathlib.Path("project/integration/INT5_B24_45_PART_ORIGINAL_SOURCE_ROLE_SEMANTICS_EVIDENCE_REVIEW_V1.csv").open(newline="") as f:
+              committed=list(csv.DictReader(f))
+          assert generated==committed, "committed original evidence mapping differs from independent author"
+          assert len(generated)==45 and sum(int(row["face_count"]) for row in generated)==229
+          assert report["original_single_element_bounded_visible_response"]==43
+          assert report["original_single_element_no_visible_response"]==2
+          assert report["source_named_or_distinct_texture_cues_not_role_approvals"]==10
+          assert report["weak_shared_texture_role_cue_count"]==35
+          assert report["individual_original_physical_function_role_approved"]==0
+          assert report["individual_original_material_style_approved"]==0
+          assert report["individual_original_face_UV_GPU_pixel_ownership_approved"]==0
+          assert report["third_party_AI_training_and_redistribution_rights_approved"]==0
+          assert report["F70_unconditional_approved"]==0
+          assert report["H03"]=="HOLD" and report["H05"]=="CONDITIONAL"
+          assert report["B23_real_multi_context_results_not_prejudged"] is True
+          print("B24_FULL45_ORIGINAL_FACES",len(generated),229,"SOURCE_CUES",10,"RENDER",43,"GAPS",2)
+          PY
+      - name: Archive only newly authored CSV and non-original summary JSON
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int5-b24-full45-strict-role-evidence-original-source-audit
+          retention-days: 45
+          path: |
+            ${{ runner.temp }}/int5-b24-45-original-role-evidence.csv
+            ${{ runner.temp }}/int5-b24-45-original-role-evidence.json
+          if-no-files-found: warn

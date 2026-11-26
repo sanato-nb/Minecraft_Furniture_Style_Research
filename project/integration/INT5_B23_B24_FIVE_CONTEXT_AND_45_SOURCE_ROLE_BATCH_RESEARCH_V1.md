@@ -1,0 +1,98 @@
+# INT-5-B23+B24 — 여러 연구 묶음 실제 진행(원형 렌더 10실험 + 전수 45요소 의미·UV 근거)
+작성 2026-11-26 KST · 부모 [B22 원형 source5+source6 실게임 PR #134](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/pull/134) · **한 번에 여러 독립 연구 작업을 처리하되 완료 수치와 승인 등급은 분리**.
+
+## 1. 이미 확정된 증거에서 출발
+- 공식 Minecraft 1.21.1 Fabric, Another Furniture 4.0.2 release SHA1 `c2f992081bdc4795ed6d87771a3b5f7c71103785`.
+- B19 45/45 원본 요소 단독 제거 수행, 원본 전체 의자 화면에서 **43/45** 한정 픽셀 변화, AF121·AF123 source index5 각각 **4방향 0픽셀**.
+- B20 전체 상속 전개/역방향 X 정렬은 4카메라 **0픽셀**. B21 원본5 단독은 실제로 가시. B22 원본5+6 pair는 원본6 단독 대비 AF121 **378/284/378/284**, AF123 **302/0/176/137** 픽셀 변화. 따라서 source6 하나만으로 원본5를 완전히 숨긴다고 주장할 수 없음.
+
+## 2. B23: 5개 원본 가림 맥락을 10개 독립 CI 병렬 작업으로 일괄 실험
+실험 target **AF121_5 + AF123_5**, 각 target마다 아래 **5개 컨텍스트**. 전체 **10개 CI job, 20개 실제 Fabric 클라이언트, 320장 네이티브 F2**, 각 클라이언트 남/북/동/서 4방향 × 원본의자 이전·음성대조·원본의자 복원·빈 의자/AF123 합법 윗반블록만 4상태.
+
+| 맥락 ID | 별도 원본 부모 요소 구성 | 의미 연구에 대한 주의 |
+|---|---|---|
+| `legs_0_3` | 0,1,2,3 | 기존 B3의 `LEG_OR_LOWER_POST` 가설을 보존, 구조만 선택 |
+| `seat_4` | 4 | 기존 B3의 `SEAT_LAYER` 가설을 보존 |
+| `back_7_9` | 7,8,9 | `BACKREST_ASSEMBLY` 가설을 보존 |
+| `front_0_4` | 0,1,2,3,4 | 다리 가설+좌판 가설의 원본 기하 결합 |
+| `all_others` | 0,1,2,3,4,7,8,9 | 원본 10요소 **전체 의자 재구성과 5만 없는 9요소 모델**을 재현, B19 0픽셀의 재확인 |
+
+모든 그룹에 원본 **index6 필수 포함**, 같은 조합에서 **index5 없이/원형 index5 포함** 두 독립 게임 client 비교. 원본 부모의 10요소/46면, source5 역방향 X·4면, source6 원래 4면, 각 선택 요소의 순서·face·UV·texture bind는 고정. disposable child JSON **한 JAR member만** 변경, 원본 부모와 나머지 ZIP 모든 리소스 그대로, 같은 공식 초기 월드 별도 복원. 원본 JAR/수정 JAR Git 업로드/배포 금지.
+
+**코드:** `src/mcfr/int5_b23_multigroup_source5_context_f2.py`; **안전 회귀:** `tests/knowledge/test_int5_b23_multigroup_source5_context_f2.py`; **병렬 원본 CI:** `.github/workflows/integration-int5-b23-fivecontext-10job-batch-320-f2.yml`.
+
+**엄격 판정:** 32장 F2·게임 로그 2·서버 의자32 (AF123은 합법 지지 반블록32) 원본 SHA와 실제 게임 로그 마커 일치, 원본 모델 전후 픽셀차 동등, 음성대조 0/A-A 시간변화 0/화면 기여 픽셀 의자 foreground 집합 밖 0. 양성 및 음성 결과를 모두 기록하고, 무효 반례는 CONDITIONAL. **음성 결과가 부품이 물리적으로 없거나 스타일·재질이 밝혀졌다는 의미는 아님**. 모든 잡 완료 후 독립 ZIP 10개를 재계산해 추가 판정 및 원장 반영.
+
+## 3. B24: 의미 연구를 기다리지 않고 원본 45요소 전체를 동시에 재검수
+기존 실증 파일을 **원본 그대로 직접 읽음**: `INT5_B3_45_PART_ROLE_TEXTURE_CUE_DECISIONS_V1.csv` 및 `INT5_B22_FOUR_MODEL_45_ELEMENT_STATUS_V1.csv`. 원본 4모델 **AF121 10/AF123 10/HC11210 13/MACAW67 12**, 45요소 총 **229 source faces**.
+
+| 구분 | 확인된 B3 원본 개수 | 현재 증명 수준 |
+|---|---:|---|
+| `LEG_OR_LOWER_POST` | 16 | 역할 **가설** |
+| `SEAT_LAYER` | 6 | 역할 **가설** |
+| `LOWER_FRAME` | 7 | 역할 **가설** |
+| `BACKREST_ASSEMBLY` | 16 | 역할 **가설** |
+| 이름/콘트라스트가 구분되는 source texture cue | 10 | 역할 기능 증명이 아닌 **단서** |
+| 공용 텍스처, 분별 역할 단서 없음 | 35 | **약한 단서** |
+
+[45요소 부품별 증거·보류 이유 원장](INT5_B24_45_PART_ORIGINAL_SOURCE_ROLE_SEMANTICS_EVIDENCE_REVIEW_V1.csv)에 각 요소의 원본 텍스처 SHA, 가설, B19 개별 제거에 따른 원본 F2 반응, B21/B22 원형 검증, 누락된 필수 이미지·부품 의미·재질 및 권리 근거를 **원본 소스에서 독립 교차 표출**. 원본 AF 모델 소스 4.0.3 vs 실제 정식 클라이언트 4.0.2의 byte-equal 여부는 미검증 상태 유지.
+
+**독립 코드:** `src/mcfr/int5_b24_role_evidence_batch.py`, `tests/knowledge/test_int5_b24_role_evidence_batch.py` 6개 음성/부당승인 검증, 별도 GitHub Actions `.github/workflows/integration-int5-b24-role-45part-independent-source-audit.yml`에서 원장을 재생성하고 Git에 커밋된 45개 행과 직접 비교.
+
+## 4. 완료 정의
+- B23: 10개 원본 CI 잡 및 두 target×5맥락 실제 PNG·log ZIP 원본 다운로드 CRC/SHA/게임 blockstates/각 4방향 픽셀 독립 재감사하고 원장 추가할 때만 해당 배치 **완료**.
+- B24: 45부품·229면 전체 재생성 및 6개 반례시험+Git 커밋된 45행과 독립 CI 일치 시 **증거 범위 정리 완료**. **의미 승인 45/45라는 뜻은 아님**.
+- 최종 INT5 연구: 부품 기능·재질·스타일 **0/45 승인 유지**, GPU 개별 face/UV 독점 픽셀 귀속 승인0, 제삼자 AI 학습/재배포 권리 승인0, H03 HOLD / H05 CONDITIONAL / 엄격 F70 무조건 0/70, `main` 병합 금지/stacked Draft PR 유지.
+
+## 5. CI 상태 추적
+- [B23 실게임 10-job Actions #45781317951](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45781317951) — **원본 320 F2 실험 실행**, 본 파일에 검증 전 결과 숫자를 넣지 않음.
+- [B24 45-element 독립 CI](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions) — 최종 통과 전인 항목은 PASS로 승격하지 않음.
+
+
+## 6. B24 원본 전수 의미 근거 검증 — 실제 Actions 통과·독립 ZIP 검사
+
+- 정식 [**B24 GitHub Actions #45781900015**](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45781900015) **SUCCESS**. 6개 회귀시험 전부 통과, B3·B22 원본 CSV 직접 읽어 45요소/229면 근거 원장을 독립 생성하고 커밋된 45행과 값별 일치 검증 완료. 초기 실행 #45781760153에서 10 이상 index 문자열 정렬과 원본 숫자 정렬 순서 차이 확인 후 numeric source index 정렬로 수정한 뒤 통과. 초기 실패 이력은 삭제하지 않음.
+- 최종 실제 [artifact #15098432205](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45781900015/artifacts/15098432205)를 독립 다운로드·ZIP CRC 검사 통과. ZIP SHA256 `7aadfe1854c881a061fd0d6d056eec391cedaccbe9391a1bf9f30a87131e7c33`.
+- 실제 `int5-b24-45-original-role-evidence.csv` SHA256 `b70bc8bc9f317962556a194682d4b614cdf00b5ef858136d5bf0d9f7e1ea6c39`, 45개 원본행·229 face·B19 무반응 2·기능 승인 `false` 45.
+- 실제 `int5-b24-45-original-role-evidence.json` SHA256 `eeedb6f450893cba4348012481edf71b72e3e2735160d7f75381cb7ff4eb97b8`, B24 역할 가설 분포 `BACKREST_ASSEMBLY 16 / LEG_OR_LOWER_POST 16 / LOWER_FRAME 7 / SEAT_LAYER 6`, 구별 가능 texture source cue 10, 공용/약한 texture 35, 독립 semantic function/material/style 승인 0/45 및 제3자 IP 학습권리 승인0 재확인.
+- **B24 의미 근거 범위 측정 및 원장 감사 단계 완료.** 부품의 물리적 역할·재질·스타일을 원본 F2와 face GPU 픽셀까지 최종 확증한 단계는 **여전히 미완료**. B23 본 배치 결과는 원본 F2·서버 로그 독립 감사까지 별도로 완료되어야 갱신함.
+
+## 7. B23 최초 성공 4맥락: 실제 AF121 128 원본 F2의 별도 재감사 (부분 완료)
+
+- [AF121 선검증 4/10 machine record](INT5_B23_AF121_FOUR_CONTEXTS_NATIVE_F2_INTERIM_INDEPENDENT_AUDIT_V1.json). GitHub Actions 실제 artifact `15098777339`/`15098194275`/`15098792258`/`15098563306` 각각 다운로드하여 CRC + 각 32개 원본 F2 PNG SHA256 + 실제 2개 client.log SHA256 + 실제 RenderAudit server markers 검증. 합계 **실제 8게임 128F2, 원본 의자 blockstate 128건**. 모든 픽셀 배열을 독립 Python NumPy 1024×684 ROI `[350,275,675,620]` RGB 채널 임계24로 재계산, CI audit JSON과 4방향 모두 동등.
+- 픽셀 값은 동일한 컨텍스트에서 **원본 source5만 추가**한 의자와 추가하지 않은 의자의 화면 차이, 남/북/동/서 순서이며, 원본 B19 전체 요소 제거 증거를 번복하지 않음.
+
+| AF121 source6 고정 및 추가 컨텍스트 | 원형 source5 추가 남 | 북 | 동 | 서 | 엄격 판정 |
+|---|---:|---:|---:|---:|---|
+| `legs_0_3` | 286 | 218 | 294 | 227 | 조건하에 렌더 픽셀 기여 관찰 |
+| `seat_4` | 2 | 0 | 2 | 0 | 매우 작은 2px 차이 실측 |
+| `back_7_9` | 12 | 284 | 347 | 260 | 방향별 다름, 일부 기여 유지 |
+| `front_0_4` | **0** | **0** | **0** | **0** | 이 조합에서 source5 추가 기여 없음 |
+
+**해석 한정:** 원본 4면 source5의 화면 기여가 `0..3`만 더할 때는 보이지만 `0..4` 모두 더하면 보이지 않는 것은 *이 원본 인덱스 조합과 이 4개 카메라 및 state 조건에서* 증명됨. '좌판 원본 요소4가 유일한 단일 가림 원인', '원본 source5 기능이 없다', '해당 PNG의 실제 재질/스타일이 입증됨'은 증명되지 않음. AF123 및 AF121 `all_others`는 아직 검증되지 않았으므로 **전체 B23 완료 선언 금지**.
+
+## 8. B23 최종: 10개 원형 맥락·320장 네이티브 F2 전량 독립 재감사 성공
+
+- [GitHub Actions #45781317951](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45781317951) **10/10 original Fabric GUI job SUCCESS**. 실행 원본 code SHA `1ea70887d9b6105f11208249793663c388e03f01`.
+- GitHub Actions 아티팩트 **10개 공식 ZIP을 각각 직접 다운로드**하여 ZIP CRC, 중복 항목 없음, **native F2 PNG 320/320 원본 SHA256**, **실제 Minecraft `client.log` 20/20 SHA256 및 게임 리소스 로드 로그**, **서버 원본 의자 상태 320건 + AF123 합법 지지 윗반블록 160건**을 독립 감사.
+- 이미지 별도 디코딩 후 ROI `[350,275,675,620]`, 해상도 1024×684, RGB 채널 최대 차 24 이상 조건에서 네 방향×원본/반복/음성/빈 상태 픽셀 **모두 다시 계산**, 자동 CI JSON의 세션/뷰/단계 수치와 **전수 일치**. 각 context별 원본 source5만 추가하는 개입의 시간 A/A 및 음성 대조 모두 **0픽셀**.
+- 아래는 original source6 고정 + 추가 context에서 source5 원형의 on/off 화면 변화 **남/북/동/서 순서**, 비어 보이는 것은 오직 해당 화면 범위에서의 0px.
+
+| 원본 추가 요소 조합 | AF121 원본5 추가 Δ픽셀 남/북/동/서 | AF123 원본5 추가 Δ픽셀 남/북/동/서 |
+|---|---|---|
+| `legs_0_3` (`0,1,2,3`) | 286 / 218 / 294 / 227 | 230 / 0 / 137 / 107 |
+| `seat_4` (`4`) | 2 / 0 / 2 / 0 | 2 / 0 / 2 / 2 |
+| `back_7_9` (`7,8,9`) | 12 / 284 / 347 / 260 | 78 / 0 / 115 / 95 |
+| `front_0_4` (`0,1,2,3,4`) | **0 / 0 / 0 / 0** | **0 / 0 / 0 / 0** |
+| `all_others` (`0,1,2,3,4,7,8,9`) | **0 / 0 / 0 / 0** | **0 / 0 / 0 / 0** |
+
+- [원본 실측 10 ZIP·320 F2 완전 독립 감사 JSON](INT5_B23_FULL10_CONTEXTS_320_REAL_F2_FINAL_INDEPENDENT_AUDIT_V1.json), [기존 B19~B22 45원본 요소를 보존한 누적 B23 45개 원장](INT5_B23_FOUR_MODEL_45_ELEMENT_STATUS_V1.csv). 각각 새로운 파일로 생성했고 이전 원본 근거는 덮어쓰지 않음.
+- **제한된 관찰:** 두 original AF 모델은 단독 또는 source6+부분 원본 맥락에서 source5가 가시지만, source6+`0~4`가 모두 들어가면 요소5 on/off 화면 차이가 **4방향 0픽셀**로 수렴한다. 무엇이 실제 다리·좌판인지 또는 GPU 렌더의 배타적 가림 원인이 무엇인지는 여기서 승인되지 않는다. AF123 북쪽 여러 0픽셀은 합법 top slab/tucked 조건도 같이 해석해야 한다.
+- **B23 지정된 10개 실게임 실험·독립 증거 감사 완료.** 다음 한정 원인 분할은 [B25 8병렬 PR](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/pull/136)에서 원본 0~3 중 하나씩 제외하는 별도 실제 Fabric 실험으로 진행한다.
+
+## 9. INT-5 범위·게이트 최종 현황
+
+- B24 원본 역할 근거 출처 정리 **45/45·229면 완료**, source texture name/contrast cue10, 단순 공유 texture35.
+- B23 원본 source5 multi-context 화면 개입 **10/10 성공**. 과거 B19의 45개 원본 전체모델 단일 제거 성공 **43/45**는 바뀌지 않음.
+- 물리적 부품 역할·재질·스타일 검증 승인 **0/45**, 개별 원본 face/UV GPU 픽셀 독점 귀속 0, 학습·배포 권리 승인0, `H03 HOLD`, `H05 CONDITIONAL`, `F70` 무조건 승인 0/70.
+- 이 모든 파일은 Draft PR #135에서만 반영. `main` 원본 변경·병합 없음.
