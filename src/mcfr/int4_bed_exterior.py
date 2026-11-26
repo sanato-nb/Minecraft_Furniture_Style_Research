@@ -13,7 +13,7 @@ import shutil
 import socket
 import subprocess
 from tempfile import mkdtemp
-from time import sleep
+from time import sleep, monotonic
 from zipfile import ZipFile
 
 from . import int4_nonchair_runtime as prior
@@ -86,6 +86,25 @@ class Client:
             image.verify()
         shutil.copyfile(result[0], path)
         return prior.sha256(path.read_bytes())
+
+
+def wait_for_exact_client_join(server, client, player, timeout=120, pause=sleep, clock=monotonic):
+    """Serial native launcher handshake: fail fast on a crashed GUI process."""
+    deadline = clock() + timeout
+    expected = player + " joined the game"
+    while clock() < deadline:
+        if expected in server.read():
+            return
+        return_code = client.proc.poll()
+        if return_code is not None:
+            tail = "\n".join(client.read().splitlines()[-18:])[-2400:]
+            raise RuntimeError(
+                "Minecraft native client " + player + " exited before join (exit=" +
+                str(return_code) + "); possible LWJGL/JVM native crash. "
+                "Original log tail: " + tail
+            )
+        pause(0.25)
+    raise TimeoutError("Minecraft " + player + " did not join in a bounded " + str(timeout) + "s")
 
 
 def connection_command(command, player, game, port):
@@ -231,12 +250,15 @@ def capture(command, env, game, output, version, *, uv_probe=False, expanded=Fal
     with ExitStack() as stack:
         server = Client(server_command, env, server_game, output / "server.log", stack)
         server.wait(lambda: "For help, type" in server.read(), "Fabric localhost server ready", 150)
+        # Two simultaneous Fabric/LWJGL GUI initializations caused native loader
+        # SIGBUS / missing liblwjgl_opengl.so in CI (archived original logs).
+        # Serial startup still permits both real clients concurrently for F2 capture.
         host = Client(connection_command(command, "RenderAudit", game, port), env,
                       game, output / "host.log", stack)
+        wait_for_exact_client_join(server, host, "RenderAudit")
         obs = Client(connection_command(command, OBSERVER, observer_game, port), env,
                      observer_game, output / "observer.log", stack)
-        server.wait(lambda: all(f"{name} joined the game" in server.read()
-                                for name in ("RenderAudit", OBSERVER)), "both local clients joined", 180)
+        wait_for_exact_client_join(server, obs, OBSERVER)
         host.find_window()
         obs.find_window()
         sleep(5)
