@@ -1,0 +1,154 @@
+{
+  "schema": "MCFR_INT5_B21_TWO_AF_SOURCE5_ISOLATED_F2_INDEPENDENT_FINAL_REAUDIT_V1",
+  "captured_actions_run": 45746846169,
+  "run_head_sha": "d80a18bdd382f44a90e01b0d4a9331ed1179e5d3",
+  "run_jobs_both_success": true,
+  "source_minecraft": "1.21.1 Fabric",
+  "official_af_version": "4.0.2",
+  "official_release_jar_sha1": "c2f992081bdc4795ed6d87771a3b5f7c71103785",
+  "auditor": "Original GitHub Actions artifact ZIP separately downloaded; zipfile CRC, SHA256 all F2 and game logs, 192 RenderAudit exact server markers, independent NumPy+Pillow per-pixel comparisons to CI",
+  "actual_8_game_clients": 8,
+  "new_native_f2_png_sha256_all_verified": 128,
+  "game_client_logs_sha256_verified": 8,
+  "exact_server_chair_markers_checked": 128,
+  "exact_server_support_slab_markers_checked": 64,
+  "artifact_ZIP_CRC_verified": 2,
+  "pixel_ROI": [
+    350,
+    275,
+    675,
+    620
+  ],
+  "rgb_max_channel_threshold": 24,
+  "successful_original_target_count": 2,
+  "original_source5_solo_visible_in_at_least_one_cardinal_camera": 2,
+  "zero_volume_negative_vs_original_no_chair_pixels_all_four_views": 0,
+  "normalized_5_vs_original_positive6_before_and_after_PNG_byte_sha256_identical_4_cameras_both_targets": true,
+  "original_B19_43_of_45_original_element_deletion_visible_pass_count_preserved": true,
+  "strict_H03": "HOLD",
+  "strict_H05": "CONDITIONAL",
+  "strict_F70_unconditional_pass": 0,
+  "physical_role_material_style_final_approvals": 0,
+  "exclusive_original_face_GPU_UV_pixel_ownership_approvals": 0,
+  "third_party_training_redistribution_rights_approvals": 0,
+  "original_source5_exclusive_occlusion_cause_proven": false,
+  "whole_original_model_original_element5_removal_visible_response_B19": false,
+  "targets": [
+    {
+      "target": "AF121_5",
+      "source": "AF121/AF1393/5",
+      "official_artifact_id": 15084442789,
+      "artifact_zip_sha256": "ddc38c98ec8c3facc4c828062c66f93c8232bec78a2a3894c65d1d5ae2caaac3",
+      "game_clients": 4,
+      "native_F2": 64,
+      "game_logs_sha256": 4,
+      "server_chair_markers": 64,
+      "extra_slab_markers": 0,
+      "four_view_order": [
+        "south",
+        "north",
+        "east",
+        "west"
+      ],
+      "original_source5_only_vs_zero_volume_pixels": [
+        392,
+        284,
+        392,
+        284
+      ],
+      "normalized_source5_only_vs_zero_volume_pixels": [
+        384,
+        280,
+        384,
+        280
+      ],
+      "positive_source6_only_vs_zero_volume_pixels": [
+        384,
+        280,
+        384,
+        280
+      ],
+      "original_source5_vs_positive6_pixels": [
+        748,
+        564,
+        748,
+        564
+      ],
+      "normalized_source5_vs_positive6_pixels": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "zero_volume_vs_no_chair_pixels": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "normalized5_positive6_original_chair_before_after_F2_same_byte_SHA256": 8,
+      "decision": "VISIBLE_ORIGINAL_SOURCE5_ONLY_NOT_VISIBLE_IN_FULL_MODEL"
+    },
+    {
+      "target": "AF123_5",
+      "source": "AF123/AF1394/5",
+      "official_artifact_id": 15084562051,
+      "artifact_zip_sha256": "2e886e9fb3f67fffc88d4e48725f5dd7c5b66603e8bd9c5277f31917499f3533",
+      "game_clients": 4,
+      "native_F2": 64,
+      "game_logs_sha256": 4,
+      "server_chair_markers": 64,
+      "extra_slab_markers": 64,
+      "four_view_order": [
+        "south",
+        "north",
+        "east",
+        "west"
+      ],
+      "original_source5_only_vs_zero_volume_pixels": [
+        314,
+        0,
+        186,
+        145
+      ],
+      "normalized_source5_only_vs_zero_volume_pixels": [
+        308,
+        0,
+        394,
+        295
+      ],
+      "positive_source6_only_vs_zero_volume_pixels": [
+        308,
+        0,
+        394,
+        295
+      ],
+      "original_source5_vs_positive6_pixels": [
+        598,
+        0,
+        564,
+        424
+      ],
+      "normalized_source5_vs_positive6_pixels": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "zero_volume_vs_slab_only_pixels": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "normalized5_positive6_original_chair_before_after_F2_same_byte_SHA256": 8,
+      "decision": "VISIBLE_ORIGINAL_SOURCE5_ONLY_NOT_VISIBLE_IN_FULL_MODEL"
+    }
+  ],
+  "scope_limits": [
+    "B21 source5 isolated screenshot presence vs true no-chair and source6 positive control is proven; original full-model deletion still 0 all four directions in B19.",
+    "Normalized5 and source6 byte-identical F2 refers to before/after original target chair frames at four cardinal cameras; not every background control frame of every session.",
+    "B21 does not isolate source5+source6 pair together, so overlap/occlusion as exclusive cause remains to be investigated in B22.",
+    "Original third-party assets, patched JAR and original screenshots are not committed to Git. No training/redistribution permission inferred."
+  ]
+}
