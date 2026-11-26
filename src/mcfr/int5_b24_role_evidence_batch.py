@@ -86,7 +86,7 @@ def build(root):
         legacy[key]=row
     need(set(source)==set(legacy),"45 source identities across B3/B22 do not match")
     result=[]
-    for key in sorted(source):
+    for key in sorted(source,key=lambda k:(k[0],k[1],int(k[2]))):
         b,old=source[key],legacy[key]
         idx=int(key[2])
         face_count=int(b["source_element_original_face_count"])
