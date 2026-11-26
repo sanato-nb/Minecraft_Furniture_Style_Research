@@ -320,7 +320,7 @@ def main(argv: list[str] | None = None) -> int:
     b17.add_argument("--index",type=int,choices=tuple(range(12)),required=True)
     b18 = sub.add_parser("int5-b18-macaw-twelve-batch-f2", help="12 independent Macaw original source elements, two 1.21.11 Fabric clients + F2")
     b18.add_argument("--index",type=int,choices=tuple(range(12)),required=True)
-    b19 = sub.add_parser("int5-b19-four-unresolved-four-view-f2", "int5-b20-af-reversed-x-3session-f2", help="four prior invisible originals, 4 real cameras and original/modified 1.21.1 Fabric sessions")
+    b19 = sub.add_parser("int5-b19-four-unresolved-four-view-f2", help="four prior invisible originals, 4 real cameras and original/modified 1.21.1 Fabric sessions")
     b19.add_argument("--target",choices=("AF121_5","AF123_5","HC11210_3","HC11210_4"),required=True)
     b20 = sub.add_parser("int5-b20-af-reversed-x-3session-f2", help="two AF source5 reversed X original/flattened/normalized 4-view 3-Fabric-session F2 causal controls")
     b20.add_argument("--target",choices=("AF121_5","AF123_5"),required=True)
