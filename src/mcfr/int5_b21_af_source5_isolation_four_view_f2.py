@@ -1,7 +1,7 @@
 """INT-5-B21: original AF source element5 isolation vs element6 visibility control.
 
 Four independent real Fabric 1.21.1 clients for each unresolved B19/B20 target:
-  no_faces_5 (one inherited original element5 with no faces, NOT elements=[]),
+  zero_volume_5 (one zero-extent source5 with its 4 original faces, NOT faces={} or elements=[]),
   original_5 (sole original 4-face element5),
   normalized_5 (sole original element5, only X endpoints exchanged),
   positive_6 (sole original element6, whose removal had B15/B16 response).
@@ -28,7 +28,7 @@ from . import int4_h15_af_opposing_f2_capture as h15
 
 VERSION = "1.21.1"
 TARGETS = b20.TARGETS
-MODES = ("no_faces_5", "original_5", "normalized_5", "positive_6")
+MODES = ("zero_volume_5", "original_5", "normalized_5", "positive_6")
 MANIFEST = "INT5_B21_SOURCE5_ISOLATION_FOUR_FABRIC_SESSION_MANIFEST_V1.json"
 AUDIT = "INT5_B21_SOURCE5_ISOLATION_INDEPENDENT_F2_AUDIT_V1.json"
 
@@ -69,14 +69,19 @@ def patch_child(child_bytes, parent_bytes, target, mode):
 
     selected_index = 6 if mode == "positive_6" else 5
     selected = copy.deepcopy(elements[selected_index])
-    if mode == "no_faces_5":
-        selected["faces"] = {}
+    if mode == "zero_volume_5":
+        # Empty face maps produced a purple/black missing-model cube in actual
+        # Fabric F2. Keep four original faces and collapse only coordinates.
+        # The independent audit requires this real rendered model to equal AIR
+        # (or slab-only), rather than assuming a zero-extent quad is invisible.
+        selected["from"] = [0,0,0]
+        selected["to"] = [0,0,0]
     elif mode == "normalized_5":
         selected["from"][0], selected["to"][0] = (
             old5["to"][0], old5["from"][0])
-    need(len(selected["faces"]) == (0 if mode == "no_faces_5" else 4),
-         "unexpected isolated source face count")
-    if mode in ("original_5", "no_faces_5"):
+    need(len(selected["faces"]) == 4,
+         "all B21 variants must preserve four original faces and UV references")
+    if mode == "original_5":
         need(selected["from"] == old5["from"] and
              selected["to"] == old5["to"], "original source5 coordinates not preserved")
     if mode == "normalized_5":
@@ -87,10 +92,12 @@ def patch_child(child_bytes, parent_bytes, target, mode):
     if mode == "positive_6":
         need(selected == old6,
              "positive control must preserve original source6 verbatim")
-    if mode == "no_faces_5":
-        need({k:v for k,v in selected.items() if k != "faces"} ==
-             {k:v for k,v in old5.items() if k != "faces"},
-             "no-face control changed source5 beyond face declarations")
+    if mode == "zero_volume_5":
+        need(selected["from"] == selected["to"] == [0,0,0]
+             and selected["faces"] == old5["faces"]
+             and {k:v for k,v in selected.items() if k not in ("from","to")} ==
+                 {k:v for k,v in old5.items() if k not in ("from","to")},
+             "zero-volume original-face control not source5 or geometry-only")
     new_child = dict(original_child)
     new_child["elements"] = [selected]
     need(len(new_child["elements"]) == 1 and
@@ -109,7 +116,7 @@ def patch_child(child_bytes, parent_bytes, target, mode):
         "result_element_count":1, "result_face_count":len(selected["faces"]),
         "result_from":list(selected["from"]), "result_to":list(selected["to"]),
         "unselected_original_elements_removed":9,
-        "all_result_face_objects_from_original_source": mode != "no_faces_5",
+        "all_result_face_objects_from_original_source": True,
         "parent_and_texture_bindings_unchanged":True,
         "no_empty_elements_array_inheritance_fallback":True,
     }
@@ -218,7 +225,7 @@ def metrics_for_views(sessions):
     a,control,b,air = b19.stages()
     result = {}
     for view in b19.VIEWS:
-        blank = sessions["no_faces_5"][view]
+        blank = sessions["zero_volume_5"][view]
         obs={}
         for mode in MODES:
             frames=sessions[mode][view]
@@ -235,6 +242,11 @@ def metrics_for_views(sessions):
                 "unchanged_air_and_support_pixels":len(environment),
                 "same_session_A_A_temporal_pixels":len(own_a_a),
             }
+        # Real-game independence: a zero-extent 4-face model must have no
+        # visible pixels when compared with the same-session empty chair scene.
+        absence = control if b19.CHOSEN.startswith("AF123") else air
+        obs["zero_volume_5"]["zero_volume_to_no_chair_pixels"] = len(
+            h15.pixel_changes(blank[a],blank[absence]))
         result[view]=obs
     return result
 
@@ -247,7 +259,8 @@ def decision(metrics):
             m["unchanged_air_and_support_pixels"] == 0 and
             m["same_session_A_A_temporal_pixels"] == 0
             for m in metrics[v].values())
-        and metrics[v]["no_faces_5"]["isolation_before_changed_pixels"] == 0
+        and metrics[v]["zero_volume_5"]["isolation_before_changed_pixels"] == 0
+        and metrics[v]["zero_volume_5"]["zero_volume_to_no_chair_pixels"] == 0
         for v in b19.VIEWS)
     if not control_ok:
         return "CONDITIONAL_FAILED_TEMPORAL_OR_NEGATIVE_F2_CONTROLS"
@@ -299,9 +312,11 @@ def audit(folder,target):
              and v["original_element6_index"]==6
              and v["selected_original_element_index"]==(6 if mode=="positive_6" else 5)
              and v["result_element_count"]==1
-             and v["result_face_count"]==(0 if mode=="no_faces_5" else 4)
+             and v["result_face_count"]==4
+             and (v["result_from"]==v["result_to"]==[0,0,0]
+                  if mode=="zero_volume_5" else True)
              and v["unselected_original_elements_removed"]==9
-             and v["all_result_face_objects_from_original_source"]==(mode!="no_faces_5")
+             and v["all_result_face_objects_from_original_source"] is True
              and v["parent_and_texture_bindings_unchanged"] is True
              and v["no_empty_elements_array_inheritance_fallback"] is True
              and v["original_JAR_or_modified_JAR_distributed"] is False
@@ -335,7 +350,7 @@ def audit(folder,target):
         "B19_43_of_45_bounded_render_response_unchanged":True,
         "H03":"HOLD","H05":"CONDITIONAL","F70_unconditional_approved":0,
         "limitations":[
-            "A positive isolated element5 against faceless control plus B19 whole-chair 0 pixels supports model-context hiding/overlap, not exclusive occlusion.",
+            "A positive isolated element5 against zero-volume control plus B19 whole-chair 0 pixels supports model-context hiding/overlap, not exclusive occlusion.",
             "A no-response isolated element5 with positive source6 is a bounded real-screen observation; geometry/face orientation/baking remains unresolved.",
             "Do not use an empty elements array as an empty inherited model: it can fall back to parent elements.",
             "Changing only X endpoints cannot prove the official mod source has a defect.",
