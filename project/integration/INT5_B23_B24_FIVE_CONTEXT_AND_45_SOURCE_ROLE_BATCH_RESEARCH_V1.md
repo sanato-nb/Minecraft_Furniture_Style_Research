@@ -48,3 +48,11 @@
 - [B23 실게임 10-job Actions #45781317951](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45781317951) — **원본 320 F2 실험 실행**, 본 파일에 검증 전 결과 숫자를 넣지 않음.
 - [B24 45-element 독립 CI](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions) — 최종 통과 전인 항목은 PASS로 승격하지 않음.
 
+
+## 6. B24 원본 전수 의미 근거 검증 — 실제 Actions 통과·독립 ZIP 검사
+
+- 정식 [**B24 GitHub Actions #45781900015**](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45781900015) **SUCCESS**. 6개 회귀시험 전부 통과, B3·B22 원본 CSV 직접 읽어 45요소/229면 근거 원장을 독립 생성하고 커밋된 45행과 값별 일치 검증 완료. 초기 실행 #45781760153에서 10 이상 index 문자열 정렬과 원본 숫자 정렬 순서 차이 확인 후 numeric source index 정렬로 수정한 뒤 통과. 초기 실패 이력은 삭제하지 않음.
+- 최종 실제 [artifact #15098432205](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45781900015/artifacts/15098432205)를 독립 다운로드·ZIP CRC 검사 통과. ZIP SHA256 `7aadfe1854c881a061fd0d6d056eec391cedaccbe9391a1bf9f30a87131e7c33`.
+- 실제 `int5-b24-45-original-role-evidence.csv` SHA256 `b70bc8bc9f317962556a194682d4b614cdf00b5ef858136d5bf0d9f7e1ea6c39`, 45개 원본행·229 face·B19 무반응 2·기능 승인 `false` 45.
+- 실제 `int5-b24-45-original-role-evidence.json` SHA256 `eeedb6f450893cba4348012481edf71b72e3e2735160d7f75381cb7ff4eb97b8`, B24 역할 가설 분포 `BACKREST_ASSEMBLY 16 / LEG_OR_LOWER_POST 16 / LOWER_FRAME 7 / SEAT_LAYER 6`, 구별 가능 texture source cue 10, 공용/약한 texture 35, 독립 semantic function/material/style 승인 0/45 및 제3자 IP 학습권리 승인0 재확인.
+- **B24 의미 근거 범위 측정 및 원장 감사 단계 완료.** 부품의 물리적 역할·재질·스타일을 원본 F2와 face GPU 픽셀까지 최종 확증한 단계는 **여전히 미완료**. B23 본 배치 결과는 원본 F2·서버 로그 독립 감사까지 별도로 완료되어야 갱신함.
