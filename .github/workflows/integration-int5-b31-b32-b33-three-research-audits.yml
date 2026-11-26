@@ -1,0 +1,119 @@
+name: INT-5 B31+B32+B33 original 21 archives texture SHA and micro-UV context three parallel audits
+on:
+  push:
+    branches: [work/int5-b31-b32-b33-original21-texture-conditional-audit-20261126]
+    paths:
+      - 'src/mcfr/int5_b31_remaining21_real_archive_audit.py'
+      - 'src/mcfr/int5_b32_b33_texture_context_source_audit.py'
+      - 'tests/knowledge/test_int5_b31_b32_b33_evidence_parallel.py'
+      - '.github/workflows/integration-int5-b31-b32-b33-three-research-audits.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  b31-reopen-21-original-actions-zips-176-native-f2:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      PYTHONPATH: src
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install genuine original PNG byte/size verification dependency
+        run: python -m pip install 'Pillow>=10,<13'
+      - name: Fetch all 21 pinned remaining B27 GitHub original ZIP artifacts
+        run: |
+          mkdir -p "$RUNNER_TEMP/real-b31-original-zips"
+          python - <<'PY' > "$RUNNER_TEMP/b31-original-artifact-ids.txt"
+          from pathlib import Path
+          from mcfr.int5_b31_remaining21_real_archive_audit import original_cases
+          for item in original_cases(Path('project/integration')):
+              print(item['model']+'_'+item['source_element_index'],
+                    item['original_GitHub_artifact_id'])
+          PY
+          while read -r source artifact; do
+            curl -fLsS --retry 3 --max-time 120 \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H 'Accept: application/vnd.github+json' \
+              "https://api.github.com/repos/sanato-nb/Minecraft_Furniture_Style_Research/actions/artifacts/$artifact/zip" \
+              -o "$RUNNER_TEMP/real-b31-original-zips/INT5_B31_$source.zip"
+          done < "$RUNNER_TEMP/b31-original-artifact-ids.txt"
+          test "$(find "$RUNNER_TEMP/real-b31-original-zips" -maxdepth 1 -name '*.zip' | wc -l)" -eq 21
+      - name: Independently verify all original 21 ZIP SHA/CRC 176 actual F2 PNG SHA and 22 logs
+        run: |
+          python -m mcfr.int5_b31_remaining21_real_archive_audit \
+            --source project/integration \
+            --zip-directory "$RUNNER_TEMP/real-b31-original-zips" \
+            --output "$RUNNER_TEMP/INT5_B31_REAL_ORIGINAL_21_ZIPS_AUDIT.json"
+      - name: Upload only original artifact SHA metadata not original screenshots or third-party JAR
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int5-b31-remaining21-176f2-direct-audit-metadata
+          path: ${{ runner.temp }}/INT5_B31_REAL_ORIGINAL_21_ZIPS_AUDIT.json
+          retention-days: 45
+          if-no-files-found: warn
+  b32-original-texture-provenance-eight-hash-groups:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run nine regression tests including fake rights and model source hashes
+        run: |
+          python -m unittest discover -s tests/knowledge \
+            -p 'test_int5_b31_b32_b33_evidence_parallel.py' -v
+      - name: Independently group 45 original texture checksums and runtime version caveats
+        run: |
+          python -m mcfr.int5_b32_b33_texture_context_source_audit \
+            --source project/integration --output-directory "$RUNNER_TEMP/b32-b33"
+      - name: Publish B32 bounded texture provenance JSON
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int5-b32-45-model-original-texture-source-bounds
+          path: ${{ runner.temp }}/b32-b33/INT5_B32_INDEPENDENT_RESEARCH_RESULT_V1.json
+          retention-days: 45
+          if-no-files-found: warn
+  b33-original-source5-full-vs-seven-micropositive-masks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently check B23 original 10 contexts and B28 8 leave-one-out interventions
+        run: |
+          python -m mcfr.int5_b32_b33_texture_context_source_audit \
+            --source project/integration --output-directory "$RUNNER_TEMP/b32-b33"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          folder=Path(os.environ["RUNNER_TEMP"])/"b32-b33"
+          b33=json.loads((folder/"INT5_B33_INDEPENDENT_RESEARCH_RESULT_V1.json").read_text())
+          assert b33["B28_total_micro_changed_screen_pixels"]==10
+          assert b33["B28_positive_intervention_cases"]==7
+          assert b33["B28_nonzero_camera_comparisons"]==8
+          assert b33["source5_unchanged_in_B27_full_model"]==["AF121#5","AF123#5"]
+          assert b33["physical_role_material_style_approved"]==0
+          assert b33["F70_unconditional_approved"]==0
+          PY
+      - name: Publish B33 strict original context difference metadata
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int5-b33-source5-context-conditional-micro-uv-evidence
+          path: ${{ runner.temp }}/b32-b33/INT5_B33_INDEPENDENT_RESEARCH_RESULT_V1.json
+          retention-days: 45
+          if-no-files-found: warn
