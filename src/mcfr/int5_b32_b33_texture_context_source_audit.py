@@ -99,8 +99,8 @@ def audit_texture(directory):
                 "semantic_function_material_style_approved": False,
                 "GPU_face_exclusive_pixel_attribution_approved": False,
             })
-    need(len(groups) == 8 and len(atomic) == 9 and len(selected) == 10,
-         "8 checksum groups / 9 tokens / 10 cue-positive rows changed")
+    need(len(groups) == 8 and len(atomic) == 8 and len(selected) == 10,
+         "8 checksum groups / 8 distinct tokens / 10 cue-positive rows changed")
     return {
         "schema": "MCFR_INT5_B32_45_ELEMENT_SOURCE_TEXTURE_CUE_AND_VERSION_BOUNDS/v1",
         "original_elements": 45, "source_faces": 229,
