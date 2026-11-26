@@ -47,7 +47,7 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
          "--pack", str(copied_world / "datapacks/cd_audit")],
         check=True,
     )
-    if args.command in ("chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "int4-f11f-r08-fabric-pair", "hc-bed-capture", "int4-h10-hc-bed-occupied", "int4-h12-af-chair-samepose", "int4-h15-af-opposing-f2", "int4-h16-af-one-texel-f2", "int5-b4-af-tucked-slab", "int5-b5-af-element4-removal", "int5-b7-af121-child-element4-f2", "int5-b8-hc-cushion12-native-f2", "int5-b17-hc-twelve-batch-f2", "int5-b18-macaw-twelve-batch-f2", "int5-b19-four-unresolved-four-view-f2", "int5-b9-af121-backrest7-native-f2", "int5-b10-af121-backrest8-native-f2", "int5-b11-af121-backrest9-native-f2", "int5-b12-af123-backrest7-native-f2", "int5-b13-af123-backrest8-native-f2", "int5-b14-af123-backrest9-native-f2", "int5-b15-af123-batch-f2", "int5-b16-af121-batch-f2"):
+    if args.command in ("chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "int4-f11f-r08-fabric-pair", "hc-bed-capture", "int4-h10-hc-bed-occupied", "int4-h12-af-chair-samepose", "int4-h15-af-opposing-f2", "int4-h16-af-one-texel-f2", "int5-b4-af-tucked-slab", "int5-b5-af-element4-removal", "int5-b7-af121-child-element4-f2", "int5-b8-hc-cushion12-native-f2", "int5-b17-hc-twelve-batch-f2", "int5-b18-macaw-twelve-batch-f2", "int5-b19-four-unresolved-four-view-f2", "int5-b20-af-reversed-x-3session-f2", "int5-b9-af121-backrest7-native-f2", "int5-b10-af121-backrest8-native-f2", "int5-b11-af121-backrest9-native-f2", "int5-b12-af123-backrest7-native-f2", "int5-b13-af123-backrest8-native-f2", "int5-b14-af123-backrest9-native-f2", "int5-b15-af123-batch-f2", "int5-b16-af121-batch-f2"):
         from .chair_runtime_fixture import make_pack
         selected=None
         if args.command=="af-variant3-capture":
@@ -105,6 +105,10 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
             from .int5_b18_macaw_twelve_element_batch_f2 import case
             selected=(case(),)
         elif args.command=="int5-b19-four-unresolved-four-view-f2":
+            from . import int5_b19_four_unresolved_four_view_f2 as b19
+            b19.set_target(args.target)
+            selected=(b19.case(),)
+        elif args.command=="int5-b20-af-reversed-x-3session-f2":
             from . import int5_b19_four_unresolved_four_view_f2 as b19
             b19.set_target(args.target)
             selected=(b19.case(),)
@@ -236,6 +240,9 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
         from . import int5_b19_four_unresolved_four_view_f2 as b19
         b19.set_target(args.target)
         return b19.capture(command,env,game,args.output,args.version)
+    if args.command=="int5-b20-af-reversed-x-3session-f2":
+        from . import int5_b20_af_reversed_x_three_session_f2 as b20
+        return b20.capture(command,env,game,args.output,args.version,args.target)
     if args.command=="int5-b9-af121-backrest7-native-f2":
         from .int5_b9_af121_backrest_element7_native_f2 import capture
         return capture(command,env,game,args.output,args.version)
@@ -313,8 +320,10 @@ def main(argv: list[str] | None = None) -> int:
     b17.add_argument("--index",type=int,choices=tuple(range(12)),required=True)
     b18 = sub.add_parser("int5-b18-macaw-twelve-batch-f2", help="12 independent Macaw original source elements, two 1.21.11 Fabric clients + F2")
     b18.add_argument("--index",type=int,choices=tuple(range(12)),required=True)
-    b19 = sub.add_parser("int5-b19-four-unresolved-four-view-f2", help="four prior invisible originals, 4 real cameras and original/modified 1.21.1 Fabric sessions")
+    b19 = sub.add_parser("int5-b19-four-unresolved-four-view-f2", "int5-b20-af-reversed-x-3session-f2", help="four prior invisible originals, 4 real cameras and original/modified 1.21.1 Fabric sessions")
     b19.add_argument("--target",choices=("AF121_5","AF123_5","HC11210_3","HC11210_4"),required=True)
+    b20 = sub.add_parser("int5-b20-af-reversed-x-3session-f2", help="two AF source5 reversed X original/flattened/normalized 4-view 3-Fabric-session F2 causal controls")
+    b20.add_argument("--target",choices=("AF121_5","AF123_5"),required=True)
     b9 = sub.add_parser("int5-b9-af121-backrest7-native-f2", help="AF121 original backrest element7 isolated child model native Minecraft F2 vs H15")
     b10 = sub.add_parser("int5-b10-af121-backrest8-native-f2", help="AF121 original backrest element8 isolated child model native Minecraft F2 vs pinned H15")
     b11 = sub.add_parser("int5-b11-af121-backrest9-native-f2", help="AF121 original backrest element9 isolated child model actual Minecraft F2 vs pinned H15")
@@ -411,7 +420,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.command != "engine":
             if not (args.display or os.environ.get("DISPLAY")):
                 raise ValueError("An X11 display is required for visual capture")
-            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "int4-f11f-r08-fabric-pair", "hc-bed-capture", "int4-h10-hc-bed-occupied", "int4-h12-af-chair-samepose", "int4-h15-af-opposing-f2", "int4-h16-af-one-texel-f2", "int5-b4-af-tucked-slab", "int5-b5-af-element4-removal", "int5-b7-af121-child-element4-f2", "int5-b8-hc-cushion12-native-f2", "int5-b17-hc-twelve-batch-f2", "int5-b18-macaw-twelve-batch-f2", "int5-b19-four-unresolved-four-view-f2", "int5-b9-af121-backrest7-native-f2", "int5-b10-af121-backrest8-native-f2", "int5-b11-af121-backrest9-native-f2", "int5-b12-af123-backrest7-native-f2", "int5-b13-af123-backrest8-native-f2", "int5-b14-af123-backrest9-native-f2", "int5-b15-af123-batch-f2", "int5-b16-af121-batch-f2", "macaw-neighbor-capture", "int4-h8-r03-player-gui", "int4-nonchair-capture", "int4-f-missing-capture", "int4-f3-mod-capture", "int4-h03-h05-drawer-front-f2", "int4-f4-mod-capture", "int4-f5-state-diagnostic", "int4-f6-causal-replay", "int4-f7-source-cases", "int4-bed-exterior"):
+            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "int4-f11f-r08-fabric-pair", "hc-bed-capture", "int4-h10-hc-bed-occupied", "int4-h12-af-chair-samepose", "int4-h15-af-opposing-f2", "int4-h16-af-one-texel-f2", "int5-b4-af-tucked-slab", "int5-b5-af-element4-removal", "int5-b7-af121-child-element4-f2", "int5-b8-hc-cushion12-native-f2", "int5-b17-hc-twelve-batch-f2", "int5-b18-macaw-twelve-batch-f2", "int5-b19-four-unresolved-four-view-f2", "int5-b20-af-reversed-x-3session-f2", "int5-b9-af121-backrest7-native-f2", "int5-b10-af121-backrest8-native-f2", "int5-b11-af121-backrest9-native-f2", "int5-b12-af123-backrest7-native-f2", "int5-b13-af123-backrest8-native-f2", "int5-b14-af123-backrest9-native-f2", "int5-b15-af123-batch-f2", "int5-b16-af121-batch-f2", "macaw-neighbor-capture", "int4-h8-r03-player-gui", "int4-nonchair-capture", "int4-f-missing-capture", "int4-f3-mod-capture", "int4-h03-h05-drawer-front-f2", "int4-f4-mod-capture", "int4-f5-state-diagnostic", "int4-f6-causal-replay", "int4-f7-source-cases", "int4-bed-exterior"):
                 if shutil.which("xdotool") is None:
                     raise ValueError("Automatic visual capture requires xdotool")
                 if args.output.exists():
@@ -419,7 +428,7 @@ def main(argv: list[str] | None = None) -> int:
             report = open_visual_client(args, script, prepare["prepare"])
             if report is not None:
                 print(json.dumps(report, ensure_ascii=False, indent=2))
-                return int(report["status"] not in ("MATCH", "CAPTURED_SOURCE_STATES_NOT_VISUALLY_APPROVED", "SERVER_NEIGHBOR_STATES_RECORDED_NO_ASSUMED_CONNECTION", "SERVER_STATES_AND_F2_RECORDED", "ACTUAL_V11_BED_AIR_CONTROL_AND_TWO_PART_F2_NOT_YET_INDEPENDENTLY_AUDITED", "CAPTURED_REAL_S43_THREE_TIME_SEPARATED_F2_NOT_YET_INDEPENDENTLY_AUDITED", "ONE_REAL_FABRIC_SOURCE_RELEASE_F2_CAPTURED_NOT_CROSS_RELEASE_APPROVED", "REAL_PLAYER_ITEM_RIGHT_CLICK_JOIN_AND_LEFT_CLICK_REMOVE", "CAPTURED_OCCUPIED_F2_SOURCE_STATES_WITH_NONZERO_ROI_DIFF", "CAPTURED_OCCUPIED_F2_BUT_VISIBLE_SOURCE_DIFF_NOT_PROVEN", "ACTUAL_NATIVE_F2_MODEL_TEXTURE_CONTRAST_CANDIDATE", "REAL_GAME_F2_BUT_VISUAL_DIFFERENCE_NOT_YET_PROVEN", "ORIGINAL_REAL_FABRIC_TWO_CAMERA_F2_CAPTURED_REQUIRES_INDEPENDENT_AUDIT", "H16_SIX_ACTUAL_F2_TEMP_JAR_ONE_TEXEL_REQUIRES_INDEPENDENT_AUDIT", "ACTUAL_NATIVE_F2_8_SERVER_STATES_REQUIRES_INDEPENDENT_AUDIT", "ACTUAL_SOURCE_ELEMENT4_PATCHED_CHILD_NATIVE_F2_NEEDS_INDEPENDENT_AUDIT", "TWO_ACTUAL_NATIVE_F2_SESSIONS_PENDING_INDEPENDENT_REOPEN", "ORIGINAL_AND_MODIFIED_FOUR_VIEW_F2_AWAITING_INDEPENDENT_AUDIT", "ACTUAL_SOURCE_ELEMENT7_PATCHED_CHILD_NATIVE_F2_NEEDS_INDEPENDENT_AUDIT", "ACTUAL_SOURCE_ELEMENT8_PATCHED_CHILD_NATIVE_F2_NEEDS_INDEPENDENT_AUDIT", "ACTUAL_SOURCE_ELEMENT9_PATCHED_CHILD_NATIVE_F2_NEEDS_INDEPENDENT_AUDIT", "ACTUAL_SOURCE_ELEMENT_SELECTED_PATCHED_CHILD_NATIVE_F2_NEEDS_INDEPENDENT_AUDIT"))
+                return int(report["status"] not in ("MATCH", "CAPTURED_SOURCE_STATES_NOT_VISUALLY_APPROVED", "SERVER_NEIGHBOR_STATES_RECORDED_NO_ASSUMED_CONNECTION", "SERVER_STATES_AND_F2_RECORDED", "ACTUAL_V11_BED_AIR_CONTROL_AND_TWO_PART_F2_NOT_YET_INDEPENDENTLY_AUDITED", "CAPTURED_REAL_S43_THREE_TIME_SEPARATED_F2_NOT_YET_INDEPENDENTLY_AUDITED", "ONE_REAL_FABRIC_SOURCE_RELEASE_F2_CAPTURED_NOT_CROSS_RELEASE_APPROVED", "REAL_PLAYER_ITEM_RIGHT_CLICK_JOIN_AND_LEFT_CLICK_REMOVE", "CAPTURED_OCCUPIED_F2_SOURCE_STATES_WITH_NONZERO_ROI_DIFF", "CAPTURED_OCCUPIED_F2_BUT_VISIBLE_SOURCE_DIFF_NOT_PROVEN", "ACTUAL_NATIVE_F2_MODEL_TEXTURE_CONTRAST_CANDIDATE", "REAL_GAME_F2_BUT_VISUAL_DIFFERENCE_NOT_YET_PROVEN", "ORIGINAL_REAL_FABRIC_TWO_CAMERA_F2_CAPTURED_REQUIRES_INDEPENDENT_AUDIT", "H16_SIX_ACTUAL_F2_TEMP_JAR_ONE_TEXEL_REQUIRES_INDEPENDENT_AUDIT", "ACTUAL_NATIVE_F2_8_SERVER_STATES_REQUIRES_INDEPENDENT_AUDIT", "ACTUAL_SOURCE_ELEMENT4_PATCHED_CHILD_NATIVE_F2_NEEDS_INDEPENDENT_AUDIT", "TWO_ACTUAL_NATIVE_F2_SESSIONS_PENDING_INDEPENDENT_REOPEN", "ORIGINAL_AND_MODIFIED_FOUR_VIEW_F2_AWAITING_INDEPENDENT_AUDIT", "THREE_ORIGINAL_FLATTENED_NORMALIZED_REAL_F2_PENDING_INDEPENDENT_AUDIT", "ACTUAL_SOURCE_ELEMENT7_PATCHED_CHILD_NATIVE_F2_NEEDS_INDEPENDENT_AUDIT", "ACTUAL_SOURCE_ELEMENT8_PATCHED_CHILD_NATIVE_F2_NEEDS_INDEPENDENT_AUDIT", "ACTUAL_SOURCE_ELEMENT9_PATCHED_CHILD_NATIVE_F2_NEEDS_INDEPENDENT_AUDIT", "ACTUAL_SOURCE_ELEMENT_SELECTED_PATCHED_CHILD_NATIVE_F2_NEEDS_INDEPENDENT_AUDIT"))
         else:
             command = [sys.executable, str(script), "--version", args.version,
                        "--work", str(args.work), "--output", str(args.output)]
