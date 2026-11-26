@@ -81,7 +81,7 @@ def build(root):
              "B22 source removal status is not the validated original observation")
         need(row["B19_original_B18_status"] in (
              "", "B16_NO_VISIBLE_RESPONSE", "B15_NO_VISIBLE_RESPONSE",
-             "B19_FOUR_VIEW_NO_VISIBLE_RESPONSE"),
+             "B17_NO_VISIBLE_RESPONSE", "B19_FOUR_VIEW_NO_VISIBLE_RESPONSE"),
              "B22 previous original source status unexpected")
         legacy[key]=row
     need(set(source)==set(legacy),"45 source identities across B3/B22 do not match")
