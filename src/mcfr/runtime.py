@@ -47,7 +47,7 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
          "--pack", str(copied_world / "datapacks/cd_audit")],
         check=True,
     )
-    if args.command in ("chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "int4-f11f-r08-fabric-pair", "hc-bed-capture", "int4-h10-hc-bed-occupied", "int4-h12-af-chair-samepose", "int4-h15-af-opposing-f2", "int4-h16-af-one-texel-f2", "int5-b4-af-tucked-slab", "int5-b5-af-element4-removal", "int5-b7-af121-child-element4-f2", "int5-b8-hc-cushion12-native-f2", "int5-b17-hc-twelve-batch-f2", "int5-b18-macaw-twelve-batch-f2", "int5-b19-four-unresolved-four-view-f2", "int5-b20-af-reversed-x-3session-f2", "int5-b9-af121-backrest7-native-f2", "int5-b10-af121-backrest8-native-f2", "int5-b11-af121-backrest9-native-f2", "int5-b12-af123-backrest7-native-f2", "int5-b13-af123-backrest8-native-f2", "int5-b14-af123-backrest9-native-f2", "int5-b15-af123-batch-f2", "int5-b16-af121-batch-f2"):
+    if args.command in ("chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "int4-f11f-r08-fabric-pair", "hc-bed-capture", "int4-h10-hc-bed-occupied", "int4-h12-af-chair-samepose", "int4-h15-af-opposing-f2", "int4-h16-af-one-texel-f2", "int5-b4-af-tucked-slab", "int5-b5-af-element4-removal", "int5-b7-af121-child-element4-f2", "int5-b8-hc-cushion12-native-f2", "int5-b17-hc-twelve-batch-f2", "int5-b18-macaw-twelve-batch-f2", "int5-b19-four-unresolved-four-view-f2", "int5-b20-af-reversed-x-3session-f2", "int5-b21-af-source5-isolation-four-view-f2", "int5-b9-af121-backrest7-native-f2", "int5-b10-af121-backrest8-native-f2", "int5-b11-af121-backrest9-native-f2", "int5-b12-af123-backrest7-native-f2", "int5-b13-af123-backrest8-native-f2", "int5-b14-af123-backrest9-native-f2", "int5-b15-af123-batch-f2", "int5-b16-af121-batch-f2"):
         from .chair_runtime_fixture import make_pack
         selected=None
         if args.command=="af-variant3-capture":
@@ -108,7 +108,8 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
             from . import int5_b19_four_unresolved_four_view_f2 as b19
             b19.set_target(args.target)
             selected=(b19.case(),)
-        elif args.command=="int5-b20-af-reversed-x-3session-f2":
+        elif args.command in ("int5-b20-af-reversed-x-3session-f2",
+                              "int5-b21-af-source5-isolation-four-view-f2"):
             from . import int5_b19_four_unresolved_four_view_f2 as b19
             b19.set_target(args.target)
             selected=(b19.case(),)
@@ -243,6 +244,9 @@ def open_visual_client(args: argparse.Namespace, script: Path, prepare) -> dict 
     if args.command=="int5-b20-af-reversed-x-3session-f2":
         from . import int5_b20_af_reversed_x_three_session_f2 as b20
         return b20.capture(command,env,game,args.output,args.version,args.target)
+    if args.command=="int5-b21-af-source5-isolation-four-view-f2":
+        from . import int5_b21_af_source5_isolation_four_view_f2 as b21
+        return b21.capture(command,env,game,args.output,args.version,args.target)
     if args.command=="int5-b9-af121-backrest7-native-f2":
         from .int5_b9_af121_backrest_element7_native_f2 import capture
         return capture(command,env,game,args.output,args.version)
@@ -324,6 +328,8 @@ def main(argv: list[str] | None = None) -> int:
     b19.add_argument("--target",choices=("AF121_5","AF123_5","HC11210_3","HC11210_4"),required=True)
     b20 = sub.add_parser("int5-b20-af-reversed-x-3session-f2", help="two AF source5 reversed X original/flattened/normalized 4-view 3-Fabric-session F2 causal controls")
     b20.add_argument("--target",choices=("AF121_5","AF123_5"),required=True)
+    b21 = sub.add_parser("int5-b21-af-source5-isolation-four-view-f2", help="AF original source5 isolated vs faceless, X-normalized and original source6 positive control, 4 cameras x 4 real Fabric clients")
+    b21.add_argument("--target",choices=("AF121_5","AF123_5"),required=True)
     b9 = sub.add_parser("int5-b9-af121-backrest7-native-f2", help="AF121 original backrest element7 isolated child model native Minecraft F2 vs H15")
     b10 = sub.add_parser("int5-b10-af121-backrest8-native-f2", help="AF121 original backrest element8 isolated child model native Minecraft F2 vs pinned H15")
     b11 = sub.add_parser("int5-b11-af121-backrest9-native-f2", help="AF121 original backrest element9 isolated child model actual Minecraft F2 vs pinned H15")
@@ -345,14 +351,14 @@ def main(argv: list[str] | None = None) -> int:
     f6mode = sub.add_parser("int4-f6-causal-replay", help="INT-4-F6 S02/S34 source-coded tucked/inner-left game replay")
     f7mode = sub.add_parser("int4-f7-source-cases", help="INT-4-F7 AF variant3, bench double and HC vanilla parent 4 original F2")
     exterior = sub.add_parser("int4-bed-exterior", help="observe occupied bed from an independent client")
-    for command in (engine, visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, f11fr08, hcbed, h10, h12, h15, h16, b4, b5, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, neighbor, h8, nonchair, fmissing, f3mod, drawer_front, f4mod, f5mode, f6mode, f7mode, exterior):
+    for command in (engine, visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, f11fr08, hcbed, h10, h12, h15, h16, b4, b5, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, b21, neighbor, h8, nonchair, fmissing, f3mod, drawer_front, f4mod, f5mode, f6mode, f7mode, exterior):
         command.add_argument("--version", required=True)
         command.add_argument("--work", type=_scratch_path, required=True)
         command.add_argument("--client-cache", type=_scratch_path)
         command.add_argument("--display", help="X11 display, for example :99")
     engine.add_argument("--output", type=_scratch_path, required=True)
     engine.add_argument("--ecj", type=Path)
-    for command in (visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, f11fr08, hcbed, h10, h12, h15, h16, b4, b5, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, neighbor, h8, nonchair, fmissing, f3mod, drawer_front, f4mod, f5mode, f6mode, f7mode, exterior):
+    for command in (visual, capture, chairs, af3, kitchen, table_shelf, f9macaw, f10macaw, f11vanilla, f11bvanilla, f11cvanilla, f11dbed, f11esink, f11fr08, hcbed, h10, h12, h15, h16, b4, b5, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, b21, neighbor, h8, nonchair, fmissing, f3mod, drawer_front, f4mod, f5mode, f6mode, f7mode, exterior):
         command.add_argument("--world", type=Path, required=True)
     capture.add_argument("--output", type=_scratch_path, required=True)
     chairs.add_argument("--output", type=_scratch_path, required=True)
@@ -381,6 +387,7 @@ def main(argv: list[str] | None = None) -> int:
     b18.add_argument("--output", type=_scratch_path, required=True)
     b19.add_argument("--output", type=_scratch_path, required=True)
     b20.add_argument("--output", type=_scratch_path, required=True)
+    b21.add_argument("--output", type=_scratch_path, required=True)
     b9.add_argument("--output", type=_scratch_path, required=True)
     b10.add_argument("--output", type=_scratch_path, required=True)
     b11.add_argument("--output", type=_scratch_path, required=True)
@@ -421,7 +428,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.command != "engine":
             if not (args.display or os.environ.get("DISPLAY")):
                 raise ValueError("An X11 display is required for visual capture")
-            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "int4-f11f-r08-fabric-pair", "hc-bed-capture", "int4-h10-hc-bed-occupied", "int4-h12-af-chair-samepose", "int4-h15-af-opposing-f2", "int4-h16-af-one-texel-f2", "int5-b4-af-tucked-slab", "int5-b5-af-element4-removal", "int5-b7-af121-child-element4-f2", "int5-b8-hc-cushion12-native-f2", "int5-b17-hc-twelve-batch-f2", "int5-b18-macaw-twelve-batch-f2", "int5-b19-four-unresolved-four-view-f2", "int5-b20-af-reversed-x-3session-f2", "int5-b9-af121-backrest7-native-f2", "int5-b10-af121-backrest8-native-f2", "int5-b11-af121-backrest9-native-f2", "int5-b12-af123-backrest7-native-f2", "int5-b13-af123-backrest8-native-f2", "int5-b14-af123-backrest9-native-f2", "int5-b15-af123-batch-f2", "int5-b16-af121-batch-f2", "macaw-neighbor-capture", "int4-h8-r03-player-gui", "int4-nonchair-capture", "int4-f-missing-capture", "int4-f3-mod-capture", "int4-h03-h05-drawer-front-f2", "int4-f4-mod-capture", "int4-f5-state-diagnostic", "int4-f6-causal-replay", "int4-f7-source-cases", "int4-bed-exterior"):
+            if args.command in ("visual-capture", "chair-capture", "af-variant3-capture", "macaw-kitchen-capture", "macaw-table-shelf-capture", "int4-f9-macaw-five", "int4-f10-macaw-connected-five", "int4-f11-vanilla-five", "int4-f11b-vanilla-multipart-five", "int4-f11c-vanilla-decor-four", "int4-f11d-vanilla-bed", "int4-f11e-r06-temporal-sink", "int4-f11f-r08-fabric-pair", "hc-bed-capture", "int4-h10-hc-bed-occupied", "int4-h12-af-chair-samepose", "int4-h15-af-opposing-f2", "int4-h16-af-one-texel-f2", "int5-b4-af-tucked-slab", "int5-b5-af-element4-removal", "int5-b7-af121-child-element4-f2", "int5-b8-hc-cushion12-native-f2", "int5-b17-hc-twelve-batch-f2", "int5-b18-macaw-twelve-batch-f2", "int5-b19-four-unresolved-four-view-f2", "int5-b20-af-reversed-x-3session-f2", "int5-b21-af-source5-isolation-four-view-f2", "int5-b9-af121-backrest7-native-f2", "int5-b10-af121-backrest8-native-f2", "int5-b11-af121-backrest9-native-f2", "int5-b12-af123-backrest7-native-f2", "int5-b13-af123-backrest8-native-f2", "int5-b14-af123-backrest9-native-f2", "int5-b15-af123-batch-f2", "int5-b16-af121-batch-f2", "macaw-neighbor-capture", "int4-h8-r03-player-gui", "int4-nonchair-capture", "int4-f-missing-capture", "int4-f3-mod-capture", "int4-h03-h05-drawer-front-f2", "int4-f4-mod-capture", "int4-f5-state-diagnostic", "int4-f6-causal-replay", "int4-f7-source-cases", "int4-bed-exterior"):
                 if shutil.which("xdotool") is None:
                     raise ValueError("Automatic visual capture requires xdotool")
                 if args.output.exists():
