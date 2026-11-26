@@ -1,0 +1,111 @@
+{
+  "schema": "MCFR_INT5_B21_FIRST_REAL_F2_INVALID_NEGATIVE_CONTROL_EVIDENCE/v1",
+  "status": "INVALID_ZERO_FACE_NEGATIVE_CONTROL_AND_RUNTIME_STATUS_REJECTED_NOT_A_COMPLETED_CAUSAL_GATE",
+  "run": 45744806918,
+  "run_head_sha": "5872807b89f30966e35ba96378f65bf8d7665752",
+  "real_game_version": "Minecraft Java 1.21.1 Fabric",
+  "original_mod": "Another Furniture official Fabric 4.0.2",
+  "official_mod_JAR_sha1": "c2f992081bdc4795ed6d87771a3b5f7c71103785",
+  "real_client_sessions": 8,
+  "native_F2_png": 128,
+  "original_b19_43_of_45_render_causal_unchanged": true,
+  "original_B20_full_model_source5_X_normalization_zero_pixels_unchanged": true,
+  "strict_H03": "HOLD",
+  "strict_H05": "CONDITIONAL",
+  "strict_F70_unconditional": 0,
+  "physical_source5_role_material_style_approved": 0,
+  "exclusive_original_GPU_face_UV_pixel_ownership_approved": 0,
+  "third_party_training_and_redistribution_rights_approved": 0,
+  "reason_for_run_failure": "Four clients and 64 PNG per target captured but new REAL_NATIVE_F2_CAPTURED_PENDING_INDEPENDENT_AUDIT status was missing from runtime.py success whitelist, causing exit code 1 and independent CI audit step not to run",
+  "reason_negative_control_invalid": "no_faces_5 original parent element was overridden with faces={}, which Minecraft displayed as purple/black missing-model error cube, not invisible geometry; comparisons against it are unusable to conclude source5 visibility or occlusion",
+  "independent_reaudit_method": "Downloaded actual GitHub Actions ZIP, verified ZIP CRC, each PNG SHA-256 against per-session manifest and game client log SHA-256; reopened original 1024x684 F2 images with Pillow and recomputed ROI [350,275,675,620] max RGB-channel threshold >=24 with NumPy",
+  "target_trials": [
+    {
+      "target": "AF121_5",
+      "source_key": "AF121/AF1393/5",
+      "artifact_id": 15082419405,
+      "zip_sha256": "a4390c39b8f0d8874c39f70898e01c5de41a3de949b280554f6b805c9a4aa929",
+      "raw_F2": 64,
+      "client_logs_verified": 4,
+      "server_chair_markers_verified": 64,
+      "directions": [
+        "south",
+        "north",
+        "east",
+        "west"
+      ],
+      "invalid_missing_cube_vs_no_chair": [
+        8308,
+        5832,
+        8308,
+        5832
+      ],
+      "original_source5_only_vs_same_session_no_chair": [
+        392,
+        284,
+        392,
+        284
+      ],
+      "X_normalized_source5_only_vs_same_session_no_chair": [
+        384,
+        280,
+        384,
+        280
+      ],
+      "original_source6_only_vs_same_session_no_chair": [
+        384,
+        280,
+        384,
+        280
+      ],
+      "same_session_no_chair_reference": "AIR",
+      "visibility_interpretation": "SOURCE5_SOLO_FRAME_RESPONDS_VS_AIR_ONLY; full-causal-gate invalid due missing-model zero-face control"
+    },
+    {
+      "target": "AF123_5",
+      "source_key": "AF123/AF1394/5",
+      "artifact_id": 15083533260,
+      "zip_sha256": "d530eff742fbca1f5a3dab862052536e7df1fb72b1d4a5fb69a3c2f2550a59c8",
+      "raw_F2": 64,
+      "client_logs_verified": 4,
+      "server_chair_markers_verified": 64,
+      "server_top_slab_markers_verified": 64,
+      "directions": [
+        "south",
+        "north",
+        "east",
+        "west"
+      ],
+      "invalid_missing_cube_vs_no_chair": [
+        8308,
+        1826,
+        8308,
+        5832
+      ],
+      "original_source5_only_vs_same_session_no_chair": [
+        314,
+        0,
+        186,
+        145
+      ],
+      "X_normalized_source5_only_vs_same_session_no_chair": [
+        308,
+        0,
+        394,
+        295
+      ],
+      "original_source6_only_vs_same_session_no_chair": [
+        308,
+        0,
+        394,
+        295
+      ],
+      "same_session_no_chair_reference": "original pinned support top slab, chair AIR",
+      "visibility_interpretation": "SOURCE5_SOLO_FRAME_RESPONDS_VS_TOP_SLAB_ONLY_IN_SOUTH_EAST_WEST; full-causal-gate invalid due missing-model zero-face control"
+    }
+  ],
+  "correction": "Replace faces={} with source5 original 4 faces and UV retained but all from/to coordinates collapsed to [0,0,0], and require zero-volume B21 F2 to equal real AIR/slab-only each view; add runtime whitelist for B21 status",
+  "final_B21_valid_causal_exit": false,
+  "root_cause_exclusive_proven": false,
+  "original_mod_assets_committed": false
+}
