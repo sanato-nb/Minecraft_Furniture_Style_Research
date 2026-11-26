@@ -1,0 +1,50 @@
+{
+  "schema": "MCFR_INT5_B29_45_ELEMENT_SOURCE_B24_B26_B27_INDEPENDENT_JOIN/v1",
+  "checked_against_branch_parent": "360a1603747aa17367ab6124a8109ed647a06931",
+  "input_blobs": {
+    "B24_role_source": "0b9dbf43c3f0bff928ff849e462b70e51a9b5a49",
+    "B26_24_orig_f2": "ef58adc230e14086afe0fd289bb2502951f3d1e0",
+    "B27_45_orig_f2": "cc07c6461a394b49ed2dafbe4d01720249bbffe5"
+  },
+  "method": "Exact model/source_element_index joins, source face_count, role hypothesis, artifact SHA and south/north/east/west F2 evidence cross-check. No new 45-ZIP byte re-download in B29; original source image 45-audit remains linked by original artifact IDs and SHA.",
+  "B24_rows": 45,
+  "B26_rows": 24,
+  "B27_rows": 45,
+  "model_element_counts": {
+    "AF121": 10,
+    "AF123": 10,
+    "HC11210": 13,
+    "MACAW67": 12
+  },
+  "original_face_count": 229,
+  "strict_source_role_hypothesis_counts": {
+    "LEG_OR_LOWER_POST": 16,
+    "SEAT_LAYER": 6,
+    "LOWER_FRAME": 7,
+    "BACKREST_ASSEMBLY": 16
+  },
+  "texture_cue_count": {
+    "generic_or_shared_not_role_proof": 35,
+    "named_or_contrast_no_semantic_approval": 10
+  },
+  "B26_joined_exactly_with_B27": 24,
+  "B26_recorded_native_F2_SHA": 384,
+  "B26_recorded_client_log_SHA": 48,
+  "B27_recorded_original_native_F2_SHA": 560,
+  "B27_recorded_original_client_log_SHA": 70,
+  "B27_original_element_removal_screen_response_count": 43,
+  "B27_original_source5_no_screen_change": [
+    "AF121#5",
+    "AF123#5"
+  ],
+  "B25_additional_micro_screen_pixel_response_distinct_contexts": 7,
+  "B25_pixel_response_must_not_override_full_original_B27_negative": true,
+  "source_face_GPU_exclusive_owner_approved": 0,
+  "physical_role_material_style_approved": 0,
+  "third_party_AI_training_distribution_rights_approved": 0,
+  "H03": "HOLD",
+  "H05": "CONDITIONAL",
+  "F70_unconditional_approved": 0,
+  "validation": "PASS_45_B24_B26_B27_KEY_GEOMETRY_ROLE_SHA_AND_PIXEL_JOIN",
+  "notes_ko": "45개 원본 부품에서 묶음 F2 관찰과 1개 부품의 물리적 기능·재질·스타일 확정은 서로 다르다. 원본 전체 의자에서 source5 2개 무반응 기록을 맥락 변경 B25의 1~2픽셀 결과로 덮어쓰지 않는다. 이번 B29은 원본 ZIP 45건 재다운로드가 아닌 원장 교차검증."
+}
