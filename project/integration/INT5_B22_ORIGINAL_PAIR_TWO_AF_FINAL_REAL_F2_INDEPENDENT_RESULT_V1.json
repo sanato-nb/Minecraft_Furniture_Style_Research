@@ -1,0 +1,123 @@
+{
+  "schema": "MCFR_INT5_B22_TWO_ORIGINAL_SOURCE5_SOURCE6_PAIR_REAL_FABRIC_INDEPENDENT_AUDIT_V1",
+  "research_pr": 134,
+  "previous_B21_pr": 133,
+  "successful_actions_run": 45758507299,
+  "successful_capture_commit": "761206de68ebb316e3cd2c79c9f7a6f07bd897cc",
+  "real_game_version": "Minecraft Java 1.21.1 Fabric",
+  "original_another_furniture": "4.0.2",
+  "official_release_JAR_SHA1": "c2f992081bdc4795ed6d87771a3b5f7c71103785",
+  "evidence_method": "Actual GitHub Actions artifact ZIP independently downloaded; zipfile CRC and original 96 F2 PNG SHA256 and 6 real client logs SHA256 verified against manifest; 144 exact server state markers checked; original pixel arrays re-evaluated using Pillow and NumPy channel max diff >=24 at ROI [350,275,675,620]; full-frame pair/source6 PNG RGB equality also compared.",
+  "original_tested_targets": 2,
+  "real_Fabric_game_clients": 6,
+  "official_artifact_ZIP_CRC_verified": 2,
+  "original_native_F2_PNG_SHA256_verified": 96,
+  "client_logs_SHA256_verified": 6,
+  "exact_real_server_chair_state_proofs": 96,
+  "exact_real_server_top_support_slab_state_proofs": 48,
+  "independent_PNG_RGB_metrics_equal_CI_audit": true,
+  "original_source5_and_source6_pair_adds_visible_pixels_over_source6_alone_in_at_least_one_view_for_both_models": true,
+  "official_pair_and_positive6_before_and_after_images_identical_at_four_views_for_both": false,
+  "original_B19_45_original_elements_tested": 45,
+  "original_B19_bounded_removal_render_visible_count": 43,
+  "new_B22_original_whole_model_source5_deletion_visible_pass": 0,
+  "physical_function_material_style_verified": 0,
+  "exclusive_original_face_UV_GPU_pixel_owner_verified": 0,
+  "third_party_AI_training_redistribution_rights_approved": 0,
+  "strict_H03": "HOLD",
+  "strict_H05": "CONDITIONAL",
+  "strict_F70_unconditional_approved": 0,
+  "targets": [
+    {
+      "target": "AF121_5",
+      "source": "AF121/AF1393/5",
+      "artifact_id": 15089715949,
+      "official_ZIP_SHA256": "7ebc65044f1829a12b580d9f645c751bb744a86852f710760cac4fe3935f935b",
+      "original_real_clients": 3,
+      "native_F2": 48,
+      "logs_SHA256": 3,
+      "server_chair": 48,
+      "server_slab": 0,
+      "direction_order": [
+        "south",
+        "north",
+        "east",
+        "west"
+      ],
+      "original_source5_vs_source6_pixels": [
+        748,
+        564,
+        748,
+        564
+      ],
+      "original_pair5_6_vs_original_source6_pixels": [
+        378,
+        284,
+        378,
+        284
+      ],
+      "original_pair5_6_vs_original_source5_pixels": [
+        370,
+        280,
+        370,
+        280
+      ],
+      "pair5_6_vs_positive6_full_frame_RGB_identical": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "decision": "PASS_PAIR5_6_HAS_ADDITIONAL_RENDER_PIXELS_OVER_ORIGINAL6_ONLY"
+    },
+    {
+      "target": "AF123_5",
+      "source": "AF123/AF1394/5",
+      "artifact_id": 15090100586,
+      "official_ZIP_SHA256": "d838f319f87ea41c455eb019ae45812f2bd15916f24582309c3f10e9027065f6",
+      "original_real_clients": 3,
+      "native_F2": 48,
+      "logs_SHA256": 3,
+      "server_chair": 48,
+      "server_slab": 48,
+      "direction_order": [
+        "south",
+        "north",
+        "east",
+        "west"
+      ],
+      "original_source5_vs_source6_pixels": [
+        598,
+        0,
+        564,
+        424
+      ],
+      "original_pair5_6_vs_original_source6_pixels": [
+        302,
+        0,
+        176,
+        137
+      ],
+      "original_pair5_6_vs_original_source5_pixels": [
+        296,
+        0,
+        388,
+        287
+      ],
+      "pair5_6_vs_positive6_full_frame_RGB_identical": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "decision": "PASS_PAIR5_6_HAS_ADDITIONAL_RENDER_PIXELS_OVER_ORIGINAL6_ONLY"
+    }
+  ],
+  "verified_scope": "Original source5 has a bounded nonzero screen contribution with source6 alongside in the exact two-source child override. Original full model B19 single source5 removal is still zero at four cardinal views. Therefore suppressing source5 in full original cannot be attributed solely to source6 by these data; other eight source elements and model context remain candidates.",
+  "limits": [
+    "This pair model does not demonstrate a unique original GPU face-to-pixel owner, nor physical backrest/seat/lower frame function, style, material or original asset training or redistribution rights.",
+    "Source5+source6 pair model is intentionally not the 10-element released full chair. Its screen differences cannot upgrade the original B19 four-view source5 removal evidence.",
+    "AF123 north 0px is the valid top-slab-supported tucked=true camera condition, not a claim that the source5 is universally invisible.",
+    "Source5 exclusive occlusion mechanism, draw ordering, z-fighting and baked face-culling causes are still not determined. Next research may isolate remaining 8 original source elements in controlled groups."
+  ]
+}

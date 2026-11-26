@@ -1,0 +1,112 @@
+name: INT-5 B22 AF exact source5 source6 pair vs singles three real Fabric clients
+on:
+  push:
+    branches: [work/int5-b22-af-source5-source6-pair-overlap-f2-20261126]
+    paths:
+      - src/mcfr/int5_b22_af_source5_source6_pair_four_view_f2.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int5_b22_af_source5_source6_pair_four_view_f2.py
+      - .github/workflows/integration-int5-b22-af-source5-source6-pair-overlap-f2.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-element5-original6-pair-vs-single-real-f2:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        original_target: [AF121_5, AF123_5]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 100
+    env:
+      PYTHONPATH: src
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      ALSOFT_DRIVERS: 'null'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact original Fabric GUI and immutable image audit requirements
+        timeout-minutes: 10
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            timeout 180s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 update
+            timeout 240s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 install -y --no-install-recommends xvfb xauth xdotool
+          fi
+      - name: Check original source5 source6 two-element pair source and negative controls
+        run: |
+          python -m unittest discover -s tests/knowledge -p test_int5_b21_af_source5_isolation_four_view_f2.py -v
+          python -m unittest discover -s tests/knowledge -p test_chair_camera_command_recovery.py -v
+          python -m mcfr.runtime --help >/dev/null
+          python -m mcfr.runtime int5-b22-af-source5-source6-pair-four-view-f2 --help > "$RUNNER_TEMP/b22-cli-help.txt"
+          for opt in --target --version --work --world --output; do
+            grep -F -- "$opt" "$RUNNER_TEMP/b22-cli-help.txt"
+          done
+      - name: Generate pinned official Minecraft Java 1.21.1 creative source world
+        run: |
+          python -m mcfr.chair_runtime_fixture world \
+            --version 1.21.1 \
+            --path "$RUNNER_TEMP/int5-b22-source-world" \
+            --cache "$RUNNER_TEMP/int5-b22-minecraft-cache"
+      - name: Run 3 independent Fabric clients with all four cameras and 48 real native F2
+        timeout-minutes: 85
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int5-b22-af-source5-source6-pair-four-view-f2 \
+              --target "${{ matrix.original_target }}" \
+              --version 1.21.1 \
+              --world "$RUNNER_TEMP/int5-b22-source-world" \
+              --work "$RUNNER_TEMP/int5-b22-client" \
+              --output "$RUNNER_TEMP/int5-b22-${{ matrix.original_target }}-isolation"
+      - name: Independently audit three real 48 F2 clients, original5 source6 and original pair rendering
+        env:
+          B22_TARGET: ${{ matrix.original_target }}
+        run: |
+          python -m mcfr.int5_b22_af_source5_source6_pair_four_view_f2 \
+            --target "$B22_TARGET" \
+            --directory "$RUNNER_TEMP/int5-b22-$B22_TARGET-isolation"
+          python - <<'PY'
+          import os,json,pathlib
+          target=os.environ["B22_TARGET"]
+          base=pathlib.Path(os.environ["RUNNER_TEMP"])/("int5-b22-"+target+"-isolation")
+          a=json.loads((base/"INT5_B22_AF5_AF6_PAIR_FOUR_VIEW_INDEPENDENT_F2_AUDIT_V1.json").read_text(encoding="utf-8"))
+          assert a["target"]==target
+          assert a["original_real_game_clients"]==3 and a["real_F2_PNG_SHA256_verified"]==48
+          assert a["game_client_logs_SHA256_verified"]==3
+          assert a["real_exact_chair_state_proofs"]==48
+          assert a["real_exact_extra_top_slab_proofs"]==(48 if target=="AF123_5" else 0)
+          assert len(a["log_sha256"])==3
+          assert all(len(x)==16 for x in a["PNG_hashes"].values())
+          assert set(a["actual_four_camera_pair_and_single_source_RGB_metrics"])=={"south","north","east","west"}
+          assert a["B19_cumulative_bounded_render_source_removals_43_of_45_kept"] is True
+          assert a["physical_function_material_style_approved"] is False
+          assert a["individual_original_face_UV_exclusive_GPU_pixel_ownership_proven"] is False
+          assert a["third_party_training_redistribution_rights_approved"] is False
+          assert a["H03"]=="HOLD" and a["H05"]=="CONDITIONAL"
+          assert a["F70_unconditional_approved"]==0
+          assert not a["decision"].startswith("CONDITIONAL"),a["decision"]
+          print("INT5_B22_REAL_SOURCE_PAIR_DECISION",target,a["decision"])
+          for view,row in a["actual_four_camera_pair_and_single_source_RGB_metrics"].items():
+            print("INT5_B22_ORIGINAL_SOURCE5_VS_SOURCE6_AND_PAIR_FOUR_VIEW_PIXELS",
+                target,view,
+                row["original5_vs_original6_before_pixels"],
+                row["pair5_6_vs_original6_before_pixels"],
+                row["pair5_6_vs_original5_before_pixels"],
+                row["identical_pair_and_original6_full_RGB_original_F2"])
+          PY
+      - name: Preserve native F2, server proof and SHA audit only, not any source or modified mod JAR
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int5-b22-${{ matrix.original_target }}-source5-source6-pair-f2
+          retention-days: 45
+          path: ${{ runner.temp }}/int5-b22-${{ matrix.original_target }}-isolation/
+          if-no-files-found: warn
