@@ -1,0 +1,121 @@
+name: INT-5 B23 multi context 10 jobs original source5 presence 320 real Fabric F2 batch
+on:
+  push:
+    branches: [work/int5-b23-b24-multigroup-full45-role-batch-f2-20261126]
+    paths:
+      - src/mcfr/int5_b23_multigroup_source5_context_f2.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int5_b23_multigroup_source5_context_f2.py
+      - .github/workflows/integration-int5-b23-fivecontext-10job-batch-320-f2.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  five-context-source5-original-on-off-32-f2-per-job:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        original_target: [AF121_5, AF123_5]
+        context: [legs_0_3, seat_4, back_7_9, front_0_4, all_others]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 100
+    env:
+      PYTHONPATH: src
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      ALSOFT_DRIVERS: 'null'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact original Fabric GUI and immutable image audit requirements
+        timeout-minutes: 10
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            timeout 180s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 update
+            timeout 240s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 install -y --no-install-recommends xvfb xauth xdotool
+          fi
+      - name: Check all five source5 original group-context interventions, UV proof, guard and negative regressions
+        run: |
+          python -m unittest discover -s tests/knowledge -p test_int5_b23_multigroup_source5_context_f2.py -v
+          python -m unittest discover -s tests/knowledge -p test_chair_camera_command_recovery.py -v
+          python -m mcfr.runtime --help >/dev/null
+          python -m mcfr.runtime int5-b23-multigroup-source5-context-f2 --help > "$RUNNER_TEMP/b22-cli-help.txt"
+          for opt in --target --context --version --work --world --output; do
+            grep -F -- "$opt" "$RUNNER_TEMP/b22-cli-help.txt"
+          done
+      - name: Generate pinned official Minecraft Java 1.21.1 creative source world
+        run: |
+          python -m mcfr.chair_runtime_fixture world \
+            --version 1.21.1 \
+            --path "$RUNNER_TEMP/int5-b23-source-world" \
+            --cache "$RUNNER_TEMP/int5-b23-minecraft-cache"
+      - name: Run two independent original AF Fabric clients per group and capture 32 real native F2
+        timeout-minutes: 85
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int5-b23-multigroup-source5-context-f2 \
+              --target "${{ matrix.original_target }}" \
+              --context "${{ matrix.context }}" \
+              --version 1.21.1 \
+              --world "$RUNNER_TEMP/int5-b23-source-world" \
+              --work "$RUNNER_TEMP/int5-b23-client" \
+              --output "$RUNNER_TEMP/int5-b23-${{ matrix.original_target }}-${{ matrix.context }}-isolation"
+      - name: Independently audit original source5 on/off, 32 native F2 PNG SHA and four control cameras
+        env:
+          B23_TARGET: ${{ matrix.original_target }}
+          B23_CONTEXT: ${{ matrix.context }}
+        run: |
+          python -m mcfr.int5_b23_multigroup_source5_context_f2 \
+            --target "$B23_TARGET" \
+            --context "$B23_CONTEXT" \
+            --directory "$RUNNER_TEMP/int5-b23-$B23_TARGET-$B23_CONTEXT-isolation"
+          python - <<'PY'
+          import json,os,pathlib
+          root=pathlib.Path(os.environ["RUNNER_TEMP"])/(
+            "int5-b23-"+os.environ["B23_TARGET"]+"-"+os.environ["B23_CONTEXT"]+"-isolation")
+          a=json.loads((root/"INT5_B23_MULTI_CONTEXT_FOUR_VIEW_INDEPENDENT_F2_AUDIT_V1.json").read_text())
+          assert a["target"]==os.environ["B23_TARGET"]
+          assert a["context"]==os.environ["B23_CONTEXT"]
+          assert a["real_Fabric_clients"]==2
+          assert a["new_F2_sha256_verified"]==32
+          assert a["client_log_sha256_verified"]==2
+          assert a["real_original_server_chair_states"]==32
+          assert a["real_original_server_support_states"]==(32 if a["target"]=="AF123_5" else 0)
+          assert len(a["original_real_F2_SHA256"])==2
+          assert all(len(v)==16 for v in a["original_real_F2_SHA256"].values())
+          assert len(a["real_client_log_SHA256"])==2
+          assert set(a["original_four_camera_source5_addition_metrics"])=={
+              "south","north","east","west"}
+          assert a["role_function_material_style_approved_45"]==0
+          assert a["original_face_UV_exclusive_GPU_pixel_owner_approved"]==0
+          assert a["third_party_training_or_redistribution_rights_approved"]==0
+          assert a["H03"]=="HOLD" and a["H05"]=="CONDITIONAL"
+          assert a["F70_unconditional_approved"]==0
+          assert a["B19_43_of_45_bounded_source_removals_unchanged"] is True
+          assert a["status"].startswith("PASS_"),a["status"]
+          for view,m in a["original_four_camera_source5_addition_metrics"].items():
+              assert m["negative_unchanged_pixels"]==0
+              assert m["empty_air_or_slab_unchanged_pixels"]==0
+              assert m["without5_original_A_A_pixels"]==0
+              assert m["with5_original_A_A_pixels"]==0
+              assert m["diff_outside_union_of_both_foregrounds_pixels"]==0
+              assert m["five_addition_before_pixels"]==m["five_addition_after_pixels"]
+              print("B23_SOURCE5_CONTEXT_PIXELS",a["target"],a["context"],view,
+                    m["five_addition_before_pixels"],a["status"])
+          PY
+      - name: Preserve native F2, server proof and SHA audit only, not any source or modified mod JAR
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int5-b23-${{ matrix.original_target }}-${{ matrix.context }}-real32-f2
+          retention-days: 45
+          path: ${{ runner.temp }}/int5-b23-${{ matrix.original_target }}-${{ matrix.context }}-isolation/
+          if-no-files-found: warn
