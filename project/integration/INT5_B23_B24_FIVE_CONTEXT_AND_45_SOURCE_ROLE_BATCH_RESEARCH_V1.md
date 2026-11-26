@@ -56,3 +56,17 @@
 - 실제 `int5-b24-45-original-role-evidence.csv` SHA256 `b70bc8bc9f317962556a194682d4b614cdf00b5ef858136d5bf0d9f7e1ea6c39`, 45개 원본행·229 face·B19 무반응 2·기능 승인 `false` 45.
 - 실제 `int5-b24-45-original-role-evidence.json` SHA256 `eeedb6f450893cba4348012481edf71b72e3e2735160d7f75381cb7ff4eb97b8`, B24 역할 가설 분포 `BACKREST_ASSEMBLY 16 / LEG_OR_LOWER_POST 16 / LOWER_FRAME 7 / SEAT_LAYER 6`, 구별 가능 texture source cue 10, 공용/약한 texture 35, 독립 semantic function/material/style 승인 0/45 및 제3자 IP 학습권리 승인0 재확인.
 - **B24 의미 근거 범위 측정 및 원장 감사 단계 완료.** 부품의 물리적 역할·재질·스타일을 원본 F2와 face GPU 픽셀까지 최종 확증한 단계는 **여전히 미완료**. B23 본 배치 결과는 원본 F2·서버 로그 독립 감사까지 별도로 완료되어야 갱신함.
+
+## 7. B23 최초 성공 4맥락: 실제 AF121 128 원본 F2의 별도 재감사 (부분 완료)
+
+- [AF121 선검증 4/10 machine record](INT5_B23_AF121_FOUR_CONTEXTS_NATIVE_F2_INTERIM_INDEPENDENT_AUDIT_V1.json). GitHub Actions 실제 artifact `15098777339`/`15098194275`/`15098792258`/`15098563306` 각각 다운로드하여 CRC + 각 32개 원본 F2 PNG SHA256 + 실제 2개 client.log SHA256 + 실제 RenderAudit server markers 검증. 합계 **실제 8게임 128F2, 원본 의자 blockstate 128건**. 모든 픽셀 배열을 독립 Python NumPy 1024×684 ROI `[350,275,675,620]` RGB 채널 임계24로 재계산, CI audit JSON과 4방향 모두 동등.
+- 픽셀 값은 동일한 컨텍스트에서 **원본 source5만 추가**한 의자와 추가하지 않은 의자의 화면 차이, 남/북/동/서 순서이며, 원본 B19 전체 요소 제거 증거를 번복하지 않음.
+
+| AF121 source6 고정 및 추가 컨텍스트 | 원형 source5 추가 남 | 북 | 동 | 서 | 엄격 판정 |
+|---|---:|---:|---:|---:|---|
+| `legs_0_3` | 286 | 218 | 294 | 227 | 조건하에 렌더 픽셀 기여 관찰 |
+| `seat_4` | 2 | 0 | 2 | 0 | 매우 작은 2px 차이 실측 |
+| `back_7_9` | 12 | 284 | 347 | 260 | 방향별 다름, 일부 기여 유지 |
+| `front_0_4` | **0** | **0** | **0** | **0** | 이 조합에서 source5 추가 기여 없음 |
+
+**해석 한정:** 원본 4면 source5의 화면 기여가 `0..3`만 더할 때는 보이지만 `0..4` 모두 더하면 보이지 않는 것은 *이 원본 인덱스 조합과 이 4개 카메라 및 state 조건에서* 증명됨. '좌판 원본 요소4가 유일한 단일 가림 원인', '원본 source5 기능이 없다', '해당 PNG의 실제 재질/스타일이 입증됨'은 증명되지 않음. AF123 및 AF121 `all_others`는 아직 검증되지 않았으므로 **전체 B23 완료 선언 금지**.
