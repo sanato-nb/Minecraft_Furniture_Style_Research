@@ -1,0 +1,104 @@
+name: INT-5 B20 AF reversed-X source5 three real Fabric sessions four cameras
+on:
+  push:
+    branches: [work/int5-b20-af-reversed-x-source5-3session-f2-20261126]
+    paths:
+      - src/mcfr/int5_b20_af_reversed_x_three_session_f2.py
+      - src/mcfr/runtime.py
+      - tests/knowledge/test_int5_b20_af_reversed_x_three_session_f2.py
+      - .github/workflows/integration-int5-b20-af-reversed-x-three-session-f2.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  official-flattened-and-reversed-X-corrected-independent-f2:
+    if: github.repository == 'sanato-nb/Minecraft_Furniture_Style_Research'
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        original_target: [AF121_5, AF123_5]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 80
+    env:
+      PYTHONPATH: src
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      ALSOFT_DRIVERS: 'null'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact original Fabric GUI and immutable image audit requirements
+        timeout-minutes: 10
+        run: |
+          python -m pip install 'Pillow>=10,<13' 'nbtlib>=2,<3'
+          if ! command -v xvfb-run >/dev/null || ! command -v xauth >/dev/null || ! command -v xdotool >/dev/null; then
+            timeout 180s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 update
+            timeout 240s sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 install -y --no-install-recommends xvfb xauth xdotool
+          fi
+      - name: Check original reversed element5, unmodified flattening and X-only normalization
+        run: |
+          python -m unittest discover -s tests/knowledge -p test_int5_b20_af_reversed_x_three_session_f2.py -v
+          python -m unittest discover -s tests/knowledge -p test_chair_camera_command_recovery.py -v
+          python -m mcfr.runtime --help >/dev/null
+          python -m mcfr.runtime int5-b20-af-reversed-x-3session-f2 --help > "$RUNNER_TEMP/b20-cli-help.txt"
+          for opt in --target --version --work --world --output; do
+            grep -F -- "$opt" "$RUNNER_TEMP/b20-cli-help.txt"
+          done
+      - name: Generate pinned official Minecraft Java 1.21.1 creative source world
+        run: |
+          python -m mcfr.chair_runtime_fixture world \
+            --version 1.21.1 \
+            --path "$RUNNER_TEMP/int5-b20-source-world" \
+            --cache "$RUNNER_TEMP/int5-b20-minecraft-cache"
+      - name: Run 3 independent Fabric clients with all four cameras and 48 real native F2
+        timeout-minutes: 65
+        run: |
+          xvfb-run -a -s '-screen 0 1024x684x24' \
+            python -m mcfr.runtime int5-b20-af-reversed-x-3session-f2 \
+              --target "${{ matrix.original_target }}" \
+              --version 1.21.1 \
+              --world "$RUNNER_TEMP/int5-b20-source-world" \
+              --work "$RUNNER_TEMP/int5-b20-client" \
+              --output "$RUNNER_TEMP/int5-b20-${{ matrix.original_target }}-three-games"
+      - name: Independently reopen real F2 PNG 48 SHA server proofs three Minecraft logs
+        env:
+          B20_TARGET: ${{ matrix.original_target }}
+        run: |
+          python -m mcfr.int5_b20_af_reversed_x_three_session_f2 \
+            --target "$B20_TARGET" \
+            --directory "$RUNNER_TEMP/int5-b20-$B20_TARGET-three-games"
+          python - <<'PY'
+          import os,json,pathlib
+          target=os.environ["B20_TARGET"]
+          base=pathlib.Path(os.environ["RUNNER_TEMP"])/("int5-b20-"+target+"-three-games")
+          a=json.loads((base/"INT5_B20_AF_REVERSED_X_FOUR_VIEW_INDEPENDENT_AUDIT_V1.json").read_text(encoding="utf-8"))
+          assert a["target"]==target
+          assert a["real_native_F2_verified"]==48 and a["three_real_game_sessions"]==3
+          assert a["original_server_chair_state_proofs"]==48
+          assert a["additional_support_slab_server_state_proofs"]==(48 if target=="AF123_5" else 0)
+          assert set(a["four_camera_pixel_metrics"])=={"south","north","east","west"}
+          assert all(len(rows)==16 for rows in a["individual_real_F2_SHA256"].values())
+          assert len(a["original_client_log_SHA256"])==3
+          assert a["decision"]!="CONDITIONAL_FAILED_FLATTEN_OR_RENDER_CONTROLS"
+          assert a["original_X_reversed_source5_root_cause_exclusively_proven"] is False
+          assert a["physical_function_material_style_approved"] is False
+          assert a["INT6_AI_training_redistribution_rights_approved"] is False
+          assert a["F70_unconditional_approved"]==0
+          print("INT5_B20_THREE_SESSION_DECISION",target,a["decision"])
+          for view,values in a["four_camera_pixel_metrics"].items():
+            print("INT5_B20_X_CORRECTION_PIXELS",target,view,values["normalized_vs_flattened_before_pixels"])
+          PY
+      - name: Preserve native F2, server proof and SHA audit only, not any source or modified mod JAR
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: int5-b20-${{ matrix.original_target }}-three-session-four-view-f2
+          retention-days: 45
+          path: ${{ runner.temp }}/int5-b20-${{ matrix.original_target }}-three-games/
+          if-no-files-found: warn
