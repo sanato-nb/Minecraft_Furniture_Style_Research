@@ -46,7 +46,7 @@ def need(ok,why):
     if not ok:raise ValueError("INT5-B20: "+why)
 
 def sha(data):return hashlib.sha256(data).hexdigest()
-def blob(data):return hashlib.sha1(b"blob "+str(len(data)).encode()+b"\\0"+data).hexdigest()
+def blob(data):return hashlib.sha1(b"blob "+str(len(data)).encode()+bytes([0])+data).hexdigest()
 
 def set_target(target):
     need(target in TARGETS,"only two B19 stable four-view not-visible AF source5 cases")
@@ -217,7 +217,7 @@ def capture(command,env,game,out,version,target):
             "third_party_training_redistribution_rights_approved":False,
         }
         (out/MANIFEST).write_text(json.dumps(doc,indent=2,sort_keys=True,
-                                              ensure_ascii=False)+"\\n",
+                                              ensure_ascii=False)+chr(10),
                                   encoding="utf-8")
         return doc
     finally:
@@ -382,7 +382,7 @@ def audit(folder,target):
         ],
     }
     (folder/AUDIT).write_text(json.dumps(result,indent=2,sort_keys=True,
-                                         ensure_ascii=False)+"\\n",encoding="utf-8")
+                                         ensure_ascii=False)+chr(10),encoding="utf-8")
     return result
 
 def main():
