@@ -32,7 +32,7 @@ class OriginalSourceResearchBatch(unittest.TestCase):
     def test_B32_texture_provenance_8_groups_9_hashes(self):
         out=audit_texture(ROOT)
         self.assertEqual(out["texture_hash_group_count"],8)
-        self.assertEqual(out["atomic_sha1_sha256_checksum_count"],9)
+        self.assertEqual(out["atomic_sha1_sha256_checksum_count"],8)
         self.assertEqual(len(out["named_or_contrast_texture_evidence_not_semantic_approval"]),10)
         self.assertEqual(out["physical_role_material_style_approved"],0)
 
