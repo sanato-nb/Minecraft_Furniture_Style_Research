@@ -46,7 +46,7 @@ def frames(target,positive=True,original=False,normalized=False,
     a,negative,b,air=b19.stages()
     data={}
     for mode in b21.MODES:
-        show={"no_faces_5":False,"original_5":original,
+        show={"zero_volume_5":False,"original_5":original,
               "normalized_5":normalized,"positive_6":positive}[mode]
         data[mode]={}
         for view in b19.VIEWS:
@@ -64,7 +64,7 @@ class B21SourceIsolationTests(unittest.TestCase):
     def test_only_two_original_unresolved_source5_targets(self):
         self.assertEqual(b21.TARGETS,("AF121_5","AF123_5"))
         self.assertEqual(b21.MODES,
-                         ("no_faces_5","original_5","normalized_5","positive_6"))
+                         ("zero_volume_5","original_5","normalized_5","positive_6"))
         for t in b21.TARGETS:
             self.assertEqual(b21.source_identity(t)["source_faces"],4)
 
@@ -86,15 +86,16 @@ class B21SourceIsolationTests(unittest.TestCase):
             self.assertEqual(info["result_face_count"],4)
             self.assertEqual(info["unselected_original_elements_removed"],9)
 
-    def test_faceless_model_keeps_geometry_without_any_quad(self):
+    def test_zero_volume_4_original_faces_keeps_uv_without_missing_model_cube(self):
         for t in b21.TARGETS:
             child,parent,p,*_=fixture(t)
-            raw,info=b21.patch_child(child,parent,t,"no_faces_5")
+            raw,info=b21.patch_child(child,parent,t,"zero_volume_5")
             e=json.loads(raw)["elements"][0]
-            self.assertEqual(e["faces"],{})
-            self.assertEqual(e["from"],p["elements"][5]["from"])
-            self.assertEqual(e["to"],p["elements"][5]["to"])
-            self.assertEqual(info["result_face_count"],0)
+            self.assertEqual(e["faces"],p["elements"][5]["faces"])
+            self.assertEqual(e["from"],[0,0,0])
+            self.assertEqual(e["to"],[0,0,0])
+            self.assertEqual(info["result_face_count"],4)
+            self.assertTrue(info["all_result_face_objects_from_original_source"])
 
     def test_normalized_model_changes_only_original_source5_x(self):
         for t in b21.TARGETS:
@@ -159,6 +160,20 @@ class B21SourceIsolationTests(unittest.TestCase):
         self.assertEqual(b21.decision(b21.metrics_for_views(
              frames(t,negative_drift=True,original=True))),
              "CONDITIONAL_FAILED_TEMPORAL_OR_NEGATIVE_F2_CONTROLS")
+
+    def test_zero_volume_control_must_be_identical_to_no_chair(self):
+        for target in b21.TARGETS:
+            sample=frames(target,original=True)
+            b21.set_target(target)
+            a=b19.stages()[0]
+            # Real Fabric can render a purple/black missing-model cube
+            # instead of the intended blank control. Reject this result.
+            canvas=sample["zero_volume_5"]["south"][a]
+            ImageDraw.Draw(canvas).rectangle((480,400,510,440),fill=(255,0,255))
+            m=b21.metrics_for_views(sample)
+            self.assertGreater(m["south"]["zero_volume_5"]["zero_volume_to_no_chair_pixels"],0)
+            self.assertEqual(b21.decision(m),
+                             "CONDITIONAL_FAILED_TEMPORAL_OR_NEGATIVE_F2_CONTROLS")
 
     def test_real_game_manifest_required_and_four_view_legal_state(self):
         with tempfile.TemporaryDirectory() as tmp:
