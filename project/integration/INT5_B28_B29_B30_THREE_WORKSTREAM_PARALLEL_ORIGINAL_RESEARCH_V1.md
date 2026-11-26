@@ -40,7 +40,9 @@
 - 실패 원본 아티팩트 #15101088082 3개 실게임 `native/*.log` 재다운로드·CRC 확인: **BedObserver JVM의 `SIGBUS` 네이티브 충돌** (`ld-linux-x86-64.so.2`), 서버는 RenderAudit 1명만 실제 접속.
 - 해당 실패 Job만 재실행한 **attempt #2**도 실패. 원본 아티팩트 #15116824787 직접 재다운로드·CRC 검사: 이번에는 BedObserver는 정상 접속했지만 **RenderAudit host 클라이언트가 `java.lang.UnsatisfiedLinkError: Failed to locate library: liblwjgl_opengl.so`**로 Minecraft 초기화 중 충돌. 따라서 '서버 접속이 느렸다'는 단순 timeout 진단은 불충분하고, **GUI 네이티브 초기화 실패**라는 재현 관찰이 명확하다. 두 충돌이 동일 내부 원인인지는 확정되지 않음.
 - 모델링 자체와 무관한 GUI 기동 경쟁을 줄이기 위해 원래 두 클라이언트를 동시 생성하던 `src/mcfr/int4_bed_exterior.py`를 **RenderAudit GUI 실제 서버 JOIN 확인 → BedObserver GUI 실행·JOIN 확인** 순서로 수정. 개별 프로세스가 JOIN 전 종료하면 실제 종료코드·원본 클라이언트 로그 꼬리를 조기에 보고하고, 정상 종료·서버 state/동일 F2 검사 기준은 유지. 별도 기본 GUI/중간 과정 회귀시험 4개.
-- **B30은 개선 시도**이며, 수정 후 실게임 Actions 결과가 성공하기 전에는 **완료라고 표시하지 않는다**. 수면·파괴 등 모델링 무관 기능시험을 새로 추가하지 않았으며 기존 게임 로그·원본 자료도 덮어쓰지 않았다.
+- **B30 최종 실게임 검증 성공**: 신규 PR #137 head `720e427d819b486187e6bc63cbacf583c25cd59e`의 [Actions #45823236922](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45823236922) `completed/success`. 기존 4개 Job이 모두 성공했고 `occupied-bed-exterior`도 실제 `native` + `uv_probe` 두 모드를 끝까지 실행.
+- 성공 원본 아티팩트 [#15118718140](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45823236922/artifacts/15118718140)를 직접 재다운로드해 ZIP CRC 확인, ZIP SHA256 `64409343bae6c12f56e0ed4adbde0aed1def963087be5034a7e33d7b753896d8`, 원본 F2 PNG **14/14** SHA256 및 원본 서버·관찰자·호스트 로그 **6/6** SHA256 확인. 두 독립 실제 게임 세션 모두 `RenderAudit`와 `BedObserver` 정확 서버 접속 **4건** 확인.
+- 별도 결과 `INT5_B30_NATIVE_FABRIC_BED_DOUBLE_CLIENT_STAGGERED_BOOT_FINAL_RESULT_V1.json` 보존. 원인 가설은 두 JVM 네이티브 초기화 동시 실행 경합이며 **한 번 성공으로 원인 유일성이나 미래 항상 성공을 증명하지 않는다**. 수면·파괴 등 모델링 무관 기능시험을 **새로 추가하지 않았고**, 기존 실제 F2/서버 상태 검증과 원본 로그를 덮어쓰지 않았다.
 
 ## 엄격 심사 경계
 
