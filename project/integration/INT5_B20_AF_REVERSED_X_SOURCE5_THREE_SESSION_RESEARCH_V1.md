@@ -39,3 +39,10 @@
 ## 4. 결과 기록
 
 실게임 CI 실행과 산출 ZIP 독립 재검증 이전에는 **B20 결과 미확정**이며 원본 모델 좌표만 근거로 PASS를 허위 선언하지 않는다.
+
+## 5. 실제 GitHub Actions 실행 이력 (중간 체크포인트)
+
+- 최초 [#45737193963](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45737193963): 원본 코드 검사 통과 후 신규 `argparse.add_parser`에 잘못 추가한 위치인자 때문에 **게임 시작 전 CLI 오류**, 연구 증거로 계상하지 않음.
+- 후속 [#45737409387](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45737409387): 11개 B20 원본/반증 단위시험 통과 후 `--version/--work/--world/--output` 신규 하위 명령의 공통 등록 누락으로 게임 시작 전 중단. 이 또한 원본 렌더링 인과 실패가 아님.
+- 각각 한국어 커밋으로 인자 오류를 고치고, `runtime --help`에 각 필수 옵션이 실제로 표시되는지 검증하는 스모크 단계도 CI에 추가.
+- 현재 재검증 대상 [#45737601134](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/45737601134), 코드 HEAD `443217ae6b7f05927a236aff408cb299fb4fbef8`. **중간 조회 시 두 AF 대상 모두 실제 Fabric 3세션 촬영 단계 진행 중**. 독립 F2 SHA 검증·원본 vs 상속전개 vs 교정 결과를 확인하기 전에는 B20 실험 완료나 새로운 원인 입증으로 표기하지 않는다.
