@@ -45,6 +45,8 @@ jobs:
         run: |
           python -m unittest discover -s tests/knowledge -p test_int5_b20_af_reversed_x_three_session_f2.py -v
           python -m unittest discover -s tests/knowledge -p test_chair_camera_command_recovery.py -v
+          python -m mcfr.runtime --help >/dev/null
+          python -m mcfr.runtime int5-b20-af-reversed-x-3session-f2 --help >/dev/null
       - name: Generate pinned official Minecraft Java 1.21.1 creative source world
         run: |
           python -m mcfr.chair_runtime_fixture world \
