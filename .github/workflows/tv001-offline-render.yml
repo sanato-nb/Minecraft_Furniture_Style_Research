@@ -97,7 +97,7 @@ jobs:
 
       - name: T4 independent geometry, source and UV rotation audit
         run: |
-          python scripts/tv001/t4_independent.py \
+          python -m scripts.tv001.t4_independent \
             --repo "$GITHUB_WORKSPACE" \
             --manifest "$RUNNER_TEMP/tv001/manifest.json" \
             --renders "$RUNNER_TEMP/tv001/renders" \
