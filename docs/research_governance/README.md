@@ -35,3 +35,11 @@
 3. 기존 작업을 새로 구현하지 말고 부족한 범위만 찾아 이어간다.
 4. 우선 **TV-001 T4 정확성 검증 → T8 전체 종료 심사**를 수행한다.
 5. 그다음 기존 GitHub 자료 목록·품질 분류를 실시하고, 바닐라 연구를 위한 별도의 사전 조사·범위·계획을 잠근다.
+
+## TV-001 T4/T8 종료 판정 (2026-11-28)
+
+- [T4 독립 검증 및 T8 종료 심사 보고서](../../project/audits/tv001/TV001_T4_T8_CLOSURE_2026-11-28.md)
+- [T4/T8 25개 렌더 증거 영구 요약 JSON](../../project/audits/tv001/T4_T8_2026-11-28_EVIDENCE_SUMMARY.json)
+- [T4/T8 실제 성공 GitHub Actions #46032645107](https://github.com/sanato-nb/Minecraft_Furniture_Style_Research/actions/runs/46032645107)
+
+**최신 종료 기록은 `CLOSED_PARTIAL`이다.** 25개 형상 투영 검사와 P06 투명 UV 방향성 검사를 통과했지만, `R03-inner`의 uvlock 미적용 및 전 면 텍셀 단위 독립 검증 부족으로 TV-001 전체 PASS는 아니다. 2026-11-27 작성 당시의 대화 정리본은 역사 기록으로 그대로 보존한다.
