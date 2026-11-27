@@ -31,7 +31,7 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends blender libegl1 libgl1 libgl1-mesa-dri libosmesa6 xvfb xauth
-          python -m pip install 'Pillow>=10,<13'
+          python -m pip install 'Pillow>=10,<13' 'numpy>=1.26,<3'
           blender --version | head -n 2
           python --version
 
@@ -94,6 +94,20 @@ jobs:
             --manifest "$RUNNER_TEMP/tv001/manifest.json" \
             --renders "$RUNNER_TEMP/tv001/renders" \
             --report "$RUNNER_TEMP/tv001/inspect_report.json"
+
+      - name: T4 independent geometry, source and UV rotation audit
+        run: |
+          python scripts/tv001/t4_independent.py \
+            --repo "$GITHUB_WORKSPACE" \
+            --manifest "$RUNNER_TEMP/tv001/manifest.json" \
+            --renders "$RUNNER_TEMP/tv001/renders" \
+            --report "$RUNNER_TEMP/tv001/t4_independent.json"
+
+      - name: T8 bounded closure assessment (PASS, PARTIAL or FAIL)
+        run: |
+          python scripts/tv001/t8_close.py \
+            --evidence "$RUNNER_TEMP/tv001" \
+            --out "$RUNNER_TEMP/tv001/t8_closure.json"
 
       - name: Upload fixed pilot evidence
         if: always()
