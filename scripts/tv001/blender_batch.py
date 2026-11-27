@@ -84,8 +84,11 @@ def material(path):
     mat.node_tree.links.new(tex.outputs["Color"], bsdf.inputs["Base Color"])
     mat.node_tree.links.new(tex.outputs["Alpha"], bsdf.inputs["Alpha"])
     if hasattr(mat, "blend_method"):
-        mat.blend_method = "CLIP"
-        mat.alpha_threshold = 0.5
+        try:
+            mat.blend_method = "CLIP"
+            mat.alpha_threshold = 0.5
+        except (TypeError, AttributeError):
+            pass
     MATERIAL_CACHE[path] = mat
     return mat
 
@@ -144,7 +147,14 @@ def reset_scene():
 
 def setup():
     scene = bpy.context.scene
-    scene.render.engine = "BLENDER_EEVEE"
+    for engine in ("BLENDER_EEVEE_NEXT", "BLENDER_EEVEE"):
+        try:
+            scene.render.engine = engine
+            break
+        except TypeError:
+            continue
+    else:
+        raise RuntimeError("Compatible EEVEE engine not available")
     scene.render.resolution_x = 256
     scene.render.resolution_y = 256
     scene.render.resolution_percentage = 100
