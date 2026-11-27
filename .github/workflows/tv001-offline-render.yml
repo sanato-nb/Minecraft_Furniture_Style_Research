@@ -30,7 +30,7 @@ jobs:
       - name: Install offline renderer and PNG tool
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends blender
+          sudo apt-get install -y --no-install-recommends blender libegl1 libgl1 libgl1-mesa-dri libosmesa6 xvfb xauth
           python -m pip install 'Pillow>=10,<13'
           blender --version | head -n 2
           python --version
@@ -44,7 +44,8 @@ jobs:
 
       - name: Render first 12 images in a single Blender process
         run: |
-          blender --background --factory-startup --threads 2 \
+          set -o pipefail
+          xvfb-run -a blender --background --factory-startup --threads 2 \
             --python scripts/tv001/blender_batch.py -- \
             --manifest "$RUNNER_TEMP/tv001/manifest.json" \
             --out "$RUNNER_TEMP/tv001/renders" --limit 12 \
@@ -52,7 +53,8 @@ jobs:
 
       - name: Resume remaining 13 after Blender process restart
         run: |
-          blender --background --factory-startup --threads 2 \
+          set -o pipefail
+          xvfb-run -a blender --background --factory-startup --threads 2 \
             --python scripts/tv001/blender_batch.py -- \
             --manifest "$RUNNER_TEMP/tv001/manifest.json" \
             --out "$RUNNER_TEMP/tv001/renders" \
@@ -60,7 +62,8 @@ jobs:
 
       - name: Verify complete checkpoint avoids repeated rendering
         run: |
-          blender --background --factory-startup --threads 2 \
+          set -o pipefail
+          xvfb-run -a blender --background --factory-startup --threads 2 \
             --python scripts/tv001/blender_batch.py -- \
             --manifest "$RUNNER_TEMP/tv001/manifest.json" \
             --out "$RUNNER_TEMP/tv001/renders" \
