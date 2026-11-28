@@ -250,11 +250,27 @@ def approval_guard(db,tid,read):
     e=one(db,"SELECT * FROM evidence_item WHERE evidence_id=?",(t["approval_evidence_id"],))
     require(json.loads(read(e))==technique_approval_payload(db,tid,read),"approval manifest mismatch")
 
-def export(db,read,*,label=None,term_kind=None,confirmed_only=True,metric=None,unit=None,min_value=None,release=None):
+def scoped_claim_source(db,claim,read):
+    require(claim["asset_release"] and claim["asset_path"],"claim lacks original asset")
+    require(bool(rows(db,"SELECT 1 FROM scope_source WHERE scope_id=? AND asset_release=? AND asset_path=? AND included=1",(claim["scope_id"],claim["asset_release"],claim["asset_path"]))),"source outside locked scope")
+    a=one(db,"SELECT * FROM asset WHERE release_key=? AND source_path=?",(claim["asset_release"],claim["asset_path"]))
+    links=rows(db,"SELECT e.* FROM object_evidence oe JOIN evidence_item e USING(evidence_id) WHERE oe.snapshot_id=? AND oe.object_id=? AND oe.evidence_class='SOURCE'",(claim["snapshot_id"],claim["object_id"]))
+    require(bool(links),"source body evidence absent")
+    for e in links:
+        require_evidence(db,e["evidence_id"],read)
+        raw=read(e)
+        digest={"SHA256":lambda:sha(raw),"SHA1":lambda:hashlib.sha1(raw).hexdigest(),"GIT_BLOB_SHA1":lambda:hashlib.sha1(b"blob "+str(len(raw)).encode()+b"\0"+raw).hexdigest()}.get(a["hash_algorithm"])
+        require(digest is not None and digest()==a["digest"] and (a["byte_count"] is None or a["byte_count"]==len(raw)),"source asset mismatch")
+    return links
+
+def export(db,read,*,label=None,term_kind=None,confirmed_only=True,metric=None,unit=None,min_value=None,release=None,allowed_releases=None):
+    # Caller supplies an explicit release allowlist; None is a local fixture-only unrestricted read.
+    require(allowed_releases is None or isinstance(allowed_releases,(set,frozenset,list,tuple)),"invalid release allowlist")
     require(min_value is None or (metric is not None and unit is not None and math.isfinite(min_value)),"metric/unit required")
     candidates=rows(db,"SELECT v.* FROM knowledge_search_view v WHERE (? IS NULL OR v.label=?) AND (? IS NULL OR v.term_kind=?) AND (? IS NULL OR v.asset_release=?) AND v.revision=(SELECT MAX(c.revision) FROM claim c WHERE c.snapshot_id=v.snapshot_id AND c.object_id=v.object_id AND c.claim_key=v.claim_key) ORDER BY v.claim_id",(label,label,term_kind,term_kind,release,release))
     result=[]
     for c in candidates:
+        if allowed_releases is not None and c["asset_release"] not in allowed_releases:continue
         links=rows(db,"SELECT ce.role,ce.locator_detail,e.* FROM claim_evidence ce JOIN evidence_item e USING(evidence_id) WHERE claim_id=? ORDER BY role,evidence_id,locator_detail",(c["claim_id"],))
         relations=rows(db,"SELECT * FROM claim_relation WHERE claim_id=? OR related_claim_id=? ORDER BY claim_id,related_claim_id,relation",(c["claim_id"],c["claim_id"]))
         for x in links: x["body_verified"]=evidence_ok(db,x["evidence_id"],read)
@@ -263,6 +279,8 @@ def export(db,read,*,label=None,term_kind=None,confirmed_only=True,metric=None,u
         ok=bool(groups) and {a["unit_kind"] for a in assess}==groups
         try:
             locked_scope(db,c["scope_id"],read)
+            source_links=scoped_claim_source(db,c,read)
+            require(all(x["rights_state"]=="ALLOWED" for x in source_links),"source export rights not allowed")
             for a in assess: require(validate_saved_assessment(db,c["scope_id"],a["assessment_id"],read)["status"]=="PASS","assessment not pass")
             if c["term_kind"]=="TECHNIQUE":
                 require(c["technique_id"] is not None,"technique record required")
@@ -278,19 +296,51 @@ def export(db,read,*,label=None,term_kind=None,confirmed_only=True,metric=None,u
             if m["status"]=="PASS" and (min_value is None or (m["numeric_value"] is not None and m["numeric_value"]>=min_value)):measures.append(m)
         if metric is not None and not measures:continue
         if confirmed_only and not ok:continue
-        # Metadata only, no restricted raw bytes.
-        result.append(dict(claim=c,usable=bool(ok),evidence=links,relations=relations,measurements=measures,assessments=assess))
+        # Refuse restricted/unknown claim evidence in reusable export. Candidate output redacts its locator.
+        if any(x["rights_state"]!="ALLOWED" for x in links):ok=False
+        if confirmed_only and not ok:continue
+        safe_links=[x if x["rights_state"]=="ALLOWED" else {k:v for k,v in x.items() if k not in ("locator","member_locator","git_commit","run_id_external","job_id_external","artifact_id","locator_detail")} for x in links]
+        result.append(dict(claim=c,usable=bool(ok),evidence=safe_links,relations=relations,measurements=measures,assessments=assess))
     return {"format":"DBD001-design-export-v1","filters":dict(label=label,term_kind=term_kind,confirmed_only=confirmed_only,metric=metric,unit=unit,min_value=min_value,release=release),"items":result}
 
+def git_blob(raw):
+    return hashlib.sha1(b"blob "+str(len(raw)).encode()+b"\0"+raw).hexdigest()
+
 def legacy_guard(db,commit,path,read):
+    import csv
+    import io
     x=one(db,"SELECT * FROM legacy_disposition WHERE history_commit=? AND history_path=?",(commit,path))
     require(x["import_state"] in ("APPROVED","IMPORTED"),"not approved")
     require_evidence(db,x["approval_evidence_id"],read)
     require_evidence(db,x["evidence_id"],read)
-    if x["classification"]!="REUSABLE_LIMITED":require_evidence(db,x["derived_evidence_id"],read)
-    if path.endswith("TEX05-R004/SOURCE_LEDGER.csv") or path.endswith("TEX05-R007/BLOCK_VS_TERRAIN_SHADER.csv"):
+    def body(eid):
+        return read(one(db,"SELECT * FROM evidence_item WHERE evidence_id=?",(eid,)))
+    raw=body(x["evidence_id"])
+    require(git_blob(raw)==x["git_blob"],"legacy Git blob mismatch")
+    requires_derived=x["classification"]!="REUSABLE_LIMITED" or path.endswith(("TEX05-R004/SOURCE_LEDGER.csv","TEX05-R007/BLOCK_VS_TERRAIN_SHADER.csv"))
+    derived=None
+    if requires_derived:
         require_evidence(db,x["derived_evidence_id"],read)
+        derived=body(x["derived_evidence_id"])
+        require(derived!=raw,"derived body must differ from original")
+        if path.endswith(".csv"):
+            records=list(csv.reader(io.StringIO(derived.decode("utf-8-sig")),strict=True))
+            require(len(records)>=2 and len(records[0])>0 and all(len(z)==len(records[0]) for z in records),"derived CSV column mismatch")
+    approval=json.loads(body(x["approval_evidence_id"]))
+    expected=dict(history_commit=commit,history_path=path,git_blob=x["git_blob"],classification=x["classification"],original_sha256=sha(raw),derived_sha256=sha(derived) if derived is not None else None)
+    require(all(approval.get(k)==v for k,v in expected.items()) and bool(approval.get("transform_version")) and bool(approval.get("reviewer")),"legacy approval not bound to transformation")
     return x
+
+def backup_manifest(db,read):
+    items=[]
+    for e in rows(db,"SELECT * FROM evidence_item ORDER BY evidence_id"):
+        require_evidence(db,e["evidence_id"],read)
+        items.append({k:e[k] for k in ("evidence_id","content_sha256","byte_count","locator","storage_kind","rights_state")})
+    return {"evidence":items,"schema":rows(db,"SELECT type,name,sql FROM sqlite_schema WHERE name NOT LIKE 'sqlite_%' ORDER BY type,name")}
+
+def validate_restore(db,manifest,read):
+    require(db.execute("PRAGMA integrity_check").fetchone()[0]=="ok" and not db.execute("PRAGMA foreign_key_check").fetchall(),"restored SQLite integrity")
+    require(backup_manifest(db,read)==manifest,"restore manifest mismatch")
 
 def apply_proposal(db,sql):
     try:

@@ -230,15 +230,20 @@ def main(out):
                 rollback_test(db,lambda:c.append_checkpoint(db,"s","a1",1,"support2",read,committed_at=NOW))
                 db.execute("SAVEPOINT resume")
                 rollback_test(db,lambda:c.append_checkpoint(db,"s","a1",2,"support2",read,committed_at=NOW))
-                db.execute("UPDATE research_attempt SET lifecycle='RUNNING' WHERE attempt_id='a1'")
-                assert c.append_checkpoint(db,"s","a1",2,"support2",read,committed_at=NOW)
-                assert c.validate_checkpoint(db,"s","a1",read)==2
+                rollback_test(db,lambda:db.execute("UPDATE research_attempt SET lifecycle='RUNNING' WHERE attempt_id='a1'"))
+                rollback_test(db,lambda:db.execute("DELETE FROM task_checkpoint WHERE attempt_id='a1'"))
+                put(db,"research_attempt",scope_id="s",task_id="task",attempt_id="resume",attempt_no=3,input_sha256=H,lifecycle="RUNNING",started_at=NOW,environment_json="{}")
+                assert c.append_checkpoint(db,"s","resume",1,"checkpoint",read,committed_at=NOW)
+                assert c.append_checkpoint(db,"s","resume",2,"support2",read,committed_at=NOW)
+                assert c.validate_checkpoint(db,"s","resume",read)==2
+                rollback_test(db,lambda:db.execute("INSERT OR REPLACE INTO task_checkpoint SELECT * FROM task_checkpoint WHERE attempt_id='resume' AND batch_no=0"))
                 db.execute("ROLLBACK TO resume");db.execute("RELEASE resume")
                 assert c.validate_checkpoint(db,"s","a1",read)==1
                 for recursive in (0,1):
                     db.execute("PRAGMA recursive_triggers="+str(recursive))
                     rollback_test(db,lambda:db.execute("INSERT OR REPLACE INTO research_scope SELECT * FROM research_scope WHERE scope_id='s'"))
-                return "locked definition and REPLACE blocked; finished append rejected; retry and rollback verified"
+                    rollback_test(db,lambda:db.execute("INSERT OR REPLACE INTO research_attempt SELECT * FROM research_attempt WHERE attempt_id='a1'"))
+                return "locked scope and terminal attempts immutable; checkpoint update/delete/replace, sequence, new attempt retry and rollback checked"
             test("T04",t04,"local transaction fixture; cross-job restart and full execution writer not implemented")
             def t05():
                 assert c.one(db,"SELECT provider_id,declared_element_count FROM model_definition WHERE object_id='child'")=={"provider_id":"base","declared_element_count":None}
@@ -417,13 +422,25 @@ def main(out):
                 assert not c.export(db,read,label="chair",metric="height",unit="pixel",min_value=.4)["items"]
                 assert json.loads(c.canonical(x))==x
                 assert {i["claim"]["claim_id"] for i in c.export(db,read,label="layering")["items"]}=={"approved"}
+                assert not c.export(db,read,label="chair",allowed_releases=[])["items"]
+                assert c.export(db,read,label="chair",allowed_releases=["fixture"])["items"]
+                db.execute("SAVEPOINT scopeoutside")
+                db.execute("UPDATE research_object SET asset_path=NULL,asset_release=NULL WHERE object_id='base'")
+                assert not c.export(db,read,label="chair")["items"]
+                db.execute("ROLLBACK TO scopeoutside");db.execute("RELEASE scopeoutside")
+                db.execute("SAVEPOINT rights")
+                db.execute("UPDATE evidence_item SET rights_state='RESTRICTED' WHERE evidence_id='source'")
+                assert not c.export(db,read,label="chair")["items"]
+                assert "locator" not in c.export(db,read,label="chair",confirmed_only=False)["items"][0]["evidence"][0]
+                db.execute("ROLLBACK TO rights");db.execute("RELEASE rights")
                 db.execute("SAVEPOINT missinggroup")
                 db.execute("DELETE FROM assessment_result WHERE assessment_id='render-pass'")
                 db.execute("DELETE FROM run_assessment WHERE assessment_id='render-pass'")
                 assert not c.export(db,read,label="chair")["items"]
                 db.execute("ROLLBACK TO missinggroup");db.execute("RELEASE missinggroup")
                 db.execute("SAVEPOINT unfinished")
-                db.execute("UPDATE research_attempt SET lifecycle='RUNNING' WHERE attempt_id='a2'")
+                put(db,"research_attempt",scope_id="s",task_id="task",attempt_id="a3",attempt_no=3,input_sha256=H,lifecycle="RUNNING",started_at=NOW,environment_json="{}")
+                result(db,"unfinished","accuracy","HOLD",attempt="a3")
                 assert not c.export(db,read,label="chair")["items"]
                 db.execute("ROLLBACK TO unfinished");db.execute("RELEASE unfinished")
                 db.execute("SAVEPOINT counterexample")
@@ -440,21 +457,36 @@ def main(out):
                 assert not c.export(db,read,label="chair")["items"]
                 db.commit()
                 return "revision/unit/source/approval, missing group, unfinished attempt, counterexample and evidence corruption controls"
-            test("T13",t13,"design prototype; production permission and source case authorization not integrated")
+            test("T13",t13,"fixture allowlist, scoped source hash and rights filtering verified; production identity/permission enforcement not integrated")
             def t14():
-                for p in ("TEX05-R004/SOURCE_LEDGER.csv","TEX05-R007/BLOCK_VS_TERRAIN_SHADER.csv"):
-                    put(db,"legacy_disposition",history_commit="fixture",history_path=p,git_blob="f"*40,classification="REVALIDATE",import_state="QUARANTINED",reason="fixture",evidence_id="source")
+                for idx,p in enumerate(("TEX05-R004/SOURCE_LEDGER.csv","TEX05-R007/BLOCK_VS_TERRAIN_SHADER.csv")):
+                    original=b"a,b\none,two,three\n"
+                    derived=b'a,b\none,"two,three"\n'
+                    prefix="legacy-"+str(idx)
+                    ev(db,folder/"evidence",prefix+"-raw",original)
+                    ev(db,folder/"evidence",prefix+"-derived",derived)
+                    blob=c.git_blob(original)
+                    put(db,"legacy_disposition",history_commit="fixture",history_path=p,git_blob=blob,classification="REVALIDATE",import_state="QUARANTINED",reason="fixture",evidence_id=prefix+"-raw")
                     bad(lambda:c.legacy_guard(db,"fixture",p,read))
                     def bypass():
                         db.execute("UPDATE legacy_disposition SET import_state='APPROVED',approval_evidence_id='approval' WHERE history_path=?",(p,))
                         c.legacy_guard(db,"fixture",p,read)
                     rollback_test(db,bypass)
+                    payload=dict(history_commit="fixture",history_path=p,git_blob=blob,classification="REVALIDATE",original_sha256=c.sha(original),derived_sha256=c.sha(derived),transform_version="fixture-csv-v1",reviewer="fixture")
+                    ev(db,folder/"evidence",prefix+"-approval",c.canonical(payload).encode())
+                    db.execute("UPDATE legacy_disposition SET import_state='APPROVED',derived_evidence_id=?,approval_evidence_id=? WHERE history_path=?",(prefix+"-derived",prefix+"-approval",p))
+                    assert c.legacy_guard(db,"fixture",p,read)["git_blob"]==blob
+                    def wrong_approval():
+                        db.execute("UPDATE legacy_disposition SET approval_evidence_id='approval' WHERE history_path=?",(p,))
+                        c.legacy_guard(db,"fixture",p,read)
+                    rollback_test(db,wrong_approval)
+                    assert (folder/"evidence"/(prefix+"-raw")).read_bytes()==original
                 for p in ("duplicate1","duplicate2"):
                     put(db,"legacy_disposition",history_commit="fixture",history_path=p,git_blob="e"*40,classification="DUPLICATE_CANDIDATE",import_state="NOT_APPROVED",reason="fixture",evidence_id="source")
                 assert db.execute("SELECT count(*) FROM legacy_disposition WHERE git_blob=?",("e"*40,)).fetchone()[0]==2
                 db.commit()
-                return "two malformed CSV names quarantined; identical blob paths preserved"
-            test("T14",t14,"fixture guard only; no transformation approval/import runner")
+                return "two synthetic malformed CSV fixtures quarantined; exact source blob and corrected derivative/approval binding checked; duplicate paths preserved"
+            test("T14",t14,"synthetic transformation approval verified; actual historical CSV correction and production import runner not performed")
             def t15():
                 db.commit()
                 before2=schema(db)
@@ -471,6 +503,7 @@ def main(out):
             test("T15",t15)
             def t16():
                 db.commit()
+                manifest=c.backup_manifest(db,read)
                 restore=folder/"restored.sqlite"
                 with closing(connect(restore)) as dst:db.backup(dst)
                 shutil.copytree(folder/"evidence",folder/"restored-evidence")
@@ -480,9 +513,21 @@ def main(out):
                     assert [tuple(x) for x in rb.execute("PRAGMA integrity_check")]==[("ok",)]
                     assert not rb.execute("PRAGMA foreign_key_check").fetchall()
                     assert c.validate_checkpoint(rb,"s","a1",rr)==1
+                    c.validate_restore(rb,manifest,rr)
+                    target=folder/"restored-evidence"/"checkpoint"
+                    original=target.read_bytes()
+                    target.unlink()
+                    bad(lambda:c.validate_restore(rb,manifest,rr))
+                    target.write_bytes(b"tampered")
+                    bad(lambda:c.validate_restore(rb,manifest,rr))
+                    target.write_bytes(original)
+                    rb.execute("UPDATE evidence_item SET retention_state='EXPIRED' WHERE evidence_id='checkpoint'")
+                    bad(lambda:c.validate_restore(rb,manifest,rr))
+                    rb.rollback()
+                    c.validate_restore(rb,manifest,rr)
                 assert c.sha(orig.read_bytes())==orig_hash
-                return "local backup restored, evidence hashes, checkpoint and FK verified"
-            test("T16",t16,"local temporary restore only; real artifact expiry and cross-job restore not exercised")
+                return "local restore manifest, FK, checkpoint, missing/tampered/expired evidence rejection verified"
+            test("T16",t16,"local manifest and simulated expiry verified; real external archive retention and cross-job restore not exercised")
             assert not db.execute("PRAGMA foreign_key_check").fetchall()
             assert [tuple(x) for x in db.execute("PRAGMA integrity_check")]==[("ok",)]
     assert [x["id"] for x in reports]==[x["id"] for x in LOCK["required_checks"]]

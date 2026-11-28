@@ -756,3 +756,27 @@ BEGIN SELECT RAISE(ABORT,'locked scope replacement'); END;
 CREATE TRIGGER dbd_checkpoint_running BEFORE INSERT ON task_checkpoint
 WHEN NOT EXISTS (SELECT 1 FROM research_attempt WHERE scope_id=NEW.scope_id AND attempt_id=NEW.attempt_id AND lifecycle='RUNNING')
 BEGIN SELECT RAISE(ABORT,'checkpoint requires running attempt'); END;
+
+-- Preserve attempt identity, terminal state, and committed checkpoint history.
+CREATE TRIGGER dbd_attempt_identity BEFORE UPDATE ON research_attempt
+WHEN OLD.lifecycle IN ('FINISHED','INTERRUPTED')
+ OR NEW.scope_id<>OLD.scope_id OR NEW.task_id<>OLD.task_id OR NEW.attempt_id<>OLD.attempt_id
+ OR NEW.attempt_no<>OLD.attempt_no OR NEW.input_sha256<>OLD.input_sha256
+ OR (OLD.lifecycle='RUNNING' AND NEW.lifecycle NOT IN ('RUNNING','FINISHED','INTERRUPTED'))
+BEGIN SELECT RAISE(ABORT,'immutable attempt identity or terminal state'); END;
+CREATE TRIGGER dbd_attempt_delete BEFORE DELETE ON research_attempt
+BEGIN SELECT RAISE(ABORT,'attempt history immutable'); END;
+CREATE TRIGGER dbd_attempt_replace BEFORE INSERT ON research_attempt
+WHEN EXISTS (SELECT 1 FROM research_attempt WHERE scope_id=NEW.scope_id AND
+ (attempt_id=NEW.attempt_id OR (task_id=NEW.task_id AND attempt_no=NEW.attempt_no)))
+BEGIN SELECT RAISE(ABORT,'attempt replacement forbidden'); END;
+CREATE TRIGGER dbd_checkpoint_update BEFORE UPDATE ON task_checkpoint
+BEGIN SELECT RAISE(ABORT,'checkpoint immutable'); END;
+CREATE TRIGGER dbd_checkpoint_delete BEFORE DELETE ON task_checkpoint
+BEGIN SELECT RAISE(ABORT,'checkpoint immutable'); END;
+CREATE TRIGGER dbd_checkpoint_sequence BEFORE INSERT ON task_checkpoint
+WHEN NEW.batch_no<>(SELECT count(*) FROM task_checkpoint WHERE scope_id=NEW.scope_id AND attempt_id=NEW.attempt_id)
+ OR NEW.next_position<=COALESCE((SELECT max(next_position) FROM task_checkpoint WHERE scope_id=NEW.scope_id AND attempt_id=NEW.attempt_id),0)
+ OR NOT EXISTS (SELECT 1 FROM research_attempt WHERE scope_id=NEW.scope_id AND attempt_id=NEW.attempt_id AND input_sha256=NEW.input_sha256)
+ OR NOT EXISTS (SELECT 1 FROM evidence_item WHERE evidence_id=NEW.result_evidence_id AND content_sha256=NEW.result_sha256)
+BEGIN SELECT RAISE(ABORT,'checkpoint sequence or hash mismatch'); END;
