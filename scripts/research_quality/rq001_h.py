@@ -82,6 +82,7 @@ def main():
       "research/vanilla_textures/v3_100/analyze_vanilla_100.py":"v3 analyzer location",
       "research/vanilla_textures/v4_150/analyze_vanilla_100.py":"v4 inherited analyzer location"}
     assert set(roles)=={p for v in actual.values() for p in v}
+    mapped_paths=frozenset(gmap)
     records=[]
     for x in rows:
         p=x["path"]
@@ -90,7 +91,7 @@ def main():
         assert sha((repo/p).read_bytes())==z["actual_sha256"]
         rec={"path":p,"git_blob":x["git_blob_sha1"],"sha256":z["actual_sha256"],"format":x["format"],
              "group":x["group"],"file_status":z["status"],"format_status":z["format_status"],
-             "semantic_status":"NOT_REVALIDATED","evidence_areas":gmap[p],
+             "semantic_status":"NOT_REVALIDATED","evidence_areas":gmap.get(p, []),
              "duplicate_candidate":p in roles,"preserve_original":True}
         # Verified source ledgers can be reused ONLY for source identity.
         if z["status"]!="PASS":
@@ -110,7 +111,7 @@ def main():
             rec["db_tables"]=er[p]["table_count"]
         elif p=="src/mcfr/research_schema.sql" or p=="registry/legacy-releases.json":
             c,reason="REUSABLE_LIMITED","F reproduced catalog v4 and exact release/source records; no schema redesign"
-        elif p in gmap:
+        elif p in mapped_paths:
             c,reason="REVALIDATE","G field/statement evidence mapped; semantic accuracy not revalidated"
         elif historical_path(p):
             c,reason="HISTORICAL","versioned historical snapshot candidate; preserve as prior evidence, not current truth"
@@ -120,6 +121,7 @@ def main():
         if p in roles:
             rec.update(duplicate_role=roles[p],duplicate_peers=[q for q in actual[x["git_blob_sha1"]] if q!=p])
         records.append(rec)
+    assert frozenset(gmap)==mapped_paths, "evidence lookup must not mutate membership"
     expected_counts={"REVALIDATE":2268,"REUSABLE_LIMITED":11,"DUPLICATE_CANDIDATE":14,"HISTORICAL":874}
     actual_counts=dict(Counter(x["classification"] for x in records))
     assert actual_counts==expected_counts, (actual_counts,expected_counts)
