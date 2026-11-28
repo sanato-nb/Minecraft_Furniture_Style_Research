@@ -1,0 +1,293 @@
+{
+  "design": "DBD-001",
+  "phase": "7-D",
+  "scope_commit": "3684fef7d98c4f4087d1dca4405d0192ecb89706",
+  "areas": [
+    {
+      "id": 1,
+      "name": "연구 대상·버전·출처",
+      "entities": [
+        "release",
+        "release_provenance",
+        "upstream_observation"
+      ],
+      "identity": "release_key",
+      "contract": "릴리스 고정 지문·로더·게임/모드 버전·출처·권리/재배포 상태·확보 근거",
+      "tests": [
+        "T01",
+        "T02",
+        "T03",
+        "T16"
+      ],
+      "design_status": "PROPOSED",
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": 2,
+      "name": "원본 파일 색인",
+      "entities": [
+        "asset",
+        "asset_hash",
+        "unregistered_source",
+        "scope_source",
+        "source_inventory_view"
+      ],
+      "identity": "release_key+source_path; scope_id+source ordinal",
+      "contract": "지원 자산은 기존 asset만 원본 기준; 미지원 실제 파일은 별도 원장, 누락 참조는 edge. 동일 바이트 별도 경로 보존",
+      "tests": [
+        "T02",
+        "T03",
+        "T04",
+        "T14"
+      ],
+      "design_status": "PROPOSED",
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": 3,
+      "name": "모델 기본 구조",
+      "entities": [
+        "research_object",
+        "model_definition",
+        "model_slot",
+        "reference_edge"
+      ],
+      "identity": "snapshot+object_id; 원본 asset 및 JSON 위치",
+      "contract": "parent 원문, 요소 선언/상속/미지원, display/gui_light/ambientocclusion 등 원문 필드 보존; 해석된 provider 별도",
+      "tests": [
+        "T05",
+        "T07"
+      ],
+      "design_status": "PROPOSED",
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": 4,
+      "name": "3D 요소·형상",
+      "entities": [
+        "model_element",
+        "model_face",
+        "geometry_instance",
+        "measurement"
+      ],
+      "identity": "model object+element ordinal; assembly+instance ordinal",
+      "contract": "from/to·pivot/axis/angle/rescale 선언값, rotation/coordinate convention, 원형/변환 후 형상 및 치수 분리",
+      "tests": [
+        "T05",
+        "T10"
+      ],
+      "design_status": "PROPOSED",
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": 5,
+      "name": "면별 UV",
+      "entities": [
+        "model_face",
+        "model_slot",
+        "face_binding",
+        "texture_frame",
+        "measurement"
+      ],
+      "identity": "element+direction; effective model/instance+face+binding context",
+      "contract": "UV 선언/기본/적용값, rotation/uvlock, tint/cullface, 슬롯·실제 PNG/frame 연결 및 미확인",
+      "tests": [
+        "T05",
+        "T06",
+        "T07",
+        "T08"
+      ],
+      "design_status": "PROPOSED",
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": 6,
+      "name": "텍스처·픽셀 스타일",
+      "entities": [
+        "texture_definition",
+        "texture_frame",
+        "measurement",
+        "claim"
+      ],
+      "identity": "texture object+frame ordinal; measurement id",
+      "contract": "PNG width/height/RGBA/alpha/색상·대비·패턴 통계; 재질은 의미 주장으로 분리",
+      "tests": [
+        "T06",
+        "T09",
+        "T10"
+      ],
+      "design_status": "PROPOSED",
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": 7,
+      "name": "블록상태",
+      "entities": [
+        "state_definition",
+        "state_rule",
+        "state_option",
+        "state_application",
+        "geometry_instance"
+      ],
+      "identity": "state+rule ordinal+option ordinal; application id",
+      "contract": "variants/multipart 원문 조건·방향·가중치·회전·uvlock, 상태 할당과 실제 선택 결과 및 예외",
+      "tests": [
+        "T07"
+      ],
+      "design_status": "PROPOSED",
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": 8,
+      "name": "참조 그래프",
+      "entities": [
+        "reference_edge",
+        "release_delta"
+      ],
+      "identity": "snapshot+edge id; 원본 객체/대상 자산",
+      "contract": "parent/slot/state/item 등 typed edge, declared resource, namespace, version resolution, missing/cycle/unsupported, 변경 영향",
+      "tests": [
+        "T03",
+        "T07"
+      ],
+      "design_status": "PROPOSED",
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": 9,
+      "name": "오프라인 렌더링",
+      "entities": [
+        "render_case",
+        "render_output",
+        "validation_requirement",
+        "validation_result",
+        "evidence_item"
+      ],
+      "identity": "scope+render case; attempt+output id",
+      "contract": "카메라·설정·환경·로그·PNG 해시, 생성 상태와 독립 정확성 검사 분리",
+      "tests": [
+        "T04",
+        "T08",
+        "T12",
+        "T16"
+      ],
+      "design_status": "PROPOSED",
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": 10,
+      "name": "가구 종류·부품 의미",
+      "entities": [
+        "research_object",
+        "semantic_term",
+        "claim",
+        "claim_evidence",
+        "claim_relation"
+      ],
+      "identity": "claim id; object+term",
+      "contract": "종류/부품 역할, 확정/추정/미확인, 근거와 상충/반례, 구조 불변",
+      "tests": [
+        "T09",
+        "T11",
+        "T13"
+      ],
+      "design_status": "PROPOSED",
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": 11,
+      "name": "형태·비율·스타일",
+      "entities": [
+        "measurement",
+        "claim",
+        "claim_relation",
+        "semantic_term"
+      ],
+      "identity": "object+metric+method/version; claim id",
+      "contract": "상대 크기/비율/대칭/복잡도/장식/색 스타일, 분모/단위·좌표계, 비교 기준과 근거",
+      "tests": [
+        "T10",
+        "T13"
+      ],
+      "design_status": "PROPOSED",
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": 12,
+      "name": "재사용 가능한 제작 기법",
+      "entities": [
+        "technique",
+        "technique_step",
+        "claim",
+        "claim_evidence",
+        "claim_relation"
+      ],
+      "identity": "technique id+step ordinal; approval claim",
+      "contract": "후보/승인, 순서, 조건·제약, 복수 사례와 반례, 승인 전 일반 규칙 사용 금지",
+      "tests": [
+        "T11",
+        "T13"
+      ],
+      "design_status": "PROPOSED",
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": 13,
+      "name": "검증·예외·완료",
+      "entities": [
+        "research_scope",
+        "scope_unit",
+        "research_task",
+        "research_attempt",
+        "task_checkpoint",
+        "validation_requirement",
+        "validation_result",
+        "run_assessment",
+        "legacy_disposition",
+        "evidence_item",
+        "research_followup"
+      ],
+      "identity": "scope/task/unit/attempt/requirement/result id",
+      "contract": "C1/C2/C3 고정, 대상/시도/판정 분리, PASS/PARTIAL/HOLD/FAIL, 구버전 원본 검사 별도, 이력·미지원·후속 질문",
+      "tests": [
+        "T04",
+        "T08",
+        "T12",
+        "T14",
+        "T15",
+        "T16"
+      ],
+      "design_status": "PROPOSED",
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": 14,
+      "name": "AI용 지식 검색 색인",
+      "entities": [
+        "knowledge_search_view",
+        "semantic_term",
+        "claim",
+        "measurement",
+        "technique",
+        "claim_evidence",
+        "run_assessment"
+      ],
+      "identity": "원본 typed id/claim id; JSON export version",
+      "contract": "근거와 상태 필터, 종류/부품/비율/색/기법, 제한 및 반례 동시 반환; FTS 선택 인덱스는 파생물",
+      "tests": [
+        "T09",
+        "T10",
+        "T11",
+        "T13"
+      ],
+      "design_status": "PROPOSED",
+      "implementation_status": "NOT_IMPLEMENTED"
+    }
+  ],
+  "existing_tables_preserved": true,
+  "notes": [
+    "Entity names are logical proposal; physical columns and constraints are 7-E.",
+    "Design coverage is not research validation.",
+    "All current historical evidence remains immutable."
+  ]
+}
