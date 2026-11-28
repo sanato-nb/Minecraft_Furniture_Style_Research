@@ -109,7 +109,43 @@ def validate_texture(db,snap,tid,read):
         c.require(c.sha(sample)==f["rgba_sha256"],"frame pixel hash")
     return w,h
 
-def validate_state(db,snap,sid,read):
+def resolve_resource(db,snap,release,resource,kind,default_namespace="minecraft"):
+    import re
+    if ":" not in resource:resource=default_namespace+":"+resource
+    c.require(re.fullmatch(r"[a-z0-9_.-]+:[a-z0-9_./-]+",resource) is not None and all(p not in ("",".","..") for p in resource.split(":",1)[1].split("/")),"invalid resource")
+    matches=c.rows(db,"SELECT o.object_id,a.source_path FROM asset a JOIN research_object o ON o.asset_release=a.release_key AND o.asset_path=a.source_path WHERE a.release_key=? AND a.resource_id=? AND a.kind=? AND o.snapshot_id=? AND o.object_kind=?",(release,resource,kind,snap,{"model":"MODEL","texture":"TEXTURE"}[kind]))
+    c.require(len(matches)<=1,"ambiguous resource")
+    return matches[0] if matches else None
+
+def resolve_texture_alias(slots,key):
+    seen=set()
+    while key.startswith("#"):
+        name=key[1:]
+        if name in seen:return "CYCLE",None
+        if name not in slots:return "MISSING",None
+        seen.add(name);key=slots[name]
+    return "RESOLVED",key
+
+def condition_matches(condition,assignment):
+    c.require(type(condition)==dict and type(assignment)==dict,"invalid condition")
+    if not condition:return True
+    if "OR" in condition or "AND" in condition:
+        c.require(len(condition)==1,"mixed logical operator")
+        op=next(iter(condition));children=condition[op]
+        c.require(type(children)==list and bool(children),"invalid logical children")
+        values=[condition_matches(x,assignment) for x in children]
+        return any(values) if op=="OR" else all(values)
+    for k,v in condition.items():
+        c.require(type(v)==str and all(v.split("|")) and "!" not in v,"unsupported property predicate")
+    return all(assignment.get(k) in v.split("|") for k,v in condition.items())
+
+def variant_matches(selector,assignment):
+    if not selector:return True
+    terms=[part.split("=") for part in selector.split(",")]
+    c.require(all(len(x)==2 and all(x) for x in terms) and len({x[0] for x in terms})==len(terms),"invalid variant")
+    return condition_matches(dict(terms),assignment)
+
+def validate_state(db,snap,sid,read,contexts):
     _,a,raw=source(db,snap,sid,read)
     c.require(a["kind"]=="blockstate","state source kind")
     doc=strict_json(raw)
@@ -117,19 +153,48 @@ def validate_state(db,snap,sid,read):
     c.require(state["state_form"]=="MULTIPART" and set(doc)=={"multipart"},"fixture multipart only")
     rr=c.rows(db,"SELECT * FROM state_rule WHERE snapshot_id=? AND state_id=? ORDER BY rule_ordinal",(snap,sid))
     c.require(len(rr)==len(doc["multipart"]),"rule count")
+    selected=[]
     for i,rule in enumerate(rr):
         rawrule=doc["multipart"][i]
-        c.require(rule["rule_ordinal"]==i and json.loads(rule["condition_json"])==rawrule["when"],"condition mismatch")
-        opt=c.one(db,"SELECT * FROM state_option WHERE snapshot_id=? AND state_id=? AND rule_ordinal=?",(snap,sid,i))
-        aopt=rawrule["apply"]
-        c.require(opt["model_raw"]==aopt["model"] and opt["y_rotation"]==aopt.get("y") and opt["uvlock"]==aopt.get("uvlock"),"option mismatch")
-        target=c.one(db,"SELECT o.object_id FROM research_object o JOIN asset a ON a.release_key=o.asset_release AND a.source_path=o.asset_path WHERE o.snapshot_id=? AND o.object_kind='MODEL' AND a.resource_id=? AND a.release_key=?",(snap,aopt["model"],a["release_key"]))
-        c.require(opt["model_id"]==target["object_id"],"option target mismatch")
-        for app in c.rows(db,"SELECT * FROM state_application WHERE snapshot_id=? AND state_id=? AND rule_ordinal=?",(snap,sid,i)):
+        when=rawrule.get("when",{})
+        c.require(rule["rule_ordinal"]==i and rule["rule_form"]=="MULTIPART" and json.loads(rule["condition_json"])==when,"condition mismatch")
+        opts=c.rows(db,"SELECT * FROM state_option WHERE snapshot_id=? AND state_id=? AND rule_ordinal=? ORDER BY option_ordinal",(snap,sid,i))
+        aopts=rawrule["apply"] if isinstance(rawrule["apply"],list) else [rawrule["apply"]]
+        c.require(len(opts)==len(aopts),"option count")
+        for j,(opt,aopt) in enumerate(zip(opts,aopts)):
+            c.require(opt["option_ordinal"]==j and opt["model_raw"]==aopt["model"] and opt["x_rotation"]==aopt.get("x") and opt["y_rotation"]==aopt.get("y") and opt["uvlock"]==aopt.get("uvlock") and opt["weight"]==aopt.get("weight"),"option mismatch")
+            target=resolve_resource(db,snap,a["release_key"],aopt["model"],"model")
+            c.require(opt["resolution"]==("RESOLVED" if target else "MISSING") and opt["model_id"]==(target["object_id"] if target else None),"option target mismatch")
+        apps=c.rows(db,"SELECT * FROM state_application WHERE snapshot_id=? AND state_id=? AND rule_ordinal=?",(snap,sid,i))
+        expected={key for key,assignment in contexts.items() if condition_matches(when,assignment)}
+        c.require({app["selection_context"] for app in apps}==expected and len(apps)==len(expected),"application coverage mismatch")
+        for app in apps:
             assignment=json.loads(app["assignment_json"])
-            matched=all(assignment.get(k)==v for k,v in rawrule["when"].items())
-            c.require(matched and app["selection_status"]=="SELECTED" and json.loads(app["transform_json"])=={"y":aopt["y"]},"state application mismatch")
-    return len(rr)
+            c.require(assignment==contexts[app["selection_context"]],"assignment mismatch")
+            opt=opts[app["option_ordinal"]]
+            c.require(app["selection_status"]==("SELECTED" if opt["model_id"] else "UNRESOLVED"),"selection status mismatch")
+            transform={k:aopts[app["option_ordinal"]][k] for k in ("x","y") if k in aopts[app["option_ordinal"]]}
+            c.require(json.loads(app["transform_json"])==transform,"state application mismatch")
+            selected.append((i,app["selection_context"],app["option_ordinal"]))
+    return sorted(selected)
+
+def validate_fixture_references(db,snap,read):
+    _,a,base=source(db,snap,"base",read)
+    _,_,child=source(db,snap,"child",read)
+    base,child=strict_json(base),strict_json(child)
+    parent=resolve_resource(db,snap,a["release_key"],child["parent"],"model")
+    c.require(parent and parent["object_id"]=="base","parent target")
+    edge=c.one(db,"SELECT * FROM reference_edge WHERE snapshot_id=? AND edge_id='parent'",(snap,))
+    c.require(edge["declared_reference"]==child["parent"] and edge["target_release"]==a["release_key"] and edge["target_path"]==parent["source_path"] and edge["resolution"]=="RESOLVED","parent edge mismatch")
+    slots={**base["textures"],**child["textures"]}
+    for mid,name in (("base","wood"),("child","missing")):
+        state,resource=resolve_texture_alias(slots,"#"+name)
+        target=resolve_resource(db,snap,a["release_key"],resource,"texture") if resource else None
+        if state=="RESOLVED" and target is None:state="MISSING"
+        slot=c.one(db,"SELECT * FROM model_slot WHERE snapshot_id=? AND model_id=? AND slot=?",(snap,mid,name))
+        c.require(slot["declared_value"]==slots[name] and slot["resolution"]==state and slot["texture_id"]==(target["object_id"] if target else None),"texture slot mismatch")
+    edge=c.one(db,"SELECT * FROM reference_edge WHERE snapshot_id=? AND edge_id='missing'",(snap,))
+    c.require(edge["declared_reference"]==child["textures"]["missing"] and edge["resolution"]=="MISSING" and edge["target_path"] is None,"missing edge mismatch")
 
 def validate_render(db,sid,output,read):
     o=c.one(db,"SELECT o.*,c.width,c.height,c.unit_id FROM render_output o JOIN render_case c ON c.scope_id=o.scope_id AND c.case_id=o.case_id WHERE o.scope_id=? AND o.output_id=?",(sid,output))

@@ -67,7 +67,7 @@ def fixture(db,folder):
         "base.json":("model",{"textures":{"wood":"fixture:tex"},"elements":[{"from":[0,0,0],"to":[16,8,16],"faces":{"north":{"texture":"#wood","uv":[0,0,16,8]}}}]}),
         "child.json":("model",{"parent":"fixture:base","textures":{"missing":"#not_defined"}}),
         "second.json":("model",{"elements":[{"from":[0,0,0],"to":[16,4,16],"faces":{}}]}),
-        "state.json":("blockstate",{"multipart":[{"when":{"north":"true"},"apply":{"model":"fixture:child","y":90,"uvlock":True}}]})
+        "state.json":("blockstate",{"multipart":[{"when":{"north":"true"},"apply":{"model":"fixture:child","y":90,"uvlock":True}},{"when":{"OR":[{"north":"true"},{"north":"false","east":"true"}]},"apply":[{"model":"fixture:second","weight":2},{"model":"fixture:absent","weight":1}]}]})
     }
     bodies={p:(k,c.canonical(doc).encode()) for p,(k,doc) in source_docs.items()}
     bodies["tex.png"]=("texture",png(16,16,True))
@@ -108,6 +108,12 @@ def fixture(db,folder):
     put(db,"state_option",snapshot_id="snap",state_id="state",rule_ordinal=0,option_ordinal=0,model_raw="fixture:child",model_id="child",resolution="RESOLVED",y_rotation=90,uvlock=1)
     obj(db,"app","APPLICATION")
     put(db,"state_application",snapshot_id="snap",object_id="app",state_id="state",rule_ordinal=0,option_ordinal=0,assignment_json='{"north":"true"}',selection_context="fixture",transform_json='{"y":90}',selection_status="SELECTED")
+    put(db,"state_rule",snapshot_id="snap",state_id="state",rule_ordinal=1,rule_form="MULTIPART",condition_json='{"OR":[{"north":"true"},{"north":"false","east":"true"}]}')
+    put(db,"state_option",snapshot_id="snap",state_id="state",rule_ordinal=1,option_ordinal=0,model_raw="fixture:second",model_id="second",resolution="RESOLVED",weight=2)
+    put(db,"state_option",snapshot_id="snap",state_id="state",rule_ordinal=1,option_ordinal=1,model_raw="fixture:absent",resolution="MISSING",weight=1)
+    for oid,context,assignment,ordinal,status in [("app2","fixture",{"north":"true"},0,"SELECTED"),("app3","east",{"north":"false","east":"true"},1,"UNRESOLVED")]:
+        obj(db,oid,"APPLICATION")
+        put(db,"state_application",snapshot_id="snap",object_id=oid,state_id="state",rule_ordinal=1,option_ordinal=ordinal,assignment_json=c.canonical(assignment),selection_context=context,transform_json="{}",selection_status=status)
     obj(db,"instance","INSTANCE")
     put(db,"geometry_instance",snapshot_id="snap",object_id="instance",assembly_id="app",assembly_kind="APPLICATION",element_id="el",instance_ordinal=0,transform_json='{"y":90}',bbox_json="[0,0,0,16,8,16]",coordinate_system="MC_MODEL_16")
     obj(db,"binding","BINDING")
@@ -141,12 +147,16 @@ def fixture(db,folder):
         put(db,"semantic_term",term_id=term,term_kind=kind,label=label,definition="fixture")
     for id,term,certainty,review,cls,rev,key in [("old","chair","ESTIMATED","PARTIAL","INFERRED",1,"category"),("confirmed","chair","CONFIRMED","PASS","INFERRED",2,"category"),("unknown","part","UNKNOWN","HOLD","UNKNOWN",1,"part"),("candidate","tech","ESTIMATED","PARTIAL","INFERRED",1,"tech"),("approved","tech","CONFIRMED","PASS","INFERRED",1,"approved")]:
         put(db,"claim",claim_id=id,snapshot_id="snap",object_id="base",term_id=term,claim_key=key,revision=rev,statement="fixture "+id,evidence_class=cls,certainty=certainty,review_status=review,conditions_json='{"fixture":true}',limitations="synthetic only",reviewer="fixture" if certainty=="CONFIRMED" else None,reviewed_at=NOW if certainty=="CONFIRMED" else None)
-    for id in ("confirmed","candidate","approved"):
+    for id in ("confirmed","candidate"):
         put(db,"claim_evidence",claim_id=id,evidence_id="source",role="SUPPORT",locator_detail="fixture")
-    put(db,"claim_evidence",claim_id="approved",evidence_id="support2",role="SUPPORT",locator_detail="fixture2")
+    for p in ("base.json","second.json"):
+        put(db,"claim_evidence",claim_id="approved",evidence_id="raw-"+p,role="SUPPORT",locator_detail="source model")
     put(db,"technique",technique_id="candidate",claim_id="candidate",disposition="CANDIDATE",applicability_json='{"fixture":true}')
     put(db,"technique",technique_id="approved",claim_id="approved",disposition="APPROVED",applicability_json='{"fixture":true}',approval_evidence_id="approval",approved_by="fixture",approved_at=NOW)
-    put(db,"technique_step",technique_id="approved",step_ordinal=0,instruction="fixture step",conditions_json="{}",evidence_id="source")
+    put(db,"technique_step",technique_id="approved",step_ordinal=0,instruction="fixture step",conditions_json="{}",evidence_id="raw-base.json")
+    approval=c.canonical(c.technique_approval_payload(db,"approved",read)).encode()
+    (folder/"approval").write_bytes(approval)
+    db.execute("UPDATE evidence_item SET content_sha256=?,byte_count=? WHERE evidence_id='approval'",(c.sha(approval),len(approval)))
     for aid,kind,sel in [("model-pass","MODEL",{"structure":"struct"}),("render-pass","RENDER",{"generation":"gen","accuracy":"accurate"})]:
         value=c.assessment(db,"s",kind,sel,read)
         put(db,"run_assessment",scope_id="s",assessment_id=aid,revision=1,unit_kind=kind,reason="fixture",assessed_at=NOW,**value)
@@ -273,22 +283,38 @@ def main(out):
                 return "asymmetric PNG, exact ordered fixture UV corners, mirrored UV rejection and frame hash verified"
             test("T06",t06,"asymmetric fixture UV ordering and sampling verified; Minecraft UV-lock and other transforms remain unverified")
             def t07():
-                assert c.one(db,"SELECT uvlock,y_rotation FROM state_option")=={"uvlock":1,"y_rotation":90}
+                assert c.one(db,"SELECT uvlock,y_rotation FROM state_option WHERE rule_ordinal=0")=={"uvlock":1,"y_rotation":90}
                 assert c.one(db,"SELECT resolution,target_path FROM reference_edge WHERE edge_id='missing'")=={"resolution":"MISSING","target_path":None}
                 c.reject_cycles([("child","base")])
                 bad(lambda:c.reject_cycles([("child","base"),("base","child")]))
                 rollback_test(db,lambda:db.execute("UPDATE state_option SET model_id='absent' WHERE state_id='state'"))
-                assert oracle.validate_state(db,"snap","state",read)==1
+                contexts={"fixture":{"north":"true"},"east":{"north":"false","east":"true"},"none":{"north":"false","east":"false"}}
+                assert oracle.validate_state(db,"snap","state",read,contexts)==[(0,"fixture",0),(1,"east",1),(1,"fixture",0)]
+                oracle.validate_fixture_references(db,"snap",read)
                 def state():
                     db.execute("UPDATE state_application SET assignment_json='{}' WHERE object_id='app'")
-                    oracle.validate_state(db,"snap","state",read)
+                    oracle.validate_state(db,"snap","state",read,contexts)
                 rollback_test(db,state)
                 def option():
                     db.execute("UPDATE state_option SET y_rotation=180 WHERE state_id='state'")
-                    oracle.validate_state(db,"snap","state",read)
+                    oracle.validate_state(db,"snap","state",read,contexts)
                 rollback_test(db,option)
-                return "actual multipart source condition, selected option, model target, transform and negative controls"
-            test("T07",t07,"simple multipart fixture verified; complete namespace and condition resolver not verified")
+                def absent_application():
+                    db.execute("DELETE FROM state_application WHERE object_id='app3'")
+                    oracle.validate_state(db,"snap","state",read,contexts)
+                rollback_test(db,absent_application)
+                def wrong_edge():
+                    db.execute("UPDATE reference_edge SET target_path='second.json' WHERE edge_id='parent'")
+                    oracle.validate_fixture_references(db,"snap",read)
+                rollback_test(db,wrong_edge)
+                assert oracle.resolve_resource(db,"snap","fixture","fixture:absent","model") is None
+                assert oracle.resolve_resource(db,"snap","fixture","other:base","model") is None
+                assert oracle.resolve_texture_alias({"a":"#b","b":"#a"},"#a")==("CYCLE",None)
+                assert oracle.variant_matches("north=true,east=false",{"north":"true","east":"false"})
+                assert not oracle.variant_matches("north=true,east=false",{"north":"true","east":"true"})
+                bad(lambda:oracle.variant_matches("north=true,north=false",{"north":"true"}))
+                return "scoped namespace, alias cycle/missing, nested OR, weighted options, missing model and application coverage verified"
+            test("T07",t07,"bounded multipart and variant predicate fixtures; full variant selection and complete game resolver not verified")
             def t08():
                 assert c.one(db,"SELECT generation_status FROM render_output WHERE output_id='output'")["generation_status"]=="GENERATED"
                 assert c.assessment(db,"s","RENDER",{"generation":"gen"},read)["status"]=="PARTIAL"
@@ -341,11 +367,34 @@ def main(out):
                 c.approval_guard(db,"approved",read)
                 bad(lambda:c.approval_guard(db,"candidate",read))
                 def support():
-                    db.execute("DELETE FROM claim_evidence WHERE claim_id='approved' AND evidence_id='support2'")
+                    db.execute("DELETE FROM claim_evidence WHERE claim_id='approved' AND evidence_id='raw-second.json'")
                     c.approval_guard(db,"approved",read)
                 rollback_test(db,support)
-                return "candidate blocked; two distinct support bodies and steps required"
-            test("T11",t11,"distinct bodies not necessarily independent source cases; no full approval transition or claim relation cycle enforcement")
+                def unrelated():
+                    db.execute("DELETE FROM claim_evidence WHERE claim_id='approved' AND evidence_id='raw-second.json'")
+                    put(db,"claim_evidence",claim_id="approved",evidence_id="support2",role="SUPPORT",locator_detail="unrelated")
+                    c.approval_guard(db,"approved",read)
+                rollback_test(db,unrelated)
+                def counter():
+                    put(db,"claim_evidence",claim_id="approved",evidence_id="support2",role="COUNTEREXAMPLE",locator_detail="fixture")
+                    c.approval_guard(db,"approved",read)
+                rollback_test(db,counter)
+                def cycle():
+                    put(db,"claim_relation",claim_id="approved",related_claim_id="candidate",relation="SUPERSEDES",reason="fixture")
+                    put(db,"claim_relation",claim_id="candidate",related_claim_id="approved",relation="SUPERSEDES",reason="fixture")
+                    c.approval_guard(db,"approved",read)
+                rollback_test(db,cycle)
+                def changed_step():
+                    db.execute("UPDATE technique_step SET instruction='changed' WHERE technique_id='approved'")
+                    c.approval_guard(db,"approved",read)
+                rollback_test(db,changed_step)
+                def conflict():
+                    put(db,"claim_relation",claim_id="unknown",related_claim_id="approved",relation="CONTRADICTS",reason="fixture")
+                    c.approval_guard(db,"approved",read)
+                rollback_test(db,conflict)
+                assert len(c.technique_support_cases(db,"approved",read))==2
+                return "two distinct scoped source model bodies, approval manifest, unrelated support, counterexample, cycle and changed step controls"
+            test("T11",t11,"two distinct scoped source fixtures and approval manifest verified; actual independent research evidence and production approval transitions not validated")
             def t12():
                 assert c.assessment(db,"s","MODEL",{},read)["status"]=="HOLD"
                 assert c.assessment(db,"s","MODEL",{"structure":"struct"},read)["status"]=="PASS"

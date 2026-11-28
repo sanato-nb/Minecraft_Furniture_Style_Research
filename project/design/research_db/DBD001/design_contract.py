@@ -214,15 +214,41 @@ def validate_saved_assessment(db,sid,aid,read):
     require(all(a[k]==v for k,v in computed.items()),"assessment mismatch")
     return computed
 
-def approval_guard(db,tid,read):
-    t=one(db,"SELECT t.*,c.certainty,c.review_status FROM technique t JOIN claim c USING(claim_id) WHERE technique_id=?",(tid,))
-    require(t["disposition"]=="APPROVED" and t["certainty"]=="CONFIRMED" and t["review_status"]=="PASS","not approved")
-    require_evidence(db,t["approval_evidence_id"],read)
-    support=rows(db,"SELECT e.* FROM claim_evidence c JOIN evidence_item e USING(evidence_id) WHERE c.claim_id=? AND c.role='SUPPORT'",(t["claim_id"],))
-    require(len({e["content_sha256"] for e in support if evidence_ok(db,e["evidence_id"],read)})>=2,"two distinct supporting bodies required for fixture")
+def technique_support_cases(db,claim_id,read):
+    claim=one(db,"SELECT c.*,s.scope_id FROM claim c JOIN analysis_snapshot s USING(snapshot_id) WHERE claim_id=?",(claim_id,))
+    supports=rows(db,"SELECT DISTINCT e.* FROM claim_evidence ce JOIN evidence_item e USING(evidence_id) WHERE ce.claim_id=? AND ce.role='SUPPORT'",(claim_id,))
+    cases=[]
+    for e in supports:
+        require_evidence(db,e["evidence_id"],read)
+        matches=rows(db,"SELECT DISTINCT o.asset_release,o.asset_path,a.digest,a.hash_algorithm,a.byte_count,r.pin_digest FROM object_evidence oe JOIN research_object o USING(snapshot_id,object_id) JOIN asset a ON a.release_key=o.asset_release AND a.source_path=o.asset_path JOIN release r ON r.release_key=a.release_key JOIN scope_source ss ON ss.asset_release=a.release_key AND ss.asset_path=a.source_path WHERE oe.snapshot_id=? AND oe.evidence_id=? AND oe.evidence_class='SOURCE' AND o.object_kind='MODEL' AND a.kind='model' AND ss.scope_id=? AND ss.included=1",(claim["snapshot_id"],e["evidence_id"],claim["scope_id"]))
+        require(len(matches)==1,"support not bound to exactly one scoped model source")
+        a=matches[0]
+        require(a["hash_algorithm"]=="SHA256" and a["digest"]==e["content_sha256"] and a["byte_count"]==e["byte_count"],"support source hash mismatch")
+        cases.append(dict(release=a["asset_release"],path=a["asset_path"],pin=a["pin_digest"],sha256=a["digest"],evidence_id=e["evidence_id"]))
+    require(len({(x["release"],x["path"]) for x in cases})>=2 and len({x["sha256"] for x in cases})>=2,"two distinct source cases required")
+    return sorted(cases,key=lambda x:(x["release"],x["path"],x["evidence_id"]))
+
+def technique_approval_payload(db,tid,read):
+    t=one(db,"SELECT t.*,c.certainty,c.review_status,c.revision,c.statement,c.conditions_json,c.limitations,c.snapshot_id,c.object_id,c.claim_key FROM technique t JOIN claim c USING(claim_id) WHERE technique_id=?",(tid,))
+    require(t["certainty"]=="CONFIRMED" and t["review_status"]=="PASS","claim not reviewed")
+    latest=one(db,"SELECT MAX(revision) AS revision FROM claim WHERE snapshot_id=? AND object_id=? AND claim_key=?",(t["snapshot_id"],t["object_id"],t["claim_key"]))
+    require(latest["revision"]==t["revision"],"stale claim")
+    require(not rows(db,"SELECT 1 FROM claim_evidence WHERE claim_id=? AND role='COUNTEREXAMPLE'",(t["claim_id"],)),"counterexample evidence")
+    require(not rows(db,"SELECT 1 FROM claim_relation WHERE (claim_id=? OR related_claim_id=?) AND relation IN ('CONTRADICTS','COUNTEREXAMPLE')",(t["claim_id"],t["claim_id"])),"contradiction")
+    reject_cycles([(x["claim_id"],x["related_claim_id"]) for x in rows(db,"SELECT claim_id,related_claim_id FROM claim_relation WHERE relation='SUPERSEDES'")])
+    support=technique_support_cases(db,t["claim_id"],read)
     steps=rows(db,"SELECT * FROM technique_step WHERE technique_id=? ORDER BY step_ordinal",(tid,))
     require(steps and all(s["step_ordinal"]==i and s["instruction"].strip() and evidence_ok(db,s["evidence_id"],read) for i,s in enumerate(steps)),"steps/evidence missing")
-    require(bool(json.loads(t["applicability_json"])),"application conditions missing")
+    applicability=json.loads(t["applicability_json"])
+    require(type(applicability)==dict and bool(applicability),"application conditions missing")
+    return dict(technique_id=tid,claim_id=t["claim_id"],revision=t["revision"],statement=t["statement"],conditions=json.loads(t["conditions_json"]),limitations=t["limitations"],applicability=applicability,support_cases=support,steps=steps,approved_by=t["approved_by"],approved_at=t["approved_at"])
+
+def approval_guard(db,tid,read):
+    t=one(db,"SELECT * FROM technique WHERE technique_id=?",(tid,))
+    require(t["disposition"]=="APPROVED" and t["approved_by"] and t["approved_at"],"not approved")
+    require_evidence(db,t["approval_evidence_id"],read)
+    e=one(db,"SELECT * FROM evidence_item WHERE evidence_id=?",(t["approval_evidence_id"],))
+    require(json.loads(read(e))==technique_approval_payload(db,tid,read),"approval manifest mismatch")
 
 def export(db,read,*,label=None,term_kind=None,confirmed_only=True,metric=None,unit=None,min_value=None,release=None):
     require(min_value is None or (metric is not None and unit is not None and math.isfinite(min_value)),"metric/unit required")
