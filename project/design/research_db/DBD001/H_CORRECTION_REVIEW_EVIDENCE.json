@@ -1,0 +1,580 @@
+{
+  "stage": "7-H 후속 교정 및 재심사",
+  "scope_blob": "882b65e0704679a1d84f7287df8af1a77093679c",
+  "scope_unchanged": true,
+  "verified_head": "46ceacc8f43127a91b9aeca12b70a43756775a4a",
+  "changed_files": [
+    {
+      "filename": "project/design/research_db/DBD001/DATA_DICTIONARY.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "previous_filename": null
+    },
+    {
+      "filename": "project/design/research_db/DBD001/SEARCH_AND_VALIDATION.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 0,
+      "changes": 6,
+      "previous_filename": null
+    },
+    {
+      "filename": "project/design/research_db/DBD001/design_contract.py",
+      "status": "modified",
+      "additions": 55,
+      "deletions": 11,
+      "changes": 66,
+      "previous_filename": null
+    },
+    {
+      "filename": "project/design/research_db/DBD001/design_tests.py",
+      "status": "modified",
+      "additions": 56,
+      "deletions": 13,
+      "changes": 69,
+      "previous_filename": null
+    },
+    {
+      "filename": "project/design/research_db/DBD001/schema_proposal.sql",
+      "status": "modified",
+      "additions": 36,
+      "deletions": 4,
+      "changes": 40,
+      "previous_filename": null
+    }
+  ],
+  "runs": [
+    {
+      "commit": "35c30331cf2759c09ff04037762fe689e327d8d2",
+      "run": 46165694545,
+      "job": 141042605558,
+      "conclusion": "success",
+      "artifacts": [
+        {
+          "id": 15271667426,
+          "name": "dbd001-g-results",
+          "expired": false,
+          "size": 18055
+        }
+      ],
+      "tests": [
+        {
+          "detail": {
+            "existing_tables": 8,
+            "unchanged_rows": {
+              "ai_review": 0,
+              "asset": 25387,
+              "release": 4,
+              "research_execution": 0,
+              "research_run": 0,
+              "source_checkpoint": 0,
+              "source_job": 0,
+              "upstream_observation": 0
+            }
+          },
+          "id": "T01",
+          "limit": null,
+          "status": "PASS"
+        },
+        {
+          "detail": {
+            "initial": {
+              "assets_added": 25387,
+              "assets_added_by_release": {
+                "another-furniture-4.0.3-git": 2994,
+                "handcrafted-4.0.3-git": 13626,
+                "macaws-furniture-3.4.2-fabric": 3999,
+                "minecraft-java-1.21.11-git": 4768
+              }
+            },
+            "repeat": {
+              "assets_added": 0,
+              "assets_added_by_release": {
+                "another-furniture-4.0.3-git": 0,
+                "handcrafted-4.0.3-git": 0,
+                "macaws-furniture-3.4.2-fabric": 0,
+                "minecraft-java-1.21.11-git": 0
+              }
+            }
+          },
+          "id": "T02",
+          "limit": null,
+          "status": "PASS"
+        },
+        {
+          "detail": "version distinct; conflicting existing key/digest and cross-catalog path blocked by guard",
+          "id": "T03",
+          "limit": null,
+          "status": "PASS"
+        },
+        {
+          "detail": "locked scope and terminal attempts immutable; checkpoint update/delete/replace, sequence, new attempt retry and rollback checked",
+          "id": "T04",
+          "limit": "local transaction fixture; cross-job restart and full execution writer not implemented",
+          "status": "PARTIAL"
+        },
+        {
+          "detail": "actual synthetic source SHA, parent, pointer, elements/faces, coordinate mutation checked",
+          "id": "T05",
+          "limit": null,
+          "status": "PASS"
+        },
+        {
+          "detail": "asymmetric PNG, exact ordered fixture UV corners, mirrored UV rejection and frame hash verified",
+          "id": "T06",
+          "limit": "asymmetric fixture UV ordering and sampling verified; Minecraft UV-lock and other transforms remain unverified",
+          "status": "PARTIAL"
+        },
+        {
+          "detail": "scoped namespace, alias cycle/missing, nested OR, weighted options, missing model and application coverage verified",
+          "id": "T07",
+          "limit": "bounded multipart and variant predicate fixtures; full variant selection and complete game resolver not verified",
+          "status": "PARTIAL"
+        },
+        {
+          "detail": "PNG decode and size, render unit/attempt and distinct reference/report/output body binding verified",
+          "id": "T08",
+          "limit": "render/result provenance fixture verified; report assertion is not independent visual accuracy",
+          "status": "PARTIAL"
+        },
+        {
+          "detail": "UNKNOWN independent of geometry; invalid confirmation rejected",
+          "id": "T09",
+          "limit": null,
+          "status": "PASS"
+        },
+        {
+          "detail": "two independent synthetic model dimensions and comparable-unit difference; consistent but incorrect ratio rejected",
+          "id": "T10",
+          "limit": "source-derived dimensional comparison verified; broader style metrics not independently verified",
+          "status": "PARTIAL"
+        },
+        {
+          "detail": "two distinct scoped source model bodies, approval manifest, unrelated support, counterexample, cycle and changed step controls",
+          "id": "T11",
+          "limit": "two distinct scoped source fixtures and approval manifest verified; actual independent research evidence and production approval transitions not validated",
+          "status": "PARTIAL"
+        },
+        {
+          "detail": "four verdicts, denominator, latest locked task attempt including zero-result retry, cross-task rejection and stale PASS rejection",
+          "id": "T12",
+          "limit": null,
+          "status": "PASS"
+        },
+        {
+          "detail": "revision/unit/source/approval, missing group, unfinished attempt, counterexample and evidence corruption controls",
+          "id": "T13",
+          "limit": "fixture allowlist, scoped source hash and rights filtering verified; production identity/permission enforcement not integrated",
+          "status": "PARTIAL"
+        },
+        {
+          "detail": "two synthetic malformed CSV fixtures quarantined; exact source blob and corrected derivative/approval binding checked; duplicate paths preserved",
+          "id": "T14",
+          "limit": "synthetic transformation approval verified; actual historical CSV correction and production import runner not performed",
+          "status": "PARTIAL"
+        },
+        {
+          "detail": "reapplication rejected atomically; partial DDL rolled back; source unchanged",
+          "id": "T15",
+          "limit": null,
+          "status": "PASS"
+        },
+        {
+          "detail": "local restore manifest including all table row digests, FK, checkpoint, modified row and missing/tampered/expired evidence rejection verified",
+          "id": "T16",
+          "limit": "local manifest and simulated expiry verified; real external archive retention and cross-job restore not exercised",
+          "status": "PARTIAL"
+        }
+      ],
+      "fixture_summary": {
+        "contract_sha256": "0ef100622fb58a413472f0aad24a8868782488ec559784f4dfd8478451857b3e",
+        "counts": {
+          "FAIL": 0,
+          "HOLD": 0,
+          "PARTIAL": 9,
+          "PASS": 7
+        },
+        "executed": 16,
+        "gate": "7-G",
+        "oracle_sha256": "f30e07b7edb56b638c606a21a057fea252a18c5d3100658bf9b2a243f93b7b88",
+        "schema_sha256": "69dcad13a9bff7b7ba3020820bd321fd4397d268bef5399c6b2b5198151905ef",
+        "scope_sha256": "b88ba9304d2505c8901d3eeb7e860e5663e707740cd1c90901b8aa8174a2ffc1",
+        "status": "PARTIAL",
+        "test_sha256": "00fbe8a3c1cab7cc5cdba40264e1d01090079dcde5d29cd3fa95aef21f3dfccd"
+      },
+      "independent_summary": {
+        "closure": "CLOSED_PARTIAL",
+        "current_counts": {
+          "FAIL": 0,
+          "HOLD": 0,
+          "PARTIAL": 9,
+          "PASS": 7
+        },
+        "current_result_sha256": "0dfee809c0e049f64d1d36937529c04d5a3e33c38f7d7cafee542fefc80ca18a",
+        "design_counts": {
+          "index": 11,
+          "table": 43,
+          "trigger": 39,
+          "view": 2
+        },
+        "design_quality": "PARTIAL",
+        "execution_status": "PASS",
+        "fixed_tests": 16,
+        "gate": "7-H",
+        "historical_ddl_sha256": "b33e357fedaf6b06d07693b94ce2a5a0e8bedac7ba8ebe1e949e3e67ee664802",
+        "historical_paths": 9,
+        "historical_rows": 366868,
+        "historical_tables": 134,
+        "historical_unique": 8,
+        "limits": "Physical historical DDL and row-count comparison; no semantic import or full game validation. Closure still requires reviewer disposition.",
+        "mapped_areas": 14,
+        "past_records": [
+          {
+            "commit": "2176903c4f4b30fa28cd3f11b70c12b388b9cb6a",
+            "counts": {
+              "FAIL": 0,
+              "HOLD": 0,
+              "PARTIAL": 11,
+              "PASS": 5
+            },
+            "run": 46155488364
+          },
+          {
+            "commit": "2b3881d7ac80e18549c0d12964b68b23eea1ad6f",
+            "counts": {
+              "FAIL": 0,
+              "HOLD": 0,
+              "PARTIAL": 10,
+              "PASS": 6
+            },
+            "run": 46157302810
+          },
+          {
+            "commit": "08d1afd3e489047fc4773af7b48f08d9b3e9068e",
+            "counts": {
+              "FAIL": 0,
+              "HOLD": 0,
+              "PARTIAL": 9,
+              "PASS": 7
+            },
+            "run": 46157953724
+          },
+          {
+            "commit": "ae0fc8cbb4242c96eb0b4ecedbe890891b978216",
+            "counts": {
+              "FAIL": 0,
+              "HOLD": 0,
+              "PARTIAL": 9,
+              "PASS": 7
+            },
+            "run": 46158304393
+          },
+          {
+            "commit": "25a93bb670bf31f3c87dca5419622e7a66ab1478",
+            "counts": {
+              "FAIL": 0,
+              "HOLD": 0,
+              "PARTIAL": 9,
+              "PASS": 7
+            },
+            "run": 46159077686
+          },
+          {
+            "commit": "04c7111e1f6b8a4834b06af38402b686d000dc3b",
+            "counts": {
+              "FAIL": 0,
+              "HOLD": 0,
+              "PARTIAL": 9,
+              "PASS": 7
+            },
+            "run": 46159601524
+          }
+        ],
+        "production_migration": "NOT_PERFORMED",
+        "scope_inputs": 19,
+        "semantic_validation": "NOT_PERFORMED"
+      }
+    },
+    {
+      "commit": "46ceacc8f43127a91b9aeca12b70a43756775a4a",
+      "run": 46165780620,
+      "job": 141042864071,
+      "conclusion": "success",
+      "artifacts": [
+        {
+          "id": 15271207499,
+          "name": "dbd001-g-results",
+          "expired": false,
+          "size": 18057
+        }
+      ],
+      "tests": [
+        {
+          "detail": {
+            "existing_tables": 8,
+            "unchanged_rows": {
+              "ai_review": 0,
+              "asset": 25387,
+              "release": 4,
+              "research_execution": 0,
+              "research_run": 0,
+              "source_checkpoint": 0,
+              "source_job": 0,
+              "upstream_observation": 0
+            }
+          },
+          "id": "T01",
+          "limit": null,
+          "status": "PASS"
+        },
+        {
+          "detail": {
+            "initial": {
+              "assets_added": 25387,
+              "assets_added_by_release": {
+                "another-furniture-4.0.3-git": 2994,
+                "handcrafted-4.0.3-git": 13626,
+                "macaws-furniture-3.4.2-fabric": 3999,
+                "minecraft-java-1.21.11-git": 4768
+              }
+            },
+            "repeat": {
+              "assets_added": 0,
+              "assets_added_by_release": {
+                "another-furniture-4.0.3-git": 0,
+                "handcrafted-4.0.3-git": 0,
+                "macaws-furniture-3.4.2-fabric": 0,
+                "minecraft-java-1.21.11-git": 0
+              }
+            }
+          },
+          "id": "T02",
+          "limit": null,
+          "status": "PASS"
+        },
+        {
+          "detail": "version distinct; conflicting existing key/digest and cross-catalog path blocked by guard",
+          "id": "T03",
+          "limit": null,
+          "status": "PASS"
+        },
+        {
+          "detail": "locked scope and terminal attempts immutable; checkpoint update/delete/replace, sequence, new attempt retry and rollback checked",
+          "id": "T04",
+          "limit": "local transaction fixture; cross-job restart and full execution writer not implemented",
+          "status": "PARTIAL"
+        },
+        {
+          "detail": "actual synthetic source SHA, parent, pointer, elements/faces, coordinate mutation checked",
+          "id": "T05",
+          "limit": null,
+          "status": "PASS"
+        },
+        {
+          "detail": "asymmetric PNG, exact ordered fixture UV corners, mirrored UV rejection and frame hash verified",
+          "id": "T06",
+          "limit": "asymmetric fixture UV ordering and sampling verified; Minecraft UV-lock and other transforms remain unverified",
+          "status": "PARTIAL"
+        },
+        {
+          "detail": "scoped namespace, alias cycle/missing, nested OR, weighted options, missing model and application coverage verified",
+          "id": "T07",
+          "limit": "bounded multipart and variant predicate fixtures; full variant selection and complete game resolver not verified",
+          "status": "PARTIAL"
+        },
+        {
+          "detail": "PNG decode and size, render unit/attempt and distinct reference/report/output body binding verified",
+          "id": "T08",
+          "limit": "render/result provenance fixture verified; report assertion is not independent visual accuracy",
+          "status": "PARTIAL"
+        },
+        {
+          "detail": "UNKNOWN independent of geometry; invalid confirmation rejected",
+          "id": "T09",
+          "limit": null,
+          "status": "PASS"
+        },
+        {
+          "detail": "two independent synthetic model dimensions and comparable-unit difference; consistent but incorrect ratio rejected",
+          "id": "T10",
+          "limit": "source-derived dimensional comparison verified; broader style metrics not independently verified",
+          "status": "PARTIAL"
+        },
+        {
+          "detail": "two distinct scoped source model bodies, approval manifest, unrelated support, counterexample, cycle and changed step controls",
+          "id": "T11",
+          "limit": "two distinct scoped source fixtures and approval manifest verified; actual independent research evidence and production approval transitions not validated",
+          "status": "PARTIAL"
+        },
+        {
+          "detail": "four verdicts, denominator, latest locked task attempt including zero-result retry, cross-task rejection and stale PASS rejection",
+          "id": "T12",
+          "limit": null,
+          "status": "PASS"
+        },
+        {
+          "detail": "revision/unit/source/approval, missing group, unfinished attempt, counterexample and evidence corruption controls",
+          "id": "T13",
+          "limit": "fixture allowlist, scoped source hash and rights filtering verified; production identity/permission enforcement not integrated",
+          "status": "PARTIAL"
+        },
+        {
+          "detail": "two synthetic malformed CSV fixtures quarantined; exact source blob and corrected derivative/approval binding checked; duplicate paths preserved",
+          "id": "T14",
+          "limit": "synthetic transformation approval verified; actual historical CSV correction and production import runner not performed",
+          "status": "PARTIAL"
+        },
+        {
+          "detail": "reapplication rejected atomically; partial DDL rolled back; source unchanged",
+          "id": "T15",
+          "limit": null,
+          "status": "PASS"
+        },
+        {
+          "detail": "local restore manifest including all table row digests, FK, checkpoint, modified row and missing/tampered/expired evidence rejection verified",
+          "id": "T16",
+          "limit": "local manifest and simulated expiry verified; real external archive retention and cross-job restore not exercised",
+          "status": "PARTIAL"
+        }
+      ],
+      "fixture_summary": {
+        "contract_sha256": "aef026975eadb552a4f7f08003c667222d1aff78332a3ccda877c7eeb199f834",
+        "counts": {
+          "FAIL": 0,
+          "HOLD": 0,
+          "PARTIAL": 9,
+          "PASS": 7
+        },
+        "executed": 16,
+        "gate": "7-G",
+        "oracle_sha256": "f30e07b7edb56b638c606a21a057fea252a18c5d3100658bf9b2a243f93b7b88",
+        "schema_sha256": "69dcad13a9bff7b7ba3020820bd321fd4397d268bef5399c6b2b5198151905ef",
+        "scope_sha256": "b88ba9304d2505c8901d3eeb7e860e5663e707740cd1c90901b8aa8174a2ffc1",
+        "status": "PARTIAL",
+        "test_sha256": "aed242bdc56f13ed842d15e49a2e940fd6faf030deb5b7d4b5605b3b458ddc6b"
+      },
+      "independent_summary": {
+        "closure": "CLOSED_PARTIAL",
+        "current_counts": {
+          "FAIL": 0,
+          "HOLD": 0,
+          "PARTIAL": 9,
+          "PASS": 7
+        },
+        "current_result_sha256": "945468dcba072f72d092aced43af86d958596de7808f3163aa4e2c2716d02001",
+        "design_counts": {
+          "index": 11,
+          "table": 43,
+          "trigger": 39,
+          "view": 2
+        },
+        "design_quality": "PARTIAL",
+        "execution_status": "PASS",
+        "fixed_tests": 16,
+        "gate": "7-H",
+        "historical_ddl_sha256": "b33e357fedaf6b06d07693b94ce2a5a0e8bedac7ba8ebe1e949e3e67ee664802",
+        "historical_paths": 9,
+        "historical_rows": 366868,
+        "historical_tables": 134,
+        "historical_unique": 8,
+        "limits": "Physical historical DDL and row-count comparison; no semantic import or full game validation. Closure still requires reviewer disposition.",
+        "mapped_areas": 14,
+        "past_records": [
+          {
+            "commit": "2176903c4f4b30fa28cd3f11b70c12b388b9cb6a",
+            "counts": {
+              "FAIL": 0,
+              "HOLD": 0,
+              "PARTIAL": 11,
+              "PASS": 5
+            },
+            "run": 46155488364
+          },
+          {
+            "commit": "2b3881d7ac80e18549c0d12964b68b23eea1ad6f",
+            "counts": {
+              "FAIL": 0,
+              "HOLD": 0,
+              "PARTIAL": 10,
+              "PASS": 6
+            },
+            "run": 46157302810
+          },
+          {
+            "commit": "08d1afd3e489047fc4773af7b48f08d9b3e9068e",
+            "counts": {
+              "FAIL": 0,
+              "HOLD": 0,
+              "PARTIAL": 9,
+              "PASS": 7
+            },
+            "run": 46157953724
+          },
+          {
+            "commit": "ae0fc8cbb4242c96eb0b4ecedbe890891b978216",
+            "counts": {
+              "FAIL": 0,
+              "HOLD": 0,
+              "PARTIAL": 9,
+              "PASS": 7
+            },
+            "run": 46158304393
+          },
+          {
+            "commit": "25a93bb670bf31f3c87dca5419622e7a66ab1478",
+            "counts": {
+              "FAIL": 0,
+              "HOLD": 0,
+              "PARTIAL": 9,
+              "PASS": 7
+            },
+            "run": 46159077686
+          },
+          {
+            "commit": "04c7111e1f6b8a4834b06af38402b686d000dc3b",
+            "counts": {
+              "FAIL": 0,
+              "HOLD": 0,
+              "PARTIAL": 9,
+              "PASS": 7
+            },
+            "run": 46159601524
+          }
+        ],
+        "production_migration": "NOT_PERFORMED",
+        "scope_inputs": 19,
+        "semantic_validation": "NOT_PERFORMED"
+      }
+    }
+  ],
+  "review_execution": "COMPLETED_WITH_FINDINGS",
+  "design_quality": "PARTIAL",
+  "design_approval": "WITHHELD",
+  "next_stage_authorization": "NOT_GRANTED",
+  "production_migration": "NOT_PERFORMED",
+  "corrections": [
+    {
+      "id": "H-B01",
+      "status": "FIXTURE_REGRESSION_PASS",
+      "limit": "계획 객체 키/종류·분석 task와 실행 snapshot 연결 및 변경 방지; 실제 분석/렌더 writer 및 cross-job 미검증"
+    },
+    {
+      "id": "H-B02",
+      "status": "FIXTURE_REGRESSION_PASS",
+      "limit": "고정 task 최신 시도 선택, 무결과/진행중/교차 task 차단; 과거 결과 명시 선택은 역사 평가 전용"
+    },
+    {
+      "id": "H-B03",
+      "status": "PARTIAL",
+      "limit": "SHA1/Git blob 지원 및 관련 근거 권리 필터 시험 통과; 실제 사용자 인증, 권리 provenance 부재 및 자유문 전체 비공개 검사 미입증"
+    },
+    {
+      "id": "H-B04",
+      "status": "FUTURE_IMPLEMENTATION_UNVERIFIED",
+      "limit": "기존 9개 PARTIAL 유지; 운영 구현 별도 승인 필요"
+    }
+  ],
+  "artifact_verification": "실제 Job 로그와 artifact ID/존재 확인; ZIP 내부 바이트는 이번 세션에서 직접 읽지 않음"
+}
