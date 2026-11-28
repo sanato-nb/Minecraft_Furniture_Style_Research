@@ -1,0 +1,168 @@
+{
+  "verified_commit": "04c7111e1f6b8a4834b06af38402b686d000dc3b",
+  "run": 46159601524,
+  "job": 141023718555,
+  "artifact": 15268968317,
+  "workflow_status": "success",
+  "summary": {
+    "contract_sha256": "7e7cf92df1d1f0704b10f6dca27da14e50a3d66d70ccf9debb4ee648e09796fc",
+    "counts": {
+      "FAIL": 0,
+      "HOLD": 0,
+      "PARTIAL": 9,
+      "PASS": 7
+    },
+    "executed": 16,
+    "gate": "7-G",
+    "schema_sha256": "d0b31483b2505d338b234eed84d3f985abc4dc8180f5570b160ae13a481aea35",
+    "scope_sha256": "b88ba9304d2505c8901d3eeb7e860e5663e707740cd1c90901b8aa8174a2ffc1",
+    "status": "PARTIAL",
+    "test_sha256": "b855c7532ff14481dcf73a9f4a69aa4186ad72fc5879e8f13cf6a9df2e0c7a05"
+  },
+  "smoke": {
+    "areas": 14,
+    "existing_tables": 8,
+    "gate": "7-E-SMOKE",
+    "limits": "DDL creation, FK statement preparation and empty view queries only; T01-T16 not executed.",
+    "new_indexes": 11,
+    "new_tables": 43,
+    "new_views": 2,
+    "original_unchanged": true,
+    "pinned_inputs": 19,
+    "sql_sha256": "d0b31483b2505d338b234eed84d3f985abc4dc8180f5570b160ae13a481aea35",
+    "status": "PASS",
+    "user_version": 4
+  },
+  "tests": [
+    {
+      "detail": {
+        "existing_tables": 8,
+        "unchanged_rows": {
+          "ai_review": 0,
+          "asset": 25387,
+          "release": 4,
+          "research_execution": 0,
+          "research_run": 0,
+          "source_checkpoint": 0,
+          "source_job": 0,
+          "upstream_observation": 0
+        }
+      },
+      "id": "T01",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "initial": {
+          "assets_added": 25387,
+          "assets_added_by_release": {
+            "another-furniture-4.0.3-git": 2994,
+            "handcrafted-4.0.3-git": 13626,
+            "macaws-furniture-3.4.2-fabric": 3999,
+            "minecraft-java-1.21.11-git": 4768
+          }
+        },
+        "repeat": {
+          "assets_added": 0,
+          "assets_added_by_release": {
+            "another-furniture-4.0.3-git": 0,
+            "handcrafted-4.0.3-git": 0,
+            "macaws-furniture-3.4.2-fabric": 0,
+            "minecraft-java-1.21.11-git": 0
+          }
+        }
+      },
+      "id": "T02",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": "version distinct; conflicting existing key/digest and cross-catalog path blocked by guard",
+      "id": "T03",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": "locked scope and terminal attempts immutable; checkpoint update/delete/replace, sequence, new attempt retry and rollback checked",
+      "id": "T04",
+      "limit": "local transaction fixture; cross-job restart and full execution writer not implemented",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "actual synthetic source SHA, parent, pointer, elements/faces, coordinate mutation checked",
+      "id": "T05",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": "asymmetric PNG, exact ordered fixture UV corners, mirrored UV rejection and frame hash verified",
+      "id": "T06",
+      "limit": "asymmetric fixture UV ordering and sampling verified; Minecraft UV-lock and other transforms remain unverified",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "scoped namespace, alias cycle/missing, nested OR, weighted options, missing model and application coverage verified",
+      "id": "T07",
+      "limit": "bounded multipart and variant predicate fixtures; full variant selection and complete game resolver not verified",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "PNG decode and size, render unit/attempt and distinct reference/report/output body binding verified",
+      "id": "T08",
+      "limit": "render/result provenance fixture verified; report assertion is not independent visual accuracy",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "UNKNOWN independent of geometry; invalid confirmation rejected",
+      "id": "T09",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": "two independent synthetic model dimensions and comparable-unit difference; consistent but incorrect ratio rejected",
+      "id": "T10",
+      "limit": "source-derived dimensional comparison verified; broader style metrics not independently verified",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "two distinct scoped source model bodies, approval manifest, unrelated support, counterexample, cycle and changed step controls",
+      "id": "T11",
+      "limit": "two distinct scoped source fixtures and approval manifest verified; actual independent research evidence and production approval transitions not validated",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "four verdicts, denominator, latest result selection and stale PASS rejection",
+      "id": "T12",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": "revision/unit/source/approval, missing group, unfinished attempt, counterexample and evidence corruption controls",
+      "id": "T13",
+      "limit": "fixture allowlist, scoped source hash and rights filtering verified; production identity/permission enforcement not integrated",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "two synthetic malformed CSV fixtures quarantined; exact source blob and corrected derivative/approval binding checked; duplicate paths preserved",
+      "id": "T14",
+      "limit": "synthetic transformation approval verified; actual historical CSV correction and production import runner not performed",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "reapplication rejected atomically; partial DDL rolled back; source unchanged",
+      "id": "T15",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": "local restore manifest, FK, checkpoint, missing/tampered/expired evidence rejection verified",
+      "id": "T16",
+      "limit": "local manifest and simulated expiry verified; real external archive retention and cross-job restore not exercised",
+      "status": "PARTIAL"
+    }
+  ],
+  "previous_run": 46159077686,
+  "production_migration": "NOT_PERFORMED",
+  "closure": "NOT_APPROVED"
+}
