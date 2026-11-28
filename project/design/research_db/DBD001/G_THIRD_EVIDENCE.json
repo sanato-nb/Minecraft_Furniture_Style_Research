@@ -1,0 +1,168 @@
+{
+  "verified_commit": "08d1afd3e489047fc4773af7b48f08d9b3e9068e",
+  "run": 46157953724,
+  "job": 141018656190,
+  "artifact": 15267929786,
+  "workflow_status": "success",
+  "summary": {
+    "contract_sha256": "e9f12c200fc4c70074de4f8dda8854848bdba9c24c03a203e6314d9302e01823",
+    "counts": {
+      "FAIL": 0,
+      "HOLD": 0,
+      "PARTIAL": 9,
+      "PASS": 7
+    },
+    "executed": 16,
+    "gate": "7-G",
+    "schema_sha256": "46b19390a6a64dba568f8ae403a10875f5011aba9ef91234e7bbb635e2d8cf6d",
+    "scope_sha256": "b88ba9304d2505c8901d3eeb7e860e5663e707740cd1c90901b8aa8174a2ffc1",
+    "status": "PARTIAL",
+    "test_sha256": "6be4ec9c1a5992b8c76bc61ec588bd46ddcb331cac889816699bc052244061db"
+  },
+  "smoke": {
+    "areas": 14,
+    "existing_tables": 8,
+    "gate": "7-E-SMOKE",
+    "limits": "DDL creation, FK statement preparation and empty view queries only; T01-T16 not executed.",
+    "new_indexes": 11,
+    "new_tables": 43,
+    "new_views": 2,
+    "original_unchanged": true,
+    "pinned_inputs": 19,
+    "sql_sha256": "46b19390a6a64dba568f8ae403a10875f5011aba9ef91234e7bbb635e2d8cf6d",
+    "status": "PASS",
+    "user_version": 4
+  },
+  "tests": [
+    {
+      "detail": {
+        "existing_tables": 8,
+        "unchanged_rows": {
+          "ai_review": 0,
+          "asset": 25387,
+          "release": 4,
+          "research_execution": 0,
+          "research_run": 0,
+          "source_checkpoint": 0,
+          "source_job": 0,
+          "upstream_observation": 0
+        }
+      },
+      "id": "T01",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "initial": {
+          "assets_added": 25387,
+          "assets_added_by_release": {
+            "another-furniture-4.0.3-git": 2994,
+            "handcrafted-4.0.3-git": 13626,
+            "macaws-furniture-3.4.2-fabric": 3999,
+            "minecraft-java-1.21.11-git": 4768
+          }
+        },
+        "repeat": {
+          "assets_added": 0,
+          "assets_added_by_release": {
+            "another-furniture-4.0.3-git": 0,
+            "handcrafted-4.0.3-git": 0,
+            "macaws-furniture-3.4.2-fabric": 0,
+            "minecraft-java-1.21.11-git": 0
+          }
+        }
+      },
+      "id": "T02",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": "version distinct; conflicting existing key/digest and cross-catalog path blocked by guard",
+      "id": "T03",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": "locked definition and REPLACE blocked; finished append rejected; retry and rollback verified",
+      "id": "T04",
+      "limit": "local transaction fixture; cross-job restart and full execution writer not implemented",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "actual synthetic source SHA, parent, pointer, elements/faces, coordinate mutation checked",
+      "id": "T05",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": "actual synthetic RGBA PNG bytes, frame pixel SHA, bounds, UV dimensionality and missing slot checked",
+      "id": "T06",
+      "limit": "fixture RGBA frame extraction verified; full UV transform accuracy not verified",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "actual multipart source condition, selected option, model target, transform and negative controls",
+      "id": "T07",
+      "limit": "simple multipart fixture verified; complete namespace and condition resolver not verified",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "actual PNG decode, render dimensions, independent-reference metadata and attempt links checked",
+      "id": "T08",
+      "limit": "synthetic PNG checked; full case/output/result consistency and independent visual accuracy not verified",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "UNKNOWN independent of geometry; invalid confirmation rejected",
+      "id": "T09",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": "ratio, unit and finite value guards",
+      "id": "T10",
+      "limit": "no independent style or comparative measurement method validation",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "candidate blocked; two distinct support bodies and steps required",
+      "id": "T11",
+      "limit": "distinct bodies not necessarily independent source cases; no full approval transition or claim relation cycle enforcement",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "four verdicts, denominator, latest result selection and stale PASS rejection",
+      "id": "T12",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": "revision/unit/source/approval, missing group, unfinished attempt, counterexample and evidence corruption controls",
+      "id": "T13",
+      "limit": "design prototype; production permission and source case authorization not integrated",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "two malformed CSV names quarantined; identical blob paths preserved",
+      "id": "T14",
+      "limit": "fixture guard only; no transformation approval/import runner",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "reapplication rejected atomically; partial DDL rolled back; source unchanged",
+      "id": "T15",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": "local backup restored, evidence hashes, checkpoint and FK verified",
+      "id": "T16",
+      "limit": "local temporary restore only; real artifact expiry and cross-job restore not exercised",
+      "status": "PARTIAL"
+    }
+  ],
+  "previous_run": 46157302810,
+  "production_migration": "NOT_PERFORMED",
+  "closure": "NOT_APPROVED"
+}
