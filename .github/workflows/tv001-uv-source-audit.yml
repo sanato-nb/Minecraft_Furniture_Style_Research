@@ -36,6 +36,7 @@ jobs:
               "hqc.class": "17d6188210d69bbebb560a043396bb8eeedd6045",
               "ir.class": "e34b3f9f80763b22969a19d432701d2717fbdd62",
               "hoa.class": "6841dfb26d63d166dac1d261c78805e00dfb2fc2",
+              "hoa$a.class": "776c249d3ed2490e1968894a1ea5fd0a2c681a02",
               "hoa$b.class": "1eaad856846155a63bbd56c3ff895fc73150dde7",
               "hqc$b.class": "7cf58ffc0114cf9c90c275317697da0834e5d8a1",
               "g.class": "f4883aaac8f997dceb60b8f5e9a076e7a16c6fef",
@@ -65,13 +66,17 @@ jobs:
           (out/"source_evidence.json").write_text(json.dumps(report,indent=2)+"\n")
           print("TV001_B_SOURCE " + json.dumps(report))
           PY
-          for cls in hqi inm 'inm$a' ioc hqc ir hoa 'hoa$b' 'hqc$b' g f iz i; do
+          for cls in hqi inm 'inm$a' ioc hqc ir hoa 'hoa$a' 'hoa$b' 'hqc$b' g f iz i; do
             javap -classpath 1.21.11 -p -c -s "$cls" > "$OUT/$cls.txt"
             test -s "$OUT/$cls.txt"
             echo "TV001_B_DISASSEMBLY_BEGIN $cls"
             cat "$OUT/$cls.txt"
             echo "TV001_B_DISASSEMBLY_END $cls"
           done
+          javap -classpath 1.21.11 -p -v ir > "$OUT/ir_verbose.txt"
+          echo 'TV001_B_IR_BOOTSTRAP_BEGIN'
+          sed -n '/^BootstrapMethods:/,$p' "$OUT/ir_verbose.txt"
+          echo 'TV001_B_IR_BOOTSTRAP_END'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
