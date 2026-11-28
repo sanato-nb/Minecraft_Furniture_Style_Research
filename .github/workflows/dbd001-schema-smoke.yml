@@ -1,0 +1,25 @@
+name: DBD-001 design schema smoke
+on:
+  pull_request:
+    paths:
+      - 'project/design/research_db/DBD001/**'
+      - '.github/workflows/dbd001-schema-smoke.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply proposal only to disposable v4 copy
+        env:
+          PYTHONPATH: src
+        run: python project/design/research_db/DBD001/schema_smoke.py
