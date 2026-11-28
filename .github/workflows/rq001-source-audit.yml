@@ -1,0 +1,47 @@
+name: RQ-001 F fixed historical source audit
+on:
+  pull_request:
+    paths:
+      - 'scripts/research_quality/rq001_f.py'
+      - '.github/workflows/rq001-source-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rq001-f:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'Pillow>=10,<13' 'PyYAML>=6,<7'
+      - name: Rebuild catalog and verify fixed original sources
+        env:
+          PYTHONPATH: src
+        run: python scripts/research_quality/rq001_f.py --repo "$GITHUB_WORKSPACE" --out "$RUNNER_TEMP/rq001-f"
+      - name: Reconcile all recorded source keys and result digest
+        run: |
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          p=Path(os.environ["RUNNER_TEMP"])/"rq001-f"
+          s=json.loads((p/"F_summary.json").read_bytes())
+          data=(p/"F_assets.jsonl").read_bytes()
+          rows=[json.loads(l) for l in data.splitlines()]
+          assert len(rows)==len({(r["release_code"],r["source_path"]) for r in rows})==s["recorded"]==s["expected"]==25387
+          assert sum(s["counts"].values())==25387
+          assert hashlib.sha256(data).hexdigest()==s["ledger_sha256"]
+          print("RQ001_F_COVERAGE PASS",len(rows),"audit status",s["status"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rq001-f-evidence
+          path: ${{ runner.temp }}/rq001-f/*.json*
+          retention-days: 30
