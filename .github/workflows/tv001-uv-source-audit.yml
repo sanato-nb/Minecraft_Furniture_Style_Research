@@ -34,6 +34,14 @@ jobs:
               "inm$a.class": "9ca92245d30e41cf4dfe239617ebbec94ad19974",
               "ioc.class": "6063a49dabf4cda7816dc570babd1a1b2e57e6e0",
               "hqc.class": "17d6188210d69bbebb560a043396bb8eeedd6045",
+              "ir.class": "e34b3f9f80763b22969a19d432701d2717fbdd62",
+              "hoa.class": "6841dfb26d63d166dac1d261c78805e00dfb2fc2",
+              "hoa$b.class": "1eaad856846155a63bbd56c3ff895fc73150dde7",
+              "hqc$b.class": "7cf58ffc0114cf9c90c275317697da0834e5d8a1",
+              "g.class": "f4883aaac8f997dceb60b8f5e9a076e7a16c6fef",
+              "f.class": "f2723f067abf293075e66021711ce37387c92def",
+              "iz.class": "e820016d321253132b9f33de2da4b1b07f358e91",
+              "i.class": "c8ce4192ed4ba9f567d9e2f0ccc15a61d1d9b29e",
               "assets/minecraft/models/block/inner_stairs.json": "364eff63e057a4abbb74d80f7d5297beba61f751",
               "assets/minecraft/models/block/acacia_stairs_inner.json": "323018d55565db0f9914d4e28e3adb157f3c1e7d",
           }
@@ -57,7 +65,7 @@ jobs:
           (out/"source_evidence.json").write_text(json.dumps(report,indent=2)+"\n")
           print("TV001_B_SOURCE " + json.dumps(report))
           PY
-          for cls in hqi inm 'inm$a' ioc hqc; do
+          for cls in hqi inm 'inm$a' ioc hqc ir hoa 'hoa$b' 'hqc$b' g f iz i; do
             javap -classpath 1.21.11 -p -c -s "$cls" > "$OUT/$cls.txt"
             test -s "$OUT/$cls.txt"
             echo "TV001_B_DISASSEMBLY_BEGIN $cls"
