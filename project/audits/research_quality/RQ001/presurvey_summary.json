@@ -1,0 +1,171 @@
+{
+  "status": "PRESURVEY_COMPLETE_METADATA_ONLY",
+  "main_pin": "176f7f34de2336eb7984c4734e97b6eb156c19f4",
+  "observed_pr_head": "bf9fa1b4ef2db658fdb7d7548174fbff5ff00288",
+  "total_repository_paths_prior_inventory": 31330,
+  "excluded_source_tree": {
+    "path": "1.21.11",
+    "tree": "951e501a2586cd4c81111cfb617bef22fcfef67c",
+    "count": 28163,
+    "reason": "raw original body reanalysis reserved for vanilla source survey; registered ledger verification is separate"
+  },
+  "inventory_paths": 3167,
+  "research_paths": 2911,
+  "other_paths": 256,
+  "groups": {
+    ".github": {
+      "count": 9,
+      "bytes": 20298
+    },
+    "(root)": {
+      "count": 10,
+      "bytes": 519586
+    },
+    "data": {
+      "count": 2,
+      "bytes": 431876
+    },
+    "docs": {
+      "count": 106,
+      "bytes": 1725739
+    },
+    "handoff": {
+      "count": 1,
+      "bytes": 295251
+    },
+    "harness": {
+      "count": 6,
+      "bytes": 6365
+    },
+    "inbox": {
+      "count": 2,
+      "bytes": 1450
+    },
+    "project": {
+      "count": 39,
+      "bytes": 1906780
+    },
+    "registry": {
+      "count": 3,
+      "bytes": 2176
+    },
+    "research/campaigns": {
+      "count": 1,
+      "bytes": 354
+    },
+    "research/comparisons": {
+      "count": 1,
+      "bytes": 333
+    },
+    "research/furniture_mods": {
+      "count": 568,
+      "bytes": 22743849
+    },
+    "research/historical": {
+      "count": 1,
+      "bytes": 422
+    },
+    "research/vanilla_models": {
+      "count": 1585,
+      "bytes": 183216652
+    },
+    "research/vanilla_textures": {
+      "count": 755,
+      "bytes": 10010631
+    },
+    "scripts": {
+      "count": 54,
+      "bytes": 448735
+    },
+    "src": {
+      "count": 18,
+      "bytes": 80668
+    },
+    "tests": {
+      "count": 6,
+      "bytes": 33091
+    }
+  },
+  "sqlite": {
+    "paths": 9,
+    "unique_blobs": 8,
+    "files": [
+      {
+        "path": "data/MC_Furniture_Style_Stage1_Research_v8.sqlite",
+        "sha": "79395712dae3ffee5e1ac668f7d1e583358f8578",
+        "bytes": 413696,
+        "registered_legacy_helper": true
+      },
+      {
+        "path": "research/furniture_mods/phase_1-3/F/furniture_research.sqlite.xz",
+        "sha": "e54839615278dba39cadb463b9988e0371d37ea9",
+        "bytes": 1796236,
+        "registered_legacy_helper": true
+      },
+      {
+        "path": "research/furniture_mods/phase_1-4/E_followup/research_texture_uv_runtime.sqlite.xz",
+        "sha": "bab0ea7f6bbfd41651e3997096b52e71ff2e82c8",
+        "bytes": 238548,
+        "registered_legacy_helper": false
+      },
+      {
+        "path": "research/furniture_mods/phase_1-4/entry04/research_texture_uv.sqlite.xz",
+        "sha": "1437b43416310fe8af66870e7a4731310d9283cc",
+        "bytes": 224012,
+        "registered_legacy_helper": false
+      },
+      {
+        "path": "research/furniture_mods/phase_1-5/E/comparison.sqlite.xz",
+        "sha": "2c83a9e119ca84eec0cd0924447278e2d7d314a3",
+        "bytes": 105028,
+        "registered_legacy_helper": true
+      },
+      {
+        "path": "research/vanilla_models/v5/MC_Furniture_Style_Stage1_Research_v5.sqlite",
+        "sha": "4b75d6fdc6dc7d37a8ba81a6c63891d886c801b2",
+        "bytes": 147456,
+        "registered_legacy_helper": false
+      },
+      {
+        "path": "research/vanilla_models/v6/MC_Furniture_Style_Stage1_Research_v6.sqlite",
+        "sha": "990434e0db8a990665aac6a5d0261b9ade6e4c6b",
+        "bytes": 237568,
+        "registered_legacy_helper": false
+      },
+      {
+        "path": "research/vanilla_models/v7/MC_Furniture_Style_Stage1_Research_v7.sqlite",
+        "sha": "f8a9c81019e8d1fd6d82a6783f31ca8a68c47ddb",
+        "bytes": 364544,
+        "registered_legacy_helper": false
+      },
+      {
+        "path": "research/vanilla_models/v8/MC_Furniture_Style_Stage1_Research_v8.sqlite",
+        "sha": "79395712dae3ffee5e1ac668f7d1e583358f8578",
+        "bytes": 413696,
+        "registered_legacy_helper": false
+      }
+    ]
+  },
+  "duplicate_blobs_non_source": {
+    "groups": 7,
+    "paths": 14,
+    "extra_paths": 7
+  },
+  "registered_assets_historical": 25387,
+  "existing_schema_tables": [
+    "release",
+    "asset",
+    "research_run",
+    "research_execution",
+    "source_job",
+    "source_checkpoint",
+    "ai_review",
+    "upstream_observation"
+  ],
+  "limits": [
+    "Tree metadata only, not body rehash or semantic content audit",
+    "Nine SQLite paths include eight distinct blobs; actual quick_check/integrity not yet run",
+    "Historical ledger count is not complete release population",
+    "No new audit execution or DB migration"
+  ]
+}
