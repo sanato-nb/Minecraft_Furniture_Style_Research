@@ -253,6 +253,7 @@ def approval_guard(db,tid,read):
 def scoped_claim_source(db,claim,read):
     require(claim["asset_release"] and claim["asset_path"],"claim lacks original asset")
     require(bool(rows(db,"SELECT 1 FROM scope_source WHERE scope_id=? AND asset_release=? AND asset_path=? AND included=1",(claim["scope_id"],claim["asset_release"],claim["asset_path"]))),"source outside locked scope")
+    require(bool(rows(db,"SELECT 1 FROM scope_unit u JOIN scope_source ss ON ss.scope_id=u.scope_id AND ss.source_ordinal=u.source_ordinal WHERE u.scope_id=? AND u.required=1 AND ss.included=1 AND ss.asset_release=? AND ss.asset_path=?",(claim["scope_id"],claim["asset_release"],claim["asset_path"]))),"claim asset lacks required validation unit")
     a=one(db,"SELECT * FROM asset WHERE release_key=? AND source_path=?",(claim["asset_release"],claim["asset_path"]))
     links=rows(db,"SELECT e.* FROM object_evidence oe JOIN evidence_item e USING(evidence_id) WHERE oe.snapshot_id=? AND oe.object_id=? AND oe.evidence_class='SOURCE'",(claim["snapshot_id"],claim["object_id"]))
     require(bool(links),"source body evidence absent")
@@ -273,6 +274,9 @@ def export(db,read,*,label=None,term_kind=None,confirmed_only=True,metric=None,u
         if allowed_releases is not None and c["asset_release"] not in allowed_releases:continue
         links=rows(db,"SELECT ce.role,ce.locator_detail,e.* FROM claim_evidence ce JOIN evidence_item e USING(evidence_id) WHERE claim_id=? ORDER BY role,evidence_id,locator_detail",(c["claim_id"],))
         relations=rows(db,"SELECT * FROM claim_relation WHERE claim_id=? OR related_claim_id=? ORDER BY claim_id,related_claim_id,relation",(c["claim_id"],c["claim_id"]))
+        # Restricted/unknown evidence must not be emitted, even in candidate mode.
+        source_rights=rows(db,"SELECT e.rights_state FROM object_evidence oe JOIN evidence_item e USING(evidence_id) WHERE oe.snapshot_id=? AND oe.object_id=? AND oe.evidence_class='SOURCE'",(c["snapshot_id"],c["object_id"]))
+        if any(x["rights_state"]!="ALLOWED" for x in links+source_rights):continue
         for x in links: x["body_verified"]=evidence_ok(db,x["evidence_id"],read)
         assess=rows(db,"SELECT a.* FROM run_assessment a WHERE scope_id=? AND revision=(SELECT MAX(b.revision) FROM run_assessment b WHERE b.scope_id=a.scope_id AND b.unit_kind=a.unit_kind) ORDER BY unit_kind",(c["scope_id"],))
         groups={r["unit_kind"] for r in rows(db,"SELECT DISTINCT unit_kind FROM scope_unit WHERE scope_id=? AND required=1",(c["scope_id"],))}
@@ -291,16 +295,13 @@ def export(db,read,*,label=None,term_kind=None,confirmed_only=True,metric=None,u
         if any(x["relation"] in ("CONTRADICTS","COUNTEREXAMPLE") for x in relations) or any(x["role"]=="COUNTEREXAMPLE" for x in links):ok=False
         measures=[]
         for m in rows(db,"SELECT * FROM measurement WHERE snapshot_id=? AND object_id=? AND (? IS NULL OR metric=?) AND (? IS NULL OR unit=?) ORDER BY measurement_id",(c["snapshot_id"],c["object_id"],metric,metric,unit,unit)):
+            if rows(db,"SELECT 1 FROM measurement_evidence me JOIN evidence_item e USING(evidence_id) WHERE me.measurement_id=? AND e.rights_state<>\'ALLOWED\'",(m["measurement_id"],)):continue
             try:validate_measurement(db,m["measurement_id"],read)
             except ValueError:continue
             if m["status"]=="PASS" and (min_value is None or (m["numeric_value"] is not None and m["numeric_value"]>=min_value)):measures.append(m)
         if metric is not None and not measures:continue
         if confirmed_only and not ok:continue
-        # Refuse restricted/unknown claim evidence in reusable export. Candidate output redacts its locator.
-        if any(x["rights_state"]!="ALLOWED" for x in links):ok=False
-        if confirmed_only and not ok:continue
-        safe_links=[x if x["rights_state"]=="ALLOWED" else {k:v for k,v in x.items() if k not in ("locator","member_locator","git_commit","run_id_external","job_id_external","artifact_id","locator_detail")} for x in links]
-        result.append(dict(claim=c,usable=bool(ok),evidence=safe_links,relations=relations,measurements=measures,assessments=assess))
+        result.append(dict(claim=c,usable=bool(ok),evidence=links,relations=relations,measurements=measures,assessments=assess))
     return {"format":"DBD001-design-export-v1","filters":dict(label=label,term_kind=term_kind,confirmed_only=confirmed_only,metric=metric,unit=unit,min_value=min_value,release=release),"items":result}
 
 def git_blob(raw):
@@ -331,12 +332,30 @@ def legacy_guard(db,commit,path,read):
     require(all(approval.get(k)==v for k,v in expected.items()) and bool(approval.get("transform_version")) and bool(approval.get("reviewer")),"legacy approval not bound to transformation")
     return x
 
+def logical_db_digest(db):
+    """Canonical digest of all user-table rows, including duplicate rows and SQLite value types."""
+    def encode(v):
+        if isinstance(v,bytes):return ["blob",v.hex()]
+        if isinstance(v,float):return ["real",v.hex()]
+        if isinstance(v,int):return ["integer",str(v)]
+        if v is None:return ["null",None]
+        return ["text",v]
+    out={}
+    for row in rows(db,"SELECT name FROM sqlite_schema WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name"):
+        name=row["name"]
+        quoted='"'+name.replace('"','""')+'"'
+        cursor=db.execute("SELECT * FROM "+quoted)
+        columns=[x[0] for x in cursor.description]
+        records=sorted(canonical([encode(x) for x in item]) for item in cursor)
+        out[name]={"rows":len(records),"sha256":sha(canonical({"columns":columns,"rows":records}).encode())}
+    return {"app_id":db.execute("PRAGMA application_id").fetchone()[0],"user_version":db.execute("PRAGMA user_version").fetchone()[0],"tables":out}
+
 def backup_manifest(db,read):
     items=[]
     for e in rows(db,"SELECT * FROM evidence_item ORDER BY evidence_id"):
         require_evidence(db,e["evidence_id"],read)
         items.append({k:e[k] for k in ("evidence_id","content_sha256","byte_count","locator","storage_kind","rights_state")})
-    return {"evidence":items,"schema":rows(db,"SELECT type,name,sql FROM sqlite_schema WHERE name NOT LIKE 'sqlite_%' ORDER BY type,name")}
+    return {"evidence":items,"schema":rows(db,"SELECT type,name,sql FROM sqlite_schema WHERE name NOT LIKE 'sqlite_%' ORDER BY type,name"),"logical_db":logical_db_digest(db)}
 
 def validate_restore(db,manifest,read):
     require(db.execute("PRAGMA integrity_check").fetchone()[0]=="ok" and not db.execute("PRAGMA foreign_key_check").fetchall(),"restored SQLite integrity")

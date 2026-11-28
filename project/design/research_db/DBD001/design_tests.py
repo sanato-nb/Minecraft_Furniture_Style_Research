@@ -329,11 +329,14 @@ def main(out):
                 assert oracle.validate_render(db,"s","output",read)["attempt_id"]=="a1"
                 assert oracle.validate_render(db,"s","output2",read)["attempt_id"]=="a2"
                 bad(lambda:oracle.rgba_png(png()[:-1]))
+                rollback_test(db,lambda:db.execute("UPDATE validation_result SET render_output_id='output' WHERE result_id='accurate'"))
                 db.execute("SAVEPOINT wrongoutput")
+                db.execute("DROP TRIGGER dbd_history_validation_result_update") # explicit corruption injection in disposable fixture
                 db.execute("UPDATE validation_result SET render_output_id='output' WHERE result_id='accurate'")
                 assert c.assessment(db,"s","RENDER",{"generation":"gen","accuracy":"accurate"},read)["status"]=="PARTIAL"
                 db.execute("ROLLBACK TO wrongoutput");db.execute("RELEASE wrongoutput")
                 db.execute("SAVEPOINT wrongreport")
+                db.execute("DROP TRIGGER dbd_history_validation_result_update")
                 db.execute("UPDATE validation_result SET evidence_id='render' WHERE result_id='accurate'")
                 assert c.assessment(db,"s","RENDER",{"generation":"gen","accuracy":"accurate"},read)["status"]=="PARTIAL"
                 db.execute("ROLLBACK TO wrongreport");db.execute("RELEASE wrongreport")
@@ -408,6 +411,9 @@ def main(out):
                 result(db,"fail","structure","FAIL",attempt="a2")
                 assert c.latest_results(db,"s","MODEL")=={"structure":"fail"}
                 assert c.assessment(db,"s","MODEL",{"structure":"fail"},read)["status"]=="FAIL"
+                rollback_test(db,lambda:db.execute("DELETE FROM validation_result WHERE result_id='fail'"))
+                rollback_test(db,lambda:db.execute("UPDATE validation_result SET status='PASS',evidence_id='calculated' WHERE result_id='fail'"))
+                rollback_test(db,lambda:db.execute("INSERT OR REPLACE INTO validation_result SELECT * FROM validation_result WHERE result_id='fail'"))
                 bad(lambda:c.validate_saved_assessment(db,"s","model-pass",read))
                 assert not c.export(db,read,label="chair")["items"]
                 db.execute("ROLLBACK TO stale");db.execute("RELEASE stale")
@@ -431,9 +437,13 @@ def main(out):
                 db.execute("SAVEPOINT rights")
                 db.execute("UPDATE evidence_item SET rights_state='RESTRICTED' WHERE evidence_id='source'")
                 assert not c.export(db,read,label="chair")["items"]
-                assert "locator" not in c.export(db,read,label="chair",confirmed_only=False)["items"][0]["evidence"][0]
+                assert not c.export(db,read,label="chair",confirmed_only=False)["items"]
                 db.execute("ROLLBACK TO rights");db.execute("RELEASE rights")
+                rollback_test(db,lambda:db.execute("DELETE FROM assessment_result WHERE assessment_id='render-pass'"))
+                rollback_test(db,lambda:db.execute("DELETE FROM run_assessment WHERE assessment_id='render-pass'"))
                 db.execute("SAVEPOINT missinggroup")
+                db.execute("DROP TRIGGER dbd_history_assessment_result_delete") # inject missing group, rollback restores triggers
+                db.execute("DROP TRIGGER dbd_history_run_assessment_delete")
                 db.execute("DELETE FROM assessment_result WHERE assessment_id='render-pass'")
                 db.execute("DELETE FROM run_assessment WHERE assessment_id='render-pass'")
                 assert not c.export(db,read,label="chair")["items"]
@@ -514,6 +524,10 @@ def main(out):
                     assert not rb.execute("PRAGMA foreign_key_check").fetchall()
                     assert c.validate_checkpoint(rb,"s","a1",rr)==1
                     c.validate_restore(rb,manifest,rr)
+                    rb.execute("UPDATE claim SET statement='modified row' WHERE claim_id='confirmed'")
+                    bad(lambda:c.validate_restore(rb,manifest,rr))
+                    rb.rollback()
+                    c.validate_restore(rb,manifest,rr)
                     target=folder/"restored-evidence"/"checkpoint"
                     original=target.read_bytes()
                     target.unlink()
@@ -526,13 +540,13 @@ def main(out):
                     rb.rollback()
                     c.validate_restore(rb,manifest,rr)
                 assert c.sha(orig.read_bytes())==orig_hash
-                return "local restore manifest, FK, checkpoint, missing/tampered/expired evidence rejection verified"
+                return "local restore manifest including all table row digests, FK, checkpoint, modified row and missing/tampered/expired evidence rejection verified"
             test("T16",t16,"local manifest and simulated expiry verified; real external archive retention and cross-job restore not exercised")
             assert not db.execute("PRAGMA foreign_key_check").fetchall()
             assert [tuple(x) for x in db.execute("PRAGMA integrity_check")]==[("ok",)]
     assert [x["id"] for x in reports]==[x["id"] for x in LOCK["required_checks"]]
     counts={s:sum(x["status"]==s for x in reports) for s in ("PASS","PARTIAL","HOLD","FAIL")}
-    data=dict(gate="7-G",executed=len(reports),counts=counts,status="FAIL" if counts["FAIL"] else "PARTIAL" if counts["PARTIAL"] or counts["HOLD"] else "PASS",scope_sha256=c.sha((DIR/"scope_lock.json").read_bytes()),schema_sha256=c.sha(SQL.encode()),contract_sha256=c.sha((DIR/"design_contract.py").read_bytes()),test_sha256=c.sha(Path(__file__).read_bytes()),tests=reports)
+    data=dict(gate="7-G",executed=len(reports),counts=counts,status="FAIL" if counts["FAIL"] else "PARTIAL" if counts["PARTIAL"] or counts["HOLD"] else "PASS",scope_sha256=c.sha((DIR/"scope_lock.json").read_bytes()),schema_sha256=c.sha(SQL.encode()),contract_sha256=c.sha((DIR/"design_contract.py").read_bytes()),oracle_sha256=c.sha((DIR/"fixture_oracle.py").read_bytes()),test_sha256=c.sha(Path(__file__).read_bytes()),tests=reports)
     out.mkdir(parents=True,exist_ok=True)
     (out/"G_results.json").write_text(c.canonical(data)+"\n",encoding="utf-8")
     print("DBD001_G_SUMMARY "+c.canonical({k:v for k,v in data.items() if k!="tests"}),flush=True)

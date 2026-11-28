@@ -780,3 +780,30 @@ WHEN NEW.batch_no<>(SELECT count(*) FROM task_checkpoint WHERE scope_id=NEW.scop
  OR NOT EXISTS (SELECT 1 FROM research_attempt WHERE scope_id=NEW.scope_id AND attempt_id=NEW.attempt_id AND input_sha256=NEW.input_sha256)
  OR NOT EXISTS (SELECT 1 FROM evidence_item WHERE evidence_id=NEW.result_evidence_id AND content_sha256=NEW.result_sha256)
 BEGIN SELECT RAISE(ABORT,'checkpoint sequence or hash mismatch'); END;
+
+CREATE TRIGGER dbd_history_validation_result_update BEFORE UPDATE ON validation_result
+BEGIN SELECT RAISE(ABORT,'validation history immutable'); END;
+
+CREATE TRIGGER dbd_history_validation_result_delete BEFORE DELETE ON validation_result
+BEGIN SELECT RAISE(ABORT,'validation history immutable'); END;
+CREATE TRIGGER dbd_history_validation_result_replace BEFORE INSERT ON validation_result
+WHEN EXISTS (SELECT 1 FROM validation_result WHERE scope_id=NEW.scope_id AND (result_id=NEW.result_id OR (requirement_id=NEW.requirement_id AND attempt_id=NEW.attempt_id)))
+BEGIN SELECT RAISE(ABORT,'validation history replacement forbidden'); END;
+
+CREATE TRIGGER dbd_history_run_assessment_update BEFORE UPDATE ON run_assessment
+BEGIN SELECT RAISE(ABORT,'validation history immutable'); END;
+
+CREATE TRIGGER dbd_history_run_assessment_delete BEFORE DELETE ON run_assessment
+BEGIN SELECT RAISE(ABORT,'validation history immutable'); END;
+CREATE TRIGGER dbd_history_run_assessment_replace BEFORE INSERT ON run_assessment
+WHEN EXISTS (SELECT 1 FROM run_assessment WHERE scope_id=NEW.scope_id AND (assessment_id=NEW.assessment_id OR (unit_kind=NEW.unit_kind AND revision=NEW.revision)))
+BEGIN SELECT RAISE(ABORT,'validation history replacement forbidden'); END;
+
+CREATE TRIGGER dbd_history_assessment_result_update BEFORE UPDATE ON assessment_result
+BEGIN SELECT RAISE(ABORT,'validation history immutable'); END;
+
+CREATE TRIGGER dbd_history_assessment_result_delete BEFORE DELETE ON assessment_result
+BEGIN SELECT RAISE(ABORT,'validation history immutable'); END;
+CREATE TRIGGER dbd_history_assessment_result_replace BEFORE INSERT ON assessment_result
+WHEN EXISTS (SELECT 1 FROM assessment_result WHERE scope_id=NEW.scope_id AND assessment_id=NEW.assessment_id AND requirement_id=NEW.requirement_id)
+BEGIN SELECT RAISE(ABORT,'validation history replacement forbidden'); END;
