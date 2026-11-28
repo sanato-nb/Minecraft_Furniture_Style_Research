@@ -1,0 +1,1566 @@
+{
+  "verified_commit": "5a1739b695736b5b9b8df2a5d532c1f8c21d4250",
+  "run": 46129939313,
+  "job": 140932670111,
+  "artifact": 15256619098,
+  "workflow_status": "success",
+  "summary": {
+    "gate": "6-E",
+    "status": "PASS",
+    "attempted": 9,
+    "expected": 9,
+    "unique_expected_blobs": 8,
+    "counts": {
+      "PASS": 9
+    },
+    "scope_sha256": "69c72afdbccc3f8aa9a2d9b770533848b965be3b39f06dfdbfd1d785bca8f552",
+    "code_sha256": "bd340d3ae1b7655e2fd7359a9ac92a946e3961b6c32025eb675830232594bf37",
+    "results_sha256": "059473068d92e36aac7b32481118a3e09b24d98a7f46370df542500a8e64f49c",
+    "unchanged": 9,
+    "foreign_key_status": {
+      "PASS": 9
+    },
+    "limits": "Physical SQLite integrity and declared FK only; no semantic row correctness or data migration."
+  },
+  "databases": [
+    {
+      "path": "data/MC_Furniture_Style_Stage1_Research_v8.sqlite",
+      "expected_git_blob": "79395712dae3ffee5e1ac668f7d1e583358f8578",
+      "expected_bytes": 413696,
+      "status": "PASS",
+      "original_sha256_before": "a49f2e3dec49772089cc0d5a3d6f8be60edd2088278e7def817ef5698498103a",
+      "actual_git_blob": "79395712dae3ffee5e1ac668f7d1e583358f8578",
+      "actual_bytes": 413696,
+      "sqlite_bytes": 413696,
+      "decoded_sha256": "a49f2e3dec49772089cc0d5a3d6f8be60edd2088278e7def817ef5698498103a",
+      "integrity_check": [
+        "ok"
+      ],
+      "fk_declared_rows": 1,
+      "fk_status": "PASS",
+      "application_id": 0,
+      "user_version": 0,
+      "table_count": 20,
+      "row_count_sum_nonunique": 924,
+      "original_sha256_after": "a49f2e3dec49772089cc0d5a3d6f8be60edd2088278e7def817ef5698498103a",
+      "original_unchanged": true,
+      "tables": [
+        {
+          "name": "assembly_cases_v7",
+          "rows": 21,
+          "columns": 11,
+          "pk": [
+            "block",
+            "case_id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "assembly_parts_v7",
+          "rows": 53,
+          "columns": 11,
+          "pk": [
+            "block",
+            "case_id",
+            "part_ordinal"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "assembly_primitives_v7",
+          "rows": 93,
+          "columns": 10,
+          "pk": [
+            "block",
+            "case_id",
+            "part_ordinal",
+            "primitive_ordinal"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "blockstates",
+          "rows": 16,
+          "columns": 6,
+          "pk": [
+            "name"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "connected_geometry_v7",
+          "rows": 39,
+          "columns": 6,
+          "pk": [
+            "model"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "connected_sources_v7",
+          "rows": 61,
+          "columns": 5,
+          "pk": [
+            "path"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "elements",
+          "rows": 80,
+          "columns": 8,
+          "pk": [
+            "model",
+            "element_index"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "model_additions_v6",
+          "rows": 13,
+          "columns": 7,
+          "pk": [
+            "name"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "models",
+          "rows": 55,
+          "columns": 12,
+          "pk": [
+            "name"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "rendering_conclusions_v8",
+          "rows": 7,
+          "columns": 6,
+          "pk": [
+            "finding_id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "research_issues_v6",
+          "rows": 9,
+          "columns": 4,
+          "pk": [
+            "issue_id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "research_limits_v7",
+          "rows": 6,
+          "columns": 3,
+          "pk": [
+            "issue"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "sources",
+          "rows": 148,
+          "columns": 5,
+          "pk": [
+            "path"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "special_block_evidence_v8",
+          "rows": 17,
+          "columns": 15,
+          "pk": [
+            "block"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "special_texture_metadata_v8",
+          "rows": 19,
+          "columns": 9,
+          "pk": [
+            "texture_path"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "state_additions_v6",
+          "rows": 7,
+          "columns": 5,
+          "pk": [
+            "name"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "state_examples_v6",
+          "rows": 34,
+          "columns": 9,
+          "pk": [
+            "block",
+            "state_key",
+            "selected_model",
+            "selection_kind"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "texture_atlases_v8",
+          "rows": 6,
+          "columns": 6,
+          "pk": [
+            "atlas"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "texture_stats_v4",
+          "rows": 150,
+          "columns": 10,
+          "pk": [
+            "texture_id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "uv_faces_v6",
+          "rows": 90,
+          "columns": 9,
+          "pk": [
+            "source_geometry_model",
+            "element_index",
+            "face"
+          ],
+          "fk": 0
+        }
+      ]
+    },
+    {
+      "path": "research/furniture_mods/phase_1-3/F/furniture_research.sqlite.xz",
+      "expected_git_blob": "e54839615278dba39cadb463b9988e0371d37ea9",
+      "expected_bytes": 1796236,
+      "status": "PASS",
+      "original_sha256_before": "21683d623f2abfb54f35aa5e328ed595749ec467e338c8c725c7104e36a43f88",
+      "actual_git_blob": "e54839615278dba39cadb463b9988e0371d37ea9",
+      "actual_bytes": 1796236,
+      "sqlite_bytes": 26275840,
+      "decoded_sha256": "2817f5a3048791f68612dd5e26a5ea31511e69949e95211245a8877186f74e00",
+      "integrity_check": [
+        "ok"
+      ],
+      "fk_declared_rows": 26,
+      "fk_status": "PASS",
+      "application_id": 0,
+      "user_version": 0,
+      "table_count": 16,
+      "row_count_sum_nonunique": 337713,
+      "original_sha256_after": "21683d623f2abfb54f35aa5e328ed595749ec467e338c8c725c7104e36a43f88",
+      "original_unchanged": true,
+      "tables": [
+        {
+          "name": "element",
+          "rows": 1911,
+          "columns": 11,
+          "pk": [
+            "provider_key",
+            "element_index"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "exception",
+          "rows": 305,
+          "columns": 4,
+          "pk": [
+            "stage",
+            "resource_key",
+            "category",
+            "detail"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "face",
+          "rows": 9760,
+          "columns": 9,
+          "pk": [
+            "provider_key",
+            "element_index",
+            "direction"
+          ],
+          "fk": 2
+        },
+        {
+          "name": "geometry",
+          "rows": 16572,
+          "columns": 6,
+          "pk": [
+            "model_key"
+          ],
+          "fk": 2
+        },
+        {
+          "name": "lineage",
+          "rows": 50246,
+          "columns": 3,
+          "pk": [
+            "model_key",
+            "position"
+          ],
+          "fk": 2
+        },
+        {
+          "name": "model",
+          "rows": 16579,
+          "columns": 8,
+          "pk": [
+            "model_key"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "model_slot",
+          "rows": 81641,
+          "columns": 5,
+          "pk": [
+            "model_key",
+            "slot"
+          ],
+          "fk": 2
+        },
+        {
+          "name": "option",
+          "rows": 78456,
+          "columns": 11,
+          "pk": [
+            "state_id",
+            "rule_index",
+            "option_index"
+          ],
+          "fk": 3
+        },
+        {
+          "name": "prior_texture",
+          "rows": 175,
+          "columns": 5,
+          "pk": [
+            "texture_id"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "rule",
+          "rows": 78456,
+          "columns": 5,
+          "pk": [
+            "state_id",
+            "rule_index"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "sample",
+          "rows": 47,
+          "columns": 8,
+          "pk": [
+            "id"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "sample_option",
+          "rows": 52,
+          "columns": 4,
+          "pk": [
+            "sample_id",
+            "rule_index",
+            "option_index"
+          ],
+          "fk": 5
+        },
+        {
+          "name": "sample_part",
+          "rows": 94,
+          "columns": 6,
+          "pk": [
+            "sample_id",
+            "rule_index",
+            "element_index"
+          ],
+          "fk": 3
+        },
+        {
+          "name": "source",
+          "rows": 5,
+          "columns": 7,
+          "pk": [
+            "id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "state",
+          "rows": 1158,
+          "columns": 8,
+          "pk": [
+            "id"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "texture",
+          "rows": 2256,
+          "columns": 7,
+          "pk": [
+            "id"
+          ],
+          "fk": 1
+        }
+      ]
+    },
+    {
+      "path": "research/furniture_mods/phase_1-4/E_followup/research_texture_uv_runtime.sqlite.xz",
+      "expected_git_blob": "bab0ea7f6bbfd41651e3997096b52e71ff2e82c8",
+      "expected_bytes": 238548,
+      "status": "PASS",
+      "original_sha256_before": "5933dedb675dcc165ad0a120003c92d4d8a0a4b3871b111f0cfb53d650f5d836",
+      "actual_git_blob": "bab0ea7f6bbfd41651e3997096b52e71ff2e82c8",
+      "actual_bytes": 238548,
+      "sqlite_bytes": 2543616,
+      "decoded_sha256": "b197558ed109db1215ccf465bf485e73476d393409cbedd36595b116579a46c8",
+      "integrity_check": [
+        "ok"
+      ],
+      "fk_declared_rows": 15,
+      "fk_status": "PASS",
+      "application_id": 0,
+      "user_version": 0,
+      "table_count": 16,
+      "row_count_sum_nonunique": 11188,
+      "original_sha256_after": "5933dedb675dcc165ad0a120003c92d4d8a0a4b3871b111f0cfb53d650f5d836",
+      "original_unchanged": true,
+      "tables": [
+        {
+          "name": "alternate_asset",
+          "rows": 16,
+          "columns": 4,
+          "pk": [
+            "texture_id",
+            "path"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "alternate_sprite_model_binding",
+          "rows": 92,
+          "columns": 5,
+          "pk": [
+            "sprite",
+            "model_resource",
+            "slot"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "alternate_sprite_runtime",
+          "rows": 16,
+          "columns": 10,
+          "pk": [
+            "texture_id",
+            "candidate_path"
+          ],
+          "fk": 2
+        },
+        {
+          "name": "atlas_probe",
+          "rows": 217,
+          "columns": 6,
+          "pk": [
+            "kind",
+            "requested",
+            "properties"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "comparison_application",
+          "rows": 52,
+          "columns": 14,
+          "pk": [
+            "case_id",
+            "rule_index",
+            "option_index"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "comparison_face",
+          "rows": 1610,
+          "columns": 12,
+          "pk": [
+            "case_id",
+            "rule_index",
+            "option_index",
+            "element_index",
+            "direction"
+          ],
+          "fk": 4
+        },
+        {
+          "name": "exception_slot",
+          "rows": 169,
+          "columns": 8,
+          "pk": [
+            "texture_id",
+            "model_key",
+            "slot"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "followup_input",
+          "rows": 5,
+          "columns": 2,
+          "pk": [
+            "name"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "input_artifact",
+          "rows": 26,
+          "columns": 2,
+          "pk": [
+            "path"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "missing_sprite_runtime",
+          "rows": 8,
+          "columns": 5,
+          "pk": [
+            "texture_id"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "oak_chair_runtime_binding",
+          "rows": 176,
+          "columns": 4,
+          "pk": [
+            "runtime_state"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "prior_face",
+          "rows": 4113,
+          "columns": 10,
+          "pk": [
+            "ledger_path",
+            "ledger_row"
+          ],
+          "fk": 2
+        },
+        {
+          "name": "prior_zero_uv_support",
+          "rows": 176,
+          "columns": 5,
+          "pk": [
+            "ledger_path",
+            "ledger_row"
+          ],
+          "fk": 2
+        },
+        {
+          "name": "texture",
+          "rows": 2256,
+          "columns": 8,
+          "pk": [
+            "id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "texture_exception",
+          "rows": 85,
+          "columns": 8,
+          "pk": [
+            "texture_id"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "texture_uv_counts",
+          "rows": 2171,
+          "columns": 9,
+          "pk": [
+            "texture_id"
+          ],
+          "fk": 1
+        }
+      ]
+    },
+    {
+      "path": "research/furniture_mods/phase_1-4/entry04/research_texture_uv.sqlite.xz",
+      "expected_git_blob": "1437b43416310fe8af66870e7a4731310d9283cc",
+      "expected_bytes": 224012,
+      "status": "PASS",
+      "original_sha256_before": "99a7a6911fa0ec2d3c1361241359963b3525309e815796856635d33145b2ce27",
+      "actual_git_blob": "1437b43416310fe8af66870e7a4731310d9283cc",
+      "actual_bytes": 224012,
+      "sqlite_bytes": 2269184,
+      "decoded_sha256": "49b4de5890d0591cab017dcc63cfc0375111691e1706f19c1e677c1e7cea5d20",
+      "integrity_check": [
+        "ok"
+      ],
+      "fk_declared_rows": 10,
+      "fk_status": "PASS",
+      "application_id": 0,
+      "user_version": 0,
+      "table_count": 9,
+      "row_count_sum_nonunique": 10498,
+      "original_sha256_after": "99a7a6911fa0ec2d3c1361241359963b3525309e815796856635d33145b2ce27",
+      "original_unchanged": true,
+      "tables": [
+        {
+          "name": "alternate_asset",
+          "rows": 16,
+          "columns": 4,
+          "pk": [
+            "texture_id",
+            "path"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "comparison_application",
+          "rows": 52,
+          "columns": 14,
+          "pk": [
+            "case_id",
+            "rule_index",
+            "option_index"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "comparison_face",
+          "rows": 1610,
+          "columns": 12,
+          "pk": [
+            "case_id",
+            "rule_index",
+            "option_index",
+            "element_index",
+            "direction"
+          ],
+          "fk": 4
+        },
+        {
+          "name": "exception_slot",
+          "rows": 169,
+          "columns": 8,
+          "pk": [
+            "texture_id",
+            "model_key",
+            "slot"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "input_artifact",
+          "rows": 26,
+          "columns": 2,
+          "pk": [
+            "path"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "prior_face",
+          "rows": 4113,
+          "columns": 10,
+          "pk": [
+            "ledger_path",
+            "ledger_row"
+          ],
+          "fk": 2
+        },
+        {
+          "name": "texture",
+          "rows": 2256,
+          "columns": 8,
+          "pk": [
+            "id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "texture_exception",
+          "rows": 85,
+          "columns": 8,
+          "pk": [
+            "texture_id"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "texture_uv_counts",
+          "rows": 2171,
+          "columns": 9,
+          "pk": [
+            "texture_id"
+          ],
+          "fk": 1
+        }
+      ]
+    },
+    {
+      "path": "research/furniture_mods/phase_1-5/E/comparison.sqlite.xz",
+      "expected_git_blob": "2c83a9e119ca84eec0cd0924447278e2d7d314a3",
+      "expected_bytes": 105028,
+      "status": "PASS",
+      "original_sha256_before": "c8d59ce8d565b3b8404258adb6f55eae16a7962b389f5120f405ffe6fb2bb2b7",
+      "actual_git_blob": "2c83a9e119ca84eec0cd0924447278e2d7d314a3",
+      "actual_bytes": 105028,
+      "sqlite_bytes": 806912,
+      "decoded_sha256": "5718b998e7b166ec06a5f99b6535685be2a54ef2279e860637f32e9ca5b3b5e8",
+      "integrity_check": [
+        "ok"
+      ],
+      "fk_declared_rows": 32,
+      "fk_status": "PASS",
+      "application_id": 0,
+      "user_version": 1,
+      "table_count": 22,
+      "row_count_sum_nonunique": 3829,
+      "original_sha256_after": "c8d59ce8d565b3b8404258adb6f55eae16a7962b389f5120f405ffe6fb2bb2b7",
+      "original_unchanged": true,
+      "tables": [
+        {
+          "name": "application",
+          "rows": 74,
+          "columns": 16,
+          "pk": [
+            "case_id",
+            "rule_index",
+            "option_index"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "application_source",
+          "rows": 221,
+          "columns": 5,
+          "pk": [
+            "case_id",
+            "rule_index",
+            "option_index",
+            "role"
+          ],
+          "fk": 4
+        },
+        {
+          "name": "asset",
+          "rows": 272,
+          "columns": 5,
+          "pk": [
+            "asset_id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "asset_hash",
+          "rows": 346,
+          "columns": 3,
+          "pk": [
+            "asset_id",
+            "algorithm"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "case_category",
+          "rows": 72,
+          "columns": 2,
+          "pk": [
+            "case_id",
+            "category"
+          ],
+          "fk": 2
+        },
+        {
+          "name": "category",
+          "rows": 9,
+          "columns": 1,
+          "pk": [
+            "category"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "control_asset",
+          "rows": 102,
+          "columns": 2,
+          "pk": [
+            "case_id",
+            "asset_id"
+          ],
+          "fk": 2
+        },
+        {
+          "name": "element",
+          "rows": 390,
+          "columns": 8,
+          "pk": [
+            "case_id",
+            "rule_index",
+            "option_index",
+            "element_index"
+          ],
+          "fk": 3
+        },
+        {
+          "name": "face",
+          "rows": 1844,
+          "columns": 31,
+          "pk": [
+            "case_id",
+            "rule_index",
+            "option_index",
+            "element_index",
+            "direction"
+          ],
+          "fk": 5
+        },
+        {
+          "name": "face_frame",
+          "rows": 109,
+          "columns": 16,
+          "pk": [
+            "case_id",
+            "rule_index",
+            "option_index",
+            "element_index",
+            "direction",
+            "frame"
+          ],
+          "fk": 5
+        },
+        {
+          "name": "finding",
+          "rows": 21,
+          "columns": 7,
+          "pk": [
+            "finding_id"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "finding_case",
+          "rows": 70,
+          "columns": 2,
+          "pk": [
+            "finding_id",
+            "case_id"
+          ],
+          "fk": 2
+        },
+        {
+          "name": "handoff_runtime",
+          "rows": 16,
+          "columns": 2,
+          "pk": [
+            "finding_id",
+            "test_id"
+          ],
+          "fk": 2
+        },
+        {
+          "name": "parent_exception",
+          "rows": 48,
+          "columns": 12,
+          "pk": [
+            "model_key"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "phase2_handoff",
+          "rows": 21,
+          "columns": 3,
+          "pk": [
+            "finding_id"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "phase_gate",
+          "rows": 3,
+          "columns": 4,
+          "pk": [
+            "gate_id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "runtime_case",
+          "rows": 30,
+          "columns": 2,
+          "pk": [
+            "test_id",
+            "case_id"
+          ],
+          "fk": 2
+        },
+        {
+          "name": "runtime_check",
+          "rows": 10,
+          "columns": 7,
+          "pk": [
+            "test_id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "source_artifact",
+          "rows": 18,
+          "columns": 5,
+          "pk": [
+            "path"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "state_exception",
+          "rows": 6,
+          "columns": 10,
+          "pk": [
+            "state_id",
+            "rule_index",
+            "option_index"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "study_case",
+          "rows": 62,
+          "columns": 21,
+          "pk": [
+            "case_id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "texture_exception",
+          "rows": 85,
+          "columns": 12,
+          "pk": [
+            "texture_id"
+          ],
+          "fk": 0
+        }
+      ]
+    },
+    {
+      "path": "research/vanilla_models/v5/MC_Furniture_Style_Stage1_Research_v5.sqlite",
+      "expected_git_blob": "4b75d6fdc6dc7d37a8ba81a6c63891d886c801b2",
+      "expected_bytes": 147456,
+      "status": "PASS",
+      "original_sha256_before": "39553dd07c5a8fb6efc956074f60b8593027ad22b4631cc6a819c79a7baa3e74",
+      "actual_git_blob": "4b75d6fdc6dc7d37a8ba81a6c63891d886c801b2",
+      "actual_bytes": 147456,
+      "sqlite_bytes": 147456,
+      "decoded_sha256": "39553dd07c5a8fb6efc956074f60b8593027ad22b4631cc6a819c79a7baa3e74",
+      "integrity_check": [
+        "ok"
+      ],
+      "fk_declared_rows": 1,
+      "fk_status": "PASS",
+      "application_id": 0,
+      "user_version": 0,
+      "table_count": 5,
+      "row_count_sum_nonunique": 372,
+      "original_sha256_after": "39553dd07c5a8fb6efc956074f60b8593027ad22b4631cc6a819c79a7baa3e74",
+      "original_unchanged": true,
+      "tables": [
+        {
+          "name": "blockstates",
+          "rows": 16,
+          "columns": 6,
+          "pk": [
+            "name"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "elements",
+          "rows": 80,
+          "columns": 8,
+          "pk": [
+            "model",
+            "element_index"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "models",
+          "rows": 55,
+          "columns": 12,
+          "pk": [
+            "name"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "sources",
+          "rows": 71,
+          "columns": 5,
+          "pk": [
+            "path"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "texture_stats_v4",
+          "rows": 150,
+          "columns": 10,
+          "pk": [
+            "texture_id"
+          ],
+          "fk": 0
+        }
+      ]
+    },
+    {
+      "path": "research/vanilla_models/v6/MC_Furniture_Style_Stage1_Research_v6.sqlite",
+      "expected_git_blob": "990434e0db8a990665aac6a5d0261b9ade6e4c6b",
+      "expected_bytes": 237568,
+      "status": "PASS",
+      "original_sha256_before": "3807c8a7109aa986e5a4269aef7aae0fce97e27570edea0eb369aae327c95090",
+      "actual_git_blob": "990434e0db8a990665aac6a5d0261b9ade6e4c6b",
+      "actual_bytes": 237568,
+      "sqlite_bytes": 237568,
+      "decoded_sha256": "3807c8a7109aa986e5a4269aef7aae0fce97e27570edea0eb369aae327c95090",
+      "integrity_check": [
+        "ok"
+      ],
+      "fk_declared_rows": 1,
+      "fk_status": "PASS",
+      "application_id": 0,
+      "user_version": 0,
+      "table_count": 10,
+      "row_count_sum_nonunique": 545,
+      "original_sha256_after": "3807c8a7109aa986e5a4269aef7aae0fce97e27570edea0eb369aae327c95090",
+      "original_unchanged": true,
+      "tables": [
+        {
+          "name": "blockstates",
+          "rows": 16,
+          "columns": 6,
+          "pk": [
+            "name"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "elements",
+          "rows": 80,
+          "columns": 8,
+          "pk": [
+            "model",
+            "element_index"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "model_additions_v6",
+          "rows": 13,
+          "columns": 7,
+          "pk": [
+            "name"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "models",
+          "rows": 55,
+          "columns": 12,
+          "pk": [
+            "name"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "research_issues_v6",
+          "rows": 9,
+          "columns": 4,
+          "pk": [
+            "issue_id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "sources",
+          "rows": 91,
+          "columns": 5,
+          "pk": [
+            "path"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "state_additions_v6",
+          "rows": 7,
+          "columns": 5,
+          "pk": [
+            "name"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "state_examples_v6",
+          "rows": 34,
+          "columns": 9,
+          "pk": [
+            "block",
+            "state_key",
+            "selected_model",
+            "selection_kind"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "texture_stats_v4",
+          "rows": 150,
+          "columns": 10,
+          "pk": [
+            "texture_id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "uv_faces_v6",
+          "rows": 90,
+          "columns": 9,
+          "pk": [
+            "source_geometry_model",
+            "element_index",
+            "face"
+          ],
+          "fk": 0
+        }
+      ]
+    },
+    {
+      "path": "research/vanilla_models/v7/MC_Furniture_Style_Stage1_Research_v7.sqlite",
+      "expected_git_blob": "f8a9c81019e8d1fd6d82a6783f31ca8a68c47ddb",
+      "expected_bytes": 364544,
+      "status": "PASS",
+      "original_sha256_before": "3831a2470ce79c1e248a58c668ff62d188fe72362df250e90a9e91623cd435f0",
+      "actual_git_blob": "f8a9c81019e8d1fd6d82a6783f31ca8a68c47ddb",
+      "actual_bytes": 364544,
+      "sqlite_bytes": 364544,
+      "decoded_sha256": "3831a2470ce79c1e248a58c668ff62d188fe72362df250e90a9e91623cd435f0",
+      "integrity_check": [
+        "ok"
+      ],
+      "fk_declared_rows": 1,
+      "fk_status": "PASS",
+      "application_id": 0,
+      "user_version": 0,
+      "table_count": 16,
+      "row_count_sum_nonunique": 875,
+      "original_sha256_after": "3831a2470ce79c1e248a58c668ff62d188fe72362df250e90a9e91623cd435f0",
+      "original_unchanged": true,
+      "tables": [
+        {
+          "name": "assembly_cases_v7",
+          "rows": 21,
+          "columns": 11,
+          "pk": [
+            "block",
+            "case_id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "assembly_parts_v7",
+          "rows": 53,
+          "columns": 11,
+          "pk": [
+            "block",
+            "case_id",
+            "part_ordinal"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "assembly_primitives_v7",
+          "rows": 93,
+          "columns": 10,
+          "pk": [
+            "block",
+            "case_id",
+            "part_ordinal",
+            "primitive_ordinal"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "blockstates",
+          "rows": 16,
+          "columns": 6,
+          "pk": [
+            "name"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "connected_geometry_v7",
+          "rows": 39,
+          "columns": 6,
+          "pk": [
+            "model"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "connected_sources_v7",
+          "rows": 61,
+          "columns": 5,
+          "pk": [
+            "path"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "elements",
+          "rows": 80,
+          "columns": 8,
+          "pk": [
+            "model",
+            "element_index"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "model_additions_v6",
+          "rows": 13,
+          "columns": 7,
+          "pk": [
+            "name"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "models",
+          "rows": 55,
+          "columns": 12,
+          "pk": [
+            "name"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "research_issues_v6",
+          "rows": 9,
+          "columns": 4,
+          "pk": [
+            "issue_id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "research_limits_v7",
+          "rows": 6,
+          "columns": 3,
+          "pk": [
+            "issue"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "sources",
+          "rows": 148,
+          "columns": 5,
+          "pk": [
+            "path"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "state_additions_v6",
+          "rows": 7,
+          "columns": 5,
+          "pk": [
+            "name"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "state_examples_v6",
+          "rows": 34,
+          "columns": 9,
+          "pk": [
+            "block",
+            "state_key",
+            "selected_model",
+            "selection_kind"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "texture_stats_v4",
+          "rows": 150,
+          "columns": 10,
+          "pk": [
+            "texture_id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "uv_faces_v6",
+          "rows": 90,
+          "columns": 9,
+          "pk": [
+            "source_geometry_model",
+            "element_index",
+            "face"
+          ],
+          "fk": 0
+        }
+      ]
+    },
+    {
+      "path": "research/vanilla_models/v8/MC_Furniture_Style_Stage1_Research_v8.sqlite",
+      "expected_git_blob": "79395712dae3ffee5e1ac668f7d1e583358f8578",
+      "expected_bytes": 413696,
+      "status": "PASS",
+      "original_sha256_before": "a49f2e3dec49772089cc0d5a3d6f8be60edd2088278e7def817ef5698498103a",
+      "actual_git_blob": "79395712dae3ffee5e1ac668f7d1e583358f8578",
+      "actual_bytes": 413696,
+      "sqlite_bytes": 413696,
+      "decoded_sha256": "a49f2e3dec49772089cc0d5a3d6f8be60edd2088278e7def817ef5698498103a",
+      "integrity_check": [
+        "ok"
+      ],
+      "fk_declared_rows": 1,
+      "fk_status": "PASS",
+      "application_id": 0,
+      "user_version": 0,
+      "table_count": 20,
+      "row_count_sum_nonunique": 924,
+      "original_sha256_after": "a49f2e3dec49772089cc0d5a3d6f8be60edd2088278e7def817ef5698498103a",
+      "original_unchanged": true,
+      "tables": [
+        {
+          "name": "assembly_cases_v7",
+          "rows": 21,
+          "columns": 11,
+          "pk": [
+            "block",
+            "case_id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "assembly_parts_v7",
+          "rows": 53,
+          "columns": 11,
+          "pk": [
+            "block",
+            "case_id",
+            "part_ordinal"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "assembly_primitives_v7",
+          "rows": 93,
+          "columns": 10,
+          "pk": [
+            "block",
+            "case_id",
+            "part_ordinal",
+            "primitive_ordinal"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "blockstates",
+          "rows": 16,
+          "columns": 6,
+          "pk": [
+            "name"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "connected_geometry_v7",
+          "rows": 39,
+          "columns": 6,
+          "pk": [
+            "model"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "connected_sources_v7",
+          "rows": 61,
+          "columns": 5,
+          "pk": [
+            "path"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "elements",
+          "rows": 80,
+          "columns": 8,
+          "pk": [
+            "model",
+            "element_index"
+          ],
+          "fk": 1
+        },
+        {
+          "name": "model_additions_v6",
+          "rows": 13,
+          "columns": 7,
+          "pk": [
+            "name"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "models",
+          "rows": 55,
+          "columns": 12,
+          "pk": [
+            "name"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "rendering_conclusions_v8",
+          "rows": 7,
+          "columns": 6,
+          "pk": [
+            "finding_id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "research_issues_v6",
+          "rows": 9,
+          "columns": 4,
+          "pk": [
+            "issue_id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "research_limits_v7",
+          "rows": 6,
+          "columns": 3,
+          "pk": [
+            "issue"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "sources",
+          "rows": 148,
+          "columns": 5,
+          "pk": [
+            "path"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "special_block_evidence_v8",
+          "rows": 17,
+          "columns": 15,
+          "pk": [
+            "block"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "special_texture_metadata_v8",
+          "rows": 19,
+          "columns": 9,
+          "pk": [
+            "texture_path"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "state_additions_v6",
+          "rows": 7,
+          "columns": 5,
+          "pk": [
+            "name"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "state_examples_v6",
+          "rows": 34,
+          "columns": 9,
+          "pk": [
+            "block",
+            "state_key",
+            "selected_model",
+            "selection_kind"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "texture_atlases_v8",
+          "rows": 6,
+          "columns": 6,
+          "pk": [
+            "atlas"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "texture_stats_v4",
+          "rows": 150,
+          "columns": 10,
+          "pk": [
+            "texture_id"
+          ],
+          "fk": 0
+        },
+        {
+          "name": "uv_faces_v6",
+          "rows": 90,
+          "columns": 9,
+          "pk": [
+            "source_geometry_model",
+            "element_index",
+            "face"
+          ],
+          "fk": 0
+        }
+      ]
+    }
+  ],
+  "path_table_count": 134,
+  "path_row_sum_nonunique": 366868,
+  "selftest_pass": 4,
+  "limits": [
+    "Physical integrity and declared foreign keys only",
+    "Row sums include copies and historical revisions; no deduplication or migration",
+    "Full DDL/columns/index detail retained in Actions artifact E_databases.json; this permanent record uses log summaries."
+  ]
+}
