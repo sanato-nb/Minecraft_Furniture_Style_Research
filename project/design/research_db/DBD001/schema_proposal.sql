@@ -697,3 +697,54 @@ CREATE VIEW knowledge_search_view AS
  JOIN research_object o ON o.snapshot_id=c.snapshot_id AND o.object_id=c.object_id
  JOIN analysis_snapshot s ON s.snapshot_id=c.snapshot_id
  LEFT JOIN technique k ON k.claim_id=c.claim_id;
+
+-- Scope definition immutable after lock; additional guard verifies manifest bytes.
+CREATE TRIGGER dbd_lock_scope_source_insert BEFORE INSERT ON scope_source
+WHEN EXISTS (SELECT 1 FROM research_scope WHERE scope_id=NEW.scope_id AND lifecycle='LOCKED')
+BEGIN SELECT RAISE(ABORT,'locked research scope'); END;
+CREATE TRIGGER dbd_lock_scope_source_update BEFORE UPDATE ON scope_source
+WHEN EXISTS (SELECT 1 FROM research_scope WHERE scope_id=OLD.scope_id AND lifecycle='LOCKED') OR EXISTS (SELECT 1 FROM research_scope WHERE scope_id=NEW.scope_id AND lifecycle='LOCKED')
+BEGIN SELECT RAISE(ABORT,'locked research scope'); END;
+CREATE TRIGGER dbd_lock_scope_source_delete BEFORE DELETE ON scope_source
+WHEN EXISTS (SELECT 1 FROM research_scope WHERE scope_id=OLD.scope_id AND lifecycle='LOCKED')
+BEGIN SELECT RAISE(ABORT,'locked research scope'); END;
+CREATE TRIGGER dbd_lock_scope_unit_insert BEFORE INSERT ON scope_unit
+WHEN EXISTS (SELECT 1 FROM research_scope WHERE scope_id=NEW.scope_id AND lifecycle='LOCKED')
+BEGIN SELECT RAISE(ABORT,'locked research scope'); END;
+CREATE TRIGGER dbd_lock_scope_unit_update BEFORE UPDATE ON scope_unit
+WHEN EXISTS (SELECT 1 FROM research_scope WHERE scope_id=OLD.scope_id AND lifecycle='LOCKED') OR EXISTS (SELECT 1 FROM research_scope WHERE scope_id=NEW.scope_id AND lifecycle='LOCKED')
+BEGIN SELECT RAISE(ABORT,'locked research scope'); END;
+CREATE TRIGGER dbd_lock_scope_unit_delete BEFORE DELETE ON scope_unit
+WHEN EXISTS (SELECT 1 FROM research_scope WHERE scope_id=OLD.scope_id AND lifecycle='LOCKED')
+BEGIN SELECT RAISE(ABORT,'locked research scope'); END;
+CREATE TRIGGER dbd_lock_research_task_insert BEFORE INSERT ON research_task
+WHEN EXISTS (SELECT 1 FROM research_scope WHERE scope_id=NEW.scope_id AND lifecycle='LOCKED')
+BEGIN SELECT RAISE(ABORT,'locked research scope'); END;
+CREATE TRIGGER dbd_lock_research_task_update BEFORE UPDATE ON research_task
+WHEN EXISTS (SELECT 1 FROM research_scope WHERE scope_id=OLD.scope_id AND lifecycle='LOCKED') OR EXISTS (SELECT 1 FROM research_scope WHERE scope_id=NEW.scope_id AND lifecycle='LOCKED')
+BEGIN SELECT RAISE(ABORT,'locked research scope'); END;
+CREATE TRIGGER dbd_lock_research_task_delete BEFORE DELETE ON research_task
+WHEN EXISTS (SELECT 1 FROM research_scope WHERE scope_id=OLD.scope_id AND lifecycle='LOCKED')
+BEGIN SELECT RAISE(ABORT,'locked research scope'); END;
+CREATE TRIGGER dbd_lock_validation_requirement_insert BEFORE INSERT ON validation_requirement
+WHEN EXISTS (SELECT 1 FROM research_scope WHERE scope_id=NEW.scope_id AND lifecycle='LOCKED')
+BEGIN SELECT RAISE(ABORT,'locked research scope'); END;
+CREATE TRIGGER dbd_lock_validation_requirement_update BEFORE UPDATE ON validation_requirement
+WHEN EXISTS (SELECT 1 FROM research_scope WHERE scope_id=OLD.scope_id AND lifecycle='LOCKED') OR EXISTS (SELECT 1 FROM research_scope WHERE scope_id=NEW.scope_id AND lifecycle='LOCKED')
+BEGIN SELECT RAISE(ABORT,'locked research scope'); END;
+CREATE TRIGGER dbd_lock_validation_requirement_delete BEFORE DELETE ON validation_requirement
+WHEN EXISTS (SELECT 1 FROM research_scope WHERE scope_id=OLD.scope_id AND lifecycle='LOCKED')
+BEGIN SELECT RAISE(ABORT,'locked research scope'); END;
+CREATE TRIGGER dbd_lock_render_case_insert BEFORE INSERT ON render_case
+WHEN EXISTS (SELECT 1 FROM research_scope WHERE scope_id=NEW.scope_id AND lifecycle='LOCKED')
+BEGIN SELECT RAISE(ABORT,'locked research scope'); END;
+CREATE TRIGGER dbd_lock_render_case_update BEFORE UPDATE ON render_case
+WHEN EXISTS (SELECT 1 FROM research_scope WHERE scope_id=OLD.scope_id AND lifecycle='LOCKED') OR EXISTS (SELECT 1 FROM research_scope WHERE scope_id=NEW.scope_id AND lifecycle='LOCKED')
+BEGIN SELECT RAISE(ABORT,'locked research scope'); END;
+CREATE TRIGGER dbd_lock_render_case_delete BEFORE DELETE ON render_case
+WHEN EXISTS (SELECT 1 FROM research_scope WHERE scope_id=OLD.scope_id AND lifecycle='LOCKED')
+BEGIN SELECT RAISE(ABORT,'locked research scope'); END;
+CREATE TRIGGER dbd_lock_scope_update BEFORE UPDATE ON research_scope WHEN OLD.lifecycle='LOCKED'
+BEGIN SELECT RAISE(ABORT,'locked research scope'); END;
+CREATE TRIGGER dbd_lock_scope_delete BEFORE DELETE ON research_scope WHEN OLD.lifecycle='LOCKED'
+BEGIN SELECT RAISE(ABORT,'locked research scope'); END;

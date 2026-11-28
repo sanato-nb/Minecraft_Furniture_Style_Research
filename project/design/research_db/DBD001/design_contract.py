@@ -64,6 +64,21 @@ def locked_scope(db,sid,read):
     require(json.loads(read(manifest))["scope_fingerprint"]==scope_fingerprint(db,sid),"locked scope changed")
     return s
 
+def append_checkpoint(db,sid,aid,next_position,eid,read,*,committed_at):
+    """Caller owns transaction; retry is idempotent only for exactly matching last result."""
+    pos=validate_checkpoint(db,sid,aid,read)
+    a=one(db,"SELECT * FROM research_attempt WHERE scope_id=? AND attempt_id=?",(sid,aid))
+    require_evidence(db,eid,read)
+    e=one(db,"SELECT * FROM evidence_item WHERE evidence_id=?",(eid,))
+    existing=rows(db,"SELECT * FROM task_checkpoint WHERE scope_id=? AND attempt_id=? ORDER BY batch_no DESC",(sid,aid))
+    if next_position==pos and existing:
+        require(existing[0]["result_evidence_id"]==eid and existing[0]["result_sha256"]==e["content_sha256"],"conflicting checkpoint retry")
+        return False
+    require(type(next_position)==int and next_position>pos,"checkpoint position not increasing")
+    db.execute("INSERT INTO task_checkpoint(scope_id,attempt_id,batch_no,next_position,input_sha256,result_evidence_id,result_sha256,committed_at) VALUES(?,?,?,?,?,?,?,?)",
+               (sid,aid,len(existing),next_position,a["input_sha256"],eid,e["content_sha256"],committed_at))
+    return True
+
 def validate_checkpoint(db,sid,aid,read):
     s=locked_scope(db,sid,read)
     a=one(db,"SELECT * FROM research_attempt WHERE scope_id=? AND attempt_id=?",(sid,aid))
@@ -157,9 +172,23 @@ def assessment(db,sid,kind,selected,read):
     else:status="HOLD"
     return dict(status=status,**counts)
 
+def latest_results(db,sid,kind):
+    """Latest recorded result per mandatory requirement; attempt order is local to one task."""
+    selected={}
+    reqs=rows(db,"SELECT q.requirement_id FROM validation_requirement q JOIN scope_unit u ON u.scope_id=q.scope_id AND u.unit_id=q.unit_id WHERE q.scope_id=? AND q.mandatory=1 AND u.required=1 AND u.unit_kind=?",(sid,kind))
+    for q in reqs:
+        rid=q["requirement_id"]
+        rr=rows(db,"SELECT v.result_id,a.task_id,a.attempt_no,a.lifecycle FROM validation_result v JOIN research_attempt a ON a.scope_id=v.scope_id AND a.attempt_id=v.attempt_id WHERE v.scope_id=? AND v.requirement_id=? ORDER BY a.attempt_no DESC",(sid,rid))
+        if not rr:continue
+        require(len({x["task_id"] for x in rr})==1,"ambiguous result across tasks")
+        require(rr[0]["lifecycle"]=="FINISHED","latest result attempt not finished")
+        selected[rid]=rr[0]["result_id"]
+    return selected
+
 def validate_saved_assessment(db,sid,aid,read):
     a=one(db,"SELECT * FROM run_assessment WHERE scope_id=? AND assessment_id=?",(sid,aid))
     selected={r["requirement_id"]:r["result_id"] for r in rows(db,"SELECT * FROM assessment_result WHERE scope_id=? AND assessment_id=?",(sid,aid))}
+    require(selected==latest_results(db,sid,a["unit_kind"]),"stale or incomplete selected results")
     computed=assessment(db,sid,a["unit_kind"],selected,read)
     require(all(a[k]==v for k,v in computed.items()),"assessment mismatch")
     return computed
@@ -183,14 +212,18 @@ def export(db,read,*,label=None,term_kind=None,confirmed_only=True,metric=None,u
         relations=rows(db,"SELECT * FROM claim_relation WHERE claim_id=? OR related_claim_id=? ORDER BY claim_id,related_claim_id,relation",(c["claim_id"],c["claim_id"]))
         for x in links: x["body_verified"]=evidence_ok(db,x["evidence_id"],read)
         assess=rows(db,"SELECT a.* FROM run_assessment a WHERE scope_id=? AND revision=(SELECT MAX(b.revision) FROM run_assessment b WHERE b.scope_id=a.scope_id AND b.unit_kind=a.unit_kind) ORDER BY unit_kind",(c["scope_id"],))
-        ok=bool(assess)
+        groups={r["unit_kind"] for r in rows(db,"SELECT DISTINCT unit_kind FROM scope_unit WHERE scope_id=? AND required=1",(c["scope_id"],))}
+        ok=bool(groups) and {a["unit_kind"] for a in assess}==groups
         try:
+            locked_scope(db,c["scope_id"],read)
             for a in assess: require(validate_saved_assessment(db,c["scope_id"],a["assessment_id"],read)["status"]=="PASS","assessment not pass")
-            if c["technique_id"]: approval_guard(db,c["technique_id"],read)
+            if c["term_kind"]=="TECHNIQUE":
+                require(c["technique_id"] is not None,"technique record required")
+                approval_guard(db,c["technique_id"],read)
         except ValueError:ok=False
         ok=ok and c["certainty"]=="CONFIRMED" and c["review_status"]=="PASS" and any(x["role"]=="SUPPORT" and x["body_verified"] for x in links) and all(x["body_verified"] for x in links)
         # Do not promote unresolved contradictions to reusable knowledge.
-        if any(x["relation"] in ("CONTRADICTS","COUNTEREXAMPLE") for x in relations):ok=False
+        if any(x["relation"] in ("CONTRADICTS","COUNTEREXAMPLE") for x in relations) or any(x["role"]=="COUNTEREXAMPLE" for x in links):ok=False
         measures=[]
         for m in rows(db,"SELECT * FROM measurement WHERE snapshot_id=? AND object_id=? AND (? IS NULL OR metric=?) AND (? IS NULL OR unit=?) ORDER BY measurement_id",(c["snapshot_id"],c["object_id"],metric,metric,unit,unit)):
             try:validate_measurement(db,m["measurement_id"],read)

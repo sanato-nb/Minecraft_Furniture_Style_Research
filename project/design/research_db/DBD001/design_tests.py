@@ -185,8 +185,18 @@ def main(out):
                     db.execute("UPDATE task_checkpoint SET result_sha256=? WHERE attempt_id='a1'",(H,))
                     c.validate_checkpoint(db,"s","a1",read)
                 rollback_test(db,mutate_checkpoint)
-                return "scope drift and checkpoint hash mismatch rejected"
-            test("T04",t04,"guard detects mutation; immutable writer and real cross-job restart not implemented")
+                rollback_test(db,lambda:db.execute("DELETE FROM scope_unit WHERE unit_id='u1'"))
+                rollback_test(db,lambda:db.execute("UPDATE research_scope SET lifecycle='DRAFT' WHERE scope_id='s'"))
+                rollback_test(db,lambda:put(db,"scope_unit",scope_id="s",unit_id="extra",unit_kind="MODEL",unit_key="extra",required=1,definition_json="{}"))
+                assert c.append_checkpoint(db,"s","a1",1,"checkpoint",read,committed_at=NOW) is False
+                rollback_test(db,lambda:c.append_checkpoint(db,"s","a1",1,"support2",read,committed_at=NOW))
+                db.execute("SAVEPOINT resume")
+                assert c.append_checkpoint(db,"s","a1",2,"support2",read,committed_at=NOW)
+                assert c.validate_checkpoint(db,"s","a1",read)==2
+                db.execute("ROLLBACK TO resume");db.execute("RELEASE resume")
+                assert c.validate_checkpoint(db,"s","a1",read)==1
+                return "locked definition rejects insert/update/delete/unlock; checkpoint retry and rollback verified"
+            test("T04",t04,"local transaction fixture; cross-job restart and full execution writer not implemented")
             def t05():
                 assert c.one(db,"SELECT provider_id,declared_element_count FROM model_definition WHERE object_id='child'")=={"provider_id":"base","declared_element_count":None}
                 assert c.one(db,"SELECT to_y FROM model_element WHERE object_id='el'")["to_y"]==8
@@ -253,20 +263,38 @@ def main(out):
             def t12():
                 assert c.assessment(db,"s","MODEL",{},read)["status"]=="HOLD"
                 assert c.assessment(db,"s","MODEL",{"structure":"struct"},read)["status"]=="PASS"
-                result(db,"fail","structure","FAIL",attempt="a2")
-                assert c.assessment(db,"s","MODEL",{"structure":"fail"},read)["status"]=="FAIL"
-                assert c.assessment(db,"s","RENDER",{"generation":"gen"},read)["status"]=="PARTIAL"
                 assert c.validate_saved_assessment(db,"s","model-pass",read)["passed"]==1
+                db.execute("SAVEPOINT stale")
+                result(db,"fail","structure","FAIL",attempt="a2")
+                assert c.latest_results(db,"s","MODEL")=={"structure":"fail"}
+                assert c.assessment(db,"s","MODEL",{"structure":"fail"},read)["status"]=="FAIL"
+                bad(lambda:c.validate_saved_assessment(db,"s","model-pass",read))
+                assert not c.export(db,read,label="chair")["items"]
+                db.execute("ROLLBACK TO stale");db.execute("RELEASE stale")
+                assert c.assessment(db,"s","RENDER",{"generation":"gen"},read)["status"]=="PARTIAL"
                 rollback_test(db,lambda:db.execute("UPDATE run_assessment SET expected=2 WHERE assessment_id='model-pass'"))
                 db.commit()
-                return "four verdicts and unit denominator controls"
-            test("T12",t12,"explicit selected result set; latest-result selection and all unit groups enforcement not complete")
+                return "four verdicts, denominator, latest result selection and stale PASS rejection"
+            test("T12",t12)
             def t13():
                 x=c.export(db,read,label="chair",metric="height",unit="block",min_value=.4,release="fixture")
                 assert [i["claim"]["claim_id"] for i in x["items"]]==["confirmed"]
                 assert not c.export(db,read,label="chair",metric="height",unit="pixel",min_value=.4)["items"]
                 assert json.loads(c.canonical(x))==x
                 assert {i["claim"]["claim_id"] for i in c.export(db,read,label="layering")["items"]}=={"approved"}
+                db.execute("SAVEPOINT missinggroup")
+                db.execute("DELETE FROM assessment_result WHERE assessment_id='render-pass'")
+                db.execute("DELETE FROM run_assessment WHERE assessment_id='render-pass'")
+                assert not c.export(db,read,label="chair")["items"]
+                db.execute("ROLLBACK TO missinggroup");db.execute("RELEASE missinggroup")
+                db.execute("SAVEPOINT unfinished")
+                db.execute("UPDATE research_attempt SET lifecycle='RUNNING' WHERE attempt_id='a2'")
+                assert not c.export(db,read,label="chair")["items"]
+                db.execute("ROLLBACK TO unfinished");db.execute("RELEASE unfinished")
+                db.execute("SAVEPOINT counterexample")
+                put(db,"claim_evidence",claim_id="confirmed",evidence_id="support2",role="COUNTEREXAMPLE",locator_detail="fixture")
+                assert not c.export(db,read,label="chair")["items"]
+                db.execute("ROLLBACK TO counterexample");db.execute("RELEASE counterexample")
                 p=folder/"evidence"/"source";raw=p.read_bytes()
                 try:
                     p.write_bytes(b"corrupt")
@@ -276,8 +304,8 @@ def main(out):
                 put(db,"claim_relation",claim_id="confirmed",related_claim_id="unknown",relation="CONTRADICTS",reason="fixture")
                 assert not c.export(db,read,label="chair")["items"]
                 db.commit()
-                return "revision/unit/source/approval/contradiction and actual evidence corruption controls"
-            test("T13",t13,"prototype search; no complete required-group or production permission gate")
+                return "revision/unit/source/approval, missing group, unfinished attempt, counterexample and evidence corruption controls"
+            test("T13",t13,"design prototype; production permission and source case authorization not integrated")
             def t14():
                 for p in ("TEX05-R004/SOURCE_LEDGER.csv","TEX05-R007/BLOCK_VS_TERRAIN_SHADER.csv"):
                     put(db,"legacy_disposition",history_commit="fixture",history_path=p,git_blob="f"*40,classification="REVALIDATE",import_state="QUARANTINED",reason="fixture",evidence_id="source")
