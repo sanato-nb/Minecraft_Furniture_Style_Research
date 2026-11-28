@@ -9,6 +9,18 @@ from rq001_d import load_scope, pack, atomic, sha, blob
 
 DIR="project/audits/research_quality/RQ001"
 
+def historical_path(path):
+    parts=path.split("/")
+    if len(parts)<4 or parts[0]!="research":
+        return False
+    if parts[1] in ("vanilla_models","furniture_mods"):
+        version=parts[2]
+    elif parts[1]=="vanilla_textures" and "_" in parts[2]:
+        version=parts[2].split("_",1)[0]
+    else:
+        return False
+    return version.startswith("v") and version[1:].isascii() and version[1:].isdigit()
+
 def main():
     ap=argparse.ArgumentParser()
     for name in ("repo","inputs","out"):
@@ -100,7 +112,7 @@ def main():
             c,reason="REUSABLE_LIMITED","F reproduced catalog v4 and exact release/source records; no schema redesign"
         elif p in gmap:
             c,reason="REVALIDATE","G field/statement evidence mapped; semantic accuracy not revalidated"
-        elif re.match(r"research/(vanilla_models|furniture_mods)/v\d+/",p) or re.match(r"research/vanilla_textures/v\d+_",p):
+        elif historical_path(p):
             c,reason="HISTORICAL","versioned historical snapshot candidate; preserve as prior evidence, not current truth"
         else:
             c,reason="REVALIDATE","file identity/format only; no sufficient specific reuse evidence"
@@ -108,6 +120,10 @@ def main():
         if p in roles:
             rec.update(duplicate_role=roles[p],duplicate_peers=[q for q in actual[x["git_blob_sha1"]] if q!=p])
         records.append(rec)
+    expected_counts={"REVALIDATE":2268,"REUSABLE_LIMITED":11,"DUPLICATE_CANDIDATE":14,"HISTORICAL":874}
+    actual_counts=dict(Counter(x["classification"] for x in records))
+    assert actual_counts==expected_counts, (actual_counts,expected_counts)
+    print("RQ001_H_POLICY_REGRESSION PASS",actual_counts,flush=True)
     raw=b"".join(pack(x) for x in records)
     atomic(out/"H_classification.jsonl",raw)
     summary={"gate":"6-H","status":"COMPLETE","expected":3167,"classified":len(records),

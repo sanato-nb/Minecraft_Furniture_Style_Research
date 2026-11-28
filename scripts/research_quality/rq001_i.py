@@ -117,6 +117,23 @@ def main():
     assert len(duplicate_paths)==14 and sum(len(x)>1 for x in duplicated.values())==7
     assert {x["path"] for x in hl if x["duplicate_candidate"]}==duplicate_paths
     by_d={x["path"]:x for x in dl}
+    f_paths={q["evidence_path"] for q in fl}
+    g_paths=set(evidence)
+    import re
+    def expected_class(p):
+        if p in failed: return "REVALIDATE"
+        if p in duplicate_paths: return "DUPLICATE_CANDIDATE"
+        if p in f_paths: return "REUSABLE_LIMITED"
+        if p in edict:
+            return "HISTORICAL" if re.search(r"/v[567]/",p) or "/entry04/" in p else "REUSABLE_LIMITED"
+        if p in ("src/mcfr/research_schema.sql","registry/legacy-releases.json"): return "REUSABLE_LIMITED"
+        if p in g_paths: return "REVALIDATE"
+        if re.match(r"research/(vanilla_models|furniture_mods)/v[0-9]+/",p) or re.match(r"research/vanilla_textures/v[0-9]+_",p): return "HISTORICAL"
+        return "REVALIDATE"
+    expected_counts=dict(Counter(expected_class(p) for p in expected))
+    assert expected_counts=={"REVALIDATE":2268,"REUSABLE_LIMITED":11,"DUPLICATE_CANDIDATE":14,"HISTORICAL":874}
+    assert all(x["classification"]==expected_class(x["path"]) for x in hl)
+    print("RQ001_I_POLICY_REGRESSION PASS",expected_counts,flush=True)
     for x in hl:
         p=x["path"]
         raw=(repo/p).read_bytes()
