@@ -74,6 +74,7 @@ def append_checkpoint(db,sid,aid,next_position,eid,read,*,committed_at):
     if next_position==pos and existing:
         require(existing[0]["result_evidence_id"]==eid and existing[0]["result_sha256"]==e["content_sha256"],"conflicting checkpoint retry")
         return False
+    require(a["lifecycle"]=="RUNNING","new checkpoint requires running attempt")
     require(type(next_position)==int and next_position>pos,"checkpoint position not increasing")
     db.execute("INSERT INTO task_checkpoint(scope_id,attempt_id,batch_no,next_position,input_sha256,result_evidence_id,result_sha256,committed_at) VALUES(?,?,?,?,?,?,?,?)",
                (sid,aid,len(existing),next_position,a["input_sha256"],eid,e["content_sha256"],committed_at))

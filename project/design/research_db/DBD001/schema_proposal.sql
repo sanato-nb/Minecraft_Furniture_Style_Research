@@ -748,3 +748,11 @@ CREATE TRIGGER dbd_lock_scope_update BEFORE UPDATE ON research_scope WHEN OLD.li
 BEGIN SELECT RAISE(ABORT,'locked research scope'); END;
 CREATE TRIGGER dbd_lock_scope_delete BEFORE DELETE ON research_scope WHEN OLD.lifecycle='LOCKED'
 BEGIN SELECT RAISE(ABORT,'locked research scope'); END;
+
+-- REPLACE may skip implicit DELETE triggers with recursive_triggers=OFF.
+CREATE TRIGGER dbd_lock_scope_replace BEFORE INSERT ON research_scope
+WHEN EXISTS (SELECT 1 FROM research_scope WHERE lifecycle='LOCKED' AND (scope_id=NEW.scope_id OR (run_id=NEW.run_id AND revision=NEW.revision)))
+BEGIN SELECT RAISE(ABORT,'locked scope replacement'); END;
+CREATE TRIGGER dbd_checkpoint_running BEFORE INSERT ON task_checkpoint
+WHEN NOT EXISTS (SELECT 1 FROM research_attempt WHERE scope_id=NEW.scope_id AND attempt_id=NEW.attempt_id AND lifecycle='RUNNING')
+BEGIN SELECT RAISE(ABORT,'checkpoint requires running attempt'); END;

@@ -11,6 +11,7 @@ import zlib
 from contextlib import closing
 from mcfr import research_db as old, legacy_catalog
 import design_contract as c
+import fixture_oracle as oracle
 
 DIR=Path(__file__).resolve().parent
 ROOT=DIR.parents[3]
@@ -36,9 +37,9 @@ def connect(path):
     return db
 def schema(db):
     return c.rows(db,"SELECT type,name,tbl_name,sql FROM sqlite_schema WHERE name NOT LIKE 'sqlite_%' ORDER BY type,name")
-def png():
+def png(w=1,h=1):
     def chunk(k,v):return struct.pack(">I",len(v))+k+v+struct.pack(">I",zlib.crc32(k+v))
-    return b"\x89PNG\r\n\x1a\n"+chunk(b"IHDR",struct.pack(">IIBBBBB",1,1,8,6,0,0,0))+chunk(b"IDAT",zlib.compress(b"\0\xff\0\0\xff"))+chunk(b"IEND",b"")
+    return b"\x89PNG\r\n\x1a\n"+chunk(b"IHDR",struct.pack(">IIBBBBB",w,h,8,6,0,0,0))+chunk(b"IDAT",zlib.compress((b"\0"+b"\xff\0\0\xff"*w)*h))+chunk(b"IEND",b"")
 def ev(db,folder,eid,raw):
     p=folder/eid
     p.write_bytes(raw)
@@ -60,7 +61,19 @@ def fixture(db,folder):
     read=lambda e:(folder/e["locator"]).read_bytes()
     for id,raw in [("plan",b"fixture-plan"),("manifest",b"draft"),("source",b"fixture-source"),("calculated",b"fixture-calculated"),("reference",b"independent-expectation"),("render",png()),("support2",b"second-fixture-example"),("approval",b"fixture-review"),("checkpoint",b"fixture-result")]:
         ev(db,folder,id,raw)
-    old.register_release(db,release("fixture"),[asset("base.json","model"),asset("child.json","model"),asset("state.json","blockstate"),asset("tex.png","texture")])
+    source_docs={
+        "base.json":("model",{"textures":{"wood":"fixture:tex"},"elements":[{"from":[0,0,0],"to":[16,8,16],"faces":{"north":{"texture":"#wood","uv":[0,0,16,8]}}}]}),
+        "child.json":("model",{"parent":"fixture:base","textures":{"missing":"#not_defined"}}),
+        "state.json":("blockstate",{"multipart":[{"when":{"north":"true"},"apply":{"model":"fixture:child","y":90,"uvlock":True}}]})
+    }
+    bodies={p:(k,c.canonical(doc).encode()) for p,(k,doc) in source_docs.items()}
+    bodies["tex.png"]=("texture",png(16,16))
+    registered=[]
+    for p,(kind,raw) in bodies.items():
+        ev(db,folder,"raw-"+p,raw)
+        a=asset(p,kind,c.sha(raw));a.update(resource_id="fixture:"+p.rsplit(".",1)[0],byte_count=len(raw))
+        registered.append(a)
+    old.register_release(db,release("fixture"),registered)
     old.create_run(db,"run","fixture","NEW",None)
     put(db,"research_scope",scope_id="s",run_id="run",revision=1,manifest_evidence_id="manifest",plan_evidence_id="plan",manifest_sha256=c.sha(b"draft"),plan_sha256=c.sha(b"fixture-plan"),lifecycle="DRAFT")
     put(db,"scope_source",scope_id="s",source_ordinal=0,asset_release="fixture",asset_path="base.json",included=1,reason="fixture")
@@ -68,7 +81,7 @@ def fixture(db,folder):
         put(db,"scope_unit",scope_id="s",unit_id=u,unit_kind=k,unit_key=u,source_ordinal=0,required=1,definition_json="{}")
     put(db,"research_task",scope_id="s",task_id="task",task_kind="fixture",ordinal=0,input_sha256=H,tool_version="fixture-v1",config_json="{}")
     for i in (1,2):
-        put(db,"research_attempt",scope_id="s",task_id="task",attempt_id="a"+str(i),attempt_no=i,input_sha256=H,lifecycle="FINISHED",started_at=NOW,ended_at=NOW,environment_json="{}")
+        put(db,"research_attempt",scope_id="s",task_id="task",attempt_id="a"+str(i),attempt_no=i,input_sha256=H,lifecycle="RUNNING" if i==1 else "FINISHED",started_at=NOW,ended_at=None if i==1 else NOW,environment_json="{}")
     put(db,"analysis_snapshot",snapshot_id="snap",scope_id="s",attempt_id="a1",input_sha256=H,analyzer_version="fixture",config_sha256=H)
     model(db,"base",None,"base",1)
     model(db,"child","fixture:base","base",0)
@@ -79,7 +92,7 @@ def fixture(db,folder):
     obj(db,"tex","TEXTURE","tex.png")
     put(db,"texture_definition",snapshot_id="snap",object_id="tex",width=16,height=16,color_mode="RGBA")
     obj(db,"frame","FRAME")
-    put(db,"texture_frame",snapshot_id="snap",object_id="frame",texture_id="tex",frame_ordinal=0,x=0,y=0,width=16,height=16,rgba_sha256=H)
+    put(db,"texture_frame",snapshot_id="snap",object_id="frame",texture_id="tex",frame_ordinal=0,x=0,y=0,width=16,height=16,rgba_sha256=c.sha(b"\xff\0\0\xff"*256))
     put(db,"model_slot",snapshot_id="snap",model_id="base",slot="wood",declared_value="fixture:tex",texture_id="tex",resolution="RESOLVED")
     put(db,"model_slot",snapshot_id="snap",model_id="child",slot="missing",declared_value="#not_defined",resolution="MISSING")
     obj(db,"state","STATE","state.json")
@@ -96,6 +109,9 @@ def fixture(db,folder):
     put(db,"reference_edge",snapshot_id="snap",edge_id="missing",from_object_id="child",edge_kind="TEXTURE_ALIAS",declared_reference="#not_defined",resolution="MISSING",detail="fixture")
     put(db,"measurement",measurement_id="height",snapshot_id="snap",object_id="base",metric="height",method_version="fixture-v1",input_sha256=H,context_key="local",unit="block",coordinate_system="MC_MODEL_16",evidence_class="CALCULATED",numeric_value=.5,numerator=8,denominator=16,status="PASS",reason="")
     put(db,"measurement_evidence",measurement_id="height",evidence_id="calculated",locator_detail="fixture")
+    for oid,path,pointer in [("base","base.json",""),("child","child.json",""),("el","base.json","/elements/0"),("face","base.json","/elements/0/faces/north"),("tex","tex.png",None),("state","state.json","")]:
+        db.execute("UPDATE research_object SET json_pointer=? WHERE snapshot_id='snap' AND object_id=?",(pointer,oid))
+        put(db,"object_evidence",snapshot_id="snap",object_id=oid,evidence_id="raw-"+path,evidence_class="SOURCE",locator_detail=pointer or "")
     put(db,"render_case",scope_id="s",case_id="case",unit_id="u2",snapshot_id="snap",object_id="app",camera_json="{}",settings_json="{}",width=1,height=1)
     put(db,"render_output",scope_id="s",output_id="output",case_id="case",attempt_id="a1",generation_status="GENERATED",png_evidence_id="render",environment_json="{}",reason="")
     for id,unit,kind,ref in [("structure","u1","STRUCTURE",None),("generation","u2","GENERATION",None),("accuracy","u2","ACCURACY_UV","reference")]:
@@ -105,10 +121,12 @@ def fixture(db,folder):
     db.execute("UPDATE evidence_item SET content_sha256=?,byte_count=? WHERE evidence_id='manifest'",(c.sha(mraw),len(mraw)))
     db.execute("UPDATE research_scope SET lifecycle='LOCKED',locked_at=?,approved_by='fixture',manifest_sha256=? WHERE scope_id='s'",(NOW,c.sha(mraw)))
     put(db,"task_checkpoint",scope_id="s",attempt_id="a1",batch_no=0,next_position=1,input_sha256=H,result_evidence_id="checkpoint",result_sha256=c.sha(b"fixture-result"),committed_at=NOW)
+    db.execute("UPDATE research_attempt SET lifecycle='FINISHED',ended_at=? WHERE attempt_id='a1'",(NOW,))
     result(db,"struct","structure","PASS","calculated")
     result(db,"gen","generation","PASS","render",output="output")
     result(db,"falseaccuracy","accuracy","PASS","render",output="output")
-    result(db,"accurate","accuracy","PASS","render",1,"a2")
+    put(db,"render_output",scope_id="s",output_id="output2",case_id="case",attempt_id="a2",generation_status="GENERATED",png_evidence_id="render",environment_json="{}",reason="")
+    result(db,"accurate","accuracy","PASS","render",1,"a2",output="output2")
     for term,kind,label in [("chair","FURNITURE","chair"),("part","PART","seat"),("tech","TECHNIQUE","layering")]:
         put(db,"semantic_term",term_id=term,term_kind=kind,label=label,definition="fixture")
     for id,term,certainty,review,cls,rev,key in [("old","chair","ESTIMATED","PARTIAL","INFERRED",1,"category"),("confirmed","chair","CONFIRMED","PASS","INFERRED",2,"category"),("unknown","part","UNKNOWN","HOLD","UNKNOWN",1,"part"),("candidate","tech","ESTIMATED","PARTIAL","INFERRED",1,"tech"),("approved","tech","CONFIRMED","PASS","INFERRED",1,"approved")]:
@@ -191,19 +209,35 @@ def main(out):
                 assert c.append_checkpoint(db,"s","a1",1,"checkpoint",read,committed_at=NOW) is False
                 rollback_test(db,lambda:c.append_checkpoint(db,"s","a1",1,"support2",read,committed_at=NOW))
                 db.execute("SAVEPOINT resume")
+                rollback_test(db,lambda:c.append_checkpoint(db,"s","a1",2,"support2",read,committed_at=NOW))
+                db.execute("UPDATE research_attempt SET lifecycle='RUNNING' WHERE attempt_id='a1'")
                 assert c.append_checkpoint(db,"s","a1",2,"support2",read,committed_at=NOW)
                 assert c.validate_checkpoint(db,"s","a1",read)==2
                 db.execute("ROLLBACK TO resume");db.execute("RELEASE resume")
                 assert c.validate_checkpoint(db,"s","a1",read)==1
-                return "locked definition rejects insert/update/delete/unlock; checkpoint retry and rollback verified"
+                for recursive in (0,1):
+                    db.execute("PRAGMA recursive_triggers="+str(recursive))
+                    rollback_test(db,lambda:db.execute("INSERT OR REPLACE INTO research_scope SELECT * FROM research_scope WHERE scope_id='s'"))
+                return "locked definition and REPLACE blocked; finished append rejected; retry and rollback verified"
             test("T04",t04,"local transaction fixture; cross-job restart and full execution writer not implemented")
             def t05():
                 assert c.one(db,"SELECT provider_id,declared_element_count FROM model_definition WHERE object_id='child'")=={"provider_id":"base","declared_element_count":None}
                 assert c.one(db,"SELECT to_y FROM model_element WHERE object_id='el'")["to_y"]==8
                 assert c.one(db,"SELECT numeric_value FROM measurement WHERE measurement_id='height'")["numeric_value"]==.5
                 rollback_test(db,lambda:put(db,"model_definition",snapshot_id="snap",object_id="face",model_format="fixture",elements_declared=0,raw_properties_json="{}",resolution="UNKNOWN"))
-                return "typed object FK, inherited provider and separate calculated value"
-            test("T05",t05,"no actual JSON parser or full original coordinate/pointer verification")
+                assert oracle.validate_model(db,"snap","base",read)=="base"
+                assert oracle.validate_model(db,"snap","child",read)=="base"
+                def coord():
+                    db.execute("UPDATE model_element SET to_y=9 WHERE object_id='el'")
+                    oracle.validate_model(db,"snap","base",read)
+                rollback_test(db,coord)
+                def ptr():
+                    db.execute("UPDATE research_object SET json_pointer='/elements/99' WHERE object_id='el'")
+                    oracle.validate_model(db,"snap","base",read)
+                rollback_test(db,ptr)
+                bad(lambda:oracle.strict_json(b'{"a":1,"a":2}'))
+                return "actual synthetic source SHA, parent, pointer, elements/faces, coordinate mutation checked"
+            test("T05",t05)
             def t06():
                 c.validate_binding(db,"snap","binding")
                 assert c.one(db,"SELECT texture_id,resolution FROM model_slot WHERE slot='missing'")=={"texture_id":None,"resolution":"MISSING"}
@@ -215,24 +249,42 @@ def main(out):
                     db.execute("UPDATE face_binding SET base_uv_json='[1,2]' WHERE object_id='binding'")
                     c.validate_binding(db,"snap","binding")
                 rollback_test(db,uv)
-                return "frame bounds, UV dimensionality and missing slot checked"
-            test("T06",t06,"no UV transform accuracy oracle or PNG frame extraction")
+                assert oracle.validate_texture(db,"snap","tex",read)==(16,16)
+                def pixel():
+                    db.execute("UPDATE texture_frame SET rgba_sha256=? WHERE object_id='frame'",(H,))
+                    oracle.validate_texture(db,"snap","tex",read)
+                rollback_test(db,pixel)
+                bad(lambda:oracle.rgba_png(png()[:-1]))
+                return "actual synthetic RGBA PNG bytes, frame pixel SHA, bounds, UV dimensionality and missing slot checked"
+            test("T06",t06,"fixture RGBA frame extraction verified; full UV transform accuracy not verified")
             def t07():
                 assert c.one(db,"SELECT uvlock,y_rotation FROM state_option")=={"uvlock":1,"y_rotation":90}
                 assert c.one(db,"SELECT resolution,target_path FROM reference_edge WHERE edge_id='missing'")=={"resolution":"MISSING","target_path":None}
                 c.reject_cycles([("child","base")])
                 bad(lambda:c.reject_cycles([("child","base"),("base","child")]))
                 rollback_test(db,lambda:db.execute("UPDATE state_option SET model_id='absent' WHERE state_id='state'"))
-                return "state/option FK, unresolved edge and cycle helper controls"
-            test("T07",t07,"no complete namespace resolver or multipart condition evaluator")
+                assert oracle.validate_state(db,"snap","state",read)==1
+                def state():
+                    db.execute("UPDATE state_application SET assignment_json='{}' WHERE object_id='app'")
+                    oracle.validate_state(db,"snap","state",read)
+                rollback_test(db,state)
+                def option():
+                    db.execute("UPDATE state_option SET y_rotation=180 WHERE state_id='state'")
+                    oracle.validate_state(db,"snap","state",read)
+                rollback_test(db,option)
+                return "actual multipart source condition, selected option, model target, transform and negative controls"
+            test("T07",t07,"simple multipart fixture verified; complete namespace and condition resolver not verified")
             def t08():
-                assert c.one(db,"SELECT generation_status FROM render_output")["generation_status"]=="GENERATED"
+                assert c.one(db,"SELECT generation_status FROM render_output WHERE output_id='output'")["generation_status"]=="GENERATED"
                 assert c.assessment(db,"s","RENDER",{"generation":"gen"},read)["status"]=="PARTIAL"
                 assert c.assessment(db,"s","RENDER",{"generation":"gen","accuracy":"falseaccuracy"},read)["status"]=="PARTIAL"
                 assert c.assessment(db,"s","RENDER",{"generation":"gen","accuracy":"accurate"},read)["status"]=="PASS"
                 assert struct.unpack(">II",read(c.one(db,"SELECT * FROM evidence_item WHERE evidence_id='render'"))[16:24])==(1,1)
-                return "generation alone or nonindependent accuracy cannot pass"
-            test("T08",t08,"synthetic PNG and metadata only; full case/output/attempt cross-check not implemented")
+                assert oracle.validate_render(db,"s","output",read)["attempt_id"]=="a1"
+                assert oracle.validate_render(db,"s","output2",read)["attempt_id"]=="a2"
+                bad(lambda:oracle.rgba_png(png()[:-1]))
+                return "actual PNG decode, render dimensions, independent-reference metadata and attempt links checked"
+            test("T08",t08,"synthetic PNG checked; full case/output/result consistency and independent visual accuracy not verified")
             def t09():
                 assert c.one(db,"SELECT certainty FROM claim WHERE claim_id='unknown'")["certainty"]=="UNKNOWN"
                 assert c.one(db,"SELECT to_y FROM model_element WHERE object_id='el'")["to_y"]==8
