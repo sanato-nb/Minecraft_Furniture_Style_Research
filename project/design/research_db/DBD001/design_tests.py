@@ -410,6 +410,21 @@ def main(out):
                     c.approval_guard(db,"approved",read)
                 rollback_test(db,conflict)
                 assert len(c.technique_support_cases(db,"approved",read))==2
+                db.execute("SAVEPOINT legacyhash")
+                original=c.technique_support_cases(db,"approved",read)
+                for algorithm,path in (("GIT_BLOB_SHA1","base.json"),("SHA1","second.json")):
+                    raw=read(c.one(db,"SELECT * FROM evidence_item WHERE evidence_id=?",("raw-"+path,)))
+                    # Compute expected digests independently of the guard.
+                    import hashlib
+                    digest=hashlib.sha1((b"blob "+str(len(raw)).encode()+b"\\0").replace(b"\\0",bytes([0]))+raw if algorithm=="GIT_BLOB_SHA1" else raw).hexdigest()
+                    db.execute("UPDATE asset SET hash_algorithm=?,digest=? WHERE release_key='fixture' AND source_path=?",(algorithm,digest,path))
+                assert c.technique_support_cases(db,"approved",read)==original
+                c.approval_guard(db,"approved",read)
+                def wrong_hash():
+                    db.execute("UPDATE asset SET digest=? WHERE release_key='fixture' AND source_path='base.json'",("0"*40,))
+                    c.approval_guard(db,"approved",read)
+                rollback_test(db,wrong_hash)
+                db.execute("ROLLBACK TO legacyhash");db.execute("RELEASE legacyhash")
                 return "two distinct scoped source model bodies, approval manifest, unrelated support, counterexample, cycle and changed step controls"
             test("T11",t11,"two distinct scoped source fixtures and approval manifest verified; actual independent research evidence and production approval transitions not validated")
             def t12():
@@ -453,6 +468,19 @@ def main(out):
                 assert not c.export(db,read,label="chair")["items"]
                 assert not c.export(db,read,label="chair",confirmed_only=False)["items"]
                 db.execute("ROLLBACK TO rights");db.execute("RELEASE rights")
+                for eid,label in (("approval","layering"),("raw-second.json","layering"),("reference","chair"),("accuracy-report","chair"),("render","chair"),("manifest","chair")):
+                    db.execute("SAVEPOINT restricted")
+                    db.execute("UPDATE evidence_item SET rights_state='RESTRICTED' WHERE evidence_id=?",(eid,))
+                    candidates=c.export(db,read,label=label,confirmed_only=False)["items"]
+                    assert not any(x["claim"]["claim_id"]==("approved" if label=="layering" else "confirmed") for x in candidates)
+                    db.execute("ROLLBACK TO restricted");db.execute("RELEASE restricted")
+                db.execute("SAVEPOINT restricted_relation")
+                put(db,"claim_evidence",claim_id="unknown",evidence_id="support2",role="CONTEXT",locator_detail="private")
+                put(db,"claim_relation",claim_id="confirmed",related_claim_id="unknown",relation="SUPPORTS",reason="private")
+                db.execute("UPDATE evidence_item SET rights_state='UNKNOWN' WHERE evidence_id='support2'")
+                assert not c.export(db,read,label="chair",confirmed_only=False)["items"]
+                db.execute("ROLLBACK TO restricted_relation");db.execute("RELEASE restricted_relation")
+                assert all("locator" not in e and "locator_detail" not in e for i in x["items"] for e in i["evidence"])
                 rollback_test(db,lambda:db.execute("DELETE FROM assessment_result WHERE assessment_id='render-pass'"))
                 rollback_test(db,lambda:db.execute("DELETE FROM run_assessment WHERE assessment_id='render-pass'"))
                 db.execute("SAVEPOINT missinggroup")

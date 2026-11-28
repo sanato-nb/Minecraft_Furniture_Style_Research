@@ -217,6 +217,12 @@ def validate_saved_assessment(db,sid,aid,read):
     require(all(a[k]==v for k,v in computed.items()),"assessment mismatch")
     return computed
 
+def source_digest(algorithm,raw):
+    if algorithm=="SHA256":return sha(raw)
+    if algorithm=="SHA1":return hashlib.sha1(raw).hexdigest()
+    if algorithm=="GIT_BLOB_SHA1":return hashlib.sha1(b"blob "+str(len(raw)).encode()+b"\0"+raw).hexdigest()
+    raise ValueError("unsupported source digest algorithm")
+
 def technique_support_cases(db,claim_id,read):
     claim=one(db,"SELECT c.*,s.scope_id FROM claim c JOIN analysis_snapshot s USING(snapshot_id) WHERE claim_id=?",(claim_id,))
     supports=rows(db,"SELECT DISTINCT e.* FROM claim_evidence ce JOIN evidence_item e USING(evidence_id) WHERE ce.claim_id=? AND ce.role='SUPPORT'",(claim_id,))
@@ -226,8 +232,9 @@ def technique_support_cases(db,claim_id,read):
         matches=rows(db,"SELECT DISTINCT o.asset_release,o.asset_path,a.digest,a.hash_algorithm,a.byte_count,r.pin_digest FROM object_evidence oe JOIN research_object o USING(snapshot_id,object_id) JOIN asset a ON a.release_key=o.asset_release AND a.source_path=o.asset_path JOIN release r ON r.release_key=a.release_key JOIN scope_source ss ON ss.asset_release=a.release_key AND ss.asset_path=a.source_path WHERE oe.snapshot_id=? AND oe.evidence_id=? AND oe.evidence_class='SOURCE' AND o.object_kind='MODEL' AND a.kind='model' AND ss.scope_id=? AND ss.included=1",(claim["snapshot_id"],e["evidence_id"],claim["scope_id"]))
         require(len(matches)==1,"support not bound to exactly one scoped model source")
         a=matches[0]
-        require(a["hash_algorithm"]=="SHA256" and a["digest"]==e["content_sha256"] and a["byte_count"]==e["byte_count"],"support source hash mismatch")
-        cases.append(dict(release=a["asset_release"],path=a["asset_path"],pin=a["pin_digest"],sha256=a["digest"],evidence_id=e["evidence_id"]))
+        raw=read(e)
+        require(source_digest(a["hash_algorithm"],raw)==a["digest"] and (a["byte_count"] is None or a["byte_count"]==len(raw)),"support source hash mismatch")
+        cases.append(dict(release=a["asset_release"],path=a["asset_path"],pin=a["pin_digest"],sha256=sha(raw),evidence_id=e["evidence_id"]))
     require(len({(x["release"],x["path"]) for x in cases})>=2 and len({x["sha256"] for x in cases})>=2,"two distinct source cases required")
     return sorted(cases,key=lambda x:(x["release"],x["path"],x["evidence_id"]))
 
@@ -267,6 +274,30 @@ def scoped_claim_source(db,claim,read):
         require(digest is not None and digest()==a["digest"] and (a["byte_count"] is None or a["byte_count"]==len(raw)),"source asset mismatch")
     return links
 
+def rights_allowed(db,ids):
+    return all(one(db,"SELECT rights_state FROM evidence_item WHERE evidence_id=?",(eid,))["rights_state"]=="ALLOWED" for eid in ids if eid is not None)
+
+def claim_rights_allowed(db,claim_id,allowed_releases):
+    c=one(db,"SELECT c.snapshot_id,c.object_id,o.asset_release FROM claim c JOIN research_object o USING(snapshot_id,object_id) WHERE c.claim_id=?",(claim_id,))
+    if c["asset_release"] is None or (allowed_releases is not None and c["asset_release"] not in allowed_releases):return False
+    release=c["asset_release"]
+    provenance=rows(db,"SELECT rights_state,evidence_id FROM release_provenance WHERE release_key=?",(release,))
+    if any(p["rights_state"]!="ALLOWED" for p in provenance):return False
+    ids=[p["evidence_id"] for p in provenance]
+    ids += [x["evidence_id"] for x in rows(db,"SELECT evidence_id FROM object_evidence WHERE snapshot_id=? AND object_id=?",(c["snapshot_id"],c["object_id"]))]
+    ids += [x["evidence_id"] for x in rows(db,"SELECT evidence_id FROM claim_evidence WHERE claim_id=?",(claim_id,))]
+    ids += [x["approval_evidence_id"] for x in rows(db,"SELECT approval_evidence_id FROM technique WHERE claim_id=?",(claim_id,))]
+    ids += [x["evidence_id"] for x in rows(db,"SELECT s.evidence_id FROM technique_step s JOIN technique t USING(technique_id) WHERE t.claim_id=?",(claim_id,))]
+    return rights_allowed(db,ids)
+
+def assessment_rights_allowed(db,sid,assess):
+    scope=one(db,"SELECT manifest_evidence_id,plan_evidence_id FROM research_scope WHERE scope_id=?",(sid,))
+    ids=list(scope.values())
+    for a in assess:
+        for x in rows(db,"SELECT v.evidence_id,q.reference_evidence_id,o.png_evidence_id,o.log_evidence_id FROM assessment_result ar JOIN validation_result v ON v.scope_id=ar.scope_id AND v.result_id=ar.result_id JOIN validation_requirement q ON q.scope_id=v.scope_id AND q.requirement_id=v.requirement_id LEFT JOIN render_output o ON o.scope_id=v.scope_id AND o.output_id=v.render_output_id WHERE ar.scope_id=? AND ar.assessment_id=?",(sid,a["assessment_id"])):
+            ids.extend(x.values())
+    return rights_allowed(db,ids)
+
 def export(db,read,*,label=None,term_kind=None,confirmed_only=True,metric=None,unit=None,min_value=None,release=None,allowed_releases=None):
     # Caller supplies an explicit release allowlist; None is a local fixture-only unrestricted read.
     require(allowed_releases is None or isinstance(allowed_releases,(set,frozenset,list,tuple)),"invalid release allowlist")
@@ -280,8 +311,15 @@ def export(db,read,*,label=None,term_kind=None,confirmed_only=True,metric=None,u
         # Restricted/unknown evidence must not be emitted, even in candidate mode.
         source_rights=rows(db,"SELECT e.rights_state FROM object_evidence oe JOIN evidence_item e USING(evidence_id) WHERE oe.snapshot_id=? AND oe.object_id=? AND oe.evidence_class='SOURCE'",(c["snapshot_id"],c["object_id"]))
         if any(x["rights_state"]!="ALLOWED" for x in links+source_rights):continue
+        related_ids={x[k] for x in relations for k in ("claim_id","related_claim_id")}
+        if not all(claim_rights_allowed(db,cid,allowed_releases) for cid in related_ids|{c["claim_id"]}):continue
+        # All supporting source cases must also be allowed, including their release.
+        if c["technique_id"] is not None:
+            supporting=rows(db,"SELECT DISTINCT o.asset_release FROM claim_evidence ce JOIN object_evidence oe USING(evidence_id) JOIN research_object o USING(snapshot_id,object_id) WHERE ce.claim_id=? AND ce.role='SUPPORT' AND oe.evidence_class='SOURCE'",(c["claim_id"],))
+            if any((allowed_releases is not None and x["asset_release"] not in allowed_releases) or rows(db,"SELECT 1 FROM release_provenance WHERE release_key=? AND rights_state<>'ALLOWED'",(x["asset_release"],)) for x in supporting):continue
         for x in links: x["body_verified"]=evidence_ok(db,x["evidence_id"],read)
         assess=rows(db,"SELECT a.* FROM run_assessment a WHERE scope_id=? AND revision=(SELECT MAX(b.revision) FROM run_assessment b WHERE b.scope_id=a.scope_id AND b.unit_kind=a.unit_kind) ORDER BY unit_kind",(c["scope_id"],))
+        if not assessment_rights_allowed(db,c["scope_id"],assess):continue
         groups={r["unit_kind"] for r in rows(db,"SELECT DISTINCT unit_kind FROM scope_unit WHERE scope_id=? AND required=1",(c["scope_id"],))}
         ok=bool(groups) and {a["unit_kind"] for a in assess}==groups
         try:
@@ -304,7 +342,10 @@ def export(db,read,*,label=None,term_kind=None,confirmed_only=True,metric=None,u
             if m["status"]=="PASS" and (min_value is None or (m["numeric_value"] is not None and m["numeric_value"]>=min_value)):measures.append(m)
         if metric is not None and not measures:continue
         if confirmed_only and not ok:continue
-        result.append(dict(claim=c,usable=bool(ok),evidence=links,relations=relations,measurements=measures,assessments=assess))
+        # Raw storage locators and arbitrary relation reasons are not part of the export.
+        safe_links=[{k:x[k] for k in ("role","evidence_id","content_sha256","byte_count","rights_state","body_verified")} for x in links]
+        safe_relations=[{k:x[k] for k in ("claim_id","related_claim_id","relation")} for x in relations]
+        result.append(dict(claim=c,usable=bool(ok),evidence=safe_links,relations=safe_relations,measurements=measures,assessments=assess))
     return {"format":"DBD001-design-export-v1","filters":dict(label=label,term_kind=term_kind,confirmed_only=confirmed_only,metric=metric,unit=unit,min_value=min_value,release=release),"items":result}
 
 def git_blob(raw):
