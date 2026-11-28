@@ -65,8 +65,9 @@ def json_check(s):
 
 
 def decomp(data, kind):
-    opener = gzip.GzipFile if kind == "gz" else lzma.LZMAFile
-    with opener(io.BytesIO(data), "rb") as stream:
+    source = io.BytesIO(data)
+    opener = gzip.GzipFile(fileobj=source, mode="rb") if kind == "gz" else lzma.LZMAFile(source, "rb")
+    with opener as stream:
         out = bytearray()
         while chunk := stream.read(1024 * 1024):
             if len(out) + len(chunk) > LIMIT:
