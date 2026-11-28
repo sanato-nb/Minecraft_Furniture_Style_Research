@@ -139,6 +139,26 @@ def validate_measurement(db,mid,read):
         require(ev and all(evidence_ok(db,x["evidence_id"],read) for x in ev),"measurement evidence")
     return m
 
+def render_result_guard(db,sid,q,v,read):
+    require(v["render_output_id"] is not None,"render result lacks output")
+    o=one(db,"SELECT o.*,c.unit_id,c.width,c.height FROM render_output o JOIN render_case c ON c.scope_id=o.scope_id AND c.case_id=o.case_id WHERE o.scope_id=? AND o.output_id=?",(sid,v["render_output_id"]))
+    require(o["unit_id"]==q["unit_id"] and o["attempt_id"]==v["attempt_id"],"render case/attempt mismatch")
+    require(o["generation_status"]=="GENERATED","render not generated")
+    require_evidence(db,o["png_evidence_id"],read)
+    if q["check_kind"]=="GENERATION":
+        require(v["evidence_id"]==o["png_evidence_id"],"generation evidence mismatch")
+    if q["check_kind"].startswith("ACCURACY"):
+        require(v["independent_reference"]==1,"independent reference required")
+        ref=q["reference_evidence_id"]
+        require_evidence(db,ref,read)
+        require_evidence(db,v["evidence_id"],read)
+        def evidence(eid):
+            return one(db,"SELECT * FROM evidence_item WHERE evidence_id=?",(eid,))
+        refrow,obs,png=map(evidence,(ref,v["evidence_id"],o["png_evidence_id"]))
+        require(len({refrow["content_sha256"],obs["content_sha256"],png["content_sha256"]})==3,"reference, observation and render must be distinct bodies")
+        record=json.loads(read(obs))
+        require(record=={"output_sha256":png["content_sha256"],"reference_sha256":refrow["content_sha256"],"case_id":o["case_id"],"attempt_id":o["attempt_id"],"check_kind":q["check_kind"],"matched":True},"accuracy report not bound to output/reference")
+
 def assessment(db,sid,kind,selected,read):
     locked_scope(db,sid,read)
     units=rows(db,"SELECT unit_id FROM scope_unit WHERE scope_id=? AND unit_kind=? AND required=1 ORDER BY unit_id",(sid,kind))
@@ -156,9 +176,9 @@ def assessment(db,sid,kind,selected,read):
             state=v["status"]
             if state=="PASS":
                 if not evidence_ok(db,v["evidence_id"],read):state="HOLD"
-                if q["check_kind"].startswith("ACCURACY"):
-                    if not v["independent_reference"] or q["reference_evidence_id"]==v["evidence_id"] or not evidence_ok(db,q["reference_evidence_id"],read):
-                        state="HOLD"
+                if q["check_kind"]=="GENERATION" or q["check_kind"].startswith("ACCURACY"):
+                    try:render_result_guard(db,sid,q,v,read)
+                    except (ValueError,KeyError,TypeError,OSError):state="HOLD"
             states.append(state)
         if all(x=="UNATTEMPTED" for x in states):continue
         counts["attempted"]+=1

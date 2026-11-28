@@ -139,3 +139,38 @@ def validate_render(db,sid,output,read):
     w,h,_=rgba_png(read(e))
     c.require((w,h)==(o["width"],o["height"]),"render dimensions")
     return o
+
+
+def compare_dimension(db,snap,mid,measurement_id,read):
+    _,_,raw=source(db,snap,mid,read)
+    doc=strict_json(raw)
+    m=c.validate_measurement(db,measurement_id,read)
+    c.require(m["snapshot_id"]==snap and m["object_id"]==mid and m["coordinate_system"]=="MC_MODEL_16" and m["unit"]=="block" and m["metric"] in ("height","width","depth"),"measurement subject/unit")
+    axis={"width":0,"height":1,"depth":2}[m["metric"]]
+    c.require(bool(doc["elements"]),"no source elements")
+    lo=min(min(e["from"][axis],e["to"][axis]) for e in doc["elements"])
+    hi=max(max(e["from"][axis],e["to"][axis]) for e in doc["elements"])
+    c.require(m["numeric_value"]==(hi-lo)/16 and m["numerator"]==hi-lo and m["denominator"]==16,"source dimension mismatch")
+    return m["numeric_value"]
+
+def compare_fixture_metrics(db,snap,first,second,read):
+    a=c.validate_measurement(db,first,read);b=c.validate_measurement(db,second,read)
+    keys=("metric","unit","coordinate_system","method_version","context_key")
+    c.require(all(a[k]==b[k] for k in keys) and a["snapshot_id"]==b["snapshot_id"]==snap,"incomparable measurements")
+    return compare_dimension(db,snap,a["object_id"],first,read)-compare_dimension(db,snap,b["object_id"],second,read)
+
+def sample_uv_fixture(db,snap,bid,read):
+    """Fixture convention only: explicit four ordered corners, no claim about UV-lock semantics."""
+    c.validate_binding(db,snap,bid)
+    b=c.one(db,"SELECT * FROM face_binding WHERE snapshot_id=? AND object_id=?",(snap,bid))
+    c.require(b["transform_method"]=="fixture" and b["resolution"]=="RESOLVED","unsupported fixture mapping")
+    # Independently fixed reference for the north rectangle fixture, ordered corners.
+    expected=[0,0,0,8,16,8,16,0]
+    actual=c.vector(b["transformed_uv_json"],8)
+    c.require(actual==expected,"ordered UV reference mismatch")
+    _,_,raw=source(db,snap,b["texture_id"],read)
+    w,h,pixels=rgba_png(raw)
+    def sample(uv):
+        x=min(w-1,int(uv[0]*w/16));y=min(h-1,int(uv[1]*h/16))
+        return list(pixels[(y*w+x)*4:(y*w+x+1)*4])
+    return [sample(actual[i:i+2]) for i in range(0,8,2)]

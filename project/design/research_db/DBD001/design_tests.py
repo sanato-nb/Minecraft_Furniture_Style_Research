@@ -37,9 +37,11 @@ def connect(path):
     return db
 def schema(db):
     return c.rows(db,"SELECT type,name,tbl_name,sql FROM sqlite_schema WHERE name NOT LIKE 'sqlite_%' ORDER BY type,name")
-def png(w=1,h=1):
+def png(w=1,h=1,pattern=False):
     def chunk(k,v):return struct.pack(">I",len(v))+k+v+struct.pack(">I",zlib.crc32(k+v))
-    return b"\x89PNG\r\n\x1a\n"+chunk(b"IHDR",struct.pack(">IIBBBBB",w,h,8,6,0,0,0))+chunk(b"IDAT",zlib.compress((b"\0"+b"\xff\0\0\xff"*w)*h))+chunk(b"IEND",b"")
+    pixels=bytes(v for y in range(h) for x in range(w) for v in ((x,y,17,255) if pattern else (255,0,0,255)))
+    scan=b"".join(b"\0"+pixels[y*w*4:(y+1)*w*4] for y in range(h))
+    return b"\x89PNG\r\n\x1a\n"+chunk(b"IHDR",struct.pack(">IIBBBBB",w,h,8,6,0,0,0))+chunk(b"IDAT",zlib.compress(scan))+chunk(b"IEND",b"")
 def ev(db,folder,eid,raw):
     p=folder/eid
     p.write_bytes(raw)
@@ -64,10 +66,11 @@ def fixture(db,folder):
     source_docs={
         "base.json":("model",{"textures":{"wood":"fixture:tex"},"elements":[{"from":[0,0,0],"to":[16,8,16],"faces":{"north":{"texture":"#wood","uv":[0,0,16,8]}}}]}),
         "child.json":("model",{"parent":"fixture:base","textures":{"missing":"#not_defined"}}),
+        "second.json":("model",{"elements":[{"from":[0,0,0],"to":[16,4,16],"faces":{}}]}),
         "state.json":("blockstate",{"multipart":[{"when":{"north":"true"},"apply":{"model":"fixture:child","y":90,"uvlock":True}}]})
     }
     bodies={p:(k,c.canonical(doc).encode()) for p,(k,doc) in source_docs.items()}
-    bodies["tex.png"]=("texture",png(16,16))
+    bodies["tex.png"]=("texture",png(16,16,True))
     registered=[]
     for p,(kind,raw) in bodies.items():
         ev(db,folder,"raw-"+p,raw)
@@ -76,7 +79,8 @@ def fixture(db,folder):
     old.register_release(db,release("fixture"),registered)
     old.create_run(db,"run","fixture","NEW",None)
     put(db,"research_scope",scope_id="s",run_id="run",revision=1,manifest_evidence_id="manifest",plan_evidence_id="plan",manifest_sha256=c.sha(b"draft"),plan_sha256=c.sha(b"fixture-plan"),lifecycle="DRAFT")
-    put(db,"scope_source",scope_id="s",source_ordinal=0,asset_release="fixture",asset_path="base.json",included=1,reason="fixture")
+    for ordinal,path in enumerate(bodies):
+        put(db,"scope_source",scope_id="s",source_ordinal=ordinal,asset_release="fixture",asset_path=path,included=1,reason="fixture")
     for u,k in [("u1","MODEL"),("u2","RENDER")]:
         put(db,"scope_unit",scope_id="s",unit_id=u,unit_kind=k,unit_key=u,source_ordinal=0,required=1,definition_json="{}")
     put(db,"research_task",scope_id="s",task_id="task",task_kind="fixture",ordinal=0,input_sha256=H,tool_version="fixture-v1",config_json="{}")
@@ -85,6 +89,9 @@ def fixture(db,folder):
     put(db,"analysis_snapshot",snapshot_id="snap",scope_id="s",attempt_id="a1",input_sha256=H,analyzer_version="fixture",config_sha256=H)
     model(db,"base",None,"base",1)
     model(db,"child","fixture:base","base",0)
+    model(db,"second",None,"second",1)
+    obj(db,"el2","ELEMENT","second.json")
+    put(db,"model_element",snapshot_id="snap",object_id="el2",model_id="second",ordinal=0,from_x=0,from_y=0,from_z=0,to_x=16,to_y=4,to_z=16,raw_properties_json="{}",coordinate_system="MC_MODEL_16")
     obj(db,"el","ELEMENT","base.json")
     put(db,"model_element",snapshot_id="snap",object_id="el",model_id="base",ordinal=0,from_x=0,from_y=0,from_z=0,to_x=16,to_y=8,to_z=16,raw_properties_json="{}",coordinate_system="MC_MODEL_16")
     obj(db,"face","FACE","base.json")
@@ -92,7 +99,7 @@ def fixture(db,folder):
     obj(db,"tex","TEXTURE","tex.png")
     put(db,"texture_definition",snapshot_id="snap",object_id="tex",width=16,height=16,color_mode="RGBA")
     obj(db,"frame","FRAME")
-    put(db,"texture_frame",snapshot_id="snap",object_id="frame",texture_id="tex",frame_ordinal=0,x=0,y=0,width=16,height=16,rgba_sha256=c.sha(b"\xff\0\0\xff"*256))
+    put(db,"texture_frame",snapshot_id="snap",object_id="frame",texture_id="tex",frame_ordinal=0,x=0,y=0,width=16,height=16,rgba_sha256=c.sha(bytes(v for y in range(16) for x in range(16) for v in (x,y,17,255))))
     put(db,"model_slot",snapshot_id="snap",model_id="base",slot="wood",declared_value="fixture:tex",texture_id="tex",resolution="RESOLVED")
     put(db,"model_slot",snapshot_id="snap",model_id="child",slot="missing",declared_value="#not_defined",resolution="MISSING")
     obj(db,"state","STATE","state.json")
@@ -109,7 +116,9 @@ def fixture(db,folder):
     put(db,"reference_edge",snapshot_id="snap",edge_id="missing",from_object_id="child",edge_kind="TEXTURE_ALIAS",declared_reference="#not_defined",resolution="MISSING",detail="fixture")
     put(db,"measurement",measurement_id="height",snapshot_id="snap",object_id="base",metric="height",method_version="fixture-v1",input_sha256=H,context_key="local",unit="block",coordinate_system="MC_MODEL_16",evidence_class="CALCULATED",numeric_value=.5,numerator=8,denominator=16,status="PASS",reason="")
     put(db,"measurement_evidence",measurement_id="height",evidence_id="calculated",locator_detail="fixture")
-    for oid,path,pointer in [("base","base.json",""),("child","child.json",""),("el","base.json","/elements/0"),("face","base.json","/elements/0/faces/north"),("tex","tex.png",None),("state","state.json","")]:
+    put(db,"measurement",measurement_id="height2",snapshot_id="snap",object_id="second",metric="height",method_version="fixture-v1",input_sha256=H,context_key="local",unit="block",coordinate_system="MC_MODEL_16",evidence_class="CALCULATED",numeric_value=.25,numerator=4,denominator=16,status="PASS",reason="")
+    put(db,"measurement_evidence",measurement_id="height2",evidence_id="raw-second.json",locator_detail="fixture")
+    for oid,path,pointer in [("second","second.json",""),("el2","second.json","/elements/0"),("base","base.json",""),("child","child.json",""),("el","base.json","/elements/0"),("face","base.json","/elements/0/faces/north"),("tex","tex.png",None),("state","state.json","")]:
         db.execute("UPDATE research_object SET json_pointer=? WHERE snapshot_id='snap' AND object_id=?",(pointer,oid))
         put(db,"object_evidence",snapshot_id="snap",object_id=oid,evidence_id="raw-"+path,evidence_class="SOURCE",locator_detail=pointer or "")
     put(db,"render_case",scope_id="s",case_id="case",unit_id="u2",snapshot_id="snap",object_id="app",camera_json="{}",settings_json="{}",width=1,height=1)
@@ -126,7 +135,8 @@ def fixture(db,folder):
     result(db,"gen","generation","PASS","render",output="output")
     result(db,"falseaccuracy","accuracy","PASS","render",output="output")
     put(db,"render_output",scope_id="s",output_id="output2",case_id="case",attempt_id="a2",generation_status="GENERATED",png_evidence_id="render",environment_json="{}",reason="")
-    result(db,"accurate","accuracy","PASS","render",1,"a2",output="output2")
+    ev(db,folder,"accuracy-report",c.canonical({"output_sha256":c.sha(png()),"reference_sha256":c.sha(b"independent-expectation"),"case_id":"case","attempt_id":"a2","check_kind":"ACCURACY_UV","matched":True}).encode())
+    result(db,"accurate","accuracy","PASS","accuracy-report",1,"a2",output="output2")
     for term,kind,label in [("chair","FURNITURE","chair"),("part","PART","seat"),("tech","TECHNIQUE","layering")]:
         put(db,"semantic_term",term_id=term,term_kind=kind,label=label,definition="fixture")
     for id,term,certainty,review,cls,rev,key in [("old","chair","ESTIMATED","PARTIAL","INFERRED",1,"category"),("confirmed","chair","CONFIRMED","PASS","INFERRED",2,"category"),("unknown","part","UNKNOWN","HOLD","UNKNOWN",1,"part"),("candidate","tech","ESTIMATED","PARTIAL","INFERRED",1,"tech"),("approved","tech","CONFIRMED","PASS","INFERRED",1,"approved")]:
@@ -255,8 +265,13 @@ def main(out):
                     oracle.validate_texture(db,"snap","tex",read)
                 rollback_test(db,pixel)
                 bad(lambda:oracle.rgba_png(png()[:-1]))
-                return "actual synthetic RGBA PNG bytes, frame pixel SHA, bounds, UV dimensionality and missing slot checked"
-            test("T06",t06,"fixture RGBA frame extraction verified; full UV transform accuracy not verified")
+                assert oracle.sample_uv_fixture(db,"snap","binding",read)==[[0,0,17,255],[0,8,17,255],[15,8,17,255],[15,0,17,255]]
+                def mirrored():
+                    db.execute("UPDATE face_binding SET transformed_uv_json='[16,0,16,8,0,8,0,0]' WHERE object_id='binding'")
+                    oracle.sample_uv_fixture(db,"snap","binding",read)
+                rollback_test(db,mirrored)
+                return "asymmetric PNG, exact ordered fixture UV corners, mirrored UV rejection and frame hash verified"
+            test("T06",t06,"asymmetric fixture UV ordering and sampling verified; Minecraft UV-lock and other transforms remain unverified")
             def t07():
                 assert c.one(db,"SELECT uvlock,y_rotation FROM state_option")=={"uvlock":1,"y_rotation":90}
                 assert c.one(db,"SELECT resolution,target_path FROM reference_edge WHERE edge_id='missing'")=={"resolution":"MISSING","target_path":None}
@@ -283,8 +298,16 @@ def main(out):
                 assert oracle.validate_render(db,"s","output",read)["attempt_id"]=="a1"
                 assert oracle.validate_render(db,"s","output2",read)["attempt_id"]=="a2"
                 bad(lambda:oracle.rgba_png(png()[:-1]))
-                return "actual PNG decode, render dimensions, independent-reference metadata and attempt links checked"
-            test("T08",t08,"synthetic PNG checked; full case/output/result consistency and independent visual accuracy not verified")
+                db.execute("SAVEPOINT wrongoutput")
+                db.execute("UPDATE validation_result SET render_output_id='output' WHERE result_id='accurate'")
+                assert c.assessment(db,"s","RENDER",{"generation":"gen","accuracy":"accurate"},read)["status"]=="PARTIAL"
+                db.execute("ROLLBACK TO wrongoutput");db.execute("RELEASE wrongoutput")
+                db.execute("SAVEPOINT wrongreport")
+                db.execute("UPDATE validation_result SET evidence_id='render' WHERE result_id='accurate'")
+                assert c.assessment(db,"s","RENDER",{"generation":"gen","accuracy":"accurate"},read)["status"]=="PARTIAL"
+                db.execute("ROLLBACK TO wrongreport");db.execute("RELEASE wrongreport")
+                return "PNG decode and size, render unit/attempt and distinct reference/report/output body binding verified"
+            test("T08",t08,"render/result provenance fixture verified; report assertion is not independent visual accuracy")
             def t09():
                 assert c.one(db,"SELECT certainty FROM claim WHERE claim_id='unknown'")["certainty"]=="UNKNOWN"
                 assert c.one(db,"SELECT to_y FROM model_element WHERE object_id='el'")["to_y"]==8
@@ -301,8 +324,19 @@ def main(out):
                     db.execute("UPDATE measurement SET unit='' WHERE measurement_id='height'")
                     c.validate_measurement(db,"height",read)
                 rollback_test(db,units)
-                return "ratio, unit and finite value guards"
-            test("T10",t10,"no independent style or comparative measurement method validation")
+                assert oracle.compare_dimension(db,"snap","base","height",read)==.5
+                assert oracle.compare_dimension(db,"snap","second","height2",read)==.25
+                assert oracle.compare_fixture_metrics(db,"snap","height","height2",read)==.25
+                def coherent_but_wrong():
+                    db.execute("UPDATE measurement SET numeric_value=.75,numerator=12 WHERE measurement_id='height'")
+                    oracle.compare_dimension(db,"snap","base","height",read)
+                rollback_test(db,coherent_but_wrong)
+                def incomparable():
+                    db.execute("UPDATE measurement SET method_version='other' WHERE measurement_id='height2'")
+                    oracle.compare_fixture_metrics(db,"snap","height","height2",read)
+                rollback_test(db,incomparable)
+                return "two independent synthetic model dimensions and comparable-unit difference; consistent but incorrect ratio rejected"
+            test("T10",t10,"source-derived dimensional comparison verified; broader style metrics not independently verified")
             def t11():
                 c.approval_guard(db,"approved",read)
                 bad(lambda:c.approval_guard(db,"candidate",read))
