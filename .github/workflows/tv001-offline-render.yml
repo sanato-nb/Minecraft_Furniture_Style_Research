@@ -1,0 +1,127 @@
+name: TV-001 offline render pilot (fixed 12 cases / 25 images)
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/tv001/**'
+      - 'docs/tech_validation/TV001_*'
+      - '.github/workflows/tv001-offline-render.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tv001:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - name: Checkout pinned study inputs
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Configure Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install offline renderer and PNG tool
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends blender libegl1 libgl1 libgl1-mesa-dri libosmesa6 xvfb xauth
+          python -m pip install 'Pillow>=10,<13' 'numpy>=1.26,<3'
+          blender --version | head -n 2
+          python --version
+
+      - name: Prepare exact 12 cases and 25 render jobs
+        run: |
+          mkdir -p "$RUNNER_TEMP/tv001"
+          python scripts/tv001/prepare.py \
+            --repo "$GITHUB_WORKSPACE" \
+            --out "$RUNNER_TEMP/tv001"
+
+      - name: Verify R03 actual mesh UV against independent source reference
+        run: |
+          xvfb-run -a blender --background --factory-startup --threads 2 --python-exit-code 1 \
+            --python scripts/tv001/r03_uv_mesh_audit.py -- \
+            --repo "$GITHUB_WORKSPACE" \
+            --manifest "$RUNNER_TEMP/tv001/manifest.json" \
+            --report "$RUNNER_TEMP/tv001/r03_uv_mesh.json"
+
+      - name: Render first 12 images in a single Blender process
+        run: |
+          set -o pipefail
+          xvfb-run -a blender --background --factory-startup --threads 2 \
+            --python scripts/tv001/blender_batch.py -- \
+            --manifest "$RUNNER_TEMP/tv001/manifest.json" \
+            --out "$RUNNER_TEMP/tv001/renders" --limit 12 \
+            | tee "$RUNNER_TEMP/tv001/batch_1.log"
+
+      - name: Resume remaining 13 after Blender process restart
+        run: |
+          set -o pipefail
+          xvfb-run -a blender --background --factory-startup --threads 2 \
+            --python scripts/tv001/blender_batch.py -- \
+            --manifest "$RUNNER_TEMP/tv001/manifest.json" \
+            --out "$RUNNER_TEMP/tv001/renders" \
+            | tee "$RUNNER_TEMP/tv001/batch_2.log"
+
+      - name: Verify complete checkpoint avoids repeated rendering
+        run: |
+          set -o pipefail
+          xvfb-run -a blender --background --factory-startup --threads 2 \
+            --python scripts/tv001/blender_batch.py -- \
+            --manifest "$RUNNER_TEMP/tv001/manifest.json" \
+            --out "$RUNNER_TEMP/tv001/renders" \
+            | tee "$RUNNER_TEMP/tv001/batch_3.log"
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          root = Path(os.environ["RUNNER_TEMP"]) / "tv001"
+          expected = [
+              ("batch_1.log", 12, 0, 13),
+              ("batch_2.log", 13, 12, 0),
+              ("batch_3.log", 0, 25, 0),
+          ]
+          for filename, rendered, skipped, remaining in expected:
+              content = (root / filename).read_text(encoding="utf-8")
+              lines = [line for line in content.splitlines() if line.startswith("TV001_BATCH ")]
+              assert lines, f"Missing summary in {filename}"
+              actual = json.loads(lines[-1].split(" ", 1)[1])
+              assert (actual["rendered"], actual["skipped"], actual["remaining"]) == (
+                  rendered, skipped, remaining), (filename, actual)
+          print("TV001_REPLAY PASS: 12 -> 13 -> 0; all 25 reused on third execution")
+          PY
+
+      - name: Inspect 25 images and record unverified reference checks
+        run: |
+          python scripts/tv001/inspect.py \
+            --manifest "$RUNNER_TEMP/tv001/manifest.json" \
+            --renders "$RUNNER_TEMP/tv001/renders" \
+            --report "$RUNNER_TEMP/tv001/inspect_report.json"
+
+      - name: T4 independent geometry, source and UV rotation audit
+        run: |
+          python -m scripts.tv001.t4_independent \
+            --repo "$GITHUB_WORKSPACE" \
+            --manifest "$RUNNER_TEMP/tv001/manifest.json" \
+            --renders "$RUNNER_TEMP/tv001/renders" \
+            --report "$RUNNER_TEMP/tv001/t4_independent.json"
+
+      - name: T8 bounded closure assessment (PASS, PARTIAL or FAIL)
+        run: |
+          python scripts/tv001/t8_close.py \
+            --evidence "$RUNNER_TEMP/tv001" \
+            --out "$RUNNER_TEMP/tv001/t8_closure.json"
+
+      - name: Upload fixed pilot evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tv001-offline-pilot-evidence
+          path: ${{ runner.temp }}/tv001/
+          if-no-files-found: warn
+          retention-days: 7

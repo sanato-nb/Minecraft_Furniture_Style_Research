@@ -1,0 +1,126 @@
+{
+  "verified_commit": "97f649bc24d0706585e7a95f8dff52767a017068",
+  "run": 46131279132,
+  "job": 140936745863,
+  "artifact": 15257597734,
+  "workflow_status": "success",
+  "catalog": {
+    "status": "PASS",
+    "schema": 4,
+    "first": {
+      "assets_added": 25387,
+      "assets_added_by_release": {
+        "minecraft-java-1.21.11-git": 4768,
+        "another-furniture-4.0.3-git": 2994,
+        "handcrafted-4.0.3-git": 13626,
+        "macaws-furniture-3.4.2-fabric": 3999
+      }
+    },
+    "second": {
+      "assets_added": 0,
+      "assets_added_by_release": {
+        "minecraft-java-1.21.11-git": 0,
+        "another-furniture-4.0.3-git": 0,
+        "handcrafted-4.0.3-git": 0,
+        "macaws-furniture-3.4.2-fabric": 0
+      }
+    },
+    "direct_ledger_rows": 25387,
+    "duplicate_keys": 0,
+    "evidence_rows": {
+      "research/vanilla_models/phase_1-2-G/final/G_FINAL_SOURCE_SHA_4669.csv": 4669,
+      "research/vanilla_models/phase_1-2-G/final/G_FINAL_MCMETA_99.csv": 99,
+      "research/furniture_mods/phase_1-3/B/source_verification/B_AF_SOURCE_BODIES.csv.gz": 1806,
+      "research/furniture_mods/phase_1-3/B/source_verification/B_HC_SOURCE_BODIES.csv.gz": 12661,
+      "research/furniture_mods/phase_1-3/B/source_verification/B_MACAW_SOURCE_BODIES.csv.gz": 3979,
+      "research/furniture_mods/phase_1-3/F/1-3_TEXTURE_UV_HANDOFF.csv": 2173
+    },
+    "catalog_vs_direct_ledger": "exact match"
+  },
+  "summary": {
+    "gate": "6-F",
+    "status": "PASS",
+    "expected": 25387,
+    "recorded": 25387,
+    "body_attempted": 25387,
+    "catalog_status": "PASS",
+    "counts": {
+      "PASS": 25387
+    },
+    "hash_counts": {
+      "PASS": 25387
+    },
+    "releases": [
+      {
+        "code": "vanilla",
+        "expected": 4768,
+        "rows": 4768,
+        "attempted": 4768,
+        "counts": {
+          "PASS": 4768
+        },
+        "hash_counts": {
+          "PASS": 4768
+        },
+        "pin_check": "historical_and_main_git_tree_and_body",
+        "ledger_sha256": "978c5d182c719fcd97c1b5bedddec9bd95e1a3fa9e52fca91175be7f4e80e67c",
+        "examples": []
+      },
+      {
+        "code": "AF",
+        "expected": 2994,
+        "rows": 2994,
+        "attempted": 2994,
+        "counts": {
+          "PASS": 2994
+        },
+        "hash_counts": {
+          "PASS": 2994
+        },
+        "pin_check": "pinned_git_commit_and_body",
+        "ledger_sha256": "67ebce69e9b0185302de984c05d5e335b270f05470bc60830b9e7cccc86aefbd",
+        "examples": []
+      },
+      {
+        "code": "HC",
+        "expected": 13626,
+        "rows": 13626,
+        "attempted": 13626,
+        "counts": {
+          "PASS": 13626
+        },
+        "hash_counts": {
+          "PASS": 13626
+        },
+        "pin_check": "pinned_git_commit_and_body",
+        "ledger_sha256": "98c8073e350cf4fb9f57100a3a26d18d8e34dea0460144b085bbb45d580cc6a5",
+        "examples": []
+      },
+      {
+        "code": "MACAW",
+        "expected": 3999,
+        "rows": 3999,
+        "attempted": 3999,
+        "counts": {
+          "PASS": 3999
+        },
+        "hash_counts": {
+          "PASS": 3999
+        },
+        "pin_check": "pinned_whole_jar_sha256_and_member",
+        "ledger_sha256": "b3d7dab6564aaadb1129654ec4bf6a5adec2e09ef6b228f40edcb5d82e50159e",
+        "examples": []
+      }
+    ],
+    "scope_sha256": "69c72afdbccc3f8aa9a2d9b770533848b965be3b39f06dfdbfd1d785bca8f552",
+    "code_sha256": "03f4150f11ec9829fffa52167b973f55a1251193b32b5e6ba84c533e2c458c22",
+    "ledger_sha256": "bb011abf587af48a2ddbf7b64232cfd50c45c747e46acd1730e1f05a3a976d00",
+    "limits": "Fixed registered source identities and basic format only; no full release coverage or semantic model analysis."
+  },
+  "limits": [
+    "Fixed registered scope only, not full release inventory",
+    "Basic JSON structure and PNG header only, not complete PNG pixel or model semantics",
+    "Full asset ledger in Actions artifact; no external originals stored in PR",
+    "D historical CSV defects still outstanding"
+  ]
+}

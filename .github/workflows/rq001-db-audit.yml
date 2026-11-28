@@ -1,0 +1,45 @@
+name: RQ-001 E historical SQLite audit
+on:
+  pull_request:
+    paths:
+      - 'scripts/research_quality/rq001_e.py'
+      - '.github/workflows/rq001-db-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rq001-e:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'Pillow>=10,<13' 'PyYAML>=6,<7'
+      - name: Inspect nine historical database paths read only
+        run: python scripts/research_quality/rq001_e.py --repo "$GITHUB_WORKSPACE" --out "$RUNNER_TEMP/rq001-e"
+      - name: Reconcile coverage and result hash
+        run: |
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          p=Path(os.environ["RUNNER_TEMP"])/"rq001-e"
+          s=json.loads((p/"E_summary.json").read_bytes())
+          data=(p/"E_databases.json").read_bytes()
+          rows=json.loads(data)
+          assert len(rows)==s["attempted"]==s["expected"]==9
+          assert len({x["path"] for x in rows})==9 and len({x["expected_git_blob"] for x in rows})==8
+          assert sum(s["counts"].values())==9 and hashlib.sha256(data).hexdigest()==s["results_sha256"]
+          print("RQ001_E_COVERAGE PASS 9",s["status"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rq001-e-evidence
+          path: ${{ runner.temp }}/rq001-e/
+          retention-days: 30

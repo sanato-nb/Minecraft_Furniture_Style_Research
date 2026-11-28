@@ -1,0 +1,492 @@
+{
+  "reviewed_commit": "d44600fe5f0cba090c8c0477b953a0a63bbade8b",
+  "run": 46162260118,
+  "job": 141031959754,
+  "artifact": 15270217722,
+  "workflow_status": "success",
+  "smoke": {
+    "areas": 14,
+    "existing_tables": 8,
+    "gate": "7-E-SMOKE",
+    "limits": "DDL creation, FK statement preparation and empty view queries only; T01-T16 not executed.",
+    "new_indexes": 11,
+    "new_tables": 43,
+    "new_views": 2,
+    "original_unchanged": true,
+    "pinned_inputs": 19,
+    "sql_sha256": "11cd86819601aab62a1ddb4d7d4a8e5b815e223d3d450b720dc25a716c1a1fbf",
+    "status": "PASS",
+    "user_version": 4
+  },
+  "fixture_summary": {
+    "contract_sha256": "bfdd2d5ab61f1ceb2aa0298e6045a56cb157feb1a73a3114b6c622bf4ba5af46",
+    "counts": {
+      "FAIL": 0,
+      "HOLD": 0,
+      "PARTIAL": 9,
+      "PASS": 7
+    },
+    "executed": 16,
+    "gate": "7-G",
+    "oracle_sha256": "f30e07b7edb56b638c606a21a057fea252a18c5d3100658bf9b2a243f93b7b88",
+    "schema_sha256": "11cd86819601aab62a1ddb4d7d4a8e5b815e223d3d450b720dc25a716c1a1fbf",
+    "scope_sha256": "b88ba9304d2505c8901d3eeb7e860e5663e707740cd1c90901b8aa8174a2ffc1",
+    "status": "PARTIAL",
+    "test_sha256": "829eb81a09aa45bbae9fa5b4080541717317f1c932373a1db955ef96b6ba3af9"
+  },
+  "tests": [
+    {
+      "detail": {
+        "existing_tables": 8,
+        "unchanged_rows": {
+          "ai_review": 0,
+          "asset": 25387,
+          "release": 4,
+          "research_execution": 0,
+          "research_run": 0,
+          "source_checkpoint": 0,
+          "source_job": 0,
+          "upstream_observation": 0
+        }
+      },
+      "id": "T01",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "initial": {
+          "assets_added": 25387,
+          "assets_added_by_release": {
+            "another-furniture-4.0.3-git": 2994,
+            "handcrafted-4.0.3-git": 13626,
+            "macaws-furniture-3.4.2-fabric": 3999,
+            "minecraft-java-1.21.11-git": 4768
+          }
+        },
+        "repeat": {
+          "assets_added": 0,
+          "assets_added_by_release": {
+            "another-furniture-4.0.3-git": 0,
+            "handcrafted-4.0.3-git": 0,
+            "macaws-furniture-3.4.2-fabric": 0,
+            "minecraft-java-1.21.11-git": 0
+          }
+        }
+      },
+      "id": "T02",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": "version distinct; conflicting existing key/digest and cross-catalog path blocked by guard",
+      "id": "T03",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": "locked scope and terminal attempts immutable; checkpoint update/delete/replace, sequence, new attempt retry and rollback checked",
+      "id": "T04",
+      "limit": "local transaction fixture; cross-job restart and full execution writer not implemented",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "actual synthetic source SHA, parent, pointer, elements/faces, coordinate mutation checked",
+      "id": "T05",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": "asymmetric PNG, exact ordered fixture UV corners, mirrored UV rejection and frame hash verified",
+      "id": "T06",
+      "limit": "asymmetric fixture UV ordering and sampling verified; Minecraft UV-lock and other transforms remain unverified",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "scoped namespace, alias cycle/missing, nested OR, weighted options, missing model and application coverage verified",
+      "id": "T07",
+      "limit": "bounded multipart and variant predicate fixtures; full variant selection and complete game resolver not verified",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "PNG decode and size, render unit/attempt and distinct reference/report/output body binding verified",
+      "id": "T08",
+      "limit": "render/result provenance fixture verified; report assertion is not independent visual accuracy",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "UNKNOWN independent of geometry; invalid confirmation rejected",
+      "id": "T09",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": "two independent synthetic model dimensions and comparable-unit difference; consistent but incorrect ratio rejected",
+      "id": "T10",
+      "limit": "source-derived dimensional comparison verified; broader style metrics not independently verified",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "two distinct scoped source model bodies, approval manifest, unrelated support, counterexample, cycle and changed step controls",
+      "id": "T11",
+      "limit": "two distinct scoped source fixtures and approval manifest verified; actual independent research evidence and production approval transitions not validated",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "four verdicts, denominator, latest result selection and stale PASS rejection",
+      "id": "T12",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": "revision/unit/source/approval, missing group, unfinished attempt, counterexample and evidence corruption controls",
+      "id": "T13",
+      "limit": "fixture allowlist, scoped source hash and rights filtering verified; production identity/permission enforcement not integrated",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "two synthetic malformed CSV fixtures quarantined; exact source blob and corrected derivative/approval binding checked; duplicate paths preserved",
+      "id": "T14",
+      "limit": "synthetic transformation approval verified; actual historical CSV correction and production import runner not performed",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "reapplication rejected atomically; partial DDL rolled back; source unchanged",
+      "id": "T15",
+      "limit": null,
+      "status": "PASS"
+    },
+    {
+      "detail": "local restore manifest including all table row digests, FK, checkpoint, modified row and missing/tampered/expired evidence rejection verified",
+      "id": "T16",
+      "limit": "local manifest and simulated expiry verified; real external archive retention and cross-job restore not exercised",
+      "status": "PARTIAL"
+    }
+  ],
+  "independent_summary": {
+    "closure": "CLOSED_PARTIAL",
+    "current_counts": {
+      "FAIL": 0,
+      "HOLD": 0,
+      "PARTIAL": 9,
+      "PASS": 7
+    },
+    "current_result_sha256": "ca1405f696f2cd1319c99f26e99b7cced225565963e41d20d02b23e9c8dbb85c",
+    "design_counts": {
+      "index": 11,
+      "table": 43,
+      "trigger": 34,
+      "view": 2
+    },
+    "design_quality": "PARTIAL",
+    "execution_status": "PASS",
+    "fixed_tests": 16,
+    "gate": "7-H",
+    "historical_ddl_sha256": "b33e357fedaf6b06d07693b94ce2a5a0e8bedac7ba8ebe1e949e3e67ee664802",
+    "historical_paths": 9,
+    "historical_rows": 366868,
+    "historical_tables": 134,
+    "historical_unique": 8,
+    "limits": "Physical historical DDL and row-count comparison; no semantic import or full game validation. Closure still requires reviewer disposition.",
+    "mapped_areas": 14,
+    "past_records": [
+      {
+        "commit": "2176903c4f4b30fa28cd3f11b70c12b388b9cb6a",
+        "counts": {
+          "FAIL": 0,
+          "HOLD": 0,
+          "PARTIAL": 11,
+          "PASS": 5
+        },
+        "run": 46155488364
+      },
+      {
+        "commit": "2b3881d7ac80e18549c0d12964b68b23eea1ad6f",
+        "counts": {
+          "FAIL": 0,
+          "HOLD": 0,
+          "PARTIAL": 10,
+          "PASS": 6
+        },
+        "run": 46157302810
+      },
+      {
+        "commit": "08d1afd3e489047fc4773af7b48f08d9b3e9068e",
+        "counts": {
+          "FAIL": 0,
+          "HOLD": 0,
+          "PARTIAL": 9,
+          "PASS": 7
+        },
+        "run": 46157953724
+      },
+      {
+        "commit": "ae0fc8cbb4242c96eb0b4ecedbe890891b978216",
+        "counts": {
+          "FAIL": 0,
+          "HOLD": 0,
+          "PARTIAL": 9,
+          "PASS": 7
+        },
+        "run": 46158304393
+      },
+      {
+        "commit": "25a93bb670bf31f3c87dca5419622e7a66ab1478",
+        "counts": {
+          "FAIL": 0,
+          "HOLD": 0,
+          "PARTIAL": 9,
+          "PASS": 7
+        },
+        "run": 46159077686
+      },
+      {
+        "commit": "04c7111e1f6b8a4834b06af38402b686d000dc3b",
+        "counts": {
+          "FAIL": 0,
+          "HOLD": 0,
+          "PARTIAL": 9,
+          "PASS": 7
+        },
+        "run": 46159601524
+      }
+    ],
+    "production_migration": "NOT_PERFORMED",
+    "scope_inputs": 19,
+    "semantic_validation": "NOT_PERFORMED"
+  },
+  "area_review": [
+    {
+      "id": 1,
+      "name": "연구 대상·버전·출처",
+      "entities": 3,
+      "mapping": "PASS",
+      "linked_tests": [
+        "T01",
+        "T02",
+        "T03",
+        "T16"
+      ],
+      "fixture_quality": "PARTIAL"
+    },
+    {
+      "id": 2,
+      "name": "원본 파일 색인",
+      "entities": 5,
+      "mapping": "PASS",
+      "linked_tests": [
+        "T02",
+        "T03",
+        "T04",
+        "T14"
+      ],
+      "fixture_quality": "PARTIAL"
+    },
+    {
+      "id": 3,
+      "name": "모델 기본 구조",
+      "entities": 4,
+      "mapping": "PASS",
+      "linked_tests": [
+        "T05",
+        "T07"
+      ],
+      "fixture_quality": "PARTIAL"
+    },
+    {
+      "id": 4,
+      "name": "3D 요소·형상",
+      "entities": 4,
+      "mapping": "PASS",
+      "linked_tests": [
+        "T05",
+        "T10"
+      ],
+      "fixture_quality": "PARTIAL"
+    },
+    {
+      "id": 5,
+      "name": "면별 UV",
+      "entities": 5,
+      "mapping": "PASS",
+      "linked_tests": [
+        "T05",
+        "T06",
+        "T07",
+        "T08"
+      ],
+      "fixture_quality": "PARTIAL"
+    },
+    {
+      "id": 6,
+      "name": "텍스처·픽셀 스타일",
+      "entities": 4,
+      "mapping": "PASS",
+      "linked_tests": [
+        "T06",
+        "T09",
+        "T10"
+      ],
+      "fixture_quality": "PARTIAL"
+    },
+    {
+      "id": 7,
+      "name": "블록상태",
+      "entities": 5,
+      "mapping": "PASS",
+      "linked_tests": [
+        "T07"
+      ],
+      "fixture_quality": "PARTIAL"
+    },
+    {
+      "id": 8,
+      "name": "참조 그래프",
+      "entities": 2,
+      "mapping": "PASS",
+      "linked_tests": [
+        "T03",
+        "T07"
+      ],
+      "fixture_quality": "PARTIAL"
+    },
+    {
+      "id": 9,
+      "name": "오프라인 렌더링",
+      "entities": 5,
+      "mapping": "PASS",
+      "linked_tests": [
+        "T04",
+        "T08",
+        "T12",
+        "T16"
+      ],
+      "fixture_quality": "PARTIAL"
+    },
+    {
+      "id": 10,
+      "name": "가구 종류·부품 의미",
+      "entities": 5,
+      "mapping": "PASS",
+      "linked_tests": [
+        "T09",
+        "T11",
+        "T13"
+      ],
+      "fixture_quality": "PARTIAL"
+    },
+    {
+      "id": 11,
+      "name": "형태·비율·스타일",
+      "entities": 4,
+      "mapping": "PASS",
+      "linked_tests": [
+        "T10",
+        "T13"
+      ],
+      "fixture_quality": "PARTIAL"
+    },
+    {
+      "id": 12,
+      "name": "재사용 가능한 제작 기법",
+      "entities": 5,
+      "mapping": "PASS",
+      "linked_tests": [
+        "T11",
+        "T13"
+      ],
+      "fixture_quality": "PARTIAL"
+    },
+    {
+      "id": 13,
+      "name": "검증·예외·완료",
+      "entities": 11,
+      "mapping": "PASS",
+      "linked_tests": [
+        "T04",
+        "T08",
+        "T12",
+        "T14",
+        "T15",
+        "T16"
+      ],
+      "fixture_quality": "PARTIAL"
+    },
+    {
+      "id": 14,
+      "name": "AI용 지식 검색 색인",
+      "entities": 7,
+      "mapping": "PASS",
+      "linked_tests": [
+        "T09",
+        "T10",
+        "T11",
+        "T13"
+      ],
+      "fixture_quality": "PARTIAL"
+    }
+  ],
+  "prior_log_comparison": {
+    "runs": 6,
+    "records": 96,
+    "exact_match": true
+  },
+  "tree_comparison": {
+    "base": "22e0033f39931aa8cf3699e5affd3139da700d8d",
+    "base_blobs": 31386,
+    "reviewed_blobs": 31421,
+    "changed_or_deleted": 0,
+    "added": 35,
+    "complete_tree": true
+  },
+  "review_execution": "COMPLETED_WITH_FINDINGS",
+  "design_quality": "PARTIAL",
+  "design_approval": "WITHHELD",
+  "next_stage_authorization": "NOT_GRANTED",
+  "production_migration": "NOT_PERFORMED",
+  "blockers": [
+    {
+      "id": "H-B01",
+      "kind": "DESIGN_OPEN",
+      "tests": [
+        "T04",
+        "T08"
+      ],
+      "detail": "render_case의 고정 scope 계획 행에 실행 후 생성되는 snapshot/object의 NOT NULL FK가 있고 잠금 후 INSERT/UPDATE가 금지된다. 실제 실행 전 C3 계획 고정과 실행 후 물리화의 분리가 설계에 필요하다. 현재 fixture는 분석 객체를 잠금 전에 구성하여 이 운영 순서를 검증하지 않는다."
+    },
+    {
+      "id": "H-B02",
+      "kind": "DESIGN_OPEN",
+      "tests": [
+        "T12",
+        "T13"
+      ],
+      "detail": "latest_results는 요구 항목에 기록된 결과의 최대 attempt_no만 선택한다. 새 시도에 결과가 아직 전혀 없는 경우 기존 PASS의 최신성 판단에 필요한 요구 항목↔계획 task 관계가 부족하다. 기존 T12 PASS는 실행된 음성 fixture에 한정하며 이 경계는 독립 심사에서 승인하지 않는다."
+    },
+    {
+      "id": "H-B03",
+      "kind": "DESIGN_OPEN",
+      "tests": [
+        "T11",
+        "T13"
+      ],
+      "detail": "기법 원본 사례 guard는 SHA256 등록 자산만 지원한다. 검색은 원본/claim/measurement 권리 일부를 검사하지만 관련 판정/기법/상충 관계 전체의 권리 및 실제 호출자 인증은 미입증."
+    },
+    {
+      "id": "H-B04",
+      "kind": "FUTURE_IMPLEMENTATION",
+      "tests": [
+        "T04",
+        "T06",
+        "T07",
+        "T08",
+        "T10",
+        "T11",
+        "T13",
+        "T14",
+        "T16"
+      ],
+      "detail": "실제 cross-job 재개·외부 보존 복원, 게임 UV/상태 해석/렌더 시각 정확성, 전체 스타일 측정, 실제 연구 일반화, 운영 인증/이관은 별도 승인된 운영/연구 단계의 검증으로 구분. 현재 미입증 기록은 유지."
+    }
+  ]
+}

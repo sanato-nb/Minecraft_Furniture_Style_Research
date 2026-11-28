@@ -1,0 +1,190 @@
+{
+  "id": "RQ-001",
+  "version": "1.0",
+  "state": "LOCKED_BEFORE_EXECUTION",
+  "main_pin": "176f7f34de2336eb7984c4734e97b6eb156c19f4",
+  "presurvey_commit": "c8db50c7cb2af583de38b69a438121b09d4e9e9b",
+  "contract": "research contract v0.6 / data spec v0.2",
+  "inventory": [
+    {
+      "path": "project/audits/research_quality/RQ001/inventory_campaigns.tsv",
+      "git_blob": "2b7f5ee596414d3cde0756710eb71e2a1fe6086a",
+      "count": 1
+    },
+    {
+      "path": "project/audits/research_quality/RQ001/inventory_comparisons.tsv",
+      "git_blob": "17519325f0a5c93f15458eb4cd39b0b385823e22",
+      "count": 1
+    },
+    {
+      "path": "project/audits/research_quality/RQ001/inventory_furniture_mods.tsv",
+      "git_blob": "5a842284fe209fb8db9552c7596c3b68d2e7578e",
+      "count": 568
+    },
+    {
+      "path": "project/audits/research_quality/RQ001/inventory_historical.tsv",
+      "git_blob": "12d45e46c29b65eca6daf1ae8001767d7ece8d57",
+      "count": 1
+    },
+    {
+      "path": "project/audits/research_quality/RQ001/inventory_vanilla_models.tsv",
+      "git_blob": "f92f0af66502f8ab6799e56ff8e9fb02d9524149",
+      "count": 1585
+    },
+    {
+      "path": "project/audits/research_quality/RQ001/inventory_vanilla_textures.tsv",
+      "git_blob": "8431eb12974e7c2a77c5a96e5ab395f67df84069",
+      "count": 755
+    },
+    {
+      "path": "project/audits/research_quality/RQ001/inventory_other.tsv",
+      "git_blob": "981c3a9c2853de908c565c0d95c0a989c5d52b6b",
+      "count": 256
+    }
+  ],
+  "denominators": {
+    "non_source_paths": 3167,
+    "research_paths": 2911,
+    "other_paths": 256,
+    "sqlite_paths": 9,
+    "sqlite_unique_blobs": 8,
+    "registered_assets": 25387,
+    "vanilla_assets": 4768,
+    "external_assets": 20619,
+    "data_areas": 14,
+    "identical_blob_groups": 7
+  },
+  "sqlite": [
+    {
+      "path": "data/MC_Furniture_Style_Stage1_Research_v8.sqlite",
+      "sha": "79395712dae3ffee5e1ac668f7d1e583358f8578",
+      "bytes": 413696,
+      "registered_legacy_helper": true
+    },
+    {
+      "path": "research/furniture_mods/phase_1-3/F/furniture_research.sqlite.xz",
+      "sha": "e54839615278dba39cadb463b9988e0371d37ea9",
+      "bytes": 1796236,
+      "registered_legacy_helper": true
+    },
+    {
+      "path": "research/furniture_mods/phase_1-4/E_followup/research_texture_uv_runtime.sqlite.xz",
+      "sha": "bab0ea7f6bbfd41651e3997096b52e71ff2e82c8",
+      "bytes": 238548,
+      "registered_legacy_helper": false
+    },
+    {
+      "path": "research/furniture_mods/phase_1-4/entry04/research_texture_uv.sqlite.xz",
+      "sha": "1437b43416310fe8af66870e7a4731310d9283cc",
+      "bytes": 224012,
+      "registered_legacy_helper": false
+    },
+    {
+      "path": "research/furniture_mods/phase_1-5/E/comparison.sqlite.xz",
+      "sha": "2c83a9e119ca84eec0cd0924447278e2d7d314a3",
+      "bytes": 105028,
+      "registered_legacy_helper": true
+    },
+    {
+      "path": "research/vanilla_models/v5/MC_Furniture_Style_Stage1_Research_v5.sqlite",
+      "sha": "4b75d6fdc6dc7d37a8ba81a6c63891d886c801b2",
+      "bytes": 147456,
+      "registered_legacy_helper": false
+    },
+    {
+      "path": "research/vanilla_models/v6/MC_Furniture_Style_Stage1_Research_v6.sqlite",
+      "sha": "990434e0db8a990665aac6a5d0261b9ade6e4c6b",
+      "bytes": 237568,
+      "registered_legacy_helper": false
+    },
+    {
+      "path": "research/vanilla_models/v7/MC_Furniture_Style_Stage1_Research_v7.sqlite",
+      "sha": "f8a9c81019e8d1fd6d82a6783f31ca8a68c47ddb",
+      "bytes": 364544,
+      "registered_legacy_helper": false
+    },
+    {
+      "path": "research/vanilla_models/v8/MC_Furniture_Style_Stage1_Research_v8.sqlite",
+      "sha": "79395712dae3ffee5e1ac668f7d1e583358f8578",
+      "bytes": 413696,
+      "registered_legacy_helper": false
+    }
+  ],
+  "releases": [
+    {
+      "code": "vanilla",
+      "release_key": "minecraft-java-1.21.11-git",
+      "profile": "vanilla",
+      "target_id": "minecraft",
+      "version": "1.21.11",
+      "minecraft_version": "1.21.11",
+      "loader": "vanilla",
+      "pin_algorithm": "GIT_COMMIT_SHA1",
+      "pin_digest": "b2960c684f8e48ef3b413d408853cfd8a96d7746",
+      "source": "https://github.com/sanato-nb/Minecraft_Furniture_Style_Research",
+      "expected_count": 4768
+    },
+    {
+      "code": "AF",
+      "release_key": "another-furniture-4.0.3-git",
+      "profile": "mods",
+      "target_id": "another_furniture",
+      "version": "4.0.3",
+      "minecraft_version": "1.21.1",
+      "loader": "source_tree",
+      "pin_algorithm": "GIT_COMMIT_SHA1",
+      "pin_digest": "57eb624cbb7f408d43398c7434b0d38d312cb55d",
+      "source": "https://github.com/crispytwig/AnotherFurniture",
+      "expected_count": 2994
+    },
+    {
+      "code": "HC",
+      "release_key": "handcrafted-4.0.3-git",
+      "profile": "mods",
+      "target_id": "handcrafted",
+      "version": "4.0.3",
+      "minecraft_version": "1.21.1",
+      "loader": "source_tree",
+      "pin_algorithm": "GIT_COMMIT_SHA1",
+      "pin_digest": "8d21d1665916850c3fa3bdaf1370c50ec2ca7035",
+      "source": "https://github.com/terrarium-earth/Handcrafted",
+      "expected_count": 13626
+    },
+    {
+      "code": "MACAW",
+      "release_key": "macaws-furniture-3.4.2-fabric",
+      "profile": "mods",
+      "target_id": "mcwfurnitures",
+      "version": "3.4.2",
+      "minecraft_version": "1.21.11",
+      "loader": "fabric",
+      "pin_algorithm": "SHA256",
+      "pin_digest": "e55d7a78b878043af82875cb8738941b0bba1a3c77652dea3d75a434dbba1a0e",
+      "source": "https://modrinth.com/mod/macaws-furniture/version/xhmciaUD",
+      "expected_count": 3999
+    }
+  ],
+  "batch": {
+    "order": "UTF-8 path byte order",
+    "size": 200,
+    "count": 16,
+    "last": 167,
+    "max_decompressed_bytes": 536870912
+  },
+  "exclusions": [
+    "full 28163-file original tree semantic study (only 4768 registered source assets verified here)",
+    "new render/game execution",
+    "new semantic modelling research",
+    "DB migration/deletion/main merge",
+    "new releases beyond fixed pins"
+  ],
+  "mandatory": [
+    "D file bytes and format-level checks all 3167",
+    "E read-only deep DB inventory 9 paths",
+    "F historical import and independent pinned source verification per release",
+    "G 14-area evidence mapping",
+    "H classification of 3167 paths with explicit uncertainty",
+    "I independent reconciliation and preservation check"
+  ],
+  "status_rule": "PASS only all mandatory checks pass; FAIL confirmed required mismatch; HOLD unjudgeable or missing prerequisite; PARTIAL explicit bounded completion with unresolved items, no full accuracy claim"
+}

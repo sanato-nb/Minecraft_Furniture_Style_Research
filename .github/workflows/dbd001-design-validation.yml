@@ -1,0 +1,43 @@
+name: DBD-001 fixed design validation
+on:
+  pull_request:
+    paths:
+      - 'project/design/research_db/DBD001/design_contract.py'
+      - 'project/design/research_db/DBD001/design_tests.py'
+      - 'project/design/research_db/DBD001/schema_proposal.sql'
+      - 'project/design/research_db/DBD001/fixture_oracle.py'
+      - 'project/design/research_db/DBD001/final_review_check.py'
+      - '.github/workflows/dbd001-design-validation.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fixture:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify pinned inputs and schema
+        env:
+          PYTHONPATH: src
+        run: python project/design/research_db/DBD001/schema_smoke.py
+      - name: Run fixed T01-T16 disposable DB fixtures
+        env:
+          PYTHONPATH: src
+        run: python project/design/research_db/DBD001/design_tests.py "$RUNNER_TEMP/dbd001"
+      - name: Independent 7-H review and historical DDL inspection
+        env:
+          PYTHONPATH: src
+        run: python project/design/research_db/DBD001/final_review_check.py "$RUNNER_TEMP/dbd001"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dbd001-g-results
+          path: ${{ runner.temp }}/dbd001/
+          retention-days: 30

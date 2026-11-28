@@ -1,0 +1,85 @@
+name: TV-001 B pinned UV bytecode evidence
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/tv001-uv-source-audit.yml'
+permissions:
+  contents: read
+jobs:
+  uv-source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Verify pinned originals and disassemble UV methods (no game execution)
+        shell: bash
+        run: |
+          set -euo pipefail
+          export PIN=176f7f34de2336eb7984c4734e97b6eb156c19f4
+          export OUT="$RUNNER_TEMP/tv001-uv-source"
+          mkdir -p "$OUT"
+          java -version
+          javap -version
+          python - <<'PY'
+          import hashlib, json, os, pathlib, subprocess
+          pin = os.environ["PIN"]
+          out = pathlib.Path(os.environ["OUT"])
+          root = pathlib.Path("1.21.11")
+          expected = {
+              "hqi.class": "5b64584e8cc09a8db90f802e0021bc0533e81ab1",
+              "inm.class": "672b186c8a8457082fec756114b443a48dc151d1",
+              "inm$a.class": "9ca92245d30e41cf4dfe239617ebbec94ad19974",
+              "ioc.class": "6063a49dabf4cda7816dc570babd1a1b2e57e6e0",
+              "hqc.class": "17d6188210d69bbebb560a043396bb8eeedd6045",
+              "ir.class": "e34b3f9f80763b22969a19d432701d2717fbdd62",
+              "hoa.class": "6841dfb26d63d166dac1d261c78805e00dfb2fc2",
+              "hoa$a.class": "776c249d3ed2490e1968894a1ea5fd0a2c681a02",
+              "hoa$b.class": "1eaad856846155a63bbd56c3ff895fc73150dde7",
+              "hqc$b.class": "7cf58ffc0114cf9c90c275317697da0834e5d8a1",
+              "g.class": "f4883aaac8f997dceb60b8f5e9a076e7a16c6fef",
+              "f.class": "f2723f067abf293075e66021711ce37387c92def",
+              "iz.class": "e820016d321253132b9f33de2da4b1b07f358e91",
+              "i.class": "c8ce4192ed4ba9f567d9e2f0ccc15a61d1d9b29e",
+              "assets/minecraft/models/block/inner_stairs.json": "364eff63e057a4abbb74d80f7d5297beba61f751",
+              "assets/minecraft/models/block/acacia_stairs_inner.json": "323018d55565db0f9914d4e28e3adb157f3c1e7d",
+          }
+          evidence = []
+          for rel, sha in expected.items():
+              p = root / rel
+              data = p.read_bytes()
+              actual = hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()
+              pinned = subprocess.check_output(["git","rev-parse",f"{pin}:{p}"], text=True).strip()
+              assert actual == pinned == sha, (rel, actual, pinned, sha)
+              evidence.append(dict(path=str(p), git_blob=actual, sha256=hashlib.sha256(data).hexdigest(), bytes=len(data)))
+          state = root / "assets/minecraft/blockstates/acacia_stairs.json"
+          data = state.read_bytes()
+          pinned = subprocess.check_output(["git","rev-parse",f"{pin}:{state}"], text=True).strip()
+          assert hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest() == pinned
+          case = json.loads(data)["variants"]["facing=east,half=top,shape=inner_left"]
+          assert case == {"model":"minecraft:block/acacia_stairs_inner","uvlock":True,"x":180}
+          faces = [{"element":i,"direction":direction,"from":e["from"],"to":e["to"],"uv":f["uv"],"rotation":f.get("rotation",0)} for i,e in enumerate(json.loads((root/"assets/minecraft/models/block/inner_stairs.json").read_text())["elements"]) for direction,f in e["faces"].items()]
+          assert len(faces) == 15
+          report = {"pin":pin,"sources":evidence,"state_blob":pinned,"case":case,"faces":faces,"status":"SOURCE_CAPTURE_ONLY"}
+          (out/"source_evidence.json").write_text(json.dumps(report,indent=2)+"\n")
+          print("TV001_B_SOURCE " + json.dumps(report))
+          PY
+          for cls in hqi inm 'inm$a' ioc hqc ir hoa 'hoa$a' 'hoa$b' 'hqc$b' g f iz i; do
+            javap -classpath 1.21.11 -p -c -s "$cls" > "$OUT/$cls.txt"
+            test -s "$OUT/$cls.txt"
+            echo "TV001_B_DISASSEMBLY_BEGIN $cls"
+            cat "$OUT/$cls.txt"
+            echo "TV001_B_DISASSEMBLY_END $cls"
+          done
+          javap -classpath 1.21.11 -p -v ir > "$OUT/ir_verbose.txt"
+          echo 'TV001_B_IR_BOOTSTRAP_BEGIN'
+          sed -n '/^BootstrapMethods:/,$p' "$OUT/ir_verbose.txt"
+          echo 'TV001_B_IR_BOOTSTRAP_END'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tv001-uv-source-evidence
+          path: ${{ runner.temp }}/tv001-uv-source/
+          retention-days: 7

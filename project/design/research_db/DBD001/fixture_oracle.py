@@ -1,0 +1,241 @@
+"""Independent bounded fixture checks, not a general Minecraft parser or renderer."""
+import json
+import struct
+import zlib
+import design_contract as c
+
+def strict_json(raw):
+    def pairs(items):
+        d={}
+        for k,v in items:
+            c.require(k not in d,"duplicate JSON key")
+            d[k]=v
+        return d
+    def invalid(x):raise ValueError("nonfinite JSON")
+    return json.loads(raw,object_pairs_hook=pairs,parse_constant=invalid)
+
+def source(db,snap,oid,read):
+    o=c.one(db,"SELECT * FROM research_object WHERE snapshot_id=? AND object_id=?",(snap,oid))
+    a=c.one(db,"SELECT * FROM asset WHERE release_key=? AND source_path=?",(o["asset_release"],o["asset_path"]))
+    link=c.one(db,"SELECT evidence_id FROM object_evidence WHERE snapshot_id=? AND object_id=? AND evidence_class='SOURCE'",(snap,oid))
+    c.require_evidence(db,link["evidence_id"],read)
+    e=c.one(db,"SELECT * FROM evidence_item WHERE evidence_id=?",(link["evidence_id"],))
+    raw=read(e)
+    c.require(a["hash_algorithm"]=="SHA256" and a["digest"]==c.sha(raw) and a["byte_count"]==len(raw),"asset body mismatch")
+    return o,a,raw
+
+def pointer(doc,p):
+    if p=="":return doc
+    c.require(p.startswith("/"),"invalid JSON pointer")
+    for part in p[1:].split("/"):
+        key=part.replace("~1","/").replace("~0","~")
+        try:doc=doc[int(key)] if isinstance(doc,list) else doc[key]
+        except (KeyError,IndexError,ValueError,TypeError) as exc:raise ValueError("pointer not found") from exc
+    return doc
+
+def validate_model(db,snap,mid,read):
+    o,a,raw=source(db,snap,mid,read)
+    c.require(a["kind"]=="model" and o["json_pointer"]=="","model origin")
+    doc=strict_json(raw)
+    m=c.one(db,"SELECT * FROM model_definition WHERE snapshot_id=? AND object_id=?",(snap,mid))
+    declared="elements" in doc
+    c.require(m["parent_raw"]==doc.get("parent") and m["elements_declared"]==declared and m["declared_element_count"]==(len(doc["elements"]) if declared else None),"model declaration mismatch")
+    chain=[];cur=mid
+    while True:
+        c.require(cur not in chain,"parent cycle")
+        chain.append(cur)
+        oo,aa,rr=source(db,snap,cur,read)
+        dd=strict_json(rr)
+        if "elements" in dd:break
+        parent=dd.get("parent")
+        c.require(parent is not None,"missing provider")
+        cur=c.one(db,"SELECT object_id FROM research_object WHERE snapshot_id=? AND object_kind='MODEL' AND asset_release=? AND asset_path=(SELECT source_path FROM asset WHERE release_key=? AND resource_id=? AND kind='model')",(snap,aa["release_key"],aa["release_key"],parent))["object_id"]
+    c.require(m["provider_id"]==cur and m["resolution"]=="RESOLVED","provider mismatch")
+    elements=c.rows(db,"SELECT * FROM model_element WHERE snapshot_id=? AND model_id=? ORDER BY ordinal",(snap,mid))
+    c.require(len(elements)==(len(doc["elements"]) if declared else 0),"element denominator mismatch")
+    for i,e in enumerate(elements):
+        eo,ea,eraw=source(db,snap,e["object_id"],read)
+        c.require(ea["source_path"]==a["source_path"] and eo["json_pointer"]=="/elements/"+str(i) and e["ordinal"]==i,"element origin")
+        el=pointer(strict_json(eraw),eo["json_pointer"])
+        c.require([e["from_"+k] for k in "xyz"]==el["from"] and [e["to_"+k] for k in "xyz"]==el["to"],"coordinate mismatch")
+        faces=c.rows(db,"SELECT * FROM model_face WHERE snapshot_id=? AND element_id=?",(snap,e["object_id"]))
+        c.require({f["direction"] for f in faces}==set(el["faces"]),"face denominator mismatch")
+        for face in faces:
+            fo,fa,fraw=source(db,snap,face["object_id"],read)
+            c.require(fa["source_path"]==a["source_path"] and fo["json_pointer"]==eo["json_pointer"]+"/faces/"+face["direction"],"face origin")
+            fd=pointer(strict_json(fraw),fo["json_pointer"])
+            c.require(face["texture_raw"]==fd["texture"] and (json.loads(face["declared_uv_json"]) if face["declared_uv_json"] else None)==fd.get("uv") and face["uv_rotation"]==fd.get("rotation") and face["cullface"]==fd.get("cullface") and face["tintindex"]==fd.get("tintindex"),"face declaration mismatch")
+    return cur
+
+def rgba_png(raw):
+    """Only fixture PNG RGBA8, noninterlaced, filter zero; all other forms rejected."""
+    c.require(raw[:8]==b"\x89PNG\r\n\x1a\n","PNG signature")
+    p=8;chunks=[];size=None;ended=False
+    while p+12<=len(raw):
+        n=struct.unpack(">I",raw[p:p+4])[0];k=raw[p+4:p+8];v=raw[p+8:p+8+n]
+        c.require(p+12+n<=len(raw),"PNG truncated")
+        crc=struct.unpack(">I",raw[p+8+n:p+12+n])[0]
+        c.require(zlib.crc32(k+v)==crc,"PNG CRC")
+        p+=12+n
+        if k==b"IHDR":
+            c.require(size is None and len(v)==13,"IHDR")
+            w,h,depth,color,comp,filt,inter=struct.unpack(">IIBBBBB",v)
+            c.require(0<w<=256 and 0<h<=256 and (depth,color,comp,filt,inter)==(8,6,0,0,0),"fixture PNG format")
+            size=w,h
+        elif k==b"IDAT":chunks.append(v)
+        elif k==b"IEND":
+            c.require(n==0,"IEND");ended=True;break
+        else:raise ValueError("unsupported fixture PNG chunk")
+    c.require(ended and p==len(raw) and size is not None and chunks,"PNG completeness")
+    w,h=size
+    dec=zlib.decompressobj()
+    data=dec.decompress(b"".join(chunks),h*(1+4*w)+1)
+    c.require(dec.eof and not dec.unused_data and len(data)==h*(1+4*w),"PNG decoded length")
+    stride=1+4*w
+    c.require(all(data[i*stride]==0 for i in range(h)),"unsupported PNG filter")
+    return w,h,b"".join(data[i*stride+1:(i+1)*stride] for i in range(h))
+
+def validate_texture(db,snap,tid,read):
+    _,a,raw=source(db,snap,tid,read)
+    c.require(a["kind"]=="texture","texture source kind")
+    w,h,pixels=rgba_png(raw)
+    t=c.one(db,"SELECT * FROM texture_definition WHERE snapshot_id=? AND object_id=?",(snap,tid))
+    c.require((t["width"],t["height"],t["color_mode"])==(w,h,"RGBA"),"texture dimensions")
+    frames=c.rows(db,"SELECT * FROM texture_frame WHERE snapshot_id=? AND texture_id=?",(snap,tid))
+    c.require(bool(frames),"no frames")
+    for f in frames:
+        c.validate_frame(db,snap,f["object_id"])
+        sample=b"".join(pixels[(y*w+f["x"])*4:(y*w+f["x"]+f["width"])*4] for y in range(f["y"],f["y"]+f["height"]))
+        c.require(c.sha(sample)==f["rgba_sha256"],"frame pixel hash")
+    return w,h
+
+def resolve_resource(db,snap,release,resource,kind,default_namespace="minecraft"):
+    import re
+    if ":" not in resource:resource=default_namespace+":"+resource
+    c.require(re.fullmatch(r"[a-z0-9_.-]+:[a-z0-9_./-]+",resource) is not None and all(p not in ("",".","..") for p in resource.split(":",1)[1].split("/")),"invalid resource")
+    matches=c.rows(db,"SELECT o.object_id,a.source_path FROM asset a JOIN research_object o ON o.asset_release=a.release_key AND o.asset_path=a.source_path WHERE a.release_key=? AND a.resource_id=? AND a.kind=? AND o.snapshot_id=? AND o.object_kind=?",(release,resource,kind,snap,{"model":"MODEL","texture":"TEXTURE"}[kind]))
+    c.require(len(matches)<=1,"ambiguous resource")
+    return matches[0] if matches else None
+
+def resolve_texture_alias(slots,key):
+    seen=set()
+    while key.startswith("#"):
+        name=key[1:]
+        if name in seen:return "CYCLE",None
+        if name not in slots:return "MISSING",None
+        seen.add(name);key=slots[name]
+    return "RESOLVED",key
+
+def condition_matches(condition,assignment):
+    c.require(type(condition)==dict and type(assignment)==dict,"invalid condition")
+    if not condition:return True
+    if "OR" in condition or "AND" in condition:
+        c.require(len(condition)==1,"mixed logical operator")
+        op=next(iter(condition));children=condition[op]
+        c.require(type(children)==list and bool(children),"invalid logical children")
+        values=[condition_matches(x,assignment) for x in children]
+        return any(values) if op=="OR" else all(values)
+    for k,v in condition.items():
+        c.require(type(v)==str and all(v.split("|")) and "!" not in v,"unsupported property predicate")
+    return all(assignment.get(k) in v.split("|") for k,v in condition.items())
+
+def variant_matches(selector,assignment):
+    if not selector:return True
+    terms=[part.split("=") for part in selector.split(",")]
+    c.require(all(len(x)==2 and all(x) for x in terms) and len({x[0] for x in terms})==len(terms),"invalid variant")
+    return condition_matches(dict(terms),assignment)
+
+def validate_state(db,snap,sid,read,contexts):
+    _,a,raw=source(db,snap,sid,read)
+    c.require(a["kind"]=="blockstate","state source kind")
+    doc=strict_json(raw)
+    state=c.one(db,"SELECT * FROM state_definition WHERE snapshot_id=? AND object_id=?",(snap,sid))
+    c.require(state["state_form"]=="MULTIPART" and set(doc)=={"multipart"},"fixture multipart only")
+    rr=c.rows(db,"SELECT * FROM state_rule WHERE snapshot_id=? AND state_id=? ORDER BY rule_ordinal",(snap,sid))
+    c.require(len(rr)==len(doc["multipart"]),"rule count")
+    selected=[]
+    for i,rule in enumerate(rr):
+        rawrule=doc["multipart"][i]
+        when=rawrule.get("when",{})
+        c.require(rule["rule_ordinal"]==i and rule["rule_form"]=="MULTIPART" and json.loads(rule["condition_json"])==when,"condition mismatch")
+        opts=c.rows(db,"SELECT * FROM state_option WHERE snapshot_id=? AND state_id=? AND rule_ordinal=? ORDER BY option_ordinal",(snap,sid,i))
+        aopts=rawrule["apply"] if isinstance(rawrule["apply"],list) else [rawrule["apply"]]
+        c.require(len(opts)==len(aopts),"option count")
+        for j,(opt,aopt) in enumerate(zip(opts,aopts)):
+            c.require(opt["option_ordinal"]==j and opt["model_raw"]==aopt["model"] and opt["x_rotation"]==aopt.get("x") and opt["y_rotation"]==aopt.get("y") and opt["uvlock"]==aopt.get("uvlock") and opt["weight"]==aopt.get("weight"),"option mismatch")
+            target=resolve_resource(db,snap,a["release_key"],aopt["model"],"model")
+            c.require(opt["resolution"]==("RESOLVED" if target else "MISSING") and opt["model_id"]==(target["object_id"] if target else None),"option target mismatch")
+        apps=c.rows(db,"SELECT * FROM state_application WHERE snapshot_id=? AND state_id=? AND rule_ordinal=?",(snap,sid,i))
+        expected={key for key,assignment in contexts.items() if condition_matches(when,assignment)}
+        c.require({app["selection_context"] for app in apps}==expected and len(apps)==len(expected),"application coverage mismatch")
+        for app in apps:
+            assignment=json.loads(app["assignment_json"])
+            c.require(assignment==contexts[app["selection_context"]],"assignment mismatch")
+            opt=opts[app["option_ordinal"]]
+            c.require(app["selection_status"]==("SELECTED" if opt["model_id"] else "UNRESOLVED"),"selection status mismatch")
+            transform={k:aopts[app["option_ordinal"]][k] for k in ("x","y") if k in aopts[app["option_ordinal"]]}
+            c.require(json.loads(app["transform_json"])==transform,"state application mismatch")
+            selected.append((i,app["selection_context"],app["option_ordinal"]))
+    return sorted(selected)
+
+def validate_fixture_references(db,snap,read):
+    _,a,base=source(db,snap,"base",read)
+    _,_,child=source(db,snap,"child",read)
+    base,child=strict_json(base),strict_json(child)
+    parent=resolve_resource(db,snap,a["release_key"],child["parent"],"model")
+    c.require(parent and parent["object_id"]=="base","parent target")
+    edge=c.one(db,"SELECT * FROM reference_edge WHERE snapshot_id=? AND edge_id='parent'",(snap,))
+    c.require(edge["declared_reference"]==child["parent"] and edge["target_release"]==a["release_key"] and edge["target_path"]==parent["source_path"] and edge["resolution"]=="RESOLVED","parent edge mismatch")
+    slots={**base["textures"],**child["textures"]}
+    for mid,name in (("base","wood"),("child","missing")):
+        state,resource=resolve_texture_alias(slots,"#"+name)
+        target=resolve_resource(db,snap,a["release_key"],resource,"texture") if resource else None
+        if state=="RESOLVED" and target is None:state="MISSING"
+        slot=c.one(db,"SELECT * FROM model_slot WHERE snapshot_id=? AND model_id=? AND slot=?",(snap,mid,name))
+        c.require(slot["declared_value"]==slots[name] and slot["resolution"]==state and slot["texture_id"]==(target["object_id"] if target else None),"texture slot mismatch")
+    edge=c.one(db,"SELECT * FROM reference_edge WHERE snapshot_id=? AND edge_id='missing'",(snap,))
+    c.require(edge["declared_reference"]==child["textures"]["missing"] and edge["resolution"]=="MISSING" and edge["target_path"] is None,"missing edge mismatch")
+
+def validate_render(db,sid,output,read):
+    o=c.one(db,"SELECT o.*,c.width,c.height,c.unit_id FROM render_output o JOIN render_case c ON c.scope_id=o.scope_id AND c.case_id=o.case_id WHERE o.scope_id=? AND o.output_id=?",(sid,output))
+    c.require(o["generation_status"]=="GENERATED","not generated")
+    c.require_evidence(db,o["png_evidence_id"],read)
+    e=c.one(db,"SELECT * FROM evidence_item WHERE evidence_id=?",(o["png_evidence_id"],))
+    w,h,_=rgba_png(read(e))
+    c.require((w,h)==(o["width"],o["height"]),"render dimensions")
+    return o
+
+
+def compare_dimension(db,snap,mid,measurement_id,read):
+    _,_,raw=source(db,snap,mid,read)
+    doc=strict_json(raw)
+    m=c.validate_measurement(db,measurement_id,read)
+    c.require(m["snapshot_id"]==snap and m["object_id"]==mid and m["coordinate_system"]=="MC_MODEL_16" and m["unit"]=="block" and m["metric"] in ("height","width","depth"),"measurement subject/unit")
+    axis={"width":0,"height":1,"depth":2}[m["metric"]]
+    c.require(bool(doc["elements"]),"no source elements")
+    lo=min(min(e["from"][axis],e["to"][axis]) for e in doc["elements"])
+    hi=max(max(e["from"][axis],e["to"][axis]) for e in doc["elements"])
+    c.require(m["numeric_value"]==(hi-lo)/16 and m["numerator"]==hi-lo and m["denominator"]==16,"source dimension mismatch")
+    return m["numeric_value"]
+
+def compare_fixture_metrics(db,snap,first,second,read):
+    a=c.validate_measurement(db,first,read);b=c.validate_measurement(db,second,read)
+    keys=("metric","unit","coordinate_system","method_version","context_key")
+    c.require(all(a[k]==b[k] for k in keys) and a["snapshot_id"]==b["snapshot_id"]==snap,"incomparable measurements")
+    return compare_dimension(db,snap,a["object_id"],first,read)-compare_dimension(db,snap,b["object_id"],second,read)
+
+def sample_uv_fixture(db,snap,bid,read):
+    """Fixture convention only: explicit four ordered corners, no claim about UV-lock semantics."""
+    c.validate_binding(db,snap,bid)
+    b=c.one(db,"SELECT * FROM face_binding WHERE snapshot_id=? AND object_id=?",(snap,bid))
+    c.require(b["transform_method"]=="fixture" and b["resolution"]=="RESOLVED","unsupported fixture mapping")
+    # Independently fixed reference for the north rectangle fixture, ordered corners.
+    expected=[0,0,0,8,16,8,16,0]
+    actual=c.vector(b["transformed_uv_json"],8)
+    c.require(actual==expected,"ordered UV reference mismatch")
+    _,_,raw=source(db,snap,b["texture_id"],read)
+    w,h,pixels=rgba_png(raw)
+    def sample(uv):
+        x=min(w-1,int(uv[0]*w/16));y=min(h-1,int(uv[1]*h/16))
+        return list(pixels[(y*w+x)*4:(y*w+x+1)*4])
+    return [sample(actual[i:i+2]) for i in range(0,8,2)]

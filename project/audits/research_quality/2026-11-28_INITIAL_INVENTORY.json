@@ -1,0 +1,119 @@
+{
+  "status": "PARTIAL",
+  "stage": "기존 자료 품질 조사 — 1차 Git 트리·원본 원장 대조",
+  "main_commit": "176f7f34de2336eb7984c4734e97b6eb156c19f4",
+  "observed_pr_head": "5e65acaa9065a9d9c1dc7dbc408826fc98858298",
+  "tree_truncated": false,
+  "total_tracked_files": 31330,
+  "root_files": 10,
+  "unique_git_blobs": 30588,
+  "identical_blob_groups": 477,
+  "paths_in_identical_blob_groups": 1219,
+  "extra_identical_paths": 742,
+  "groups": [
+    {
+      "path": ".github",
+      "tree_sha": "bb286e1ae46c479bdbd1c22e0dd07d8f15969f1e",
+      "files": 9,
+      "bytes": 20298
+    },
+    {
+      "path": "1.21.11",
+      "tree_sha": "951e501a2586cd4c81111cfb617bef22fcfef67c",
+      "files": 28163,
+      "bytes": 55681747
+    },
+    {
+      "path": "data",
+      "tree_sha": "d7b2e500a2ad5cff9690618ea133f3350a8fe56d",
+      "files": 2,
+      "bytes": 431876
+    },
+    {
+      "path": "docs",
+      "tree_sha": "26795d36d9b1165f8f1fc07e6af3af79e124539b",
+      "files": 106,
+      "bytes": 1725739
+    },
+    {
+      "path": "handoff",
+      "tree_sha": "ba77640606d97214de08dd05953e94a8f9b1d4d5",
+      "files": 1,
+      "bytes": 295251
+    },
+    {
+      "path": "harness",
+      "tree_sha": "e4b93c282041c149aada1943104f64b2bfdac730",
+      "files": 6,
+      "bytes": 6365
+    },
+    {
+      "path": "inbox",
+      "tree_sha": "130bb8604cf832f3d131627430f8daebd49e4739",
+      "files": 2,
+      "bytes": 1450
+    },
+    {
+      "path": "project",
+      "tree_sha": "0fbc2b5991a69be6866b4ec8324b27a77529273a",
+      "files": 39,
+      "bytes": 1906780
+    },
+    {
+      "path": "registry",
+      "tree_sha": "c7cac56b06a0e9813774c882619268e0b823ece1",
+      "files": 3,
+      "bytes": 2176
+    },
+    {
+      "path": "research",
+      "tree_sha": "8376f54580c68aefef9300209a3f144abb2a91a8",
+      "files": 2911,
+      "bytes": 215972241
+    },
+    {
+      "path": "scripts",
+      "tree_sha": "5286d9dda16973b056f6b69ddb38267604c2b33c",
+      "files": 54,
+      "bytes": 448735
+    },
+    {
+      "path": "src",
+      "tree_sha": "ba4f98f9c0bf9448e1aee292b7c734528039a7a6",
+      "files": 18,
+      "bytes": 80668
+    },
+    {
+      "path": "tests",
+      "tree_sha": "24996a410cfb4a7d8718f47b352fd987b7598c0f",
+      "files": 6,
+      "bytes": 33091
+    }
+  ],
+  "vanilla_ledger_checks": [
+    {
+      "path": "research/vanilla_models/phase_1-2-G/final/G_FINAL_SOURCE_SHA_4669.csv",
+      "ledger_blob": "e762ccb33e1e06b8aa0b5a33ce78f761efd5054f",
+      "expected": 4669,
+      "rows": 4669,
+      "unique_paths": 4669,
+      "matched": 4669,
+      "mismatches": []
+    },
+    {
+      "path": "research/vanilla_models/phase_1-2-G/final/G_FINAL_MCMETA_99.csv",
+      "ledger_blob": "2805890305772b30354cf9653b6aec0a7efd5c44",
+      "expected": 99,
+      "rows": 99,
+      "unique_paths": 99,
+      "matched": 99,
+      "mismatches": []
+    }
+  ],
+  "limits": [
+    "Git blob SHA와 크기 대조이며 별도 SHA256 재계산 아님",
+    "동일 blob은 삭제 후보로 자동 판정하지 않음",
+    "모드 외부 원본과 SQLite 실제 무결성, 데이터의 의미적 정확성 미검증",
+    "TV-001 종료 기록 보존; uvlock 미수정 및 전면 UV 정확성 미확인"
+  ]
+}

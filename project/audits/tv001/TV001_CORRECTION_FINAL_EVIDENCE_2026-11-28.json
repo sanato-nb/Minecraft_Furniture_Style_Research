@@ -1,0 +1,210 @@
+{
+  "contract": "TV-001 v1.1 correction plan",
+  "verified_head": "18710783ebd4507dc908a4dad6adddd6cbbabc45",
+  "pin": "176f7f34de2336eb7984c4734e97b6eb156c19f4",
+  "fixed_cases": 12,
+  "fixed_png": 25,
+  "runs": {
+    "render": {
+      "id": 46120638219,
+      "job": 140904150444,
+      "artifact": 15253965840,
+      "conclusion": "success"
+    },
+    "source": {
+      "id": 46120638204,
+      "job": 140904150415,
+      "artifact": 15253766702,
+      "conclusion": "success"
+    },
+    "foundation": {
+      "id": 46120638240,
+      "job": 140904150608,
+      "artifact": 15253014526,
+      "conclusion": "success",
+      "tests_pass": 28
+    }
+  },
+  "mesh": {
+    "status": "PASS",
+    "case": "R03-inner",
+    "face_total": 15,
+    "face_pass": 15,
+    "loop_total": 60,
+    "loop_pass": 60,
+    "negative_control_changed_faces_rejected": 11,
+    "reference_sha256": "7c55ca7141e63e4ed63a598040ed11cdc04921d44b257a46b8464aac5dde9f3a",
+    "manifest_sha256": "87722cd836cf358b32e30bdcfddc61547d0553121f285d16d5908bdd9cc468c5",
+    "renderer_sha256": "6956799c813c420229b01f65b4d544fed6bf26be7b474d407227de51e0d83be2",
+    "source_confirmation_run": 46120428348,
+    "limits": "Mesh loop association only; no full texture/atlas or per-pixel oracle."
+  },
+  "t4": {
+    "scope": "TV-001-v1.1, exact 12 cases / 25 images",
+    "status": "PARTIAL",
+    "source_spot_checks_pass": true,
+    "source_issues": [],
+    "geometry_mask_pass": 25,
+    "geometry_mask_total": 25,
+    "rendered_pixel_coverage_tolerance": "inside/outside 2px edge band, alpha>200",
+    "p06_uv_rotation_pattern_pass": true,
+    "r03_uv_mesh_pass": true,
+    "r03_uv_mesh_faces": 15,
+    "r03_uv_mesh_loops": 60,
+    "p06_uv_orientation_evidence": {
+      "north": {
+        "down_right_9": 0.9495,
+        "up_right_9": -0.1366
+      },
+      "south": {
+        "down_right_9": -0.1365,
+        "up_right_9": 0.949
+      }
+    },
+    "unverified_or_known_incorrect": [
+      {
+        "category": "PER_FACE_TEXTURE_ORACLE_NOT_COMPLETE",
+        "affected": [
+          "P01-north",
+          "P01-south",
+          "P01-east",
+          "P01-west",
+          "P01-up",
+          "P01-down",
+          "P02-north",
+          "P02-up",
+          "P03-north",
+          "P03-south",
+          "P04-north",
+          "P04-east",
+          "P04-south",
+          "P04-west",
+          "P05-n0e0",
+          "P05-n1e0",
+          "P05-n0e1",
+          "P05-n1e1",
+          "P06-north",
+          "P06-south",
+          "R01-base",
+          "R02-none",
+          "R02-north",
+          "R03-straight",
+          "R03-inner"
+        ],
+        "evidence": "analytic silhouette and P06 cutout orientation verified; independent full per-face Minecraft texel-accurate reference not supplied"
+      }
+    ],
+    "full_minecraft_visual_fidelity_verified": false,
+    "false_success_prevention": "No automatic TV-001 PASS from renderer images alone."
+  },
+  "t8_original": {
+    "contract": "TV-001-v1.1",
+    "t8_closure_record": true,
+    "overall_status": "PARTIAL",
+    "closed_scope": "TV-001 fixed 12 cases, 25 images",
+    "historical_pilot_run": 45986960067,
+    "latest_run_executed_by_this_workflow": true,
+    "scope_fixed": true,
+    "closure_regression_cases_passed": 14,
+    "t0_reuse_audit": "PARTIAL: existing source/DB modules identified but not fully integrated",
+    "t1_test_inputs": "PASS",
+    "t2_static_core": "PASS (fixed fixture classifications only)",
+    "t3_render_smoke": "PASS",
+    "t4_independent_reference": "PARTIAL",
+    "t5_blockbench": "OUT_OF_SCOPE (web interaction excluded; automation optional future research)",
+    "t6_github_actions": "PASS (this script reached by CI)",
+    "t7_restart_resume": "PASS (within one Actions job)",
+    "t8_closure": "CLOSED_PARTIAL",
+    "basic_pngs_verified": 25,
+    "independent_projected_geometry_images_verified": 25,
+    "face_uv_transparency_pattern": "PASS",
+    "independent_full_minecraft_visual_fidelity": false,
+    "render_batches_actual": [
+      [
+        12,
+        0,
+        13
+      ],
+      [
+        13,
+        12,
+        0
+      ],
+      [
+        0,
+        25,
+        0
+      ]
+    ],
+    "not_proven": [
+      "Minecraft-exact per-face UV/uvlock on all 25 images",
+      "GitHub Actions cross-job checkpoint restoration",
+      "Full vanilla/mod research completeness"
+    ],
+    "next_decision": "TV-001 closure is PARTIAL; record the exact UVLOCK issue and missing full independent UV oracle as bounded follow-up candidates. Do not expand TV-001 case count or claim overall PASS."
+  },
+  "t0": {
+    "review_status": "PASS",
+    "review_scope": "four module reuse review required by v1.1, not production integration",
+    "integration_status": "NOT_TESTED",
+    "modules": [
+      {
+        "path": "src/mcfr/research_db.py",
+        "git_blob": "abb538572540bcd93928f05615e879d6446a9e97",
+        "reuse": "release/asset/run registration, schema v4, transactions and read-only access",
+        "limits": "does not store complete new 14-area research knowledge; schema redesign deferred",
+        "tests": [
+          "test_legacy_catalog_import_is_idempotent_and_read_only",
+          "test_failed_batch_rolls_back_earlier_writes",
+          "test_init_rejects_other_sqlite_and_query_mode_is_read_only"
+        ]
+      },
+      {
+        "path": "src/mcfr/research_engine.py",
+        "git_blob": "39f4a8466fae3753da3172cf6f6a371b2bc0300f",
+        "reuse": "plan_run scope hash, incremental selection, directory/archive pin verification, source hashing",
+        "limits": "inspect_asset only JSON top-level keys and PNG IHDR, not a model/UV resolver or full image validation",
+        "tests": [
+          "test_archive_pin_and_fresh_scope",
+          "test_incremental_directory_attempts_keep_success_and_failure"
+        ]
+      },
+      {
+        "path": "src/mcfr/source_jobs.py",
+        "git_blob": "d42589520e6637700233ac3b6d770130a1ee6ae3",
+        "reuse": "64-asset SQLite source checkpoints and identity validation, reopen/resume",
+        "limits": "source asset scans, not Blender output; cross-Job restoration not proven",
+        "tests": [
+          "test_interruption_and_resume_after_reopening_database",
+          "test_checkpoint_refuses_changed_catalog_scope"
+        ]
+      },
+      {
+        "path": "src/mcfr/visual_check.py",
+        "git_blob": "5406f31a840684bb3c2746fb0d56aef9df758f20",
+        "reuse": "pinned single-frame RGBA PNG comparison, size and changed-pixel counts",
+        "limits": "requires independent comparable PNG; does not supply Minecraft ground truth",
+        "tests": [
+          "test_real_reference_and_alpha_only_change"
+        ]
+      }
+    ]
+  },
+  "correction_steps": {
+    "A": "PASS",
+    "B": "PASS_STATIC_REFERENCE",
+    "C": "PASS_FIXED_R03_MESH",
+    "D": "PASS_BOUNDED_REGRESSION",
+    "E": "CLOSED_PARTIAL"
+  },
+  "overall_status": "PARTIAL",
+  "closure": "CLOSED_PARTIAL",
+  "limits": [
+    "Full independent per-face texel fidelity remains unverified across all 25 renders.",
+    "Other nonidentity uvlock rotations and special faces unsupported; do not use unverified renderer outputs as confirmed design evidence.",
+    "Cross-job checkpoint restoration not tested, separate scope.",
+    "T0 reuse review complete; no production DB integration or new schema implemented.",
+    "Original CI T8 text still says UVLOCK issue and T0 integration pending; this review supersedes that descriptive text for fixed R03 only; original logs preserved."
+  ],
+  "next": "Existing material quality pre-survey then lock quality scope and detailed execution plan before actual audit. Full UV oracle and generalized renderer require separate approved scope; restrict rendering-based design claims in the meantime."
+}

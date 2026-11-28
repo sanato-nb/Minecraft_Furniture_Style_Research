@@ -1,0 +1,153 @@
+{
+  "audit_id": "RQ-001",
+  "verified_commit": "a7967f35cc23aaf62d65f90c58e81658ef156926",
+  "main_pin": "176f7f34de2336eb7984c4734e97b6eb156c19f4",
+  "run": 46139282468,
+  "job": 140961414386,
+  "artifact": 15261066360,
+  "workflow_status": "success",
+  "execution_status": "COMPLETE",
+  "quality_status": "FAIL",
+  "closure": "CLOSED_WITH_FINDINGS",
+  "H": {
+    "gate": "6-H",
+    "status": "COMPLETE",
+    "expected": 3167,
+    "classified": 3167,
+    "counts": {
+      "REVALIDATE": 2268,
+      "DUPLICATE_CANDIDATE": 14,
+      "REUSABLE_LIMITED": 11,
+      "HISTORICAL": 874
+    },
+    "duplicate_groups": 7,
+    "duplicate_paths": 14,
+    "verified_g_paths": 21,
+    "verified_g_evidence": 41,
+    "g_source_blobs": {
+      "src/mcfr/research_schema.sql": "1ca11acb007dda3c0b73c6801f9dffa91ea818d7",
+      "project/audits/research_quality/RQ001/F_FINAL_EVIDENCE.json": "96d6a6be846a915288704c4576df0d31d1fd18cb",
+      "project/audits/research_quality/RQ001/D_FINAL_EVIDENCE.json": "56db3cc98492b47dc9c77a443e612277bd4fcba2",
+      "research/furniture_mods/phase_1-3/F/schema.sql": "90fa7f2fe2141507605a9d3e326f740a79de484d",
+      "research/vanilla_models/phase_1-2-G/final/G_FINAL_EXIT_REPORT.md": "a24f09b4c521e219421f77379e24f47077c5f257",
+      "research/furniture_mods/phase_1-3/F/F_REPORT.md": "106042ad6797e526ad3b2d0108e4d526e6f087f3",
+      "research/furniture_mods/phase_1-5/B/ELEMENTS.csv": "d33bae64c9ea3d3e4a491b4e8f531af3a0d037d3",
+      "project/audits/research_quality/RQ001/E_FINAL_EVIDENCE.json": "19a6d42dac2d27784126f267ba00191db8ec80e2",
+      "research/furniture_mods/phase_1-4/C_followup/SUMMARY.json": "658e4a2c309d524c9fac25cebc205a5a69f5514d",
+      "project/audits/tv001/TV001_CORRECTION_FINAL_EVIDENCE_2026-11-28.json": "91518ca5492bd452b387d8dfe26ceb1ad18756cd",
+      "research/vanilla_textures/integrations/v42_INT-1-1-11steps_150_SOURCE_COMPLETE/TEXTURE_150_SCOPE_LEDGER.csv": "1ccf1c79911bc433de7f703b6e90a7e1b7e3eb06",
+      "research/furniture_mods/phase_1-5/E/schema.sql": "ebd3d66ade11cb60a59a7d395c6bbe252c529033",
+      "docs/tech_validation/TV001_SCOPE_AND_EXECUTION_V1_1.md": "5bd03fb3713492a30d031c558ab9f398d801d480",
+      "src/mcfr/visual_check.py": "5406f31a840684bb3c2746fb0d56aef9df758f20",
+      "research/furniture_mods/phase_1-5/C/CROSS_CATEGORY_FINDINGS.csv": "6c4964c64dc738fe89f859982c17308f2359e2b0",
+      "research/furniture_mods/phase_1-5/E/PHASE2_HANDOFF.csv": "466d5abcd56c93d397fbe5b51223e2dfb6d026db",
+      "research/furniture_mods/phase_1-5/E/REPORT.md": "1299520543f3af93a187677cc9869a6f7565c35f",
+      "src/mcfr/research_schema_v2.sql": "5a7e31c4f8343b044ceae383406eade43f7c386f",
+      "src/mcfr/research_schema_v3.sql": "325570dfa64ba015db8a6b8a4594537ed11d9ee7",
+      "src/mcfr/ai_review.py": "4f5f55c4f7a075b1f833aa495e1f752819880bda",
+      "src/mcfr/cross_research.py": "fc05b37a6939471dd1d6de23a3850939f352d6b4"
+    },
+    "scope_sha256": "69c72afdbccc3f8aa9a2d9b770533848b965be3b39f06dfdbfd1d785bca8f552",
+    "ledger_sha256": "cd2a6f1c26920fe5916df32aa87366c98cd13f1e00f51e1fae7d4a2a6bc12dfb",
+    "code_sha256": "11962ea4f35d2491da1ffb31306db7798315955e87ddff808403590320f8903a",
+    "limits": "Conservative path-level disposition, not per-row semantic certification. All original files preserved."
+  },
+  "I": {
+    "gate": "6-I",
+    "audit_execution": "PASS",
+    "quality_status": "FAIL",
+    "bounded_closure": "CLOSED_WITH_FINDINGS",
+    "historical_files_preserved": true,
+    "historical_paths_checked": 3167,
+    "original_tree_protected_by_git_diff": true,
+    "batches": 16,
+    "db_paths": 9,
+    "registered_sources": 25387,
+    "areas": 14,
+    "g_sources_rechecked": 21,
+    "duplicate_groups": 7,
+    "duplicate_paths": 14,
+    "classified_paths": 3167,
+    "classification_counts": {
+      "DUPLICATE_CANDIDATE": 14,
+      "HISTORICAL": 874,
+      "REUSABLE_LIMITED": 11,
+      "REVALIDATE": 2268
+    },
+    "mandatory_failure": "6-D: 2 historical CSV format defects; do not promote to PASS",
+    "scope_sha256": "69c72afdbccc3f8aa9a2d9b770533848b965be3b39f06dfdbfd1d785bca8f552",
+    "D_ledger_sha256": "62cb77649ecf477261fd0edc70697957cdf33a1574ccc0c3c9ee2cb74869aee1",
+    "E_results_sha256": "059473068d92e36aac7b32481118a3e09b24d98a7f46370df542500a8e64f49c",
+    "F_ledger_sha256": "bb011abf587af48a2ddbf7b64232cfd50c45c747e46acd1730e1f05a3a976d00",
+    "H_ledger_sha256": "cd2a6f1c26920fe5916df32aa87366c98cd13f1e00f51e1fae7d4a2a6bc12dfb",
+    "code_sha256": "aacb78bfef348809761eed0b31ed27b801d68d39cc1a9a4835e041340eedbe15",
+    "limits": "Reconciliation of actual prior artifacts, not rerun of all external source acquisition; no semantic accuracy certification."
+  },
+  "prior_evidence": [
+    {
+      "path": "D_FINAL_EVIDENCE.json",
+      "git_blob": "56db3cc98492b47dc9c77a443e612277bd4fcba2",
+      "run": 46126625792,
+      "artifact": 15255658373
+    },
+    {
+      "path": "E_FINAL_EVIDENCE.json",
+      "git_blob": "19a6d42dac2d27784126f267ba00191db8ec80e2",
+      "run": 46129939313,
+      "artifact": 15256619098
+    },
+    {
+      "path": "F_FINAL_EVIDENCE.json",
+      "git_blob": "96d6a6be846a915288704c4576df0d31d1fd18cb",
+      "run": 46131279132,
+      "artifact": 15257597734
+    },
+    {
+      "path": "G_areas.json",
+      "git_blob": "7c9c1105ae52cabbed496b895651af9d999d2dba",
+      "run": null,
+      "artifact": null
+    }
+  ],
+  "superseded_runs": [
+    {
+      "id": 46136672454,
+      "reason": "H classification count discrepancy despite execution success"
+    },
+    {
+      "id": 46136769242,
+      "reason": "H regression assertion failed; I skipped"
+    }
+  ],
+  "defects": [
+    {
+      "path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R004/SOURCE_LEDGER.csv",
+      "status": "FAIL",
+      "hash_status": "PASS",
+      "format_status": "FAIL",
+      "reason": "ValueError: record width differs from first record 14: [[3, 15], [4, 16], [5, 16]]",
+      "git_blob": "de350c740f1c1f4f8db8074cb2537a3244a9ebe3",
+      "diagnosis": "Unquoted commas embedded in a field; original historical CSV bytes match pinned source.",
+      "classification": "REVALIDATE",
+      "preserve_original": true
+    },
+    {
+      "path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R007/BLOCK_VS_TERRAIN_SHADER.csv",
+      "status": "FAIL",
+      "hash_status": "PASS",
+      "format_status": "FAIL",
+      "reason": "ValueError: record width differs from first record 5: [[2, 6]]",
+      "git_blob": "9ecf97c5d4f89a03a68ca2d196c41da5ebe7c8b8",
+      "diagnosis": "Unquoted commas embedded in a field; original historical CSV bytes match pinned source.",
+      "classification": "REVALIDATE",
+      "preserve_original": true
+    }
+  ],
+  "limitations": [
+    "File-level classification is not semantic validation.",
+    "21 evidence files and 41 links verified by bytes and field/statement presence, not all claims.",
+    "External source bodies verified in F; I reconciles F artifacts, not independent reacquisition.",
+    "Full ledgers remain Actions artifacts with 30-day retention; permanent summaries, digests, frozen manifests and code retained.",
+    "No database migration, deletion or main merge."
+  ]
+}
