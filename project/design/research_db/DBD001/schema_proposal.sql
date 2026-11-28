@@ -476,16 +476,16 @@ CREATE TABLE render_case (
     scope_id TEXT NOT NULL,
     case_id TEXT NOT NULL,
     unit_id TEXT NOT NULL,
-    snapshot_id TEXT NOT NULL,
-    object_id TEXT NOT NULL,
+    analysis_task_id TEXT NOT NULL,
+    planned_object_kind TEXT NOT NULL,
+    planned_object_key TEXT NOT NULL CHECK(length(planned_object_key)>0),
     camera_json TEXT NOT NULL CHECK(json_valid(camera_json)),
     settings_json TEXT NOT NULL CHECK(json_valid(settings_json)),
     width INTEGER NOT NULL CHECK(width>0),
     height INTEGER NOT NULL CHECK(height>0),
     PRIMARY KEY(scope_id,case_id),
     FOREIGN KEY(scope_id,unit_id) REFERENCES scope_unit(scope_id,unit_id),
-    FOREIGN KEY(snapshot_id,scope_id) REFERENCES analysis_snapshot(snapshot_id,scope_id),
-    FOREIGN KEY(snapshot_id,object_id) REFERENCES research_object(snapshot_id,object_id)
+    FOREIGN KEY(scope_id,analysis_task_id) REFERENCES research_task(scope_id,task_id)
 ) STRICT;
 
 -- 생성 여부/이미지 및 로그 지문; 정확성 판정 별개
@@ -494,6 +494,8 @@ CREATE TABLE render_output (
     output_id TEXT NOT NULL,
     case_id TEXT NOT NULL,
     attempt_id TEXT NOT NULL,
+    snapshot_id TEXT,
+    object_id TEXT,
     generation_status TEXT NOT NULL CHECK(generation_status IN ('GENERATED','FAILED','NOT_GENERATED')),
     png_evidence_id TEXT REFERENCES evidence_item,
     log_evidence_id TEXT REFERENCES evidence_item,
@@ -502,6 +504,10 @@ CREATE TABLE render_output (
     PRIMARY KEY(scope_id,output_id),
     FOREIGN KEY(scope_id,case_id) REFERENCES render_case(scope_id,case_id),
     FOREIGN KEY(scope_id,attempt_id) REFERENCES research_attempt(scope_id,attempt_id),
+    FOREIGN KEY(snapshot_id,scope_id) REFERENCES analysis_snapshot(snapshot_id,scope_id),
+    FOREIGN KEY(snapshot_id,object_id) REFERENCES research_object(snapshot_id,object_id),
+    CHECK((snapshot_id IS NULL)=(object_id IS NULL)),
+    CHECK(generation_status<>'GENERATED' OR snapshot_id IS NOT NULL),
     CHECK((generation_status='GENERATED')=(png_evidence_id IS NOT NULL))
 ) STRICT;
 
@@ -582,12 +588,14 @@ CREATE TABLE validation_requirement (
     scope_id TEXT NOT NULL,
     requirement_id TEXT NOT NULL,
     unit_id TEXT NOT NULL,
+    task_id TEXT NOT NULL,
     check_kind TEXT NOT NULL,
     mandatory INTEGER NOT NULL CHECK(mandatory IN (0,1)),
     expected_json TEXT NOT NULL CHECK(json_valid(expected_json)),
     reference_evidence_id TEXT REFERENCES evidence_item,
     PRIMARY KEY(scope_id,requirement_id),
     FOREIGN KEY(scope_id,unit_id) REFERENCES scope_unit(scope_id,unit_id),
+    FOREIGN KEY(scope_id,task_id) REFERENCES research_task(scope_id,task_id),
     UNIQUE(scope_id,unit_id,check_kind)
 ) STRICT;
 
@@ -807,3 +815,27 @@ BEGIN SELECT RAISE(ABORT,'validation history immutable'); END;
 CREATE TRIGGER dbd_history_assessment_result_replace BEFORE INSERT ON assessment_result
 WHEN EXISTS (SELECT 1 FROM assessment_result WHERE scope_id=NEW.scope_id AND assessment_id=NEW.assessment_id AND requirement_id=NEW.requirement_id)
 BEGIN SELECT RAISE(ABORT,'validation history replacement forbidden'); END;
+
+-- 7-H correction: result belongs to the task fixed by the requirement.
+CREATE TRIGGER dbd_result_task_guard BEFORE INSERT ON validation_result
+WHEN NOT EXISTS (SELECT 1 FROM validation_requirement q JOIN research_attempt a ON a.scope_id=q.scope_id AND a.task_id=q.task_id
+ WHERE q.scope_id=NEW.scope_id AND q.requirement_id=NEW.requirement_id AND a.attempt_id=NEW.attempt_id)
+BEGIN SELECT RAISE(ABORT,'result task differs from locked requirement'); END;
+
+-- Plan identity is fixed before analysis; physical objects are bound per output.
+CREATE TRIGGER dbd_render_binding_guard BEFORE INSERT ON render_output
+WHEN NEW.snapshot_id IS NOT NULL AND NOT EXISTS (
+ SELECT 1 FROM render_case c JOIN analysis_snapshot s ON s.scope_id=c.scope_id
+ JOIN research_attempt a ON a.scope_id=s.scope_id AND a.attempt_id=s.attempt_id
+ JOIN research_object o ON o.snapshot_id=s.snapshot_id
+ WHERE c.scope_id=NEW.scope_id AND c.case_id=NEW.case_id AND s.snapshot_id=NEW.snapshot_id
+ AND o.object_id=NEW.object_id AND a.task_id=c.analysis_task_id
+ AND o.object_kind=c.planned_object_kind AND o.object_key=c.planned_object_key)
+BEGIN SELECT RAISE(ABORT,'render object differs from locked plan'); END;
+CREATE TRIGGER dbd_render_output_update BEFORE UPDATE ON render_output
+BEGIN SELECT RAISE(ABORT,'render output immutable'); END;
+CREATE TRIGGER dbd_render_output_delete BEFORE DELETE ON render_output
+BEGIN SELECT RAISE(ABORT,'render output immutable'); END;
+CREATE TRIGGER dbd_render_output_replace BEFORE INSERT ON render_output
+WHEN EXISTS (SELECT 1 FROM render_output WHERE scope_id=NEW.scope_id AND output_id=NEW.output_id)
+BEGIN SELECT RAISE(ABORT,'render output replacement forbidden'); END;

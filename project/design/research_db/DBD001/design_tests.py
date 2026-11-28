@@ -84,6 +84,16 @@ def fixture(db,folder):
     for u,k in [("u1","MODEL"),("u2","RENDER")]:
         put(db,"scope_unit",scope_id="s",unit_id=u,unit_kind=k,unit_key=u,source_ordinal=0,required=1,definition_json="{}")
     put(db,"research_task",scope_id="s",task_id="task",task_kind="fixture",ordinal=0,input_sha256=H,tool_version="fixture-v1",config_json="{}")
+    put(db,"research_task",scope_id="s",task_id="model-task",task_kind="fixture-model",ordinal=1,input_sha256=H,tool_version="fixture-v1",config_json="{}")
+    put(db,"render_case",scope_id="s",case_id="case",unit_id="u2",analysis_task_id="task",planned_object_kind="APPLICATION",planned_object_key="app",camera_json="{}",settings_json="{}",width=1,height=1)
+    for id,unit,kind,ref in [("structure","u1","STRUCTURE",None),("generation","u2","GENERATION",None),("accuracy","u2","ACCURACY_UV","reference")]:
+        put(db,"validation_requirement",scope_id="s",requirement_id=id,unit_id=unit,task_id="model-task" if unit=="u1" else "task",check_kind=kind,mandatory=1,expected_json="{}",reference_evidence_id=ref)
+    mraw=c.canonical({"scope_fingerprint":c.scope_fingerprint(db,"s")}).encode()
+    (folder/"manifest").write_bytes(mraw)
+    db.execute("UPDATE evidence_item SET content_sha256=?,byte_count=? WHERE evidence_id='manifest'",(c.sha(mraw),len(mraw)))
+    db.execute("UPDATE research_scope SET lifecycle='LOCKED',locked_at=?,approved_by='fixture',manifest_sha256=? WHERE scope_id='s'",(NOW,c.sha(mraw)))
+    assert not c.rows(db,"SELECT * FROM analysis_snapshot")
+    put(db,"research_attempt",scope_id="s",task_id="model-task",attempt_id="m1",attempt_no=1,input_sha256=H,lifecycle="FINISHED",started_at=NOW,ended_at=NOW,environment_json="{}")
     for i in (1,2):
         put(db,"research_attempt",scope_id="s",task_id="task",attempt_id="a"+str(i),attempt_no=i,input_sha256=H,lifecycle="RUNNING" if i==1 else "FINISHED",started_at=NOW,ended_at=None if i==1 else NOW,environment_json="{}")
     put(db,"analysis_snapshot",snapshot_id="snap",scope_id="s",attempt_id="a1",input_sha256=H,analyzer_version="fixture",config_sha256=H)
@@ -127,20 +137,13 @@ def fixture(db,folder):
     for oid,path,pointer in [("second","second.json",""),("el2","second.json","/elements/0"),("base","base.json",""),("child","child.json",""),("el","base.json","/elements/0"),("face","base.json","/elements/0/faces/north"),("tex","tex.png",None),("state","state.json","")]:
         db.execute("UPDATE research_object SET json_pointer=? WHERE snapshot_id='snap' AND object_id=?",(pointer,oid))
         put(db,"object_evidence",snapshot_id="snap",object_id=oid,evidence_id="raw-"+path,evidence_class="SOURCE",locator_detail=pointer or "")
-    put(db,"render_case",scope_id="s",case_id="case",unit_id="u2",snapshot_id="snap",object_id="app",camera_json="{}",settings_json="{}",width=1,height=1)
-    put(db,"render_output",scope_id="s",output_id="output",case_id="case",attempt_id="a1",generation_status="GENERATED",png_evidence_id="render",environment_json="{}",reason="")
-    for id,unit,kind,ref in [("structure","u1","STRUCTURE",None),("generation","u2","GENERATION",None),("accuracy","u2","ACCURACY_UV","reference")]:
-        put(db,"validation_requirement",scope_id="s",requirement_id=id,unit_id=unit,check_kind=kind,mandatory=1,expected_json="{}",reference_evidence_id=ref)
-    mraw=c.canonical({"scope_fingerprint":c.scope_fingerprint(db,"s")}).encode()
-    (folder/"manifest").write_bytes(mraw)
-    db.execute("UPDATE evidence_item SET content_sha256=?,byte_count=? WHERE evidence_id='manifest'",(c.sha(mraw),len(mraw)))
-    db.execute("UPDATE research_scope SET lifecycle='LOCKED',locked_at=?,approved_by='fixture',manifest_sha256=? WHERE scope_id='s'",(NOW,c.sha(mraw)))
+    put(db,"render_output",scope_id="s",output_id="output",case_id="case",attempt_id="a1",snapshot_id="snap",object_id="app",generation_status="GENERATED",png_evidence_id="render",environment_json="{}",reason="")
     put(db,"task_checkpoint",scope_id="s",attempt_id="a1",batch_no=0,next_position=1,input_sha256=H,result_evidence_id="checkpoint",result_sha256=c.sha(b"fixture-result"),committed_at=NOW)
     db.execute("UPDATE research_attempt SET lifecycle='FINISHED',ended_at=? WHERE attempt_id='a1'",(NOW,))
-    result(db,"struct","structure","PASS","calculated")
-    result(db,"gen","generation","PASS","render",output="output")
+    result(db,"struct","structure","PASS","calculated",attempt="m1")
     result(db,"falseaccuracy","accuracy","PASS","render",output="output")
-    put(db,"render_output",scope_id="s",output_id="output2",case_id="case",attempt_id="a2",generation_status="GENERATED",png_evidence_id="render",environment_json="{}",reason="")
+    put(db,"render_output",scope_id="s",output_id="output2",case_id="case",attempt_id="a2",snapshot_id="snap",object_id="app",generation_status="GENERATED",png_evidence_id="render",environment_json="{}",reason="")
+    result(db,"gen","generation","PASS","render",attempt="a2",output="output2")
     ev(db,folder,"accuracy-report",c.canonical({"output_sha256":c.sha(png()),"reference_sha256":c.sha(b"independent-expectation"),"case_id":"case","attempt_id":"a2","check_kind":"ACCURACY_UV","matched":True}).encode())
     result(db,"accurate","accuracy","PASS","accuracy-report",1,"a2",output="output2")
     for term,kind,label in [("chair","FURNITURE","chair"),("part","PART","seat"),("tech","TECHNIQUE","layering")]:
@@ -322,6 +325,12 @@ def main(out):
             test("T07",t07,"bounded multipart and variant predicate fixtures; full variant selection and complete game resolver not verified")
             def t08():
                 assert c.one(db,"SELECT generation_status FROM render_output WHERE output_id='output'")["generation_status"]=="GENERATED"
+                assert c.locked_scope(db,"s",read)["lifecycle"]=="LOCKED"
+                rollback_test(db,lambda:put(db,"render_output",scope_id="s",output_id="wrong-binding",case_id="case",attempt_id="a2",snapshot_id="snap",object_id="app2",generation_status="GENERATED",png_evidence_id="render",environment_json="{}",reason=""))
+                rollback_test(db,lambda:db.execute("UPDATE render_case SET planned_object_key='app2' WHERE case_id='case'"))
+                rollback_test(db,lambda:db.execute("UPDATE render_output SET object_id='app2' WHERE output_id='output2'"))
+                rollback_test(db,lambda:db.execute("DELETE FROM render_output WHERE output_id='output2'"))
+                rollback_test(db,lambda:db.execute("INSERT OR REPLACE INTO render_output SELECT * FROM render_output WHERE output_id='output2'"))
                 assert c.assessment(db,"s","RENDER",{"generation":"gen"},read)["status"]=="PARTIAL"
                 assert c.assessment(db,"s","RENDER",{"generation":"gen","accuracy":"falseaccuracy"},read)["status"]=="PARTIAL"
                 assert c.assessment(db,"s","RENDER",{"generation":"gen","accuracy":"accurate"},read)["status"]=="PASS"
@@ -408,7 +417,12 @@ def main(out):
                 assert c.assessment(db,"s","MODEL",{"structure":"struct"},read)["status"]=="PASS"
                 assert c.validate_saved_assessment(db,"s","model-pass",read)["passed"]==1
                 db.execute("SAVEPOINT stale")
-                result(db,"fail","structure","FAIL",attempt="a2")
+                put(db,"research_attempt",scope_id="s",task_id="model-task",attempt_id="m2",attempt_no=2,input_sha256=H,lifecycle="FINISHED",started_at=NOW,ended_at=NOW,environment_json="{}")
+                assert c.latest_results(db,"s","MODEL")=={}
+                bad(lambda:c.validate_saved_assessment(db,"s","model-pass",read))
+                assert not c.export(db,read,label="chair")["items"]
+                rollback_test(db,lambda:result(db,"wrong-task","structure","FAIL",attempt="a2"))
+                result(db,"fail","structure","FAIL",attempt="m2")
                 assert c.latest_results(db,"s","MODEL")=={"structure":"fail"}
                 assert c.assessment(db,"s","MODEL",{"structure":"fail"},read)["status"]=="FAIL"
                 rollback_test(db,lambda:db.execute("DELETE FROM validation_result WHERE result_id='fail'"))
@@ -420,7 +434,7 @@ def main(out):
                 assert c.assessment(db,"s","RENDER",{"generation":"gen"},read)["status"]=="PARTIAL"
                 rollback_test(db,lambda:db.execute("UPDATE run_assessment SET expected=2 WHERE assessment_id='model-pass'"))
                 db.commit()
-                return "four verdicts, denominator, latest result selection and stale PASS rejection"
+                return "four verdicts, denominator, latest locked task attempt including zero-result retry, cross-task rejection and stale PASS rejection"
             test("T12",t12)
             def t13():
                 x=c.export(db,read,label="chair",metric="height",unit="block",min_value=.4,release="fixture")
@@ -450,6 +464,7 @@ def main(out):
                 db.execute("ROLLBACK TO missinggroup");db.execute("RELEASE missinggroup")
                 db.execute("SAVEPOINT unfinished")
                 put(db,"research_attempt",scope_id="s",task_id="task",attempt_id="a3",attempt_no=3,input_sha256=H,lifecycle="RUNNING",started_at=NOW,environment_json="{}")
+                assert not c.export(db,read,label="chair")["items"] # no result at all
                 result(db,"unfinished","accuracy","HOLD",attempt="a3")
                 assert not c.export(db,read,label="chair")["items"]
                 db.execute("ROLLBACK TO unfinished");db.execute("RELEASE unfinished")

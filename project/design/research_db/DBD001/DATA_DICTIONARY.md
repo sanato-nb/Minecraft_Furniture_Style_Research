@@ -74,3 +74,5 @@
 | 역사/증거 | 두 CSV 자동 이관 차단, 승인 없는 이관 거부, duplicate 위치 보존; 원본 및 파생/권리/만료 상태 분리 |
 
 SQL만 실행해서 전체 연구 시스템이 검증됐다고 판단할 수 없다. 이 책임들은 7-G의 설계 시험/음성 사례에서 확인한다. 향후 운영 도입은 별도 migration runner와 버전 정책 필요; 기존 세미콜론 분할 적용기를 복합 SQL에 사용하지 않는다.
+## 7-H 후속 교정 H-B01/02
+고정 render_case는 실행 전 analysis_task_id, planned_object_kind/key 및 카메라·설정을 잠근다. 실행 후 render_output이 실제 snapshot/object에 연결되며 같은 scope와 계획된 분석 task 및 객체 식별자를 검사한다. 생성 실패는 물리 객체 미생성을 기록할 수 있다. 출력 행은 변경·삭제·REPLACE 금지. validation_requirement는 고정 task_id를 FK로 보유하며 다른 task의 시도 결과를 거부한다. 최신성은 결과 행이 아니라 해당 task의 최대 시도 번호로 판단하고 최신 결과 누락 시 이전 PASS로 대체하지 않는다. 기존 43개 신규 테이블/11 인덱스/2 뷰 유지. 실제 운영 적용 아님.

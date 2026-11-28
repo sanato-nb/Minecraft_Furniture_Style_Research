@@ -144,6 +144,7 @@ def render_result_guard(db,sid,q,v,read):
     o=one(db,"SELECT o.*,c.unit_id,c.width,c.height FROM render_output o JOIN render_case c ON c.scope_id=o.scope_id AND c.case_id=o.case_id WHERE o.scope_id=? AND o.output_id=?",(sid,v["render_output_id"]))
     require(o["unit_id"]==q["unit_id"] and o["attempt_id"]==v["attempt_id"],"render case/attempt mismatch")
     require(o["generation_status"]=="GENERATED","render not generated")
+    require(bool(rows(db,"SELECT 1 FROM render_case c JOIN analysis_snapshot s ON s.scope_id=c.scope_id JOIN research_attempt a ON a.scope_id=s.scope_id AND a.attempt_id=s.attempt_id JOIN research_object o ON o.snapshot_id=s.snapshot_id WHERE c.scope_id=? AND c.case_id=? AND s.snapshot_id=? AND o.object_id=? AND a.task_id=c.analysis_task_id AND o.object_kind=c.planned_object_kind AND o.object_key=c.planned_object_key",(sid,o["case_id"],o["snapshot_id"],o["object_id"]))),"render binding differs from locked plan")
     require_evidence(db,o["png_evidence_id"],read)
     if q["check_kind"]=="GENERATION":
         require(v["evidence_id"]==o["png_evidence_id"],"generation evidence mismatch")
@@ -173,6 +174,8 @@ def assessment(db,sid,kind,selected,read):
             if rid not in selected: states.append("UNATTEMPTED");continue
             used.add(rid)
             v=one(db,"SELECT * FROM validation_result WHERE scope_id=? AND result_id=? AND requirement_id=?",(sid,selected[rid],rid))
+            a=one(db,"SELECT task_id FROM research_attempt WHERE scope_id=? AND attempt_id=?",(sid,v["attempt_id"]))
+            require(a["task_id"]==q["task_id"],"result task differs from locked requirement")
             state=v["status"]
             if state=="PASS":
                 if not evidence_ok(db,v["evidence_id"],read):state="HOLD"
@@ -194,16 +197,16 @@ def assessment(db,sid,kind,selected,read):
     return dict(status=status,**counts)
 
 def latest_results(db,sid,kind):
-    """Latest recorded result per mandatory requirement; attempt order is local to one task."""
+    """Latest attempt of the locked task, not latest result that happens to exist."""
     selected={}
-    reqs=rows(db,"SELECT q.requirement_id FROM validation_requirement q JOIN scope_unit u ON u.scope_id=q.scope_id AND u.unit_id=q.unit_id WHERE q.scope_id=? AND q.mandatory=1 AND u.required=1 AND u.unit_kind=?",(sid,kind))
+    reqs=rows(db,"SELECT q.requirement_id,q.task_id FROM validation_requirement q JOIN scope_unit u ON u.scope_id=q.scope_id AND u.unit_id=q.unit_id WHERE q.scope_id=? AND q.mandatory=1 AND u.required=1 AND u.unit_kind=?",(sid,kind))
     for q in reqs:
-        rid=q["requirement_id"]
-        rr=rows(db,"SELECT v.result_id,a.task_id,a.attempt_no,a.lifecycle FROM validation_result v JOIN research_attempt a ON a.scope_id=v.scope_id AND a.attempt_id=v.attempt_id WHERE v.scope_id=? AND v.requirement_id=? ORDER BY a.attempt_no DESC",(sid,rid))
-        if not rr:continue
-        require(len({x["task_id"] for x in rr})==1,"ambiguous result across tasks")
-        require(rr[0]["lifecycle"]=="FINISHED","latest result attempt not finished")
-        selected[rid]=rr[0]["result_id"]
+        attempts=rows(db,"SELECT attempt_id,lifecycle FROM research_attempt WHERE scope_id=? AND task_id=? ORDER BY attempt_no DESC LIMIT 1",(sid,q["task_id"]))
+        if not attempts:continue
+        a=attempts[0]
+        require(a["lifecycle"]=="FINISHED","latest planned attempt not finished")
+        rr=rows(db,"SELECT result_id FROM validation_result WHERE scope_id=? AND requirement_id=? AND attempt_id=?",(sid,q["requirement_id"],a["attempt_id"]))
+        if rr:selected[q["requirement_id"]]=rr[0]["result_id"]
     return selected
 
 def validate_saved_assessment(db,sid,aid,read):
