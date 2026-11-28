@@ -1,0 +1,54 @@
+name: RQ-001 H I classification and independent closure
+on:
+  pull_request:
+    paths:
+      - 'scripts/research_quality/rq001_h.py'
+      - 'scripts/research_quality/rq001_i.py'
+      - '.github/workflows/rq001-classification.yml'
+      - 'project/audits/research_quality/RQ001/G_areas.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  rq001-hi:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'Pillow>=10,<13' 'PyYAML>=6,<7'
+      - uses: actions/download-artifact@v4
+        with:
+          name: rq001-d-evidence
+          run-id: 46126625792
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/rq001-inputs/D
+      - uses: actions/download-artifact@v4
+        with:
+          name: rq001-e-evidence
+          run-id: 46129939313
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/rq001-inputs/E
+      - uses: actions/download-artifact@v4
+        with:
+          name: rq001-f-evidence
+          run-id: 46131279132
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/rq001-inputs/F
+      - name: Classify every fixed path
+        run: python scripts/research_quality/rq001_h.py --repo "$GITHUB_WORKSPACE" --inputs "$RUNNER_TEMP/rq001-inputs" --out "$RUNNER_TEMP/rq001-hi"
+      - name: Independently reconcile prior artifact bytes and closure
+        run: python scripts/research_quality/rq001_i.py --repo "$GITHUB_WORKSPACE" --inputs "$RUNNER_TEMP/rq001-inputs" --out "$RUNNER_TEMP/rq001-hi"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rq001-hi-evidence
+          path: ${{ runner.temp }}/rq001-hi/
+          retention-days: 30
