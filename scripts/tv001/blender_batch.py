@@ -101,6 +101,23 @@ def uv_points(face):
     return corners[-shift:] + corners[:-shift] if shift else corners
 
 
+def locked_uv_points(face, direction, instance):
+    """Pinned 1.21.11 fixed-scope correction, not a general UV-lock implementation."""
+    if not instance["uvlock"] or not (instance["x"] or instance["y"]):
+        return uv_points(face)
+    if (instance["x"], instance["y"]) != (180, 0):
+        raise ValueError("UNSUPPORTED_UVLOCK_TRANSFORM")
+    if face.get("uv") is None or face.get("rotation", 0) != 0:
+        raise ValueError("UNSUPPORTED_UVLOCK_FACE")
+    u0, v0, u1, v1 = face["uv"]
+    canonical = [(u0,v0),(u0,v1),(u1,v1),(u1,v0)]
+    if direction in ("north","south","west","east"):
+        canonical = [(16-u,16-v) for u,v in canonical]
+    # hoa source corner order to mesh polygon order.
+    order = (0,1,2,3) if direction == "up" else (1,2,3,0)
+    return [(canonical[i][0]/16,1-canonical[i][1]/16) for i in order]
+
+
 def make_element(element, instance, number):
     verts, polygons, uvs, texture_paths = [], [], [], []
     for direction in FACE_ORDER:
@@ -118,7 +135,7 @@ def make_element(element, instance, number):
         base = len(verts)
         verts.extend(mc_to_blender(p) for p in quad)
         polygons.append((base, base + 1, base + 2, base + 3))
-        uvs.append(uv_points(face))
+        uvs.append(locked_uv_points(face, direction, instance))
         texture_paths.append(face["png"])
     if not polygons:
         return
@@ -137,6 +154,7 @@ def make_element(element, instance, number):
         poly.material_index = indices[path]
         for j, loop_idx in enumerate(poly.loop_indices):
             uv_layer.data[loop_idx].uv = uvs[i][j]
+    return ob
 
 
 def reset_scene():
@@ -219,9 +237,10 @@ def main(argv):
     state = load_checkpoint(state_path)
     camera = setup()
     rendered = skipped = 0
+    renderer_sha = digest(Path(__file__).read_bytes())
     for job in jobs:
         name = job["id"]
-        inp_sha = digest(stable_json(job))
+        inp_sha = digest(stable_json({"job": job, "renderer_sha256": renderer_sha}))
         destination = root / (name + ".png")
         old = state["jobs"].get(name, {})
         if (old.get("input_sha256") == inp_sha and destination.is_file()

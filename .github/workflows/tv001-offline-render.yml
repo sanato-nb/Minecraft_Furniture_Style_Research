@@ -42,6 +42,14 @@ jobs:
             --repo "$GITHUB_WORKSPACE" \
             --out "$RUNNER_TEMP/tv001"
 
+      - name: Verify R03 actual mesh UV against independent source reference
+        run: |
+          xvfb-run -a blender --background --factory-startup --threads 2 --python-exit-code 1 \
+            --python scripts/tv001/r03_uv_mesh_audit.py -- \
+            --repo "$GITHUB_WORKSPACE" \
+            --manifest "$RUNNER_TEMP/tv001/manifest.json" \
+            --report "$RUNNER_TEMP/tv001/r03_uv_mesh.json"
+
       - name: Render first 12 images in a single Blender process
         run: |
           set -o pipefail

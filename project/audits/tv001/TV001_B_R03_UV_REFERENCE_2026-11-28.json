@@ -1,5 +1,5 @@
 {
-  "status": "CALCULATED_REFERENCE_PENDING_INDEPENDENT_RUNTIME_AND_MESH_BINDING",
+  "status": "STATIC_BYTECODE_REFERENCE_CONFIRMED_PENDING_MESH_VALIDATION",
   "contract": "TV-001 v1.1 fixed 12 cases / 25 renders",
   "source_pin": "176f7f34de2336eb7984c4734e97b6eb156c19f4",
   "source_run": 46120316870,
@@ -1224,8 +1224,14 @@
   },
   "limits": [
     "Expected values calculated from captured bytecode, not output from executing Minecraft classes.",
-    "Direction basis inverse map inferred from call structure; bootstrap method target needs confirmation with javap -v.",
-    "Canonical source index is not Blender mesh loop index; coordinate association must be checked before applying fix.",
+    "Canonical source index requires actual mesh loop position audit.",
     "No full texel/atlas or all 25 render accuracy claim."
-  ]
+  ],
+  "source_confirmation": {
+    "run": 46120428348,
+    "job": 140903510702,
+    "class_count": 14,
+    "bootstrap": "ir LambdaMetafactory targets i.b() invertAffine",
+    "vertex_order": "hoa / hoa$a / hoa$b source corner selectors confirmed"
+  }
 }

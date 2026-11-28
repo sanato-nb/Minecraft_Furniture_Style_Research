@@ -7,6 +7,7 @@ Silhouette agreement is not full Minecraft visual fidelity.
 """
 from __future__ import annotations
 import argparse
+import hashlib
 import json
 import math
 from pathlib import Path
@@ -229,23 +230,25 @@ def main():
     )
     if not uv_rotation_pass:
         issues.append("P06 90-degree face UV transparency orientation mismatch")
-    # Explicitly inspect renderer implementation, not just its metadata.
-    renderer_text = (args.repo / "scripts/tv001/blender_batch.py").read_text(encoding="utf-8")
-    # Current renderer only uses x/y instance rotations in mesh generation.
-    # Instance uvlock is produced by prepare.py but not consumed here.
-    uvlock_used = ('instance["uvlock"]' in renderer_text or
-                   "instance['uvlock']" in renderer_text or
-                   'inst["uvlock"]' in renderer_text or "inst['uvlock']" in renderer_text)
     rotated_uvlocked_ids = [j["id"] for j in jobs if any(
         x["uvlock"] and (x["x"] or x["y"]) for x in j["instances"])]
     limitations = []
-    if rotated_uvlocked_ids and not uvlock_used:
-        limitations.append({
-            "category": "UVLOCK_NOT_APPLIED",
-            "affected": rotated_uvlocked_ids,
-            "evidence": "source blockstate uvlock=true and nonzero x/y; "
-                        "renderer has no uvlock input use"
-        })
+    mesh_report_path = args.manifest.parent / "r03_uv_mesh.json"
+    mesh_uv = json.loads(mesh_report_path.read_text(encoding="utf-8")) if mesh_report_path.is_file() else {}
+    def sha(path):
+        return hashlib.sha256(path.read_bytes()).hexdigest()
+    mesh_uv_ok = (
+        rotated_uvlocked_ids == ["R03-inner"] and mesh_uv.get("case") == "R03-inner"
+        and mesh_uv.get("status") == "PASS" and mesh_uv.get("face_total") == 15
+        and mesh_uv.get("face_pass") == 15 and mesh_uv.get("loop_total") == 60
+        and mesh_uv.get("loop_pass") == 60 and mesh_uv.get("negative_control_changed_faces_rejected") == 11
+        and mesh_uv.get("renderer_sha256") == sha(args.repo / "scripts/tv001/blender_batch.py")
+        and mesh_uv.get("manifest_sha256") == sha(args.manifest)
+        and mesh_uv.get("reference_sha256") == sha(args.repo / "project/audits/tv001/TV001_B_R03_UV_REFERENCE_2026-11-28.json")
+    )
+    if not mesh_uv_ok:
+        issues.append("R03 independent mesh UV evidence missing or failed")
+        limitations.append({"category":"UVLOCK_MESH_NOT_VERIFIED","affected":rotated_uvlocked_ids})
     limitations.append({
         "category": "PER_FACE_TEXTURE_ORACLE_NOT_COMPLETE",
         "affected": [j["id"] for j in jobs],
@@ -262,6 +265,9 @@ def main():
         "geometry_mask_total": len(outcomes),
         "rendered_pixel_coverage_tolerance": "inside/outside 2px edge band, alpha>200",
         "p06_uv_rotation_pattern_pass": bool(uv_rotation_pass),
+        "r03_uv_mesh_pass": bool(mesh_uv_ok),
+        "r03_uv_mesh_faces": mesh_uv.get("face_pass", 0),
+        "r03_uv_mesh_loops": mesh_uv.get("loop_pass", 0),
         "p06_uv_orientation_evidence": orientations,
         "image_results": outcomes,
         "unverified_or_known_incorrect": limitations,
