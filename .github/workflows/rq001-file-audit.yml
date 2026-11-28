@@ -1,0 +1,51 @@
+name: RQ-001 D fixed-path research file audit
+on:
+  pull_request:
+    paths:
+      - 'scripts/research_quality/**'
+      - '.github/workflows/rq001-file-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rq001-d:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install bounded format readers
+        run: python -m pip install 'Pillow>=10,<13' 'PyYAML>=6,<7'
+      - name: Audit first eight batches
+        run: python scripts/research_quality/rq001_d.py --repo "$GITHUB_WORKSPACE" --out "$RUNNER_TEMP/rq001" --limit-batches 8
+      - name: Resume remaining batches and verify all path results
+        run: |
+          python scripts/research_quality/rq001_d.py --repo "$GITHUB_WORKSPACE" --out "$RUNNER_TEMP/rq001" --limit-batches 8
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          p=Path(os.environ["RUNNER_TEMP"])/"rq001"
+          s=json.loads((p/"D_summary.json").read_bytes())
+          data=(p/"D_files.jsonl").read_bytes()
+          rows=[json.loads(l) for l in data.splitlines()]
+          assert s["scope_complete"] and s["expected"]==s["attempted"]==len(rows)==3167
+          assert len({r["path"] for r in rows})==3167
+          assert len(s["batches"])==16 and sum(s["counts"].values())==3167
+          assert hashlib.sha256(data).hexdigest()==s["ledger_sha256"]
+          print("RQ001_D_COVERAGE PASS",len(rows),"new",s["new_batches"],"reused",s["reused_batches"],"audit status",s["status"])
+          for r in rows:
+              if r["status"]!="PASS":
+                  print("RQ001_D_FINDING",json.dumps({k:r.get(k) for k in ("path","status","hash_status","format_status","reason")},ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rq001-d-evidence
+          path: ${{ runner.temp }}/rq001/
+          retention-days: 30
