@@ -1,0 +1,187 @@
+{
+  "id": "DBD-001",
+  "version": "1.0",
+  "state": "LOCKED_BEFORE_DESIGN",
+  "base_commit": "22e0033f39931aa8cf3699e5affd3139da700d8d",
+  "main_pin": "176f7f34de2336eb7984c4734e97b6eb156c19f4",
+  "inputs": [
+    {
+      "path": "docs/research_governance/PROJECT_AGREEMENTS_2026-11-27_FULL.md",
+      "git_blob": "a290568e80060aaa44e769abe3808ad53f649fc7"
+    },
+    {
+      "path": "docs/research_governance/RESEARCH_CONTRACT_V0_6_RECONSTRUCTED.md",
+      "git_blob": "f50f148dde45bcf18d3bd4908233abf52e29ede5"
+    },
+    {
+      "path": "docs/research_governance/DATA_SPEC_V0_2_RECONSTRUCTED.md",
+      "git_blob": "73d8f6a9b905c953a8d6d6928e58c3f9dbc7bbfe"
+    },
+    {
+      "path": "project/audits/research_quality/RQ001/DB_DESIGN_HANDOFF.md",
+      "git_blob": "929f769797c1484efc4ea1e29a54f6a9df082f72"
+    },
+    {
+      "path": "project/audits/research_quality/RQ001/RQ001_FINAL_REPORT.md",
+      "git_blob": "e84270afe220b1bba7f1e015e7cf6755dcfe2d77"
+    },
+    {
+      "path": "project/audits/research_quality/RQ001/G_areas.json",
+      "git_blob": "7c9c1105ae52cabbed496b895651af9d999d2dba"
+    },
+    {
+      "path": "src/mcfr/research_schema.sql",
+      "git_blob": "1ca11acb007dda3c0b73c6801f9dffa91ea818d7"
+    },
+    {
+      "path": "src/mcfr/research_schema_v2.sql",
+      "git_blob": "5a7e31c4f8343b044ceae383406eade43f7c386f"
+    },
+    {
+      "path": "src/mcfr/research_schema_v3.sql",
+      "git_blob": "325570dfa64ba015db8a6b8a4594537ed11d9ee7"
+    },
+    {
+      "path": "src/mcfr/research_schema_v4.sql",
+      "git_blob": "28fad279a5768a82839814ed42f208022fd9de3c"
+    },
+    {
+      "path": "src/mcfr/research_db.py",
+      "git_blob": "abb538572540bcd93928f05615e879d6446a9e97"
+    },
+    {
+      "path": "src/mcfr/research_engine.py",
+      "git_blob": "39f4a8466fae3753da3172cf6f6a371b2bc0300f"
+    },
+    {
+      "path": "src/mcfr/source_jobs.py",
+      "git_blob": "d42589520e6637700233ac3b6d770130a1ee6ae3"
+    },
+    {
+      "path": "src/mcfr/ai_review.py",
+      "git_blob": "4f5f55c4f7a075b1f833aa495e1f752819880bda"
+    },
+    {
+      "path": "src/mcfr/cross_research.py",
+      "git_blob": "fc05b37a6939471dd1d6de23a3850939f352d6b4"
+    },
+    {
+      "path": "project/RESEARCH_WORKFLOW.md",
+      "git_blob": "e96d0e2cb4bed0d4b6809f2eb5d3ab1d3c178070"
+    },
+    {
+      "path": "project/audits/research_quality/RQ001/E_FINAL_EVIDENCE.json",
+      "git_blob": "19a6d42dac2d27784126f267ba00191db8ec80e2"
+    },
+    {
+      "path": "project/audits/research_quality/RQ001/HI_FINAL_EVIDENCE.json",
+      "git_blob": "8c37973579d937d933a15dad5ca7bbeb2c6079bb"
+    },
+    {
+      "path": "project/audits/tv001/TV001_CORRECTION_FINAL_EVIDENCE_2026-11-28.json",
+      "git_blob": "91518ca5492bd452b387d8dfe26ceb1ad18756cd"
+    }
+  ],
+  "existing_schema_version": 4,
+  "existing_tables": [
+    "release",
+    "asset",
+    "research_run",
+    "research_execution",
+    "source_job",
+    "source_checkpoint",
+    "ai_review",
+    "upstream_observation"
+  ],
+  "data_areas": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "required_checks": [
+    {
+      "id": "T01",
+      "name": "v1~v4 기존 DDL 및 등록 기능 보존"
+    },
+    {
+      "id": "T02",
+      "name": "기존 25,387개 카탈로그 재현 및 재등록 0"
+    },
+    {
+      "id": "T03",
+      "name": "릴리스·자산 버전 및 해시 충돌 차단"
+    },
+    {
+      "id": "T04",
+      "name": "고정 범위·계획·실행·체크포인트 연결"
+    },
+    {
+      "id": "T05",
+      "name": "원본 모델/상속/요소/면·원본값과 계산값 분리"
+    },
+    {
+      "id": "T06",
+      "name": "텍스처·프레임·UV 및 미해결 슬롯"
+    },
+    {
+      "id": "T07",
+      "name": "상태 규칙/옵션/적용·참조 누락/순환"
+    },
+    {
+      "id": "T08",
+      "name": "렌더 생성과 정확성 별도 및 불완전 증거"
+    },
+    {
+      "id": "T09",
+      "name": "의미 추론·UNKNOWN과 객관 구조 독립"
+    },
+    {
+      "id": "T10",
+      "name": "치수/비율·스타일 비교 및 단위"
+    },
+    {
+      "id": "T11",
+      "name": "기법 후보·적용 조건·반례·승인 제약"
+    },
+    {
+      "id": "T12",
+      "name": "PASS/PARTIAL/HOLD/FAIL 및 분모 정합"
+    },
+    {
+      "id": "T13",
+      "name": "근거 필터 검색/JSON 내보내기"
+    },
+    {
+      "id": "T14",
+      "name": "역사 자료 분류·결함 격리·중복 보존"
+    },
+    {
+      "id": "T15",
+      "name": "임시 복제 DB 설계 DDL 적용/재적용 정책/롤백"
+    },
+    {
+      "id": "T16",
+      "name": "증거 해시·장기 참조/복원·원본 불변"
+    }
+  ],
+  "scope": "Design only: logical/physical schema proposal, migration policy, search contract and disposable fixture validation; no production changes.",
+  "exclusions": [
+    "production schema version bump or migration",
+    "legacy database import/semantic revalidation beyond catalog fixture",
+    "new research source selection and new modeling",
+    "game execution, paid API, deletion, main merge",
+    "external raw asset redistribution"
+  ],
+  "closure": "Design PASS only 14 areas mapped, 16 locked checks passed, compatibility and source preservation verified; design PASS is not production implementation or research validity."
+}
