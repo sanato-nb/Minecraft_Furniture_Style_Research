@@ -1,0 +1,87 @@
+{
+  "verified_commit": "79f3dba821005ff7b1d996e12643b9d19a95a873",
+  "run": 46126625792,
+  "job": 140922530030,
+  "artifact": 15255658373,
+  "workflow_status": "success",
+  "audit_status": "FAIL",
+  "execution_complete": true,
+  "summaries": [
+    {
+      "gate": "6-D",
+      "status": "PARTIAL",
+      "scope_complete": false,
+      "expected": 3167,
+      "attempted": 1600,
+      "counts": {
+        "PASS": 1600
+      },
+      "hash_counts": {
+        "PASS": 1600
+      },
+      "format_counts": {
+        "PASS": 1600
+      },
+      "new_batches": 8,
+      "reused_batches": 0,
+      "scope_sha256": "69c72afdbccc3f8aa9a2d9b770533848b965be3b39f06dfdbfd1d785bca8f552",
+      "code_sha256": "bb6e112e646b8c6335be0544dc371b4a7bac4340e6b634ae412bf518c9fecc33",
+      "ledger_sha256": "224a03f893c86a0a9e9ad1789e5915753823bd4481c8e4da188e15e981c1bb41",
+      "source_pin": "176f7f34de2336eb7984c4734e97b6eb156c19f4",
+      "limits": "File identity and format only, not semantic accuracy."
+    },
+    {
+      "gate": "6-D",
+      "status": "FAIL",
+      "scope_complete": true,
+      "expected": 3167,
+      "attempted": 3167,
+      "counts": {
+        "PASS": 3165,
+        "FAIL": 2
+      },
+      "hash_counts": {
+        "PASS": 3167
+      },
+      "format_counts": {
+        "PASS": 3165,
+        "FAIL": 2
+      },
+      "new_batches": 8,
+      "reused_batches": 8,
+      "scope_sha256": "69c72afdbccc3f8aa9a2d9b770533848b965be3b39f06dfdbfd1d785bca8f552",
+      "code_sha256": "bb6e112e646b8c6335be0544dc371b4a7bac4340e6b634ae412bf518c9fecc33",
+      "ledger_sha256": "62cb77649ecf477261fd0edc70697957cdf33a1574ccc0c3c9ee2cb74869aee1",
+      "source_pin": "176f7f34de2336eb7984c4734e97b6eb156c19f4",
+      "limits": "File identity and format only, not semantic accuracy."
+    }
+  ],
+  "findings": [
+    {
+      "path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R004/SOURCE_LEDGER.csv",
+      "status": "FAIL",
+      "hash_status": "PASS",
+      "format_status": "FAIL",
+      "reason": "ValueError: record width differs from first record 14: [[3, 15], [4, 16], [5, 16]]",
+      "git_blob": "de350c740f1c1f4f8db8074cb2537a3244a9ebe3",
+      "diagnosis": "Unquoted commas embedded in a field; original historical CSV bytes match pinned source.",
+      "classification": "REVALIDATE",
+      "preserve_original": true
+    },
+    {
+      "path": "research/vanilla_textures/by_stage/1-1-05/TEX05-R007/BLOCK_VS_TERRAIN_SHADER.csv",
+      "status": "FAIL",
+      "hash_status": "PASS",
+      "format_status": "FAIL",
+      "reason": "ValueError: record width differs from first record 5: [[2, 6]]",
+      "git_blob": "9ecf97c5d4f89a03a68ca2d196c41da5ebe7c8b8",
+      "diagnosis": "Unquoted commas embedded in a field; original historical CSV bytes match pinned source.",
+      "classification": "REVALIDATE",
+      "preserve_original": true
+    }
+  ],
+  "limits": [
+    "Format-level audit, not semantic accuracy.",
+    "Historical defects preserved; no corrected CSV promoted as original."
+  ]
+}
